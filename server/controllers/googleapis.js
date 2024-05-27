@@ -1,10 +1,9 @@
-
 import google from 'googleapis';
 import path from 'path';
 import fs from 'fs';
 
 const SCOPES = ['https://www.googleapis.com/auth/analytics.readonly'];
-const KEY_FILE_PATH = path.join(__dirname, '..', 'path-to-your-credentials-file.json'); // Update this with the actual path to your JSON file
+const KEY_FILE_PATH = path.join(__dirname, '..', 'path-to-your-credentials-file.json'); 
 
 const analyticsReporting = google.analyticsreporting('v4');
 
