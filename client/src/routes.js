@@ -30,7 +30,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Tables",
+    name: "Slide",
     key: "tables",
     route: "/tables",
     icon: <Office size="12px" />,
@@ -39,7 +39,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Billing",
+    name: "Events",
     key: "billing",
     route: "/billing",
     icon: <CreditCard size="12px" />,
@@ -48,7 +48,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Virtual Reality",
+    name: "News",
     key: "virtual-reality",
     route: "/virtual-reality",
     icon: <Cube size="12px" />,
