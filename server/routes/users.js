@@ -6,6 +6,6 @@ import {getUsers} from '../controllers/users.js'
 const router = express.Router();
 
 /* Users */
-router.get("/", verifyToken, getAllSlides);
+router.get("/", verifyToken, getUsers);
 
 export default router;
