@@ -37,16 +37,12 @@ export default function App() {
 
     setRtlCache(cacheRtl);
   }, []);
-
-  // Open sidenav when mouse enter on mini sidenav
   const handleOnMouseEnter = () => {
     if (miniSidenav && !onMouseEnter) {
       setMiniSidenav(dispatch, false);
       setOnMouseEnter(true);
     }
   };
-
-  // Close sidenav when mouse leave mini sidenav
   const handleOnMouseLeave = () => {
     if (onMouseEnter) {
       setMiniSidenav(dispatch, true);
@@ -138,6 +134,7 @@ export default function App() {
           <Sidenav
             color={sidenavColor}
             brand={brand}
+
             brandName="BU ADMIN"
             routes={routes}
             onMouseEnter={handleOnMouseEnter}

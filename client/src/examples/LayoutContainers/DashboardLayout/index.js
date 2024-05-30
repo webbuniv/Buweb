@@ -1,15 +1,7 @@
 import { useEffect } from "react";
-
-// react-router-dom components
 import { useLocation } from "react-router-dom";
-
-// prop-types is a library for typechecking of props.
 import PropTypes from "prop-types";
-
-// Soft UI Dashboard React components
 import SoftBox from "../../../components/SoftBox";
-
-// Soft UI Dashboard React context
 import { useSoftUIController, setLayout } from "../../../context";
 import backgroundImage from "../../../assets/images/curved-images/curved14.jpg";
 
@@ -46,8 +38,6 @@ function DashboardLayout({ children }) {
     </SoftBox>
   );
 }
-
-// Typechecking props for the DashboardLayout
 DashboardLayout.propTypes = {
   children: PropTypes.node.isRequired,
 };
