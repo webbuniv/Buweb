@@ -6,6 +6,7 @@ import ThemeToggler from "./ThemeToggler";
 // import menuData from "./menuData";
 import Model from "@/components/model/Model";
 import image from "../../public/images/logo/bugema.png";
+import "../../styles/nav.css";
 
 const Header = () => {
   // Navbar toggle
@@ -17,7 +18,7 @@ const Header = () => {
   // Sticky Navbar
   const [sticky, setSticky] = useState(false);
   const handleStickyNavbar = () => {
-    if (window.scrollY >= 400) {
+    if (window.scrollY >= 700) {
       setSticky(true);
     } else {
       setSticky(false);
@@ -37,19 +38,20 @@ const Header = () => {
     }
   };
   
+const [isOpen, setIsOpen] = useState(false);
 
   const [showModel, setShowModel] = useState(false);
-
+  showModel?document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto';
   return (
       
     <>
     
       <header
-        className={`header top-0 left-0 z-40 flex w-full items-center bg-transparent  ${
+        className={`header top-0 left-0 z-40 flex w-full items-center bg-transparent   ${
           sticky
             ? "!fixed !z-[9999] ! !bg-opacity-100 shadow-sticky backdrop-blur-sm !transition dark:! dark:!bg-opacity-100"
-            : "absolute"
-        }`}>
+            : "absolute fade" 
+        }`} >
         
             <div className="container">
                   <div className="relative -mx-4 flex items-center justify-between">
@@ -118,10 +120,8 @@ const Header = () => {
                                     <ul className="block lg:flex lg:space-x-12 top-0 left-0 h-full bg-gray-900 transform -skew-x-12 text-white">
                                           <li className="group relative active:text-indigo-500 active:font-bold">
                                                 <Link
-                                                      href=""
-                                                      className={`flex py-2 text-base text- group-hover:opacity-70 dark:text-white lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick={() => 
-                                                            setShowModel(true)
-                                                      } >
+                                                      href="."
+                                                      className={`flex py-2 text-base text- group-hover:opacity-70 dark:text-white lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick={() => setShowModel(true) }  >
                                                       Programs
                                                 </Link>
 
@@ -192,17 +192,8 @@ const Header = () => {
                                                       Patner With Us
                                                 </Link>
                                           </li>
-                                    </ul>
-                                    
-                                    
-                              </nav>
-                        
-                        
-                        
-                        </div>
-                        
-                        
-                        <div className="flex items-center justify-end pr-16 lg:pr-0">
+
+                                          <div className="flex items-center justify-end pr-16 lg:pr-0">
                         {/* <Link
                               href="/signin"
                               className="hidden py-3 px-7 text-base font-bold text-dark hover:opacity-70 dark:text-white md:block"
@@ -219,12 +210,41 @@ const Header = () => {
                               <ThemeToggler />
                         </div>
                         </div>
+                                    </ul>
+                                    
+                                    
+                              </nav>
+                        
+                        
+                        
+                        </div>
+                        
+                        
+                        {/* <div className="flex items-center justify-end pr-16 lg:pr-0"> */}
+                        {/* <Link
+                              href="/signin"
+                              className="hidden py-3 px-7 text-base font-bold text-dark hover:opacity-70 dark:text-white md:block"
+                        >
+                              Sign In
+                        </Link>
+                        <Link
+                              href="/signup"
+                              className="ease-in-up hidden rounded-md bg-primary py-3 px-8 text-base font-bold text-white transition duration-300 hover:bg-opacity-90 hover:shadow-signUp md:block md:px-9 lg:px-6 xl:px-9"
+                        >
+                              Sign Up
+                        </Link> */}
+                        {/* <div>
+                              <ThemeToggler />
+                        </div> */}
+                        {/* </div> */}
                         
                         </div>
                         
                   </div>
                   <Model isvisible ={showModel} onClose={()=>setShowModel(false)}>
-                       <></> 
+                       <>
+                       
+                       </> 
                   </Model>
             </div>
         
