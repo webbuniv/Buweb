@@ -30,7 +30,7 @@ function Dashboard() {
           <Grid container spacing={3}>
             <Grid item xs={12} sm={6} xl={3}>
               <MiniStatisticsCard
-                title={{ text: "today's money" }}
+                title={{ text: "Users" }}
                 count="$53,000"
                 percentage={{ color: "success", text: "+55%" }}
                 icon={{ color: "info", component: "paid" }}
