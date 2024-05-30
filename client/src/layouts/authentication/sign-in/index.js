@@ -17,17 +17,19 @@ import CoverLayout from "../../../layouts/authentication/components/CoverLayout"
 
 // Images
 import curved9 from "../../../assets/images/curved-images/curved-6.jpg";
-
+import curved from "../../../assets/images/curved-images/log.png";
 function SignIn() {
   const [rememberMe, setRememberMe] = useState(true);
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
   return (
+    // <log image2={curved}></log>
     <CoverLayout
-      title="Welcome back"
-      description="Enter your email and password to sign in"
       image={curved9}
+      // image2={curved}
+      title="Welcome back"
+      description="Enter your email and password"
     >
       <SoftBox component="form" role="form">
         <SoftBox mb={2}>

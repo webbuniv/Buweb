@@ -129,19 +129,19 @@ function DashboardNavbar({ absolute, light, isMini }) {
             <SoftBox color={light ? "white" : "inherit"}>
               <Link to="/authentication/sign-in">
                 <IconButton sx={navbarIconButton} size="small">
-                  <Icon
+                  {/* <Icon
                     sx={({ palette: { dark, white } }) => ({
                       color: light ? white.main : dark.main,
                     })}
                   >
                     account_circle
-                  </Icon>
+                  </Icon> */}
                   <SoftTypography
                     variant="button"
                     fontWeight="medium"
                     color={light ? "white" : "dark"}
                   >
-                    Sign in
+                    Log Out
                   </SoftTypography>
                 </IconButton>
               </Link>
@@ -161,9 +161,9 @@ function DashboardNavbar({ absolute, light, isMini }) {
                 sx={navbarIconButton}
                 onClick={handleConfiguratorOpen}
               >
-                <Icon>settings</Icon>
+                {/* <Icon>settings</Icon> */}
               </IconButton>
-              <IconButton
+              {/* <IconButton
                 size="small"
                 color="inherit"
                 sx={navbarIconButton}
@@ -173,7 +173,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
                 onClick={handleOpenMenu}
               >
                 <Icon className={light ? "text-white" : "text-dark"}>notifications</Icon>
-              </IconButton>
+              </IconButton> */}
               {renderMenu()}
             </SoftBox>
           </SoftBox>
