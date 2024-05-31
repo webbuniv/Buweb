@@ -30,7 +30,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Tables",
+    name: "Slides",
     key: "tables",
     route: "/tables",
     icon: <Office size="12px" />,
@@ -39,7 +39,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Billing",
+    name: "Events",
     key: "billing",
     route: "/billing",
     icon: <CreditCard size="12px" />,
@@ -48,7 +48,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Virtual Reality",
+    name: "News",
     key: "virtual-reality",
     route: "/virtual-reality",
     icon: <Cube size="12px" />,
@@ -57,7 +57,25 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "RTL",
+    name: "Programs",
+    key: "rtl",
+    route: "/rtl",
+    icon: <Settings size="12px" />,
+    component: <RTL />,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "Publications",
+    key: "rtl",
+    route: "/rtl",
+    icon: <Settings size="12px" />,
+    component: <RTL />,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "News",
     key: "rtl",
     route: "/rtl",
     icon: <Settings size="12px" />,
@@ -67,7 +85,7 @@ const routes = [
   { type: "title", title: "Account Pages", key: "account-pages" },
   {
     type: "collapse",
-    name: "Profile",
+    name: "Team",
     key: "profile",
     route: "/profile",
     icon: <CustomerSupport size="12px" />,
