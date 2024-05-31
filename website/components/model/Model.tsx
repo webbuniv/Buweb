@@ -4,11 +4,12 @@ const Model = ({isvisible, onClose, children}) => {
       if (!isvisible) return null;
 const handleclose = (e)=>{
       if( e.target.id === 'wrapper ') onClose();
+      
 }
   return (
       <>
         
-            <div className=" fixed inset-0 backdrop-blur-sm flex justify-center items-center w-full h-4/5 my-24 overflow-auto bg-white" id="wrapper" onClick={handleclose}>
+            <div className=" fade-in fixed inset-0 backdrop-blur-sm flex justify-center items-center w-full h-4/5 my-24 overflow-auto bg-white" id="wrapper" onClick={handleclose}>
                   
                   <div className='flex'>
                         {/* <button style = {border-radius: '50%';width: '30px';height: '30px';background-color: 'red';color: 'white';font-size: '20px';text-align: 'center';line-height: '30px';position: 'absolute';right: '10px';top: '10px'} onClick={onClose}>
@@ -26,8 +27,8 @@ const handleclose = (e)=>{
                               textAlign: 'center',
                               lineHeight: '30px',
                               position: 'absolute',
-                              right: '10px',
-                              top: '10px',
+                              right: '90px',
+                              top: '90px',
                               }}
                               onClick={onClose}>
                               <span className="text-white text-xl">X</span>
