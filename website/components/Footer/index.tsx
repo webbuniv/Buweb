@@ -209,10 +209,10 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="py-8">
+        <div className="bg-primary/10 py-8">
           <div className="container">
-            <p className="text-center text-base bg-blue-600 text-body-color dark:text-white">
-              AgricHub<a href="https://agrichub.net" rel="nofollow noopener">AgricHub Team</a>
+            <p className="text-center text-base text-body-color dark:text-white">
+              <a href="/" rel="nofollow noopener">Bugema University</a>
             </p>
           </div>
         </div>
