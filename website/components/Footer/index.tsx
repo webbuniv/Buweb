@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import image from "../../public/images/logo/bugema.png";
 
 
 const Footer = () => {
@@ -15,7 +16,7 @@ const Footer = () => {
               <div className="mb-12 max-w-[360px] lg:mb-16">
                 <Link href="/" className="mb-8 inline-block">
                   <Image
-                    src="/public/images/logo/logo1.png"
+                    src={image}
                     alt="logo"
                     className="w-full dark:hidden"
                     width={140}
