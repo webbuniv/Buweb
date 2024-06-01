@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Switch from "@mui/material/Switch";
 import SoftBox from "../../../components/SoftBox";
 import SoftTypography from "../../../components/SoftTypography";
@@ -14,7 +14,7 @@ const SignIn = () => {
   const [rememberMe, setRememberMe] = useState(true);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
@@ -36,12 +36,10 @@ const SignIn = () => {
       if (!response.ok) {
         setError(data.msg || "Something went wrong. Please try again.");
       } else {
-        // Store the token and user data as needed
         localStorage.setItem("token", data.token);
         localStorage.setItem("user", JSON.stringify(data.user));
         setSuccess("Login Successfull")
-
-        history.push("/dashboard");
+        navigate("/dashboard");
       }
     } catch (err) {
       setError("Failed to sign in. Please try again later.");
@@ -89,7 +87,8 @@ const SignIn = () => {
             <SoftTypography component="label" variant="caption" fontWeight="bold">
               Password
             </SoftTypography>
-          </SoftInput
+          </SoftBox>
+          <SoftInput
             type="password"
             placeholder="Password"
             value={password}
