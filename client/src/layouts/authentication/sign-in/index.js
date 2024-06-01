@@ -1,21 +1,11 @@
 import { useState } from "react";
-
-// react-router-dom components
 import { Link } from "react-router-dom";
-
-// @mui material components
 import Switch from "@mui/material/Switch";
-
-// Soft UI Dashboard React components
 import SoftBox from "../../../components/SoftBox";
 import SoftTypography from "../../../components/SoftTypography";
 import SoftInput from "../../../components/SoftInput";
 import SoftButton from "../../../components/SoftButton";
-
-// Authentication layout components
 import CoverLayout from "../../../layouts/authentication/components/CoverLayout";
-
-// Images
 import curved9 from "../../../assets/images/curved-images/curved-6.jpg";
 import curved from "../../../assets/images/curved-images/log.png";
 function SignIn() {
@@ -24,10 +14,8 @@ function SignIn() {
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
   return (
-    // <log image2={curved}></log>
     <CoverLayout
       image={curved9}
-      // image2={curved}
       title="Welcome back"
       description="Enter your email and password"
     >
