@@ -7,6 +7,7 @@ import RTL from "./layouts/rtl";
 import Profile from "./layouts/profile";
 import SignIn from "./layouts/authentication/sign-in";
 import SignUp from "./layouts/authentication/sign-up";
+import Slides from "./layouts/Slides";
 
 // Soft UI Dashboard React icons
 import Shop from "./examples/Icons/Shop";
@@ -66,11 +67,11 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Publications",
-    key: "rtl",
-    route: "/rtl",
+    name: "Slides",
+    key: "slides",
+    route: "/slides",
     icon: <Settings size="12px" />,
-    component: <RTL />,
+    component: <Slides />,
     noCollapse: true,
   },
   {
