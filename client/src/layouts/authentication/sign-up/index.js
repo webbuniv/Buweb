@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 import Card from "@mui/material/Card";
 import SoftBox from "../../../components/SoftBox";
 import SoftTypography from "../../../components/SoftTypography";
@@ -11,14 +12,17 @@ import Socials from "../../../layouts/authentication/components/Socials";
 import Separator from "../../../layouts/authentication/components/Separator";
 import curved6 from "../../../assets/images/curved-images/curved14.jpg";
 
-const  SignUp = () => {
+const SignUp = () => {
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [form, setForm] = useState({ 
     firstName: "", 
     lastName: "", 
     email: "", 
     password: "",
   });
-  const [errorMessage, setErrorMessage] = useState('');
+
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -27,10 +31,10 @@ const  SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://buweb.onrender.com/auth/register", form);
-      console.log(response.data);
-      setErrorMessage("User created successfully")
       setForm({ firstName: '', lastName: '', email: '', password: '' });
+      await axios.post("https://buweb.onrender.com/auth/register", form);
+      setSuccessMessage("User created successfully");
+      navigate("/authentication/sign-in");
     } catch (error) {
       setErrorMessage(error.response.data.error || 'Registration failed!');
     }
@@ -48,10 +52,17 @@ const  SignUp = () => {
           </SoftTypography>
         </SoftBox>
         <SoftBox pt={2} pb={3} px={3}>
-        {errorMessage && (
+          {errorMessage && (
             <SoftBox mb={2}>
               <SoftTypography variant="body2" color="error">
                 {errorMessage}
+              </SoftTypography>
+            </SoftBox>
+          )}
+          {successMessage && (
+            <SoftBox mb={2}>
+              <SoftTypography variant="body2" color="success">
+                {successMessage}
               </SoftTypography>
             </SoftBox>
           )}
@@ -59,9 +70,10 @@ const  SignUp = () => {
             component="form" 
             role="form" 
             onSubmit={handleSubmit}>
-          <SoftBox mb={2}>
+            <SoftBox mb={2}>
               <SoftInput 
-                placeholder="First Name" name="firstName" 
+                placeholder="First Name" 
+                name="firstName" 
                 value={form.firstName} 
                 onChange={handleChange} 
                 required/>
