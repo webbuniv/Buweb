@@ -3,7 +3,7 @@ import SoftBox from "../../../../components/SoftBox";
 
 function Socials() {
   return (
-    <SoftBox display="flex" justifyContent="center">
+    <SoftBox display="flex" justifyContent="center" >
       <SoftButton variant="outlined" color="light">
         <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1">
           <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
