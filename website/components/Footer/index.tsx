@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import image from "../../public/images/logo/bugema.png";
+import image from "@/public/images/logo/bugema.png";
 
 
 const Footer = () => {
@@ -23,7 +23,7 @@ const Footer = () => {
                     height={30}
                   />
                   <Image
-                    src="/public/images/logo/logo2.png"
+                    src={image}
                     alt="logo"
                     className="hidden w-full dark:block"
                     width={140}
@@ -211,8 +211,8 @@ const Footer = () => {
         </div>
         <div className="bg-primary/10 py-8">
           <div className="container">
-            <p className="text-center text-base bg-blue-600 text-body-color dark:text-white">
-              AgricHub<a href="https://agrichub.net" rel="nofollow noopener">AgricHub Team</a>
+            <p className="text-center text-base text-body-color dark:text-white">
+              <a href="/" rel="nofollow noopener">Bugema University</a>
             </p>
           </div>
         </div>
