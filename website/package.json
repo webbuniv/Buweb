@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/swc-win32-x64-msvc": "^15.0.0-rc.0",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
     "next": "^14.2.3",
