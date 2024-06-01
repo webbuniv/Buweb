@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import image from "../../public/images/logo/bugema.png";
+import image from "@/public/images/logo/bugema.png";
 
 
 const Footer = () => {
@@ -23,7 +23,7 @@ const Footer = () => {
                     height={30}
                   />
                   <Image
-                    src="/public/images/logo/logo2.png"
+                    src={image}
                     alt="logo"
                     className="hidden w-full dark:block"
                     width={140}
