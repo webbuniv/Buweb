@@ -11,8 +11,8 @@ import Footer from "../../examples/Footer";
 import Table from "../../examples/Tables/Table";
 
 // Data
-import authorsTableData from "../../layouts/tables/data/authorsTableData";
-import projectsTableData from "../../layouts/tables/data/projectsTableData";
+import authorsTableData from "../tables/data/authorsTableData";
+import projectsTableData from "../tables/data/projectsTableData";
 
 function Slides() {
   const { columns, rows } = authorsTableData;

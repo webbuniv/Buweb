@@ -7,7 +7,7 @@ import RTL from "./layouts/rtl";
 import Profile from "./layouts/profile";
 import SignIn from "./layouts/authentication/sign-in";
 import SignUp from "./layouts/authentication/sign-up";
-import Slides from "./layouts/Slides";
+import Slides from "./layouts/slides";
 
 // Soft UI Dashboard React icons
 import Shop from "./examples/Icons/Shop";
