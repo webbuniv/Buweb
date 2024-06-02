@@ -2,6 +2,7 @@ import { useState } from "react";
 
 // react-router-dom components
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 // @mui material components
 import Card from "@mui/material/Card";
@@ -22,43 +23,108 @@ import Separator from "../../../layouts/authentication/components/Separator";
 import curved6 from "../../../assets/images/curved-images/curved14.jpg";
 
 function SignUp() {
-  const [agreement, setAgremment] = useState(true);
+  // const [agreement, setAgreement] = useState(true);
 
-  const handleSetAgremment = () => setAgremment(!agreement);
+  // const handleSetAgreement = () => setAgreement(!agreement);
+
+  const [form, setForm] = useState({ 
+    firstName: "", 
+    lastName: "", 
+    email: "", 
+    password: "",
+  });
+
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // if (!agreement) {
+    //   setMessage("You must agree to the terms and conditions.");
+    //   return;
+    // }
+    // Perform email existence check
+    try {
+      const response = await axios.post("https://buweb.onrender.com/auth/register", form);
+      // const response = await axios.post("http://localhost:3001/register", form);
+      console.log(response.data);
+      setErrorMessage("User created successfully")
+      // setMessage(response.data.message);
+      setForm({ firstName: '', lastName: '', email: '', password: '' });
+    } catch (error) {
+      setErrorMessage(error.response.data.error || 'Registration failed!');
+    }
+  };
 
   return (
     <BasicLayout
-      title="Welcome!"
-      description="Use these awesome forms to login or create new account in your project for free."
+      title="Welcome to admin panel!"
+      // description="Use these awesome forms to login or create new account in your project for free."
       image={curved6}
     >
       <Card>
         <SoftBox p={3} mb={1} textAlign="center">
           <SoftTypography variant="h5" fontWeight="medium">
-            Register with
+            SIGN-UP
           </SoftTypography>
         </SoftBox>
-        <SoftBox mb={2}>
-          <Socials />
-        </SoftBox>
-        <Separator />
         <SoftBox pt={2} pb={3} px={3}>
-          <SoftBox component="form" role="form">
+        {errorMessage && (
             <SoftBox mb={2}>
-              <SoftInput placeholder="Name" />
+              <SoftTypography variant="body2" color="error">
+                {errorMessage}
+              </SoftTypography>
+            </SoftBox>
+          )}
+          <SoftBox 
+            component="form" 
+            role="form" 
+            onSubmit={handleSubmit}>
+          <SoftBox mb={2}>
+              <SoftInput 
+                placeholder="First Name" name="firstName" 
+                value={form.firstName} 
+                onChange={handleChange} 
+                required/>
             </SoftBox>
             <SoftBox mb={2}>
-              <SoftInput type="email" placeholder="Email" />
+              <SoftInput 
+                placeholder="Last Name" 
+                name="lastName" 
+                value={form.lastName} 
+                onChange={handleChange} 
+                required/>
             </SoftBox>
             <SoftBox mb={2}>
-              <SoftInput type="password" placeholder="Password" />
+              <SoftInput 
+                type="email" 
+                placeholder="Email" 
+                name="email" 
+                value={form.email} 
+                onChange={handleChange} 
+                required />
             </SoftBox>
-            <SoftBox display="flex" alignItems="center">
-              <Checkbox checked={agreement} onChange={handleSetAgremment} />
-              <SoftTypography
+            <SoftBox mb={2}>
+              <SoftInput 
+                type="password" 
+                placeholder="Password" 
+                name="password" 
+                value={form.password} 
+                onChange={handleChange} 
+                required/>
+            </SoftBox>
+            <SoftBox 
+              display="flex" 
+              alignItems="center">
+              {/* <Checkbox checked={agreement} onChange={handleSetAgremment} />
+              <Checkbox checked={agreement} /> */}
+              {/* <SoftTypography
                 variant="button"
                 fontWeight="regular"
-                onClick={handleSetAgremment}
+                // onClick={handleSetAgremment}
                 sx={{ cursor: "poiner", userSelect: "none" }}
               >
                 &nbsp;&nbsp;I agree the&nbsp;
@@ -71,15 +137,26 @@ function SignUp() {
                 textGradient
               >
                 Terms and Conditions
-              </SoftTypography>
+              </SoftTypography> */}
             </SoftBox>
-            <SoftBox mt={4} mb={1}>
-              <SoftButton variant="gradient" color="dark" fullWidth>
+            <SoftBox 
+              mt={4} 
+              mb={1}>
+              <SoftButton 
+                type="submit" 
+                variant="gradient" 
+                color="dark" 
+                fullWidth>
                 sign up
               </SoftButton>
             </SoftBox>
-            <SoftBox mt={3} textAlign="center">
-              <SoftTypography variant="button" color="text" fontWeight="regular">
+            <SoftBox 
+              mt={3} 
+              textAlign="center">
+              <SoftTypography 
+                variant="button" 
+                color="text" 
+                fontWeight="regular">
                 Already have an account?&nbsp;
                 <SoftTypography
                   component={Link}
