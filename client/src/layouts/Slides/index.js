@@ -14,7 +14,7 @@ import Table from "../../examples/Tables/Table";
 import authorsTableData from "../tables/data/authorsTableData";
 import projectsTableData from "../tables/data/projectsTableData";
 
-function Slides() {
+const  Slides =  () =>{
   const { columns, rows } = authorsTableData;
   const { columns: prCols, rows: prRows } = projectsTableData;
 
