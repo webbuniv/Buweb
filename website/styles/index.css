@@ -8,7 +8,6 @@
 @layer base {
   body {
     font-family: "Inter", sans-serif;
-   
   }
 }
 
@@ -33,21 +32,3 @@
     @apply opacity-100;
   }
 }
-.active{
-      color: rgb(255, 213, 0);
-      border-bottom: 5px solid yellow;
-      /* border-top: 5px solid yellow;
-      background-color: white; */
-}
-.fade-in {
-      opacity: 0; /* Initial opacity for hidden state */
-       animation: fadeIn 1.5s ease-in-out forwards;
-    }
-     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
- .nav{
-
-}    

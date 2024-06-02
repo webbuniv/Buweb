@@ -41,34 +41,19 @@ const Header = () => {
 const [isOpen, setIsOpen] = useState(false);
 
   const [showModel, setShowModel] = useState(false);
-  showModel?document.body.style.overflow = 'hidden' :document.body.style.overflow = 'auto';
-  const navlinks = document.querySelectorAll('.nav');
-  const activebar = () =>{
-      navlinks.forEach(navlink =>{
-            navlink.addEventListener('click',()=>{
-                  document.querySelector('.active')?.classList.remove('active');
-                  navlink.classList.add('active');
-                  
-            });
-            });
-  }
-  const handleModel = () => {
-      setShowModel(!showModel);
-     
-
-  };
+  showModel?document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto';
   return (
       
     <>
     
       <header
-        className={`header top-0 left-0 z-40 flex w-full items-center bg-transparent mt-[-8px] ${
+        className={`header top-0 left-0 z-40 flex w-full items-center bg-transparent   ${
           sticky
-            ? "!fixed !z-[9999] ! !bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100"
-            : "absolute" 
+            ? "!fixed !z-[9999] ! !bg-opacity-100 shadow-sticky backdrop-blur-sm !transition dark:! dark:!bg-opacity-100"
+            : "absolute fade" 
         }`} >
         
-            <div className="container ">
+            <div className="container">
                   <div className="relative -mx-4 flex items-center justify-between">
                         <div className="w-40 px-4 xl:mr-12">
                               <Link
@@ -81,7 +66,7 @@ const [isOpen, setIsOpen] = useState(false);
                                     src={image}
                                     alt="logo"
                                     width={140}
-                                    height={20}
+                                    height={10}
                                     className="w-full dark:hidden" 
                                     />
 
@@ -89,7 +74,7 @@ const [isOpen, setIsOpen] = useState(false);
                                     src={image}
                                     alt="logo"
                                     width={100}
-                                    height={20}
+                                    height={10}
                                     className="hidden w-full dark:block"
                               />
                               </Link>
@@ -133,15 +118,15 @@ const [isOpen, setIsOpen] = useState(false);
                                     }`}>
                                           
                                     <ul className="block lg:flex lg:space-x-12 top-0 left-0 h-full bg-gray-900 transform -skew-x-12 text-white">
-                                          <li className="group relative " onClick={activebar}>
+                                          <li className="group relative active:text-indigo-500 active:font-bold">
                                                 <Link
                                                       href="."
-                                                      className={`nav flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick ={handleModel}  >
+                                                      className={`flex py-2 text-base text- group-hover:opacity-70 dark:text-white lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick={() => setShowModel(true) }  >
                                                       Programs
                                                 </Link>
 
                                                 <>
-                                                      {/* <a className="flex cursor-pointer items-center justify-between py-2 text-base text-dark group-hover:opacity-70 lg:mr-0 lg:inline-flex lg:py-6 lg:px-0">
+                                                      {/* <a className="flex cursor-pointer items-center justify-between py-2 text-base text-dark group-hover:opacity-70 dark:text-white lg:mr-0 lg:inline-flex lg:py-6 lg:px-0">
                                                       About
                                                       <span className="pl-3">
                                                       <svg width="15" height="14" viewBox="0 0 15 14">
@@ -158,7 +143,7 @@ const [isOpen, setIsOpen] = useState(false);
                                                       style={{height: '100vh',width:'-90vw', overflow: 'hidden'}}>
                                                             <Link
                                                                   href=""
-                                                                  className="block rounded py-2.5 text-sm text-dark hover:opacity-70 lg:px-3"
+                                                                  className="block rounded py-2.5 text-sm text-dark hover:opacity-70 dark:text-white lg:px-3"
                                                                   >
                                                             Contact
                                                             </Link>
@@ -169,7 +154,9 @@ const [isOpen, setIsOpen] = useState(false);
                                           <li>
                                                 <Link
                                                       href=""
-                                                      className={`nav flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick={handleModel }>
+                                                      className={`flex py-2 text-base text-white group-hover:opacity-70 dark:text-white lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick={() => 
+                                                            setShowModel(true)
+                                                      }>
                                                       Research
                                                 </Link>
                                                 
@@ -179,7 +166,9 @@ const [isOpen, setIsOpen] = useState(false);
                                           <li>
                                                 <Link
                                                       href=""
-                                                      className={` nav flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleModel }>
+                                                      className={`flex py-2 text-base text-white group-hover:opacity-70 dark:text-white lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={() => 
+                                                            setShowModel(true)
+                                                      }>
                                                       News
                                                 </Link>
                                           </li>
@@ -187,7 +176,9 @@ const [isOpen, setIsOpen] = useState(false);
                                           <li>
                                                 <Link
                                                       href=""
-                                                      className={` nav flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick={handleModel }>
+                                                      className={`flex py-2 text-base text-white group-hover:opacity-70 dark:text-white lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick={() => 
+                                                            setShowModel(true)
+                                                      }>
                                                       Campus
                                                 </Link>
                                           </li>
@@ -195,7 +186,9 @@ const [isOpen, setIsOpen] = useState(false);
                                           <li>
                                                 <Link
                                                       href=""
-                                                      className={` nav flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick={handleModel }>
+                                                      className={`flex py-2 text-base te group-hover:opacity-70 dark:text-white lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick={() => 
+                                                            setShowModel(true)
+                                                      }>
                                                       Patner With Us
                                                 </Link>
                                           </li>
@@ -203,7 +196,7 @@ const [isOpen, setIsOpen] = useState(false);
                                           <div className="flex items-center justify-end pr-16 lg:pr-0">
                         {/* <Link
                               href="/signin"
-                              className="hidden py-3 px-7 text-base font-bold text-dark hover:opacity-70 md:block"
+                              className="hidden py-3 px-7 text-base font-bold text-dark hover:opacity-70 dark:text-white md:block"
                         >
                               Sign In
                         </Link>
@@ -230,7 +223,7 @@ const [isOpen, setIsOpen] = useState(false);
                         {/* <div className="flex items-center justify-end pr-16 lg:pr-0"> */}
                         {/* <Link
                               href="/signin"
-                              className="hidden py-3 px-7 text-base font-bold text-dark hover:opacity-70 md:block"
+                              className="hidden py-3 px-7 text-base font-bold text-dark hover:opacity-70 dark:text-white md:block"
                         >
                               Sign In
                         </Link>
