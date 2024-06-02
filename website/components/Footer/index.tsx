@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { FaArrowDown, FaChevronDown } from 'react-icons/fa'
+import { FaChevronDown } from 'react-icons/fa'
+import image from "@/public/images/logo/bugema.png";
 
 const Footer = () => {
 
@@ -32,14 +33,14 @@ const Footer = () => {
               <div className="mb-12 max-w-[360px] lg:mb-16 flex flex-col justify-center text-center">
                 <Link href="/" className="mb-8 flex justify-center">
                   <Image
-                    src="/images/bugema.png"
+                    src={image}
                     alt="logo"
                     className="flex dark:hidden rounded-full"
                     width={300}
                     height={30}
                   />
                   <Image
-                    src="/images/bugema.png"
+                    src={image}
                     alt="logo"
                     className="hidden dark:block rounded-full"
                     width={300}
@@ -562,7 +563,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                      href="/"
+                      href="/"<<<<<<< troyDev
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
@@ -762,7 +763,7 @@ const Footer = () => {
                 gradientUnits="userSpaceOnUse"
               >
                 <stop stopColor="#4A6CF7" stopOpacity="0.62" />
-                <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
+                <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" /><<<<<<< troyDev
               </linearGradient>
               <linearGradient
                 id="paint3_linear_94:889"
