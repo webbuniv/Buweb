@@ -41,7 +41,7 @@ function Slides() {
             </SoftBox>
           </Card>
         </SoftBox>
-        <Card>
+        {/* <Card>
           <SoftBox display="flex" justifyContent="space-between" alignItems="center" p={3}>
             <SoftTypography variant="h6">Projects table</SoftTypography>
           </SoftBox>
@@ -57,7 +57,7 @@ function Slides() {
           >
             <Table columns={prCols} rows={prRows} />
           </SoftBox>
-        </Card>
+        </Card> */}
       </SoftBox>
       <Footer />
     </DashboardLayout>
