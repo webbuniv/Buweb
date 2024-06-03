@@ -41,7 +41,6 @@ function DashboardNavbar({ absolute, light, isMini }) {
   const logoutDispatch = useDispatch();
 
   useEffect(() => {
-    // Setting the navbar type
     if (fixedNavbar) {
       setNavbarType("sticky");
     } else {
