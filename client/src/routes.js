@@ -7,6 +7,7 @@ import RTL from "./layouts/rtl";
 import Profile from "./layouts/profile";
 import SignIn from "./layouts/authentication/sign-in";
 import SignUp from "./layouts/authentication/sign-up";
+// import Slides from "./layouts/slides";
 
 // Soft UI Dashboard React icons
 import Shop from "./examples/Icons/Shop";
@@ -39,7 +40,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Campus",
+    name: "Events",
     key: "billing",
     route: "/billing",
     icon: <CreditCard size="12px" />,
@@ -48,7 +49,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Schools",
+    name: "News",
     key: "virtual-reality",
     route: "/virtual-reality",
     icon: <Cube size="12px" />,
@@ -64,15 +65,15 @@ const routes = [
     component: <RTL />,
     noCollapse: true,
   },
-  {
-    type: "collapse",
-    name: "Publications",
-    key: "rtl",
-    route: "/rtl",
-    icon: <Settings size="12px" />,
-    component: <RTL />,
-    noCollapse: true,
-  },
+  // {
+  //   type: "collapse",
+  //   name: "Slides",
+  //   key: "slides",
+  //   route: "/slides",
+  //   icon: <Settings size="12px" />,
+  //   component: <Slides />,
+  //   noCollapse: true,
+  // },
   {
     type: "collapse",
     name: "News",

@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import SoftBox from "../../../components/SoftBox";
 import { useSoftUIController, setLayout } from "../../../context";
+import backgroundImage from "../../../assets/images/curved-images/curved14.jpg";
 
 function DashboardLayout({ children }) {
   const [controller, dispatch] = useSoftUIController();
@@ -18,6 +19,11 @@ function DashboardLayout({ children }) {
       sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
         p: 3,
         position: "relative",
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        minHeight: "100vh",
+
 
         [breakpoints.up("xl")]: {
           marginLeft: miniSidenav ? pxToRem(120) : pxToRem(274),
