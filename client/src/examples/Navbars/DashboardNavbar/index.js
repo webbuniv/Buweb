@@ -40,14 +40,6 @@ function DashboardNavbar({ absolute, light, isMini }) {
   const navigate = useNavigate();
   const logoutDispatch = useDispatch();
 
-  // const handleLogout = () => {
-  //   // Remove user token and user data from local storage
-  //   localStorage.removeItem("token");
-  //   localStorage.removeItem("user");
-  //   // Redirect to the login page
-  //   navigate("/");
-  // };
-
   useEffect(() => {
     // Setting the navbar type
     if (fixedNavbar) {
@@ -173,7 +165,6 @@ function DashboardNavbar({ absolute, light, isMini }) {
   );
 }
 
-// Setting default values for the props of DashboardNavbar
 DashboardNavbar.defaultProps = {
   absolute: false,
   light: false,
