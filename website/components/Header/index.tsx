@@ -91,7 +91,7 @@ const [isOpen, setIsOpen] = useState(false);
                 <nav id="navbarCollapse" className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-dark py-4 px-6 duration-300 ease-out transition: transform 0.5s linear dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${navbarOpen ? "top-full opacity-100 right-0" : "top-[120%] opacity-0 right-[-250px]"}`}>
                   <ul className="block lg:flex lg:space-x-12 top-0 left-0 h-full bg-gray-900 transform -skew-x-12 text-white">
                     <li className="group relative">
-                      <Link href="." className={`nav flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={() => setShowModel(true)}>
+                      <Link href="." className={`nav ml-3 flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={() => setShowModel(true)}>
                         Programs
                       </Link>
                     </li>
