@@ -12,7 +12,7 @@ import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import 'react-toastify/dist/ReactToastify.css';
-
+import { useSelector } from "react-redux";
 
 import routes from "./routes";
 
@@ -28,6 +28,8 @@ export default function App() {
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
+  const isAuth = useSelector((state) => state.token);
+
 
   // Cache for the rtl
   useMemo(() => {
@@ -122,6 +124,7 @@ export default function App() {
         )}
         {layout === "vr" && <Configurator />}
         <Routes>
+          
           {getRoutes(routes)}
           <Route path="*" element={<Navigate to="/dashboard" />} />
         </Routes>
