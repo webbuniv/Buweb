@@ -1,0 +1,9 @@
+.fade-in {
+      opacity: 0; /* Initial opacity for hidden state */
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
