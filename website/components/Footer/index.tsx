@@ -563,7 +563,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                      href="/"<<<<<<< troyDev
+                      href="/"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
@@ -763,7 +763,7 @@ const Footer = () => {
                 gradientUnits="userSpaceOnUse"
               >
                 <stop stopColor="#4A6CF7" stopOpacity="0.62" />
-                <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" /><<<<<<< troyDev
+                <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
               </linearGradient>
               <linearGradient
                 id="paint3_linear_94:889"
