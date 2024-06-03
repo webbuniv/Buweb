@@ -35,13 +35,15 @@ const store = configureStore({
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistStore(store)}>
-        <SoftUIControllerProvider>
-          <App />
-        </SoftUIControllerProvider>
-      </PersistGate>
-    </Provider>
-  </BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistStore(store)}>
+          <SoftUIControllerProvider>
+            <App />
+          </SoftUIControllerProvider>
+        </PersistGate>
+      </Provider>
+    </BrowserRouter>
+  </React.StrictMode>
 );

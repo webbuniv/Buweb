@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import Switch from "@mui/material/Switch";
 import SoftBox from "../../../components/SoftBox";
 import SoftTypography from "../../../components/SoftTypography";
@@ -7,6 +8,7 @@ import SoftInput from "../../../components/SoftInput";
 import SoftButton from "../../../components/SoftButton";
 import CoverLayout from "../../../layouts/authentication/components/CoverLayout";
 import curved9 from "../../../assets/images/curved-images/curved-6.jpg";
+import { setLogin } from "../../../state";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -15,15 +17,16 @@ const SignIn = () => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
-  const handleSubmit = async (e) => {
+  const login = async (e) => {
     e.preventDefault();
     setError(null);
 
     try {
-      const response = await fetch("https://buweb.onrender.com/auth/login", {
+      const loggedInResponse = await fetch("https://buweb.onrender.com/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -31,16 +34,27 @@ const SignIn = () => {
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await response.json();
+      // const data = await response.json();
 
-      if (!response.ok) {
-        setError(data.msg || "Something went wrong. Please try again.");
-      } else {
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("user", JSON.stringify(data.user));
-        setSuccess("Login Successfull")
+      // if (!response.ok) {
+      //   setError(data.msg || "Something went wrong. Please try again.");
+      // } else {
+      //   localStorage.setItem("token", data.token);
+      //   localStorage.setItem("user", JSON.stringify(data.user));
+      //   setSuccess("Login Successfull")
+      //   navigate("/dashboard");
+      // }
+      const loggedIn = await loggedInResponse.json();
+      if (loggedIn) {
+        dispatch(
+          setLogin({
+            user: loggedIn.user,
+            token: loggedIn.token,
+          })
+        );
         navigate("/dashboard");
       }
+
     } catch (err) {
       setError("Failed to sign in. Please try again later.");
     }
@@ -66,7 +80,7 @@ const SignIn = () => {
             </SoftTypography>
           </SoftBox>
         )}
-      <SoftBox component="form" role="form" onSubmit={handleSubmit}>
+      <SoftBox component="form" role="form" onSubmit={login}>
         
         <SoftBox mb={2}>
           <SoftBox mb={1} ml={0.5}>
