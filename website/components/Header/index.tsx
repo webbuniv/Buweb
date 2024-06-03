@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
 // import menuData from "./menuData";
 import Model from "@/components/model/Model";
-import image from "../../public/images/logo/bugema.png";
+
+import image from "@/public/images/logo/bugema.png";
 import "../../styles/nav.css";
 
 const Header = () => {

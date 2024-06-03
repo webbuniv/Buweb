@@ -67,17 +67,17 @@ function Dashboard() {
         </SoftBox>
         <SoftBox mb={3}>
           <Grid container spacing={3}>
-            <Grid item xs={12} lg={7}>
+            {/* <Grid item xs={12} lg={7}>
               <BuildByDevelopers />
-            </Grid>
-            <Grid item xs={12} lg={5}>
+            </Grid> */}
+            {/* <Grid item xs={52} lg={50}>
               <WorkWithTheRockets />
-            </Grid>
+            </Grid> */}
           </Grid>
         </SoftBox>
         <SoftBox mb={3}>
           <Grid container spacing={3}>
-            <Grid item xs={12} lg={5}>
+            {/* <Grid item xs={12} lg={5}>
               <ReportsBarChart
                 title="active users"
                 description={
@@ -88,9 +88,9 @@ function Dashboard() {
                 chart={chart}
                 items={items}
               />
-            </Grid>
+            </Grid> */}
             <Grid item xs={12} lg={7}>
-              <GradientLineChart
+              {/* <GradientLineChart
                 title="Sales Overview"
                 description={
                   <SoftBox display="flex" alignItems="center">
@@ -107,7 +107,7 @@ function Dashboard() {
                 }
                 height="20.25rem"
                 chart={gradientLineChartData}
-              />
+              /> */}
             </Grid>
           </Grid>
         </SoftBox>
