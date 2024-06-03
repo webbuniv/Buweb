@@ -4,6 +4,8 @@ const Model = ({isvisible, onClose, children}) => {
       if (!isvisible) return null;
 const handleclose = (e)=>{
       if( e.target.id === 'wrapper ') onClose();
+      document.querySelector('.active')?.classList.remove('active');
+      
 }
   return (
       <>

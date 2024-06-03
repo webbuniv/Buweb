@@ -115,7 +115,7 @@ const [isOpen, setIsOpen] = useState(false);
                         Partner With Us
                       </Link>
                     </li>
-                    <div className="flex items-center justify-end pr-16 lg:pr-0">
+                    <div className=" bg- flex items-center justify-end pr-16 lg:pr-0">
                       <div>
                         <ThemeToggler />
                       </div>
