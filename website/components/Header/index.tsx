@@ -7,6 +7,7 @@ import ThemeToggler from "./ThemeToggler";
 import Model from "@/components/model/Model";
 import image from "../../public/images/logo/bugema.png";
 import "../../styles/nav.css";
+import "../../styles/index.css";
 
 const Header = () => {
   // Navbar toggle
@@ -47,24 +48,47 @@ const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
       document.body.style.overflow = showModel ? 'hidden' : 'auto';
     }, [showModel]);
-    useEffect(() => {
-      const navlinks = document.querySelectorAll('.nav');
-      const handleNavClick = (event) => {
-        document.querySelector('.active')?.classList.remove('active');
-        event.currentTarget.classList.add('active');
-      };
+    const handleClick = () => {
+      
+      setShowModel(!showModel); // Toggle modal visibility
+      if (!showModel){
+            const navlinks = document.querySelectorAll('.nav');
+            const handleNavClick = (event) => {
+            document.querySelector('.active')?.classList.remove('active');
+            event.currentTarget.classList.add('active');
+            };
+      
+            navlinks.forEach(navlink => {
+            navlink.addEventListener('click', handleNavClick);
+            });
+            return () => {
+                  navlinks.forEach(navlink => {
+                    navlink.removeEventListener('click', handleNavClick);
+                  });
+                };
+            
+      }else if(showModel){
+            document.querySelector('.active')?.classList.remove('active');
+      }
+    };
+//     useEffect(() => {
+//       const navlinks = document.querySelectorAll('.nav');
+//       const handleNavClick = (event) => {
+//         document.querySelector('.active')?.classList.remove('active');
+//         event.currentTarget.classList.add('active');
+//       };
   
-      navlinks.forEach(navlink => {
-        navlink.addEventListener('click', handleNavClick);
-      });
+//       navlinks.forEach(navlink => {
+//         navlink.addEventListener('click', handleNavClick);
+//       });
   
-      // Cleanup event listeners on component unmount
-      return () => {
-        navlinks.forEach(navlink => {
-          navlink.removeEventListener('click', handleNavClick);
-        });
-      };
-    }, []);
+//       // Cleanup event listeners on component unmount
+//       return () => {
+//         navlinks.forEach(navlink => {
+//           navlink.removeEventListener('click', handleNavClick);
+//         });
+//       };
+//     }, []);
   return (
       
       <>
@@ -91,12 +115,12 @@ const [isOpen, setIsOpen] = useState(false);
                 <nav id="navbarCollapse" className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-dark py-4 px-6 duration-300 ease-out transition: transform 0.5s linear dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${navbarOpen ? "top-full opacity-100 right-0" : "top-[120%] opacity-0 right-[-250px]"}`}>
                   <ul className="block lg:flex lg:space-x-12 top-0 left-0 h-full bg-gray-900 transform -skew-x-12 text-white">
                     <li className="group relative">
-                      <Link href="." className={`nav ml-3 flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={() => setShowModel(true)}>
+                      <Link href="." className={` nav ml-3 flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
                         Programs
                       </Link>
                     </li>
                     <li>
-                      <Link href="" className={`nav flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={() => setShowModel(true)}>
+                      <Link href="" className={`nav flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
                         Research
                       </Link>
                     </li>
@@ -127,7 +151,18 @@ const [isOpen, setIsOpen] = useState(false);
           </div>
           <Model isvisible={showModel} onClose={() => setShowModel(false)}>
             <>
-              {/* Model content here */}
+              <div id="programs" className="container-fluid bg black">
+
+                  <div className="col-5 bg-primary text-white">
+                        hello pro
+                  </div>
+
+
+              </div>
+              <div id="research"></div>
+              <div id= "News"></div>
+              <div id ="campus"></div>
+              <div id="partner"></div>
             </>
           </Model>
         </div>
