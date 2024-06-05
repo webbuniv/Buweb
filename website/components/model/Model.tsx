@@ -3,6 +3,7 @@ import React, { Children } from 'react'
 const Model = ({isvisible, onClose, children}) => {
       if (!isvisible) return null;
 const handleclose = (e)=>{
+      
       if( e.target.id === 'wrapper ') onClose();
       document.querySelector('.active')?.classList.remove('active');
       
@@ -28,14 +29,28 @@ const handleclose = (e)=>{
                               textAlign: 'center',
                               lineHeight: '30px',
                               position: 'absolute',
-                              right: '10px',
-                              top: '10px',
+                              right: '70px',
+                              top: '70px',
                               }}
                               onClick={onClose}>
                               <span className="text-white text-xl">X</span>
                         </button>
 
-                  </div>             
+                  </div>    
+                  <>
+              <div id="programs" className="container-fluid bg black">
+
+                  <div className="col-5 bg-primary text-white">
+                        hello pro
+                  </div>
+
+
+              </div>
+              <div id="research"></div>
+              <div id= "News"></div>
+              <div id ="campus"></div>
+              <div id="partner"></div>
+            </>         
                   
             </div>
       </>

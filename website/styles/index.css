@@ -61,5 +61,19 @@
 }
 .active{
       color:gold;
-      border-bottom: 5px solid gold;
+      border-bottom: 2px solid gold;
+}
+.hover{
+      transition: background-color 0.5s, color 2s,border-top 0.5s;
+}
+.hover:hover{
+      color: gold;
+      /* border-radius: 5%; */
+      /* border-bottom: 2px solid white; */
+      /* border-top: 2px solid white; */
+      text-decoration:underline;
+}
+.drop{
+      transform: rotate(180deg);
+      transition: 0.7s ease-in-out;
 }
