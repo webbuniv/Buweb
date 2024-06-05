@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useMemo } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
@@ -12,6 +11,26 @@ import themeRTL from "./assets/theme/theme-rtl";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
+import 'react-toastify/dist/ReactToastify.css';
+import { useSelector } from "react-redux";
+
+import Dashboard from "./layouts/dashboard";
+import Tables from "./layouts/tables";
+import Billing from "./layouts/billing";
+import VirtualReality from "./layouts/virtual-reality";
+import RTL from "./layouts/rtl";
+import Profile from "./layouts/profile";
+import SignIn from "./layouts/authentication/sign-in";
+import SignUp from "./layouts/authentication/sign-up";
+// import Slides from "./layouts/slides";
+import Shop from "./examples/Icons/Shop";
+import Office from "./examples/Icons/Office";
+import Settings from "./examples/Icons/Settings";
+import Document from "./examples/Icons/Document";
+import SpaceShip from "./examples/Icons/SpaceShip";
+import CustomerSupport from "./examples/Icons/CustomerSupport";
+import CreditCard from "./examples/Icons/CreditCard";
+import Cube from "./examples/Icons/Cube";
 
 import routes from "./routes";
 
@@ -27,6 +46,8 @@ export default function App() {
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
+  const isAuth = useSelector((state) => state.token);
+
 
   // Cache for the rtl
   useMemo(() => {
@@ -50,32 +71,28 @@ export default function App() {
     }
   };
 
-  // Change the openConfigurator state
   const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
-
-  // Setting the dir attribute for the body element
   useEffect(() => {
     document.body.setAttribute("dir", direction);
   }, [direction]);
-
-  // Setting page scroll to 0 when changing the route
   useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
   }, [pathname]);
+  const dname = "Dashboard";
 
-  const getRoutes = (allRoutes) =>
-    allRoutes.map((route) => {
-      if (route.collapse) {
-        return getRoutes(route.collapse);
-      }
+  // const getRoutes = (allRoutes) =>
+  //   allRoutes.map((route) => {
+  //     if (route.collapse) {
+  //       return getRoutes(route.collapse);
+  //     }
 
-      if (route.route) {
-        return <Route exact path={route.route} element={route.component} key={route.key} />;
-      }
+  //     if (route.route) {
+  //       return <Route exact path={route.route} element={route.component} key={route.key} />;
+  //     }
 
-      return null;
-    });
+  //     return null;
+  //   });
 
   const configsButton = (
     <SoftBox
@@ -101,40 +118,13 @@ export default function App() {
     </SoftBox>
   );
 
-  return direction === "rtl" ? (
-    <CacheProvider value={rtlCache}>
-      <ThemeProvider theme={themeRTL}>
-        <CssBaseline />
-        {layout === "dashboard" && (
-          <>
-            <Sidenav
-              color={sidenavColor}
-              brand={brand}
-              brandName="BU ADMIN"
-              routes={routes}
-              onMouseEnter={handleOnMouseEnter}
-              onMouseLeave={handleOnMouseLeave}
-            />
-            <Configurator />
-            {configsButton}
-          </>
-        )}
-        {layout === "vr" && <Configurator />}
-        <Routes>
-          {getRoutes(routes)}
-          <Route path="*" element={<Navigate to="/dashboard" />} />
-        </Routes>
-      </ThemeProvider>
-    </CacheProvider>
-  ) : (
+  return  (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {layout === "dashboard" && (
         <>
           <Sidenav
             color={sidenavColor}
             brand={brand}
-
             brandName="BU ADMIN"
             routes={routes}
             onMouseEnter={handleOnMouseEnter}
@@ -143,12 +133,46 @@ export default function App() {
           <Configurator />
           {configsButton}
         </>
-      )}
       {layout === "vr" && <Configurator />}
       <Routes>
-        {getRoutes(routes)}
-        <Route path="*" element={<Navigate to="/dashboard" />} />
-      </Routes>
+          
+          <Route path="/" element={<SignIn />} />
+          <Route
+            path="/dashboard" 
+            element={isAuth ? <Dashboard/> : <Navigate to="/"/>}
+          />
+          <Route
+            path="/tables" 
+            element={isAuth ? <Tables /> : <Navigate to="/"/>}
+          />
+          <Route
+            path="/billing" 
+            element={isAuth ? <Billing /> : <Navigate to="/"/>}
+          />
+          <Route
+            path="/virtual-reality" 
+            element={isAuth ? <VirtualReality /> : <Navigate to="/"/>}
+          />
+          <Route
+            exact
+            path="/rtl" 
+            element={isAuth ? <RTL /> : <Navigate to="/"/>}
+          />
+          <Route
+            path="/profile" 
+            element={isAuth ? <Profile /> : <Navigate to="/"/>}
+          />
+          <Route
+            exact
+            path="/sign-in" 
+            element={<SignIn />}
+          />
+          <Route
+            path="/sign-up" 
+            element={<SignUp />}
+          />
+          
+        </Routes>
     </ThemeProvider>
   );
 }

@@ -33,8 +33,6 @@ function reducer(state, action) {
     }
   }
 }
-
-// Soft UI Dashboard React context provider
 function SoftUIControllerProvider({ children }) {
   const initialState = {
     miniSidenav: false,
