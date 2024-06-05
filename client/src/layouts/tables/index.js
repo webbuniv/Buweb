@@ -12,7 +12,7 @@ import DashboardLayout from "../../examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "../../examples/Navbars/DashboardNavbar";
 import Footer from "../../examples/Footer";
 import Table from "../../examples/Tables/Table";
-const { REACT_APP_API_URL } = process.env;
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const Tables = () => {
   const [slides, setSlides] = useState([]);
@@ -33,7 +33,7 @@ const Tables = () => {
   const fetchSlides = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${REACT_APP_API_URL}/slide`, {
+      const response = await fetch(`${apiUrl}/slide`, {
         method:"Get",
         headers: {
           Authorization: `Bearer ${token}`,
