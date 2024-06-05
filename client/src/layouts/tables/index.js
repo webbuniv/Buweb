@@ -12,6 +12,7 @@ import DashboardLayout from "../../examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "../../examples/Navbars/DashboardNavbar";
 import Footer from "../../examples/Footer";
 import Table from "../../examples/Tables/Table";
+const { REACT_APP_API_URL } = process.env;
 
 const Tables = () => {
   const [slides, setSlides] = useState([]);
@@ -22,7 +23,8 @@ const Tables = () => {
   const [showNewSlideModal, setShowNewSlideModal] = useState(false);
   const [showEditSlideModal, setShowEditSlideModal] = useState(false);
 
-  const token = localStorage.getItem("token");
+
+
 
   useEffect(() => {
     fetchSlides();
@@ -31,7 +33,8 @@ const Tables = () => {
   const fetchSlides = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("https://buweb.onrender.com/slide", {
+      const response = await fetch(`${REACT_APP_API_URL}/slide`, {
+        method:"Get",
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
