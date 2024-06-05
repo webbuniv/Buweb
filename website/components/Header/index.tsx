@@ -47,12 +47,11 @@ const [isOpen, setIsOpen] = useState(false);
   const [showModel, setShowModel] = useState(false);
   useEffect(() => {
       document.body.style.overflow = showModel ? 'hidden' : 'auto';
-    }, [showModel]);
-    const handleClick = () => {
-      
-      setShowModel(!showModel); // Toggle modal visibility
       if (!showModel){
-            const navlinks = document.querySelectorAll('.nav');
+            document.querySelector('.active')?.classList.remove('active');
+      };      
+      
+      const navlinks = document.querySelectorAll('.nav');
             const handleNavClick = (event) => {
             document.querySelector('.active')?.classList.remove('active');
             event.currentTarget.classList.add('active');
@@ -66,10 +65,31 @@ const [isOpen, setIsOpen] = useState(false);
                     navlink.removeEventListener('click', handleNavClick);
                   });
                 };
+    }, [showModel]);
+    const handleClick = () => {
+      if (showModel){
+            !showModel;
+      };
+      setShowModel(!showModel); // Toggle modal visibility
+      // if (!showModel){
+            // const navlinks = document.querySelectorAll('.nav');
+            // const handleNavClick = (event) => {
+            // document.querySelector('.active')?.classList.remove('active');
+            // event.currentTarget.classList.add('active');
+            // };
+      
+            // navlinks.forEach(navlink => {
+            // navlink.addEventListener('click', handleNavClick);
+            // });
+            // return () => {
+            //       navlinks.forEach(navlink => {
+            //         navlink.removeEventListener('click', handleNavClick);
+            //       });
+            //     };
             
-      }else if(showModel){
-            document.querySelector('.active')?.classList.remove('active');
-      }
+      // }else if(showModel){
+      //       document.querySelector('.active')?.classList.remove('active');
+      // }
     };
 //     useEffect(() => {
 //       const navlinks = document.querySelectorAll('.nav');
