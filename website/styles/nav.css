@@ -7,3 +7,12 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
+
+.fade-out{
+      opacity:1;
+      animation: fadeOut 0.5s;
+    } 
+    @keyframes fadeOut {
+      /*from { opacity: 1; }*/
+      to { opacity: 0; }
+    }    

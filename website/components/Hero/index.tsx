@@ -1,46 +1,203 @@
 import Link from "next/link";
+import { FaArrowDownLong, FaArrowRightLong } from 'react-icons/fa6';
+import { BiBookOpen, BiSolidPencil } from 'react-icons/bi';
+import { motion } from 'framer-motion';
+
+// Variants for hero content
+const textVariants = {
+  initial: {
+    x: -500,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      staggerChildren: 0.1,
+    },
+  },
+  scrollButton: {
+    opacity: 0,
+    x: 10,
+    transition: {
+      duration: 2,
+      repeat: Infinity
+    }
+  },
+  scrollButton2: {
+    opacity: 0,
+    y: 10,
+    transition: {
+      duration: 2,
+      repeat: Infinity
+    }
+  },
+};
+
+// Variants for sliding text for big screens
+const sliderVariants = {
+  initial: {
+    x: 0,
+  },
+  animate: {
+    x: "-220%",
+    transition: {
+      // repeatType: "mirror",
+      duration: 20,
+      repeat: Infinity
+    },
+  },
+};
 
 const Hero = () => {
   return (
     <>
       <section
         id="home"
-        className="relative z-10 overflow-hidden pt-[120px] pb-16 md:pt-[150px] md:pb-[120px] xl:pt-[180px] xl:pb-[160px] 2xl:pt-[210px] 2xl:pb-[200px]"
+        className="relative z-10 overflow-hidden pt-[120px] pb-10 md:pt-[150px] md:pb-[100px] xl:pt-[180px] xl:pb-[160px] 2xl:pt-[210px] 2xl:pb-[200px]"
       >
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
-            <div className="w-full px-4">
-              <div
-                className="wow fadeInUp mx-auto max-w-[800px] text-center"
-                data-wow-delay=".2s"
+            <div className=" w-full px-4">
+
+              {/* Content */}
+              <motion.div
+                className=" text-center md:text-start wow space-y-4 md:space-y-8 mx-auto max-w-[800px] fadeInUp ml-8"
+                data-wow-delay=".2s" 
+                variants={textVariants} 
+                initial="initial" 
+                animate="animate"
               >
-                <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
-                Agricultural Marketting System.
-                </h1>
-                <p className="mb-12 text-base font-medium !leading-relaxed text-body-color dark:text-white dark:opacity-90 sm:text-lg md:text-xl">
-                  ClyCites website serves as the central hub for revolutionizing agriculture in Uganda and across Africa. Seamlessly connecting farmers, agribusinesses, retailers, and consumers, 
-                  our platform offers a dynamic online marketplace designed to simplify the buying and selling of agricultural products. 
-                  With comprehensive product listings, secure transactions, and invaluable market insights, ClyCites empowers stakeholders of all sizes to thrive in the digital age of agriculture. Join us in 
-                  transforming the agricultural landscape and building a sustainable future for farmers and consumers alike
-                </p>
-                <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-                  <Link
-                    href="https://nextjstemplates.com/templates/saas-starter-startup"
-                    className="rounded-md bg-primary py-4 px-8 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
+
+                {/* On big screens */}
+                <motion.h2 className="head hidden md:block uppercase text-base font-medium !leading-relaxed text-body-color dark:text-white dark:opacity-90 sm:text-xl md:text-4xl" 
+                variants={textVariants}>
+                  Bugema University
+                </motion.h2>
+
+                {/* On small screens */}
+                <motion.h2 className="head-sm md:hidden uppercase font-medium !leading-relaxed text-body-color dark:text-white dark:opacity-90 sm:text-xl text-xl md:text-4xl" 
+                variants={textVariants}>
+                  Bugema University
+                </motion.h2>
+
+                {/* Buttons on big screens */}
+                <motion.div className="hidden md:flex items-center justify-start space-x-10" 
+                variants={textVariants}>
+
+                  {/* Apply now button */}
+                  <motion.div 
+                    className="flex hover:scale-105 transition-all space-x-8 items-center duration-300 flex-row text-center justify-center" 
+                    variants={textVariants}>
+                    <motion.div 
+                      className="bg-black border rounded px-1" 
+                      variants={textVariants} 
+                      animate="scrollButton">
+                      <FaArrowRightLong />
+                    </motion.div>
+                    <button
+                      className="flex rounded-md bg-primary/60 py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
+                    >
+                    Apply Now
+                    <span>
+                      <BiSolidPencil className="text-xl mx-2" />
+                    </span>
+                    </button>
+                  </motion.div>
+
+                  {/* Learn more button */}
+                  <motion.div 
+                    className="flex hover:scale-105 transition-all duration-300 flex-col text-center items-center justify-center" 
+                    variants={textVariants}>
+                  <motion.button
+                    className="flex rounded-md bg-black/20 py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-black duration-300 ease-in-out hover:bg-black/30 dark:bg-transparent dark:border dark:text-white" 
+                    variants={textVariants}
                   >
-                   
-                  </Link>
-                  <Link
-                    href="https://github.com/NextJSTemplates/startup-nextjs"
-                    className="rounded-md bg-black/20 py-4 px-8 text-base font-semibold text-black duration-300 ease-in-out hover:bg-black/30 dark:bg-white/20 dark:text-white dark:hover:bg-white/30"
+                    Learn More
+                    <motion.span>
+                      <BiBookOpen className="text-xl mx-2" />
+                    </motion.span>
+                  </motion.button>
+                  </motion.div>
+
+                </motion.div>
+
+                {/* Motto on small screens */}
+                <motion.h1 className="motto md:hidden capitalize text-5xl font-bold leading-tight text-black dark:text-primary sm:text-4xl sm:leading-tight md:text-6xl md:leading-tight" 
+                variants={textVariants}>
+                  Excellence <br/>in service
+                </motion.h1>
+
+                {/* Motto on big screens */}
+                <motion.h1 className="motto hidden md:block capitalize text-3xl font-bold leading-tight text-black dark:text-primary sm:text-4xl sm:leading-tight md:text-6xl md:leading-tight" 
+                variants={textVariants}>
+                  We envision <br/>excellence in service
+                </motion.h1>
+
+                {/* Subtitle */}
+                <motion.h2 className="dream capitalize text-body-color text-2xl font-bold leading-tight dark:text-gray-700 sm:text-xl sm:leading-tight md:text-3xl md:leading-tight" 
+                variants={textVariants}>
+                  Make your <br className="md:hidden"/>dreams come true
+                </motion.h2>
+
+                {/* Buttons on small screens */}
+              <motion.div className="md:hidden flex flex-col items-center justify-center " 
+              variants={textVariants}>
+
+              {/* Apply now button */}
+              <motion.div 
+                className="flex hover:scale-105 transition-all duration-300 space-y-6 flex-col items-center " 
+                variants={textVariants}>
+                  <motion.div 
+                    className="bg-black border rounded py-1" 
+                    variants={textVariants} 
+                    animate="scrollButton2">
+                    <FaArrowDownLong />
+                  </motion.div>
+                  <button
+                    className="flex rounded-md bg-primary/60 py-2 px-4 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
                   >
-                    Star on GitHub
-                  </Link>
-                </div>
-              </div>
+                  Apply Now
+                  <span>
+                    <BiSolidPencil className="text-xl mx-2" />
+                  </span>
+                  </button>
+                </motion.div>
+
+                {/* Learn more button */}
+                <motion.div className="flex hover:scale-105 transition-all duration-300 flex-col text-center items-center justify-center" 
+                variants={textVariants}>
+                <motion.button
+                  className="mt-9 flex rounded-md bg-black/20 py-1 px-3 md:py-2 md:px-4 text-xl font-semibold text-black duration-300 ease-in-out hover:bg-black/30 dark:bg-transparent dark:border dark:text-white" 
+                  variants={textVariants}
+                >
+                  Learn More
+                  <motion.span>
+                    <BiBookOpen className="text-xl mx-2" />
+                  </motion.span>
+                </motion.button>
+                </motion.div>
+
+              </motion.div>
+
+              </motion.div>
+
+              {/* Sliding bg text container on big screens*/}
+              <motion.div 
+                className="hidden md:block slidingTextContainer w-[50%] font-bold" 
+                variants={sliderVariants} 
+                initial="initial" 
+                animate="animate"
+              >
+                Bugema University
+              </motion.div>
+
             </div>
           </div>
         </div>
+
+        {/* Background designs */}
         <div className="absolute top-0 right-0 z-[-1] opacity-30 lg:opacity-100">
           <svg
             width="450"

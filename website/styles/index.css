@@ -16,6 +16,33 @@
     @apply inline-flex;
   }
 
+  /* Hero section styling starts here */
+  .head {
+    letter-spacing: 10px;
+  }
+
+  .head-sm {
+    letter-spacing: 4px;
+  }
+
+  .motto {
+    letter-spacing: 2px;
+  }
+
+  .dream {
+    letter-spacing: 3px;
+  }
+
+  .slidingTextContainer {
+    position: absolute;
+    font-size: 50vh;
+    bottom: -20px;
+    white-space: nowrap;
+    color: #ffffff09;
+  }
+
+  /* Hero section styling ends here */
+
   .sticky .header-logo {
     @apply py-5 lg:py-2;
   }
@@ -31,4 +58,8 @@
   input#checkboxLabel:checked ~ .box span {
     @apply opacity-100;
   }
+}
+.active{
+      color:gold;
+      border-bottom: 5px solid gold;
 }
