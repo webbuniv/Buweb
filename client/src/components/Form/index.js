@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { Formik } from "formik";
 import Dropzone from "react-dropzone";
-import FlexBetween from "components/FlexBetween";
+import FlexBetween from "../FlexBetween";
 
 const Form = ({
   initialValues,
