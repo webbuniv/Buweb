@@ -107,10 +107,10 @@ const Hero = () => {
                   </motion.div>
 
                   {/* Learn more button */}
-                  <motion.div className="flex hover:scale-105 transition-all duration-300 flex-col text-center items-center justify-center" 
-                  variants={textVariants}>
+                  <motion.div 
+                    className="flex hover:scale-105 transition-all duration-300 flex-col text-center items-center justify-center" 
+                    variants={textVariants}>
                   <motion.button
-                    href=""
                     className="flex rounded-md bg-black/20 py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-black duration-300 ease-in-out hover:bg-black/30 dark:bg-transparent dark:border dark:text-white" 
                     variants={textVariants}
                   >
@@ -169,7 +169,6 @@ const Hero = () => {
                 <motion.div className="flex hover:scale-105 transition-all duration-300 flex-col text-center items-center justify-center" 
                 variants={textVariants}>
                 <motion.button
-                  href=""
                   className="mt-9 flex rounded-md bg-black/20 py-1 px-3 md:py-2 md:px-4 text-xl font-semibold text-black duration-300 ease-in-out hover:bg-black/30 dark:bg-transparent dark:border dark:text-white" 
                   variants={textVariants}
                 >
@@ -187,7 +186,8 @@ const Hero = () => {
               {/* Sliding bg text container on big screens*/}
               <motion.div 
                 className="hidden md:block slidingTextContainer w-[50%] font-bold" 
-                variants={sliderVariants} initial="initial" 
+                variants={sliderVariants} 
+                initial="initial" 
                 animate="animate"
               >
                 Bugema University
