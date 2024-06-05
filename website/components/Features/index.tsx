@@ -20,7 +20,7 @@ const Features = () => {
       >
         <div className="container">
         <div className="grid grid-cols-2 gap-x-8 gap-y-14 md:grid-cols-1 lg:grid-cols-2">
-          <div className="col-6 ">
+          <div className="col-6" >
             <SectionTitle
               title="For ambition that can take you anywhere, get your start at Bugema University"
               paragraph=""
