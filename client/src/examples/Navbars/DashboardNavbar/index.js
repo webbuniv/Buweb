@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation,  useNavigate} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -24,6 +25,7 @@ import {
   setMiniSidenav,
   setOpenConfigurator,
 } from "../../../context";
+import { setLogout } from "../../../state";
 
 // Images
 import team2 from "../../../assets/images/team-2.jpg";
@@ -36,24 +38,15 @@ function DashboardNavbar({ absolute, light, isMini }) {
   const [openMenu, setOpenMenu] = useState(false);
   const route = useLocation().pathname.split("/").slice(1);
   const navigate = useNavigate();
-
-  const handleLogout = () => {
-    // Remove user token and user data from local storage
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    // Redirect to the login page
-    navigate("/authentication/sign-in");
-  };
+  const logoutDispatch = useDispatch();
 
   useEffect(() => {
-    // Setting the navbar type
     if (fixedNavbar) {
       setNavbarType("sticky");
     } else {
       setNavbarType("static");
     }
 
-    // A function that sets the transparent state of the navbar.
     function handleTransparentNavbar() {
       setTransparentNavbar(dispatch, (fixedNavbar && window.scrollY === 0) || !fixedNavbar);
     }
@@ -124,7 +117,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
               />
             </SoftBox>
             <SoftBox color={light ? "white" : "inherit"}>
-                <IconButton sx={navbarIconButton} size="small" onClick={handleLogout}>
+                <IconButton sx={navbarIconButton} size="small" onClick={() => logoutDispatch(setLogout())}>
                   <SoftTypography
                     variant="button"
                     fontWeight="medium"
@@ -171,7 +164,6 @@ function DashboardNavbar({ absolute, light, isMini }) {
   );
 }
 
-// Setting default values for the props of DashboardNavbar
 DashboardNavbar.defaultProps = {
   absolute: false,
   light: false,
