@@ -1,29 +1,26 @@
-.hover-image-container {
+.animated-button {
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .animated-button:hover {
+    background-color: black;
+  }
+
+  .icon-container {
     position: relative;
     display: inline-block;
+    transition: transform 0.3s ease-in-out;
+    margin-right: 6px;
   }
 
-  .img-wrapper {
+  .button-text {
+    display: inline-block;
     position: relative;
+    transition: color 0.3s ease-in-out;
   }
 
-  .img1 {
-    display: block;
-  }
-
-  .img2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200px; /* Adjust width as per your requirement */
-    height: 100px; /* Adjust height as per your requirement */
-    display: none;
-  }
-
-  .img-wrapper:hover .img1 {
-    display: none;
-  }
-
-  .img-wrapper:hover .img2 {
-    display: block;
+  .animated-button:hover .icon-container {
+    transform: translateX(125px);
   }
