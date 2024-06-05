@@ -4,7 +4,7 @@ import Image from 'next/image';
 import featuresData from "./featuresData";
 import img from "../../public/images/features/life.jpg";
 import img1 from "../../public/images/features/bu.jpg";
-import img2 from "../../public/images/features/b2.jpg";
+import img2 from "../../public/images/features/b.jpg";
 import { BiSolidPencil } from 'react-icons/bi';
 import './style.css';
 import React, { useState } from 'react';
