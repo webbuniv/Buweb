@@ -13,6 +13,6 @@
       animation: fadeOut 0.5s;
     } 
     @keyframes fadeOut {
-      /*from { opacity: 1; }*/
+      from { opacity: inherit; }
       to { opacity: 0; }
     }    
