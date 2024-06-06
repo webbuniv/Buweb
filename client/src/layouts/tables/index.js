@@ -72,7 +72,7 @@ const Tables = () => {
       formData.append("title", createFormFields.title);
       formData.append("tagline", createFormFields.tagline);
 
-      const response = await axios.post("http://localhost:3001/slide/create", formData, {
+      const response = await axios.post("https://buweb.onrender.com/slide/create", formData, {
         headers: {
           "Content-Type": "multipart/form-data"
         }
