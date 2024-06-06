@@ -1,0 +1,26 @@
+.animated-button {
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .animated-button:hover {
+    background-color: black;
+  }
+
+  .icon-container {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+    margin-right: 6px;
+  }
+
+  .button-text {
+    display: inline-block;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .animated-button:hover .icon-container {
+    transform: translateX(125px);
+  }
