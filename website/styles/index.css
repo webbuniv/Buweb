@@ -77,3 +77,66 @@
       transform: rotate(180deg);
       transition: 0.7s ease-in-out;
 }
+
+/* INSIDE THE NAV BAR*/
+.vertical-line {
+      border-right: 1px solid #5e5959; /* Adjust width, color as needed */
+      height: 400px; /* Adjust height as needed */
+    }
+.vertical-line-right {
+border-left: 1px solid #5e5959; /* Adjust width, color as needed */
+height: 400px; /* Adjust height as needed */
+}
+.animated {
+      transition: color 0.3s,transform 0.3s;
+}    
+.animated:hover {
+      transform: translateX(4px);
+      color: rgb(29, 40, 89);
+}
+      
+.float{
+      float:right;
+      margin-left: 90%;
+}   
+.schools{
+      transition: color 0.3s,transform 0.5s;
+}
+.schools:hover{
+      color: rgb(0, 31, 205);
+      transform: translateX(3px);
+      
+}
+.current{
+      color: rgb(29, 40, 89);
+}
+
+@keyframes slide-in {
+      from{
+            transform: translateX(-300px);
+      }
+      to{
+            transform: translateX(0)
+      }
+}
+.slider{
+      animation-name: slide-in;
+      animation-timing-function: ease-in-out;
+      animation-delay: .2s;
+}
+/*fast and slow  classes*/
+.slide{
+      animation-duration: 1s;
+}
+.slide--fast{
+      animation-duration: 1s;
+}
+.slide--slow{
+      animation-duration: 1.5s;
+}
+.slide--slower{
+      animation-duration: 2s;
+}
+.slide--slowest{
+      animation-duration: 2.5s;
+}

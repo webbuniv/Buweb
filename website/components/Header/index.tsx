@@ -70,7 +70,17 @@ const [isOpen, setIsOpen] = useState(false);
                 };
                 
     }, [showModel]);
-    const handleClick = () => {
+    const handleClick = (event) => {
+      
+            if (showModel){
+                  document.querySelector('.arr')?.classList.remove('drop');
+                  event.currentTarget.classList.add('drop');
+            }else{
+                  document.querySelector('.drop')?.classList.remove('drop');
+            };
+            
+          
+
       if (showModel){
             !showModel;
       };
@@ -151,7 +161,7 @@ const [isOpen, setIsOpen] = useState(false);
                       <Link href="." className={` nav hover ml-3 flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
                         Programs
                         <span className="my-1 ml-2 text-white text-bold" >
-                        <FaChevronDown className={showModel?"drop":"" } />
+                        <FaChevronDown className="arr" />
                         </span>
                         
                       </Link>
@@ -165,7 +175,7 @@ const [isOpen, setIsOpen] = useState(false);
                       </Link>
                     </li>
                     <li>
-                      <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={() => setShowModel(true)}>
+                      <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
                         News
                         <span className={"my-1 ml-2 text-white" } >
                         <FaChevronDown />
@@ -173,7 +183,7 @@ const [isOpen, setIsOpen] = useState(false);
                       </Link>
                     </li>
                     <li>
-                      <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={() => setShowModel(true)}>
+                      <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
                         Campus
                         <span className="my-1 ml-2 text-white">
                         <FaChevronDown className={showModel?"drop":"" } />
@@ -181,7 +191,7 @@ const [isOpen, setIsOpen] = useState(false);
                       </Link>
                     </li>
                     <li>
-                      <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={() => setShowModel(true)}>
+                      <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
                         Partner With Us
                         <span className="my-1 ml-2 text-white">
                         <FaChevronDown className={showModel?"drop":"" } />
