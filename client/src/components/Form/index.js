@@ -9,8 +9,10 @@ import {
   CircularProgress,
 } from "@mui/material";
 import { useForm } from "react-hook-form";
-import { useDropzone } from "react-dropzone";
-import FlexBetween from "../FlexBetween"; // Make sure FlexBetween is properly imported
+import Dropzone from "react-dropzone";
+import FlexBetween from "../FlexBetween";
+import { yupResolver } from "@hookform/resolvers/yup";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 
 const Form = ({
   initialValues,
@@ -24,41 +26,42 @@ const Form = ({
 }) => {
   const { register, handleSubmit, setValue, formState: { errors } } = useForm({
     defaultValues: initialValues,
-    resolver: validationSchema,
+    resolver: yupResolver(validationSchema),
   });
 
   const handleDropzoneChange = (acceptedFiles, name) => {
     setValue(name, acceptedFiles[0]);
   };
 
-  const DropzoneField = ({ name, placeholder }) => {
-    const { getRootProps, getInputProps } = useDropzone({
-      accept: '.jpg,.jpeg,.png',
-      multiple: false,
-      onDrop: (acceptedFiles) => handleDropzoneChange(acceptedFiles, name),
-    });
+  // eslint-disable-next-line react/prop-types
+  // const DropzoneField = ({ name, placeholder }) => {
+  //   const { getRootProps, getInputProps } = useDropzone({
+  //     accept: '.jpg,.jpeg,.png',
+  //     multiple: false,
+  //     onDrop: (acceptedFiles) => handleDropzoneChange(acceptedFiles, name),
+  //   });
 
-    return (
-      <Box
-        {...getRootProps()}
-        border="2px dashed #000"
-        p="1rem"
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        flexDirection="column"
-      >
-        <input {...getInputProps()} />
-        {!initialValues[name] ? (
-          <p>{placeholder}</p>
-        ) : (
-          <FlexBetween>
-            <Typography>{initialValues[name].name}</Typography>
-          </FlexBetween>
-        )}
-      </Box>
-    );
-  };
+  //   return (
+  //     <Box
+  //       {...getRootProps()}
+  //       border="2px dashed #000"
+  //       p="1rem"
+  //       display="flex"
+  //       justifyContent="center"
+  //       alignItems="center"
+  //       flexDirection="column"
+  //     >
+  //       <input {...getInputProps()} />
+  //       {!initialValues[name] ? (
+  //         <p>{placeholder}</p>
+  //       ) : (
+  //         <FlexBetween>
+  //           <Typography>{initialValues[name].name}</Typography>
+  //         </FlexBetween>
+  //       )}
+  //     </Box>
+  //   );
+  // };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -72,13 +75,38 @@ const Form = ({
             return (
               <Box
                 key={index}
-                gridColumn="span 4"
-                border="1px solid #ccc"
-                borderRadius="5px"
-                p="1rem"
-              >
-                <DropzoneField name={field.name} placeholder={field.placeholder} />
-              </Box>
+                  gridColumn="span 4"
+                  border={`1px solid ${palette.neutral.medium}`}
+                  borderRadius="5px"
+                  p="1rem"
+                >
+                  <Dropzone
+                    acceptedFiles=".jpg,.jpeg,.png"
+                    multiple={false}
+                    onDrop={(acceptedFiles) =>
+                      setFieldValue("picture", acceptedFiles[0])
+                    }
+                  >
+                    {({ getRootProps, getInputProps }) => (
+                      <Box
+                        {...getRootProps()}
+                        border={`2px dashed ${palette.primary.main}`}
+                        p="1rem"
+                        sx={{ "&:hover": { cursor: "pointer" } }}
+                      >
+                        <input {...getInputProps()} />
+                        {!values.picture ? (
+                          <p>Add Picture Here</p>
+                        ) : (
+                          <FlexBetween>
+                            <Typography>{values.picture.name}</Typography>
+                            <EditOutlinedIcon />
+                          </FlexBetween>
+                        )}
+                      </Box>
+                    )}
+                  </Dropzone>
+                </Box>
             );
           } else {
             return (
