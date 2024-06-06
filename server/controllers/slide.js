@@ -3,20 +3,14 @@ import { cloudinaryController } from './cloudinary.js';
 
 export const createSlide = async (req, res) => {
   try {
-    const { photo, title, tagline } = req.body;
-    let photoUrl = ''; // Initialize photoUrl variable
-
-    // Check if there is a file attached for photo
-    if (req.file) {
-      // If file is present, upload it to Cloudinary
-      await cloudinaryController.uploadImage(req, res, async () => {
-        // If upload is successful, get the photo URL
-        photoUrl = req.picturePath;
-      });
-    }
+    const { 
+      title, 
+      tagline 
+    } = req.body;
+    const photo = req.picturePath; // Get the photo URL from the request
 
     const newSlide = new Slide({
-      photo: photoUrl,
+      photo,
       title,
       tagline
     });
