@@ -1,17 +1,16 @@
+// Form.js
 import React from "react";
 import PropTypes from "prop-types";
 import {
   Box,
   Button,
   TextField,
-  useMediaQuery,
   Typography,
-  useTheme,
-  CircularProgress
+  CircularProgress,
 } from "@mui/material";
-import { Formik } from "formik";
-import Dropzone from "react-dropzone";
-import FlexBetween from "../FlexBetween";
+import { useForm } from "react-hook-form";
+import { useDropzone } from "react-dropzone";
+import FlexBetween from "../FlexBetween"; // Make sure FlexBetween is properly imported
 
 const Form = ({
   initialValues,
@@ -21,128 +20,110 @@ const Form = ({
   submitButtonLabel,
   toggleButtonLabel,
   togglePageType,
-  isLoading
+  isLoading,
 }) => {
-  const { palette } = useTheme();
-  const isNonMobile = useMediaQuery("(min-width:600px)");
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm({
+    defaultValues: initialValues,
+    resolver: validationSchema,
+  });
+
+  const handleDropzoneChange = (acceptedFiles, name) => {
+    setValue(name, acceptedFiles[0]);
+  };
+
+  const DropzoneField = ({ name, placeholder }) => {
+    const { getRootProps, getInputProps } = useDropzone({
+      accept: '.jpg,.jpeg,.png',
+      multiple: false,
+      onDrop: (acceptedFiles) => handleDropzoneChange(acceptedFiles, name),
+    });
+
+    return (
+      <Box
+        {...getRootProps()}
+        border="2px dashed #000"
+        p="1rem"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        flexDirection="column"
+      >
+        <input {...getInputProps()} />
+        {!initialValues[name] ? (
+          <p>{placeholder}</p>
+        ) : (
+          <FlexBetween>
+            <Typography>{initialValues[name].name}</Typography>
+          </FlexBetween>
+        )}
+      </Box>
+    );
+  };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      {({
-        values,
-        errors,
-        touched,
-        handleBlur,
-        handleChange,
-        handleSubmit,
-        setFieldValue,
-        resetForm,
-      }) => (
-        <form onSubmit={handleSubmit}>
-          <Box
-            display="grid"
-            gap="30px"
-            gridTemplateColumns="repeat(4, minmax(0, 1fr))"
-            sx={{
-              "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
-            }}
-          >
-            {fields.map((field, index) => {
-              if (field.type === 'dropzone') {
-                return (
-                  <Box
-                    key={index}
-                    gridColumn="span 4"
-                    border={`1px solid ${palette.neutral.medium}`}
-                    borderRadius="5px"
-                    p="1rem"
-                  >
-                    <Dropzone
-                      acceptedFiles=".jpg,.jpeg,.png"
-                      multiple={false}
-                      onDrop={(acceptedFiles) =>
-                        setFieldValue(field.name, acceptedFiles[0])
-                      }
-                    >
-                      {({ getRootProps, getInputProps }) => (
-                        <Box
-                          {...getRootProps()}
-                          border={`2px dashed ${palette.primary.main}`}
-                          p="1rem"
-                          sx={{ "&:hover": { cursor: "pointer" } }}
-                        >
-                          <input {...getInputProps()} />
-                          {!values[field.name] ? (
-                            <p>{field.placeholder}</p>
-                          ) : (
-                            <FlexBetween>
-                              <Typography>{values[field.name].name}</Typography>
-                            </FlexBetween>
-                          )}
-                        </Box>
-                      )}
-                    </Dropzone>
-                  </Box>
-                );
-              } else {
-                return (
-                  <TextField
-                    key={index}
-                    label={field.label}
-                    type={field.type}
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    value={values[field.name]}
-                    name={field.name}
-                    error={Boolean(touched[field.name]) && Boolean(errors[field.name])}
-                    helperText={touched[field.name] && errors[field.name]}
-                    sx={{ gridColumn: `span ${field.span || 4}` }}
-                  />
-                );
-              }
-            })}
-          </Box>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Box
+        display="grid"
+        gap="30px"
+        gridTemplateColumns="repeat(4, minmax(0, 1fr))"
+      >
+        {fields.map((field, index) => {
+          if (field.type === "dropzone") {
+            return (
+              <Box
+                key={index}
+                gridColumn="span 4"
+                border="1px solid #ccc"
+                borderRadius="5px"
+                p="1rem"
+              >
+                <DropzoneField name={field.name} placeholder={field.placeholder} />
+              </Box>
+            );
+          } else {
+            return (
+              <TextField
+                key={index}
+                label={field.label}
+                type={field.type}
+                {...register(field.name)}
+                error={!!errors[field.name]}
+                helperText={errors[field.name]?.message}
+                sx={{ gridColumn: `span ${field.span || 4}` }}
+              />
+            );
+          }
+        })}
+      </Box>
 
-          {/* BUTTONS */}
-          <Box>
-            <Button
-              fullWidth
-              type="submit"
-              sx={{
-                m: "2rem 0",
-                p: "1rem",
-                backgroundColor: palette.primary.main,
-                color: palette.background.alt,
-                "&:hover": { color: palette.primary.main },
-              }}
-              disabled={isLoading}
-            >
-              {isLoading ? <CircularProgress size={24} /> : submitButtonLabel}
-            </Button>
-            <Typography
-              onClick={() => {
-                togglePageType();
-                resetForm();
-              }}
-              sx={{
-                textDecoration: "underline",
-                color: palette.primary.main,
-                "&:hover": {
-                  cursor: "pointer",
-                  color: palette.primary.light,
-                },
-              }}
-            >
-              {toggleButtonLabel}
-            </Typography>
-          </Box>
-        </form>
-      )}
-    </Formik>
+      {/* BUTTONS */}
+      <Box>
+        <Button
+          fullWidth
+          type="submit"
+          sx={{
+            m: "2rem 0",
+            p: "1rem",
+            backgroundColor: "#000",
+            color: "#fff",
+            "&:hover": { backgroundColor: "#333" },
+          }}
+          disabled={isLoading}
+        >
+          {isLoading ? <CircularProgress size={24} /> : submitButtonLabel}
+        </Button>
+        <Typography
+          onClick={togglePageType}
+          sx={{
+            textDecoration: "underline",
+            color: "#000",
+            "&:hover": { cursor: "pointer", color: "#333" },
+          }}
+        >
+          {toggleButtonLabel}
+        </Typography>
+      </Box>
+    </form>
   );
 };
 
@@ -154,15 +135,15 @@ Form.propTypes = {
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
-      type: PropTypes.oneOf(['text', 'password', 'email', 'dropzone']).isRequired,
+      type: PropTypes.oneOf(["text", "password", "email", "dropzone"]).isRequired,
       span: PropTypes.number,
-      placeholder: PropTypes.string
+      placeholder: PropTypes.string,
     })
   ).isRequired,
   submitButtonLabel: PropTypes.string.isRequired,
   toggleButtonLabel: PropTypes.string.isRequired,
   togglePageType: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
 };
 
 export default Form;

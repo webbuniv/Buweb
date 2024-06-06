@@ -2,8 +2,17 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "@mui/material/Card";
 import Modal from "@mui/material/Modal";
+import Button from "@mui/material/Button";
 import * as Yup from "yup";
 import CircularProgress from "@mui/material/CircularProgress";
+import TableContainer from "@mui/material/TableContainer";
+import Table from "@mui/material/Table";
+import TableHead from "@mui/material/TableHead";
+import TableBody from "@mui/material/TableBody";
+import TableRow from "@mui/material/TableRow";
+import TableCell from "@mui/material/TableCell";
+import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
 
 // Soft UI Dashboard React components
 import SoftBox from "../../components/SoftBox";
@@ -13,7 +22,6 @@ import SoftTypography from "../../components/SoftTypography";
 import DashboardLayout from "../../examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "../../examples/Navbars/DashboardNavbar";
 import Footer from "../../examples/Footer";
-import Table from "../../examples/Tables/Table";
 
 // Custom components
 import Form from "../../components/Form";
@@ -132,8 +140,12 @@ const Tables = () => {
       align: "center",
       render: (slide) => (
         <div>
-          <button onClick={() => handleEditSlide(slide)}>Edit</button>
-          <button onClick={() => handleDeleteSlide(slide._id)}>Delete</button>
+          <Button variant="contained" color="primary" onClick={() => handleEditSlide(slide)} style={{ marginRight: '8px' }}>
+            Edit
+          </Button>
+          <Button variant="contained" color="secondary" onClick={() => handleDeleteSlide(slide._id)}>
+            Delete
+          </Button>
         </div>
       ),
     },
@@ -147,29 +159,57 @@ const Tables = () => {
           <Card>
             <SoftBox display="flex" justifyContent="space-between" alignItems="center" p={3}>
               <SoftTypography variant="h6">Slides table</SoftTypography>
-              <button onClick={() => setShowNewSlideModal(true)}>Create New Slide</button>
+              <Button variant="contained" color="primary" onClick={() => setShowNewSlideModal(true)}>
+                Create New Slide
+              </Button>
             </SoftBox>
             {loading && <CircularProgress />}
             {error && <div>Error: {error}</div>}
             {!loading && !error && (
-              <SoftBox
-                sx={{
-                  "& .MuiTableRow-root:not(:last-child)": {
-                    "& td": {
-                      borderBottom: ({ borders: { borderWidth, borderColor } }) =>
-                        `${borderWidth[1]} solid ${borderColor}`,
-                    },
-                  },
-                }}
-              >
-                <Table columns={columns} rows={slides} />
-              </SoftBox>
+              <TableContainer component={Paper}>
+                <Table>
+                  <TableHead>
+                    <TableRow>
+                      {columns.map((column) => (
+                        <TableCell key={column.name} align={column.align}>
+                          {column.name.toUpperCase()}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {slides.map((slide) => (
+                      <TableRow key={slide._id}>
+                        {columns.map((column) => (
+                          <TableCell key={column.name} align={column.align}>
+                            {column.render ? column.render(slide) : slide[column.name]}
+                          </TableCell>
+                        ))}
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
             )}
           </Card>
         </SoftBox>
         {/* Create new slide modal */}
-        <Modal open={showNewSlideModal} onClose={() => setShowNewSlideModal(false)}>
-          <SoftBox p={3} bgcolor="background.paper">
+        <Modal
+          open={showNewSlideModal}
+          onClose={() => setShowNewSlideModal(false)}
+          BackdropProps={{
+            style: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
+          }}
+        >
+          <Box
+            p={3}
+            bgcolor="background.paper"
+            boxShadow={3}
+            borderRadius={2}
+            maxWidth="500px"
+            mx="auto"
+            mt="10%"
+          >
             <Form
               initialValues={initialValues}
               validationSchema={validationSchema}
@@ -180,11 +220,25 @@ const Tables = () => {
               togglePageType={() => setShowNewSlideModal(false)}
               isLoading={isCreating}
             />
-          </SoftBox>
+          </Box>
         </Modal>
         {/* Edit slide modal */}
-        <Modal open={showEditSlideModal} onClose={() => setShowEditSlideModal(false)}>
-          <SoftBox p={3} bgcolor="background.paper">
+        <Modal
+          open={showEditSlideModal}
+          onClose={() => setShowEditSlideModal(false)}
+          BackdropProps={{
+            style: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
+          }}
+        >
+          <Box
+            p={3}
+            bgcolor="background.paper"
+            boxShadow={3}
+            borderRadius={2}
+            maxWidth="500px"
+            mx="auto"
+            mt="10%"
+          >
             <Form
               initialValues={initialValues}
               validationSchema={validationSchema}
@@ -195,7 +249,7 @@ const Tables = () => {
               togglePageType={() => setShowEditSlideModal(false)}
               isLoading={isUpdating}
             />
-          </SoftBox>
+          </Box>
         </Modal>
       </SoftBox>
       <Footer />
