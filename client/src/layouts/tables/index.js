@@ -154,7 +154,11 @@ const Tables = () => {
 
   const handleDeleteSlide = async (id) => {
     try {
-      await axios.delete(`https://buweb.onrender.com/slide/${id}/delete`);
+      await axios.delete(`https://buweb.onrender.com/slide/${id}/delete`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      });
       fetchSlides();
     } catch (error) {
       setError(error.message);
