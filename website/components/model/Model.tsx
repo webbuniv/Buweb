@@ -1,18 +1,54 @@
-import React, { Children } from 'react'
+import React, { Children } from 'react';
+import { FaArrowRight } from 'react-icons/fa6';
+import image from "../../public/images/nav/IMG_9313.jpg";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+
 
 const Model = ({isvisible, onClose, children}) => {
       if (!isvisible) return null;
 const handleclose = (e)=>{
+      
       if( e.target.id === 'wrapper ') onClose();
       document.querySelector('.active')?.classList.remove('active');
       
 }
+// const showIT =() =>{
+      
+//       let mouseon = document.getElementById('IT');
+//       mouseon.addEventListener("onmouseleave",function(){
+//             mouseon.classList.add('hidden');
+//       });
+ 
+//       mouseon.classList.remove('hidden');
+// }
+const main = ()=>{
+      let schools = document.querySelector('schools');
+      // schools.classList.remove('hidden');
+      document.getElementById('main').classList.add('current');
+      document.getElementById('payments').classList.remove('current');
+      document.getElementById('fees').classList.add('hidden');
+      document.getElementById('courses').classList.remove('hidden');
+}
+const payments=()=>{
+      document.getElementById('main').classList.remove('current');
+      document.getElementById('payments').classList.add('current');
+      document.getElementById('fees').classList.remove('hidden');
+      document.getElementById('courses').classList.add('hidden');
+      
+}
+const touch = ()=>{
+      document.getElementById('main').classList.remove('current');
+      document.getElementById('courses').classList.add('hidden');
+      document.getElementById('payments').classList.remove('current');
+      document.getElementById('fees').classList.add('hidden');
+}
   return (
       <>
         
-            <div className=" fade-in fixed inset-0 backdrop-blur-sm flex justify-center items-center w-full h-4/5 my-24 overflow-auto bg-white" id="wrapper" onClick={handleclose}>
+            <div className=" fade-in fixed inset-0 backdrop-blur-sm flex w-full h-4/5 my-24 overflow-auto bg-white" id="wrapper">
                   
-                  <div className='flex'>
+                  <div className='flex '>
                         {/* <button style = {border-radius: '50%';width: '30px';height: '30px';background-color: 'red';color: 'white';font-size: '20px';text-align: 'center';line-height: '30px';position: 'absolute';right: '10px';top: '10px'} onClick={onClose}>
                         <span className="text-black text-xl rounded-full">X</span>
                         </button> */}
@@ -28,14 +64,167 @@ const handleclose = (e)=>{
                               textAlign: 'center',
                               lineHeight: '30px',
                               position: 'absolute',
-                              right: '10px',
-                              top: '10px',
+                              right: '70px',
+                              top: '70px',
                               }}
                               onClick={onClose}>
                               <span className="text-white text-xl">X</span>
                         </button>
 
-                  </div>             
+                  </div>    
+                  <div id="programs">
+
+                  <div className="vertical-line ml-20 my-24 fade-in "> 
+                        <div className="mr-2 my-5 slider slide--fast">
+                              
+                              <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '   onClick={main}> <span id='main' className='animated href=""'>Courses</span></h1> 
+                        </div>
+                        <div className="mr-2 my-5  slider slide--slow ">
+                              <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={payments}><span id='payments' className='animated'>Fees and Payments</span></h1> 
+                        </div>
+                        <div className="mr-2 my-5  slider slide--slower">
+                              <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '><span className='animated'> Why Bugema University </span></h1> 
+                        </div>
+                        <div className="mr-2 my-5 slider slide--slowest ">
+                              <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '> <span className='animated'> Get in Touch </span></h1> 
+                        </div>
+                        
+                  </div>
+                  
+                  </div>
+                  <div className=" ml-6 my-24 fade-in " id='courses'> 
+                        <ul>
+                              <li>
+                              <div className="mr-2 my-5 slider slide--slow ">
+                              
+                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Science and Technology </h1> 
+                              
+                              </div>
+                              </li>
+                              
+                              <li>
+                              <div className="mr-2 my-5 slider slide--slow ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Heath and Alied Sciences</h1> 
+                                    
+                              </div>
+                              </li>
+                              <li>
+                              <div className="mr-2 my-5 slider slide--fast ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Theology and Religious Studies </h1> 
+                                    
+                              </div>
+                              </li>
+                              
+                              <li>
+                              <div className="mr-2 my-5 slider slide--slow ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Agriculture and Applied Sciences</h1>
+                                    
+                              </div>
+                              </li>
+                              
+                              <li>
+                              <div className="mr-2 my-5 slider slide--slower ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Business</h1> 
+                                    
+                              </div>
+                              </li>
+                              
+                              <li>
+                              <div className="mr-2 my-5 slider slide--slow ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Education,Humanities and <br/> Social sciences</h1> 
+                                    
+                              </div>
+                              </li>
+                              
+                              <li>
+                              <div className="mr-2 my-5 slider slide--fast ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Graduate studies, Reseacrch <br/>&  Publications</h1> 
+                                    
+                              </div>
+                              </li>
+                              
+                        </ul>
+                        
+                  </div>
+                              {/* FEES AND PAYMENTS */}
+                  <div className=" fade-in ml-14 my-24 hidden " id='fees'> 
+                        <ul>
+                              <li>
+                              <div className="mr-2 my-5 ">
+                              
+                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Tution Fees </h1> 
+                              
+                              </div>
+                              </li>
+                              
+                              <li>
+                              <div className="mr-2 my-5  ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Scholarships</h1> 
+                                    
+                              </div>
+                              </li>
+                              <li>
+                              <div className="mr-2 my-5  ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Funding Your Studies </h1> 
+                                    
+                              </div>
+                              </li>
+                              
+                              <li>
+                              <div className="mr-2 my-5  ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> BUSA Fees</h1>
+                                    
+                              </div>
+                              </li>
+                              
+                              <li>
+                              <div className="mr-2 my-5  ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> NHCE Fees</h1> 
+                                    
+                              </div>
+                              </li>
+                              
+                             
+                              
+                        </ul>
+                        
+                  </div>
+
+                  <div className=' ml-20 vertical-line my-24 transform -skew-x-12 '>
+                  </div>
+                  {/* SCIENCE AND TECHNOLOGY COURSES */}
+                  <div className='ml-10  my-24 transform -skew-x-12'  id='IT'>
+                        {/* <div className="mr-2 my-5  ">
+                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Certificate in Information Technology</h1> 
+                        </div>
+                        <div className="mr-2 my-5  ">
+                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Bachelor of Science in Software Engineering</h1> 
+                        </div>
+                        <div className="mr-2 my-5  ">
+                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Bachelor of Science in Network Systems<br/> Administration</h1> 
+                        </div>
+                        <div className="mr-2 my-5  ">
+                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Bachelor of Science in Computer Engineering</h1> 
+                        </div>
+                        <div className="mr-2 my-5  ">
+                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Diploma in Computer Forensics</h1> 
+                        </div>
+                        <div className="mr-2 my-5  ">
+                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Diploma in Information technology</h1> 
+                        </div>*/}
+                        
+                        
+                        
+                        <div className="ml-12 my-5 transform -skew-x-11 text-white grid-rows-2">
+                              <div className='columns-1 bg-black'>
+                              <h1  style={{fontSize: '19px',cursor:"pointer",height:"100px"}}> Masters of Science in Information</h1>
+                              </div>
+
+                              <div className='columns-1'>
+                                    <Image src={image} alt='img' width={200} height={200} className="ml-12 my-10 "/>
+                              </div> 
+                        </div> 
+                  </div>
                   
             </div>
       </>

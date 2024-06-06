@@ -8,6 +8,7 @@ import Model from "@/components/model/Model";
 import image from "../../public/images/logo/bugema.png";
 import "../../styles/nav.css";
 import "../../styles/index.css";
+import { FaChevronDown } from "react-icons/fa";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -43,14 +44,16 @@ const [isOpen, setIsOpen] = useState(false);
 
   const [showModel, setShowModel] = useState(false);
   useEffect(() => {
+
       document.body.style.overflow = showModel ? 'hidden' : 'auto';
       if (!showModel){
             document.querySelector('.active')?.classList.remove('active');
-      };      
+      };     
+      
       
       const navlinks = document.querySelectorAll('.nav');
             const handleNavClick = (event) => {
-            document.querySelector('.active')?.classList.remove('active');
+            document.querySelector('.active',)?.classList.remove('active');
             event.currentTarget.classList.add('active');
             };
       
@@ -62,8 +65,19 @@ const [isOpen, setIsOpen] = useState(false);
                     navlink.removeEventListener('click', handleNavClick);
                   });
                 };
+                
     }, [showModel]);
-    const handleClick = () => {
+    const handleClick = (event) => {
+      
+            if (showModel){
+                  document.querySelector('.arr')?.classList.remove('drop');
+                  event.currentTarget.classList.add('drop');
+            }else{
+                  document.querySelector('.drop')?.classList.remove('drop');
+            };
+            
+          
+
       if (showModel){
             !showModel;
       };
@@ -88,6 +102,15 @@ const [isOpen, setIsOpen] = useState(false);
       //       document.querySelector('.active')?.classList.remove('active');
       // }
     };
+//     const arr = (event)=>{
+//       if (showModel){
+//             document.querySelector('.drop')?.classList.remove('drop');
+//             event.
+//       }else{
+//             document.querySelector('.drop')?.classList.remove('drop');
+//       };
+      
+//     }
 //     useEffect(() => {
 //       const navlinks = document.querySelectorAll('.nav');
 //       const handleNavClick = (event) => {
@@ -129,31 +152,47 @@ const [isOpen, setIsOpen] = useState(false);
                   <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? "opacity-0 " : " "}`} />
                   <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? " top-[-8px] -rotate-45" : " "}`} />
                 </button>
-                <nav id="navbarCollapse" className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-dark py-4 px-6 duration-300 ease-out transition: transform 0.5s linear dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${navbarOpen ? "top-full opacity-100 right-0" : "top-[120%] opacity-0 right-[-250px]"}`}>
+                <nav id="navbarCollapse" className={` fixed navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-dark py-4 px-6 duration-300 ease-out transition: transform 0.5s linear dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${navbarOpen ? "top-full opacity-100 right-0" : "top-[120%] opacity-0 right-[-250px]"}`}>
                   <ul className="block lg:flex lg:space-x-12 top-0 left-0 h-full bg-gray-900 transform -skew-x-12 text-white">
                     <li className="group relative">
-                      <Link href="." className={` nav ml-3 flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
+                      <Link href="." className={` nav hover ml-3 flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
                         Programs
+                        <span className="my-1 ml-2 text-white text-bold" >
+                        <FaChevronDown className="arr" />
+                        </span>
+                        
                       </Link>
                     </li>
                     <li>
-                      <Link href="" className={`nav flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
+                      <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
                         Research
+                        <span className="my-1 ml-2 text-white">
+                        <FaChevronDown className={showModel?"drop":"" } />
+                        </span>
                       </Link>
                     </li>
                     <li>
-                      <Link href="" className={`nav flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={() => setShowModel(true)}>
+                      <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
                         News
+                        <span className={"my-1 ml-2 text-white" } >
+                        <FaChevronDown />
+                        </span>
                       </Link>
                     </li>
                     <li>
-                      <Link href="" className={`nav flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={() => setShowModel(true)}>
+                      <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
                         Campus
+                        <span className="my-1 ml-2 text-white">
+                        <FaChevronDown className={showModel?"drop":"" } />
+                        </span>
                       </Link>
                     </li>
                     <li>
-                      <Link href="" className={`nav flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={() => setShowModel(true)}>
+                      <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
                         Partner With Us
+                        <span className="my-1 ml-2 text-white">
+                        <FaChevronDown className={showModel?"drop":"" } />
+                        </span>
                       </Link>
                     </li>
                     <div className=" bg- flex items-center justify-end pr-16 lg:pr-0">
@@ -168,18 +207,7 @@ const [isOpen, setIsOpen] = useState(false);
           </div>
           <Model isvisible={showModel} onClose={() => setShowModel(false)}>
             <>
-              <div id="programs" className="container-fluid bg black">
-
-                  <div className="col-5 bg-primary text-white">
-                        hello pro
-                  </div>
-
-
-              </div>
-              <div id="research"></div>
-              <div id= "News"></div>
-              <div id ="campus"></div>
-              <div id="partner"></div>
+             
             </>
           </Model>
         </div>
