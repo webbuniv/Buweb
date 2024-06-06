@@ -22,7 +22,6 @@ import RTL from "./layouts/rtl";
 import Profile from "./layouts/profile";
 import SignIn from "./layouts/authentication/sign-in";
 import SignUp from "./layouts/authentication/sign-up";
-// import Slides from "./layouts/slides";
 import Shop from "./examples/Icons/Shop";
 import Office from "./examples/Icons/Office";
 import Settings from "./examples/Icons/Settings";
@@ -48,7 +47,6 @@ export default function App() {
   const { pathname } = useLocation();
   const isAuth = useSelector((state) => state.token);
 
-
   // Cache for the rtl
   useMemo(() => {
     const cacheRtl = createCache({
@@ -58,12 +56,14 @@ export default function App() {
 
     setRtlCache(cacheRtl);
   }, []);
+
   const handleOnMouseEnter = () => {
     if (miniSidenav && !onMouseEnter) {
       setMiniSidenav(dispatch, false);
       setOnMouseEnter(true);
     }
   };
+
   const handleOnMouseLeave = () => {
     if (onMouseEnter) {
       setMiniSidenav(dispatch, true);
@@ -72,27 +72,15 @@ export default function App() {
   };
 
   const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
+
   useEffect(() => {
     document.body.setAttribute("dir", direction);
   }, [direction]);
+
   useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
   }, [pathname]);
-  const dname = "Dashboard";
-
-  // const getRoutes = (allRoutes) =>
-  //   allRoutes.map((route) => {
-  //     if (route.collapse) {
-  //       return getRoutes(route.collapse);
-  //     }
-
-  //     if (route.route) {
-  //       return <Route exact path={route.route} element={route.component} key={route.key} />;
-  //     }
-
-  //     return null;
-  //   });
 
   const configsButton = (
     <SoftBox
@@ -118,9 +106,10 @@ export default function App() {
     </SoftBox>
   );
 
-  return  (
+  return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      {isAuth && (
         <>
           <Sidenav
             color={sidenavColor}
@@ -133,46 +122,37 @@ export default function App() {
           <Configurator />
           {configsButton}
         </>
+      )}
       {layout === "vr" && <Configurator />}
       <Routes>
-          
-          <Route path="/" element={<SignIn />} />
-          <Route
-            path="/dashboard" 
-            element={isAuth ? <Dashboard/> : <Navigate to="/"/>}
-          />
-          <Route
-            path="/tables" 
-            element={isAuth ? <Tables /> : <Navigate to="/"/>}
-          />
-          <Route
-            path="/billing" 
-            element={isAuth ? <Billing /> : <Navigate to="/"/>}
-          />
-          <Route
-            path="/virtual-reality" 
-            element={isAuth ? <VirtualReality /> : <Navigate to="/"/>}
-          />
-          <Route
-            exact
-            path="/rtl" 
-            element={isAuth ? <RTL /> : <Navigate to="/"/>}
-          />
-          <Route
-            path="/profile" 
-            element={isAuth ? <Profile /> : <Navigate to="/"/>}
-          />
-          <Route
-            exact
-            path="/sign-in" 
-            element={<SignIn />}
-          />
-          <Route
-            path="/sign-up" 
-            element={<SignUp />}
-          />
-          
-        </Routes>
+        <Route path="/" element={<SignIn />} />
+        <Route
+          path="/dashboard"
+          element={isAuth ? <Dashboard /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/tables"
+          element={isAuth ? <Tables /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/billing"
+          element={isAuth ? <Billing /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/virtual-reality"
+          element={isAuth ? <VirtualReality /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/rtl"
+          element={isAuth ? <RTL /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/profile"
+          element={isAuth ? <Profile /> : <Navigate to="/" />}
+        />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+      </Routes>
     </ThemeProvider>
   );
 }
