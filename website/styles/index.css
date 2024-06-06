@@ -58,3 +58,7 @@
     @apply opacity-100;
   }
 }
+.active{
+      color:gold;
+      border-bottom: 5px solid gold;
+}
