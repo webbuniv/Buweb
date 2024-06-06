@@ -25,7 +25,6 @@ import SoftTypography from "../../components/SoftTypography";
 import DashboardLayout from "../../examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "../../examples/Navbars/DashboardNavbar";
 import Footer from "../../examples/Footer";
-import FlexBetween from "../../components/FlexBetween";
 
 const Tables = () => {
   const [slides, setSlides] = useState([]);
