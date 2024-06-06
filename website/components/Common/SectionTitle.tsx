@@ -8,15 +8,15 @@ const SectionTitle = ({
   paragraph: string;
   title: string;
   width?: string;
-  // center?: boolean;
+  center?: boolean;
   mb?: string;
-}) => {
+}) => { 
   return (
     <>
       <div
         className={`wow fadeInUp w-full ${"mx-auto text-center" }`}
         data-wow-delay=".1s"
-        style={{ maxWidth: width, marginBottom: mb }}
+        style={{ maxWidth: width, marginBottom: mb}}
       >
         <p className="text-base !leading-relaxed text-body-color md:text-lg">
           {paragraph}
