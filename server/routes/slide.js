@@ -11,7 +11,7 @@ const router = express.Router();
 
 /* Slide */
 router.get("/", verifyToken, getAllSlides);
-router.patch("/:id/update", verifyToken, updateSlideById)
+router.patch("/:id/update", verifyToken, upload.single("photo"), cloudinaryController.uploadImage, updateSlideById)
 router.post("/create", upload.single("photo"), cloudinaryController.uploadImage, createSlide);
 router.delete("/:id/delete", verifyToken, deleteSlideById)
 

@@ -3,7 +3,6 @@ import axios from "axios";
 import Card from "@mui/material/Card";
 import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
-import * as Yup from "yup";
 import {
   Typography,
   CircularProgress,
@@ -19,12 +18,28 @@ import {
 } from "@mui/material";
 import Dropzone from "react-dropzone";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
-
 import SoftBox from "../../components/SoftBox";
 import SoftTypography from "../../components/SoftTypography";
 import DashboardLayout from "../../examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "../../examples/Navbars/DashboardNavbar";
 import Footer from "../../examples/Footer";
+import { useSelector } from "react-redux";
+import { makeStyles } from "@material-ui/styles";
+
+const useStyles = makeStyles({
+  table: {
+    minWidth: 550,
+  },
+  image: {
+    maxWidth: '100px',
+    maxHeight: '50px',
+  },
+  headerCell: {
+    fontWeight: "bold",
+    padding: "20px",
+    // Add any other styles you want
+  },
+});
 
 const Tables = () => {
   const [slides, setSlides] = useState([]);
@@ -34,7 +49,8 @@ const Tables = () => {
   const [showEditSlideModal, setShowEditSlideModal] = useState(false);
   const [isCreating, setIsCreating] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
-  // const { palette } = useTheme();
+  const token = useSelector((state) => state.token);
+
   const [createFormFields, setCreateFormFields] = useState({
     photo: "",
     title: "",
@@ -50,7 +66,11 @@ const Tables = () => {
   const fetchSlides = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("https://buweb.onrender.com/slide");
+      const response = await axios.get("https://buweb.onrender.com/slide",{
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      });
       setSlides(response.data);
     } catch (error) {
       setError(error.message);
@@ -77,7 +97,7 @@ const Tables = () => {
           "Content-Type": "multipart/form-data"
         }
       });
-      if (response.ok) {
+      if (response.status === 200) {  // Use response.status instead of response.ok
         fetchSlides();
         setShowNewSlideModal(false);
         setCreateFormFields({ photo: "", title: "", tagline: "" });
@@ -93,28 +113,34 @@ const Tables = () => {
   };
 
   const handleUpdateSlide = async (e) => {
-    e.preventDefault();
-    setIsUpdating(true);
-    try {
-      const formData = new FormData();
+  e.preventDefault();
+  setIsUpdating(true);
+  try {
+    const formData = new FormData();
+    if (editFormFields.photo) {
       formData.append("photo", editFormFields.photo);
-      formData.append("title", editFormFields.title);
-      formData.append("tagline", editFormFields.tagline);
-
-      await axios.patch(`https://buweb.onrender.com/slide/${editFormFields._id}/update`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      });
-      fetchSlides();
-      setShowEditSlideModal(false);
-      setEditFormFields({ _id: "", photo: "", title: "", tagline: "" });
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setIsUpdating(false);
     }
-  };
+    formData.append("title", editFormFields.title);
+    formData.append("tagline", editFormFields.tagline);
+
+    await axios.patch(`https://buweb.onrender.com/slide/${editFormFields._id}/update`, formData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "multipart/form-data"
+      }
+    });
+    fetchSlides();
+    setShowEditSlideModal(false);
+    setEditFormFields({ _id: "", photo: "", title: "", tagline: "" });
+  } catch (error) {
+    setError(error.message);
+  } finally {
+    setIsUpdating(false);
+    fetchSlides();
+    setShowEditSlideModal(false);
+  }
+};
+
 
   const handleEditSlide = (slide) => {
     setEditFormFields({
@@ -135,13 +161,16 @@ const Tables = () => {
     }
   };
 
+  const classes = useStyles();
+
   const columns = [
-    { name: "photo", align: "left" },
-    { name: "title", align: "left" },
-    { name: "tagline", align: "left" },
+    { name: 'photo',  label: 'Photo' },
+    { name: 'title', label: 'Title' },
+    { name: 'tagline', label: 'Tagline' },
     {
-      name: "actions",
-      align: "center",
+      name: 'actions',
+      align: 'center',
+      label: 'Actions',
       render: (slide) => (
         <div>
           <Button variant="contained" color="primary" onClick={() => handleEditSlide(slide)} style={{ marginRight: '8px' }}>
@@ -171,22 +200,27 @@ const Tables = () => {
             {error && <div>Error: {error}</div>}
             {!loading && !error && (
               <TableContainer component={Paper}>
-                <Table>
-                  <TableHead>
-                    <TableRow>
-                      {columns.map((column) => (
-                        <TableCell key={column.name} align={column.align}>
-                          {column.name.toUpperCase()}
-                        </TableCell>
-                      ))}
-                    </TableRow>
-                  </TableHead>
+                <Table sx={{ minWidth: 650 }} aria-label="simple table">
                   <TableBody>
+                  {columns.map((column) => (
+                      <TableCell
+                        key={column.name}
+                        align={column.align}
+                        className={classes.headerCell} 
+                      >
+                        {column.label.toUpperCase()}
+                      </TableCell>
+                      ))}
                     {slides.map((slide) => (
                       <TableRow key={slide._id}>
                         {columns.map((column) => (
-                          <TableCell key={column.name} align={column.align}>
-                            {column.render ? column.render(slide) : slide[column.name]}
+                          <TableCell key={column.name} align={column.align} component="th" scope="row">
+                            {column.render
+                              ? column.render(slide)
+                              : (column.name === 'photo'
+                                ? <img src={slide[column.name]} alt="Photo" className={classes.image} />
+                                : slide[column.name]
+                              )}
                           </TableCell>
                         ))}
                       </TableRow>
@@ -197,11 +231,11 @@ const Tables = () => {
             )}
           </Card>
         </SoftBox>
+
         {/* Create new slide modal */}
         <Modal
           open={showNewSlideModal}
           onClose={() => setShowNewSlideModal(false)}
-          
         >
           <Box
             p={3}
@@ -244,8 +278,7 @@ const Tables = () => {
                         style={{
                           border: "2px dashed",
                           padding: "1rem",
-                          cursor: "pointer",
-                          "&:hover": { backgroundColor: "#333" }
+                          cursor: "pointer"
                         }}
                       >
                         <input {...getInputProps()} />
@@ -307,12 +340,9 @@ const Tables = () => {
         </Modal>
 
         {/* Edit slide modal */}
-        {/* <Modal
+        <Modal
           open={showEditSlideModal}
           onClose={() => setShowEditSlideModal(false)}
-          BackdropProps={{
-            style: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
-          }}
         >
           <Box
             p={3}
@@ -356,10 +386,10 @@ const Tables = () => {
                         {!editFormFields.photo ? (
                           <p>Add Picture Here</p>
                         ) : (
-                          <FlexBetween>
+                          <div>
                             <Typography>{editFormFields.photo.name}</Typography>
                             <EditOutlinedIcon />
-                          </FlexBetween>
+                          </div>
                         )}
                       </Box>
                     )}
@@ -408,7 +438,7 @@ const Tables = () => {
               </Box>
             </form>
           </Box>
-        </Modal> */}
+        </Modal>
       </SoftBox>
       <Footer />
     </DashboardLayout>
