@@ -136,7 +136,7 @@ const Hero = () => {
                 </motion.h1>
 
                 {/* Subtitle */}
-                <motion.h2 className="dream capitalize text-black/70 md:text-black/80 text-2xl dark:font-bold leading-tight dark:text-gray-700 sm:text-xl sm:leading-tight md:text-3xl md:leading-tight" 
+                <motion.h2 className="dream capitalize text-black/70 dark:text-white/40 md:text-black/80 text-2xl dark:font-bold leading-tight dark:text-gray-700 sm:text-xl sm:leading-tight md:text-3xl md:leading-tight" 
                 variants={textVariants}>
                   Make your <br className="md:hidden"/>dreams come true
                 </motion.h2>
