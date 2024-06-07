@@ -60,5 +60,141 @@
 }
 .active{
       color:gold;
-      border-bottom: 5px solid gold;
+      border-bottom: 2px solid gold;
 }
+.hover{
+      transition: background-color 0.5s, color 2s,border-top 0.5s;
+}
+.hover:hover{
+      color: gold;
+      /* border-radius: 5%; */
+      /* border-bottom: 2px solid white; */
+      /* border-top: 2px solid white; */
+      text-decoration:underline;
+}
+.drop{
+      transform: rotate(180deg);
+      transition: 0.7s ease-in-out;
+}
+
+/* INSIDE THE NAV BAR*/
+
+/* slanting divs */
+.vertical-line {
+      border-right: 1px solid #5e5959; /* Adjust width, color as needed */
+      height: 350px; /* Adjust height as needed */
+    }
+.vertical-line-right {
+border-left: 1px solid #5e5959; /* Adjust width, color as needed */
+height: 400px; /* Adjust height as needed */
+}
+
+.slant-div-right{
+      position: relative;
+      overflow: hidden;
+      transform: skewX(10deg);
+      transform-origin: bottom right;
+}
+
+/* slanting divs */
+.animated {
+      transition: color 0.3s,transform 0.3s;
+}    
+.animated:hover {
+      transform: translateX(4px);
+      color: rgb(29, 40, 89);
+}
+      
+.float{
+      float:right;
+      margin-left: 90%;
+}   
+.schools{
+      transition: color 0.3s,transform 0.5s;
+}
+.schools:hover{
+      color: rgb(0, 31, 205);
+      transform: translateX(3px);
+      
+}
+.current{
+      color: rgb(29, 40, 89);
+}
+
+@keyframes slide-in {
+      from{
+            transform: translateX(-100px);
+      }
+      to{
+            transform: translateX(0)
+      }
+      
+}
+@keyframes slide-in-right {
+      from{
+            transform: translateX(300px);
+      }
+      to{
+            transform: translateX(0)
+      }
+}
+.slider-right{
+      animation-name: slide-in-right;
+      animation-timing-function: ease-in-out;
+      animation-delay: .2s;
+}
+.slider{
+      animation-name: slide-in;
+      animation-timing-function: ease-in-out;
+      animation-delay: .2s;
+}
+/*fast and slow  classes left*/
+.slide{
+      animation-duration: 1s;
+}
+.slide--fast{
+      animation-duration: 1s;
+}
+.slide--slow{
+      animation-duration: 1.5s;
+}
+.slide--slower{
+      animation-duration: 2s;
+}
+.slide--slowest{
+      animation-duration: 2.5s;
+}
+/* BIG BLUE DIVS */
+.change-on-hover{
+      transition: background-color 0.5s;
+      overflow-x: hidden;
+      
+}
+.change-on-hover:hover{
+      background-color: rgb(41, 31, 84);
+      overflow-x: hidden;
+}
+.change-on-hover:hover .arrow1{
+      transform: translateX(125px);
+      overflow-x: hidden;
+}
+.change-on-hover:hover .arrow2{
+      transform: translateX(125px);
+      overflow-x: hidden;
+}
+.change-on-hover:hover .arrow3{
+      transform: translateX(125px);
+      overflow-x: hidden;
+}
+.arrow1{
+     transition: transform 0.5s;
+     overflow-x: hidden;
+}
+.arrow2{
+      transition: transform 0.5s;
+      overflow-x: hidden;
+ }
+ .arrow3{
+      transition: transform 0.5s;
+      overflow-x: hidden;
+ }
