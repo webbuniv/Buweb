@@ -74,25 +74,33 @@ const touch = ()=>{
                   </div>    
                   <div id="programs">
 
-                  <div className="vertical-line ml-20 my-24 fade-in "> 
-                        <div className="mr-2 my-5 slider slide--fast">
-                              
-                              <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '   onClick={main}> <span id='main' className='animated href=""'>Courses</span></h1> 
-                        </div>
-                        <div className="mr-2 my-5  slider slide--slow ">
-                              <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={payments}><span id='payments' className='animated'>Fees and Payments</span></h1> 
-                        </div>
-                        <div className="mr-2 my-5  slider slide--slower">
-                              <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '><span className='animated'> Why Bugema University </span></h1> 
-                        </div>
-                        <div className="mr-2 my-5 slider slide--slowest ">
-                              <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '> <span className='animated'> Get in Touch </span></h1> 
-                        </div>
+                        <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'40%'}}> 
+                              <div className="mr-2 my-5 slider slide--fast">
+                                    
+                                    <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '   onClick={main}> <span id='main' className='animated href=""'>Courses</span></h1> 
+                              </div>
+                              <div className="mr-2 my-5  slider slide--slow ">
+                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={payments}><span id='payments' className='animated'>Fees and Payments</span></h1> 
+                              </div>
+                              <div className="mr-2 my-5  slider slide--slower">
+                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '><span className='animated'> Why Bugema University </span></h1> 
+                              </div>
+                              <div className="mr-2 my-5 slider slide--slowest ">
+                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '> <span className='animated'> Get in Touch </span></h1> 
+                              </div>
+
+                              <div className="ml-4 mr-2 my-14 slant-div-right text-white grid-rows-2"style={{marginTop:'45%',width:'150%',height:'40%'}}>
+                                    <div className='columns-1 bg-black slider slide--fast'>
+                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"150px"}}> Masters of Science in Information</h1>
+                                    </div>
+
+                                    
+                              </div> 
                         
-                  </div>
+                        </div>
                   
                   </div>
-                  <div className=" ml-6 my-24 fade-in " id='courses'> 
+                  <div className=" ml-12 my-24 fade-in " id='courses' style={{marginTop:'12%'}}> 
                         <ul>
                               <li>
                               <div className="mr-2 my-5 slider slide--slow ">
@@ -147,8 +155,8 @@ const touch = ()=>{
                         
                   </div>
                               {/* FEES AND PAYMENTS */}
-                  <div className=" fade-in ml-14 my-24 hidden " id='fees'> 
-                        <ul>
+                  <div className=" fade-in ml-24 my-24 hidden " id='fees'> 
+                        <ul className='ml-10 my-20'>
                               <li>
                               <div className="mr-2 my-5 ">
                               
@@ -190,7 +198,7 @@ const touch = ()=>{
                         
                   </div>
 
-                  <div className=' ml-20 vertical-line my-24 transform -skew-x-12 '>
+                  <div className=' ml-20 vertical-line  transform -skew-x-12 'style={{marginTop:'12%'}}>
                   </div>
                   {/* SCIENCE AND TECHNOLOGY COURSES */}
                   <div className='ml-10  my-24 transform -skew-x-12'  id='IT'>
@@ -215,15 +223,24 @@ const touch = ()=>{
                         
                         
                         
-                        <div className="ml-12 my-5 transform -skew-x-11 text-white grid-rows-2">
-                              <div className='columns-1 bg-black'>
+                        <div className="ml-12 my-5 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'20%'}}>
+                              <div className='columns-1 bg-black slider-right slide--slow'>
                               <h1  style={{fontSize: '19px',cursor:"pointer",height:"100px"}}> Masters of Science in Information</h1>
                               </div>
-
-                              <div className='columns-1'>
-                                    <Image src={image} alt='img' width={200} height={200} className="ml-12 my-10 "/>
-                              </div> 
                         </div> 
+                        <div className=' ml-24 fade-in '>
+                                    <Image src={image} alt='img' width={350} height={500} className="ml-12 my-10 slider slide--fast"/>
+                        </div>
+                        <div className="ml-12 my-5 transform -skew-x-11 text-white grid-rows-2 " >
+                              <div className='columns-1 bg-black '>
+                              <h1  style={{fontSize: '19px',cursor:"pointer",height:"100px"}}> Masters of Science in Information</h1>
+                              </div>
+                        </div>  
+                        <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
+                              <div className='columns-1 bg-black slider slide--slow'>
+                              <h1  style={{fontSize: '19px',cursor:"pointer",height:"100px"}}> Masters of Science in Information</h1>
+                              </div>
+                        </div>  
                   </div>
                   
             </div>
