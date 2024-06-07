@@ -8,7 +8,7 @@ import {
   updateEventById,
   getEventById,
 } from '../controllers/events.js';
-import { uploadImage } from '../controllers/cloudinary.js';
+import { cloudinaryController } from '../controllers/cloudinary.js';
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
@@ -17,9 +17,9 @@ const router = express.Router();
 
 /* Event Routes */
 router.get("/", verifyToken, getAllEvents);
-router.post("/create", verifyToken, upload.single("coverPhotoUrl"), uploadImage, createEvent);
+router.post("/create", verifyToken, upload.single("coverPhotoUrl"), cloudinaryController.uploadImage, createEvent);
 router.get("/:id", verifyToken, getEventById);
-router.patch("/:id/update", verifyToken, upload.single("coverPhotoUrl"), uploadImage, updateEventById);
+router.patch("/:id/update", verifyToken, upload.single("coverPhotoUrl"), cloudinaryController.uploadImage, updateEventById);
 router.delete("/:id/delete", verifyToken, deleteEventById);
 
 export default router;
