@@ -3,16 +3,22 @@ import { cloudinaryController } from './cloudinary.js';
 
 export const createNews = async (req, res) => {
   try {
-    const { title, category, content, date } = req.body;
-    let photo = '';
+    const { 
+      title, 
+      category, 
+      content, 
+      date 
+    } = req.body;
+    const photo = req.picturePath; 
 
-    if (req.file) {
-      await cloudinaryController.uploadImage(req, res, async () => {
-        photo = req.picturePath;
-      });
-    }
 
-    const newNews = new News({ title, category, content, photo, date });
+    const newNews = new News({ 
+      title, 
+      category, 
+      content, 
+      photo, 
+      date 
+    });
     const savedNews = await newNews.save();
     res.status(201).json(savedNews);
   } catch (error) {
@@ -44,21 +50,21 @@ export const getNewsById = async (req, res) => {
 
 export const updateNewsById = async (req, res) => {
   try {
-    const { title, category, content, date } = req.body;
-    let photo = ''; // Initialize photo variable
+    let news = await News.findById(req.params.id);
 
-    // Check if there is a file attached
-    if (req.file) {
-      // If file is present, upload it to Cloudinary
-      await cloudinaryController.uploadImage(req, res, async () => {
-        // If upload is successful, get the image URL
-        photo = req.picturePath;
-      });
+    if (!news) {
+      return res.status(404).json({ message: "Slide not found" });
     }
+
+    const data = {
+      title: req.body.title || news.title,
+      tagline: req.body.tagline || news.tagline,
+      photo: req.picturePath || news.photo 
+    };
 
     const updatedNews = await News.findByIdAndUpdate(
       req.params.id,
-      { title, category, content, photo, date },
+      data,
       { new: true }
     );
     res.status(200).json(updatedNews);
@@ -66,6 +72,8 @@ export const updateNewsById = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+
 
 export const deleteNewsById = async (req, res) => {
   try {

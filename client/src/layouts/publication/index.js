@@ -41,7 +41,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Tables = () => {
+const Publication = () => {
   const [slides, setSlides] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -450,4 +450,4 @@ const Tables = () => {
   );
 };
 
-export default Tables;
+export default Publication;
