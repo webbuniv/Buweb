@@ -22,6 +22,9 @@ import RTL from "./layouts/rtl";
 import Profile from "./layouts/profile";
 import SignIn from "./layouts/authentication/sign-in";
 import SignUp from "./layouts/authentication/sign-up";
+import Events from "./layouts/events";
+import News from "./layouts/news";
+import Publication from "./layouts/publication";
 
 import routes from "./routes";
 
@@ -117,7 +120,7 @@ export default function App() {
       )}
       {layout === "vr" && <Configurator />}
       <Routes>
-        <Route path="/" element={<SignIn />} />
+        {/* <Route path="/" element={<SignIn />} /> */}
         <Route
           path="/dashboard"
           element={isAuth ? <Dashboard /> : <Navigate to="/" />}
@@ -131,12 +134,16 @@ export default function App() {
           element={isAuth ? <Billing /> : <Navigate to="/" />}
         />
         <Route
-          path="/virtual-reality"
-          element={isAuth ? <VirtualReality /> : <Navigate to="/" />}
+          path="/news"
+          element={isAuth ? <News /> : <Navigate to="/" />}
         />
         <Route
-          path="/rtl"
-          element={isAuth ? <RTL /> : <Navigate to="/" />}
+          path="/events"
+          element={isAuth ? <Events /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/publication"
+          element={isAuth ? <Publication /> : <Navigate to="/" />}
         />
         <Route
           path="/profile"

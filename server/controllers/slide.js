@@ -1,5 +1,4 @@
 import Slide from '../models/Slide.js'; 
-import { cloudinaryController } from './cloudinary.js'; 
 
 export const createSlide = async (req, res) => {
   try {
@@ -7,7 +6,7 @@ export const createSlide = async (req, res) => {
       title, 
       tagline 
     } = req.body;
-    const photo = req.picturePath; // Get the photo URL from the request
+    const photo = req.picturePath; 
 
     const newSlide = new Slide({
       photo,
@@ -49,28 +48,26 @@ export const getSlideById = async (req, res) => {
 
 export const updateSlideById = async (req, res) => {
   try {
-    let user = await Slide.findById(req.params.id);
-    const { title, tagline } = req.body;
-    const photo = req.picturePath;
+    let slide = await Slide.findById(req.params.id);
+
+    if (!slide) {
+      return res.status(404).json({ message: "Slide not found" });
+    }
 
     const data = {
-      photo: req.body.name || user.name,
-      title: req.body.title || user.title,
-      tagline: req.body.tagline || user.tagline,
+      title: req.body.title || slide.title,
+      tagline: req.body.tagline || slide.tagline,
+      photo: req.picturePath || slide.photo 
     };
 
-    const updatedSlide = await Slide.findByIdAndUpdate(
-      req.params.id,
-      { photo, title, tagline },
-      { new: true }
-    );
+    const updatedSlide = await Slide.findByIdAndUpdate(req.params.id, data, { new: true });
+
     res.status(200).json(updatedSlide);
   } catch (error) {
     console.error("Error updating slide by ID:", error);
     res.status(500).json({ message: error.message });
   }
 };
-
 
 export const deleteSlideById = async (req, res) => {
   try {
