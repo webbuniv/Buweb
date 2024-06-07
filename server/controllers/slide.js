@@ -3,20 +3,14 @@ import { cloudinaryController } from './cloudinary.js';
 
 export const createSlide = async (req, res) => {
   try {
-    const { photo, title, tagline } = req.body;
-    let photoUrl = ''; // Initialize photoUrl variable
-
-    // Check if there is a file attached for photo
-    if (req.file) {
-      // If file is present, upload it to Cloudinary
-      await cloudinaryController.uploadImage(req, res, async () => {
-        // If upload is successful, get the photo URL
-        photoUrl = req.picturePath;
-      });
-    }
+    const { 
+      title, 
+      tagline 
+    } = req.body;
+    const photo = req.picturePath; // Get the photo URL from the request
 
     const newSlide = new Slide({
-      photo: photoUrl,
+      photo,
       title,
       tagline
     });
@@ -55,21 +49,19 @@ export const getSlideById = async (req, res) => {
 
 export const updateSlideById = async (req, res) => {
   try {
-    const { photo, title, tagline } = req.body;
-    let photoUrl = ''; // Initialize photoUrl variable
+    let user = await Slide.findById(req.params.id);
+    const { title, tagline } = req.body;
+    const photo = req.picturePath;
 
-    // Check if there is a file attached for photo
-    if (req.file) {
-      // If file is present, upload it to Cloudinary
-      await cloudinaryController.uploadImage(req, res, async () => {
-        // If upload is successful, get the photo URL
-        photoUrl = req.picturePath;
-      });
-    }
+    const data = {
+      photo: req.body.name || user.name,
+      title: req.body.title || user.title,
+      tagline: req.body.tagline || user.tagline,
+    };
 
     const updatedSlide = await Slide.findByIdAndUpdate(
       req.params.id,
-      { photo: photoUrl, title, tagline },
+      { photo, title, tagline },
       { new: true }
     );
     res.status(200).json(updatedSlide);
@@ -78,6 +70,7 @@ export const updateSlideById = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
 
 export const deleteSlideById = async (req, res) => {
   try {
