@@ -78,14 +78,25 @@
 }
 
 /* INSIDE THE NAV BAR*/
+
+/* slanting divs */
 .vertical-line {
       border-right: 1px solid #5e5959; /* Adjust width, color as needed */
-      height: 400px; /* Adjust height as needed */
+      height: 350px; /* Adjust height as needed */
     }
 .vertical-line-right {
 border-left: 1px solid #5e5959; /* Adjust width, color as needed */
 height: 400px; /* Adjust height as needed */
 }
+
+.slant-div-right{
+      position: relative;
+      overflow: hidden;
+      transform: skewX(10deg);
+      transform-origin: bottom right;
+}
+
+/* slanting divs */
 .animated {
       transition: color 0.3s,transform 0.3s;
 }    
@@ -112,18 +123,32 @@ height: 400px; /* Adjust height as needed */
 
 @keyframes slide-in {
       from{
-            transform: translateX(-300px);
+            transform: translateX(-100px);
       }
       to{
             transform: translateX(0)
       }
+      
+}
+@keyframes slide-in-right {
+      from{
+            transform: translateX(300px);
+      }
+      to{
+            transform: translateX(0)
+      }
+}
+.slider-right{
+      animation-name: slide-in-right;
+      animation-timing-function: ease-in-out;
+      animation-delay: .2s;
 }
 .slider{
       animation-name: slide-in;
       animation-timing-function: ease-in-out;
       animation-delay: .2s;
 }
-/*fast and slow  classes*/
+/*fast and slow  classes left*/
 .slide{
       animation-duration: 1s;
 }
@@ -139,3 +164,37 @@ height: 400px; /* Adjust height as needed */
 .slide--slowest{
       animation-duration: 2.5s;
 }
+/* BIG BLUE DIVS */
+.change-on-hover{
+      transition: background-color 0.5s;
+      overflow-x: hidden;
+      
+}
+.change-on-hover:hover{
+      background-color: rgb(41, 31, 84);
+      overflow-x: hidden;
+}
+.change-on-hover:hover .arrow1{
+      transform: translateX(125px);
+      overflow-x: hidden;
+}
+.change-on-hover:hover .arrow2{
+      transform: translateX(125px);
+      overflow-x: hidden;
+}
+.change-on-hover:hover .arrow3{
+      transform: translateX(125px);
+      overflow-x: hidden;
+}
+.arrow1{
+     transition: transform 0.5s;
+     overflow-x: hidden;
+}
+.arrow2{
+      transition: transform 0.5s;
+      overflow-x: hidden;
+ }
+ .arrow3{
+      transition: transform 0.5s;
+      overflow-x: hidden;
+ }
