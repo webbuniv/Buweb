@@ -11,15 +11,15 @@ export const createPublication = async (req, res) => {
       description 
     } = req.body;
 
-    const writersPhotoUrl = req.files['writersPhoto'] ? req.files['writersPhoto'][0].url : null;
-    const coverPhotoUrl = req.files['coverPhoto'] ? req.files['coverPhoto'][0].url : null;
+    const writersPhotoUrl = req.picturePath['writersPhoto'];
+    const coverPhotoUrl = req.picturePath['coverPhoto'];
 
     const newPublication = new Publication({
       firstName,
       lastName,
       email,
       title,
-      tags: tags.split(','), // assuming tags are sent as a comma-separated string
+      tags: tags.split(','), 
       writersPhotoUrl,
       coverPhotoUrl,
       description,
@@ -71,8 +71,8 @@ export const updatePublicationById = async (req, res) => {
       email: req.body.email || publication.email,
       title: req.body.title || publication.title,
       tags: req.body.tags ? req.body.tags.split(',') : publication.tags,
-      writersPhotoUrl: req.files['writersPhoto'] ? req.files['writersPhoto'][0].url : publication.writersPhotoUrl,
-      coverPhotoUrl: req.files['coverPhoto'] ? req.files['coverPhoto'][0].url : publication.coverPhotoUrl,
+      writersPhotoUrl: req.picturePath['writersPhoto'] || publication.writersPhotoUrl,
+      coverPhotoUrl: req.picturePath['coverPhoto'] || publication.coverPhotoUrl,
       description: req.body.description || publication.description,
       lastModified: Date.now(),
     };

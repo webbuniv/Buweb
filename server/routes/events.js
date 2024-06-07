@@ -19,7 +19,7 @@ const router = express.Router();
 router.get("/", verifyToken, getAllEvents);
 router.post("/create", verifyToken, upload.single("coverPhotoUrl"), uploadImage, createEvent);
 router.get("/:id", verifyToken, getEventById);
-router.patch("/:id/update", verifyToken, upload.single("coverPhoto"), uploadImage, updateEventById);
+router.patch("/:id/update", verifyToken, upload.single("coverPhotoUrl"), uploadImage, updateEventById);
 router.delete("/:id/delete", verifyToken, deleteEventById);
 
 export default router;
