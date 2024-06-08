@@ -58,7 +58,7 @@ export const updateEventById = async (req, res) => {
       description: req.body.description || event.description,
       date: req.body.date || event.date,
       location: req.body.location || event.location,
-      coverPhotoUrl: req.files['coverPhoto'] ? req.files['coverPhoto'][0].url : event.coverPhotoUrl,
+      coverPhotoUrl: req.picturePath || event.coverPhotoUrlUrl,
     };
 
     const updatedEvent = await Event.findByIdAndUpdate(req.params.id, data, { new: true });

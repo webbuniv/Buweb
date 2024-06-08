@@ -37,16 +37,15 @@ const useStyles = makeStyles({
   headerCell: {
     fontWeight: "bold",
     padding: "20px",
-    // Add any other styles you want
   },
 });
 
 const News = () => {
-  const [slides, setSlides] = useState([]);
+  const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [showNewSlideModal, setShowNewSlideModal] = useState(false);
-  const [showEditSlideModal, setShowEditSlideModal] = useState(false);
+  const [showNewNewsModal, setShowNewNewsModal] = useState(false);
+  const [showEditNewsModal, setShowEditNewsModal] = useState(false);
   const [isCreating, setIsCreating] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
   const token = useSelector((state) => state.token);
@@ -54,24 +53,28 @@ const News = () => {
   const [createFormFields, setCreateFormFields] = useState({
     photo: "",
     title: "",
-    tagline: ""
+    category: "",
+    content: "",
+    date: "",
   });
   const [editFormFields, setEditFormFields] = useState({
     _id: "",
     photo: null,
     title: "",
-    tagline: ""
+    category: "",
+    content: "",
+    date: "",
   });
 
-  const fetchSlides = async () => {
+  const fetchNews = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("https://buweb.onrender.com/slide",{
+      const response = await axios.get("https://buweb.onrender.com/news", {
         headers: {
           Authorization: `Bearer ${token}`,
         }
       });
-      setSlides(response.data);
+      setNews(response.data);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -80,39 +83,42 @@ const News = () => {
   };
 
   useEffect(() => {
-    fetchSlides();
+    fetchNews();
   }, []);
 
-  const handleCreateSlide = async (e) => {
+  const handleCreateNews = async (e) => {
     e.preventDefault();
     setIsCreating(true);
     try {
       const formData = new FormData();
       formData.append("photo", createFormFields.photo);
       formData.append("title", createFormFields.title);
-      formData.append("tagline", createFormFields.tagline);
+      formData.append("category", createFormFields.category);
+      formData.append("content", createFormFields.content);
+      formData.append("date", createFormFields.date);
 
-      const response = await axios.post("https://buweb.onrender.com/slide/create", formData, {
+      const response = await axios.post("https://buweb.onrender.com/news/create", formData, {
         headers: {
-          "Content-Type": "multipart/form-data"
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
         }
       });
-      if (response.status === 200) {  // Use response.status instead of response.ok
-        fetchSlides();
-        setShowNewSlideModal(false);
-        setCreateFormFields({ photo: "", title: "", tagline: "" });
+      if (response.status === 201) {
+        fetchNews();
+        setShowNewNewsModal(false);
+        setCreateFormFields({ photo: "", title: "", category: "", content: "", date: "" });
       }
     } catch (error) {
       setError(error.message);
     } finally {
       setIsCreating(false);
-      setShowNewSlideModal(false);
-      setCreateFormFields({ photo: "", title: "", tagline: "" });
-      fetchSlides();
+      setShowNewNewsModal(false);
+      setCreateFormFields({ photo: "", title: "", category: "", content: "", date: "" });
+      fetchNews();
     }
   };
 
-  const handleUpdateSlide = async (e) => {
+  const handleUpdateNews = async (e) => {
     e.preventDefault();
     setIsUpdating(true);
     try {
@@ -121,46 +127,48 @@ const News = () => {
         formData.append("photo", editFormFields.photo);
       }
       formData.append("title", editFormFields.title);
-      formData.append("tagline", editFormFields.tagline);
+      formData.append("category", editFormFields.category);
+      formData.append("content", editFormFields.content);
+      formData.append("date", editFormFields.date);
   
-      await axios.patch(`https://buweb.onrender.com/slide/${editFormFields._id}/update`, formData, {
+      await axios.patch(`https://buweb.onrender.com/news/${editFormFields._id}/update`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data"
         }
       });
-      fetchSlides();
-      setShowEditSlideModal(false);
-      setEditFormFields({ _id: "", photo: "", title: "", tagline: "" });
+      fetchNews();
+      setShowEditNewsModal(false);
+      setEditFormFields({ _id: "", photo: "", title: "", category: "", content: "", date: "" });
     } catch (error) {
       setError(error.message);
     } finally {
       setIsUpdating(false);
-      fetchSlides();
-      setShowEditSlideModal(false);
+      fetchNews();
+      setShowEditNewsModal(false);
     }
   };
   
-
-
-  const handleEditSlide = (slide) => {
+  const handleEditNews = (newsItem) => {
     setEditFormFields({
-      _id: slide._id,
-      photo: slide.photo,
-      title: slide.title,
-      tagline: slide.tagline
+      _id: newsItem._id,
+      photo: newsItem.photo,
+      title: newsItem.title,
+      category: newsItem.category,
+      content: newsItem.content,
+      date: newsItem.date,
     });
-    setShowEditSlideModal(true);
+    setShowEditNewsModal(true);
   };
 
-  const handleDeleteSlide = async (id) => {
+  const handleDeleteNews = async (id) => {
     try {
-      await axios.delete(`https://buweb.onrender.com/slide/${id}/delete`, {
+      await axios.delete(`https://buweb.onrender.com/news/${id}/delete`, {
         headers: {
           Authorization: `Bearer ${token}`,
         }
       });
-      fetchSlides();
+      fetchNews();
     } catch (error) {
       setError(error.message);
     }
@@ -171,17 +179,19 @@ const News = () => {
   const columns = [
     { name: 'photo',  label: 'Photo' },
     { name: 'title', label: 'Title' },
-    { name: 'tagline', label: 'Tagline' },
+    { name: 'category', label: 'Category' },
+    { name: 'content', label: 'Content' },
+    { name: 'date', label: 'Date' },
     {
       name: 'actions',
       align: 'center',
       label: 'Actions',
-      render: (slide) => (
+      render: (newsItem) => (
         <div>
-          <Button variant="contained" color="primary" onClick={() => handleEditSlide(slide)} style={{ marginRight: '8px' }}>
+          <Button variant="contained" color="primary" onClick={() => handleEditNews(newsItem)} style={{ marginRight: '8px' }}>
             Edit
           </Button>
-          <Button variant="contained" color="secondary" onClick={() => handleDeleteSlide(slide._id)}>
+          <Button variant="contained" color="secondary" onClick={() => handleDeleteNews(newsItem._id)}>
             Delete
           </Button>
         </div>
@@ -196,35 +206,33 @@ const News = () => {
         <SoftBox mb={3}>
           <Card>
             <SoftBox display="flex" justifyContent="space-between" alignItems="center" p={3}>
-              <SoftTypography variant="h6">Slides table</SoftTypography>
-              <Button variant="contained" color="primary" onClick={() => setShowNewSlideModal(true)}>
-                Create New Slide
+              <SoftTypography variant="h6">News Table</SoftTypography>
+              <Button variant="contained" color="primary" onClick={() => setShowNewNewsModal(true)}>
+                Create New News
               </Button>
             </SoftBox>
-            {loading && <CircularProgress />}
-            {error && <div>Error: {error}</div>}
-            {!loading && !error && (
+            {loading && <CircularProgress alignItems="center"/>}
+            {/* {error && <div>Error: {error}</div>} */}
+            {!loading && (
               <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <Table className={classes.table}>
                   <TableBody>
-                  {columns.map((column) => (
-                      <TableCell
-                        key={column.name}
-                        align={column.align}
-                        className={classes.headerCell} 
-                      >
-                        {column.label.toUpperCase()}
-                      </TableCell>
+                    <TableRow>
+                      {columns.map((column) => (
+                        <TableCell key={column.name} className={classes.headerCell}>
+                          {column.label}
+                        </TableCell>
                       ))}
-                    {slides.map((slide) => (
-                      <TableRow key={slide._id}>
+                    </TableRow>
+                    {news.map((newsItem) => (
+                      <TableRow key={newsItem._id}>
                         {columns.map((column) => (
-                          <TableCell key={column.name} align={column.align} component="th" scope="row">
+                          <TableCell key={column.name}>
                             {column.render
-                              ? column.render(slide)
+                              ? column.render(newsItem)
                               : (column.name === 'photo'
-                                ? <img src={slide[column.name]} alt="Photo" className={classes.image} />
-                                : slide[column.name]
+                                ? <img src={newsItem[column.name]} alt="Photo" className={classes.image} />
+                                : newsItem[column.name]
                               )}
                           </TableCell>
                         ))}
@@ -237,10 +245,10 @@ const News = () => {
           </Card>
         </SoftBox>
 
-        {/* Create new slide modal */}
+        {/* Create new news modal */}
         <Modal
-          open={showNewSlideModal}
-          onClose={() => setShowNewSlideModal(false)}
+          open={showNewNewsModal}
+          onClose={() => setShowNewNewsModal(false)}
         >
           <Box
             p={3}
@@ -249,9 +257,10 @@ const News = () => {
             borderRadius={2}
             maxWidth="500px"
             mx="auto"
-            mt="10%"
+            mt="5%"
+            mb="5%"
           >
-            <form onSubmit={handleCreateSlide}>
+            <form onSubmit={handleCreateNews}>
               <div
                 style={{
                   display: "grid",
@@ -273,81 +282,107 @@ const News = () => {
                     onDrop={(acceptedFiles) =>
                       setCreateFormFields((prevFields) => ({
                         ...prevFields,
-                        photo: acceptedFiles[0]
+                        photo: acceptedFiles[0],
                       }))
                     }
                   >
                     {({ getRootProps, getInputProps }) => (
-                      <div
+                      <Box
                         {...getRootProps()}
-                        style={{
-                          border: "2px dashed",
-                          padding: "1rem",
-                          cursor: "pointer"
-                        }}
+                        border={`2px dashed grey`}
+                        p={2}
+                        textAlign="center"
+                        sx={{ "&:hover": { cursor: "pointer" } }}
                       >
                         <input {...getInputProps()} />
                         {!createFormFields.photo ? (
                           <p>Add Picture Here</p>
                         ) : (
-                          <div>
+                          <div style={{ display: "flex", justifyContent: "space-between" }}>
                             <Typography>{createFormFields.photo.name}</Typography>
                             <EditOutlinedIcon />
                           </div>
                         )}
-                      </div>
+                      </Box>
                     )}
                   </Dropzone>
                 </div>
+
                 <TextField
+                  fullWidth
                   label="Title"
-                  type="text"
                   value={createFormFields.title}
                   onChange={(e) =>
                     setCreateFormFields((prevFields) => ({
                       ...prevFields,
-                      title: e.target.value
+                      title: e.target.value,
                     }))
                   }
-                  style={{ gridColumn: "span 4" }}
+                  sx={{ gridColumn: "span 4" }}
                 />
+
                 <TextField
-                  label="Tagline"
-                  type="text"
-                  value={createFormFields.tagline}
+                  fullWidth
+                  label="Category"
+                  value={createFormFields.category}
                   onChange={(e) =>
                     setCreateFormFields((prevFields) => ({
                       ...prevFields,
-                      tagline: e.target.value
+                      category: e.target.value,
                     }))
                   }
-                  style={{ gridColumn: "span 4" }}
+                  sx={{ gridColumn: "span 4" }}
                 />
-              </div>
-              <div>
+
+                <TextField
+                  fullWidth
+                  label="Content"
+                  value={createFormFields.content}
+                  onChange={(e) =>
+                    setCreateFormFields((prevFields) => ({
+                      ...prevFields,
+                      content: e.target.value,
+                    }))
+                  }
+                  sx={{ gridColumn: "span 4" }}
+                />
+
+                <TextField
+                  fullWidth
+                  label="Date"
+                  type="date"
+                  value={createFormFields.date}
+                  onChange={(e) =>
+                    setCreateFormFields((prevFields) => ({
+                      ...prevFields,
+                      date: e.target.value,
+                    }))
+                  }
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  sx={{ gridColumn: "span 4" }}
+                />
+
                 <Button
                   fullWidth
                   type="submit"
-                  style={{
-                    margin: "2rem 0",
-                    padding: "1rem",
-                    backgroundColor: "#000",
-                    color: "#fff",
-                    "&:hover": { backgroundColor: "#333" }
-                  }}
+                  variant="contained"
+                  color="primary"
+                  sx={{ gridColumn: "span 4" }}
                   disabled={isCreating}
                 >
-                  {isCreating ? <CircularProgress size={24} /> : "Create Slide"}
+                  {isCreating ? "Creating..." : "Create News"}
                 </Button>
               </div>
             </form>
           </Box>
         </Modal>
 
-        {/* Edit slide modal */}
+        {/* Edit news modal */}
         <Modal
-          open={showEditSlideModal}
-          onClose={() => setShowEditSlideModal(false)}
+          open={showEditNewsModal}
+          onClose={() => setShowEditNewsModal(false)}
         >
           <Box
             p={3}
@@ -356,19 +391,24 @@ const News = () => {
             borderRadius={2}
             maxWidth="500px"
             mx="auto"
-            mt="10%"
+            mt="5%"
+            mb="5%"
           >
-            <form onSubmit={handleUpdateSlide}>
-              <Box
-                display="grid"
-                gap="30px"
-                gridTemplateColumns="repeat(4, minmax(0, 1fr))"
+            <form onSubmit={handleUpdateNews}>
+              <div
+                style={{
+                  display: "grid",
+                  gap: "30px",
+                  gridTemplateColumns: "repeat(4, minmax(0, 1fr))"
+                }}
               >
-                <Box
-                  gridColumn="span 4"
-                  border="1px solid"
-                  borderRadius="5px"
-                  p="1rem"
+                <div
+                  style={{
+                    gridColumn: "span 4",
+                    border: "1px solid",
+                    borderRadius: "5px",
+                    padding: "1rem"
+                  }}
                 >
                   <Dropzone
                     acceptedFiles=".jpg,.jpeg,.png"
@@ -376,22 +416,23 @@ const News = () => {
                     onDrop={(acceptedFiles) =>
                       setEditFormFields((prevFields) => ({
                         ...prevFields,
-                        photo: acceptedFiles[0]
+                        photo: acceptedFiles[0],
                       }))
                     }
                   >
                     {({ getRootProps, getInputProps }) => (
                       <Box
                         {...getRootProps()}
-                        border='2px dashed'
-                        p="1rem"
+                        border={`2px dashed grey`}
+                        p={2}
+                        textAlign="center"
                         sx={{ "&:hover": { cursor: "pointer" } }}
                       >
                         <input {...getInputProps()} />
                         {!editFormFields.photo ? (
                           <p>Add Picture Here</p>
                         ) : (
-                          <div>
+                          <div style={{ display: "flex", justifyContent: "space-between" }}>
                             <Typography>{editFormFields.photo.name}</Typography>
                             <EditOutlinedIcon />
                           </div>
@@ -399,48 +440,75 @@ const News = () => {
                       </Box>
                     )}
                   </Dropzone>
-                </Box>
+                </div>
+
                 <TextField
+                  fullWidth
                   label="Title"
-                  type="text"
                   value={editFormFields.title}
                   onChange={(e) =>
                     setEditFormFields((prevFields) => ({
                       ...prevFields,
-                      title: e.target.value
+                      title: e.target.value,
                     }))
                   }
-                  sx={{ gridColumn: `span 4` }}
+                  sx={{ gridColumn: "span 4" }}
                 />
+
                 <TextField
-                  label="Tagline"
-                  type="text"
-                  value={editFormFields.tagline}
+                  fullWidth
+                  label="Category"
+                  value={editFormFields.category}
                   onChange={(e) =>
                     setEditFormFields((prevFields) => ({
                       ...prevFields,
-                      tagline: e.target.value
+                      category: e.target.value,
                     }))
                   }
-                  sx={{ gridColumn: `span 4` }}
+                  sx={{ gridColumn: "span 4" }}
                 />
-              </Box>
-              <Box>
+
+                <TextField
+                  fullWidth
+                  label="Content"
+                  value={editFormFields.content}
+                  onChange={(e) =>
+                    setEditFormFields((prevFields) => ({
+                      ...prevFields,
+                      content: e.target.value,
+                    }))
+                  }
+                  sx={{ gridColumn: "span 4" }}
+                />
+
+                <TextField
+                  fullWidth
+                  label="Date"
+                  type="date"
+                  value={editFormFields.date}
+                  onChange={(e) =>
+                    setEditFormFields((prevFields) => ({
+                      ...prevFields,
+                      date: e.target.value,
+                    }))
+                  }
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  sx={{ gridColumn: "span 4" }}
+                />
+
                 <Button
                   fullWidth
                   type="submit"
-                  sx={{
-                    m: "2rem 0",
-                    p: "1rem",
-                    backgroundColor: "#000",
-                    color: "#fff",
-                    "&:hover": { backgroundColor: "#333" },
-                  }}
+                  variant="contained"
+                  color="primary"
+                  sx={{ gridColumn: "span 4" }}
                   disabled={isUpdating}
                 >
-                  {isUpdating ? <CircularProgress size={24} /> : "Update Slide"}
+                  {isUpdating ? "Updating..." : "Update News"}
                 </Button>
-              </Box>
+              </div>
             </form>
           </Box>
         </Modal>

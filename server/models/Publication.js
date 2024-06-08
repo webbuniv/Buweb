@@ -19,14 +19,14 @@ const publicationSchema = new mongoose.Schema({
     required: true,
   },
   tags: {
-    type: [String], // Array of strings
-    required: true,
-  },
-  writersPhotoUrl: {
-    type: String,
+    type: [String], 
     required: true,
   },
   coverPhotoUrl: {
+    type: String,
+    required: true,
+  },
+  publicationUrl: {
     type: String,
     required: true,
   },

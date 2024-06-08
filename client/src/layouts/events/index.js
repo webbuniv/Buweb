@@ -37,41 +37,44 @@ const useStyles = makeStyles({
   headerCell: {
     fontWeight: "bold",
     padding: "20px",
-    // Add any other styles you want
   },
 });
 
 const Events = () => {
-  const [slides, setSlides] = useState([]);
+  const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [showNewSlideModal, setShowNewSlideModal] = useState(false);
-  const [showEditSlideModal, setShowEditSlideModal] = useState(false);
+  const [showNewEventModal, setShowNewEventModal] = useState(false);
+  const [showEditEventModal, setShowEditEventModal] = useState(false);
   const [isCreating, setIsCreating] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
   const token = useSelector((state) => state.token);
 
   const [createFormFields, setCreateFormFields] = useState({
-    photo: "",
+    coverPhotoUrl: "",
     title: "",
-    tagline: ""
+    description: "",
+    date: "",
+    location: "",
   });
   const [editFormFields, setEditFormFields] = useState({
     _id: "",
-    photo: null,
+    coverPhotoUrl: null,
     title: "",
-    tagline: ""
+    description: "",
+    date: "",
+    location: "",
   });
 
-  const fetchSlides = async () => {
+  const fetchEvents = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("https://buweb.onrender.com/slide",{
+      const response = await axios.get("https://buweb.onrender.com/events", {
         headers: {
           Authorization: `Bearer ${token}`,
-        }
+        },
       });
-      setSlides(response.data);
+      setEvents(response.data);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -80,87 +83,110 @@ const Events = () => {
   };
 
   useEffect(() => {
-    fetchSlides();
+    fetchEvents();
   }, []);
 
-  const handleCreateSlide = async (e) => {
+  const handleCreateEvent = async (e) => {
     e.preventDefault();
     setIsCreating(true);
     try {
       const formData = new FormData();
-      formData.append("photo", createFormFields.photo);
+      formData.append("coverPhotoUrl", createFormFields.coverPhotoUrl);
       formData.append("title", createFormFields.title);
-      formData.append("tagline", createFormFields.tagline);
+      formData.append("description", createFormFields.description);
+      formData.append("date", createFormFields.date);
+      formData.append("location", createFormFields.location);
 
-      const response = await axios.post("https://buweb.onrender.com/slide/create", formData, {
+      const response = await axios.post("https://buweb.onrender.com/events/create", formData, {
         headers: {
-          "Content-Type": "multipart/form-data"
-        }
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
       });
-      if (response.status === 200) {  // Use response.status instead of response.ok
-        fetchSlides();
-        setShowNewSlideModal(false);
-        setCreateFormFields({ photo: "", title: "", tagline: "" });
+
+      if (response.status === 201) {
+        fetchEvents();
+        setShowNewEventModal(false);
+        setCreateFormFields({
+          coverPhotoUrl: "",
+          title: "",
+          description: "",
+          date: "",
+          location: "",
+        });
       }
     } catch (error) {
       setError(error.message);
     } finally {
       setIsCreating(false);
-      setShowNewSlideModal(false);
-      setCreateFormFields({ photo: "", title: "", tagline: "" });
-      fetchSlides();
+      fetchEvents();
+      setShowNewEventModal(false);
+      setCreateFormFields({
+        coverPhotoUrl: "",
+        title: "",
+        description: "",
+        date: "",
+        location: "",
+      });
     }
   };
 
-  const handleUpdateSlide = async (e) => {
+  const handleUpdateEvent = async (e) => {
     e.preventDefault();
     setIsUpdating(true);
     try {
       const formData = new FormData();
-      if (editFormFields.photo) {
-        formData.append("photo", editFormFields.photo);
+      if (editFormFields.coverPhotoUrl) {
+        formData.append("coverPhotoUrl", editFormFields.coverPhotoUrl);
       }
       formData.append("title", editFormFields.title);
-      formData.append("tagline", editFormFields.tagline);
-  
-      await axios.patch(`https://buweb.onrender.com/slide/${editFormFields._id}/update`, formData, {
+      formData.append("description", editFormFields.description);
+      formData.append("date", editFormFields.date);
+      formData.append("location", editFormFields.location);
+
+      await axios.patch(`https://buweb.onrender.com/events/${editFormFields._id}/update`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data"
-        }
+          "Content-Type": "multipart/form-data",
+        },
       });
-      fetchSlides();
-      setShowEditSlideModal(false);
-      setEditFormFields({ _id: "", photo: "", title: "", tagline: "" });
+      fetchEvents();
+      setShowEditEventModal(false);
+      setEditFormFields({
+        _id: "",
+        coverPhotoUrl: "",
+        title: "",
+        description: "",
+        date: "",
+        location: "",
+      });
     } catch (error) {
       setError(error.message);
     } finally {
       setIsUpdating(false);
-      fetchSlides();
-      setShowEditSlideModal(false);
     }
   };
-  
 
-
-  const handleEditSlide = (slide) => {
+  const handleEditEvent = (event) => {
     setEditFormFields({
-      _id: slide._id,
-      photo: slide.photo,
-      title: slide.title,
-      tagline: slide.tagline
+      _id: event._id,
+      coverPhotoUrl: event.coverPhotoUrlUrl,
+      title: event.title,
+      description: event.description,
+      date: event.date,
+      location: event.location,
     });
-    setShowEditSlideModal(true);
+    setShowEditEventModal(true);
   };
 
-  const handleDeleteSlide = async (id) => {
+  const handleDeleteEvent = async (id) => {
     try {
-      await axios.delete(`https://buweb.onrender.com/slide/${id}/delete`, {
+      await axios.delete(`https://buweb.onrender.com/events/${id}/delete`, {
         headers: {
           Authorization: `Bearer ${token}`,
-        }
+        },
       });
-      fetchSlides();
+      fetchEvents();
     } catch (error) {
       setError(error.message);
     }
@@ -169,19 +195,21 @@ const Events = () => {
   const classes = useStyles();
 
   const columns = [
-    { name: 'photo',  label: 'Photo' },
+    { name: 'coverPhotoUrl', label: 'Cover Photo' },
     { name: 'title', label: 'Title' },
-    { name: 'tagline', label: 'Tagline' },
+    { name: 'description', label: 'Description' },
+    { name: 'date', label: 'Date' },
+    { name: 'location', label: 'Location' },
     {
       name: 'actions',
       align: 'center',
       label: 'Actions',
-      render: (slide) => (
+      render: (event) => (
         <div>
-          <Button variant="contained" color="primary" onClick={() => handleEditSlide(slide)} style={{ marginRight: '8px' }}>
+          <Button variant="contained" color="primary" onClick={() => handleEditEvent(event)} style={{ marginRight: '8px' }}>
             Edit
           </Button>
-          <Button variant="contained" color="secondary" onClick={() => handleDeleteSlide(slide._id)}>
+          <Button variant="contained" color="secondary" onClick={() => handleDeleteEvent(event._id)}>
             Delete
           </Button>
         </div>
@@ -196,9 +224,9 @@ const Events = () => {
         <SoftBox mb={3}>
           <Card>
             <SoftBox display="flex" justifyContent="space-between" alignItems="center" p={3}>
-              <SoftTypography variant="h6">Slides table</SoftTypography>
-              <Button variant="contained" color="primary" onClick={() => setShowNewSlideModal(true)}>
-                Create New Slide
+              <SoftTypography variant="h6">Events Table</SoftTypography>
+              <Button variant="contained" color="primary" onClick={() => setShowNewEventModal(true)}>
+                Create New Event
               </Button>
             </SoftBox>
             {loading && <CircularProgress />}
@@ -207,24 +235,24 @@ const Events = () => {
               <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                   <TableBody>
-                  {columns.map((column) => (
+                    {columns.map((column) => (
                       <TableCell
                         key={column.name}
                         align={column.align}
-                        className={classes.headerCell} 
+                        className={classes.headerCell}
                       >
                         {column.label.toUpperCase()}
                       </TableCell>
-                      ))}
-                    {slides.map((slide) => (
-                      <TableRow key={slide._id}>
+                    ))}
+                    {events.map((event) => (
+                      <TableRow key={event._id}>
                         {columns.map((column) => (
                           <TableCell key={column.name} align={column.align} component="th" scope="row">
                             {column.render
-                              ? column.render(slide)
-                              : (column.name === 'photo'
-                                ? <img src={slide[column.name]} alt="Photo" className={classes.image} />
-                                : slide[column.name]
+                              ? column.render(event)
+                              : (column.name === 'coverPhotoUrl'
+                                ? <img src={event[column.name]} alt="Cover Photo" className={classes.image} />
+                                : event[column.name]
                               )}
                           </TableCell>
                         ))}
@@ -237,10 +265,10 @@ const Events = () => {
           </Card>
         </SoftBox>
 
-        {/* Create new slide modal */}
+        {/* Create new event modal */}
         <Modal
-          open={showNewSlideModal}
-          onClose={() => setShowNewSlideModal(false)}
+          open={showNewEventModal}
+          onClose={() => setShowNewEventModal(false)}
         >
           <Box
             p={3}
@@ -249,14 +277,15 @@ const Events = () => {
             borderRadius={2}
             maxWidth="500px"
             mx="auto"
-            mt="10%"
+            mt="5%"
+            mb="5%"
           >
-            <form onSubmit={handleCreateSlide}>
+            <form onSubmit={handleCreateEvent}>
               <div
                 style={{
                   display: "grid",
                   gap: "30px",
-                  gridTemplateColumns: "repeat(4, minmax(0, 1fr))"
+                  gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
                 }}
               >
                 <div
@@ -264,7 +293,7 @@ const Events = () => {
                     gridColumn: "span 4",
                     border: "1px solid",
                     borderRadius: "5px",
-                    padding: "1rem"
+                    padding: "1rem",
                   }}
                 >
                   <Dropzone
@@ -273,7 +302,7 @@ const Events = () => {
                     onDrop={(acceptedFiles) =>
                       setCreateFormFields((prevFields) => ({
                         ...prevFields,
-                        photo: acceptedFiles[0]
+                        coverPhotoUrl: acceptedFiles[0],
                       }))
                     }
                   >
@@ -283,15 +312,15 @@ const Events = () => {
                         style={{
                           border: "2px dashed",
                           padding: "1rem",
-                          cursor: "pointer"
+                          cursor: "pointer",
                         }}
                       >
                         <input {...getInputProps()} />
-                        {!createFormFields.photo ? (
-                          <p>Add Picture Here</p>
+                        {!createFormFields.coverPhotoUrl ? (
+                          <p>Add Cover Photo Here</p>
                         ) : (
                           <div>
-                            <Typography>{createFormFields.photo.name}</Typography>
+                            <Typography>{createFormFields.coverPhotoUrl.name}</Typography>
                             <EditOutlinedIcon />
                           </div>
                         )}
@@ -306,19 +335,43 @@ const Events = () => {
                   onChange={(e) =>
                     setCreateFormFields((prevFields) => ({
                       ...prevFields,
-                      title: e.target.value
+                      title: e.target.value,
                     }))
                   }
                   style={{ gridColumn: "span 4" }}
                 />
                 <TextField
-                  label="Tagline"
+                  label="Description"
                   type="text"
-                  value={createFormFields.tagline}
+                  value={createFormFields.description}
                   onChange={(e) =>
                     setCreateFormFields((prevFields) => ({
                       ...prevFields,
-                      tagline: e.target.value
+                      description: e.target.value,
+                    }))
+                  }
+                  style={{ gridColumn: "span 4" }}
+                />
+                <TextField
+                  label="Date"
+                  type="text"
+                  value={createFormFields.date}
+                  onChange={(e) =>
+                    setCreateFormFields((prevFields) => ({
+                      ...prevFields,
+                      date: e.target.value,
+                    }))
+                  }
+                  style={{ gridColumn: "span 4" }}
+                />
+                <TextField
+                  label="Location"
+                  type="text"
+                  value={createFormFields.location}
+                  onChange={(e) =>
+                    setCreateFormFields((prevFields) => ({
+                      ...prevFields,
+                      location: e.target.value,
                     }))
                   }
                   style={{ gridColumn: "span 4" }}
@@ -333,21 +386,21 @@ const Events = () => {
                     padding: "1rem",
                     backgroundColor: "#000",
                     color: "#fff",
-                    "&:hover": { backgroundColor: "#333" }
+                    "&:hover": { backgroundColor: "#333" },
                   }}
                   disabled={isCreating}
                 >
-                  {isCreating ? <CircularProgress size={24} /> : "Create Slide"}
+                  {isCreating ? <CircularProgress size={24} /> : "Create Event"}
                 </Button>
               </div>
             </form>
           </Box>
         </Modal>
 
-        {/* Edit slide modal */}
+        {/* Edit event modal */}
         <Modal
-          open={showEditSlideModal}
-          onClose={() => setShowEditSlideModal(false)}
+          open={showEditEventModal}
+          onClose={() => setShowEditEventModal(false)}
         >
           <Box
             p={3}
@@ -358,7 +411,7 @@ const Events = () => {
             mx="auto"
             mt="10%"
           >
-            <form onSubmit={handleUpdateSlide}>
+            <form onSubmit={handleUpdateEvent}>
               <Box
                 display="grid"
                 gap="30px"
@@ -376,23 +429,23 @@ const Events = () => {
                     onDrop={(acceptedFiles) =>
                       setEditFormFields((prevFields) => ({
                         ...prevFields,
-                        photo: acceptedFiles[0]
+                        coverPhotoUrl: acceptedFiles[0],
                       }))
                     }
                   >
                     {({ getRootProps, getInputProps }) => (
                       <Box
                         {...getRootProps()}
-                        border='2px dashed'
+                        border="2px dashed"
                         p="1rem"
                         sx={{ "&:hover": { cursor: "pointer" } }}
                       >
                         <input {...getInputProps()} />
-                        {!editFormFields.photo ? (
-                          <p>Add Picture Here</p>
+                        {!editFormFields.coverPhotoUrl ? (
+                          <p>Add Cover Photo Here</p>
                         ) : (
                           <div>
-                            <Typography>{editFormFields.photo.name}</Typography>
+                            <Typography>{editFormFields.coverPhotoUrl.name}</Typography>
                             <EditOutlinedIcon />
                           </div>
                         )}
@@ -407,19 +460,43 @@ const Events = () => {
                   onChange={(e) =>
                     setEditFormFields((prevFields) => ({
                       ...prevFields,
-                      title: e.target.value
+                      title: e.target.value,
                     }))
                   }
                   sx={{ gridColumn: `span 4` }}
                 />
                 <TextField
-                  label="Tagline"
+                  label="Description"
                   type="text"
-                  value={editFormFields.tagline}
+                  value={editFormFields.description}
                   onChange={(e) =>
                     setEditFormFields((prevFields) => ({
                       ...prevFields,
-                      tagline: e.target.value
+                      description: e.target.value,
+                    }))
+                  }
+                  sx={{ gridColumn: `span 4` }}
+                />
+                <TextField
+                  label="Date"
+                  type="text"
+                  value={editFormFields.date}
+                  onChange={(e) =>
+                    setEditFormFields((prevFields) => ({
+                      ...prevFields,
+                      date: e.target.value,
+                    }))
+                  }
+                  sx={{ gridColumn: `span 4` }}
+                />
+                <TextField
+                  label="Location"
+                  type="text"
+                  value={editFormFields.location}
+                  onChange={(e) =>
+                    setEditFormFields((prevFields) => ({
+                      ...prevFields,
+                      location: e.target.value,
                     }))
                   }
                   sx={{ gridColumn: `span 4` }}
@@ -438,7 +515,7 @@ const Events = () => {
                   }}
                   disabled={isUpdating}
                 >
-                  {isUpdating ? <CircularProgress size={24} /> : "Update Slide"}
+                  {isUpdating ? <CircularProgress size={24} /> : "Update Event"}
                 </Button>
               </Box>
             </form>

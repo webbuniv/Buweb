@@ -57,9 +57,11 @@ export const updateNewsById = async (req, res) => {
     }
 
     const data = {
-      title: req.body.title || news.title,
-      tagline: req.body.tagline || news.tagline,
-      photo: req.picturePath || news.photo 
+      title: req.body.title || news.title, 
+      category: req.body.category || news.category, 
+      content: req.body.content || news.content, 
+      photo: req.picturePath || news.photo, 
+      date: req.body.date || news.date 
     };
 
     const updatedNews = await News.findByIdAndUpdate(
