@@ -120,7 +120,7 @@ export default function App() {
       )}
       {layout === "vr" && <Configurator />}
       <Routes>
-        {/* <Route path="/" element={<SignIn />} /> */}
+        <Route path="/" element={<SignIn />} />
         <Route
           path="/dashboard"
           element={isAuth ? <Dashboard /> : <Navigate to="/" />}

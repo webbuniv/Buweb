@@ -8,7 +8,6 @@ import {
   CircularProgress,
   TableContainer,
   Table,
-  TableHead,
   TableBody,
   TableRow,
   TableCell,
@@ -37,7 +36,6 @@ const useStyles = makeStyles({
   headerCell: {
     fontWeight: "bold",
     padding: "20px",
-    // Add any other styles you want
   },
 });
 
