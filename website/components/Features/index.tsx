@@ -5,12 +5,30 @@ import featuresData from "./featuresData";
 import img from "../../public/images/features/life.jpg";
 import img1 from "../../public/images/features/bu.jpg";
 import img2 from "../../public/images/features/bb.jpg";
+
+import im from "../../public/images/features/bbb.jpg";
+import im1 from "../../public/images/features/int.jpg";
+import im2 from "../../public/images/features/post.jpg";
+import im3 from "../../public/images/features/reg.jpg";
 import { BiSolidPencil } from 'react-icons/bi';
 import './style.css';
 import React, { useState } from 'react';
 
 const Features = () => {
   const [hoveredButton, setHoveredButton] = useState(null);
+
+  const getBackgroundColor = () => {
+    switch (hoveredButton) {
+        case 'undergraduate':
+            return 'blue';
+        case 'postgraduate':
+            return 'lightcoral';
+        case 'international':
+            return 'lightblue';
+        default:
+            return '';
+    }
+};
 
   return (
     <>
@@ -26,7 +44,7 @@ const Features = () => {
               paragraph=""
               // center
               />
-               <div className="grid grid-cols-2 gap-x-8 gap-y-14 md:grid-cols-1 lg:grid-cols-2">
+               <div className="grid grid-cols-2 -mb-40 gap-x-8 gap-y-14 md:grid-cols-1 lg:grid-cols-2">
                 <div>
                   <button
                     className="animated-button flex rounded-md bg-primary/60 py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
@@ -67,7 +85,7 @@ const Features = () => {
             }
             alt="Bugema University"
             width="600"
-            height="150"
+            height="250"
           />
           {/* <Image className="img1" src={img1} alt="Bugema University" width="600" height="150"/> */}
           </div>
@@ -86,11 +104,11 @@ const Features = () => {
 
       <section
         id="features"
-        className="bg-primary/[.03] py-16 md:py-20 lg:py-28"
+        className="bg-primary/[.03] py-16 md:py-20 "
       >
         <div className="container">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-14 md:grid-cols-1 lg:grid-cols-2">
-          <div className="col-6" >
+        <div className="grid grid-cols-2 gap-x-8 gap-y-8 md:grid-cols-1 lg:grid-cols-2">
+          <div className="col-6 flex flex-col space-y-2" >
             <SectionTitle
             paragraph="Studying at Bugema University"
               title="No matter how far you've come, you can always go further."
@@ -99,8 +117,9 @@ const Features = () => {
                <div className="grid gap-x-5 gap-y-8 md:grid-cols-1">
                 <div>
                   <div
-                    className="animated-button flex py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
-                    onMouseEnter={() => setHoveredButton('whyBugema')}
+                    className="button2 animated2-button rounded-md flex py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
+                    style={{ backgroundColor: hoveredButton === 'under' ? 'blue' : '' }}
+                    onMouseEnter={() => setHoveredButton('under')}
                     onMouseLeave={() => setHoveredButton(null)}
                   >
                   <span className="icon-container">
@@ -111,8 +130,9 @@ const Features = () => {
                 </div>
                <div>
                   <div
-                    className="animated-button py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
-                    onMouseEnter={() => setHoveredButton('studentLife')}
+                    className="button2 animated2-button rounded-md py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
+                    style={{ backgroundColor: hoveredButton === 'post' ? 'lightcoral' : '' }}
+                    onMouseEnter={() => setHoveredButton('post')}
                     onMouseLeave={() => setHoveredButton(null)}
                   >
                   <span className="icon-container">
@@ -123,8 +143,9 @@ const Features = () => {
                 </div>
                 <div>
                   <div
-                    className="animated-button py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
-                    onMouseEnter={() => setHoveredButton('studentLife')}
+                    className="button2 animated2-button rounded-md py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
+                    style={{ backgroundColor: hoveredButton === 'international' ? 'lightblue' : '' }}
+                    onMouseEnter={() => setHoveredButton('int')}
                     onMouseLeave={() => setHoveredButton(null)}
                   >
                   <span className="icon-container">
@@ -136,28 +157,41 @@ const Features = () => {
               </div>
           </div>
           <div className="col-6">
-          <Image
-            className="img1"
-            src={
-              hoveredButton === 'studentLife'
-                ? img
-                : hoveredButton === 'whyBugema'
-                ? img2
-                : img1
-            }
-            alt="Bugema University"
-            width="600"
-            height="150"
-          />
+          <div className="containerr">
+           <div className="skewed-containerr">
+            <Image
+              className="img1"
+              src={
+                hoveredButton === 'post'
+                  ? im2
+                  : hoveredButton === 'under'
+                  ? im3
+                  : hoveredButton === 'int'
+                  ? im1
+                  : im
+              }
+              alt="Bugema University"
+              width="600"
+              height="150"
+            />
           {/* <Image className="img1" src={img1} alt="Bugema University" width="600" height="150"/> */}
           </div>
+          <div className="triangle-top-right" ></div>
+          <div className="triangle-bottom-left" ></div>
+          </div>
+        </div>
+        </div>
+        <div className="container1 -mt-60 grid grid-cols-3 gap-x-8 md:grid-cols-1 lg:grid-cols-2">
+        <div className="skewed left" ></div>
+        <div className="skewed center"></div>
+        <div className="skewed right"></div>
         </div>
 
-          <div className="grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
+          {/* <div className="grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
             {featuresData.map((feature) => (
               <SingleFeature key={feature.id} feature={feature} />
             ))}
-          </div>
+          </div> */}
         </div>
       </section>
     </>
