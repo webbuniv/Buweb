@@ -165,7 +165,7 @@ const [isOpen, setIsOpen] = useState(false);
                     </li>
                     <li>
                       <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
-                        Research
+                        Student life
                         <span className="my-1 ml-2 text-white">
                         <FaChevronDown className={showModel?"drop":"" } />
                         </span>
@@ -173,7 +173,7 @@ const [isOpen, setIsOpen] = useState(false);
                     </li>
                     <li>
                       <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
-                        News
+                      Research
                         <span className={"my-1 ml-2 text-white" } >
                         <FaChevronDown />
                         </span>
@@ -181,7 +181,7 @@ const [isOpen, setIsOpen] = useState(false);
                     </li>
                     <li>
                       <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
-                        Campus
+                        Campuses
                         <span className="my-1 ml-2 text-white">
                         <FaChevronDown className={showModel?"drop":"" } />
                         </span>
@@ -210,6 +210,7 @@ const [isOpen, setIsOpen] = useState(false);
              
             </>
           </Model>
+          
         </div>
       </header>
     </>

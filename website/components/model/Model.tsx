@@ -2,6 +2,10 @@ import React, { Children } from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
 import imagenew from "../../public/images/nav/IMG_9313.jpg";
 import image from "../../public/images/nav/labs.jpg";
+import nurses from "../../public/images/nav/nurses.jpg";
+import burundi from "../../public/images/nav/burundi.jpg";
+import palm_girls from "../../public/images/nav/palm-girls.jpg";
+import palm_girls1 from "../../public/images/nav/palm-girls1.jpg";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -34,6 +38,10 @@ const main = ()=>{
       document.getElementById('get-in-touch').classList.add('hidden');
       document.getElementById('fees-more').classList.add('hidden');
       document.getElementById('courses-more').classList.remove('hidden');
+      document.getElementById('touch-more').classList.add('hidden');
+      document.getElementById('attachment-get-in-toch').classList.add('hidden');
+      document.getElementById('attachment-courses').classList.remove('hidden');
+      document.getElementById('attachment-fees').classList.add('hidden');
       
 }
 const payments=()=>{
@@ -45,6 +53,10 @@ const payments=()=>{
       document.getElementById('get-in-touch').classList.add('hidden');
       document.getElementById('fees-more').classList.remove('hidden');
       document.getElementById('courses-more').classList.add('hidden');
+      document.getElementById('touch-more').classList.add('hidden');
+      document.getElementById('attachment-get-in-toch').classList.add('hidden');
+      document.getElementById('attachment-courses').classList.add('hidden');
+      document.getElementById('attachment-fees').classList.remove('hidden');
       
 }
 const touch = ()=>{
@@ -54,11 +66,17 @@ const touch = ()=>{
       document.getElementById('fees').classList.add('hidden');
       document.getElementById('contact').classList.add('current');
       document.getElementById('get-in-touch').classList.remove('hidden');
+      document.getElementById('touch-more').classList.remove('hidden');
+      document.getElementById('courses-more').classList.add('hidden');
+      document.getElementById('fees-more').classList.add('hidden');
+      document.getElementById('attachment-get-in-toch').classList.remove('hidden');
+      document.getElementById('attachment-courses').classList.add('hidden');
+      document.getElementById('attachment-fees').classList.add('hidden');
 }
   return (
       <>
         
-            <div className=" fade-in fixed inset-0 backdrop-blur-sm flex w-full h-4/5 my-24 overflow-auto bg-white" id="wrapper">
+            <div className=" fade-in fixed inset-0 backdrop-blur-sm flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden bg-white" id="wrapper">
                   
                   <div className='flex '>
                         {/* <button style = {border-radius: '50%';width: '30px';height: '30px';background-color: 'red';color: 'white';font-size: '20px';text-align: 'center';line-height: '30px';position: 'absolute';right: '10px';top: '10px'} onClick={onClose}>
@@ -86,7 +104,7 @@ const touch = ()=>{
                   </div>    
                   <div id="programs">
 
-                        <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'40%'}}> 
+                        <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'25%'}}> 
                               <div className="mr-2 my-5 slider slide--fast">
                                     
                                     <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '   onClick={main}> <span id='main' className='animated href=""'>Courses</span></h1> 
@@ -100,21 +118,39 @@ const touch = ()=>{
                               <div className="mr-2 my-5 slider slide--slowest ">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={touch}> <span className='animated' id='contact'> Get in Touch </span></h1> 
                               </div>
-
-                              <div className="ml-4 mr-2 my-14 slant-div-right text-white grid-rows-2"style={{marginTop:'45%',width:'150%',height:'40%'}}>
-                                    <div className='columns-1 bg-black slider slide--fast'>
+                              {/*###===============================================================================
+                               A T T A C H M E N T   P I C T U R E S    U N D E R    T H E   F I R S T   C O L U M N 
+                               ==================================================================================###*/}
+                              <div id='attachment-get-in-toch' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
+                                    <div className='fade-in'>
                                           
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"150px"}}> Masters of Science in Information</h1>
-                                    
+                                    {/* <h1  style={{fontSize: '19px',cursor:"pointer",height:"150px"}}> Masters of Science in Information</h1> */}
+                                    <Image src={burundi} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
                                     </div>
+                                    
+                              </div> 
+                              <div id='attachment-fees' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
+                                    <div className='fade-in'>
+                                          
+                                    {/* <h1  style={{fontSize: '19px',cursor:"pointer",height:"150px"}}> Masters of Science in Information</h1> */}
+                                    <Image src={palm_girls1} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
+                                    </div>
+                                    
+                              </div> 
 
+                              <div id='attachment-courses' className="slant-div-right bg-black text-white grid-rows-2"style={{marginTop:'20%',width:'111%',height:'40%'}}>
+                                    <div className='fade-in'>
+                                          
+                                    {/* <h1  style={{fontSize: '19px',cursor:"pointer",height:"150px"}}> Masters of Science in Information</h1> */}
+                                    <Image src={burundi} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
+                                    </div>
                                     
                               </div> 
                         
                         </div>
                   
                   </div>
-                  <div className=" ml-12 my-24 fade-in " id='courses' style={{marginTop:'12%'}}> 
+                  <div className=" ml-12 my-24 fade-in " id='courses' style={{marginTop:'9%'}}> 
                         <ul>
                               <li>
                               <div className="mr-2 my-5 slider slide--slow ">
@@ -279,10 +315,11 @@ const touch = ()=>{
                         <div className="mr-2 my-5  ">
                               <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Diploma in Information technology</h1> 
                         </div>*/}
-                        
+
+                        {/* ###============= C O U R S E S    M O R E =================### */}
                         <div className='' id='courses-more'>
                               <div className=' ml-24 fade-in '>
-                                          <Image src={image} alt='img' width={350} height={450} className="ml-12 my-10 slider slide--fast"/>
+                                          <Image src={image} alt='img' width={350} height={450} className="-ml-5 my-10 slider slide--fast"/>
                               </div>
                               <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
                                     <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
@@ -301,9 +338,10 @@ const touch = ()=>{
                                     </div>
                               </div>
                         </div>
+                        {/* ###=============F E E S       M O R E =================### */}
                         <div className=' hidden fade-in' id='fees-more'>
                               <div className=' ml-24 fade-in '>
-                                          <Image src={imagenew} alt='img' width={350} height={450} className="ml-12 my-10 slider slide--fast"/>
+                                          <Image src={imagenew} alt='img' width={350} height={450} className="-ml-5 my-10 slider slide--fast"/>
                               </div>
                               <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
                                     <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
@@ -321,6 +359,30 @@ const touch = ()=>{
                                     <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Donate <FaArrowRight className='arrow3'/></h1>
                                     </div>
                               </div>
+                        </div>
+
+                        {/* ###=============G E T   IN  T O U C H       M O R E =================### */}
+                        <div className=' hidden fade-in' id='touch-more'>
+                              <div className=' ml-24 fade-in '>
+                                          <Image src={palm_girls} alt='img' width={350} height={450} className="ml-19 -mr-10 my-10 slider slide--fast"/>
+                              </div>
+                              <div className="ml-19 -mr-5 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
+                                    <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
+                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> How to Apply  <FaArrowRight className='arrow1'/></h1>
+                                    </div>
+                              </div> 
+                              
+                              <div className="ml-12 -mr-4 my-1 transform -skew-x-11 text-white grid-rows-2 " >
+                                    <div className='columns-1 bg-black change-on-hover'>
+                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Other Campuses <FaArrowRight className='arrow2'/></h1>
+                                    </div>
+                              </div>  
+                              <div className="ml-24 -mr-3 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px',}} >
+                                    <div className='columns-1 bg-black slider slide--slow change-on-hover'>
+                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Talk to Us <FaArrowRight className='arrow3'/></h1>
+                                    </div>
+                              </div>
+                              
                         </div>
                           
                   </div>
