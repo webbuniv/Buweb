@@ -141,7 +141,7 @@ height: 400px; /* Adjust height as needed */
 .slider-right{
       animation-name: slide-in-right;
       animation-timing-function: ease-in-out;
-      animation-delay: .2s;
+      animation-delay: 0s;
 }
 .slider{
       animation-name: slide-in;
