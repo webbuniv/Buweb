@@ -8,11 +8,11 @@ export const createPublication = async (req, res) => {
       email, 
       title, 
       tags, 
-      description 
+      description,
+      publicationUrl
     } = req.body;
 
-    const writersPhotoUrl = req.picturePath['writersPhoto'];
-    const coverPhotoUrl = req.picturePath['coverPhoto'];
+    const coverPhotoUrl = req.picturePath;
 
     const newPublication = new Publication({
       firstName,
@@ -20,9 +20,9 @@ export const createPublication = async (req, res) => {
       email,
       title,
       tags: tags.split(','), 
-      writersPhotoUrl,
       coverPhotoUrl,
       description,
+      publicationUrl,
     });
 
     const savedPublication = await newPublication.save();
@@ -71,9 +71,9 @@ export const updatePublicationById = async (req, res) => {
       email: req.body.email || publication.email,
       title: req.body.title || publication.title,
       tags: req.body.tags ? req.body.tags.split(',') : publication.tags,
-      writersPhotoUrl: req.picturePath['writersPhoto'] || publication.writersPhotoUrl,
-      coverPhotoUrl: req.picturePath['coverPhoto'] || publication.coverPhotoUrl,
+      coverPhotoUrl: req.picturePath || publication.coverPhotoUrl,
       description: req.body.description || publication.description,
+      publicationUrl: req.body.publicationUrl || publication.publicationUrl,
       lastModified: Date.now(),
     };
 

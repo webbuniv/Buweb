@@ -69,7 +69,7 @@ const News = () => {
   const fetchNews = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:3001/news", {
+      const response = await axios.get("https://buweb.onrender.com/news", {
         headers: {
           Authorization: `Bearer ${token}`,
         }
@@ -97,7 +97,7 @@ const News = () => {
       formData.append("content", createFormFields.content);
       formData.append("date", createFormFields.date);
 
-      const response = await axios.post("http://localhost:3001/news/create", formData, {
+      const response = await axios.post("https://buweb.onrender.com/news/create", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
@@ -131,7 +131,7 @@ const News = () => {
       formData.append("content", editFormFields.content);
       formData.append("date", editFormFields.date);
   
-      await axios.patch(`http://localhost:3001/news/${editFormFields._id}/update`, formData, {
+      await axios.patch(`https://buweb.onrender.com/news/${editFormFields._id}/update`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data"
@@ -163,7 +163,7 @@ const News = () => {
 
   const handleDeleteNews = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/news/${id}/delete`, {
+      await axios.delete(`https://buweb.onrender.com/news/${id}/delete`, {
         headers: {
           Authorization: `Bearer ${token}`,
         }
