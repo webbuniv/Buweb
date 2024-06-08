@@ -120,37 +120,43 @@ export default function App() {
       )}
       {layout === "vr" && <Configurator />}
       <Routes>
-        <Route path="/" element={<SignIn />} />
-        <Route
-          path="/dashboard"
-          element={isAuth ? <Dashboard /> : <Navigate to="/" />}
+        {isAuth ? (
+          <>
+          <Route
+          path="/"
+          element={<Dashboard />}
         />
         <Route
           path="/tables"
-          element={isAuth ? <Tables /> : <Navigate to="/" />}
+          element={ <Tables />}
         />
         <Route
           path="/billing"
-          element={isAuth ? <Billing /> : <Navigate to="/" />}
+          element={<Billing /> }
         />
         <Route
           path="/news"
-          element={isAuth ? <News /> : <Navigate to="/" />}
+          element={<News />}
         />
         <Route
           path="/events"
-          element={isAuth ? <Events /> : <Navigate to="/" />}
+          element={<Events /> }
         />
         <Route
           path="/publication"
-          element={isAuth ? <Publication /> : <Navigate to="/" />}
+          element={ <Publication />}
         />
         <Route
           path="/profile"
-          element={isAuth ? <Profile /> : <Navigate to="/" />}
+          element={ <Profile />}
         />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
+        </>
+        ):(
+          <Route path="/signin" element={<SignIn />} />
+        )
+      }
+        {/* <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} /> */}
       </Routes>
     </ThemeProvider>
   );

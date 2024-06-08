@@ -37,7 +37,6 @@ const useStyles = makeStyles({
   headerCell: {
     fontWeight: "bold",
     padding: "20px",
-    // Add any other styles you want
   },
 });
 
@@ -52,7 +51,7 @@ const Events = () => {
   const token = useSelector((state) => state.token);
 
   const [createFormFields, setCreateFormFields] = useState({
-    coverPhoto: "",
+    coverPhotoUrl: "",
     title: "",
     description: "",
     date: "",
@@ -60,7 +59,7 @@ const Events = () => {
   });
   const [editFormFields, setEditFormFields] = useState({
     _id: "",
-    coverPhoto: null,
+    coverPhotoUrl: null,
     title: "",
     description: "",
     date: "",
@@ -92,7 +91,7 @@ const Events = () => {
     setIsCreating(true);
     try {
       const formData = new FormData();
-      formData.append("coverPhoto", createFormFields.coverPhoto);
+      formData.append("coverPhotoUrl", createFormFields.coverPhotoUrl);
       formData.append("title", createFormFields.title);
       formData.append("description", createFormFields.description);
       formData.append("date", createFormFields.date);
@@ -109,7 +108,7 @@ const Events = () => {
         fetchEvents();
         setShowNewEventModal(false);
         setCreateFormFields({
-          coverPhoto: "",
+          coverPhotoUrl: "",
           title: "",
           description: "",
           date: "",
@@ -120,6 +119,15 @@ const Events = () => {
       setError(error.message);
     } finally {
       setIsCreating(false);
+      fetchEvents();
+      setShowNewEventModal(false);
+      setCreateFormFields({
+        coverPhotoUrl: "",
+        title: "",
+        description: "",
+        date: "",
+        location: "",
+      });
     }
   };
 
@@ -128,8 +136,8 @@ const Events = () => {
     setIsUpdating(true);
     try {
       const formData = new FormData();
-      if (editFormFields.coverPhoto) {
-        formData.append("coverPhoto", editFormFields.coverPhoto);
+      if (editFormFields.coverPhotoUrl) {
+        formData.append("coverPhotoUrl", editFormFields.coverPhotoUrl);
       }
       formData.append("title", editFormFields.title);
       formData.append("description", editFormFields.description);
@@ -146,7 +154,7 @@ const Events = () => {
       setShowEditEventModal(false);
       setEditFormFields({
         _id: "",
-        coverPhoto: "",
+        coverPhotoUrl: "",
         title: "",
         description: "",
         date: "",
@@ -162,7 +170,7 @@ const Events = () => {
   const handleEditEvent = (event) => {
     setEditFormFields({
       _id: event._id,
-      coverPhoto: event.coverPhotoUrl,
+      coverPhotoUrl: event.coverPhotoUrlUrl,
       title: event.title,
       description: event.description,
       date: event.date,
@@ -187,7 +195,7 @@ const Events = () => {
   const classes = useStyles();
 
   const columns = [
-    { name: 'coverPhoto', label: 'Cover Photo' },
+    { name: 'coverPhotoUrl', label: 'Cover Photo' },
     { name: 'title', label: 'Title' },
     { name: 'description', label: 'Description' },
     { name: 'date', label: 'Date' },
@@ -242,7 +250,7 @@ const Events = () => {
                           <TableCell key={column.name} align={column.align} component="th" scope="row">
                             {column.render
                               ? column.render(event)
-                              : (column.name === 'coverPhoto'
+                              : (column.name === 'coverPhotoUrl'
                                 ? <img src={event[column.name]} alt="Cover Photo" className={classes.image} />
                                 : event[column.name]
                               )}
@@ -294,7 +302,7 @@ const Events = () => {
                     onDrop={(acceptedFiles) =>
                       setCreateFormFields((prevFields) => ({
                         ...prevFields,
-                        coverPhoto: acceptedFiles[0],
+                        coverPhotoUrl: acceptedFiles[0],
                       }))
                     }
                   >
@@ -308,11 +316,11 @@ const Events = () => {
                         }}
                       >
                         <input {...getInputProps()} />
-                        {!createFormFields.coverPhoto ? (
+                        {!createFormFields.coverPhotoUrl ? (
                           <p>Add Cover Photo Here</p>
                         ) : (
                           <div>
-                            <Typography>{createFormFields.coverPhoto.name}</Typography>
+                            <Typography>{createFormFields.coverPhotoUrl.name}</Typography>
                             <EditOutlinedIcon />
                           </div>
                         )}
@@ -421,7 +429,7 @@ const Events = () => {
                     onDrop={(acceptedFiles) =>
                       setEditFormFields((prevFields) => ({
                         ...prevFields,
-                        coverPhoto: acceptedFiles[0],
+                        coverPhotoUrl: acceptedFiles[0],
                       }))
                     }
                   >
@@ -433,11 +441,11 @@ const Events = () => {
                         sx={{ "&:hover": { cursor: "pointer" } }}
                       >
                         <input {...getInputProps()} />
-                        {!editFormFields.coverPhoto ? (
+                        {!editFormFields.coverPhotoUrl ? (
                           <p>Add Cover Photo Here</p>
                         ) : (
                           <div>
-                            <Typography>{editFormFields.coverPhoto.name}</Typography>
+                            <Typography>{editFormFields.coverPhotoUrl.name}</Typography>
                             <EditOutlinedIcon />
                           </div>
                         )}
