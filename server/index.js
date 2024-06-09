@@ -15,6 +15,8 @@ import teamRoutes from "./routes/team.js";
 import newsRoutes from "./routes/news.js";
 import schoolRoutes from "./routes/school.js";
 import usersRoutes from "./routes/users.js";
+import eventsRoutes from "./routes/events.js";
+import publicationRoutes from "./routes/publication.js";
 
 
 dotenv.config();
@@ -39,6 +41,8 @@ app.get("/", (req, res) => {
  app.use("/news", newsRoutes)
  app.use("/school", schoolRoutes)
  app.use("/users", usersRoutes)
+  app.use("/events", eventsRoutes)
+  app.use("/publication", publicationRoutes)
 
 
  const PORT = process.env.PORT || 6001;

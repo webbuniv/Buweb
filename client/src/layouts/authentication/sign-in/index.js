@@ -34,16 +34,6 @@ const SignIn = () => {
         body: JSON.stringify({ email, password }),
       });
 
-      // const data = await response.json();
-
-      // if (!response.ok) {
-      //   setError(data.msg || "Something went wrong. Please try again.");
-      // } else {
-      //   localStorage.setItem("token", data.token);
-      //   localStorage.setItem("user", JSON.stringify(data.user));
-      //   setSuccess("Login Successfull")
-      //   navigate("/dashboard");
-      // }
       const loggedIn = await loggedInResponse.json();
       if (loggedIn) {
         dispatch(
@@ -52,7 +42,7 @@ const SignIn = () => {
             token: loggedIn.token,
           })
         );
-        navigate("/dashboard");
+        navigate("/");
       }
 
     } catch (err) {
