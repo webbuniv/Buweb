@@ -7,6 +7,9 @@ import RTL from "./layouts/rtl";
 import Profile from "./layouts/profile";
 import SignIn from "./layouts/authentication/sign-in";
 import SignUp from "./layouts/authentication/sign-up";
+import Events from "./layouts/events";
+import News from "./layouts/news";
+import Publication from "./layouts/publication";
 // import Slides from "./layouts/slides";
 
 // Soft UI Dashboard React icons
@@ -38,40 +41,40 @@ const routes = [
     component: <Tables />,
     noCollapse: true,
   },
-  {
-    type: "collapse",
-    name: "Events",
-    key: "billing",
-    route: "/billing",
-    icon: <CreditCard size="12px" />,
-    component: <Billing />,
-    noCollapse: true,
-  },
   // {
   //   type: "collapse",
-  //   name: "News",
-  //   key: "virtual-reality",
-  //   route: "/virtual-reality",
-  //   icon: <Cube size="12px" />,
-  //   component: <VirtualReality />,
-  //   noCollapse: true,
-  // },
-  // {
-  //   type: "collapse",
-  //   name: "Slides",
-  //   key: "slides",
-  //   route: "/slides",
-  //   icon: <Settings size="12px" />,
-  //   component: <Slides />,
+  //   name: "E",
+  //   key: "billing",
+  //   route: "/billing",
+  //   icon: <CreditCard size="12px" />,
+  //   component: <Billing />,
   //   noCollapse: true,
   // },
   {
     type: "collapse",
     name: "News",
-    key: "rtl",
-    route: "/rtl",
+    key: "news",
+    route: "/news",
+    icon: <Cube size="12px" />,
+    component: <News/>,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "Events",
+    key: "events",
+    route: "/events",
     icon: <Settings size="12px" />,
-    component: <RTL />,
+    component: <Events />,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "Publication",
+    key: "publication",
+    route: "/publication",
+    icon: <Settings size="12px" />,
+    component: <Publication />,
     noCollapse: true,
   },
   { type: "title", title: "Account Pages", key: "account-pages" },
