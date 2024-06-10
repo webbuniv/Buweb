@@ -12,7 +12,7 @@ import NewsCarousel from "@/components/NewsCarousel/NewsCarousel";
 import ScrollToTop from "@/components/ScrollToTop";
 // import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
-import Video from "@/components/Video";
+import ExploreBugema from "@/components/ExploreBugema";
 import { Inter } from "next/font/google";
 import { Component } from "react";
 
@@ -24,7 +24,7 @@ export default function Home() {
       <ScrollUp />
       <Hero />
       <Features />
-      <Video />
+      <ExploreBugema />
       <Brands />
       <AboutSectionOne />
       <AboutSectionTwo />
