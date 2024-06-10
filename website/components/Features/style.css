@@ -40,12 +40,6 @@
   .animated-button:hover .icon-container {
     transform: translateX(125px);
   }
-  .container1 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100vh;
-  }
   .skewed {
     width: 150px; /* width of the div */
     height: 65px; /* height of the div */
@@ -65,8 +59,6 @@
   .button2 {
     display: flex;
     padding: 0.5rem 1rem;
-    font-size: 30px;
-    font-weight: 600;
     color: white;
     transition: background-color 0.3s ease-in-out;
   }
@@ -74,7 +66,6 @@
     /* background-color: rgba(0, 0, 0, 0.6); */
     position: relative;
     overflow: hidden;
-    font-size: 30px;
   }
 
   .animated2-button:hover {
@@ -114,7 +105,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100vh;
   }
   .skewed2 {
     width: 150px; /* width of the div */
