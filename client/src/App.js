@@ -22,6 +22,9 @@ import RTL from "./layouts/rtl";
 import Profile from "./layouts/profile";
 import SignIn from "./layouts/authentication/sign-in";
 import SignUp from "./layouts/authentication/sign-up";
+import Events from "./layouts/events";
+import News from "./layouts/news";
+import Publication from "./layouts/publication";
 
 import routes from "./routes";
 
@@ -117,33 +120,43 @@ export default function App() {
       )}
       {layout === "vr" && <Configurator />}
       <Routes>
-        <Route path="/" element={<SignIn />} />
-        <Route
-          path="/dashboard"
-          element={isAuth ? <Dashboard /> : <Navigate to="/" />}
+        {isAuth ? (
+          <>
+          <Route
+          path="/"
+          element={<Dashboard />}
         />
         <Route
           path="/tables"
-          element={isAuth ? <Tables /> : <Navigate to="/" />}
+          element={ <Tables />}
         />
         <Route
           path="/billing"
-          element={isAuth ? <Billing /> : <Navigate to="/" />}
+          element={<Billing /> }
         />
         <Route
-          path="/virtual-reality"
-          element={isAuth ? <VirtualReality /> : <Navigate to="/" />}
+          path="/news"
+          element={<News />}
         />
         <Route
-          path="/rtl"
-          element={isAuth ? <RTL /> : <Navigate to="/" />}
+          path="/events"
+          element={<Events /> }
+        />
+        <Route
+          path="/publication"
+          element={ <Publication />}
         />
         <Route
           path="/profile"
-          element={isAuth ? <Profile /> : <Navigate to="/" />}
+          element={ <Profile />}
         />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
+        </>
+        ):(
+          <Route path="/signin" element={<SignIn />} />
+        )
+      }
+        {/* <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} /> */}
       </Routes>
     </ThemeProvider>
   );
