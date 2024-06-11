@@ -12,8 +12,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 
-const Model = ({isvisible, onClose, children}) => {
-      if (!isvisible) return null;
+const Model3 = ({is3visible, onClose, children}) => {
+      if (!is3visible) return null;
 const handleclose = (e)=>{
       
       if( e.target.id === 'wrapper ') onClose();
@@ -140,7 +140,7 @@ const why_bugema = () =>{
                         <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'25%'}}> 
                               <div className="mr-2 my-5 slider slide--fast">
                                     
-                                    <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '   onClick={main}> <span id='main' className='animated href=""'>Courses</span></h1> 
+                                    <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '   onClick={main}> <span id='main' className='animated href=""'>Campuses</span></h1> 
                               </div>
                               <div className="mr-2 my-5  slider slide--slow ">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={payments}><span id='payments' className='animated'>Fees and Payments</span></h1> 
@@ -524,4 +524,4 @@ const why_bugema = () =>{
   );
 };
 
-export default Model;
+export default Model3;
