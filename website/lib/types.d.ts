@@ -12,6 +12,7 @@ export type PostMetadata = {
   title: string;
   subtitle?: string;
   slug: string;
+  brief: string; 
   content: {
     text: string;
   };
@@ -20,7 +21,8 @@ export type PostMetadata = {
   };
   author: {
     name: string;
-    profilePicture?: string;
+    profilePicture: string;
+    tagline: string;
   };
   publishedAt
   reactionCount

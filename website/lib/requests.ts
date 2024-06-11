@@ -35,34 +35,35 @@ export async function getBlogName() {
 
 export async function getPosts({ first = 9, pageParam = "" }: GetPostsArgs) {
   const query = gql`
-    query getPosts($publicationId: ObjectId!, $first: Int!, $after: String) {
-      publication(id: $publicationId) {
-        posts(first: $first, after: $after) {
-        isTeam
-          edges {
-            node {
-              id
-              title
-              subtitle
-              slug
-              content {
-                text
-              }
-              coverImage {
-                url
-              }
-              author {
-                name
-                profilePicture
-              }
-              publishedAt
-              reactionCount
+    query Publication {
+    publication(host: "bugemauniversity.hashnode.dev") {
+      isTeam
+      title
+      posts(first: 3) {
+        edges {
+          node {
+            title
+            brief
+            url
+            slug
+            content{
+              text
             }
-            cursor
+            coverImage {
+              url
+            }
+            publishedAt
+            reactionCount
+            author {
+              name
+              profilePicture
+              tagline
+            }
           }
         }
       }
     }
+  }
   `;
 
   const response = await request<GetPostsResponse>(endpoint, query, {
