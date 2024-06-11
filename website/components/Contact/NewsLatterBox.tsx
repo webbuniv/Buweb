@@ -1,8 +1,7 @@
+'use client';
 import React, { useState } from "react";
 import { subscribeToNewsletter } from "@/lib/requests"; 
 import { toast } from "sonner";
-import type { SubscribeToNewsletterResponse } from "@/lib/types";
-
 const NewsLatterBox: React.FC = () => {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("");
