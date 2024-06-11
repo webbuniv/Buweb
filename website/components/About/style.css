@@ -1,0 +1,17 @@
+@keyframes translateY {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+  
+  @keyframes translateX {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  .animate-y-translation {
+    animation: translateY 5s infinite alternate;
+  }
+  
+  .animate-x-translation {
+    animation: translateX 5s infinite alternate;
+  }
