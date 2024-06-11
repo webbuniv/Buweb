@@ -50,3 +50,41 @@ export const ServiceData = [
         cardlink: "https://www.bugemauniv.ac.ug/baptsim",
     },
 ];
+
+export const ServiceData2 = [
+    {
+        icon: RxAccessibility,
+        title: "RESEARCH",
+        content:"Bugema University re-recognised as Academic Centre of Excellence in Cyber Security Research (ACE-CSR)",
+        backgroundImage: "/images/features/life.jpg",
+        cardlink: "https://www.bugemauniv.ac.ug/bursaries",
+    },
+    {
+        icon: RxPencil2,
+        title: "RESEARCH",
+        content:"TFive ways Bugema University research is improving our food systems",
+        backgroundImage: "/images/carousel/buadmin.jpg",
+        cardlink: "https://www.bugemauniv.ac.ug/evangelism",
+    },
+    {
+        icon: RxDesktop,
+        title: "RESEARCH",
+        content:"Partners donate 200 desktop computers to facilitate IT students in the computer labs.",
+        backgroundImage: "/images/features/bb.jpg",
+        cardlink: "https://www.bugemauniv.ac.ug/facilities",
+    },
+    {
+        icon: RxReader,
+        title: "RESEARCH",
+        content:"Admissions for August Intake are currently ongoing at all campuses of Bugema University.",
+        backgroundImage: "/images/carousel/bugate.jpg",
+        cardlink: "https://www.bugemauniv.ac.ug/admissions",
+    },
+    {
+        icon: RxCrop,
+        title: "RESEARCH",
+        content:"Over 30 students baptised into the Seventh Day Adventist Church after evangelistic campaign.",
+        backgroundImage: "/images/features/bu.jpg",
+        cardlink: "https://www.bugemauniv.ac.ug/baptsim",
+    },
+];
