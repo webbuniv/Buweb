@@ -1,5 +1,7 @@
 import Image from "next/image";
-import SectionTitle from "../Common/SectionTitle";
+// import SectionTitle from "../Common/SectionTitle";
+import im3 from "../../public/images/features/reg.jpg";
+import './style.css';
 
 const checkIcon = (
   <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
@@ -22,54 +24,89 @@ const AboutSectionOne = () => {
       <div className="container">
         <div className="border-b border-body-color/[.15] pb-16 dark:border-white/[.15] md:pb-20 lg:pb-28">
           <div className="-mx-4 flex flex-wrap items-center">
-            <div className="w-full px-4 lg:w-1/2">
-              <SectionTitle
-                title="AgricHub Official Website"
-                paragraph="
-                  At AgricHub, we believe that by embracing the digital age, agriculture can flourish in ways never before imagined. Join us on our journey to revolutionize the agricultural marketing landscape, and together, 
-                  we can build a sustainable and prosperous future for farmers and consumers alike.
-                "
-                mb="44px"
-              />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8 ">
 
-              <div
-                className="wow fadeInUp mb-12 max-w-[570px] lg:mb-0"
-                data-wow-delay=".15s"
-              >
-                <div className="mx-[-12px] flex flex-wrap">
-                  <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Website" />
-                    <List text="E-market Platform" />
-                    <List text="Analytics Platform" />
+              {/* Left side container */}
+              <div className="flex flex-col md:space-x-4 space-y-2 " >
+                
+                  {/* Title and subtitle container */}
+                  <div className="px-4">
+                    <p className="text-base !leading-relaxed text-body-color md:text-lg">
+                    Research and innovation
+                    </p>
+                    <h2 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px]">
+                    We strive to achieve an inclusive, people-centred culture for our community of researchers
+                    </h2>
                   </div>
 
-                  <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="AgricHub" />
-                    <List text="Agricultural E-market Platform" />
-                    <List text="Using Technology to Improve the Agricultural Sector" />
+                  {/* Buttons container */}
+                  <div className="grid gap-x-5 gap-y-8 md:grid-cols-1">
+                  <div className="relative">
+                    <div className="flex items-center md:text-3xl rounded-md py-1 px-3 md:py-2 md:px-4 text-base font-semibold dark:text-white duration-300 ease-in-out hover:bg-primary/80 cursor-pointer">
+                      <h1 className="text-body-color dark:text-white">
+                        Research strengths
+                      </h1>
+                    </div>
+                    {/* Pointer */}
+                    <div className="absolute w-0 h-0 border-t border-transparent border-solid border-primary bottom-0 left-1/2 transform -translate-x-1/2"></div>
+                  </div>
+                  <div className="relative">
+                      <div
+                        className="flex items-center md:text-3xl rounded-md py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80 cursor-pointer"
+                        
+                      >
+                      <h1 className=" text-body-color dark:text-white">
+                      REF2021 results
+                      </h1>
+                      </div>
+                        {/* Pointer */}
+                         <div className="absolute w-0 h-0 border-t border-transparent border-solid border-primary bottom-0 left-1/2 transform -translate-x-1/2"></div>
+                    </div>
+                    <div className="relative">
+                      <div
+                        className="flex items-center md:text-3xl rounded-md py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80 cursor-pointer"
+                      >
+                      <h1 className=" text-body-color dark:text-white"> 
+                        Impact
+                      </h1>
+                      </div>
+                        {/* Pointer */}
+                        <div className="absolute w-0 h-0 border-t border-transparent border-solid border-primary bottom-0 left-1/2 transform -translate-x-1/2"></div>
+                    </div>
+                    <div>
+                      <div
+                        className="flex items-center md:text-3xl rounded-md py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80 cursor-pointer"
+                      >
+                      <h1 className=" text-body-color dark:text-white"> 
+                         Business and partnerships
+                      </h1>
+                      </div>
+                      {/* Pointer */}
+                      <div className="absolute w-0 h-0 border-t border-transparent border-solid border-primary bottom-0 left-1/2 transform -translate-x-1/2"></div>
+                    </div>
+                  </div>
+              </div>
+
+              {/* Right side container */}
+              <div className="containerr relative">
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <div className="text-center animate-y-translation mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[30px]">
+                    <h2>Bugema University research</h2>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <div className="w-full px-4 lg:w-1/2">
-              <div
-                className="wow fadeInUp relative mx-auto aspect-[25/24] max-w-[500px] lg:mr-0"
-                data-wow-delay=".2s"
-              >
                 <Image
-                  src="/images/about/about-image.svg"
-                  alt="about-image"
-                  fill
-                  className="mx-auto max-w-full lg:mr-0"
+                  className="img1"
+                  src={im3}
+                  alt="Bugema University"
+                  width="600"
+                  height="150"
                 />
+              </div>     
               </div>
-            </div>
           </div>
         </div>
       </div>
     </section>
   );
 };
-
 export default AboutSectionOne;
