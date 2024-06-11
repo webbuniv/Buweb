@@ -1,31 +1,44 @@
+"use client";
+import React, { useEffect, useState } from "react";
 import SingleBlog from "@/components/Blog/SingleBlog";
-import blogData from "@/components/Blog/blogData";
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import { getPosts } from "@/lib/requests";
+import { useQuery } from "@tanstack/react-query";
 
-const Blog = () => {
+export default function Blog  () {
+  const [posts, setPosts] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const posts = await getPosts(9); 
+        setPosts(posts);
+      } catch (err) {
+        setError(err);
+      }
+    };
+
+    fetchPosts();
+  }, []);
   return (
     <>
       <Breadcrumb
-        pageName="Blog Grid"
-        description="AgricHub is deeply committed to promoting sustainable agriculture practices. 
-          We encourage eco-friendly farming methods, support organic farming initiatives,
-          and connect consumers with producers who prioritize environmental stewardship.
+        pageName="Bugema University Blogs"
+        description="Welcome to the Bugema University Blog page! Here, you'll find a wealth of 
+        knowledge and insights on various topics related to academia, student life, research, and more. 
         "
       />
 
       <section className="pt-[120px] pb-[120px]">
         <div className="container">
-          <div className="-mx-4 flex flex-wrap justify-center">
-            {blogData.map((blog) => (
-              <div
-                key={blog.id}
-                className="w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3"
-              >
-                <SingleBlog blog={blog} />
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {posts.map((post) => (
+              <SingleBlog key={post.node.id} post={post.node} />
             ))}
           </div>
-
+          <div>
+          </div>
           <div
             className="wow fadeInUp -mx-4 flex flex-wrap"
             data-wow-delay=".15s"
@@ -93,5 +106,3 @@ const Blog = () => {
     </>
   );
 };
-
-export default Blog;
