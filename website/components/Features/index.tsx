@@ -138,7 +138,6 @@ const Features = () => {
               {/* Buttons container */}
               <div className="grid gap-x-5 gap-y-8 md:grid-cols-1">
                   <div
-                    className="button2 flex animated2-button rounded-md py-1 px-3 items-center py-2 text-lg md:text-xl lg:text-2xl font-semibold text-white transition bg-blue-500 hover:bg-blue-600"
                     className="flex items-center button2 md:text-3xl animated2-button rounded-md py-1 px-3 md:py-2 md:px-4 text-base font-semibold dark:text-white duration-300 ease-in-out hover:bg-primary/80"
                     style={{ backgroundColor: hoveredButton === 'under' ? 'blue' : '' }}
                     onMouseEnter={() => setHoveredButton('under')}
@@ -204,16 +203,11 @@ const Features = () => {
             />
           {/* <Image className="img1" src={img1} alt="Bugema University" width="600" height="150"/> */}
           </div>
-             <div className="triangle-top-right absolute top-0 right-0 border-solid border-transparent border-t-0 border-r-80 border-b-330 border-l-0 border-gray-900"></div>
-             <div className="triangle-bottom-left absolute bottom-0 left-0 border-solid border-transparent border-t-345 border-r-0 border-b-10 border-l-90 border-gray-900"></div>
+          <div className="triangle-top-right" ></div>
+          <div className="triangle-bottom-left" ></div>
           </div>
 
         </div>
-        </div>
-        <div className="container1 -mt-60 grid grid-cols-3 gap-x-8 md:grid-cols-1 lg:grid-cols-2">
-            <div className="skewed w-150 h-65 bg-gray-900"></div>
-            <div className="skewed w-150 h-65 bg-gray-900"></div>
-            <div className="skewed w-150 h-65 bg-gray-900"></div>
         <div className="container1 md:mt-16 mt-8 grid grid-cols-3 gap-x-8 md:grid-cols-1 lg:grid-cols-2">
           <div className="skewed left" ></div>
           <div className="skewed center"></div>
