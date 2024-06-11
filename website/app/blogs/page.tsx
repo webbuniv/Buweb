@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import SingleBlog from "@/components/Blog/SingleBlog";
 import Breadcrumb from "@/components/Common/Breadcrumb";
@@ -33,9 +34,9 @@ export default function Blog  () {
       <section className="pt-[120px] pb-[120px]">
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">
-          {data?.pages.map((group) =>
-            group?.map((post) => <SingleBlog key={post.cursor} post={post.node} />)
-          )}
+            {posts.map((post) => (
+              <SingleBlog key={post.node.id} post={post.node} />
+            ))}
           </div>
           <div>
           </div>
