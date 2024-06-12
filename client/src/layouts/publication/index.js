@@ -230,7 +230,6 @@ const Publication = () => {
     { name: 'title', label: 'Title' },
     { name: 'tags', label: 'Tags' },
     { name: 'description', label: 'Description' },
-
     {
       name: 'actions',
       align: 'center',
