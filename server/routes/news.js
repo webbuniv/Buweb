@@ -6,8 +6,6 @@ import { cloudinaryController } from '../controllers/cloudinary.js';
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-
-
 const router = express.Router();
 
 /* Slide */
