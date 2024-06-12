@@ -11,6 +11,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import { ServiceData2 } from "@/app/constants/news";
+import { ServiceData3 } from "@/app/constants/news";
+import { ServiceData4 } from "@/app/constants/news";
+import { ServiceData5 } from "@/app/constants/news";
 import { FreeMode, Pagination, Navigation } from "swiper/modules";
 
 import { RxArrowLeft, RxArrowRight, RxArrowTopRight } from "react-icons/rx";
@@ -122,7 +125,6 @@ const AboutSectionOne = () => {
                               exit="hidden"
                             >
                               <a
-                                href={item.cardlink}
                                 className="group relative mx-auto mb-12 flex h-[250px] w-[280px] cursor-pointer flex-col gap-6 overflow-hidden rounded-xl px-6 py-8 text-white shadow-lg lg:h-[400px] lg:w-[350px]"
                               >
                                 <div
@@ -130,7 +132,7 @@ const AboutSectionOne = () => {
                                   style={{ backgroundImage: `url(${item.backgroundImage})` }}
                                 />
                                 <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-50 dark:opacity-50 dark:group-hover:opacity-70" />
-                                <div className="relative flex flex-col gap-3">
+                                <div className="relative flex flex-col gap-2">
                                   {/* <item.icon className="text-blue-600 group-hover:text-blue-400 h-[32px] w-[32px]" /> */}
                                   <h1 className="text-2xl">{item.title}</h1>
                                   <p className="lg:text-[24px]">{item.content}</p>
@@ -169,7 +171,6 @@ const AboutSectionOne = () => {
                               exit="hidden"
                             >
                               <a
-                                href={item.cardlink}
                                 className="group relative mb-14 flex h-[250px] w-[215px] cursor-pointer flex-col gap-6 overflow-hidden rounded-xl px-6 py-8 text-white shadow-lg lg:h-[400px] lg:w-[350px]"
                               >
                                 <div
@@ -177,12 +178,61 @@ const AboutSectionOne = () => {
                                   style={{ backgroundImage: `url(${item.backgroundImage})` }}
                                 />
                                 <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-50 dark:opacity-50 dark:group-hover:opacity-70" />
-                                <div className="relative flex flex-col gap-3">
+                                <div className="relative flex flex-col gap-2">
                                   {/* <item.icon className="h-[32px] w-[32px]" /> */}
                                   <h1 className="text-2xl lg:text-3xl">{item.title}</h1>
                                   <p className="lg:text-[24px]">{item.content}</p>
                                 </div>
-                                <RxArrowTopRight className="absolute bottom-5 left-5 h-[35px] w-[35px] text-white duration-100 group-hover:rotate-45" />
+                                <button className="bg-transparent border border-white py-2 px-4 rounded-lg transition-all duration-500 transform translate-x-0 hover:bg-white hover:text-black">
+                                  Read More
+                                  <span className="absolute top-0 left-0 w-full h-full bg-black opacity-0 group-hover:opacity-50"></span>
+                                </button>
+                              </a>
+                            </motion.div>
+                          </SwiperSlide>
+                        ))}
+                      </Swiper>
+                    </div>
+                  </div>
+                )}
+
+
+
+                        {/* REF2021 results part */}
+
+                        {activeContent === "REF2021 results" && (
+                  <div className="relative">
+                    <div className="-mt-44 flex h-screen flex-col items-center justify-center md:hidden">
+                      <Swiper
+                        navigation
+                        loop={true}
+                        slidesPerView={1}
+                        freeMode={true}
+                        pagination={{ clickable: true }}
+                        modules={[FreeMode, Pagination, Navigation]}
+                        className="max-w-[90%] lg:max-w-[80%]"
+                      >
+                        {ServiceData3.map((item, index) => (
+                          <SwiperSlide key={item.title} className="">
+                            <motion.div
+                              variants={fadeIn("right", "spring", index * 0.5, 0.75)}
+                              initial="hidden"
+                              whileInView="show"
+                              exit="hidden"
+                            >
+                              <a
+                                className="group relative mx-auto mb-12 flex h-[250px] w-[280px] cursor-pointer flex-col gap-6 overflow-hidden rounded-xl px-6 py-8 text-white shadow-lg lg:h-[400px] lg:w-[350px]"
+                              >
+                                <div
+                                  className="absolute inset-0 bg-cover bg-center transition-all duration-700 group-hover:scale-125"
+                                  style={{ backgroundImage: `url(${item.backgroundImage})` }}
+                                />
+                                <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-50 dark:opacity-50 dark:group-hover:opacity-70" />
+                                <div className="relative flex flex-col gap-2">
+                                  {/* <item.icon className="text-blue-600 group-hover:text-blue-400 h-[32px] w-[32px]" /> */}
+                                  <h1 className="text-2xl">{item.title}</h1>
+                                  <p className="lg:text-[24px]">{item.content}</p>
+                                </div>
                               </a>
                             </motion.div>
                           </SwiperSlide>
@@ -190,22 +240,248 @@ const AboutSectionOne = () => {
                       </Swiper>
                     </div>
 
-                    <div className="mx-auto -mt-44 mb-10 hidden md:flex justify-center space-x-4 md:-mt-16">
-                      <button
-                        onClick={() => swiper.slidePrev()}
-                        className="rounded-full bg-body-color p-[1rem] transition-all duration-300 hover:scale-110 dark:bg-primary/50"
+                    <div className="-mt-10 hidden h-screen flex-col items-center justify-center md:flex">
+                      <Swiper
+                        loop={true}
+                        breakpoints={{
+                          340: {
+                            slidesPerView: 2,
+                            spaceBetween: 15,
+                          },
+                          700: {
+                            slidesPerView: 3,
+                            spaceBetween: 15,
+                          },
+                        }}
+                        freeMode={true}
+                        pagination={{ clickable: true }}
+                        modules={[FreeMode, Pagination]}
+                        className="max-w-[90%] lg:max-w-[80%]"
                       >
-                        <RxArrowLeft className="font-bold text-white" />
-                      </button>
-                      <button
-                        onClick={() => swiper.slideNext()}
-                        className="rounded-full bg-body-color p-[1rem] transition-all duration-300 hover:scale-110 dark:bg-primary/50"
-                      >
-                        <RxArrowRight className="font-bold text-white" />
-                      </button>
+                        {ServiceData3.map((item, index) => (
+                          <SwiperSlide key={item.title} className="">
+                            <motion.div
+                              variants={fadeIn("right", "spring", index * 0.5, 0.75)}
+                              initial="hidden"
+                              whileInView="show"
+                              exit="hidden"
+                            >
+                              <a
+                                className="group relative mb-14 flex h-[250px] w-[215px] cursor-pointer flex-col gap-6 overflow-hidden rounded-xl px-6 py-8 text-white shadow-lg lg:h-[400px] lg:w-[350px]"
+                              >
+                                <div
+                                  className="absolute inset-0 bg-cover bg-center transition-all duration-700 group-hover:scale-125"
+                                  style={{ backgroundImage: `url(${item.backgroundImage})` }}
+                                />
+                                <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-50 dark:opacity-50 dark:group-hover:opacity-70" />
+                                <div className="relative flex flex-col gap-2">
+                                  {/* <item.icon className="h-[32px] w-[32px]" /> */}
+                                  <h1 className="text-2xl lg:text-3xl">{item.title}</h1>
+                                  <p className="lg:text-[24px]">{item.content}</p>
+                                </div>
+                                <button className="bg-transparent border border-white py-2 px-4 rounded-lg transition-all duration-500 transform translate-x-0 hover:bg-white hover:text-black">
+                                  Read More
+                                  <span className="absolute top-0 left-0 w-full h-full bg-black opacity-0 group-hover:opacity-50"></span>
+                                </button>
+                              </a>
+                            </motion.div>
+                          </SwiperSlide>
+                        ))}
+                      </Swiper>
                     </div>
                   </div>
                 )}
+
+
+
+                               {/* Impact part */}
+                   {activeContent === "Impact" && (
+                  <div className="relative">
+                    <div className="-mt-44 flex h-screen flex-col items-center justify-center md:hidden">
+                      <Swiper
+                        navigation
+                        loop={true}
+                        slidesPerView={1}
+                        freeMode={true}
+                        pagination={{ clickable: true }}
+                        modules={[FreeMode, Pagination, Navigation]}
+                        className="max-w-[90%] lg:max-w-[80%]"
+                      >
+                        {ServiceData4.map((item, index) => (
+                          <SwiperSlide key={item.title} className="">
+                            <motion.div
+                              variants={fadeIn("right", "spring", index * 0.5, 0.75)}
+                              initial="hidden"
+                              whileInView="show"
+                              exit="hidden"
+                            >
+                              <a
+                                className="group relative mx-auto mb-12 flex h-[250px] w-[280px] cursor-pointer flex-col gap-6 overflow-hidden rounded-xl px-6 py-8 text-white shadow-lg lg:h-[400px] lg:w-[350px]"
+                              >
+                                <div
+                                  className="absolute inset-0 bg-cover bg-center transition-all duration-700 group-hover:scale-125"
+                                  style={{ backgroundImage: `url(${item.backgroundImage})` }}
+                                />
+                                <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-50 dark:opacity-50 dark:group-hover:opacity-70" />
+                                <div className="relative flex flex-col gap-2">
+                                  {/* <item.icon className="text-blue-600 group-hover:text-blue-400 h-[32px] w-[32px]" /> */}
+                                  <h1 className="text-2xl">{item.title}</h1>
+                                  <p className="lg:text-[24px]">{item.content}</p>
+                                </div>
+                              </a>
+                            </motion.div>
+                          </SwiperSlide>
+                        ))}
+                      </Swiper>
+                    </div>
+
+                    <div className="-mt-10 hidden h-screen flex-col items-center justify-center md:flex">
+                      <Swiper
+                        loop={true}
+                        breakpoints={{
+                          340: {
+                            slidesPerView: 2,
+                            spaceBetween: 15,
+                          },
+                          700: {
+                            slidesPerView: 3,
+                            spaceBetween: 15,
+                          },
+                        }}
+                        freeMode={true}
+                        pagination={{ clickable: true }}
+                        modules={[FreeMode, Pagination]}
+                        className="max-w-[90%] lg:max-w-[80%]"
+                      >
+                        {ServiceData4.map((item, index) => (
+                          <SwiperSlide key={item.title} className="">
+                            <motion.div
+                              variants={fadeIn("right", "spring", index * 0.5, 0.75)}
+                              initial="hidden"
+                              whileInView="show"
+                              exit="hidden"
+                            >
+                              <a
+                                className="group relative mb-14 flex h-[250px] w-[215px] cursor-pointer flex-col gap-6 overflow-hidden rounded-xl px-6 py-8 text-white shadow-lg lg:h-[400px] lg:w-[350px]"
+                              >
+                                <div
+                                  className="absolute inset-0 bg-cover bg-center transition-all duration-700 group-hover:scale-125"
+                                  style={{ backgroundImage: `url(${item.backgroundImage})` }}
+                                />
+                                <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-50 dark:opacity-50 dark:group-hover:opacity-70" />
+                                <div className="relative flex flex-col gap-2">
+                                  {/* <item.icon className="h-[32px] w-[32px]" /> */}
+                                  <h1 className="text-2xl lg:text-3xl">{item.title}</h1>
+                                  <p className="lg:text-[24px]">{item.content}</p>
+                                </div>
+                                <button className="bg-transparent border border-white py-2 px-4 rounded-lg transition-all duration-500 transform translate-x-0 hover:bg-white hover:text-black">
+                                  Read More
+                                  <span className="absolute top-0 left-0 w-full h-full bg-black opacity-0 group-hover:opacity-50"></span>
+                                </button>
+                              </a>
+                            </motion.div>
+                          </SwiperSlide>
+                        ))}
+                      </Swiper>
+                    </div>
+                  </div>
+                )}
+
+
+
+                  {activeContent === "Business and partnerships" && (
+                  <div className="relative">
+                    <div className="-mt-44 flex h-screen flex-col items-center justify-center md:hidden">
+                      <Swiper
+                        navigation
+                        loop={true}
+                        slidesPerView={1}
+                        freeMode={true}
+                        pagination={{ clickable: true }}
+                        modules={[FreeMode, Pagination, Navigation]}
+                        className="max-w-[90%] lg:max-w-[80%]"
+                      >
+                        {ServiceData5.map((item, index) => (
+                          <SwiperSlide key={item.title} className="">
+                            <motion.div
+                              variants={fadeIn("right", "spring", index * 0.5, 0.75)}
+                              initial="hidden"
+                              whileInView="show"
+                              exit="hidden"
+                            >
+                              <a
+                                className="group relative mx-auto mb-12 flex h-[250px] w-[280px] cursor-pointer flex-col gap-6 overflow-hidden rounded-xl px-6 py-8 text-white shadow-lg lg:h-[400px] lg:w-[350px]"
+                              >
+                                <div
+                                  className="absolute inset-0 bg-cover bg-center transition-all duration-700 group-hover:scale-125"
+                                  style={{ backgroundImage: `url(${item.backgroundImage})` }}
+                                />
+                                <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-50 dark:opacity-50 dark:group-hover:opacity-70" />
+                                <div className="relative flex flex-col gap-2">
+                                  {/* <item.icon className="text-blue-600 group-hover:text-blue-400 h-[32px] w-[32px]" /> */}
+                                  <h1 className="text-2xl">{item.title}</h1>
+                                  <p className="lg:text-[24px]">{item.content}</p>
+                                </div>
+                              </a>
+                            </motion.div>
+                          </SwiperSlide>
+                        ))}
+                      </Swiper>
+                    </div>
+
+                    <div className="-mt-10 hidden h-screen flex-col items-center justify-center md:flex">
+                      <Swiper
+                        loop={true}
+                        breakpoints={{
+                          340: {
+                            slidesPerView: 2,
+                            spaceBetween: 15,
+                          },
+                          700: {
+                            slidesPerView: 3,
+                            spaceBetween: 15,
+                          },
+                        }}
+                        freeMode={true}
+                        pagination={{ clickable: true }}
+                        modules={[FreeMode, Pagination]}
+                        className="max-w-[90%] lg:max-w-[80%]"
+                      >
+                        {ServiceData5.map((item, index) => (
+                          <SwiperSlide key={item.title} className="">
+                            <motion.div
+                              variants={fadeIn("right", "spring", index * 0.5, 0.75)}
+                              initial="hidden"
+                              whileInView="show"
+                              exit="hidden"
+                            >
+                              <a
+                                className="group relative mb-14 flex h-[250px] w-[215px] cursor-pointer flex-col gap-6 overflow-hidden rounded-xl px-6 py-8 text-white shadow-lg lg:h-[400px] lg:w-[350px]"
+                              >
+                                <div
+                                  className="absolute inset-0 bg-cover bg-center transition-all duration-700 group-hover:scale-125"
+                                  style={{ backgroundImage: `url(${item.backgroundImage})` }}
+                                />
+                                <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-50 dark:opacity-50 dark:group-hover:opacity-70" />
+                                <div className="relative flex flex-col gap-2">
+                                  {/* <item.icon className="h-[32px] w-[32px]" /> */}
+                                  <h1 className="text-2xl lg:text-3xl">{item.title}</h1>
+                                  <p className="lg:text-[24px]">{item.content}</p>
+                                </div>
+                                <button className="bg-transparent border border-white py-2 px-4 rounded-lg transition-all duration-500 transform translate-x-0 hover:bg-white hover:text-black">
+                                  Read More
+                                  <span className="absolute top-0 left-0 w-full h-full bg-black opacity-0 group-hover:opacity-50"></span>
+                                </button>
+                              </a>
+                            </motion.div>
+                          </SwiperSlide>
+                        ))}
+                      </Swiper>
+                    </div>
+                  </div>
+                )}
+
+
                 {activeContent !== "image" && activeContent !== "Research strengths" && (
                   <div className="flex h-[150px] items-center justify-center">
                     <h2 className="text-2xl font-bold">{activeContent}</h2>
