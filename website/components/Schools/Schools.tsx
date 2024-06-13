@@ -12,35 +12,37 @@ import "swiper/css/free-mode";
 import { FreeMode, Pagination, Navigation } from "swiper/modules";
 
 import { RxArrowLeft, RxArrowRight, RxArrowTopRight } from "react-icons/rx";
-import { ServiceData } from "@/app/constants/news";
+import { SchoolsData } from "@/app/constants/news";
 import SectionTitle from "../Common/SectionTitle";
 
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/motion";
 
-export default function NewsCarousel() {
+export default function SchoolsPage() {
   const [swiper, setSwiper] = useState(null);
-  const [newsData, setNewsData] = useState([]);
+  const [schoolsData, setSchoolsData] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3001/news/")
       .then((response) => response.json())
-      .then((data) => setNewsData(data))
+      .then((data) => setSchoolsData(data))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
   return (
     <div>
-      {/* Latest News Section title */}
-      <SectionTitle
-        title="Our Latest News"
-        paragraph="Stay up to date with the latest trending news in Bugema University. Check out some of the latest news happening around the various campuses."
-      />
+      {/* Schools Section title */}
+      <div className="px-3">
+        <SectionTitle
+          title="Our Schools And Faculties"
+          paragraph="Checkout the schools and faculties at Bugema University. Each school is dedicated to providing top-notch education and fostering an environment of academic excellence. Learn about the unique programs, esteemed faculty members, and the cutting-edge research and facilities that contribute to the vibrant academic community on our campuses."
+        />
+      </div>
 
       {/* Carousel on small devices */}
       <div className="-mt-44 flex h-screen flex-col items-center justify-center md:hidden">
         <Swiper 
-            navigation
+          navigation
           onSwiper={setSwiper}
           loop={true}
           slidesPerView={1}
@@ -51,7 +53,7 @@ export default function NewsCarousel() {
           modules={[FreeMode, Pagination, Navigation]}
           className="max-w-[90%] lg:max-w-[80%]"
         >
-          {ServiceData.map((item, index) => (
+          {SchoolsData.map((item, index) => (
             <SwiperSlide key={item.title} className="">
               <motion.div
                 variants={fadeIn("right", "spring", index * 0.5, 0.75)}
@@ -69,7 +71,7 @@ export default function NewsCarousel() {
                   />
                   <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-50 dark:opacity-50 dark:group-hover:opacity-70" />
                   <div className="relative flex flex-col gap-3">
-                    <item.icon className="text-blue-600 group-hover:text-blue-400 h-[32px] w-[32px]" />
+                    <item.icon className="group-hover:text-blue-400 h-[32px] w-[32px]" />
                     <h1 className="text-2xl">{item.title}</h1>
                     <p className="lg:text-[24px]">{item.content}</p>
                   </div>
@@ -102,7 +104,7 @@ export default function NewsCarousel() {
           modules={[FreeMode, Pagination]}
           className="max-w-[90%] lg:max-w-[80%]"
         >
-          {ServiceData.map((item, index) => (
+          {SchoolsData.map((item, index) => (
             <SwiperSlide key={item.title} className="">
               <motion.div
                 variants={fadeIn("right", "spring", index * 0.5, 0.75)}
