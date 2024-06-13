@@ -34,7 +34,7 @@ export default function Blog  () {
         <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {posts.map((post) => (
-              <SingleBlog key={post.node.id} post={post.node} />
+              <SingleBlog key={post.cursor} post={post.node} />
             ))}
           </div>
           <div>

@@ -14,97 +14,56 @@ import "../../styles/index.css";
 import { FaChevronDown } from "react-icons/fa";
 
 const Header = () => {
-  const [navbarOpen, setNavbarOpen] = useState(false);
-  const navbarToggleHandler = () => {
-    setNavbarOpen(!navbarOpen);
-  };
-
-  const [sticky, setSticky] = useState(false);
-  const handleStickyNavbar = () => {
-    if (window.scrollY >= 700) {
-      setSticky(true);
-    } else {
-      setSticky(false);
-    }
-  };
-  useEffect(() => {
-      window.addEventListener("scroll", handleStickyNavbar);
-      return () => {
-        window.removeEventListener("scroll", handleStickyNavbar);
-      };
-    }, []);
-
-  const [openIndex, setOpenIndex] = useState(-1);
-  const handleSubmenu = (index) => {
-    if (openIndex === index) {
-      setOpenIndex(-1);
-    } else {
-      setOpenIndex(index);
-    }
-  };
-  
-const [isOpen, setIsOpen] = useState(false);
-
-  const [showModel, setShowModel] = useState(false);
-  useEffect(() => {
-
-      document.body.style.overflow = showModel ? 'hidden' : 'auto';
-      // if (!showModel){
-      //       document.querySelector('.active')?.classList.remove('active');
-      // };  
-      
-      // const navlinks = document.querySelectorAll('.nav');
-      //       const handleNavClick = (event) => {
-      //       document.querySelector('.active',)?.classList.remove('active');
-      //       event.currentTarget.classList.add('active');
-      //       };
-      
-      //       navlinks.forEach(navlink => {
-      //       navlink.addEventListener('click', handleNavClick);
-      //       });
-      //       return () => {
-      //             navlinks.forEach(navlink => {
-      //               navlink.removeEventListener('click', handleNavClick);
-      //             });
-      //           };
-                
-    }, [showModel]);
-    const first_modal = () =>{
-
-      setShowModel(true);
-      setShowModel1(false);
-      setShowModel2(false);
-      setShowModel3(false);
-      setShowModel4(false);   
+      const [navbarOpen, setNavbarOpen] = useState(false);
+      const [showModel4, setShowModel4] = useState(false);
+      const [showModel3, setShowModel3] = useState(false);
+      const [showModel, setShowModel] = useState(false);
+      const [showModel1, setShowModel1] = useState(false);
+      const [isOpen, setIsOpen] = useState(false);
+      const [sticky, setSticky] = useState(false);
+      const [openIndex, setOpenIndex] = useState(-1);
+      const [showModel2, setShowModel2] = useState(false);
+      const navbarToggleHandler = () => {
+            setNavbarOpen(!navbarOpen);
       };
 
+      const handleStickyNavbar = () => {
+            if (window.scrollY >= 700) {
+                  setSticky(true);
+            } else {
+                  setSticky(false);
+            }
+      };
+      useEffect(() => {
+            window.addEventListener("scroll", handleStickyNavbar);
+            return () => {
+                  window.removeEventListener("scroll", handleStickyNavbar);
+            };
+      }, []);
 
+      const handleSubmenu = (index) => {
+            if (openIndex === index) {
+                  setOpenIndex(-1);
+            } else {
+                  setOpenIndex(index);
+            }
+      };
+      useEffect(() => {
+            document.body.style.overflow = showModel ? 'hidden' : 'auto';    
+      }, [showModel]);
+      const first_modal = () =>{
+            setShowModel(true);
+            setShowModel1(false);
+            setShowModel2(false);
+            setShowModel3(false);
+            setShowModel4(false);   
+      };
 
-const [showModel1, setShowModel1] = useState(false);
-  useEffect(() => {
+      useEffect(() => {
 
-      document.body.style.overflow = showModel1 ? 'hidden' : 'auto';
-      // if (!showModel1){
-      //       document.querySelector('.active')?.classList.remove('active');
-      // }; 
-      
-      
-      // const navlinks = document.querySelectorAll('.nav');
-      //       const handleNavClick = (event) => {
-      //       document.querySelector('.active',)?.classList.remove('active');
-      //       event.currentTarget.classList.add('active');
-      //       };
-      
-      //       navlinks.forEach(navlink => {
-      //       navlink.addEventListener('click', handleNavClick);
-      //       });
-      //       return () => {
-      //             navlinks.forEach(navlink => {
-      //               navlink.removeEventListener('click', handleNavClick);
-      //             });
-      //           };
-                
-    }, [showModel1]);
+            document.body.style.overflow = showModel1 ? 'hidden' : 'auto';
+                  
+      }, [showModel1]);
     const second_modal =() =>{
       setShowModel1(true);
       setShowModel(false);
@@ -114,46 +73,23 @@ const [showModel1, setShowModel1] = useState(false);
       
       };
 
-      const [showModel2, setShowModel2] = useState(false);
       useEffect(() => {
-    
-          document.body.style.overflow = showModel1 ? 'hidden' : 'auto';
-      //     if (!showModel1){
-      //           document.querySelector('.active')?.classList.remove('active');
-      //     }; 
-          
-          
-      //     const navlinks = document.querySelectorAll('.nav');
-      //           const handleNavClick = (event) => {
-      //           document.querySelector('.active',)?.classList.remove('active');
-      //           event.currentTarget.classList.add('active');
-      //           };
-          
-      //           navlinks.forEach(navlink => {
-      //           navlink.addEventListener('click', handleNavClick);
-      //           });
-      //           return () => {
-      //                 navlinks.forEach(navlink => {
-      //                   navlink.removeEventListener('click', handleNavClick);
-      //                 });
-      //               };
-                    
-        }, [showModel2]);
-        const third_modal =() =>{
+            document.body.style.overflow = showModel1 ? 'hidden' : 'auto';           
+      }, [showModel1]);
+
+      const third_modal =() =>{
             setShowModel2(true);
             setShowModel(false);
             setShowModel1(false);
             setShowModel3(false);
             setShowModel4(false);   
             
-            };  
-const [showModel3, setShowModel3] = useState(false);
-useEffect(() => {
+      };  
 
-      document.body.style.overflow = showModel3 ? 'hidden' : 'auto';
-      
-                  
+      useEffect(() => {
+            document.body.style.overflow = showModel3 ? 'hidden' : 'auto';         
       }, [showModel3]); 
+
       const forth_modal =() =>{
             setShowModel3(true);
             setShowModel(false); 
@@ -161,13 +97,8 @@ useEffect(() => {
             setShowModel2(false);
             setShowModel4(false);              
       }
-
-const [showModel4, setShowModel4] = useState(false);
-useEffect(() => {
-
-      document.body.style.overflow = showModel3 ? 'hidden' : 'auto';
-      
-                  
+      useEffect(() => {
+            document.body.style.overflow = showModel3 ? 'hidden' : 'auto';        
       }, [showModel3]); 
       const fifth_modal =() =>{
             setShowModel4(true);
@@ -204,7 +135,7 @@ useEffect(() => {
                                           <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? "opacity-0 " : " "}`} />
                                           <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? " top-[-8px] -rotate-45" : " "}`} />
                                     </button>
-                                    <nav id="navbarCollapse" className={` fixed navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-dark py-4 px-6 duration-300 ease-out transition: transform 0.5s linear dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${navbarOpen ? "top-full opacity-100 right-0" : "top-[120%] opacity-0 right-[-250px]"}`}>
+                                    <nav id="navbarCollapse" className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-dark py-4 px-6 duration-300 ease-out transition: transform 0.5s linear dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${navbarOpen ? "top-full opacity-100 right-0" : "top-[120%] opacity-0 right-[-250px]"}`}>
                                           <ul className="block lg:flex lg:space-x-12 top-0 left-0 h-full bg-gray-900 transform -skew-x-12 text-white">                                                
                                                 <li className="group relative">
                                                      
