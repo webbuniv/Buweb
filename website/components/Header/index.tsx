@@ -4,6 +4,10 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
 import Model from "@/components/model/Model";
+import Model1 from "@/components/model/Model1";
+import Model2 from "@/components/model/Model2";
+import Model3 from "@/components/model/Model3";
+import Model4 from "@/components/model/Model4";
 import image from "../../public/images/logo/bugema.png";
 import "../../styles/nav.css";
 import "../../styles/index.css";
@@ -45,172 +49,248 @@ const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
 
       document.body.style.overflow = showModel ? 'hidden' : 'auto';
-      if (!showModel){
-            document.querySelector('.active')?.classList.remove('active');
-      };     
+      // if (!showModel){
+      //       document.querySelector('.active')?.classList.remove('active');
+      // };  
       
+      // const navlinks = document.querySelectorAll('.nav');
+      //       const handleNavClick = (event) => {
+      //       document.querySelector('.active',)?.classList.remove('active');
+      //       event.currentTarget.classList.add('active');
+      //       };
       
-      const navlinks = document.querySelectorAll('.nav');
-            const handleNavClick = (event) => {
-            document.querySelector('.active',)?.classList.remove('active');
-            event.currentTarget.classList.add('active');
-            };
-      
-            navlinks.forEach(navlink => {
-            navlink.addEventListener('click', handleNavClick);
-            });
-            return () => {
-                  navlinks.forEach(navlink => {
-                    navlink.removeEventListener('click', handleNavClick);
-                  });
-                };
+      //       navlinks.forEach(navlink => {
+      //       navlink.addEventListener('click', handleNavClick);
+      //       });
+      //       return () => {
+      //             navlinks.forEach(navlink => {
+      //               navlink.removeEventListener('click', handleNavClick);
+      //             });
+      //           };
                 
     }, [showModel]);
-    const handleClick = (event) => {
-      
-            if (showModel){
-                  document.querySelector('.arr')?.classList.remove('drop');
-                  event.currentTarget.classList.add('drop');
-            }else{
-                  document.querySelector('.drop')?.classList.remove('drop');
-            };
-            
-          
+    const first_modal = () =>{
 
-      if (showModel){
-            !showModel;
+      setShowModel(true);
+      setShowModel1(false);
+      setShowModel2(false);
+      setShowModel3(false);
+      setShowModel4(false);   
       };
-      setShowModel(!showModel); // Toggle modal visibility
-      // if (!showModel){
-            // const navlinks = document.querySelectorAll('.nav');
-            // const handleNavClick = (event) => {
-            // document.querySelector('.active')?.classList.remove('active');
-            // event.currentTarget.classList.add('active');
-            // };
-      
-            // navlinks.forEach(navlink => {
-            // navlink.addEventListener('click', handleNavClick);
-            // });
-            // return () => {
-            //       navlinks.forEach(navlink => {
-            //         navlink.removeEventListener('click', handleNavClick);
-            //       });
-            //     };
-            
-      // }else if(showModel){
+
+
+
+const [showModel1, setShowModel1] = useState(false);
+  useEffect(() => {
+
+      document.body.style.overflow = showModel1 ? 'hidden' : 'auto';
+      // if (!showModel1){
       //       document.querySelector('.active')?.classList.remove('active');
-      // }
-    };
-//     const arr = (event)=>{
-//       if (showModel){
-//             document.querySelector('.drop')?.classList.remove('drop');
-//             event.
-//       }else{
-//             document.querySelector('.drop')?.classList.remove('drop');
-//       };
+      // }; 
       
-//     }
-//     useEffect(() => {
-//       const navlinks = document.querySelectorAll('.nav');
-//       const handleNavClick = (event) => {
-//         document.querySelector('.active')?.classList.remove('active');
-//         event.currentTarget.classList.add('active');
-//       };
-  
-//       navlinks.forEach(navlink => {
-//         navlink.addEventListener('click', handleNavClick);
-//       });
-  
-//       // Cleanup event listeners on component unmount
-//       return () => {
-//         navlinks.forEach(navlink => {
-//           navlink.removeEventListener('click', handleNavClick);
-//         });
-//       };
-//     }, []);
+      
+      // const navlinks = document.querySelectorAll('.nav');
+      //       const handleNavClick = (event) => {
+      //       document.querySelector('.active',)?.classList.remove('active');
+      //       event.currentTarget.classList.add('active');
+      //       };
+      
+      //       navlinks.forEach(navlink => {
+      //       navlink.addEventListener('click', handleNavClick);
+      //       });
+      //       return () => {
+      //             navlinks.forEach(navlink => {
+      //               navlink.removeEventListener('click', handleNavClick);
+      //             });
+      //           };
+                
+    }, [showModel1]);
+    const second_modal =() =>{
+      setShowModel1(true);
+      setShowModel(false);
+      setShowModel2(false);
+      setShowModel3(false);
+      setShowModel4(false);   
+      
+      };
+
+      const [showModel2, setShowModel2] = useState(false);
+      useEffect(() => {
+    
+          document.body.style.overflow = showModel1 ? 'hidden' : 'auto';
+      //     if (!showModel1){
+      //           document.querySelector('.active')?.classList.remove('active');
+      //     }; 
+          
+          
+      //     const navlinks = document.querySelectorAll('.nav');
+      //           const handleNavClick = (event) => {
+      //           document.querySelector('.active',)?.classList.remove('active');
+      //           event.currentTarget.classList.add('active');
+      //           };
+          
+      //           navlinks.forEach(navlink => {
+      //           navlink.addEventListener('click', handleNavClick);
+      //           });
+      //           return () => {
+      //                 navlinks.forEach(navlink => {
+      //                   navlink.removeEventListener('click', handleNavClick);
+      //                 });
+      //               };
+                    
+        }, [showModel2]);
+        const third_modal =() =>{
+            setShowModel2(true);
+            setShowModel(false);
+            setShowModel1(false);
+            setShowModel3(false);
+            setShowModel4(false);   
+            
+            };  
+const [showModel3, setShowModel3] = useState(false);
+useEffect(() => {
+
+      document.body.style.overflow = showModel3 ? 'hidden' : 'auto';
+      
+                  
+      }, [showModel3]); 
+      const forth_modal =() =>{
+            setShowModel3(true);
+            setShowModel(false); 
+            setShowModel1(false);
+            setShowModel2(false);
+            setShowModel4(false);              
+      }
+
+const [showModel4, setShowModel4] = useState(false);
+useEffect(() => {
+
+      document.body.style.overflow = showModel3 ? 'hidden' : 'auto';
+      
+                  
+      }, [showModel3]); 
+      const fifth_modal =() =>{
+            setShowModel4(true);
+            setShowModel3(false);
+            setShowModel(false); 
+            setShowModel1(false);
+            setShowModel2(false);              
+      }      
   return (
       
       <>
       <header className={`header top-0 left-0 z-40 flex w-full items-center bg-transparent mt-[-8px] ${sticky ? "!fixed !z-[9999] ! !bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100" : "absolute"}`}>
-        <div className="container">
-          <div className="relative -mx-4 flex items-center justify-between">
-            <div className="w-40 px-4 xl:mr-12">
-              <Link href="/" className={`header-logo block w-full ${sticky ? "py-5 lg:py-2" : "py-8"}`}>
-                <Image src={image} alt="logo" width={140} height={20} className="w-full dark:hidden" />
-                <Image src={image} alt="logo" width={100} height={20} className="hidden w-full dark:block" />
-              </Link>
-            </div>
-            <div className="flex space-x-20 justify-between transform">
-              <div>
-                <button
-                  onClick={navbarToggleHandler}
-                  id="navbarToggler"
-                  aria-label="Mobile Menu"
-                  className="right-4 top-1/2 block translate-y-[-50%] rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden">
-                  <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? " top-[7px] rotate-45" : " "}`} />
-                  <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? "opacity-0 " : " "}`} />
-                  <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? " top-[-8px] -rotate-45" : " "}`} />
-                </button>
-                <nav id="navbarCollapse" className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 dark:bg-white py-4 px-6 duration-300 ease-out transition: transform 0.5s linear dark:border-body-color/20 bg-primary lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${navbarOpen ? "top-full opacity-100 right-0" : "top-[120%] opacity-0 right-[250px]"}`}>
-                  <ul className="block lg:flex lg:space-x-12 top-0 left-0 h-full bg-gray-900 transform -skew-x-12 text-white">
-                    <li className="group relative">
-                      <Link href="." className={` nav hover ml-3 flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
-                        Programs
-                        <span className="my-1 ml-2 dark:text-white text-bold" >
-                        <FaChevronDown className="arr" />
-                        </span>
+
+            
+            <div className="container">
+                  
+                  <div className="relative -mx-4 flex items-center justify-between">
                         
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
-                        Student life
-                        <span className="my-1 ml-2 text-white">
-                        <FaChevronDown className={showModel?"drop":"" } />
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
-                      Research
-                        <span className={"my-1 ml-2 text-white" } >
-                        <FaChevronDown />
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
-                        Campuses
-                        <span className="my-1 ml-2 text-white">
-                        <FaChevronDown className={showModel?"drop":"" } />
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={handleClick}>
-                        Partner With Us
-                        <span className="my-1 ml-2 text-white">
-                        <FaChevronDown className={showModel?"drop":"" } />
-                        </span>
-                      </Link>
-                    </li>
-                    <div className=" bg- flex items-center justify-end pr-16 lg:pr-0">
-                      <div>
-                        <ThemeToggler />
-                      </div>
-                    </div>
-                  </ul>
-                </nav>
-              </div>
+                        <div className="w-40 px-4 xl:mr-12">
+                              <Link href="/" className={`header-logo block w-full ${sticky ? "py-5 lg:py-2" : "py-8"}`}>
+                                    <Image src={image} alt="logo" width={140} height={20} className="w-full dark:hidden" />
+                                    <Image src={image} alt="logo" width={100} height={20} className="hidden w-full dark:block" />
+                              </Link>
+                        </div>
+
+                        <div className="flex space-x-20 justify-between transform">
+                              <div>
+                                    <button
+                                          onClick={navbarToggleHandler}
+                                          id="navbarToggler"
+                                          aria-label="Mobile Menu"
+                                          className="absolute right-4 top-1/2 block translate-y-[-50%] rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden">
+                                          <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? " top-[7px] rotate-45" : " "}`} />
+                                          <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? "opacity-0 " : " "}`} />
+                                          <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? " top-[-8px] -rotate-45" : " "}`} />
+                                    </button>
+                                    <nav id="navbarCollapse" className={` fixed navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-dark py-4 px-6 duration-300 ease-out transition: transform 0.5s linear dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${navbarOpen ? "top-full opacity-100 right-0" : "top-[120%] opacity-0 right-[-250px]"}`}>
+                                          <ul className="block lg:flex lg:space-x-12 top-0 left-0 h-full bg-gray-900 transform -skew-x-12 text-white">                                                
+                                                <li className="group relative">
+                                                     
+                                                      <Link href="." className={` nav hover ml-3 flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={first_modal }>
+                                                            <span className={showModel?"active":"" }>Programs</span>
+                                                            <span className="my-1 ml-2 text-white text-bold" >
+                                                            <FaChevronDown className={showModel?"drop":"" } />
+                                                            </span>
+                                                            
+                                                      </Link>
+                                                </li>
+
+                                                <li>
+                                                      <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={second_modal}>
+                                                            <span className={showModel1?"active":"" }>Student life</span>
+                                                            <span className="my-1 ml-2 text-white">
+                                                            <FaChevronDown className={showModel1?"drop":"" } />
+                                                            </span>
+                                                      </Link>
+                                                </li>
+
+                                                <li>
+                                                      <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={third_modal}>
+                                                      <span className={showModel2?"active":"" }> Research</span> 
+                                                            <span className={"my-1 ml-2 text-white" } >
+                                                            <FaChevronDown className={showModel2?"drop":"" }/>
+                                                            </span>
+                                                      </Link>
+                                                </li>
+                                                
+                                                <li>
+                                                      <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={forth_modal}>
+                                                            <span className={showModel3?"active":"" }>Campuses</span>
+                                                            <span className="my-1 ml-2 text-white">
+                                                            <FaChevronDown className={showModel3?"drop":"" } />
+                                                            </span>
+                                                      </Link>
+                                                </li>
+
+                                                <li>
+                                                      <Link href="" className={`nav hover flex py-2 text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={fifth_modal}>
+                                                            <span className={showModel4?"active":"" }> Partner With Us</span>
+                                                            <span className="my-1 ml-2 text-white">
+                                                            <FaChevronDown className={showModel4?"drop":"" } />
+                                                            </span>
+                                                      </Link>
+                                                </li>
+
+                                                <div className=" bg- flex items-center justify-end pr-16 lg:pr-0">
+                                                      <div>
+                                                            <ThemeToggler />
+                                                      </div>
+                                                </div>
+                                          </ul>
+                                    </nav>
+                              </div>
+                        </div>
+                  </div>
+
+                  <Model isvisible={showModel} onClose={() => setShowModel(false)}>
+                        <>
+                        
+                        </>
+                  </Model>
+                  <Model1 issvisible={showModel1} onClose={() => setShowModel1(false)}>
+                        <>
+                        
+                        </>
+                  </Model1>
+                  <Model2 isssvisible={showModel2} onClose={() => setShowModel2(false)}>
+                        <>
+                        
+                        </>
+                  </Model2>
+                  <Model3 is3visible={showModel3} onClose={() => setShowModel3(false)}>
+                        <>
+                        
+                        </>
+                  </Model3>
+                  <Model4 is4visible={showModel4} onClose={() => setShowModel4(false)}>
+                        <>
+                        
+                        </>
+                  </Model4>
+            
             </div>
-          </div>
-          <Model isvisible={showModel} onClose={() => setShowModel(false)}>
-            <>
-             
-            </>
-          </Model>
-          
-        </div>
       </header>
     </>
   );

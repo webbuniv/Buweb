@@ -12,8 +12,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 
-const Model = ({isvisible, onClose, children}) => {
-      if (!isvisible) return null;
+const Model2 = ({isssvisible, onClose, children}) => {
+      if (!isssvisible) return null;
 const handleclose = (e)=>{
       
       if( e.target.id === 'wrapper ') onClose();
@@ -140,7 +140,7 @@ const why_bugema = () =>{
                         <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'25%'}}> 
                               <div className="mr-2 my-5 slider slide--fast">
                                     
-                                    <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '   onClick={main}> <span id='main' className='animated href=""'>Courses</span></h1> 
+                                    <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '   onClick={main}> <span id='main' className='animated href=""'>Research</span></h1> 
                               </div>
                               <div className="mr-2 my-5  slider slide--slow ">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={payments}><span id='payments' className='animated'>Fees and Payments</span></h1> 
@@ -151,6 +151,9 @@ const why_bugema = () =>{
                               <div className="mr-2 my-5 slider slide--slowest ">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={touch}> <span className='animated' id='contact'> Get in Touch </span></h1> 
                               </div>
+                              {/*###===============================================================================
+                               A T T A C H M E N T   P I C T U R E S    U N D E R    T H E   F I R S T   C O L U M N 
+                               ==================================================================================###*/}
                               <div id='attachment-get-in-toch' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
                                     <div className='fade-in'>
                                           
@@ -521,4 +524,4 @@ const why_bugema = () =>{
   );
 };
 
-export default Model;
+export default Model2;
