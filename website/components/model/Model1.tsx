@@ -1,13 +1,17 @@
 import React, { Children } from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
-import imagenew from "../../public/images/nav/IMG_9313.jpg";
+import football from "../../public/images/nav/sports/football.jpg";
 import image from "../../public/images/nav/labs.jpg";
 import nurses from "../../public/images/nav/nurses.jpg";
 import nurses1 from "../../public/images/nav/nurses1.jpg";
 import burundi from "../../public/images/nav/burundi.jpg";
 import bucosa from "../../public/images/nav/bucosa.jpg";
 import palm_girls from "../../public/images/nav/palm-girls.jpg";
-import palm_girls1 from "../../public/images/nav/palm-girls1.jpg";
+import volley1 from "../../public/images/nav/sports/volley1.jpg";
+import volley2c from "../../public/images/nav/sports/volley2c.jpg";
+import basket from "../../public/images/nav/sports/basket.jpg";
+import netball from "../../public/images/nav/sports/netball.jpg";
+import woodball from "../../public/images/nav/sports/woodball.jpg";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -45,7 +49,7 @@ const main = ()=>{
       document.getElementById('why-bugema-more').classList.add('hidden');
       document.getElementById('attachment-get-in-toch').classList.add('hidden');
       document.getElementById('attachment-courses').classList.remove('hidden');
-      document.getElementById('attachment-fees').classList.add('hidden');
+      document.getElementById('attachment-sports').classList.add('hidden');
       document.getElementById('attachment-why-bugema').classList.add('hidden');
       document.getElementById('why_bugema').classList.remove('current');
       
@@ -64,7 +68,7 @@ const payments=()=>{
       document.getElementById('why-bugema-more').classList.add('hidden');
       document.getElementById('attachment-get-in-toch').classList.add('hidden');
       document.getElementById('attachment-courses').classList.add('hidden');
-      document.getElementById('attachment-fees').classList.remove('hidden');
+      document.getElementById('attachment-sports').classList.remove('hidden');
       document.getElementById('attachment-why-bugema').classList.add('hidden');
       document.getElementById('why_bugema').classList.remove('current');
       
@@ -83,14 +87,14 @@ const touch = ()=>{
       document.getElementById('why-bugema-more').classList.add('hidden');
       document.getElementById('attachment-get-in-toch').classList.remove('hidden');
       document.getElementById('attachment-courses').classList.add('hidden');
-      document.getElementById('attachment-fees').classList.add('hidden');
+      document.getElementById('attachment-sports').classList.add('hidden');
       document.getElementById('attachment-why-bugema').classList.add('hidden');
       document.getElementById('why_bugema').classList.remove('current');
 }
 const why_bugema = () =>{
       document.getElementById('main').classList.remove('current');
       document.getElementById('payments').classList.remove('current');
-      document.getElementById('why_bugema').classList.add('current');+
+      document.getElementById('why_bugema').classList.add('current');
       document.getElementById('contact').classList.remove('current');
       document.getElementById('courses').classList.add('hidden');
       document.getElementById('fees').classList.add('hidden');
@@ -102,8 +106,65 @@ const why_bugema = () =>{
       document.getElementById('why-bugema-more').classList.remove('hidden');
       document.getElementById('attachment-get-in-toch').classList.add('hidden');
       document.getElementById('attachment-courses').classList.add('hidden');
-      document.getElementById('attachment-fees').classList.add('hidden');
+      document.getElementById('attachment-sports').classList.add('hidden');
       document.getElementById('attachment-why-bugema').classList.remove('hidden');
+
+}
+
+// ON HOVER FUNCTIONS 
+const Basket = () =>{
+      document.getElementById('basket').classList.remove('hidden');
+      document.getElementById('volley').classList.add('hidden');
+      document.getElementById('net').classList.add('hidden');
+      document.getElementById('wood').classList.add('hidden');
+      document.getElementById('table').classList.add('hidden');
+      document.getElementById('foot').classList.add('hidden');
+
+}
+const Volley = () =>{
+      document.getElementById('basket').classList.add('hidden');
+      document.getElementById('volley').classList.remove('hidden');
+      document.getElementById('net').classList.add('hidden');
+      document.getElementById('wood').classList.add('hidden');
+      document.getElementById('table').classList.add('hidden');
+      document.getElementById('foot').classList.add('hidden');
+
+}
+const Net = () =>{
+      document.getElementById('basket').classList.add('hidden');
+      document.getElementById('volley').classList.add('hidden');
+      document.getElementById('net').classList.remove('hidden');
+      document.getElementById('wood').classList.add('hidden');
+      document.getElementById('table').classList.add('hidden');
+      document.getElementById('foot').classList.add('hidden');
+
+}
+
+const Wood = () =>{
+      document.getElementById('basket').classList.add('hidden');
+      document.getElementById('volley').classList.add('hidden');
+      document.getElementById('net').classList.add('hidden');
+      document.getElementById('wood').classList.remove('hidden');
+      document.getElementById('table').classList.add('hidden');
+      document.getElementById('foot').classList.add('hidden');
+
+}
+const Table = () =>{
+      document.getElementById('basket').classList.add('hidden');
+      document.getElementById('volley').classList.add('hidden');
+      document.getElementById('net').classList.add('hidden');
+      document.getElementById('wood').classList.add('hidden');
+      document.getElementById('table').classList.remove('hidden');
+      document.getElementById('foot').classList.add('hidden');
+
+}
+const Foot = () =>{
+      document.getElementById('basket').classList.add('hidden');
+      document.getElementById('volley').classList.add('hidden');
+      document.getElementById('net').classList.add('hidden');
+      document.getElementById('wood').classList.add('hidden');
+      document.getElementById('table').classList.add('hidden');
+      document.getElementById('foot').classList.remove('hidden');
 
 }
   return (
@@ -140,16 +201,16 @@ const why_bugema = () =>{
                         <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'25%'}}> 
                               <div className="mr-2 my-5 slider slide--fast">
                                     
-                                    <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '   onClick={main}> <span id='main' className='animated href=""'>Student Life</span></h1> 
+                                    <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '   onClick={main}> <span id='main' className='animated href=""'>Accommodation</span></h1> 
                               </div>
                               <div className="mr-2 my-5  slider slide--slow ">
-                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={payments}><span id='payments' className='animated'>Fees and Payments</span></h1> 
+                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={payments}><span id='payments' className='animated'>Sports</span></h1> 
                               </div>
                               <div className="mr-2 my-5  slider slide--slower">
-                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold 'onClick={why_bugema} >  <span id='why_bugema' className='animated'> Why Bugema University </span></h1> 
+                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold 'onClick={why_bugema} >  <span id='why_bugema' className='animated'>Clubs & Associations</span></h1> 
                               </div>
                               <div className="mr-2 my-5 slider slide--slowest ">
-                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={touch}> <span className='animated' id='contact'> Get in Touch </span></h1> 
+                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={touch}> <span className='animated' id='contact'>Student Leadership</span></h1> 
                               </div>
                               {/*###===============================================================================
                                A T T A C H M E N T   P I C T U R E S    U N D E R    T H E   F I R S T   C O L U M N 
@@ -162,11 +223,12 @@ const why_bugema = () =>{
                                     </div>
                                     
                               </div> 
-                              <div id='attachment-fees' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
+                              {/* A T T A C H M E N T   S P O R T S */}
+                              <div id='attachment-sports' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
                                     <div className='fade-in'>
                                           
                                     {/* <h1  style={{fontSize: '19px',cursor:"pointer",height:"150px"}}> Masters of Science in Information</h1> */}
-                                    <Image src={palm_girls1} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
+                                    <Image src={volley1} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
                                     </div>
                                     
                               </div> 
@@ -192,53 +254,47 @@ const why_bugema = () =>{
                         </div>
                   
                   </div>
+                  {/*###=============== A  C  C  O  M  M  O  D  A  T  I  O  N ================###*/}
                   <div className=" ml-12 my-24 fade-in " id='courses' style={{marginTop:'9%'}}> 
                         <ul>
                               <li>
                               <div className="mr-2 my-5 slider slide--slow ">
                               
-                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Science and Technology </h1> 
+                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > ANNEX Hostel (Male) </h1> 
                               
                               </div>
                               </li>
                               
                               <li>
                               <div className="mr-2 my-5 slider slide--slow ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Heath and Alied Sciences</h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>S L Hostel (Male)</h1> 
                                     
                               </div>
                               </li>
                               <li>
                               <div className="mr-2 my-5 slider slide--fast ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Theology and Religious Studies </h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Bensdorf Hostel (Female) </h1> 
                                     
                               </div>
                               </li>
                               
                               <li>
                               <div className="mr-2 my-5 slider slide--slow ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Agriculture and Applied Sciences</h1>
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Cliford Hostel (Female)</h1>
                                     
                               </div>
                               </li>
                               
                               <li>
                               <div className="mr-2 my-5 slider slide--slower ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Business</h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Hill Top Hostel (Male) </h1> 
                                     
                               </div>
                               </li>
                               
                               <li>
                               <div className="mr-2 my-5 slider slide--slow ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Education,Humanities and <br/> Social sciences</h1> 
-                                    
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5 slider slide--fast ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Graduate studies, Reseacrch <br/>&  Publications</h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Explorer More</h1> 
                                     
                               </div>
                               </li>
@@ -249,41 +305,47 @@ const why_bugema = () =>{
                   
 
 
-                              {/*###=============== FEES AND PAYMENTS ================###*/}
+                              {/*###=============== S  P  O  R  T  S ================###*/}
 
                   <div className=" fade-in ml-24 my-24 hidden " style={{marginTop:'12%'}} id='fees'> 
                         <ul className='ml-10 my-20'>
                               <li>
                               <div className="mr-2 my-5 ">
                               
-                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Tution Fees </h1> 
+                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Foot} > Football </h1> 
                               
                               </div>
                               </li>
                               
                               <li>
                               <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Scholarships</h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Basket}>Basket Ball</h1> 
                                     
                               </div>
                               </li>
                               <li>
                               <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Funding Your Studies </h1> 
-                                    
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> BUSA Fees</h1>
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'  onMouseOver={Volley} > Volley ball </h1> 
                                     
                               </div>
                               </li>
                               
                               <li>
                               <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> NHCE Fees</h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'  onMouseOver={Net}> Net ball</h1>
+                                    
+                              </div>
+                              </li>
+                              
+                              <li>
+                              <div className="mr-2 my-5  ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'  onMouseOver={Wood}> Wood ball</h1> 
+                                    
+                              </div>
+                              </li>
+                              <li>
+                              <div className="mr-2 my-5  ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'  onMouseOver={Table}> Table Tennis</h1> 
                                     
                               </div>
                               </li>
@@ -298,43 +360,43 @@ const why_bugema = () =>{
 
 
 
-                  {/*###============== W  H  Y    B U G E M A ==============###*/}
+                  {/*###============== C  L  U  B  S    &    A  S  S  O  C  I  T  I  O  N  S==============###*/}
                   <div className=" fade-in ml-24 my-24 hidden " style={{marginTop:'12%'}} id='why_bugema-data'> 
                         <ul className='ml-10 my-20'>
                               <li>
                               <div className="mr-2 my-5 ">
                               
-                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Sports </h1> 
+                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > IT Club </h1> 
                               
                               </div>
                               </li>
                               
                               <li>
                               <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Accommodation</h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Food & Nutrition</h1> 
                                     
                               </div>
                               </li>
                               <li>
                               <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Religion </h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > BUNSA </h1> 
                                     
                               </div>
                               </li>
                               
                               <li>
                               <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Health</h1>
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> International Associations</h1>
                                     
                               </div>
                               </li>
                               
-                              <li>
+                              {/* <li>
                               <div className="mr-2 my-5  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Feeding</h1> 
                                     
                               </div>
-                              </li>
+                              </li> */}
                               
                              
                               
@@ -442,16 +504,37 @@ const why_bugema = () =>{
 
                         
                         
-                        {/* ###=============F E E S       M O R E =================### */}
+                        {/* ###=============S P O R T S       M O R E =================### */}
                         <div className=' hidden fade-in' id='fees-more'>
-                              <div className=' ml-24 fade-in '>
-                                          <Image src={imagenew} alt='img' width={350} height={450} className="-ml-5 my-10 slider slide--fast"/>
+                              <div id='foot' className=' ml-24 fade-in '>
+                                          <Image src={football} alt='img' width={350} height={450} className="-ml-5 my-20 "/>
                               </div>
-                              <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
+
+                              <div id='basket' className='hidden ml-24 fade-in '>
+                                          <Image src={basket} alt='img' width={350} height={450} className="-ml-5 my-20 "/>
+                              </div>
+
+                              <div id='volley' className='hidden ml-24 fade-in '>
+                                          <Image src={volley2c} alt='img' width={350} height={450} className="-ml-5 my-20 "/>
+                              </div>
+
+                              <div id='net' className='hidden ml-24 fade-in '>
+                                          <Image src={netball} alt='img' width={350} height={450} className="-ml-5 my-20 "/>
+                              </div>
+
+                              <div id='wood' className='hidden ml-24 fade-in '>
+                                          <Image src={woodball} alt='img' width={350} height={450} className="-ml-5 my-20 "/>
+                              </div>
+
+                              <div id='table' className='hidden ml-24 fade-in '>
+                                          <Image src={volley2c} alt='img' width={350} height={450} className="-ml-5 my-20 "/>
+                              </div>
+
+                              {/* <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
                                     <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
                                     <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> How to Pay  <FaArrowRight className='arrow1'/></h1>
                                     </div>
-                              </div> 
+                              </div> */}
                               
                               <div className="ml-12 my-1 transform -skew-x-11 text-white grid-rows-2 " >
                                     <div className='columns-1 bg-black change-on-hover'>
@@ -462,7 +545,7 @@ const why_bugema = () =>{
                                     <div className='columns-1 bg-black slider slide--slow change-on-hover'>
                                     <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Donate <FaArrowRight className='arrow3'/></h1>
                                     </div>
-                              </div>
+                              </div> 
                         </div>
                         
                         
