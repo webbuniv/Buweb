@@ -6,10 +6,12 @@ import {
   SubscribeToNewsletterResponse,
   PublicationName,
   GetPostBySlugResponse,
+  Post,
 } from "@/lib/types";
 
 const endpoint = env.NEXT_PUBLIC_HASHNODE_ENDPOINT;
 const publicationId = env.NEXT_PUBLIC_HASHNODE_PUBLICATION_ID;
+
 
 export async function getBlogName() {
   const query = gql`
@@ -98,7 +100,7 @@ export async function subscribeToNewsletter(email: string) {
   return response;
 }
 
-export async function getPostBySlug(slug: string) {
+export async function getPostBySlug(slug: string): Promise<Post> {
   const query = gql`
     query getPostBySlug($publicationId: ObjectId!, $slug: String!) {
       publication(id: $publicationId) {
@@ -127,4 +129,3 @@ export async function getPostBySlug(slug: string) {
 
   return response.publication.post;
 }
-

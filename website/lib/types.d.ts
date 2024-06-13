@@ -56,21 +56,23 @@ export type SubscribeToNewsletterResponse = {
   errors?: { message: string }[];
 };
 
+export type Post = {
+  title: string;
+  subtitle: string;
+  coverImage: {
+    url: string;
+  };
+  content: {
+    html: string;
+  };
+  author: {
+    name: string;
+    profilePicture: string;
+  };
+};
+
 export type GetPostBySlugResponse = {
   publication: {
-    post: {
-      title: string;
-      subtitle?: string;
-      coverImage: {
-        url: string;
-      };
-      content: {
-        html: string;
-      };
-      author: {
-        name: string;
-        profilePicture?: string;
-      };
-    };
+    post: Post;
   };
 };
