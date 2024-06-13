@@ -198,3 +198,7 @@ height: 400px; /* Adjust height as needed */
       transition: transform 0.5s;
       overflow-x: hidden;
  }
+ .custom-image {
+      height: 400px; 
+      object-fit: cover;
+}
