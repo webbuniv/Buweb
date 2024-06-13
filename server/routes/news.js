@@ -6,12 +6,10 @@ import { cloudinaryController } from '../controllers/cloudinary.js';
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-
-
 const router = express.Router();
 
 /* Slide */
-router.get("/", verifyToken, getAllNews);
+router.get("/", getAllNews);
 router.post("/create", verifyToken, upload.single("photo"), cloudinaryController.uploadImage, createNews);
 router.patch("/:id/update", verifyToken, upload.single("photo"), cloudinaryController.uploadImage, updateNewsById);
 router.delete("/:id/delete", verifyToken, deleteNewsById)

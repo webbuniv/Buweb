@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import SingleBlog from "@/components/Blog/SingleBlog";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import { getPosts } from "@/lib/requests";
-import { useQuery } from "@tanstack/react-query";
+import Contact from "@/components/Contact";
 
 export default function Blog  () {
   const [posts, setPosts] = useState([]);
@@ -34,7 +34,7 @@ export default function Blog  () {
         <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {posts.map((post) => (
-              <SingleBlog key={post.node.id} post={post.node} />
+              <SingleBlog key={post.cursor} post={post.node} />
             ))}
           </div>
           <div>
@@ -103,6 +103,7 @@ export default function Blog  () {
           </div>
         </div>
       </section>
+      <Contact />
     </>
   );
 };

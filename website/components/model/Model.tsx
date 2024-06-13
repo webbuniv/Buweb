@@ -151,9 +151,6 @@ const why_bugema = () =>{
                               <div className="mr-2 my-5 slider slide--slowest ">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={touch}> <span className='animated' id='contact'> Get in Touch </span></h1> 
                               </div>
-                              {/*###===============================================================================
-                               A T T A C H M E N T   P I C T U R E S    U N D E R    T H E   F I R S T   C O L U M N 
-                               ==================================================================================###*/}
                               <div id='attachment-get-in-toch' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
                                     <div className='fade-in'>
                                           
