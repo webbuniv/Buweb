@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import SingleBlog from "@/components/Blog/SingleBlog";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import { getPosts } from "@/lib/requests";
-import { useQuery } from "@tanstack/react-query";
+import Contact from "@/components/Contact";
 
 export default function Blog  () {
   const [posts, setPosts] = useState([]);
@@ -103,7 +103,7 @@ export default function Blog  () {
           </div>
         </div>
       </section>
-      
+      <Contact />
     </>
   );
 };
