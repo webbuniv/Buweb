@@ -15,6 +15,7 @@ import Testimonials from "@/components/Testimonials";
 import ExploreBugema from "@/components/ExploreBugema";
 import { Inter } from "next/font/google";
 import { Component } from "react";
+import EventsAndNews from "@/components/EventsandNews/EventsAndNews";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,10 +26,11 @@ export default function Home() {
       <Hero />
       <Features />
       <ExploreBugema />
-      <Brands />
+      {/* <Brands /> */}
       <AboutSectionOne />
-      <AboutSectionTwo />
-      <Testimonials />
+      {/* <AboutSectionTwo /> */}
+      {/* <Testimonials /> */}
+      <EventsAndNews />
       <Blog />
       <Contact />
       <NewsCarousel />
