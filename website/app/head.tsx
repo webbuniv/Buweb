@@ -3,7 +3,7 @@ export default function Head() {
     <>
       <title>Bugema University</title>
       <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <meta name="description" content="Agricultural Emarket" />
+      <meta name="description" content="Bugema University Website" />
       <link rel="icon" href="/images/bugema.png" />
     </>
   );

@@ -1,5 +1,4 @@
 import News from "../models/News.js";
-import { cloudinaryController } from './cloudinary.js';
 
 export const createNews = async (req, res) => {
   try {
