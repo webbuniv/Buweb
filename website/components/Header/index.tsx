@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
-// import menuData from "./menuData";
 import Model from "@/components/model/Model";
 import Model1 from "@/components/model/Model1";
 import Model2 from "@/components/model/Model2";
@@ -181,6 +180,7 @@ useEffect(() => {
       
       <>
       <header className={`header top-0 left-0 z-40 flex w-full items-center bg-transparent mt-[-8px] ${sticky ? "!fixed !z-[9999] ! !bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100" : "absolute"}`}>
+
             
             <div className="container">
                   

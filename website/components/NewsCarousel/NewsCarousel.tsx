@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -20,6 +20,14 @@ import { fadeIn } from "@/utils/motion";
 
 export default function NewsCarousel() {
   const [swiper, setSwiper] = useState(null);
+  const [newsData, setNewsData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/news/")
+      .then((response) => response.json())
+      .then((data) => setNewsData(data))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
 
   return (
     <div>
