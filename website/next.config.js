@@ -1,8 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['cdn.hashnode.com', 'res.cloudinary.com'], 
-    },
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'cdn.hashnode.com',
+        },
+        {
+          protocol: 'https',
+          hostname: 'res.cloudinary.com',
+        },
+      ],
+  },
 }
 
 module.exports = nextConfig
