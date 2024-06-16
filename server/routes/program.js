@@ -1,14 +1,13 @@
 import express from 'express';
+import { getAllPrograms, createProgram, getProgramById, updateProgramById, deleteProgramById } from '../controllers/programController.js';
 import { verifyToken } from '../middleware/auth.js';
-import {getAllProgram, createProgram, updateProgramById, deleteProgramById } from '../controllers/program.js'
-
 
 const router = express.Router();
 
-/* Slide */
-router.get("/", verifyToken, getAllProgram);
-router.patch("/:id/update", verifyToken, updateProgramById)
+router.get("/", getAllPrograms);
 router.post("/create", verifyToken, createProgram);
-router.delete("/:id/delete", verifyToken, deleteProgramById)
+router.get("/:id", getProgramById);
+router.patch("/:id/update", verifyToken, updateProgramById);
+router.delete("/:id/delete", verifyToken, deleteProgramById);
 
 export default router;
