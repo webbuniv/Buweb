@@ -1,5 +1,11 @@
 import express from 'express';
-import { getAllPrograms, createProgram, getProgramById, updateProgramById, deleteProgramById } from '../controllers/programController.js';
+import { 
+    getAllPrograms,
+    createProgram, 
+    getProgramById, 
+    updateProgramById, 
+    deleteProgramById 
+} from '../controllers/program.js';
 import { verifyToken } from '../middleware/auth.js';
 
 const router = express.Router();

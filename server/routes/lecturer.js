@@ -1,5 +1,11 @@
 import express from 'express';
-import { getAllLecturers, createLecturer, getLecturerById, updateLecturerById, deleteLecturerById } from '../controllers/lecturerController.js';
+import { 
+    getAllLecturers, 
+    createLecturer, 
+    getLecturerById, 
+    updateLecturerById, 
+    deleteLecturerById 
+} from '../controllers/lecturer.js';
 import { verifyToken } from '../middleware/auth.js';
 
 const router = express.Router();

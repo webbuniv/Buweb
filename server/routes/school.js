@@ -8,7 +8,7 @@ import {
   getSchoolById,
   updateSchoolById,
   deleteSchoolById
-} from '../controllers/schoolController.js';
+} from '../controllers/school.js';
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
