@@ -1,19 +1,15 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper as SwiperComponent, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { Event, News } from '@/types/types';
-
+import Image from 'next/image';
+import SectionTitle from '../Common/SectionTitle'
 const EventsAndNews: React.FC = () => {
   const [events, setEvents] = useState<Event[]>([]);
   const [news, setNews] = useState<News[]>([]);
-
-  const eventsProgressCircle = useRef(null);
-  const eventsProgressContent = useRef(null);
-  const newsProgressCircle = useRef(null);
-  const newsProgressContent = useRef(null);
 
   const fetchEvents = async () => {
     try {
@@ -40,94 +36,103 @@ const EventsAndNews: React.FC = () => {
     fetchNews();
   }, []);
 
-  const onAutoplayTimeLeft = (s, time, progress, progressCircle, progressContent) => {
-    if (progressCircle.current && progressContent.current) {
-      progressCircle.current.style.setProperty('--progress', 1 - progress);
-      progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
-    }
-  };
+  const slideStyle = " flex flex-col rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white md:max-w-xl md:flex-row";
+  const imgStyle = "h-96 w-full rounded-t-lg object-cover md:h-auto md:w-48 md:!rounded-none md:!rounded-s-lg";
+  const contentStyle = "flex flex-col justify-center p-6";
+  const titleStyle = "mb-2 text-xl font-medium";
+  const textStyle = "mb-4 text-base";
+  const dateStyle = "text-xs text-surface/75 dark:text-neutral-300";
 
   return (
-    <div className="flex flex-col md:flex-row gap-4">
-      {/* Events Column */}
-      <div className="w-full md:w-1/2 relative">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">Events</h2>
-        <SwiperComponent
-          spaceBetween={30}
-          centeredSlides
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-          pagination={{
-            clickable: true,
-            renderBullet: (index, className) => `<span class="${className} bg-gray-300 w-4 h-4 rounded-full inline-block mx-1"></span>`,
-          }}
-          navigation
-          modules={[Autoplay, Pagination, Navigation]}
-          onAutoplayTimeLeft={(s, time, progress) => onAutoplayTimeLeft(s, time, progress, eventsProgressCircle, eventsProgressContent)}
-          className="mySwiper"
-        >
-          {events.map((event) => (
-            <SwiperSlide key={event._id}>
-              <div className="bg-indigo-50 rounded-2xl h-96 flex justify-center items-center p-4">
-                <div className="text-center">
-                  <h3 className="text-2xl font-semibold text-indigo-600">{event.title}</h3>
-                  <p className="text-sm text-gray-700 mt-2">{event.description}</p>
-                  <p className="text-sm text-gray-500 mt-1">{new Date(event.date).toLocaleDateString()}</p>
-                  <p className="text-sm text-gray-500 mt-1">{event.location}</p>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-          <div className="autoplay-progress" slot="container-end">
-            <svg viewBox="0 0 48 48" ref={eventsProgressCircle}>
-              <circle cx="24" cy="24" r="20"></circle>
-            </svg>
-            <span ref={eventsProgressContent}></span>
-          </div>
-        </SwiperComponent>
-      </div>
+    <section id='eventsnadnews'>
+        <SectionTitle
+          title="Our Latest Events And News"
+          paragraph="You'll find a wealth of 
+        knowledge and insights on various topics related to academia, student life, research, and more."
+          center
+        />
+        <div className="flex flex-col md:flex-row gap-4 container">
 
-      {/* News Column */}
-      <div className="w-full md:w-1/2 relative">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">News</h2>
-        <SwiperComponent
-          spaceBetween={30}
-          centeredSlides
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-          pagination={{
-            clickable: true,
-            renderBullet: (index, className) => `<span class="${className} bg-gray-300 w-4 h-4 rounded-full inline-block mx-1"></span>`,
-          }}
-          navigation
-          modules={[Autoplay, Pagination, Navigation]}
-          onAutoplayTimeLeft={(s, time, progress) => onAutoplayTimeLeft(s, time, progress, newsProgressCircle, newsProgressContent)}
-          className="mySwiper"
-        >
-          {news.map((item) => (
-            <SwiperSlide key={item._id}>
-              <div className="bg-indigo-50 rounded-2xl h-96 flex justify-center items-center p-4">
-                <div className="text-center">
-                  <h3 className="text-2xl font-semibold text-indigo-600">{item.title}</h3>
-                  <p className="text-sm text-gray-700 mt-2">{item.content}</p>
-                  <p className="text-sm text-gray-500 mt-1">{new Date(item.date).toLocaleDateString()}</p>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-          <div className="autoplay-progress" slot="container-end">
-            <svg viewBox="0 0 48 48" ref={newsProgressCircle}>
-              <circle cx="24" cy="24" r="20"></circle>
-            </svg>
-            <span ref={newsProgressContent}></span>
-          </div>
-        </SwiperComponent>
-      </div>
-    </div>
+            {/* Events Column */}
+            <div className="w-full h-[300px] md:w-1/2 relative">
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">Events</h2>
+            <SwiperComponent
+                spaceBetween={30}
+                centeredSlides
+                autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+                }}
+                pagination={{
+                clickable: true,
+                renderBullet: (index, className) => `<span class="${className} bg-gray-300 w-4 h-[280] rounded-full inline-block mx-1"></span>`,
+                }}
+                navigation
+                modules={[Autoplay, Pagination, Navigation]}
+                className="mySwiper"
+            >
+                {events.map((event) => (
+                <SwiperSlide key={event._id}>
+                    <div className={slideStyle}>
+                    <Image
+                        className={imgStyle}
+                        src={event.coverPhotoUrl}
+                        alt={event.title}
+                        width={192}
+                        height={192}
+                    />
+                    <div className={contentStyle}>
+                        <h3 className={titleStyle}>{event.title}</h3>
+                        <p className={textStyle}>{event.description}</p>
+                        <p className={dateStyle}>{new Date(event.date).toLocaleDateString()}</p>
+                        <p className={dateStyle}>{event.location}</p>
+                    </div>
+                    </div>
+                </SwiperSlide>
+                ))}
+            </SwiperComponent>
+            </div>
+
+            {/* News Column */}
+            <div className="w-full md:w-1/2 relative">
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">News</h2>
+            <SwiperComponent
+                spaceBetween={30}
+                centeredSlides
+                autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+                }}
+                pagination={{
+                clickable: true,
+                renderBullet: (index, className) => `<span class="${className} bg-gray-300 w-4 h-4 rounded-full inline-block mx-1"></span>`,
+                }}
+                navigation
+                modules={[Autoplay, Pagination, Navigation]}
+                className="mySwiper"
+            >
+                {news.map((item) => (
+                <SwiperSlide key={item._id}>
+                    <div className={slideStyle}>
+                    <Image
+                        className={imgStyle}
+                        src={item.photo}
+                        alt={item.title}
+                        width={192}
+                        height={192}
+                    />
+                    <div className={contentStyle}>
+                        <h3 className={titleStyle}>{item.title}</h3>
+                        <p className={textStyle}>{item.content}</p>
+                        <p className={dateStyle}>{new Date(item.date).toLocaleDateString()}</p>
+                    </div>
+                    </div>
+                </SwiperSlide>
+                ))}
+            </SwiperComponent>
+            </div>
+            </div>
+    </section>
   );
 };
 
