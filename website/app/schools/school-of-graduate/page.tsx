@@ -22,7 +22,7 @@ export default function SchoolOfGraduate() {
         </div>
 
         <div className="md:pl-2">
-          <ul className="flex flex-col space-y-5">
+          <ul className='flex flex-col space-y-5 text-body-color'>
             <li>Currently One Department In The faculty</li>
           </ul>
         </div>

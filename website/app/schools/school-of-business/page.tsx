@@ -21,7 +21,7 @@ export default function SchoolOfBusiness() {
         </div>
 
         <div className="md:pl-2">
-          <ul className="flex flex-col space-y-5">
+          <ul className='flex flex-col space-y-5 text-body-color'>
             <li>Department Of Accounting And Finance</li>
             <li>Department Of Management</li>
           </ul>

@@ -23,7 +23,7 @@ export default function SchoolOfTheology() {
         </div>
 
         <div className='md:pl-2'>
-          <ul className='flex flex-col space-y-5'>
+          <ul className='flex flex-col space-y-5 text-body-color'>
             <li>Department Of Theology</li>
             <li>Department Of Religious Studies</li>
           </ul>

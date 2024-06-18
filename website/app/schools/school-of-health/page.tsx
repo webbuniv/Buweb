@@ -21,7 +21,7 @@ export default function SchoolOfHealth() {
         </div>
 
         <div className="md:pl-2">
-          <ul className="flex flex-col space-y-5">
+          <ul className='flex flex-col space-y-5 text-body-color'>
             <li>Department Of Nursing And Mid-Wifery</li>
             <li>Department Of Public Health And Allied Sciences</li>
           </ul>

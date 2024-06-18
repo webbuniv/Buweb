@@ -25,7 +25,7 @@ export default function SchoolOfEducation() {
         </div>
 
         <div className="md:pl-2">
-          <ul className="flex flex-col space-y-5">
+          <ul className='flex flex-col space-y-5 text-body-color'>
             <li>Department Of Social Sciences</li>
             <li>Department Of Education And Humanities</li>
           </ul>
