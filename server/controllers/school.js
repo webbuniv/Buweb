@@ -15,7 +15,6 @@ export const createSchool = async (req, res) => {
       goal,
       photo,
       dean,
-      deans,
       message,
       departments: departments || [],
       lecturers: lecturers || [],
