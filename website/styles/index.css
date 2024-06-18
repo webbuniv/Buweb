@@ -142,6 +142,7 @@
 }
 
 @keyframes slide-in-right {
+
   from {
     transform: translateX(300px);
   }
