@@ -26,7 +26,7 @@ export default function Home() {
       <Hero />
       <Features />
       <ExploreBugema />
-      {/* <Brands /> */}
+      <Brands />
       <AboutSectionOne />
       {/* <AboutSectionTwo /> */}
       {/* <Testimonials /> */}
