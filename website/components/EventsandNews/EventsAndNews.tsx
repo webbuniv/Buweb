@@ -55,7 +55,7 @@ const EventsAndNews: React.FC = () => {
 
             {/* Events Column */}
             <div className="w-full h-[300px] md:w-1/2 relative">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">Events</h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-4 dark:text-white">Our Latest Events</h2>
             <SwiperComponent
                 spaceBetween={30}
                 centeredSlides
@@ -78,8 +78,8 @@ const EventsAndNews: React.FC = () => {
                         className={imgStyle}
                         src={event.coverPhotoUrl}
                         alt={event.title}
-                        width={192}
-                        height={192}
+                        width={200}
+                        height={200}
                     />
                     <div className={contentStyle}>
                         <h3 className={titleStyle}>{event.title}</h3>
@@ -95,7 +95,7 @@ const EventsAndNews: React.FC = () => {
 
             {/* News Column */}
             <div className="w-full md:w-1/2 relative">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">News</h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-4 dark:text-white">Our Latest News</h2>
             <SwiperComponent
                 spaceBetween={30}
                 centeredSlides
@@ -118,8 +118,8 @@ const EventsAndNews: React.FC = () => {
                         className={imgStyle}
                         src={item.photo}
                         alt={item.title}
-                        width={192}
-                        height={192}
+                        width={200}
+                        height={200}
                     />
                     <div className={contentStyle}>
                         <h3 className={titleStyle}>{item.title}</h3>
