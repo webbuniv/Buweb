@@ -24,7 +24,7 @@ export default function SchoolOfEducation() {
           <SectionTitle title="Departments In The Faculty" paragraph="" />
         </div>
 
-        <div className="md:pl-2">
+        <div className='md:pl-2 mx-auto md:mx-0'>
           <ul className='flex flex-col space-y-5 text-body-color'>
             <li>Department Of Social Sciences</li>
             <li>Department Of Education And Humanities</li>

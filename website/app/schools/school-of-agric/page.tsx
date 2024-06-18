@@ -20,7 +20,7 @@ export default function SchoolOfAgric() {
           <SectionTitle title="Departments In The Faculty" paragraph="" />
         </div>
 
-        <div className="md:pl-2">
+        <div className='md:pl-2 mx-auto md:mx-0'>
           <ul className='flex flex-col space-y-5 text-body-color'>
             <li>Department Of Agricultural Sciences</li>
             <li>Department Of Environmental And Applied Sciences</li>
