@@ -7,32 +7,27 @@ import SoftBox from "./components/SoftBox";
 import Sidenav from "./examples/Sidenav";
 import Configurator from "./examples/Configurator";
 import theme from "./assets/theme";
-import themeRTL from "./assets/theme/theme-rtl";
 import rtlPlugin from "stylis-plugin-rtl";
-import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import 'react-toastify/dist/ReactToastify.css';
 import { useSelector } from "react-redux";
+import Department from "./layouts/department";
 
 import Dashboard from "./layouts/dashboard";
 import Tables from "./layouts/tables";
-import Billing from "./layouts/billing";
-import VirtualReality from "./layouts/virtual-reality";
-import RTL from "./layouts/rtl";
 import Profile from "./layouts/profile";
 import SignIn from "./layouts/authentication/sign-in";
-import SignUp from "./layouts/authentication/sign-up";
 import Events from "./layouts/events";
 import News from "./layouts/news";
 import Publication from "./layouts/publication";
-
 import routes from "./routes";
+import { 
+  useSoftUIController, 
+  setMiniSidenav, 
+  setOpenConfigurator 
+} from "./context";
 
-// Soft UI Dashboard React contexts
-import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "./context";
-
-// Images
-import brand from "./assets/images/logo-ct.png";
+import brand from "./assets/images/logos/logo.png";
 
 export default function App() {
   const [controller, dispatch] = useSoftUIController();
@@ -131,8 +126,8 @@ export default function App() {
           element={ <Tables />}
         />
         <Route
-          path="/billing"
-          element={<Billing /> }
+          path="/department"
+          element={<Department /> }
         />
         <Route
           path="/news"

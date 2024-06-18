@@ -10,10 +10,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
-import { ServiceData2 } from "@/app/constants/news";
-import { ServiceData3 } from "@/app/constants/news";
-import { ServiceData4 } from "@/app/constants/news";
-import { ServiceData5 } from "@/app/constants/news";
+import { ServiceData2 } from "@/app/constants/schools";
+import { ServiceData3 } from "@/app/constants/schools";
+import { ServiceData4 } from "@/app/constants/schools";
+import { ServiceData5 } from "@/app/constants/schools";
 import { FreeMode, Pagination, Navigation } from "swiper/modules";
 
 import { RxArrowLeft, RxArrowRight, RxArrowTopRight } from "react-icons/rx";
