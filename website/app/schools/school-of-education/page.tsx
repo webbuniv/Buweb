@@ -26,11 +26,8 @@ export default function SchoolOfEducation() {
 
         <div className="md:pl-2">
           <ul className="flex flex-col space-y-5">
-            <li>Department One</li>
-            <li>Department Two</li>
-            <li>Department Three</li>
-            <li>Department Four</li>
-            <li>Department Five</li>
+            <li>Department Of Social Sciences</li>
+            <li>Department Of Education And Humanities</li>
           </ul>
         </div>
       </div>

@@ -24,11 +24,8 @@ export default function SchoolOfTheology() {
 
         <div className='md:pl-2'>
           <ul className='flex flex-col space-y-5'>
-            <li>Department One</li>
-            <li>Department Two</li>
-            <li>Department Three</li>
-            <li>Department Four</li>
-            <li>Department Five</li>
+            <li>Department Of Theology</li>
+            <li>Department Of Religious Studies</li>
           </ul>
         </div>
       </div>

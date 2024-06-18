@@ -22,11 +22,8 @@ export default function SchoolOfAgric() {
 
         <div className="md:pl-2">
           <ul className="flex flex-col space-y-5">
-            <li>Department One</li>
-            <li>Department Two</li>
-            <li>Department Three</li>
-            <li>Department Four</li>
-            <li>Department Five</li>
+            <li>Department Of Agricultural Sciences</li>
+            <li>Department Of Environmental And Applied Sciences</li>
           </ul>
         </div>
       </div>
