@@ -213,21 +213,21 @@ const why_bugema = () =>{
                               
                               <li>
                               <div className="mr-2 my-5 slider slide--slower ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> </h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Research Repository </h1> 
                                     
                               </div>
                               </li>
                               
                               <li>
                               <div className="mr-2 my-5 slider slide--slow ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Education,Humanities and <br/> Social sciences</h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> YouTube </h1> 
                                     
                               </div>
                               </li>
                               
                               <li>
                               <div className="mr-2 my-5 slider slide--fast ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Graduate studies, Reseacrch <br/>&  Publications</h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Twitter </h1> 
                                     
                               </div>
                               </li>
