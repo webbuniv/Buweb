@@ -20,15 +20,7 @@ const handleclose = (e)=>{
       document.querySelector('.active')?.classList.remove('active');
       
 }
-// const showIT =() =>{
-      
-//       let mouseon = document.getElementById('IT');
-//       mouseon.addEventListener("onmouseleave",function(){
-//             mouseon.classList.add('hidden');
-//       });
- 
-//       mouseon.classList.remove('hidden');
-// }
+
 const main = ()=>{
       let schools = document.querySelector('schools');
       // schools.classList.remove('hidden');
@@ -112,9 +104,6 @@ const why_bugema = () =>{
             <div className=" fade-in fixed inset-0 backdrop-blur-sm flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden bg-white" id="wrapper">
                   
                   <div className='flex '>
-                        {/* <button style = {border-radius: '50%';width: '30px';height: '30px';background-color: 'red';color: 'white';font-size: '20px';text-align: 'center';line-height: '30px';position: 'absolute';right: '10px';top: '10px'} onClick={onClose}>
-                        <span className="text-black text-xl rounded-full">X</span>
-                        </button> */}
                         <button 
                               style={{
                               borderRadius: '50%',
@@ -140,7 +129,7 @@ const why_bugema = () =>{
                         <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'25%'}}> 
                               <div className="mr-2 my-5 slider slide--fast">
                                     
-                                    <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '   onClick={main}> <span id='main' className='animated href=""'>Patner with us</span></h1> 
+                                    <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '   onClick={main}> <span id='main' className='animated href=""'>Important Links</span></h1> 
                               </div>
                               <div className="mr-2 my-5  slider slide--slow ">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={payments}><span id='payments' className='animated'>Fees and Payments</span></h1> 
@@ -197,34 +186,34 @@ const why_bugema = () =>{
                               <li>
                               <div className="mr-2 my-5 slider slide--slow ">
                               
-                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Science and Technology </h1> 
+                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > ERMS-Students </h1> 
                               
                               </div>
                               </li>
                               
                               <li>
                               <div className="mr-2 my-5 slider slide--slow ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Heath and Alied Sciences</h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> ERMS-Staff</h1> 
                                     
                               </div>
                               </li>
                               <li>
                               <div className="mr-2 my-5 slider slide--fast ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Theology and Religious Studies </h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > E-Learning </h1> 
                                     
                               </div>
                               </li>
                               
                               <li>
                               <div className="mr-2 my-5 slider slide--slow ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Agriculture and Applied Sciences</h1>
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> E-Library </h1>
                                     
                               </div>
                               </li>
                               
                               <li>
                               <div className="mr-2 my-5 slider slide--slower ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Business</h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> </h1> 
                                     
                               </div>
                               </li>
