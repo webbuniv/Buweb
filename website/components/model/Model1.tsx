@@ -6,6 +6,7 @@ import nurses from "../../public/images/nav/nurses.jpg";
 import nurses1 from "../../public/images/nav/nurses1.jpg";
 import burundi from "../../public/images/nav/burundi.jpg";
 import bucosa from "../../public/images/nav/bucosa.jpg";
+import bucosa1 from "../../public/images/nav/bucosa1.jpg";
 import palm_girls from "../../public/images/nav/palm-girls.jpg";
 import volley1 from "../../public/images/nav/sports/volley1.jpg";
 import volley2c from "../../public/images/nav/sports/volley2c.jpg";
@@ -215,7 +216,7 @@ const Foot = () =>{
                               {/*###===============================================================================
                                A T T A C H M E N T   P I C T U R E S    U N D E R    T H E   F I R S T   C O L U M N 
                                ==================================================================================###*/}
-                              <div id='attachment-get-in-toch' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
+                              <div id='attachment-get-in-toch' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'15%',width:'111%',height:'40%'}}>
                                     <div className='fade-in'>
                                           
                                     {/* <h1  style={{fontSize: '19px',cursor:"pointer",height:"150px"}}> Masters of Science in Information</h1> */}
@@ -224,7 +225,7 @@ const Foot = () =>{
                                     
                               </div> 
                               {/* A T T A C H M E N T   S P O R T S */}
-                              <div id='attachment-sports' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
+                              <div id='attachment-sports' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'15%',width:'111%',height:'40%'}}>
                                     <div className='fade-in'>
                                           
                                     {/* <h1  style={{fontSize: '19px',cursor:"pointer",height:"150px"}}> Masters of Science in Information</h1> */}
@@ -233,7 +234,7 @@ const Foot = () =>{
                                     
                               </div> 
 
-                              <div id='attachment-courses' className="slant-div-right bg-black text-white grid-rows-2"style={{marginTop:'20%',width:'111%',height:'40%'}}>
+                              <div id='attachment-courses' className="slant-div-right bg-black text-white grid-rows-2"style={{marginTop:'15%',width:'111%',height:'40%'}}>
                                     <div className='fade-in'>
                                           
                                     {/* <h1  style={{fontSize: '19px',cursor:"pointer",height:"150px"}}> Masters of Science in Information</h1> */}
@@ -241,12 +242,12 @@ const Foot = () =>{
                                     </div>
                                     
                               </div> 
-
-                              <div id='attachment-why-bugema' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
+                                     {/* A T T A C H M E N T   C L U B S   AND  A S S O C I A T I O N S */}
+                              <div id='attachment-why-bugema' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'15%',width:'111%',height:'40%'}}>
                                     <div className='fade-in'>
                                           
                                     {/* <h1  style={{fontSize: '19px',cursor:"pointer",height:"150px"}}> Masters of Science in Information</h1> */}
-                                    <Image src={nurses1} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
+                                    <Image src={bucosa1} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
                                     </div>
                                     
                               </div> 
@@ -255,10 +256,10 @@ const Foot = () =>{
                   
                   </div>
                   {/*###=============== A  C  C  O  M  M  O  D  A  T  I  O  N ================###*/}
-                  <div className=" ml-12 my-24 fade-in " id='courses' style={{marginTop:'9%'}}> 
+                  <div className=" ml-12 my-24 fade-in-slow " id='courses' style={{marginTop:'15%'}}> 
                         <ul>
                               <li>
-                              <div className="mr-2 my-5 slider slide--slow ">
+                              <div className="mr-2 my-5  ">
                               
                               <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > ANNEX Hostel (Male) </h1> 
                               
@@ -266,34 +267,34 @@ const Foot = () =>{
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5 slider slide--slow ">
+                              <div className="mr-2 my-5  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>S L Hostel (Male)</h1> 
                                     
                               </div>
                               </li>
                               <li>
-                              <div className="mr-2 my-5 slider slide--fast ">
+                              <div className="mr-2 my-5  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Bensdorf Hostel (Female) </h1> 
                                     
                               </div>
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5 slider slide--slow ">
+                              <div className="mr-2 my-5  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Cliford Hostel (Female)</h1>
                                     
                               </div>
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5 slider slide--slower ">
+                              <div className="mr-2 my-5 ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Hill Top Hostel (Male) </h1> 
                                     
                               </div>
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5 slider slide--slow ">
+                              <div className="mr-2 my-5  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Explorer More</h1> 
                                     
                               </div>
@@ -478,12 +479,12 @@ const Foot = () =>{
 
 
 
-                              {/* ###============= C O U R S E S    M O R E =================### */}
-                        <div className='' id='courses-more'>
+                              {/* ###============= A C C O M M O D D A T I O N     M O R E =================### */}
+                        <div className='' id='courses-more' style={{marginTop:'20%'}}>
                               <div className=' ml-24 fade-in '>
                                           <Image src={image} alt='img' width={350} height={450} className="-ml-5 my-10 slider slide--fast"/>
                               </div>
-                              <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
+                              {/* <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
                                     <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
                                     <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Why Study at Bugema University <FaArrowRight className='arrow1'/></h1>
                                     </div>
@@ -495,17 +496,17 @@ const Foot = () =>{
                                     </div>
                               </div>  
                               <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
-                                    <div className='columns-1 bg-black slider slide--slow change-on-hover'>
+                                    <div className='columns-1 bg-black  change-on-hover'>
                                     <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Masters of Science in Information <FaArrowRight className='arrow3'/></h1>
                                     </div>
-                              </div>
+                              </div> */}
                         </div>
 
 
                         
                         
                         {/* ###=============S P O R T S       M O R E =================### */}
-                        <div className=' hidden fade-in' id='fees-more'>
+                        <div className=' hidden my-24 fade-in' id='fees-more'>
                               <div id='foot' className=' ml-24 fade-in '>
                                           <Image src={football} alt='img' width={350} height={450} className="-ml-5 my-20 "/>
                               </div>
@@ -530,47 +531,17 @@ const Foot = () =>{
                                           <Image src={volley2c} alt='img' width={350} height={450} className="-ml-5 my-20 "/>
                               </div>
 
-                              {/* <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
-                                    <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> How to Pay  <FaArrowRight className='arrow1'/></h1>
-                                    </div>
-                              </div> */}
                               
-                              <div className="ml-12 my-1 transform -skew-x-11 text-white grid-rows-2 " >
-                                    <div className='columns-1 bg-black change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Fees Structure <FaArrowRight className='arrow2'/></h1>
-                                    </div>
-                              </div>  
-                              <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
-                                    <div className='columns-1 bg-black slider slide--slow change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Donate <FaArrowRight className='arrow3'/></h1>
-                                    </div>
-                              </div> 
                         </div>
                         
                         
                         
-                        {/* ###============= W  H  Y    B U G E M A      M O R E =================### */}
-                        <div className='hidden' id='why-bugema-more'>
+                        {/* ###============= C L U B S    AND   A S S O C I A T  I O N S    M O R E =================### */}
+                        <div className='hidden' id='why-bugema-more' style={{marginTop:'30%'}}>
                               <div className=' ml-24 fade-in '>
-                                          <Image src={bucosa} alt='img' width={350} height={450} className="-ml-5 my-10 slider slide--fast"/>
+                                          <Image src={bucosa} alt='img' width={350} height={450} className="-ml-5 my-10 "/>
                               </div>
-                              <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
-                                    <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Why Study at Bugema University <FaArrowRight className='arrow1'/></h1>
-                                    </div>
-                              </div> 
                               
-                              <div className="ml-12 my-1 transform -skew-x-11 text-white grid-rows-2 " >
-                                    <div className='columns-1 bg-black change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Why Study at Bugema University <FaArrowRight className='arrow2'/></h1>
-                                    </div>
-                              </div>  
-                              <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
-                                    <div className='columns-1 bg-black slider slide--slow change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Why Study at Bugema University <FaArrowRight className='arrow3'/></h1>
-                                    </div>
-                              </div>
                         </div>
                         
                         
@@ -578,9 +549,9 @@ const Foot = () =>{
                         {/* ###=============G E T   IN  T O U C H       M O R E =================### */}
                         <div className=' hidden fade-in' id='touch-more'>
                               <div className=' ml-24 fade-in '>
-                                          <Image src={palm_girls} alt='img' width={350} height={450} className="ml-19 -mr-10 my-10 slider slide--fast"/>
+                                          <Image src={palm_girls} alt='img' width={350} height={450} className="ml-19 -mr-10 my-10 "/>
                               </div>
-                              <div className="ml-19 -mr-5 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
+                              {/* <div className="ml-19 -mr-5 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
                                     <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
                                     <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> How to Apply  <FaArrowRight className='arrow1'/></h1>
                                     </div>
@@ -590,7 +561,7 @@ const Foot = () =>{
                                     <div className='columns-1 bg-black change-on-hover'>
                                     <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Other Campuses <FaArrowRight className='arrow2'/></h1>
                                     </div>
-                              </div>  
+                              </div>   */}
                               <div className="ml-24 -mr-3 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px',}} >
                                     <div className='columns-1 bg-black slider slide--slow change-on-hover'>
                                     <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Talk to Us <FaArrowRight className='arrow3'/></h1>

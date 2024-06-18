@@ -165,6 +165,22 @@ height: 400px; /* Adjust height as needed */
       animation-duration: 2.5s;
 }
 /* BIG BLUE DIVS */
+
+.change-on-hover2{
+      overflow-x: hidden;
+}
+.change-on-hover2:hover{
+      overflow-x: hidden;
+}
+.change-on-hover2:hover .new-arr{
+      transform: translateX(125px);
+}
+
+.new-arr{
+      transition: transform 0.5s;
+     overflow-x: hidden;
+}
+
 .change-on-hover{
       transition: background-color 0.5s;
       overflow-x: hidden;
