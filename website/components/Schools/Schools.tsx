@@ -12,7 +12,7 @@ import "swiper/css/free-mode";
 import { FreeMode, Pagination, Navigation } from "swiper/modules";
 
 import { RxArrowLeft, RxArrowRight, RxArrowTopRight } from "react-icons/rx";
-import { SchoolsData } from "@/app/constants/news";
+import { SchoolsData } from "@/app/constants/schools";
 import SectionTitle from "../Common/SectionTitle";
 
 import { motion } from "framer-motion";
