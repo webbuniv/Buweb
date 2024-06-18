@@ -23,11 +23,7 @@ export default function SchoolOfGraduate() {
 
         <div className="md:pl-2">
           <ul className="flex flex-col space-y-5">
-            <li>Department One</li>
-            <li>Department Two</li>
-            <li>Department Three</li>
-            <li>Department Four</li>
-            <li>Department Five</li>
+            <li>Currently One Department In The faculty</li>
           </ul>
         </div>
       </div>
