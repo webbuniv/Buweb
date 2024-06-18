@@ -65,7 +65,7 @@ const Header = () => {
                   
       }, [showModel1]);
     const second_modal =() =>{
-      setShowModel1(true);
+      setShowModel1(true), document.body.style.overflow = showModel1 ? 'hidden' : 'auto';
       setShowModel(false);
       setShowModel2(false);
       setShowModel3(false);
@@ -74,8 +74,8 @@ const Header = () => {
       };
 
       useEffect(() => {
-            document.body.style.overflow = showModel1 ? 'hidden' : 'auto';           
-      }, [showModel1]);
+            document.body.style.overflow = showModel2 ? 'hidden' : 'auto';           
+      }, [showModel2]);
 
       const third_modal =() =>{
             setShowModel2(true);
@@ -98,15 +98,18 @@ const Header = () => {
             setShowModel4(false);              
       }
       useEffect(() => {
-            document.body.style.overflow = showModel3 ? 'hidden' : 'auto';        
-      }, [showModel3]); 
+            document.body.style.overflow = showModel4 ? 'hidden' : 'auto';        
+      }, [showModel4]); 
       const fifth_modal =() =>{
             setShowModel4(true);
             setShowModel3(false);
             setShowModel(false); 
             setShowModel1(false);
-            setShowModel2(false);              
-      }      
+            setShowModel2(false);
+            
+            
+      };  
+        
   return (
       
       <>
