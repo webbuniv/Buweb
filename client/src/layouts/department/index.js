@@ -60,7 +60,7 @@ const Department = () => {
   const fetchDepartments = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("https://buweb.onrender.com/departments", {
+      const response = await axios.get("https://buweb.onrender.com/department", {
         headers: {
           Authorization: `Bearer ${token}`,
         }
@@ -81,7 +81,7 @@ const Department = () => {
     e.preventDefault();
     setIsCreating(true);
     try {
-      const response = await axios.post("https://buweb.onrender.com/departments/create", createFormFields, {
+      const response = await axios.post("https://buweb.onrender.com/department/create", createFormFields, {
         headers: {
           Authorization: `Bearer ${token}`,
         }
@@ -105,7 +105,7 @@ const Department = () => {
     e.preventDefault();
     setIsUpdating(true);
     try {
-      await axios.patch(`https://buweb.onrender.com/departments/${editFormFields._id}/update`, editFormFields, {
+      await axios.patch(`https://buweb.onrender.com/department/${editFormFields._id}/update`, editFormFields, {
         headers: {
           Authorization: `Bearer ${token}`,
         }
@@ -135,7 +135,7 @@ const Department = () => {
 
   const handleDeleteDepartment = async (id) => {
     try {
-      await axios.delete(`https://buweb.onrender.com/departments/${id}/delete`, {
+      await axios.delete(`https://buweb.onrender.com/department/${id}/delete`, {
         headers: {
           Authorization: `Bearer ${token}`,
         }

@@ -110,7 +110,7 @@ const Header = () => {
   return (
       
       <>
-      <header className={`header top-0 left-0 z-40 flex w-full items-center bg-transparent mt-[-8px] ${sticky ? "!fixed !z-[9999] ! !bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100" : "absolute"}`}>
+      <header className={` overflow-x-hidden header top-0 left-0 z-40 flex w-full items-center bg-transparent mt-[-8px] ${sticky ? "!fixed !z-[9999] ! !bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100" : "absolute"}`}>
 
             
             <div className="container">
