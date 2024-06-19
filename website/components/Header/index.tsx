@@ -152,7 +152,7 @@ const Header = () => {
                                                 onClick={first_modal}
                                                 >
                                                 <span className={showModel ? "active" : ""}>Programs</span>
-                                                <span className="my-1 ml-2 text-white text-bold">
+                                                <span className="my-1 ml-2 dark:text-dark text-white text-bold">
                                                 <FaChevronDown className={showModel ? "drop" : ""} />
                                                 </span>
                                                 </Link>
@@ -164,7 +164,7 @@ const Header = () => {
                                                 onClick={second_modal}
                                                 >
                                                 <span className={showModel1 ? "active" : ""}>Student life</span>
-                                                <span className="my-1 ml-2 text-white">
+                                                <span className="my-1 ml-2 dark:text-dark text-white">
                                                 <FaChevronDown className={showModel1 ? "drop" : ""} />
                                                 </span>
                                                 </Link>
@@ -176,7 +176,7 @@ const Header = () => {
                                                 onClick={third_modal}
                                                 >
                                                 <span className={showModel2 ? "active" : ""}>Research</span>
-                                                <span className={"my-1 ml-2 text-white"}>
+                                                <span className={"my-1 ml-2 dark:text-dark text-white"}>
                                                 <FaChevronDown className={showModel2 ? "drop" : ""} />
                                                 </span>
                                                 </Link>
@@ -188,7 +188,7 @@ const Header = () => {
                                                 onClick={forth_modal}
                                                 >
                                                 <span className={showModel3 ? "active" : ""}>Campuses</span>
-                                                <span className="my-1 ml-2 text-white">
+                                                <span className="my-1 ml-2 dark:text-dark text-white">
                                                 <FaChevronDown className={showModel3 ? "drop" : ""} />
                                                 </span>
                                                 </Link>
@@ -199,8 +199,8 @@ const Header = () => {
                                                 className={`nav hover flex py-2 text-base dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                                                 onClick={fifth_modal}
                                                 >
-                                                <span className={showModel4 ? "active" : ""}>Partner With Us</span>
-                                                <span className="my-1 ml-2 text-white">
+                                                <span className={showModel4 ? "active" : ""}>More..</span>
+                                                <span className="my-1 ml-2 dark:text-dark text-white">
                                                 <FaChevronDown className={showModel4 ? "drop" : ""} />
                                                 </span>
                                                 </Link>
