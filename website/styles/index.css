@@ -184,10 +184,9 @@
   animation-duration: 2.5s;
 }
 
-/* Big blue divs */
 .change-on-hover {
   transition: background-color 0.5s;
-  overflow-x: hidden; /* Ensure no overflow */
+  overflow-x: hidden;
 }
 
 .change-on-hover:hover {
@@ -210,11 +209,11 @@
 .arrow2,
 .arrow3 {
   transition: transform 0.5s;
-  overflow-x: hidden; /* Ensure no overflow */
+  overflow-x: hidden; 
 }
 
 .custom-image {
   height: 400px;
   object-fit: cover;
-  overflow-x: hidden; /* Ensure no overflow */
+  overflow-x: hidden; 
 }
