@@ -21,16 +21,88 @@ const handleclose = (e)=>{
       
 }
 
+const main = ()=>{
+      let schools = document.querySelector('schools');
+      document.getElementById('main').classList.add('current');
+      document.getElementById('payments').classList.remove('current');
+      document.getElementById('fees').classList.add('hidden');
+      document.getElementById('courses').classList.remove('hidden');
+      document.getElementById('contact').classList.remove('current');
+      document.getElementById('why_bugema-data').classList.add('hidden');
+      document.getElementById('get-in-touch').classList.add('hidden');
+      document.getElementById('fees-more').classList.add('hidden');
+      document.getElementById('courses-more').classList.remove('hidden');
+      document.getElementById('touch-more').classList.add('hidden');
+      document.getElementById('why-bugema-more').classList.add('hidden');
+      document.getElementById('attachment-get-in-toch').classList.add('hidden');
+      document.getElementById('attachment-courses').classList.remove('hidden');
+      document.getElementById('attachment-fees').classList.add('hidden');
+      document.getElementById('attachment-why-bugema').classList.add('hidden');
+      document.getElementById('why_bugema').classList.remove('current');
+      
+}
+const payments=()=>{
+      document.getElementById('main').classList.remove('current');
+      document.getElementById('payments').classList.add('current');
+      document.getElementById('fees').classList.remove('hidden');
+      document.getElementById('courses').classList.add('hidden');
+      document.getElementById('contact').classList.remove('current');
+      document.getElementById('why_bugema-data').classList.add('hidden');
+      document.getElementById('get-in-touch').classList.add('hidden');
+      document.getElementById('fees-more').classList.remove('hidden');
+      document.getElementById('courses-more').classList.add('hidden');
+      document.getElementById('touch-more').classList.add('hidden');
+      document.getElementById('why-bugema-more').classList.add('hidden');
+      document.getElementById('attachment-get-in-toch').classList.add('hidden');
+      document.getElementById('attachment-courses').classList.add('hidden');
+      document.getElementById('attachment-fees').classList.remove('hidden');
+      document.getElementById('attachment-why-bugema').classList.add('hidden');
+      document.getElementById('why_bugema').classList.remove('current');
+      
+}
+const touch = ()=>{
+      document.getElementById('main').classList.remove('current');
+      document.getElementById('payments').classList.remove('current');
+      document.getElementById('courses').classList.add('hidden');
+      document.getElementById('fees').classList.add('hidden');
+      document.getElementById('contact').classList.add('current');
+      document.getElementById('why_bugema-data').classList.add('hidden');
+      document.getElementById('get-in-touch').classList.remove('hidden');
+      document.getElementById('touch-more').classList.remove('hidden');
+      document.getElementById('courses-more').classList.add('hidden');
+      document.getElementById('fees-more').classList.add('hidden');
+      document.getElementById('why-bugema-more').classList.add('hidden');
+      document.getElementById('attachment-get-in-toch').classList.remove('hidden');
+      document.getElementById('attachment-courses').classList.add('hidden');
+      document.getElementById('attachment-fees').classList.add('hidden');
+      document.getElementById('attachment-why-bugema').classList.add('hidden');
+      document.getElementById('why_bugema').classList.remove('current');
+}
+const why_bugema = () =>{
+      document.getElementById('main').classList.remove('current');
+      document.getElementById('payments').classList.remove('current');
+      document.getElementById('why_bugema').classList.add('current');+
+      document.getElementById('contact').classList.remove('current');
+      document.getElementById('courses').classList.add('hidden');
+      document.getElementById('fees').classList.add('hidden');
+      document.getElementById('get-in-touch').classList.add('hidden');
+      document.getElementById('why_bugema-data').classList.remove('hidden');
+      document.getElementById('touch-more').classList.add('hidden');
+      document.getElementById('courses-more').classList.add('hidden');
+      document.getElementById('fees-more').classList.add('hidden');
+      document.getElementById('why-bugema-more').classList.remove('hidden');
+      document.getElementById('attachment-get-in-toch').classList.add('hidden');
+      document.getElementById('attachment-courses').classList.add('hidden');
+      document.getElementById('attachment-fees').classList.add('hidden');
+      document.getElementById('attachment-why-bugema').classList.remove('hidden');
 
+}
   return (
       <>
         
             <div className=" fade-in fixed inset-0 backdrop-blur-sm flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden bg-white" id="wrapper">
                   
                   <div className='flex '>
-                        {/* <button style = {border-radius: '50%';width: '30px';height: '30px';background-color: 'red';color: 'white';font-size: '20px';text-align: 'center';line-height: '30px';position: 'absolute';right: '10px';top: '10px'} onClick={onClose}>
-                        <span className="text-black text-xl rounded-full">X</span>
-                        </button> */}
                         <button 
                               style={{
                               borderRadius: '50%',
@@ -44,7 +116,7 @@ const handleclose = (e)=>{
                               lineHeight: '30px',
                               position: 'absolute',
                               right: '70px',
-                              top: '70px',
+                              top: '20px',
                               }}
                               onClick={onClose}>
                               <span className="text-white text-xl">X</span>
@@ -75,30 +147,71 @@ const handleclose = (e)=>{
                               {/*###===============================================================================
                                A T T A C H M E N T   P I C T U R E S    U N D E R    T H E   F I R S T   C O L U M N 
                                ==================================================================================###*/}
-                        
-
-                              <div id='attachment-courses' className="slant-div-right bg-black text-white grid-rows-2"style={{marginTop:'8%',width:'111%',height:'40%'}}>
+                              <div id='attachment-get-in-toch' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
                                     <div className='fade-in'>
                                           
                                     <Image src={burundi} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
                                     </div>
                                     
                               </div> 
+                              <div id='attachment-fees' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
+                                    <div className='fade-in'>
+                                          
+                                    <Image src={palm_girls1} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
+                                    </div>
+                                    
+                              </div> 
 
+                              <div id='attachment-courses' className="slant-div-right bg-black text-white grid-rows-2"style={{marginTop:'20%',width:'111%',height:'40%'}}>
+                                    <div className='fade-in'>
+                                    <Image src={burundi} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
+                                    </div>
+                                    
+                              </div> 
+
+                              <div id='attachment-why-bugema' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
+                                    <div className='fade-in'>
+                                    <Image src={nurses1} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
+                                    </div>
+                                    
+                              </div> 
+                        
                         </div>
                   
                   </div>
-                  
-
-
-                  {/*###=============== Q   U   O   T   E================###*/}
-
-                  <div className=" fade-in my-24 " style={{marginTop:'12%'}} id='fees'> 
-                        <ul className='ml-10 my-20'>
+                  <div className=" ml-12 my-24 fade-in " id='courses' style={{marginTop:'9%'}}> 
+                        <ul>
                               <li>
-                                    <div className="mr-2 my-5 ">
+                              <div className="mr-2 my-5 slider slide--slow ">
+                              
+                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Main Campus </h1> 
+                              
+                              </div>
+                              </li>
+                              
+                              <li>
+                              <div className="mr-2 my-5 slider slide--slow ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Kampala Campus</h1> 
                                     
-                                          <h1  style={{marginRight:'5px'}} className='text-black text-center' >One institution, many worlds. <br/> Explore our Different Campuses and <br/> find your perfect fit ... </h1> 
+                              </div>
+                              </li>
+                              <li>
+                              <div className="mr-2 my-5 slider slide--fast ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Mbale Campus </h1> 
+                                    
+                              </div>
+                              </li>
+                              
+                              <li>
+                              <div className="mr-2 my-5 slider slide--slow ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Kasese Campus</h1>
+                                    
+                              </div>
+                              </li>
+                              
+                              <li>
+                              <div className="mr-2 my-5 slider slide--slower ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Arua Campus</h1> 
                                     
                                     </div>
                               </li>                       

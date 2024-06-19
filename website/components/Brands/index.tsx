@@ -21,10 +21,10 @@ const brandsData: Brand[] = [
     image: "/images/brands/nche.png",
   },
   {
-    id: 5,
-    name: "TailAdmin",
-    href: "https://tailadmin.com",
-    image: "/images/brands/tailadmin.svg",
+    id: 4,
+    name: "Bugema University",
+    href: "https://bugemauniv.ac.ug",
+    image: "/images/logo/bugema.png",
   },
 ];
 
