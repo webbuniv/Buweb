@@ -212,6 +212,21 @@
   overflow-x: hidden; 
 }
 
+.change-on-hover2{
+      overflow-x: hidden;
+}
+.change-on-hover2:hover{
+      overflow-x: hidden;
+}
+.change-on-hover2:hover .new-arr{
+      transform: translateX(125px);
+}
+
+.new-arr{
+      transition: transform 0.5s;
+     overflow-x: hidden;
+}
+
 .custom-image {
   height: 400px;
   object-fit: cover;
