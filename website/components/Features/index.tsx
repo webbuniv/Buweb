@@ -43,7 +43,7 @@ const Features = () => {
               {/* Section title on big screens */}
               <div className="mb-8 hidden md:block">
                 <SectionTitle
-                  title="For ambition that can take you anywhere, get your start at Bugema University"
+                  title="Offering an excellent and distinctive wholistic christian education designed to prepare our students through training for productive lives of useful service to God."
                   paragraph=""
                   // center
                   />
@@ -52,7 +52,7 @@ const Features = () => {
               {/* Section title on small screens */}
               <div className="mb-8 block md:hidden text-sm">
                 <SectionTitle
-                  title="For ambition that can take you anywhere, get your start at Bugema University"
+                  title="Offering an excellent and distinctive wholistic christian education designed to prepare our students through training for productive lives of useful service to God."
                   paragraph=""
                   // center
                   />
