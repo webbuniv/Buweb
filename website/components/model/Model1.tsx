@@ -213,7 +213,7 @@ const Foot = () =>{
                               {/* A T T A C H M E N T   S P O R T S */}
                               <div id='attachment-sports' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'15%',width:'111%',height:'40%'}}>
                                     <div className='fade-in'>
-                                    <Image src={palm_girls1} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
+                                    <Image src={palm_girls} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
                                     </div>
                                     
                               </div> 

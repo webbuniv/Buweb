@@ -251,7 +251,7 @@ const why_bugema = () =>{
                               
                              
                               
-                        </ul> */}
+                        </ul> 
                         <div className=" my-5 flex items-center justify-center">
                               <Link
                               href="/https://www.facebook.com"
