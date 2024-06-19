@@ -120,6 +120,7 @@ const Features = () => {
         id="features"
         className="bg-primary/[.03] md:py-20 "
       >
+        <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8 ">
 
           {/* Left side container */}
@@ -212,6 +213,7 @@ const Features = () => {
           <div className="skewed left" ></div>
           <div className="skewed center"></div>
           <div className="skewed right"></div>
+        </div>
         </div>
       </section>
     </>
