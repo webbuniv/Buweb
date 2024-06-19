@@ -44,7 +44,7 @@ const sliderVariants = {
     x: "-220%",
     transition: {
       // repeatType: "mirror",
-      duration: 20,
+      duration: 40,
       repeat: Infinity
     },
   },
@@ -55,7 +55,7 @@ const Hero = () => {
     <>
       <section
         id="home"
-        className="relative z-10 overflow-hidden pt-[120px] pb-10 md:pt-[150px] md:pb-[100px] xl:pt-[180px] xl:pb-[160px] 2xl:pt-[210px] 2xl:pb-[200px]"
+        className="relative z-10  pt-[120px] pb-10 md:pt-[150px] md:pb-[100px] xl:pt-[180px] xl:pb-[160px] 2xl:pt-[210px] 2xl:pb-[200px]"
       >
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
@@ -185,7 +185,7 @@ const Hero = () => {
 
               {/* Sliding bg text container on big screens*/}
               <motion.div 
-                className="hidden md:block slidingTextContainer text-[#0000001f] dark:text-[#ffffff09] w-[50%] font-bold" 
+                className="hidden md:block slidingTextContainer text-[#0000001f] dark:text-[#ffffff09] w-[250%] font-bold" 
                 variants={sliderVariants} 
                 initial="initial" 
                 animate="animate"

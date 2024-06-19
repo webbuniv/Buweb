@@ -4,27 +4,21 @@ import Image from "next/image";
 const brandsData: Brand[] = [
   {
     id: 1,
-    name: "UIdeck",
-    href: "https://uideck.com",
-    image: "/images/brands/uideck.svg",
+    name: "RENU",
+    href: "https://renu.ac.ug/",
+    image: "/images/brands/renu.png",
   },
   {
     id: 2,
-    name: "Tailgrids",
-    href: "https://tailgrids.com",
-    image: "/images/brands/tailgrids.svg",
+    name: "SDA",
+    href: "https://www.adventist.org/",
+    image: "/images/brands/9.png",
   },
   {
     id: 3,
-    name: "Lineicons",
-    href: "https://lineicons.com",
-    image: "/images/brands/lineicons.svg",
-  },
-  {
-    id: 4,
-    name: "GrayGrids",
-    href: "https://graygrids.com",
-    image: "/images/brands/graygrids.svg",
+    name: "NCHE",
+    href: "https://unche.or.ug/",
+    image: "/images/brands/nche.png",
   },
   {
     id: 5,
@@ -62,12 +56,12 @@ const SingleBrand = ({ brand }: { brand: Brand }) => {
   const { href, image, name } = brand;
 
   return (
-    <div className="mx-3 flex w-full max-w-[160px] items-center justify-center py-[15px] sm:mx-4 lg:max-w-[130px] xl:mx-6 xl:max-w-[150px] 2xl:mx-8 2xl:max-w-[160px]">
+    <div className="mx-3 flex w-full max-w-[200px] items-center justify-center py-[15px] sm:mx-4 lg:max-w-[130px] xl:mx-6 xl:max-w-[150px] 2xl:mx-8 2xl:max-w-[160px]">
       <a
         href={href}
         target="_blank"
         rel="nofollow noreferrer"
-        className="relative h-10 w-full opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0 dark:opacity-60 dark:hover:opacity-100"
+        className="relative h-20 w-full opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0 dark:opacity-60 dark:hover:opacity-100"
       >
         <Image src={image} alt={name} fill />
       </a>
