@@ -14,6 +14,10 @@ import {
   Paper,
   Box,
   TextField,
+  MenuItem,
+  Select,
+  InputLabel,
+  FormControl,
 } from "@mui/material";
 import SoftBox from "../../components/SoftBox";
 import SoftTypography from "../../components/SoftTypography";
@@ -35,6 +39,7 @@ const useStyles = makeStyles({
 
 const Department = () => {
   const [departments, setDepartments] = useState([]);
+  const [schools, setSchools] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [showNewDepartmentModal, setShowNewDepartmentModal] = useState(false);
@@ -45,22 +50,18 @@ const Department = () => {
 
   const [createFormFields, setCreateFormFields] = useState({
     name: "",
-    schoolId: "",
-    lecturers: [],
-    programs: []
+    schoolId: ""
   });
   const [editFormFields, setEditFormFields] = useState({
     _id: "",
     name: "",
-    schoolId: "",
-    lecturers: [],
-    programs: []
+    schoolId: ""
   });
 
   const fetchDepartments = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("https://buweb.onrender.com/departments", {
+      const response = await axios.get("https://buweb.onrender.com/department", {
         headers: {
           Authorization: `Bearer ${token}`,
         }
@@ -73,15 +74,29 @@ const Department = () => {
     }
   };
 
+  const fetchSchools = async () => {
+    try {
+      const response = await axios.get("https://buweb.onrender.com/school", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      });
+      setSchools(response.data);
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
   useEffect(() => {
     fetchDepartments();
+    fetchSchools();
   }, []);
 
   const handleCreateDepartment = async (e) => {
     e.preventDefault();
     setIsCreating(true);
     try {
-      const response = await axios.post("https://buweb.onrender.com/departments/create", createFormFields, {
+      const response = await axios.post("https://buweb.onrender.com/department/create", createFormFields, {
         headers: {
           Authorization: `Bearer ${token}`,
         }
@@ -89,14 +104,14 @@ const Department = () => {
       if (response.status === 201) {
         fetchDepartments();
         setShowNewDepartmentModal(false);
-        setCreateFormFields({ name: "", schoolId: "", lecturers: [], programs: [] });
+        setCreateFormFields({ name: "", schoolId: "" });
       }
     } catch (error) {
       setError(error.message);
     } finally {
       setIsCreating(false);
       setShowNewDepartmentModal(false);
-      setCreateFormFields({ name: "", schoolId: "", lecturers: [], programs: [] });
+      setCreateFormFields({ name: "", schoolId: "" });
       fetchDepartments();
     }
   };
@@ -105,14 +120,14 @@ const Department = () => {
     e.preventDefault();
     setIsUpdating(true);
     try {
-      await axios.patch(`https://buweb.onrender.com/departments/${editFormFields._id}/update`, editFormFields, {
+      await axios.patch(`https://buweb.onrender.com/department/${editFormFields._id}/update`, editFormFields, {
         headers: {
           Authorization: `Bearer ${token}`,
         }
       });
       fetchDepartments();
       setShowEditDepartmentModal(false);
-      setEditFormFields({ _id: "", name: "", schoolId: "", lecturers: [], programs: [] });
+      setEditFormFields({ _id: "", name: "", schoolId: "" });
     } catch (error) {
       setError(error.message);
     } finally {
@@ -126,16 +141,14 @@ const Department = () => {
     setEditFormFields({
       _id: department._id,
       name: department.name,
-      schoolId: department.school._id,
-      lecturers: department.lecturers.map(lecturer => lecturer._id),
-      programs: department.programs.map(program => program._id)
+      schoolId: department.school._id
     });
     setShowEditDepartmentModal(true);
   };
 
   const handleDeleteDepartment = async (id) => {
     try {
-      await axios.delete(`https://buweb.onrender.com/departments/${id}/delete`, {
+      await axios.delete(`https://buweb.onrender.com/department/${id}/delete`, {
         headers: {
           Authorization: `Bearer ${token}`,
         }
@@ -250,42 +263,24 @@ const Department = () => {
                   }
                   style={{ gridColumn: "span 4" }}
                 />
-                <TextField
-                  label="School ID"
-                  type="text"
-                  value={createFormFields.schoolId}
-                  onChange={(e) =>
-                    setCreateFormFields((prevFields) => ({
-                      ...prevFields,
-                      schoolId: e.target.value
-                    }))
-                  }
-                  style={{ gridColumn: "span 4" }}
-                />
-                <TextField
-                  label="Lecturers"
-                  type="text"
-                  value={createFormFields.lecturers.join(", ")}
-                  onChange={(e) =>
-                    setCreateFormFields((prevFields) => ({
-                      ...prevFields,
-                      lecturers: e.target.value.split(",").map(id => id.trim())
-                    }))
-                  }
-                  style={{ gridColumn: "span 4" }}
-                />
-                <TextField
-                  label="Programs"
-                  type="text"
-                  value={createFormFields.programs.join(", ")}
-                  onChange={(e) =>
-                    setCreateFormFields((prevFields) => ({
-                      ...prevFields,
-                      programs: e.target.value.split(",").map(id => id.trim())
-                    }))
-                  }
-                  style={{ gridColumn: "span 4" }}
-                />
+                <FormControl style={{ gridColumn: "span 4" }}>
+                  <InputLabel>School</InputLabel>
+                  <Select
+                    value={createFormFields.schoolId}
+                    onChange={(e) =>
+                      setCreateFormFields((prevFields) => ({
+                        ...prevFields,
+                        schoolId: e.target.value
+                      }))
+                    }
+                  >
+                    {schools.map((school) => (
+                      <MenuItem key={school._id} value={school._id}>
+                        {school.name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
               </div>
               <div>
                 <Button
@@ -341,42 +336,24 @@ const Department = () => {
                   }
                   style={{ gridColumn: "span 4" }}
                 />
-                <TextField
-                  label="School ID"
-                  type="text"
-                  value={editFormFields.schoolId}
-                  onChange={(e) =>
-                    setEditFormFields((prevFields) => ({
-                      ...prevFields,
-                      schoolId: e.target.value
-                    }))
-                  }
-                  style={{ gridColumn: "span 4" }}
-                />
-                <TextField
-                  label="Lecturers"
-                  type="text"
-                  value={editFormFields.lecturers.join(", ")}
-                  onChange={(e) =>
-                    setEditFormFields((prevFields) => ({
-                      ...prevFields,
-                      lecturers: e.target.value.split(",").map(id => id.trim())
-                    }))
-                  }
-                  style={{ gridColumn: "span 4" }}
-                />
-                <TextField
-                  label="Programs"
-                  type="text"
-                  value={editFormFields.programs.join(", ")}
-                  onChange={(e) =>
-                    setEditFormFields((prevFields) => ({
-                      ...prevFields,
-                      programs: e.target.value.split(",").map(id => id.trim())
-                    }))
-                  }
-                  style={{ gridColumn: "span 4" }}
-                />
+                <FormControl style={{ gridColumn: "span 4" }}>
+                  <InputLabel>School</InputLabel>
+                  <Select
+                    value={editFormFields.schoolId}
+                    onChange={(e) =>
+                      setEditFormFields((prevFields) => ({
+                        ...prevFields,
+                        schoolId: e.target.value
+                      }))
+                    }
+                  >
+                    {schools.map((school) => (
+                      <MenuItem key={school._id} value={school._id}>
+                        {school.name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
               </div>
               <div>
                 <Button
