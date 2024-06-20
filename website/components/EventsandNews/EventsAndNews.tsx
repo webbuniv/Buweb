@@ -128,9 +128,11 @@ const EventsAndNews: React.FC = () => {
                         height={200}
                     />
                     <div className={contentStyle}>
+                      <Link href={`/news/${item._id}`}>
                         <h3 className={titleStyle}>{item.title}</h3>
                         <p className={textStyle}>{item.content}</p>
                         <p className={dateStyle}>{new Date(item.date).toLocaleDateString()}</p>
+                        </Link>
                     </div>
                     </div>
                 </SwiperSlide>
