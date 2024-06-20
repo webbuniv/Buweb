@@ -20,18 +20,8 @@ const handleclose = (e)=>{
       document.querySelector('.active')?.classList.remove('active');
       
 }
-// const showIT =() =>{
-      
-//       let mouseon = document.getElementById('IT');
-//       mouseon.addEventListener("onmouseleave",function(){
-//             mouseon.classList.add('hidden');
-//       });
- 
-//       mouseon.classList.remove('hidden');
-// }
 const main = ()=>{
       let schools = document.querySelector('schools');
-      // schools.classList.remove('hidden');
       document.getElementById('main').classList.add('current');
       document.getElementById('payments').classList.remove('current');
       document.getElementById('fees').classList.add('hidden');
@@ -112,9 +102,6 @@ const why_bugema = () =>{
             <div className=" fade-in fixed inset-0 backdrop-blur-sm flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden bg-white" id="wrapper">
                   
                   <div className='flex '>
-                        {/* <button style = {border-radius: '50%';width: '30px';height: '30px';background-color: 'red';color: 'white';font-size: '20px';text-align: 'center';line-height: '30px';position: 'absolute';right: '10px';top: '10px'} onClick={onClose}>
-                        <span className="text-black text-xl rounded-full">X</span>
-                        </button> */}
                         <button 
                               style={{
                               borderRadius: '50%',
@@ -128,7 +115,7 @@ const why_bugema = () =>{
                               lineHeight: '30px',
                               position: 'absolute',
                               right: '70px',
-                              top: '70px',
+                              top: '20px',
                               }}
                               onClick={onClose}>
                               <span className="text-white text-xl">X</span>
@@ -154,7 +141,6 @@ const why_bugema = () =>{
                               <div id='attachment-get-in-toch' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
                                     <div className='fade-in'>
                                           
-                                    {/* <h1  style={{fontSize: '19px',cursor:"pointer",height:"150px"}}> Masters of Science in Information</h1> */}
                                     <Image src={burundi} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
                                     </div>
                                     
@@ -162,7 +148,6 @@ const why_bugema = () =>{
                               <div id='attachment-fees' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
                                     <div className='fade-in'>
                                           
-                                    {/* <h1  style={{fontSize: '19px',cursor:"pointer",height:"150px"}}> Masters of Science in Information</h1> */}
                                     <Image src={palm_girls1} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
                                     </div>
                                     
@@ -171,7 +156,6 @@ const why_bugema = () =>{
                               <div id='attachment-courses' className="slant-div-right bg-black text-white grid-rows-2"style={{marginTop:'20%',width:'111%',height:'40%'}}>
                                     <div className='fade-in'>
                                           
-                                    {/* <h1  style={{fontSize: '19px',cursor:"pointer",height:"150px"}}> Masters of Science in Information</h1> */}
                                     <Image src={burundi} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
                                     </div>
                                     
@@ -180,7 +164,6 @@ const why_bugema = () =>{
                               <div id='attachment-why-bugema' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
                                     <div className='fade-in'>
                                           
-                                    {/* <h1  style={{fontSize: '19px',cursor:"pointer",height:"150px"}}> Masters of Science in Information</h1> */}
                                     <Image src={nurses1} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
                                     </div>
                                     
@@ -243,8 +226,6 @@ const why_bugema = () =>{
                         </ul>
                         
                   </div>
-                  
-
 
                               {/*###=============== FEES AND PAYMENTS ================###*/}
 
@@ -284,17 +265,9 @@ const why_bugema = () =>{
                                     
                               </div>
                               </li>
-                              
-                             
-                              
                         </ul>
                         
                   </div>
-
-                  
-
-
-
                   {/*###============== W  H  Y    B U G E M A ==============###*/}
                   <div className=" fade-in ml-24 my-24 hidden " style={{marginTop:'12%'}} id='why_bugema-data'> 
                         <ul className='ml-10 my-20'>
@@ -332,17 +305,10 @@ const why_bugema = () =>{
                                     
                               </div>
                               </li>
-                              
-                             
-                              
+  
                         </ul>
-                        
                   </div>
 
-                  
-
-
-                              
                   {/*###============== G  E  T    I N    T  O  U  C  H ==============###*/}
                   <div className=" fade-in ml-24 my-24 hidden " style={{marginTop:'12%'}} id='get-in-touch'> 
                         <ul className='ml-10 my-20'>
@@ -357,16 +323,13 @@ const why_bugema = () =>{
                               <li>
                               <div className="mr-2 my-5  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Applications</h1> 
-                                    
                               </div>
                               </li>
                               <li>
                               <div className="mr-2 my-5  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Maps and Directions </h1> 
-                                    
                               </div>
                               </li>
-                              
                               <li>
                               <div className="mr-2 my-5  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Campus Tours</h1>
@@ -380,9 +343,7 @@ const why_bugema = () =>{
                                     
                               </div>
                               </li>
-                              
-                             
-                              
+
                         </ul>
                         
                   </div>
@@ -392,26 +353,6 @@ const why_bugema = () =>{
 
                   {/* SCIENCE AND TECHNOLOGY COURSES */}
                   <div className='ml-10  my-24 transform -skew-x-12'  id='IT'>
-                        {/* <div className="mr-2 my-5  ">
-                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Certificate in Information Technology</h1> 
-                        </div>
-                        <div className="mr-2 my-5  ">
-                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Bachelor of Science in Software Engineering</h1> 
-                        </div>
-                        <div className="mr-2 my-5  ">
-                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Bachelor of Science in Network Systems<br/> Administration</h1> 
-                        </div>
-                        <div className="mr-2 my-5  ">
-                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Bachelor of Science in Computer Engineering</h1> 
-                        </div>
-                        <div className="mr-2 my-5  ">
-                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Diploma in Computer Forensics</h1> 
-                        </div>
-                        <div className="mr-2 my-5  ">
-                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Diploma in Information technology</h1> 
-                        </div>*/}
-
-
 
                               {/* ###============= C O U R S E S    M O R E =================### */}
                         <div className='' id='courses-more'>
@@ -436,9 +377,6 @@ const why_bugema = () =>{
                               </div>
                         </div>
 
-
-                        
-                        
                         {/* ###=============F E E S       M O R E =================### */}
                         <div className=' hidden fade-in' id='fees-more'>
                               <div className=' ml-24 fade-in '>
@@ -461,9 +399,7 @@ const why_bugema = () =>{
                                     </div>
                               </div>
                         </div>
-                        
-                        
-                        
+
                         {/* ###============= W  H  Y    B U G E M A      M O R E =================### */}
                         <div className='hidden' id='why-bugema-more'>
                               <div className=' ml-24 fade-in '>
@@ -486,8 +422,6 @@ const why_bugema = () =>{
                                     </div>
                               </div>
                         </div>
-                        
-                        
 
                         {/* ###=============G E T   IN  T O U C H       M O R E =================### */}
                         <div className=' hidden fade-in' id='touch-more'>
@@ -511,13 +445,10 @@ const why_bugema = () =>{
                                     </div>
                               </div>
                               
-                        </div>
-                          
-                  </div>
-                  
+                        </div>                         
+                  </div>               
             </div>
-      </>
-      
+      </>    
   );
 };
 

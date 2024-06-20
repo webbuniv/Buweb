@@ -25,18 +25,9 @@ const handleclose = (e)=>{
       document.querySelector('.active')?.classList.remove('active');
       
 }
-// const showIT =() =>{
-      
-//       let mouseon = document.getElementById('IT');
-//       mouseon.addEventListener("onmouseleave",function(){
-//             mouseon.classList.add('hidden');
-//       });
- 
-//       mouseon.classList.remove('hidden');
-// }
+
 const main = ()=>{
       let schools = document.querySelector('schools');
-      // schools.classList.remove('hidden');
       document.getElementById('main').classList.add('current');
       document.getElementById('payments').classList.remove('current');
       document.getElementById('fees').classList.add('hidden');
@@ -174,9 +165,6 @@ const Foot = () =>{
             <div className=" fade-in fixed inset-0 backdrop-blur-sm flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden bg-white" id="wrapper">
                   
                   <div className='flex '>
-                        {/* <button style = {border-radius: '50%';width: '30px';height: '30px';background-color: 'red';color: 'white';font-size: '20px';text-align: 'center';line-height: '30px';position: 'absolute';right: '10px';top: '10px'} onClick={onClose}>
-                        <span className="text-black text-xl rounded-full">X</span>
-                        </button> */}
                         <button 
                               style={{
                               borderRadius: '50%',
@@ -190,7 +178,7 @@ const Foot = () =>{
                               lineHeight: '30px',
                               position: 'absolute',
                               right: '70px',
-                              top: '70px',
+                              top: '20px',
                               }}
                               onClick={onClose}>
                               <span className="text-white text-xl">X</span>
@@ -218,8 +206,6 @@ const Foot = () =>{
                                ==================================================================================###*/}
                               <div id='attachment-get-in-toch' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'15%',width:'111%',height:'40%'}}>
                                     <div className='fade-in'>
-                                          
-                                    {/* <h1  style={{fontSize: '19px',cursor:"pointer",height:"150px"}}> Masters of Science in Information</h1> */}
                                     <Image src={burundi} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
                                     </div>
                                     
@@ -227,9 +213,7 @@ const Foot = () =>{
                               {/* A T T A C H M E N T   S P O R T S */}
                               <div id='attachment-sports' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'15%',width:'111%',height:'40%'}}>
                                     <div className='fade-in'>
-                                          
-                                    {/* <h1  style={{fontSize: '19px',cursor:"pointer",height:"150px"}}> Masters of Science in Information</h1> */}
-                                    <Image src={volley1} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
+                                    <Image src={palm_girls} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
                                     </div>
                                     
                               </div> 
@@ -237,7 +221,6 @@ const Foot = () =>{
                               <div id='attachment-courses' className="slant-div-right bg-black text-white grid-rows-2"style={{marginTop:'15%',width:'111%',height:'40%'}}>
                                     <div className='fade-in'>
                                           
-                                    {/* <h1  style={{fontSize: '19px',cursor:"pointer",height:"150px"}}> Masters of Science in Information</h1> */}
                                     <Image src={burundi} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
                                     </div>
                                     
@@ -246,8 +229,7 @@ const Foot = () =>{
                               <div id='attachment-why-bugema' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'15%',width:'111%',height:'40%'}}>
                                     <div className='fade-in'>
                                           
-                                    {/* <h1  style={{fontSize: '19px',cursor:"pointer",height:"150px"}}> Masters of Science in Information</h1> */}
-                                    <Image src={bucosa1} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
+                                    <Image src={nurses1} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
                                     </div>
                                     
                               </div> 
@@ -261,41 +243,48 @@ const Foot = () =>{
                               <li>
                               <div className="mr-2 my-5  ">
                               
-                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > ANNEX Hostel (Male) </h1> 
+                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Culture </h1> 
                               
                               </div>
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>S L Hostel (Male)</h1> 
+                              <div className="mr-2 my-5 slider slide--slow ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Sports </h1> 
                                     
                               </div>
                               </li>
                               <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Bensdorf Hostel (Female) </h1> 
-                                    
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Cliford Hostel (Female)</h1>
+                              <div className="mr-2 my-5 slider slide--fast ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Exhibition </h1> 
                                     
                               </div>
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5 ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Hill Top Hostel (Male) </h1> 
+                              <div className="mr-2 my-5 slider slide--slow ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Entreprenuership </h1>
                                     
                               </div>
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Explorer More</h1> 
+                              <div className="mr-2 my-5 slider slide--slower ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Innovations and Inventions</h1> 
+                                    
+                              </div>
+                              </li>
+                              
+                              <li>
+                              <div className="mr-2 my-5 slider slide--slow ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Religious Matters</h1> 
+                                    
+                              </div>
+                              </li>
+                              
+                              <li>
+                              <div className="mr-2 my-5 slider slide--fast ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> News</h1> 
                                     
                               </div>
                               </li>
@@ -317,42 +306,31 @@ const Foot = () =>{
                               
                               </div>
                               </li>
-                              
                               <li>
                               <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Basket}>Basket Ball</h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Scholarships</h1> 
                                     
                               </div>
                               </li>
                               <li>
                               <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'  onMouseOver={Volley} > Volley ball </h1> 
-                                    
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'  onMouseOver={Net}> Net ball</h1>
-                                    
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'  onMouseOver={Wood}> Wood ball</h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Funding Your Studies </h1> 
                                     
                               </div>
                               </li>
                               <li>
                               <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'  onMouseOver={Table}> Table Tennis</h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> BUSA Fees</h1>
                                     
                               </div>
                               </li>
-                              
-                             
-                              
+                              <li>
+                              <div className="mr-2 my-5  ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> NHCE Fees</h1> 
+                                    
+                              </div>
+                              </li>
+ 
                         </ul>
                         
                   </div>
