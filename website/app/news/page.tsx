@@ -12,7 +12,7 @@ export default function Blog  () {
     useEffect(() => {
       const fetchPosts = async () => {
         try {
-          const response = await fetch("https://buweb.onrender.com/events", {
+          const response = await fetch("https://buweb.onrender.com/news", {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
