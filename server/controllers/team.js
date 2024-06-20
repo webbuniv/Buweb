@@ -1,6 +1,5 @@
 import Team from '../models/Team.js';
 import { cloudinaryController } from './cloudinary.js';
-
 export const createTeamMember = async (req, res) => {
   try {
     const { name, position, social_twitter, social_facebook, social_instagram, social_linkedin, bio, quote } = req.body;
