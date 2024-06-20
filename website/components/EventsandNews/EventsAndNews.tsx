@@ -7,6 +7,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { Event, News } from '@/types/types';
 import Image from 'next/image';
 import SectionTitle from '../Common/SectionTitle'
+import Link from 'next/link';
 const EventsAndNews: React.FC = () => {
   const [events, setEvents] = useState<Event[]>([]);
   const [news, setNews] = useState<News[]>([]);
@@ -72,8 +73,11 @@ const EventsAndNews: React.FC = () => {
                 className="mySwiper"
             >
                 {events.map((event) => (
-                <SwiperSlide key={event._id}>
+
+                  
+                    <SwiperSlide key={event._id}>
                     <div className={slideStyle}>
+                    
                     <Image
                         className={imgStyle}
                         src={event.coverPhotoUrl}
@@ -82,10 +86,12 @@ const EventsAndNews: React.FC = () => {
                         height={200}
                     />
                     <div className={contentStyle}>
+                      <Link href={`/events/${event._id}`}>
                         <h3 className={titleStyle}>{event.title}</h3>
                         <p className={textStyle}>{event.description}</p>
                         <p className={dateStyle}>{new Date(event.date).toLocaleDateString()}</p>
                         <p className={dateStyle}>{event.location}</p>
+                      </Link>
                     </div>
                     </div>
                 </SwiperSlide>
