@@ -2,15 +2,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import im3 from "../../public/images/features/reg.jpg";
-import { motion } from "framer-motion";
-// import Link from "next/link";
-import { Swiper, SwiperSlide } from "swiper/react";
-import './style.css';
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/free-mode";
-
 
 const AboutSectionOne = () => {
 
