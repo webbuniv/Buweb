@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import AboutSectionOne from "@/components/About/AboutSectionOne";
+import AboutSectionSix from "@/components/About/AboutSectionSix";
 import AboutSectionTwo from "@/components/About/AboutSectionTwo";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import WhyHero from "@/components/WhyHero";
@@ -21,7 +21,7 @@ const AboutPage = () => {
           farmers, producers, and consumers in a seamless and efficient manner.
         "
       />
-      <AboutSectionOne />
+      <AboutSectionSix />
       <AboutSectionTwo />
     </>
   );
