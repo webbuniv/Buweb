@@ -107,6 +107,7 @@ const AboutSectionOne = () => {
           Explore more
         </button>
         <Image src={im3} alt="Image 1" className="absolute inset-0 w-full h-full object-cover opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-in-out"/>
+
       </div>
   </div>
     </div>
