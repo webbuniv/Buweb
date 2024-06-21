@@ -14,4 +14,4 @@ export interface Event {
     date: string;
     location: string;
     coverPhotoUrl: string;
-  }
+}

@@ -19,7 +19,6 @@ import { FreeMode, Pagination, Navigation } from "swiper/modules";
 import { RxArrowLeft, RxArrowRight, RxArrowTopRight } from "react-icons/rx";
 import { fadeIn } from "@/utils/motion";
 
-// export default function NewsCarousel() {
 const AboutSectionOne = () => {
   
   const [swiper, setSwiper] = useState(null);
@@ -37,9 +36,7 @@ const AboutSectionOne = () => {
           <div className="-mx-4 flex flex-wrap items-center">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8">
 
-              {/* Left side container */}
               <div className="flex flex-col md:space-x-4 space-y-2">
-                {/* Title and subtitle container */}
                 <div className="px-4">
                   <p className="text-base !leading-relaxed text-body-color md:text-lg">
                     Research and innovation
@@ -48,8 +45,6 @@ const AboutSectionOne = () => {
                     We strive to achieve an inclusive, people-centred culture for our community of researchers
                   </h2>
                 </div>
-
-                {/* Buttons container */}
                 <div className="grid gap-x-5 gap-y-8 md:grid-cols-1">
                   <div className="relative">
                     <div
@@ -85,8 +80,6 @@ const AboutSectionOne = () => {
                   </div>
                 </div>
               </div>
-
-              {/* Right side container */}
               <div className="relative mt-4">
                 {activeContent === "image" && (
                   <div className="relative">
@@ -133,7 +126,6 @@ const AboutSectionOne = () => {
                                 />
                                 <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-50 dark:opacity-50 dark:group-hover:opacity-70" />
                                 <div className="relative flex flex-col gap-2">
-                                  {/* <item.icon className="text-blue-600 group-hover:text-blue-400 h-[32px] w-[32px]" /> */}
                                   <h1 className="text-2xl">{item.title}</h1>
                                   <p className="lg:text-[24px]">{item.content}</p>
                                 </div>
@@ -179,7 +171,6 @@ const AboutSectionOne = () => {
                                 />
                                 <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-50 dark:opacity-50 dark:group-hover:opacity-70" />
                                 <div className="relative flex flex-col gap-2">
-                                  {/* <item.icon className="h-[32px] w-[32px]" /> */}
                                   <h1 className="text-2xl lg:text-3xl">{item.title}</h1>
                                   <p className="lg:text-[24px]">{item.content}</p>
                                 </div>
@@ -195,12 +186,7 @@ const AboutSectionOne = () => {
                     </div>
                   </div>
                 )}
-
-
-
-                        {/* REF2021 results part */}
-
-                        {activeContent === "REF2021 results" && (
+                  {activeContent === "REF2021 results" && (
                   <div className="relative">
                     <div className="-mt-44 flex h-screen flex-col items-center justify-center md:hidden">
                       <Swiper
@@ -229,7 +215,6 @@ const AboutSectionOne = () => {
                                 />
                                 <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-50 dark:opacity-50 dark:group-hover:opacity-70" />
                                 <div className="relative flex flex-col gap-2">
-                                  {/* <item.icon className="text-blue-600 group-hover:text-blue-400 h-[32px] w-[32px]" /> */}
                                   <h1 className="text-2xl">{item.title}</h1>
                                   <p className="lg:text-[24px]">{item.content}</p>
                                 </div>
@@ -275,7 +260,6 @@ const AboutSectionOne = () => {
                                 />
                                 <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-50 dark:opacity-50 dark:group-hover:opacity-70" />
                                 <div className="relative flex flex-col gap-2">
-                                  {/* <item.icon className="h-[32px] w-[32px]" /> */}
                                   <h1 className="text-2xl lg:text-3xl">{item.title}</h1>
                                   <p className="lg:text-[24px]">{item.content}</p>
                                 </div>
@@ -292,9 +276,6 @@ const AboutSectionOne = () => {
                   </div>
                 )}
 
-
-
-                               {/* Impact part */}
                    {activeContent === "Impact" && (
                   <div className="relative">
                     <div className="-mt-44 flex h-screen flex-col items-center justify-center md:hidden">
@@ -324,7 +305,6 @@ const AboutSectionOne = () => {
                                 />
                                 <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-50 dark:opacity-50 dark:group-hover:opacity-70" />
                                 <div className="relative flex flex-col gap-2">
-                                  {/* <item.icon className="text-blue-600 group-hover:text-blue-400 h-[32px] w-[32px]" /> */}
                                   <h1 className="text-2xl">{item.title}</h1>
                                   <p className="lg:text-[24px]">{item.content}</p>
                                 </div>
@@ -370,7 +350,6 @@ const AboutSectionOne = () => {
                                 />
                                 <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-50 dark:opacity-50 dark:group-hover:opacity-70" />
                                 <div className="relative flex flex-col gap-2">
-                                  {/* <item.icon className="h-[32px] w-[32px]" /> */}
                                   <h1 className="text-2xl lg:text-3xl">{item.title}</h1>
                                   <p className="lg:text-[24px]">{item.content}</p>
                                 </div>
@@ -386,8 +365,6 @@ const AboutSectionOne = () => {
                     </div>
                   </div>
                 )}
-
-
 
                   {activeContent === "Business and partnerships" && (
                   <div className="relative">
@@ -418,7 +395,6 @@ const AboutSectionOne = () => {
                                 />
                                 <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-50 dark:opacity-50 dark:group-hover:opacity-70" />
                                 <div className="relative flex flex-col gap-2">
-                                  {/* <item.icon className="text-blue-600 group-hover:text-blue-400 h-[32px] w-[32px]" /> */}
                                   <h1 className="text-2xl">{item.title}</h1>
                                   <p className="lg:text-[24px]">{item.content}</p>
                                 </div>
