@@ -7,7 +7,6 @@ import { motion } from 'framer-motion';
 
 export const bgImage = '/images/features/int.jpg'
 
-// Variants for whyhero content
 const textVariants = {
   initial: {
     x: -500,
@@ -39,7 +38,6 @@ const textVariants = {
   },
 };
 
-// Variants for sliding text for big screens
 const sliderVariants = {
   initial: {
     x: 0,
@@ -47,7 +45,6 @@ const sliderVariants = {
   animate: {
     x: "-220%",
     transition: {
-      // repeatType: "mirror",
       duration: 20,
       repeat: Infinity
     },

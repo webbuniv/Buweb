@@ -22,15 +22,7 @@ const handleclose = (e)=>{
       document.querySelector('.active')?.classList.remove('active');
       
 }
-// const showIT =() =>{
-      
-//       let mouseon = document.getElementById('IT');
-//       mouseon.addEventListener("onmouseleave",function(){
-//             mouseon.classList.add('hidden');
-//       });
- 
-//       mouseon.classList.remove('hidden');
-// }
+
 const main = ()=>{
       let schools = document.querySelector('schools');
       // schools.classList.remove('hidden');
@@ -114,9 +106,6 @@ const why_bugema = () =>{
             <div className=" fade-in fixed inset-0 backdrop-blur-sm flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden bg-white" id="wrapper">
                   
                   <div className='flex '>
-                        {/* <button style = {border-radius: '50%';width: '30px';height: '30px';background-color: 'red';color: 'white';font-size: '20px';text-align: 'center';line-height: '30px';position: 'absolute';right: '10px';top: '10px'} onClick={onClose}>
-                        <span className="text-black text-xl rounded-full">X</span>
-                        </button> */}
                         <button 
                               style={{
                               borderRadius: '50%',
@@ -140,12 +129,9 @@ const why_bugema = () =>{
                   <div id="programs">
 
                         <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'25%'}}> 
-                              
-                              <div className="col-md-6 wow fadeIn my-24" data-wow-delay="0.1s">
-                              
-                                    {/* M  A  P */}
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6206770744043!2d32.64117747432078!3d0.5703006635869016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177c4be209db538d%3A0xe4ac675b7d218fc9!2sBugema%20University!5e0!3m2!1sen!2sug!4v1718632251835!5m2!1sen!2sug" width="500" height="300" style={{border:0}} allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade">
-                                    </iframe>
+                              <div className="mr-2 my-5 slider slide--fast">
+                                    
+                                    <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '   onClick={main}> <span id='main' className='animated href=""'>Important Links</span></h1> 
                               </div>
                               
                               {/*###===============================================================================
@@ -165,40 +151,68 @@ const why_bugema = () =>{
                         
                         </div>
                   
-                  </div>               
+                  </div>
+                  <div className=" ml-12 my-24 fade-in " id='courses' style={{marginTop:'9%'}}> 
+                        <ul>
+                              <li>
+                              <div className="mr-2 my-5 slider slide--slow ">
+                              
+                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > ERMS-Students </h1> 
+                              
+                              </div>
+                              </li>
+                              
+                              <li>
+                              <div className="mr-2 my-5 slider slide--slow ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> ERMS-Staff</h1> 
+                                    
+                              </div>
+                              </li>
+                              <li>
+                              <div className="mr-2 my-5 slider slide--fast ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > E-Learning </h1> 
+                                    
+                              </div>
+                              </li>
+                              
+                              <li>
+                              <div className="mr-2 my-5 slider slide--slow ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> E-Library </h1>
+                                    
+                              </div>
+                              </li>
+                              
+                              <li>
+                              <div className="mr-2 my-5 slider slide--slower ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Research Repository </h1> 
+                                    
+                              </div>
+                              </li>
+                              
+                              <li>
+                              <div className="mr-2 my-5 slider slide--slow ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> YouTube </h1> 
+                                    
+                              </div>
+                              </li>
+                              
+                              <li>
+                              <div className="mr-2 my-5 slider slide--fast ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Twitter </h1> 
+                                    
+                              </div>
+                              </li>
+                              
+                        </ul>
+                        
+                  </div>
+                  
 
 
-                  {/*###=============== C O N T A C T     U S     F O R M================###*/}
+                              {/*###=============== FEES AND PAYMENTS ================###*/}
 
-
-                  <div className=" fade-in ml-24 my-24 " style={{marginTop:'12%'}} id='fees'> 
-                        <h1 className='font-bold text-black text-center'>
-                              Send Us a Direct Email
-                        </h1>
-
-                        <form className='flex flex-col space-y-4' action="">
-                              <input
-                              className='rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500'
-                              type="email"
-                              required
-                              placeholder='Your Email'
-                              />
-                              <input
-                              className='rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500'
-                              type="text"
-                              placeholder='Contact'
-                              />
-                              <textarea
-                              className='rounded-md border border-gray-300 px-4 py-2 h-24 focus:outline-none focus:ring-2 focus:ring-blue-500'
-                              required
-                              placeholder='Message'
-                              />
-                              <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'>
-                              Send
-                              </button>
-                        </form>
-
-                        {/* <ul className='ml-10 my-20'>
+                  <div className=" fade-in ml-24 my-24 hidden " style={{marginTop:'12%'}} id='fees'> 
+                        <ul className='ml-10 my-20'>
                               <li>
                               <div className="mr-2 my-5 ">
                               
@@ -237,7 +251,7 @@ const why_bugema = () =>{
                               
                              
                               
-                        </ul> */}
+                        </ul> 
                         <div className=" my-5 flex items-center justify-center">
                               <Link
                               href="/https://www.facebook.com"

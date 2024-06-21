@@ -41,9 +41,8 @@ const sliderVariants = {
     x: 0,
   },
   animate: {
-    x: "-220%",
+    x: "-200%",
     transition: {
-      // repeatType: "mirror",
       duration: 40,
       repeat: Infinity
     },
@@ -55,15 +54,15 @@ const Hero = () => {
     <>
       <section
         id="home"
-        className="relative z-10  pt-[120px] pb-10 md:pt-[150px] md:pb-[100px] xl:pt-[180px] xl:pb-[160px] 2xl:pt-[210px] 2xl:pb-[200px]"
+        className="relative z-10 pt-24 pb-10 md:pt-36 md:pb-24 xl:pt-44 xl:pb-40 2xl:pt-52 2xl:pb-48"
       >
-        <div className="container">
-          <div className="-mx-4 flex flex-wrap">
-            <div className=" w-full px-4">
+        <div className="container px-4">
+          <div className="flex flex-wrap justify-center md:justify-start">
+            <div className="w-full px-4">
 
               {/* Content */}
               <motion.div
-                className=" text-center md:text-start wow space-y-4 md:space-y-8 mx-auto max-w-[800px] fadeInUp ml-8"
+                className="text-center md:text-left space-y-4 md:space-y-8 mx-auto max-w-[800px] fadeInUp"
                 data-wow-delay=".2s" 
                 variants={textVariants} 
                 initial="initial" 
@@ -71,24 +70,24 @@ const Hero = () => {
               >
 
                 {/* On big screens */}
-                <motion.h2 className="head hidden md:block uppercase text-base font-medium !leading-relaxed text-gray-500/90 dark:text-white dark:opacity-90 sm:text-xl md:text-4xl" 
+                <motion.h2 className="hidden md:block uppercase text-base font-medium leading-relaxed text-gray-500/90 dark:text-white dark:opacity-90 sm:text-xl md:text-4xl" 
                 variants={textVariants}>
                   Bugema University
                 </motion.h2>
 
                 {/* On small screens */}
-                <motion.h2 className="head-sm md:hidden uppercase font-medium !leading-relaxed text-gray-500/90 dark:text-white dark:opacity-90 sm:text-xl text-xl md:text-4xl" 
+                <motion.h2 className="md:hidden uppercase font-medium leading-relaxed text-gray-500/90 dark:text-white dark:opacity-90 sm:text-xl text-xl md:text-4xl" 
                 variants={textVariants}>
                   Bugema University
                 </motion.h2>
 
                 {/* Buttons on big screens */}
-                <motion.div className="hidden md:flex items-center justify-start space-x-10" 
+                <motion.div className="hidden md:flex items-center justify-start space-x-6 md:space-x-10" 
                 variants={textVariants}>
 
                   {/* Apply now button */}
                   <motion.div 
-                    className="flex hover:scale-105 transition-all space-x-8 items-center duration-300 flex-row text-center justify-center" 
+                    className="flex hover:scale-105 transition-all space-x-2 md:space-x-8 items-center duration-300 flex-row text-center justify-center" 
                     variants={textVariants}>
                     <motion.div 
                       className="bg-black border rounded px-1" 
@@ -96,96 +95,78 @@ const Hero = () => {
                       animate="scrollButton">
                       <FaArrowRightLong className="text-white"/>
                     </motion.div>
-                    <button
-                      className="flex rounded-md bg-primary dark:bg-primary/60 py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
-                    >
-                    Apply Now
-                    <span>
-                      <BiSolidPencil className="text-xl mx-2" />
-                    </span>
-                    </button>
+                    <Link href="/apply" className="flex rounded-md bg-primary dark:bg-primary/60 py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80">
+                        Apply Now
+                        <BiSolidPencil className="text-xl mx-2" />
+                    </Link>
                   </motion.div>
 
                   {/* Learn more button */}
                   <motion.div 
                     className="flex hover:scale-105 transition-all duration-300 flex-col text-center items-center justify-center" 
                     variants={textVariants}>
-                  <motion.button
-                    className="flex rounded-md bg-black/30 py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-black/90 duration-300 ease-in-out hover:bg-black/30 dark:bg-transparent dark:border dark:text-white" 
-                    variants={textVariants}
-                  >
-                    Learn More
-                    <motion.span>
-                      <BiBookOpen className="text-xl mx-2" />
-                    </motion.span>
-                  </motion.button>
+                    <Link href="/learn-more" className="flex rounded-md bg-black/30 py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-black/90 duration-300 ease-in-out hover:bg-black/30 dark:bg-transparent dark:border dark:text-white">
+                        Learn More
+                        <BiBookOpen className="text-xl mx-2" />
+                    </Link>
                   </motion.div>
 
                 </motion.div>
 
                 {/* Motto on small screens */}
-                <motion.h1 className="motto md:hidden capitalize text-5xl font-bold leading-tight text-black/90 dark:text-primary sm:text-4xl sm:leading-tight md:text-6xl md:leading-tight" 
+                <motion.h1 className="md:hidden capitalize text-3xl sm:text-4xl font-bold leading-tight text-black/90 dark:text-primary sm:leading-tight md:text-5xl md:leading-tight" 
                 variants={textVariants}>
                   Excellence <br/>in service
                 </motion.h1>
 
                 {/* Motto on big screens */}
-                <motion.h1 className="motto hidden md:block capitalize text-3xl font-bold leading-tight text-black/90 dark:text-primary sm:text-4xl sm:leading-tight md:text-6xl md:leading-tight" 
+                <motion.h1 className="hidden md:block capitalize text-3xl sm:text-4xl font-bold leading-tight text-black/90 dark:text-primary sm:leading-tight md:text-6xl md:leading-tight" 
                 variants={textVariants}>
                   We envision <br/>excellence in service
                 </motion.h1>
 
                 {/* Subtitle */}
-                <motion.h2 className="dream capitalize text-black/70 dark:text-white/40 md:text-black/80 text-2xl dark:font-bold leading-tight dark:text-gray-700 sm:text-xl sm:leading-tight md:text-3xl md:leading-tight" 
+                <motion.h2 className="capitalize text-black/70 dark:text-white/40 md:text-black/80 text-xl dark:font-bold leading-tight sm:leading-tight md:text-3xl md:leading-tight" 
                 variants={textVariants}>
                   Make your <br className="md:hidden"/>dreams come true
                 </motion.h2>
 
                 {/* Buttons on small screens */}
-                <motion.div className="md:hidden flex flex-col items-center justify-center " 
+                <motion.div className="md:hidden flex flex-col items-center justify-center space-y-4" 
                 variants={textVariants}>
 
-                {/* Apply now button */}
-                <motion.div 
-                  className="flex hover:scale-105 transition-all duration-300 space-y-6 flex-col items-center " 
-                  variants={textVariants}>
-                    <motion.div 
-                      className="bg-black border rounded py-1" 
-                      variants={textVariants} 
-                      animate="scrollButton2">
-                      <FaArrowDownLong className="text-white" />
-                    </motion.div>
-                    <button
-                      className="flex rounded-md bg-primary dark:bg-primary/60 py-2 px-4 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
-                    >
-                    Apply Now
-                    <span>
-                      <BiSolidPencil className="text-xl mx-2" />
-                    </span>
-                    </button>
+                  {/* Apply now button */}
+                  <motion.div 
+                    className="flex hover:scale-105 transition-all duration-300 space-y-6 flex-col items-center " 
+                    variants={textVariants}>
+                      <motion.div 
+                        className="bg-black border rounded py-1" 
+                        variants={textVariants} 
+                        animate="scrollButton2">
+                        <FaArrowDownLong className="text-white" />
+                      </motion.div>
+                      <Link href="/apply" className="flex rounded-md bg-primary dark:bg-primary/60 py-2 px-4 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80">
+                          Apply Now
+                          <BiSolidPencil className="text-xl mx-2" />
+                      </Link>
                   </motion.div>
 
                   {/* Learn more button */}
                   <motion.div className="flex hover:scale-105 transition-all duration-300 flex-col text-center items-center justify-center" 
                   variants={textVariants}>
-                  <motion.button
-                    className="mt-9 flex rounded-md bg-black/30 py-1 px-3 md:py-2 md:px-4 text-lg font-semibold text-black/90 duration-300 ease-in-out hover:bg-black/30 dark:bg-transparent dark:border dark:text-white" 
-                    variants={textVariants}
-                  >
-                    Learn More
-                    <motion.span>
-                      <BiBookOpen className="text-xl mx-2" />
-                    </motion.span>
-                  </motion.button>
+                    <Link href="/learn-more"  className="mt-4 flex rounded-md bg-black/30 py-1 px-3 md:py-2 md:px-4 text-lg font-semibold text-black/90 duration-300 ease-in-out hover:bg-black/30 dark:bg-transparent dark:border dark:text-white">
+                        Learn More
+                        <BiBookOpen className="text-xl mx-2" />
+                    </Link>
                   </motion.div>
 
                 </motion.div>
 
               </motion.div>
 
-              {/* Sliding bg text container on big screens*/}
+              {/* Sliding bg text container on big screens */}
               <motion.div 
-                className="hidden md:block slidingTextContainer text-[#0000001f] dark:text-[#ffffff09] w-[250%] font-bold" 
+                className="hidden md:block slidingTextContainer text-[#0000001f] dark:text-[#ffffff09] w-[220%] font-bold" 
                 variants={sliderVariants} 
                 initial="initial" 
                 animate="animate"
@@ -249,10 +230,10 @@ const Hero = () => {
             />
             <circle
               opacity="0.8"
-              cx="191.659"
-              cy="302.659"
-              r="133.362"
-              transform="rotate(133.319 191.659 302.659)"
+              cx="191"
+              cy="302"
+              r="133.5"
+              transform="rotate(113.991 191 302)"
               fill="url(#paint6_linear_25:217)"
             />
             <defs>
@@ -260,7 +241,7 @@ const Hero = () => {
                 id="paint0_linear_25:217"
                 x1="-54.5003"
                 y1="-178"
-                x2="222"
+                x2="321"
                 y2="288"
                 gradientUnits="userSpaceOnUse"
               >
@@ -275,8 +256,8 @@ const Hero = () => {
                 gradientUnits="userSpaceOnUse"
                 gradientTransform="translate(17.9997 182) rotate(90) scale(18)"
               >
-                <stop offset="0.145833" stopColor="#4A6CF7" stopOpacity="0" />
-                <stop offset="1" stopColor="#4A6CF7" stopOpacity="0.08" />
+                <stop offset="0.145833" stopColor="#4A6CF7" stopOpacity="0.64" />
+                <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
               </radialGradient>
               <radialGradient
                 id="paint2_radial_25:217"
@@ -286,13 +267,13 @@ const Hero = () => {
                 gradientUnits="userSpaceOnUse"
                 gradientTransform="translate(76.9997 288) rotate(90) scale(34)"
               >
-                <stop offset="0.145833" stopColor="#4A6CF7" stopOpacity="0" />
-                <stop offset="1" stopColor="#4A6CF7" stopOpacity="0.08" />
+                <stop offset="0.145833" stopColor="#4A6CF7" stopOpacity="0.64" />
+                <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
               </radialGradient>
               <linearGradient
                 id="paint3_linear_25:217"
                 x1="226.775"
-                y1="-66.1548"
+                y1="-66.1546"
                 x2="292.157"
                 y2="351.421"
                 gradientUnits="userSpaceOnUse"
@@ -309,7 +290,7 @@ const Hero = () => {
                 gradientUnits="userSpaceOnUse"
               >
                 <stop stopColor="#4A6CF7" />
-                <stop offset="1" stopColor="white" stopOpacity="0" />
+                <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
               </linearGradient>
               <linearGradient
                 id="paint5_linear_25:217"
@@ -320,14 +301,14 @@ const Hero = () => {
                 gradientUnits="userSpaceOnUse"
               >
                 <stop stopColor="#4A6CF7" />
-                <stop offset="1" stopColor="white" stopOpacity="0" />
+                <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
               </linearGradient>
               <linearGradient
                 id="paint6_linear_25:217"
-                x1="118.524"
-                y1="29.2497"
-                x2="166.965"
-                y2="338.63"
+                x1="191"
+                y1="168.5"
+                x2="191"
+                y2="435.5"
                 gradientUnits="userSpaceOnUse"
               >
                 <stop stopColor="#4A6CF7" />
@@ -336,7 +317,7 @@ const Hero = () => {
             </defs>
           </svg>
         </div>
-        <div className="absolute bottom-0 left-0 z-[-1] opacity-30 lg:opacity-100">
+        <div className="absolute bottom-0 left-0 z-[-1] opacity-20 lg:opacity-100">
           <svg
             width="364"
             height="201"
@@ -345,97 +326,38 @@ const Hero = () => {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M5.88928 72.3303C33.6599 66.4798 101.397 64.9086 150.178 105.427C211.155 156.076 229.59 162.093 264.333 166.607C299.076 171.12 337.718 183.657 362.889 212.24"
-              stroke="url(#paint0_linear_25:218)"
+              opacity="0.5"
+              d="M-123.015 68.999C-142.223 35.223-160.87 -40.401-116.93 -61.592C-73.4968 -82.347 25.6739 -20.3061 38.4864 -8.74515C51.2989 2.81583 77.3888 34.367 86.7204 55.0002C113.675 111.5 85.8159 149 64.4851 158.5C31.9851 173.5 -6.51491 172.5 -36.5149 158.5C-69.0149 142.5 -103.015 118.999 -123.015 68.999Z"
+              fill="url(#paint0_linear_25:218)"
             />
             <path
-              d="M-22.1107 72.3303C5.65989 66.4798 73.3965 64.9086 122.178 105.427C183.155 156.076 201.59 162.093 236.333 166.607C271.076 171.12 309.718 183.657 334.889 212.24"
-              stroke="url(#paint1_linear_25:218)"
+              opacity="0.3"
+              d="M-123.015 68.999C-142.223 35.223-160.87 -40.401-116.93 -61.592C-73.4968 -82.347 25.6739 -20.3061 38.4864 -8.74515C51.2989 2.81583 77.3888 34.367 86.7204 55.0002C113.675 111.5 85.8159 149 64.4851 158.5C31.9851 173.5 -6.51491 172.5 -36.5149 158.5C-69.0149 142.5 -103.015 118.999 -123.015 68.999Z"
+              fill="url(#paint1_linear_25:218)"
             />
-            <path
-              d="M-53.1107 72.3303C-25.3401 66.4798 42.3965 64.9086 91.1783 105.427C152.155 156.076 170.59 162.093 205.333 166.607C240.076 171.12 278.718 183.657 303.889 212.24"
-              stroke="url(#paint2_linear_25:218)"
-            />
-            <path
-              d="M-98.1618 65.0889C-68.1416 60.0601 4.73364 60.4882 56.0734 102.431C120.248 154.86 139.905 161.419 177.137 166.956C214.37 172.493 255.575 186.165 281.856 215.481"
-              stroke="url(#paint3_linear_25:218)"
-            />
-            <circle
-              opacity="0.8"
-              cx="214.505"
-              cy="60.5054"
-              r="49.7205"
-              transform="rotate(-13.421 214.505 60.5054)"
-              stroke="url(#paint4_linear_25:218)"
-            />
-            <circle cx="220" cy="63" r="43" fill="url(#paint5_radial_25:218)" />
             <defs>
               <linearGradient
                 id="paint0_linear_25:218"
-                x1="184.389"
-                y1="69.2405"
-                x2="184.389"
-                y2="212.24"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stopColor="#4A6CF7" stopOpacity="0" />
-                <stop offset="1" stopColor="#4A6CF7" />
-              </linearGradient>
-              <linearGradient
-                id="paint1_linear_25:218"
-                x1="156.389"
-                y1="69.2405"
-                x2="156.389"
-                y2="212.24"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stopColor="#4A6CF7" stopOpacity="0" />
-                <stop offset="1" stopColor="#4A6CF7" />
-              </linearGradient>
-              <linearGradient
-                id="paint2_linear_25:218"
-                x1="125.389"
-                y1="69.2405"
-                x2="125.389"
-                y2="212.24"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stopColor="#4A6CF7" stopOpacity="0" />
-                <stop offset="1" stopColor="#4A6CF7" />
-              </linearGradient>
-              <linearGradient
-                id="paint3_linear_25:218"
-                x1="93.8507"
-                y1="67.2674"
-                x2="89.9278"
-                y2="210.214"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stopColor="#4A6CF7" stopOpacity="0" />
-                <stop offset="1" stopColor="#4A6CF7" />
-              </linearGradient>
-              <linearGradient
-                id="paint4_linear_25:218"
-                x1="214.505"
-                y1="10.2849"
-                x2="212.684"
-                y2="99.5816"
+                x1="86.7204"
+                y1="24.9998"
+                x2="-159.108"
+                y2="155.849"
                 gradientUnits="userSpaceOnUse"
               >
                 <stop stopColor="#4A6CF7" />
                 <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
               </linearGradient>
-              <radialGradient
-                id="paint5_radial_25:218"
-                cx="0"
-                cy="0"
-                r="1"
+              <linearGradient
+                id="paint1_linear_25:218"
+                x1="64.4851"
+                y1="27.9683"
+                x2="-160.27"
+                y2="143.982"
                 gradientUnits="userSpaceOnUse"
-                gradientTransform="translate(220 63) rotate(90) scale(43)"
               >
-                <stop offset="0.145833" stopColor="white" stopOpacity="0" />
-                <stop offset="1" stopColor="white" stopOpacity="0.08" />
-              </radialGradient>
+                <stop stopColor="#4A6CF7" />
+                <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
+              </linearGradient>
             </defs>
           </svg>
         </div>
