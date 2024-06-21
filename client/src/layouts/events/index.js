@@ -279,6 +279,10 @@ const Events = () => {
             mx="auto"
             mt="5%"
             mb="5%"
+            sx={{
+              height: '80vh',
+              overflowY: 'scroll'
+            }}
           >
             <form onSubmit={handleCreateEvent}>
               <div
@@ -410,6 +414,10 @@ const Events = () => {
             maxWidth="500px"
             mx="auto"
             mt="10%"
+            sx={{
+              height: '80vh',
+              overflowY: 'scroll'
+            }}
           >
             <form onSubmit={handleUpdateEvent}>
               <Box

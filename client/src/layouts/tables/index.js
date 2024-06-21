@@ -248,6 +248,10 @@ const Tables = () => {
             maxWidth="500px"
             mx="auto"
             mt="10%"
+            sx={{
+              height: '80vh',
+              overflowY: 'scroll'
+            }}
           >
             <form onSubmit={handleCreateSlide}>
               <div
@@ -355,6 +359,10 @@ const Tables = () => {
             maxWidth="500px"
             mx="auto"
             mt="10%"
+            sx={{
+              height: '80vh',
+              overflowY: 'scroll'
+            }}
           >
             <form onSubmit={handleUpdateSlide}>
               <Box
