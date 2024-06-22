@@ -8,7 +8,6 @@ import {
   CircularProgress,
   TableContainer,
   Table,
-  TableHead,
   TableBody,
   TableRow,
   TableCell,
@@ -130,7 +129,7 @@ const News = () => {
       formData.append("category", editFormFields.category);
       formData.append("content", editFormFields.content);
       formData.append("date", editFormFields.date);
-  
+
       await axios.patch(`https://buweb.onrender.com/news/${editFormFields._id}/update`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -148,7 +147,7 @@ const News = () => {
       setShowEditNewsModal(false);
     }
   };
-  
+
   const handleEditNews = (newsItem) => {
     setEditFormFields({
       _id: newsItem._id,
@@ -212,7 +211,6 @@ const News = () => {
               </Button>
             </SoftBox>
             {loading && <CircularProgress alignItems="center"/>}
-            {/* {error && <div>Error: {error}</div>} */}
             {!loading && (
               <TableContainer component={Paper}>
                 <Table className={classes.table}>
@@ -259,6 +257,10 @@ const News = () => {
             mx="auto"
             mt="5%"
             mb="5%"
+            sx={{
+              height: '80vh',
+              overflowY: 'scroll'
+            }}
           >
             <form onSubmit={handleCreateNews}>
               <div
@@ -344,6 +346,9 @@ const News = () => {
                       content: e.target.value,
                     }))
                   }
+                  multiline
+                  rows={10}
+                  variant="outlined"
                   sx={{ gridColumn: "span 4" }}
                 />
 
@@ -391,14 +396,18 @@ const News = () => {
             borderRadius={2}
             maxWidth="500px"
             mx="auto"
-            mt="5%"
+            mt="1%"
             mb="5%"
+            sx={{
+              height: '80vh',
+              overflowY: 'scroll'
+            }}
           >
             <form onSubmit={handleUpdateNews}>
               <div
                 style={{
                   display: "grid",
-                  gap: "30px",
+                  gap: "20px",
                   gridTemplateColumns: "repeat(4, minmax(0, 1fr))"
                 }}
               >
@@ -478,6 +487,9 @@ const News = () => {
                       content: e.target.value,
                     }))
                   }
+                  multiline
+                  rows={10}
+                  variant="outlined"
                   sx={{ gridColumn: "span 4" }}
                 />
 
