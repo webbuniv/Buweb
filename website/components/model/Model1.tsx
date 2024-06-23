@@ -280,7 +280,7 @@ const Foot = () =>{
 
                               <div className="mr-2 my-5 fade-in-slow  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Religious Matters</h1> 
-                                    
+                                 </div>   
                               <div className="mr-2 my-5 slider slide--slow ">
                                     <Link href={'/news'}>
                                           <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Events</h1>
@@ -292,7 +292,7 @@ const Foot = () =>{
 
                               <div className="mr-2 my-5 fade-in-slow  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> News</h1> 
-                                    
+                                    </div>
                               <div className="mr-2 my-5 slider slide--fast ">
                                      
                                     <Link href={'/events'}>
