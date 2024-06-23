@@ -15,6 +15,7 @@ import netball from "../../public/images/nav/sports/netball.jpg";
 import woodball from "../../public/images/nav/sports/woodball.jpg";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 
 const Model1 = ({issvisible, onClose, children}) => {
@@ -276,16 +277,28 @@ const Foot = () =>{
                               </li>
                               
                               <li>
+
                               <div className="mr-2 my-5 fade-in-slow  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Religious Matters</h1> 
                                     
+                              <div className="mr-2 my-5 slider slide--slow ">
+                                    <Link href={'/news'}>
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Events</h1>
+                                    </Link>
                               </div>
                               </li>
                               
                               <li>
+
                               <div className="mr-2 my-5 fade-in-slow  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> News</h1> 
                                     
+                              <div className="mr-2 my-5 slider slide--fast ">
+                                     
+                                    <Link href={'/events'}>
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> News</h1>
+                                    </Link>
+
                               </div>
                               </li>
                               

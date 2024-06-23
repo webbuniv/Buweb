@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import AboutSectionOne from "@/components/About/AboutSectionOne";
+import AboutSectionSix from "@/components/About/AboutSectionSix";
 import AboutSectionTwo from "@/components/About/AboutSectionTwo";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import WhyHero from "@/components/WhyHero";
@@ -15,13 +15,10 @@ const AboutPage = () => {
       <Breadcrumb
         pageName="Why Bugema"
         description="
-          Welcome to AgricHub, your trusted partner in the digital transformation of 
-          agriculture. At AgricHub, we are dedicated to reshaping the landscape of 
-          agricultural marketing by providing an innovative online platform that connects 
-          farmers, producers, and consumers in a seamless and efficient manner.
+        Bugema University is a place for everyone, somewhere you can be yourself. Whether you're an out-of-the-box thinker, boundary-breaker or change-maker, this is where you'll get ahead and find your place as part of a global community.
         "
       />
-      <AboutSectionOne />
+      <AboutSectionSix />
       <AboutSectionTwo />
     </>
   );
