@@ -129,10 +129,14 @@ const why_bugema = () =>{
                   <div id="programs">
 
                         <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'25%'}}> 
-                              <div className="mr-2 my-5 slider slide--fast">
+                             
+                               {/* M  A  P */}
+                               <div className="mr-2 my-5 slider slide--fast">
                                     
-                                    <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '   onClick={main}> <span id='main' className='animated href=""'>Important Links</span></h1> 
+                                    <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '> <span className='animated'>Directions</span></h1> 
                               </div>
+                               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6206770744043!2d32.64117747432078!3d0.5703006635869016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177c4be209db538d%3A0xe4ac675b7d218fc9!2sBugema%20University!5e0!3m2!1sen!2sug!4v1718632251835!5m2!1sen!2sug" width="500" height="300" style={{border:0}} allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade">
+                                    </iframe>
                               
                               {/*###===============================================================================
                                A T T A C H M E N T   P I C T U R E S    U N D E R    T H E   F I R S T   C O L U M N 
@@ -152,112 +156,42 @@ const why_bugema = () =>{
                         </div>
                   
                   </div>
-                  <div className=" ml-12 my-24 fade-in " id='courses' style={{marginTop:'9%'}}> 
-                        <ul>
-                              <li>
-                              <div className="mr-2 my-5 slider slide--slow ">
-                              
-                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > ERMS-Students </h1> 
-                              
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5 slider slide--slow ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> ERMS-Staff</h1> 
-                                    
-                              </div>
-                              </li>
-                              <li>
-                              <div className="mr-2 my-5 slider slide--fast ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > E-Learning </h1> 
-                                    
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5 slider slide--slow ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> E-Library </h1>
-                                    
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5 slider slide--slower ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Research Repository </h1> 
-                                    
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5 slider slide--slow ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> YouTube </h1> 
-                                    
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5 slider slide--fast ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Twitter </h1> 
-                                    
-                              </div>
-                              </li>
-                              
-                        </ul>
-                        
-                  </div>
-                  
 
+                  <div className=" fade-in ml-24 my-24 " style={{marginTop:'12%'}} id='fees'> 
+                        <h1 className='font-bold text-black text-center'>
+                              Send Us a Direct Email
+                        </h1>
 
-                              {/*###=============== FEES AND PAYMENTS ================###*/}
+                        <form className='flex flex-col space-y-4' action="">
+                              <input
+                              className='rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500'
+                              type="email"
+                              required
+                              placeholder='Your Email'
+                              />
+                              <input
+                              className='rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500'
+                              type="tel"
+                              placeholder='Contact'
+                              />
+                              <textarea
+                              className='rounded-md border border-gray-300 px-4 py-2 h-24 focus:outline-none focus:ring-2 focus:ring-blue-500'
+                              required
+                              placeholder='Message'
+                              />
+                              <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'>
+                              Send
+                              </button>
+                        </form>
 
-                  <div className=" fade-in ml-24 my-24 hidden " style={{marginTop:'12%'}} id='fees'> 
-                        <ul className='ml-10 my-20'>
-                              <li>
-                              <div className="mr-2 my-5 ">
-                              
-                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Tution Fees </h1> 
-                              
-                              </div>
-                              </li>
-                              
-                              
-                              <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Scholarships</h1> 
-                                    
-                              </div>
-                              </li>
-                              <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Funding Your Studies </h1> 
-                                    
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> BUSA Fees</h1>
-                                    
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> NHCE Fees</h1> 
-                                    
-                              </div>
-                              </li>
-                              
-                             
-                              
-                        </ul> 
                         <div className=" my-5 flex items-center justify-center">
+
+                               {/*###=============== S O C I A L   L I N K S ================###*/}
                               <Link
                               href="/https://www.facebook.com"
                               aria-label="social-link"
                               className="mr-6 text-[#CED3F6] hover:text-primary"
-                              // text-[#4d5fe6]
+                        
                               >
                               <svg className=" hover:scale-110 hover:transition-all rounded dark:bg-none bg-black hover:duration-300" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50">
                               <path d="M 11.300781 2 C 6.1645496 2 2 6.1645496 2 11.300781 L 2 38.800781 C 2 43.937013 6.1645496 48.099609 11.300781 48.099609 L 38.800781 48.099609 C 43.937013 48.099609 48.099609 43.937013 48.099609 38.800781 L 48.099609 11.289062 L 48.099609 11.277344 C 47.988214 6.1531405 43.848929 2 38.800781 2 L 11.300781 2 z M 11.300781 4 L 38.800781 4 C 42.752633 4 46.011005 7.2464683 46.099609 11.322266 L 46.099609 38.800781 C 46.099609 42.864549 42.864549 46.099609 38.800781 46.099609 L 33 46.099609 L 33 29 L 37.847656 29 L 39.179688 21 L 33 21 L 33 19 C 33 18.45 33.05476 18.405705 33.251953 18.279297 C 33.44915 18.152889 34.029365 18 35 18 L 39 18 L 39 11.271484 L 38.306641 11.048828 C 38.306641 11.048828 35.129885 10 32 10 C 29.096296 10 26.957792 10.953443 25.679688 12.632812 C 24.401582 14.312183 24 16.536525 24 19 L 24 21 L 21 21 L 21 29 L 24 29 L 24 46.099609 L 11.300781 46.099609 C 7.2370133 46.099609 4 42.864549 4 38.800781 L 4 11.300781 C 4 7.2370133 7.2370133 4 11.300781 4 z M 32 12 C 34.168683 12 36.174546 12.537635 37 12.773438 L 37 16 L 35 16 C 33.870635 16 32.949678 16.09711 32.171875 16.595703 C 31.394072 17.094295 31 18.05 31 19 L 31 23 L 36.820312 23 L 36.152344 27 L 31 27 L 31 46.099609 L 26 46.099609 L 26 27 L 23 27 L 23 23 L 26 23 L 26 19 C 26 16.763475 26.399589 14.98938 27.271484 13.84375 C 28.14338 12.69812 29.503704 12 32 12 z"
@@ -320,14 +254,15 @@ const why_bugema = () =>{
 
                               </Link>
                         </div>
-                        
                   </div>
+                  
+
 
                   <div className=' ml-20 vertical-line  transform -skew-x-12 'style={{marginTop:'12%'}}>
                   </div>
 
                   {/* SCIENCE AND TECHNOLOGY COURSES */}
-                  <div className='ml-10  my-24 transform'  id='IT'>                     
+                  <div className='ml-10  my-20 transform'  id='IT'>                     
 
                         {/* ###=============G E T   IN  T O U C H       M O R E =================### */}
                         <div className='fade-in' id='touch-more'>
@@ -336,15 +271,20 @@ const why_bugema = () =>{
                               </div>
                               <div className="ml-19 mr-5 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
                                     <div className='columns-1 bg-black  change-on-hover '>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='new-arr change-on-hover2'>Apply here  <FaArrowRight className='new-arr'/></h1>
+                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"50px"}} className='new-arr change-on-hover2'>Apply here  <FaArrowRight className='new-arr'/></h1>
                                     </div>
                               </div> 
                         
                               <div className="ml-24 -mr-3 my-2 transform text-white grid-rows-2 " style={{borderRadius:'9px',}} >
                                     <div className='columns-1 bg-black  change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='new-arr change-on-hover2'> Talk to Us <BiPhoneCall className='new-arr'/></h1>
+                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"50px"}} className='new-arr change-on-hover2'> Talk to Us <BiPhoneCall className='new-arr'/></h1>
                                     </div>
                               </div>
+
+                              <h1  style={{fontSize: '19px',cursor:"pointer",height:"50px"}} className='new-arr change-on-hover2 text-black'> ERMS  <FaArrowRight className='new-arr'/></h1>
+                              <h1  style={{fontSize: '19px',cursor:"pointer",height:"50px"}} className='new-arr change-on-hover2 text-black'> ERMS-staff  <FaArrowRight className='new-arr'/></h1>
+                                    
+                              <h1  style={{fontSize: '19px',cursor:"pointer",height:"50px"}} className='new-arr change-on-hover2 text-black'> E-Library  <FaArrowRight className='new-arr'/></h1>
                               
                               
                         </div>
