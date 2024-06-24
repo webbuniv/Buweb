@@ -45,7 +45,7 @@ const sliderVariants = {
   animate: {
     x: "-220%",
     transition: {
-      duration: 5,
+      duration: 20,
       repeat: Infinity
     },
   },
