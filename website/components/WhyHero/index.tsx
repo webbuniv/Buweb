@@ -45,7 +45,7 @@ const sliderVariants = {
   animate: {
     x: "-220%",
     transition: {
-      duration: 20,
+      duration: 5,
       repeat: Infinity
     },
   },
@@ -190,7 +190,7 @@ const WhyHero = () => {
 
               {/* Sliding bg text container on big screens*/}
               <motion.div 
-                className="hidden md:block slidingTextContainer text-[#0000001f] dark:text-[#ffffff09] w-[50%] font-bold" 
+                className="hidden md:block slidingTextContainer text-black dark:text-white font-bold opacity-75 dark:opacity-40" 
                 variants={sliderVariants} 
                 initial="initial" 
                 animate="animate"
