@@ -74,7 +74,7 @@ const AboutSectionSeven = () => {
         </div>
       </div>
       
-        <div className="flex flex-wrap mb-7 lg:w-1/2 ml-20">
+        <div className="flex flex-wrap mb-7 lg:w-1/2 justify-center">
             
             <h1 className="text-body-color dark:text-white font-semibold text-center text-2xl md:text-3xl mt-8 md:mt-6 mb-4 md:mb-6 ml-20">
                Stand out spaces
