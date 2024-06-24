@@ -179,7 +179,7 @@ const why_bugema = () =>{
                   <div className=" ml-12 my-24 fade-in " id='courses' style={{marginTop:'9%'}}> 
                         <ul>
                               <li>
-                              <div className="mr-2 my-5 slider slide--slow ">
+                              <div className="mr-2 my-5 fade-in-slow  ">
                               
                               <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Publications </h1> 
                               
@@ -187,41 +187,41 @@ const why_bugema = () =>{
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5 slider slide--slow ">
+                              <div className="mr-2 my-5  fade-in-slow  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Projects </h1> 
                                     
                               </div>
                               </li>
                               <li>
-                              <div className="mr-2 my-5 slider slide--fast ">
+                              <div className="mr-2 my-5 fade-in-slow ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Blogs </h1> 
                                     
                               </div>
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5 slider slide--slow ">
+                              <div className="mr-2 my-5 fade-in-slow  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Research</h1>
                                     
                               </div>
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5 slider slide--slower ">
+                              <div className="mr-2 my-5  fade-in-slow  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Technology</h1> 
                                     
                               </div>
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5 slider slide--slow ">
+                              <div className="mr-2 my-5  fade-in-slow  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Agriculture </h1> 
                                     
                               </div>
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5 slider slide--fast ">
+                              <div className="mr-2 my-5 fade-in-slow  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Technical Skills</h1> 
                                     
                               </div>

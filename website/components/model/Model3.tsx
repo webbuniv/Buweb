@@ -179,49 +179,14 @@ const why_bugema = () =>{
                         </div>
                   
                   </div>
-                  <div className=" ml-12 my-24 fade-in " id='courses' style={{marginTop:'9%'}}> 
-                        <ul>
-                              <li>
-                              <div className="mr-2 my-5 slider slide--slow ">
-                              
-                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Main Campus </h1> 
-                              
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5 slider slide--slow ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Kampala Campus</h1> 
-                                    
-                              </div>
-                              </li>
-                              <li>
-                              <div className="mr-2 my-5 slider slide--fast ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Mbale Campus </h1> 
-                                    
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5 slider slide--slow ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Kasese Campus</h1>
-                                    
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5 slider slide--slower ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Arua Campus</h1> 
-                                    
-                                    </div>
-                              </li>                       
-                             
-                        </ul>
+                  <div className=" ml-12 my-24 fade-in " id='courses' style={{marginTop:'19%'}}> 
+
+                         <h1  style={{marginRight:'5px'}} className='text-black text-center' >One institution, many worlds. <br/> Explore our Different Campuses and <br/> find your perfect fit ... </h1> 
                         
                   </div>
 
 
-                  <div className=' ml-15 vertical-line  transform -skew-x-12 'style={{marginTop:'12%'}}>
+                  <div className=' ml-20 vertical-line  transform -skew-x-12 'style={{marginTop:'12%'}}>
                   </div>
 
                   {/* SCIENCE AND TECHNOLOGY COURSES */}
