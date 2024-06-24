@@ -61,7 +61,6 @@ export const getDepartmentById = async (req, res) => {
   }
 };
 
-// Update a Department by ID
 export const updateDepartmentById = async (req, res) => {
   try {
     const { name, schoolId, lecturers, programs } = req.body;

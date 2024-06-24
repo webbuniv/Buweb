@@ -43,7 +43,7 @@ const Features = () => {
               {/* Section title on big screens */}
               <div className="mb-8 hidden md:block">
                 <SectionTitle
-                  title="For ambition that can take you anywhere, get your start at Bugema University"
+                  title="Offering an excellent and distinctive wholistic christian education designed to prepare our students through training for productive lives of useful service to God."
                   paragraph=""
                   // center
                   />
@@ -52,7 +52,7 @@ const Features = () => {
               {/* Section title on small screens */}
               <div className="mb-8 block md:hidden text-sm">
                 <SectionTitle
-                  title="For ambition that can take you anywhere, get your start at Bugema University"
+                  title="Offering an excellent and distinctive wholistic christian education designed to prepare our students through training for productive lives of useful service to God."
                   paragraph=""
                   // center
                   />
@@ -120,6 +120,7 @@ const Features = () => {
         id="features"
         className="bg-primary/[.03] md:py-20 "
       >
+        <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8 ">
 
           {/* Left side container */}
@@ -212,6 +213,7 @@ const Features = () => {
           <div className="skewed left" ></div>
           <div className="skewed center"></div>
           <div className="skewed right"></div>
+        </div>
         </div>
       </section>
     </>
