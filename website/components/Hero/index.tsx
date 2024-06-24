@@ -95,7 +95,7 @@ const Hero = () => {
                       animate="scrollButton">
                       <FaArrowRightLong className="text-white"/>
                     </motion.div>
-                    <Link href="/apply" className="flex rounded-md bg-primary dark:bg-primary/60 py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80">
+                    <Link href="https://apply.bugemauniv.ac.ug/" className="flex rounded-md bg-primary dark:bg-primary/60 py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80">
                         Apply Now
                         <BiSolidPencil className="text-xl mx-2" />
                     </Link>
