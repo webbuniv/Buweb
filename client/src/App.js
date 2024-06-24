@@ -114,8 +114,8 @@ export default function App() {
         </>
       )}
       {layout === "vr" && <Configurator />}
+      {isAuth && (
       <Routes>
-        {isAuth ? (
           <>
           <Route
           path="/"
@@ -146,13 +146,11 @@ export default function App() {
           element={ <Profile />}
         />
         </>
-        ):(
-          <Route path="/signin" element={<SignIn />} />
-        )
-      }
         {/* <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} /> */}
       </Routes>
+      )}
+      {!isAuth && <Route path="/sign-in" element={<SignIn />}/>}
     </ThemeProvider>
   );
 }

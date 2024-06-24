@@ -6,14 +6,14 @@ const newsData = [
     category: "Health & Medicine",
     title: "Three depression ‘biotypes’ identified in BU Medicine study",
     link: "https://news.stanford.edu/stories/2024/06/depression-biotypes.html",
-    imageSrc: "/images/features/bu.jpg",
+    imageSrc: "/images/features/health.jpg",
     altText: "Image related to depression biotypes",
   },
   {
     category: "Business",
     title: "Why advertisers pay more to reach viewers who watch less",
     link: "https://news.stanford.edu/stories/2024/06/why-advertisers-pay-more-reach-viewers-who-watch-less",
-    imageSrc: "/images/features/bu.jpg",
+    imageSrc: "/images/features/business.jpeg",
     altText: "Image related to advertising study",
   },
   {
@@ -80,7 +80,7 @@ const CampusNews: React.FC = () => {
                     </div>
                     <div className="p-4">
                     <div className="text-sm text-gray-500 mb-2">{news.category}</div>
-                    <h3 className="text-lg font-semibold"><a href={news.link}>{news.title}</a></h3>
+                    <h3 className="text-lg text-black font-semibold"><a href={news.link}>{news.title}</a></h3>
                     </div>
                 </article>
                 ))}
