@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import AboutSectionSix from "@/components/About/AboutSectionSix";
-import AboutSectionTwo from "@/components/About/AboutSectionTwo";
+import AboutSectionSeven from "@/components/About/AboutSectionSeven";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import WhyHero from "@/components/WhyHero";
 import backgroundImage from "../../public/images/features/int.jpg";
@@ -19,7 +19,7 @@ const AboutPage = () => {
         "
       />
       <AboutSectionSix />
-      <AboutSectionTwo />
+      <AboutSectionSeven />
     </>
   );
 };
