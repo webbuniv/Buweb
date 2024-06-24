@@ -49,10 +49,10 @@ const sliderVariants = {
   },
 };
 
-// Variants for rotating photos/logos
 const rotateVariants = {
   animate: {
     rotate: 360,
+    scale: [2, 3, 2],
     transition: {
       duration: 20,
       repeat: Infinity,
@@ -189,18 +189,11 @@ const Hero = () => {
             </div>
 
             {/* Rotating Photos/Logos */}
-            <div className="w-full md:w-1/3 flex flex-col items-center justify-center space-y-6 md:space-y-10">
+            <div className=" w-full md:w-1/3 hidden sm:flex flex-col items-center justify-center space-y-6 md:space-y-10">
               <motion.img 
                 src="/images/logo/bugema.png" 
                 alt="Logo 1" 
-                className="w-50 h-50 md:w-40 md:h-40" 
-                variants={rotateVariants} 
-                animate="animate"
-              />
-              <motion.img 
-                src="/images/logo/bugema.png" 
-                alt="Logo 2" 
-                className="w-50 h-50 md:w-40 md:h-40" 
+                className="w-1000 h-500 md:w-40 md:h-40" 
                 variants={rotateVariants} 
                 animate="animate"
               />
