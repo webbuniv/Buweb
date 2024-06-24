@@ -214,7 +214,7 @@ const Foot = () =>{
                               {/* A T T A C H M E N T   S P O R T S */}
                               <div id='attachment-sports' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'15%',width:'111%',height:'40%'}}>
                                     <div className='fade-in'>
-                                    <Image src={palm_girls} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
+                                    <Image src={volley1} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
                                     </div>
                                     
                               </div> 
@@ -250,33 +250,37 @@ const Foot = () =>{
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5 slider slide--slow ">
+                              <div className="mr-2 my-5 fade-in-slow  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Sports </h1> 
                                     
                               </div>
                               </li>
                               <li>
-                              <div className="mr-2 my-5 slider slide--fast ">
+                              <div className="mr-2 my-5 fade-in-slow  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Exhibition </h1> 
                                     
                               </div>
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5 slider slide--slow ">
+                              <div className="mr-2 my-5 fade-in-slow  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Entreprenuership </h1>
                                     
                               </div>
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5 slider slide--slower ">
+                              <div className="mr-2 my-5 fade-in-slow ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Innovations and Inventions</h1> 
                                     
                               </div>
                               </li>
                               
                               <li>
+
+                              <div className="mr-2 my-5 fade-in-slow  ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Religious Matters</h1> 
+                                 </div>   
                               <div className="mr-2 my-5 slider slide--slow ">
                                     <Link href={'/news'}>
                                           <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Events</h1>
@@ -285,11 +289,16 @@ const Foot = () =>{
                               </li>
                               
                               <li>
+
+                              <div className="mr-2 my-5 fade-in-slow  ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> News</h1> 
+                                    </div>
                               <div className="mr-2 my-5 slider slide--fast ">
                                      
                                     <Link href={'/events'}>
                                           <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> News</h1>
                                     </Link>
+
                               </div>
                               </li>
                               
@@ -312,30 +321,38 @@ const Foot = () =>{
                               </li>
                               <li>
                               <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Scholarships</h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Net}>Net ball</h1> 
                                     
                               </div>
                               </li>
                               <li>
                               <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Funding Your Studies </h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Volley}> Volley </h1> 
                                     
                               </div>
                               </li>
                               <li>
                               <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> BUSA Fees</h1>
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Wood}> Wood ball</h1>
+                                    
+                              </div>
+                              </li>
+
+                              <li>
+                              <div className="mr-2 my-5  ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Basket}>Basket</h1> 
                                     
                               </div>
                               </li>
                               <li>
                               <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> NHCE Fees</h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Table}>Table Tenis</h1> 
                                     
                               </div>
                               </li>
  
                         </ul>
+                        
                         
                   </div>
 
@@ -512,6 +529,10 @@ const Foot = () =>{
                               <div id='table' className='hidden ml-24 fade-in '>
                                           <Image src={volley2c} alt='img' width={350} height={450} className="-ml-5 my-20 "/>
                               </div>
+
+                              <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='new-arr change-on-hover2 text-black'> More on sports  <FaArrowRight className='new-arr'/></h1>
+                              <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='new-arr change-on-hover2 text-black'> how to join  <FaArrowRight className='new-arr'/></h1>
+
 
                               
                         </div>
