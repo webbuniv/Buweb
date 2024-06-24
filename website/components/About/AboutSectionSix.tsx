@@ -75,8 +75,9 @@ const AboutSectionOne = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-14 mt-30">
 
       <div className="relative mb-8 p-4 border border-gray-300 hover:bg-gray-500 transition-colors duration-300 ease-in-out rounded-md group">
+      <h1 className="text-white text-xl font-semibold mb-2 underline">Professional Courses</h1>
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center bg-gray-700 bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-          <h1 className="text-white text-xl font-semibold mb-2 underline">Professional Courses</h1>
+        
           <p className="text-white px-4">
             We offer a number of professional courses across our faculties. The Department of Computing and Technology offers certifications from CISCO like CCNA, CCNP, and from Microsoft, the department provides MCSE, MCSA. The School of Business prepares students for CPA and other accounting professional courses. Our Nursing students are assessed by the Uganda Nurses And Midwifery Examination Board (UNMEB).
           </p>
