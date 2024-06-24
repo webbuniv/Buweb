@@ -32,7 +32,7 @@ export default function Home() {
       {/* <Testimonials /> */}
       <EventsAndNews />
       <Blog />
-      <Contact />
+      {/* <Contact /> */}
       <SchoolsPage />
       <ScrollToTop />
     </>
