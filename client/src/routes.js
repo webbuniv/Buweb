@@ -1,13 +1,13 @@
 
 import Dashboard from "./layouts/dashboard";
 import Tables from "./layouts/tables";
-import Billing from "./layouts/billing";
-// import VirtualReality from "./layouts/virtual-reality";
-import RTL from "./layouts/rtl";
 import Profile from "./layouts/profile";
 import SignIn from "./layouts/authentication/sign-in";
 import SignUp from "./layouts/authentication/sign-up";
-// import Slides from "./layouts/slides";
+import Events from "./layouts/events";
+import News from "./layouts/news";
+import Publication from "./layouts/publication";
+import Department from "./layouts/department";
 
 // Soft UI Dashboard React icons
 import Shop from "./examples/Icons/Shop";
@@ -16,7 +16,6 @@ import Settings from "./examples/Icons/Settings";
 import Document from "./examples/Icons/Document";
 import SpaceShip from "./examples/Icons/SpaceShip";
 import CustomerSupport from "./examples/Icons/CustomerSupport";
-import CreditCard from "./examples/Icons/CreditCard";
 import Cube from "./examples/Icons/Cube";
 
 const routes = [
@@ -40,38 +39,38 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Events",
-    key: "billing",
-    route: "/billing",
-    icon: <CreditCard size="12px" />,
-    component: <Billing />,
+    name: "Dapartment",
+    key: "department",
+    route: "/department",
+    icon: <Cube size="12px" />,
+    component: <Department />,
     noCollapse: true,
   },
-  // {
-  //   type: "collapse",
-  //   name: "News",
-  //   key: "virtual-reality",
-  //   route: "/virtual-reality",
-  //   icon: <Cube size="12px" />,
-  //   component: <VirtualReality />,
-  //   noCollapse: true,
-  // },
-  // {
-  //   type: "collapse",
-  //   name: "Slides",
-  //   key: "slides",
-  //   route: "/slides",
-  //   icon: <Settings size="12px" />,
-  //   component: <Slides />,
-  //   noCollapse: true,
-  // },
   {
     type: "collapse",
     name: "News",
-    key: "rtl",
-    route: "/rtl",
+    key: "news",
+    route: "/news",
+    icon: <Cube size="12px" />,
+    component: <News/>,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "Events",
+    key: "events",
+    route: "/events",
     icon: <Settings size="12px" />,
-    component: <RTL />,
+    component: <Events />,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "Publication",
+    key: "publication",
+    route: "/publication",
+    icon: <Settings size="12px" />,
+    component: <Publication />,
     noCollapse: true,
   },
   { type: "title", title: "Account Pages", key: "account-pages" },
@@ -87,8 +86,8 @@ const routes = [
   {
     type: "collapse",
     name: "Sign In",
-    key: "sign-in",
-    route: "/authentication/sign-in",
+    key: "signin",
+    route: "/sign",
     icon: <Document size="12px" />,
     component: <SignIn />,
     noCollapse: true,

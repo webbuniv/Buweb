@@ -1,0 +1,64 @@
+@keyframes moveTopToBottom {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes moveBottomToTop {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: 100%;
+  }
+}
+
+@keyframes moveLeftToRight {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes moveRightToLeft {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: 100%;
+  }
+}
+
+@keyframes animateYTranslation {
+  0%, 100% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(0%);
+  }
+}
+
+.animate-top-to-bottom {
+  animation: moveTopToBottom 3s linear infinite;
+}
+
+.animate-bottom-to-top {
+  animation: moveBottomToTop 3s linear infinite;
+}
+
+.animate-left-to-right {
+  animation: moveLeftToRight 3s linear infinite;
+}
+
+.animate-right-to-left {
+  animation: moveRightToLeft 3s linear infinite;
+}
+
+.animate-y-translation {
+  animation: animateYTranslation 5s linear infinite;
+}

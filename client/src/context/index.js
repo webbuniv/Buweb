@@ -1,38 +1,32 @@
 import { createContext, useContext, useReducer, useMemo } from "react";
 import PropTypes from "prop-types";
+
 const SoftUI = createContext(null);
 SoftUI.displayName = "SoftUIContext";
+
 function reducer(state, action) {
   switch (action.type) {
-    case "MINI_SIDENAV": {
+    case "MINI_SIDENAV":
       return { ...state, miniSidenav: action.value };
-    }
-    case "TRANSPARENT_SIDENAV": {
+    case "TRANSPARENT_SIDENAV":
       return { ...state, transparentSidenav: action.value };
-    }
-    case "SIDENAV_COLOR": {
+    case "SIDENAV_COLOR":
       return { ...state, sidenavColor: action.value };
-    }
-    case "TRANSPARENT_NAVBAR": {
+    case "TRANSPARENT_NAVBAR":
       return { ...state, transparentNavbar: action.value };
-    }
-    case "FIXED_NAVBAR": {
+    case "FIXED_NAVBAR":
       return { ...state, fixedNavbar: action.value };
-    }
-    case "OPEN_CONFIGURATOR": {
+    case "OPEN_CONFIGURATOR":
       return { ...state, openConfigurator: action.value };
-    }
-    case "DIRECTION": {
+    case "DIRECTION":
       return { ...state, direction: action.value };
-    }
-    case "LAYOUT": {
+    case "LAYOUT":
       return { ...state, layout: action.value };
-    }
-    default: {
+    default:
       throw new Error(`Unhandled action type: ${action.type}`);
-    }
   }
 }
+
 function SoftUIControllerProvider({ children }) {
   const initialState = {
     miniSidenav: false,
@@ -49,26 +43,28 @@ function SoftUIControllerProvider({ children }) {
 
   const value = useMemo(() => [controller, dispatch], [controller, dispatch]);
 
+  console.log('SoftUIControllerProvider: Context value set', value);
+
   return <SoftUI.Provider value={value}>{children}</SoftUI.Provider>;
 }
 
-// Soft UI Dashboard React custom hook for using context
 function useSoftUIController() {
   const context = useContext(SoftUI);
 
   if (!context) {
+    console.error('useSoftUIController must be used within a SoftUIControllerProvider');
     throw new Error("useSoftUIController should be used inside the SoftUIControllerProvider.");
   }
+
+  console.log('useSoftUIController: Context value', context);
 
   return context;
 }
 
-// Typechecking props for the SoftUIControllerProvider
 SoftUIControllerProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-// Context module functions
 const setMiniSidenav = (dispatch, value) => dispatch({ type: "MINI_SIDENAV", value });
 const setTransparentSidenav = (dispatch, value) => dispatch({ type: "TRANSPARENT_SIDENAV", value });
 const setSidenavColor = (dispatch, value) => dispatch({ type: "SIDENAV_COLOR", value });

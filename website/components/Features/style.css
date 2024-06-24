@@ -1,0 +1,166 @@
+.animated-button {
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    position: relative;
+    overflow: hidden;
+    /* font-size: 30px; */
+  }
+
+  .animated-button:hover {
+    background-color: black;
+  }
+
+  .icon-container {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+    margin-right: 6px;
+  }
+  .animated2-button {
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* .animated2-button:hover {
+    background-color: #cec14a;
+  } */
+  .icon-container2 {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+    margin-right: 4px;
+  }
+
+  .button-text {
+    display: inline-block;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .animated-button:hover .icon-container {
+    transform: translateX(125px);
+  }
+  .skewed {
+    width: 150px; /* width of the div */
+    height: 65px; /* height of the div */
+    background-color:  rgb(1, 1, 49); /* color of the div */
+    transform: skewX(-30deg); /* skew angle */
+  }
+  .left {
+    justify-self: flex-start;
+  }
+  .center {
+    justify-self: center;
+  }
+  .right {
+    justify-self: flex-end;
+  }
+  /* /second Frame/ */
+  .button2 {
+    display: flex;
+    padding: 0.5rem 1rem;
+    color: white;
+    transition: background-color 0.3s ease-in-out;
+  }
+  .animated2-button {
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .animated2-button:hover {
+    background-color: black;
+  }
+
+  .icon-container {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+    margin-right: 14px;
+  }
+  .animated2-button {
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* .animated2-button:hover {
+    background-color: #cec14a;
+  } */
+
+  .button-text {
+    display: inline-block;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .animated2-button:hover .icon-container2 {
+    transform: translateX(125px);
+  }
+
+  .animated2-button:hover .icon-container {
+    transform: translateX(335px);
+  }
+  .container1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .skewed2 {
+    width: 150px; /* width of the div */
+    height: 65px; /* height of the div */
+    background-color:  rgb(1, 1, 49); /* color of the div */
+    transform: skewX(-30deg); /* skew angle */
+  }
+  .left {
+    justify-self: flex-start;
+  }
+  .center {
+    justify-self: center;
+  }
+  .right {
+    justify-self: flex-end;
+  }
+
+
+
+  .containerr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    position: relative;
+  }
+  .skewed-containerr {
+    position: relative;
+    overflow: hidden;
+    transform: skewX(15deg);
+  }
+  /* .skewed-containerr img {
+    width: 100%;
+    height: 100%;
+    transform: skewX(20deg);
+  } */
+  .triangle-top-right, .triangle-bottom-left {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+  .triangle-top-right {
+    /* width: 50px;
+    height: 100px; */
+    left: -35px;
+    position: relative;
+    border-style: solid;
+    top: -2px;
+    right: 10px;
+    border-width: 0 80px 330px 0;
+    border-color: transparent  rgb(1, 1, 49) transparent transparent;
+  }
+  .triangle-bottom-left {
+    bottom: -25px;
+    left: -45px;
+    border-width: 345px 0px 10px 90px;
+    border-color: rgb(1, 1, 49) transparent transparent transparent;
+  }

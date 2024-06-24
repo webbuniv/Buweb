@@ -10,27 +10,30 @@ cloudinary.v2.config({
 });
 
 const uploadImage = async (req, res, next) => {
-    try {
-      await cloudinary.v2.uploader.upload_stream(
-        { resource_type: 'image' },
-        async (error, result) => {
-          if (error) {
-            console.error(error);
-            return res.status(500).json({ error, message: "Image upload failed" });
-          }
-          const picturePath = result.secure_url;
-          req.picturePath = picturePath;
-  
-          // Continue to the next middleware or route handler
-          next();
-        }
-      ).end(req.file.buffer);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ error, message: 'Image upload failed' });
+  try {
+    if (!req.file) {
+      return next();
     }
+
+    const uploadStream = cloudinary.v2.uploader.upload_stream(
+      { resource_type: 'image' },
+      async (error, result) => {
+        if (error) {
+          console.error("Cloudinary upload error:", error);
+          return res.status(500).json({ error, message: "Image upload failed" });
+        }
+        req.picturePath = result.secure_url;
+        next();
+      }
+    );
+
+    uploadStream.end(req.file.buffer);
+  } catch (error) {
+    console.error("Upload image error:", error);
+    res.status(500).json({ error, message: 'Image upload failed' });
+  }
 };
 
 export const cloudinaryController = {
-    uploadImage,
-}
+  uploadImage,
+};

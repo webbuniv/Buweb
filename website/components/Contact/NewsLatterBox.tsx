@@ -1,4 +1,31 @@
-const NewsLatterBox = () => {
+'use client';
+import React, { useState } from "react";
+import { subscribeToNewsletter } from "@/lib/requests"; 
+import { toast } from "sonner";
+const NewsLatterBox: React.FC = () => {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("");
+
+    if (!email) {
+      setStatus("Email is required");
+      return;
+    }
+
+    try {
+        await subscribeToNewsletter(email);
+        localStorage.setItem("newsletter", email);
+        toast.success("Subscribed to newsletter! Check your email to confirm your subscription.");
+        setStatus("Subscribed to newsletter! Check your email to confirm your subscription.");
+
+    } catch (error) {
+      setStatus("Failed to subscribe. Please try again.");
+    }
+  };
+
   return (
     <div
       className="wow fadeInUp relative z-10 rounded-md bg-primary/[3%] p-8 dark:bg-primary/10 sm:p-11 lg:p-8 xl:p-11"
@@ -8,29 +35,33 @@ const NewsLatterBox = () => {
         Subscribe to receive the latest from us.
       </h3>
       <p className="mb-11 border-b border-body-color border-opacity-25 pb-11 text-base font-medium leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
-        Please subsribe to our newsletter
+        Please subscribe to our newsletter
       </p>
-      <form>
-        <input
-          type="text"
-          name="name"
-          placeholder="Enter your name"
-          className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
-        />
+      <form onSubmit={handleSubmit}>
         <input
           type="email"
           name="email"
           placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
         />
-        <input
+        <button
           type="submit"
-          value="Subscribe"
           className="duration-80 mb-4 w-full cursor-pointer rounded-md border border-transparent bg-primary py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
-        />
+        >
+          Subscribe
+        </button>
         <p className="text-center text-base font-medium leading-relaxed text-body-color">
-          No spam guaranteed, So please don’t send any spam mail.
+          No spam guaranteed, so please don’t send any spam mail.
         </p>
+        {status && (
+          <p className="mt-4 text-center text-base font-medium leading-relaxed "
+            style={{ color: "green"}}
+          >
+            {status}
+          </p>
+        )}
       </form>
       <div className="absolute top-0 left-0 z-[-1]">
         <svg

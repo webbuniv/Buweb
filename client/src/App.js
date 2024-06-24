@@ -7,37 +7,27 @@ import SoftBox from "./components/SoftBox";
 import Sidenav from "./examples/Sidenav";
 import Configurator from "./examples/Configurator";
 import theme from "./assets/theme";
-import themeRTL from "./assets/theme/theme-rtl";
 import rtlPlugin from "stylis-plugin-rtl";
-import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import 'react-toastify/dist/ReactToastify.css';
 import { useSelector } from "react-redux";
+import Department from "./layouts/department";
 
 import Dashboard from "./layouts/dashboard";
 import Tables from "./layouts/tables";
-import Billing from "./layouts/billing";
-import VirtualReality from "./layouts/virtual-reality";
-import RTL from "./layouts/rtl";
 import Profile from "./layouts/profile";
 import SignIn from "./layouts/authentication/sign-in";
-import SignUp from "./layouts/authentication/sign-up";
-import Shop from "./examples/Icons/Shop";
-import Office from "./examples/Icons/Office";
-import Settings from "./examples/Icons/Settings";
-import Document from "./examples/Icons/Document";
-import SpaceShip from "./examples/Icons/SpaceShip";
-import CustomerSupport from "./examples/Icons/CustomerSupport";
-import CreditCard from "./examples/Icons/CreditCard";
-import Cube from "./examples/Icons/Cube";
-
+import Events from "./layouts/events";
+import News from "./layouts/news";
+import Publication from "./layouts/publication";
 import routes from "./routes";
+import { 
+  useSoftUIController, 
+  setMiniSidenav, 
+  setOpenConfigurator 
+} from "./context";
 
-// Soft UI Dashboard React contexts
-import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "./context";
-
-// Images
-import brand from "./assets/images/logo-ct.png";
+import brand from "./assets/images/logos/logo.png";
 
 export default function App() {
   const [controller, dispatch] = useSoftUIController();
@@ -125,33 +115,43 @@ export default function App() {
       )}
       {layout === "vr" && <Configurator />}
       <Routes>
-        <Route path="/" element={<SignIn />} />
-        <Route
-          path="/dashboard"
-          element={isAuth ? <Dashboard /> : <Navigate to="/" />}
+        {isAuth ? (
+          <>
+          <Route
+          path="/"
+          element={<Dashboard />}
         />
         <Route
           path="/tables"
-          element={isAuth ? <Tables /> : <Navigate to="/" />}
+          element={ <Tables />}
         />
         <Route
-          path="/billing"
-          element={isAuth ? <Billing /> : <Navigate to="/" />}
+          path="/department"
+          element={<Department /> }
         />
         <Route
-          path="/virtual-reality"
-          element={isAuth ? <VirtualReality /> : <Navigate to="/" />}
+          path="/news"
+          element={<News />}
         />
         <Route
-          path="/rtl"
-          element={isAuth ? <RTL /> : <Navigate to="/" />}
+          path="/events"
+          element={<Events /> }
+        />
+        <Route
+          path="/publication"
+          element={ <Publication />}
         />
         <Route
           path="/profile"
-          element={isAuth ? <Profile /> : <Navigate to="/" />}
+          element={ <Profile />}
         />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
+        </>
+        ):(
+          <Route path="/signin" element={<SignIn />} />
+        )
+      }
+        {/* <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} /> */}
       </Routes>
     </ThemeProvider>
   );
