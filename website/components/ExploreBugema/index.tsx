@@ -11,7 +11,7 @@ const Video = () => {
   const closeModalHandler = () => setShowModal(false);
 
   return (
-    <section className="relative z-10 py-16 md:py-20 lg:py-28">
+    <section className="relative z-10 py-6 md:py-6 lg:py-6">
 
       {/* Modal */}
       {showModal && <Modal hideModal={closeModalHandler} />}
@@ -44,7 +44,7 @@ const Video = () => {
         
           <div className="w-full px-4">
             <div
-              className="wow fadeInUp mx-auto max-w-[770px] overflow-hidden rounded-md"
+              className="wow fadeInUp mx-auto max-w-[1000px] overflow-hidden rounded-md"
               data-wow-delay=".15s"
             >
               <div className="relative aspect-[77/40] items-center justify-center">
