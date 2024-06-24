@@ -73,6 +73,125 @@ const AboutSectionSeven = () => {
           </div>
         </div>
       </div>
+      
+        <div className="flex flex-wrap mb-7 lg:w-1/2 ml-20">
+            
+            <h1 className="text-body-color dark:text-white font-semibold text-center text-2xl md:text-3xl mt-8 md:mt-6 mb-4 md:mb-6 ml-20">
+               Stand out spaces
+            </h1>
+            <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
+              Developing new ideas and putting them into words is easier when you have great places to work in. At Bugema University we have industry-leading facilities to really bring your subject to life.
+            </p>
+        </div>
+      <div className="flex flex-wrap justify-center gap-4">
+
+      {/* Image 1 */}
+      <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2">
+        <div className="relative group overflow-hidden">
+          <Image
+            src={image}
+            alt="Image 1"
+            width={400}
+            height={300}
+            className="transition-transform duration-300 transform scale-100 group-hover:scale-105"
+          />
+        </div>
+      </div>
+
+      {/* Image 2 */}
+      <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2">
+        <div className="relative group overflow-hidden">
+          <Image
+            src={image}
+            alt="Image 2"
+            width={400}
+            height={300}
+            className="transition-transform duration-300 transform scale-100 group-hover:scale-105"
+          />
+        </div>
+      </div>
+
+      {/* Image 3 */}
+      <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2">
+        <div className="relative group overflow-hidden">
+          <Image
+            src={image}
+            alt="Image 3"
+            width={400}
+            height={300}
+            className="transition-transform duration-300 transform scale-100 group-hover:scale-105"
+          />
+        </div>
+      </div>
+
+      {/* Image 4 */}
+      <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2">
+        <div className="relative group overflow-hidden">
+          <Image
+            src={image}
+            alt="Image 4"
+            width={400}
+            height={300}
+            className="transition-transform duration-300 transform scale-100 group-hover:scale-105"
+          />
+        </div>
+      </div>
+      </div>
+    
+      <div className="flex flex-wrap justify-center gap-4">
+
+      {/* Image 1 */}
+      <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2">
+        <div className="relative group overflow-hidden">
+          <Image
+            src={image}
+            alt="Image 1"
+            width={400}
+            height={300}
+            className="transition-transform duration-300 transform scale-100 group-hover:scale-105"
+          />
+        </div>
+      </div>
+
+      {/* Image 2 */}
+      <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2">
+        <div className="relative group overflow-hidden">
+          <Image
+            src={image}
+            alt="Image 2"
+            width={400}
+            height={300}
+            className="transition-transform duration-300 transform scale-100 group-hover:scale-105"
+          />
+        </div>
+      </div>
+
+      {/* Image 3 */}
+      <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2">
+        <div className="relative group overflow-hidden">
+          <Image
+            src={image}
+            alt="Image 3"
+            width={400}
+            height={300}
+            className="transition-transform duration-300 transform scale-100 group-hover:scale-105"
+          />
+        </div>
+      </div>
+
+      {/* Image 4 */}
+      <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2">
+        <div className="relative group overflow-hidden">
+          <Image
+            src={image}
+            alt="Image 4"
+            width={400}
+            height={300}
+            className="transition-transform duration-300 transform scale-100 group-hover:scale-105"
+          />
+        </div>
+      </div>
+      </div>
     </section>
   );
 };
