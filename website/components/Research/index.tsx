@@ -49,7 +49,7 @@ const ResearchSection: React.FC = () => {
       </section>
 
       <section className="text-center">
-        <a href="/research" className="text-blue-500 font-bold" data-ga-category="Call to action" data-ga-action="More about research">
+        <a href="/research" className=" text-blue-500 font-bold" data-ga-category="Call to action" data-ga-action="More about research">
           More about research
         </a>
       </section>
