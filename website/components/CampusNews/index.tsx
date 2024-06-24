@@ -1,10 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
-
+import SectionTitle from '../Common/SectionTitle';
 const newsData = [
   {
     category: "Health & Medicine",
-    title: "Six depression ‘biotypes’ identified in Stanford Medicine study",
+    title: "Three depression ‘biotypes’ identified in BU Medicine study",
     link: "https://news.stanford.edu/stories/2024/06/depression-biotypes.html",
     imageSrc: "/images/features/bu.jpg",
     altText: "Image related to depression biotypes",
@@ -25,7 +25,7 @@ const newsData = [
   },
   {
     category: "Commencement 2024",
-    title: "‘You’re not a wave. You’re water,’ Melinda French Gates tells Stanford ’24 graduates",
+    title: "‘You’re not a wave. You’re water,’ Melinda French Gates tells Bugema University ’29th graduates",
     link: "https://news.stanford.edu/stories/2024/06/you-re-not-a-wave-you-re-water-melinda-french-gates-tells-stanford-24-graduates",
     imageSrc: "/images/features/bu.jpg",
     altText: "Melinda French Gates delivers Commencement address",
@@ -41,7 +41,7 @@ const newsData = [
     category: "Science & Engineering",
     title: "Center harnesses AI to advance autonomous space exploration",
     link: "https://news.stanford.edu/stories/2024/06/new-center-harnesses-ai-advance-autonomous-exploration-outer-space",
-    imageSrc: "/images/features/bu.jpg",
+    imageSrc: "/images/features/ai.webp",
     altText: "AI and space exploration",
   },
 ];
@@ -50,8 +50,26 @@ const CampusNews: React.FC = () => {
   return (
     <section className="p-8">
         <div className="container">
-            <h2 className="text-center text-2xl font-bold mb-4">Campus News</h2>
-            <p className="text-center mb-8">Stories about people, research, and innovation across the Farm</p>
+            <div className="hidden md:block">
+          <SectionTitle
+            title="Students Life"
+            paragraph="At Bugema University, student life goes beyond the classroom. 
+            Our vibrant campus community offers a diverse range of activities, organizations, 
+            and resources designed to support your personal growth, leadership development, and overall well-being."
+            center
+            mb="50px"
+          />
+        </div>
+
+        {/* Section Title on small screens */}
+        <div className="md:hidden block">
+          <SectionTitle 
+            title="Explore Bugema University"
+            paragraph="Join us at Bugema University, where education is embraced as a catalyst for empowerment and change. Experience an inclusive and enriching learning environment where equal opportunities, academic excellence, and a commitment to students' success define our core values. Together, we can shape a brighter future through education."
+            center
+            mb="50px"
+          />
+        </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {newsData.map((news, index) => (
                 <article key={index} className="bg-white shadow-md rounded-lg overflow-hidden">
