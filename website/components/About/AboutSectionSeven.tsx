@@ -1,4 +1,10 @@
 import Image from "next/image";
+import { BookOpenIcon } from '@heroicons/react/solid';
+import { GlobeAltIcon } from '@heroicons/react/solid';
+import { StarIcon } from '@heroicons/react/solid';
+import { EyeIcon } from '@heroicons/react/solid';
+import image from "../../public/images/features/bu.jpg";
+
 
 const AboutSectionSeven = () => {
   return (
@@ -11,7 +17,7 @@ const AboutSectionSeven = () => {
               data-wow-delay=".15s"
             >
               <Image
-                src="/images/features/bu.jpg"
+                src={image}
                 alt="about image"
                 fill
               />
@@ -23,6 +29,7 @@ const AboutSectionSeven = () => {
             </h3>
             <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
               <div className="mb-9 flex-1">
+                <StarIcon className="w-12 h-12 text-black dark:text-white" />
                 <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
                    Award-winning Careers and Employability Service
                 </h3>
@@ -31,6 +38,7 @@ const AboutSectionSeven = () => {
                 </p>
               </div>
               <div className="mb-9 flex-1">
+                <EyeIcon className="w-12 h-12 text-black dark:text-white" />
                 <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
                    Accredited programmes
                 </h3>
@@ -42,6 +50,7 @@ const AboutSectionSeven = () => {
 
             <div className="wow fadeInUp flex max-w-[470px] space-x-6" data-wow-delay=".2s">
               <div className="mb-9 flex-1">
+              <GlobeAltIcon className="w-12 h-12 text-black dark:text-white" />
               <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
                   
                   Volunteering and paid work opportunities
@@ -51,6 +60,7 @@ const AboutSectionSeven = () => {
                 </p>
               </div>
               <div className="mb-9 flex-1">
+                <BookOpenIcon className="w-12 h-20 text-black dark:text-white" />
                 <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
                   
                     Career planning
