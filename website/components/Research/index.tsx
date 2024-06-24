@@ -6,7 +6,7 @@ import SectionTitle from "../Common/SectionTitle";
 
 const ResearchSection: React.FC = () => {
   return (
-<section className="bg-white mt-6 mb-6  p-8" id="research">
+<section className=" mt-6 mb-6  p-8" id="research">
         <div className="container">
 
       <div className="hidden md:block">
@@ -37,11 +37,11 @@ const ResearchSection: React.FC = () => {
             <span>cross disciplinary boundaries</span>
           </figure>
           <figure className="text-center">
-            <strong className="block text-xl">20 Libraries</strong> 
-            <span>hold over 12 million items</span>
+            <strong className="block text-xl">12 Libraries</strong> 
+            <span>hold over 1.2 million items</span>
           </figure>
           <figure className="text-center">
-            <strong className="block text-xl">$1.98 Billion</strong> 
+            <strong className="block text-xl">100 Millions</strong> 
             <span>sponsored research budget</span>
           </figure>
         </div>
