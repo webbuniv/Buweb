@@ -181,47 +181,6 @@ const AboutSectionLife = () => {
         </div>
     </div>
     
-    <div className="container">
-      <h1 className="text-body-color dark:text-white font-semibold text-center text-2xl md:text-3xl mt-8 md:mt-6 mb-4 md:mb-6">
-        Find your community
-      </h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-14 mt-30">
-
-      <div className="mb-8 p-4 border border-gray-300 hover:bg-gray-500 transition-colors duration-300 ease-in-out rounded-md relative group">
-        <h1 className="text-body-color dark:text-white text-xl font-semibold underline text-center">Environment</h1>
-        <p className="">
-            Beautiful, unique,peaceful, green campus. Built on 300 acres of parkland, with views over the historic city.
-        </p>
-        <button className="bg-gray-300 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-600 transition-colors duration-300 ease-in-out">
-          Explore more
-        </button>
-        <Image src={im3} alt="Image 1" className="absolute inset-0 w-full h-full object-cover opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-in-out"/>
-      </div>
-      
-      <div className="mb-8 p-4 border border-gray-300 hover:bg-gray-500 transition-colors duration-300 ease-in-out rounded-md relative group">
-        <h1 className="text-body-color dark:text-white text-xl font-semibold underline text-center">Facilities</h1>
-        <p className="">
-          Diverse, friendly, engaging. We are surrounded by hostoric buildings, renovated for 21st century study. With restaurants, cafes and our student Hub.
-        </p>
-        <button className="bg-gray-300 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-600 transition-colors duration-300 ease-in-out">
-          Explore more
-        </button>
-        <Image src={im3} alt="Image 1" className="absolute inset-0 w-full h-full object-cover opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-in-out"/>
-      </div>
-
-      <div className="mb-8 p-4 border border-gray-300 hover:bg-gray-500 transition-colors duration-300 ease-in-out rounded-md relative group">
-        <h1 className="text-body-color dark:text-white text-xl font-semibold underline text-center">Program</h1>
-        <p className="">
-          A specialist postgraduate centre in one of the most culturally rich cities in the world. We offer advanced, flexible Masters programmes across the arts.
-        </p>
-        <button className="bg-gray-300 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-600 transition-colors duration-300 ease-in-out">
-          Explore more
-        </button>
-        <Image src={im3} alt="Image 1" className="absolute inset-0 w-full h-full object-cover opacity-100 group-hover:opacity-0 transition-opacity duration-300 ease-in-out"/>
-
-      </div>
-  </div>
-    </div>
     </section>
   )
 };
