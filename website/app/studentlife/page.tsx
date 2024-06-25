@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import AboutSectionSix from "@/components/About/AboutSectionSix";
+import AboutSectionLife from "@/components/About/AboutSectionLife";
 import AboutSectionSeven from "@/components/About/AboutSectionSeven";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import LifeHero from "@/components/LifeHero";
@@ -15,7 +15,7 @@ const AboutPage = () => {
         pageName="Student Life"
         description=""
       />
-      <AboutSectionSix />
+      <AboutSectionLife />
       <AboutSectionSeven />
     </>
   );
