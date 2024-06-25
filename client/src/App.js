@@ -12,7 +12,6 @@ import createCache from "@emotion/cache";
 import 'react-toastify/dist/ReactToastify.css';
 import { useSelector } from "react-redux";
 import Department from "./layouts/department";
-
 import Dashboard from "./layouts/dashboard";
 import Tables from "./layouts/tables";
 import Profile from "./layouts/profile";
@@ -21,13 +20,13 @@ import Events from "./layouts/events";
 import News from "./layouts/news";
 import Publication from "./layouts/publication";
 import routes from "./routes";
-import { 
-  useSoftUIController, 
-  setMiniSidenav, 
-  setOpenConfigurator 
-} from "./context";
-
+import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "./context";
 import brand from "./assets/images/logos/logo.png";
+
+function ProtectedRoute({ children }) {
+  const isAuth = useSelector((state) => state.token);
+  return isAuth ? children : <Navigate to="/signin" />;
+}
 
 export default function App() {
   const [controller, dispatch] = useSoftUIController();
@@ -43,7 +42,6 @@ export default function App() {
       key: "rtl",
       stylisPlugins: [rtlPlugin],
     });
-
     setRtlCache(cacheRtl);
   }, []);
 
@@ -114,43 +112,68 @@ export default function App() {
         </>
       )}
       {layout === "vr" && <Configurator />}
-      {isAuth && (
       <Routes>
-          <>
-          <Route
+        <Route
+          path="/signin"
+          element={<SignIn />}
+        />
+        <Route
           path="/"
-          element={<Dashboard />}
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/tables"
-          element={ <Tables />}
+          element={
+            <ProtectedRoute>
+              <Tables />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/department"
-          element={<Department /> }
+          element={
+            <ProtectedRoute>
+              <Department />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/news"
-          element={<News />}
+          element={
+            <ProtectedRoute>
+              <News />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/events"
-          element={<Events /> }
+          element={
+            <ProtectedRoute>
+              <Events />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/publication"
-          element={ <Publication />}
+          element={
+            <ProtectedRoute>
+              <Publication />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/profile"
-          element={ <Profile />}
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
         />
-        </>
-        {/* <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} /> */}
       </Routes>
-      )}
-      {!isAuth && <Route path="/sign-in" element={<SignIn />}/>}
     </ThemeProvider>
   );
 }
