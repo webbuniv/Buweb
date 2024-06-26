@@ -74,7 +74,7 @@ const Features = () => {
                   </Link>
                 </div>
               <div>
-                  <button
+                  <Link href="studentlife"
                     className="animated-button flex rounded-md bg-primary/60 py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
                     onMouseEnter={() => setHoveredButton('studentLife')}
                     onMouseLeave={() => setHoveredButton(null)}
@@ -84,7 +84,7 @@ const Features = () => {
                   </span>
                   Student life
                   
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
