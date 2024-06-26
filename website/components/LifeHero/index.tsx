@@ -5,7 +5,7 @@ import { BiBookOpen, BiSolidPencil } from 'react-icons/bi';
 import { motion } from 'framer-motion';
 // import background from '../../public/images/features/int.jpg'
 
-export const bgImage = '/images/features/int.jpg'
+export const bgImage = '/images/features/life.jpg'
 
 const textVariants = {
   initial: {
@@ -51,7 +51,7 @@ const sliderVariants = {
   },
 };
 
-const WhyHero = () => {
+const LifeHero = () => {
   return (
     <>
       <section
@@ -78,13 +78,13 @@ const WhyHero = () => {
                 {/* On big screens */}
                 <motion.h2 className="head hidden md:block uppercase text-base font-medium !leading-relaxed text-gray-500/90 dark:text-white dark:opacity-90 sm:text-xl md:text-4xl" 
                 variants={textVariants}>
-                  Why Bugema
+                  Student Life
                 </motion.h2>
 
                 {/* On small screens */}
                 <motion.h2 className="head-sm md:hidden uppercase font-medium !leading-relaxed text-gray-500/90 dark:text-white dark:opacity-90 sm:text-xl text-xl md:text-4xl" 
                 variants={textVariants}>
-                  Why Bugema
+                  Student Life
                 </motion.h2>
 
                 {/* Buttons on big screens */}
@@ -195,7 +195,7 @@ const WhyHero = () => {
                 initial="initial" 
                 animate="animate"
               >
-                Why Bugema.
+                Student Life
               </motion.div>
 
             </div>
@@ -450,4 +450,4 @@ const WhyHero = () => {
   );
 };
 
-export default WhyHero;
+export default LifeHero;
