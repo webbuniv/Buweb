@@ -23,6 +23,7 @@ import routes from "./routes";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "./context";
 import brand from "./assets/images/logos/logo.png";
 
+// eslint-disable-next-line react/prop-types
 function ProtectedRoute({ children }) {
   const isAuth = useSelector((state) => state.token);
   return isAuth ? children : <Navigate to="/signin" />;
