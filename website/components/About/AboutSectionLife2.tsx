@@ -4,6 +4,8 @@ import { GlobeAltIcon } from '@heroicons/react/solid';
 import { StarIcon } from '@heroicons/react/solid';
 import { EyeIcon } from '@heroicons/react/solid';
 import image from "../../public/images/features/bu.jpg";
+import sport from "../../public/images/life/sport.jpg";
+import mind from "../../public/images/life/mind.jpg";
 
 
 const AboutSectionLife2 = () => {
@@ -46,7 +48,7 @@ const AboutSectionLife2 = () => {
                   data-wow-delay=".15s"
                 >
                   <Image
-                    src={image}
+                    src={mind}
                     alt="about image"
                     className="w-full h-auto"
                   />
@@ -70,7 +72,7 @@ const AboutSectionLife2 = () => {
                 data-wow-delay=".15s"
               >
                 <Image
-                  src={image}
+                  src={sport}
                   alt="about image"
                   className="w-full h-auto"
                 />
