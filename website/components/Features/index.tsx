@@ -13,6 +13,7 @@ import im3 from "../../public/images/features/reg.jpg";
 import { BiSolidPencil } from 'react-icons/bi';
 import './style.css';
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 const Features = () => {
   const [hoveredButton, setHoveredButton] = useState(null);
@@ -60,7 +61,7 @@ const Features = () => {
 
               <div className="grid grid-cols-2 gap-x-8 gap-y-14">
                 <div>
-                  <button
+                  <Link href="/whybugema"
                     className="animated-button flex rounded-md bg-primary/60 py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
                     onMouseEnter={() => setHoveredButton('whyBugema')}
                     onMouseLeave={() => setHoveredButton(null)}
@@ -70,10 +71,10 @@ const Features = () => {
                   </span>
                   Why Bugema
                 
-                  </button>
+                  </Link>
                 </div>
               <div>
-                  <button
+                  <Link href="studentlife"
                     className="animated-button flex rounded-md bg-primary/60 py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
                     onMouseEnter={() => setHoveredButton('studentLife')}
                     onMouseLeave={() => setHoveredButton(null)}
@@ -83,7 +84,7 @@ const Features = () => {
                   </span>
                   Student life
                   
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

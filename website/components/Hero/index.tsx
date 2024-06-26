@@ -49,6 +49,18 @@ const sliderVariants = {
   },
 };
 
+const rotateVariants = {
+  animate: {
+    rotate: 360,
+    scale: [2, 3, 2],
+    transition: {
+      duration: 20,
+      repeat: Infinity,
+      ease: "linear"
+    }
+  }
+};
+
 const Hero = () => {
   return (
     <>
@@ -57,8 +69,8 @@ const Hero = () => {
         className="relative z-10 pt-24 pb-10 md:pt-36 md:pb-24 xl:pt-44 xl:pb-40 2xl:pt-52 2xl:pb-48"
       >
         <div className="container px-4">
-          <div className="flex flex-wrap justify-center md:justify-start">
-            <div className="w-full px-4">
+          <div className="flex flex-wrap justify-center md:justify-between">
+            <div className="w-full px-4 md:w-2/3">
 
               {/* Content */}
               <motion.div
@@ -95,7 +107,7 @@ const Hero = () => {
                       animate="scrollButton">
                       <FaArrowRightLong className="text-white"/>
                     </motion.div>
-                    <Link href="/apply" className="flex rounded-md bg-primary dark:bg-primary/60 py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80">
+                    <Link href="https://apply.bugemauniv.ac.ug/" className="flex rounded-md bg-primary dark:bg-primary/60 py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80">
                         Apply Now
                         <BiSolidPencil className="text-xl mx-2" />
                     </Link>
@@ -175,6 +187,18 @@ const Hero = () => {
               </motion.div>
 
             </div>
+
+            {/* Rotating Photos/Logos */}
+            <div className=" w-full md:w-1/3 hidden sm:flex flex-col items-center justify-center space-y-6 md:space-y-10">
+              <motion.img 
+                src="/images/logo/bugema.png" 
+                alt="Logo 1" 
+                className="w-1000 h-500 md:w-40 md:h-40" 
+                variants={rotateVariants} 
+                animate="animate"
+              />
+            </div>
+
           </div>
         </div>
 

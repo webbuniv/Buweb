@@ -16,6 +16,8 @@ import ExploreBugema from "@/components/ExploreBugema";
 import { Inter } from "next/font/google";
 import { Component } from "react";
 import EventsAndNews from "@/components/EventsandNews/EventsAndNews";
+import CampusNews from "@/components/CampusNews";
+import ResearchSection from "@/components/Research";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,12 +29,14 @@ export default function Home() {
       <Features />
       <ExploreBugema />
       <Brands />
+      <ResearchSection />
       <AboutSectionOne />
       {/* <AboutSectionTwo /> */}
       {/* <Testimonials /> */}
       <EventsAndNews />
       <Blog />
-      <Contact />
+      {/* <Contact /> */}
+      <CampusNews />
       <SchoolsPage />
       <ScrollToTop />
     </>
