@@ -20,12 +20,12 @@ const newsData = [
     category: "Health & Medicine",
     title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "https://news.stanford.edu/stories/2024/06/epilepsy-blood-pressure-drugs.html",
-    imageSrc: "/images/features/bu.jpg",
+    imageSrc: "/images/features/bbb.jpg",
     altText: "Image related to epilepsy study",
   },
   {
     category: "Commencement 2024",
-    title: "‘You’re not a wave. You’re water,’ Melinda French Gates tells Bugema University ’29th graduates",
+    title: "‘You’re not a wave. You’re water,’ Melinda French tells Bugema University ’29th graduates",
     link: "https://news.stanford.edu/stories/2024/06/you-re-not-a-wave-you-re-water-melinda-french-gates-tells-stanford-24-graduates",
     imageSrc: "/images/features/bu.jpg",
     altText: "Melinda French Gates delivers Commencement address",
@@ -34,7 +34,7 @@ const newsData = [
     category: "Commencement 2024",
     title: "Congratulations, graduates!",
     link: "https://news.stanford.edu/stories/2024/06/commencement-2024-highlights",
-    imageSrc: "/images/features/bu.jpg",
+    imageSrc: "/images/features/grad.jpg",
     altText: "Commencement 2024 highlights",
   },
   {
