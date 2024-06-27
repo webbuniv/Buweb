@@ -134,14 +134,14 @@ const Hero = () => {
                 {/* Motto on big screens */}
                 <motion.h1 className="hidden md:block capitalize text-3xl sm:text-4xl font-bold leading-tight text-black/90 dark:text-primary sm:leading-tight md:text-6xl md:leading-tight" 
                 variants={textVariants}>
-                  We envision <br/>excellence in service
+                  A Seventhday Adventists<br/>Institution Of Higher <br/>Learning
                 </motion.h1>
 
                 {/* Subtitle */}
-                <motion.h2 className="capitalize text-black/70 dark:text-white/40 md:text-black/80 text-xl dark:font-bold leading-tight sm:leading-tight md:text-3xl md:leading-tight" 
+                {/* <motion.h2 className="capitalize text-black/70 dark:text-white/40 md:text-black/80 text-xl dark:font-bold leading-tight sm:leading-tight md:text-3xl md:leading-tight" 
                 variants={textVariants}>
-                  Make your <br className="md:hidden"/>dreams come true
-                </motion.h2>
+                  Excellence <br className="md:hidden"/>In Service
+                </motion.h2> */}
 
                 {/* Buttons on small screens */}
                 <motion.div className="md:hidden flex flex-col items-center justify-center space-y-4" 
