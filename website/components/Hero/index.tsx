@@ -73,13 +73,6 @@ const Hero = () => {
         id="home"
         className="hero-section w-full h-[200px] md:h-[800px] relative z-10"
       >
-        <HeroVideo src={heroVid} />
-        <HeroOverlay 
-        title="BUGEMA UNIVERSITY"
-        subtitle="Excellence In Service"
-        buttonText="Apply Now"
-        buttonLink="/apply-now"
-      />
 
         {/* Background designs */}
         {/* <div className="absolute top-0 right-0 z-[-1] opacity-30 lg:opacity-100">

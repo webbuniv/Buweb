@@ -14,109 +14,110 @@ import "../../styles/index.css";
 import { FaChevronDown } from "react-icons/fa";
 
 const Header = () => {
-      const [navbarOpen, setNavbarOpen] = useState(false);
-      const [showModel4, setShowModel4] = useState(false);
-      const [showModel3, setShowModel3] = useState(false);
-      const [showModel, setShowModel] = useState(false);
-      const [showModel1, setShowModel1] = useState(false);
-      const [isOpen, setIsOpen] = useState(false);
-      const [sticky, setSticky] = useState(false);
-      const [openIndex, setOpenIndex] = useState(-1);
-      const [showModel2, setShowModel2] = useState(false);
-      const navbarToggleHandler = () => {
-            setNavbarOpen(!navbarOpen);
-      };
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  const [showModel4, setShowModel4] = useState(false);
+  const [showModel3, setShowModel3] = useState(false);
+  const [showModel, setShowModel] = useState(false);
+  const [showModel1, setShowModel1] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [sticky, setSticky] = useState(false);
+  const [openIndex, setOpenIndex] = useState(-1);
+  const [showModel2, setShowModel2] = useState(false);
+  const navbarToggleHandler = () => {
+    setNavbarOpen(!navbarOpen);
+  };
 
-      const handleStickyNavbar = () => {
-            if (window.scrollY >= 700) {
-                  setSticky(true);
-            } else {
-                  setSticky(false);
-            }
-      };
-      useEffect(() => {
-            window.addEventListener("scroll", handleStickyNavbar);
-            return () => {
-                  window.removeEventListener("scroll", handleStickyNavbar);
-            };
-      }, []);
+  const handleStickyNavbar = () => {
+    if (window.scrollY >= 700) {
+      setSticky(true);
+    } else {
+      setSticky(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleStickyNavbar);
+    return () => {
+      window.removeEventListener("scroll", handleStickyNavbar);
+    };
+  }, []);
 
-      const handleSubmenu = (index) => {
-            if (openIndex === index) {
-                  setOpenIndex(-1);
-            } else {
-                  setOpenIndex(index);
-            }
-      };
-      useEffect(() => {
-            document.body.style.overflow = showModel ? 'hidden' : 'auto';    
-      }, [showModel]);
-      const first_modal = () =>{
-            setShowModel(true);
-            setShowModel1(false);
-            setShowModel2(false);
-            setShowModel3(false);
-            setShowModel4(false);   
-      };
+  const handleSubmenu = (index) => {
+    if (openIndex === index) {
+      setOpenIndex(-1);
+    } else {
+      setOpenIndex(index);
+    }
+  };
+  useEffect(() => {
+    document.body.style.overflow = showModel ? 'hidden' : 'auto';    
+  }, [showModel]);
+  const first_modal = () =>{
+    setShowModel(true);
+    setShowModel1(false);
+    setShowModel2(false);
+    setShowModel3(false);
+    setShowModel4(false);   
+  };
 
-      useEffect(() => {
+  useEffect(() => {
+    document.body.style.overflow = showModel1 ? 'hidden' : 'auto';
+          
+  }, [showModel1]);
+  const second_modal =() =>{
+    setShowModel1(true), document.body.style.overflow = showModel1 ? 'hidden' : 'auto';
+    setShowModel(false);
+    setShowModel2(false);
+    setShowModel3(false);
+    setShowModel4(false);   
+    
+  };
 
-            document.body.style.overflow = showModel1 ? 'hidden' : 'auto';
-                  
-      }, [showModel1]);
-    const second_modal =() =>{
-      setShowModel1(true), document.body.style.overflow = showModel1 ? 'hidden' : 'auto';
-      setShowModel(false);
-      setShowModel2(false);
-      setShowModel3(false);
-      setShowModel4(false);   
-      
-      };
+  useEffect(() => {
+    document.body.style.overflow = showModel2 ? 'hidden' : 'auto';           
+  }, [showModel2]);
 
-      useEffect(() => {
-            document.body.style.overflow = showModel2 ? 'hidden' : 'auto';           
-      }, [showModel2]);
+  const third_modal =() =>{
+    setShowModel2(true);
+    setShowModel(false);
+    setShowModel1(false);
+    setShowModel3(false);
+    setShowModel4(false);   
+    
+  };  
 
-      const third_modal =() =>{
-            setShowModel2(true);
-            setShowModel(false);
-            setShowModel1(false);
-            setShowModel3(false);
-            setShowModel4(false);   
-            
-      };  
+  useEffect(() => {
+    document.body.style.overflow = showModel3 ? 'hidden' : 'auto';         
+  }, [showModel3]); 
 
-      useEffect(() => {
-            document.body.style.overflow = showModel3 ? 'hidden' : 'auto';         
-      }, [showModel3]); 
-
-      const forth_modal =() =>{
-            setShowModel3(true);
-            setShowModel(false); 
-            setShowModel1(false);
-            setShowModel2(false);
-            setShowModel4(false);              
-      }
-      useEffect(() => {
-            document.body.style.overflow = showModel4 ? 'hidden' : 'auto';        
-      }, [showModel4]); 
-      const fifth_modal =() =>{
-            setShowModel4(true);
-            setShowModel3(false);
-            setShowModel(false); 
-            setShowModel1(false);
-            setShowModel2(false);
-            
-            
-      };  
+  const forth_modal =() =>{
+    setShowModel3(true);
+    setShowModel(false); 
+    setShowModel1(false);
+    setShowModel2(false);
+    setShowModel4(false);              
+  }
+  useEffect(() => {
+    document.body.style.overflow = showModel4 ? 'hidden' : 'auto';        
+  }, [showModel4]); 
+  const fifth_modal =() =>{
+    setShowModel4(true);
+    setShowModel3(false);
+    setShowModel(false); 
+    setShowModel1(false);
+    setShowModel2(false);
+    
+    
+  };  
         
   return (
-      
-      <>
+    <>
       <header className={`header top-0 left-0 z-40 flex w-full items-center bg-transparent mt-[-8px] ${sticky ? "!fixed !z-[9999] ! !bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100" : "absolute"}`}>
-
-            
-            <div className="container">
+        <div className="container">
+          <div className="relative -mx-4 flex items-center justify-between">
+            <div className="w-40 px-4 xl:mr-12">
+              <Link href="/" className={`header-logo block w-full ${sticky ? "py-5 lg:py-2" : "py-8"}`}>
+                <Image src={image} alt="logo" width={140} height={20} className="w-full dark:hidden" />
+                <Image src={image} alt="logo" width={100} height={20} className="hidden w-full dark:block" />
                   
                   <div className="relative -mx-4 flex items-center justify-between">
                         
@@ -214,36 +215,30 @@ const Header = () => {
                                     </nav>
 
                               </div>
-                        </div>
-                  </div>
-
-                  <Model isvisible={showModel} onClose={() => setShowModel(false)}>
-                        <>
                         
-                        </>
-                  </Model>
-                  <Model1 issvisible={showModel1} onClose={() => setShowModel1(false)}>
-                        <>
-                        
-                        </>
-                  </Model1>
-                  <Model2 isssvisible={showModel2} onClose={() => setShowModel2(false)}>
-                        <>
-                        
-                        </>
-                  </Model2>
-                  <Model3 is3visible={showModel3} onClose={() => setShowModel3(false)}>
-                        <>
-                        
-                        </>
-                  </Model3>
-                  <Model4 is4visible={showModel4} onClose={() => setShowModel4(false)}>
-                        <>
-                        
-                        </>
-                  </Model4>
-            
             </div>
+          </div>
+          <Model isvisible={showModel} onClose={() => setShowModel(false)}>
+            <>
+            </>
+          </Model>
+          <Model1 issvisible={showModel1} onClose={() => setShowModel1(false)}>
+            <>
+            </>
+          </Model1>
+          <Model2 isssvisible={showModel2} onClose={() => setShowModel2(false)}>
+            <>
+            </>
+          </Model2>
+          <Model3 is3visible={showModel3} onClose={() => setShowModel3(false)}>
+            <>
+            </>
+          </Model3>
+          <Model4 is4visible={showModel4} onClose={() => setShowModel4(false)}>
+            <>
+            </>
+          </Model4>
+        </div>
       </header>
     </>
   );
