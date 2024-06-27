@@ -70,11 +70,6 @@ const Hero = () => {
               initial="initial"
               animate="animate"
             >
-              {/* On big screens */}
-              {/* <motion.h2 className="hidden md:block uppercase text-base font-medium leading-relaxed text-white dark:opacity-90 sm:text-xl md:text-4xl" 
-                variants={textVariants}>
-                  Bugema University
-                </motion.h2> */}
 
               {/* On small screens */}
               <motion.h2
@@ -84,38 +79,6 @@ const Hero = () => {
                 Bugema University
               </motion.h2>
 
-              {/* Buttons on big screens */}
-              {/* <motion.div className="hidden md:flex items-center justify-start space-x-6 md:space-x-10" 
-                variants={textVariants}> */}
-
-              {/* Apply now button */}
-              {/* <motion.div 
-                    className="flex hover:scale-105 transition-all space-x-2 md:space-x-8 items-center duration-300 flex-row text-center justify-center" 
-                    variants={textVariants}>
-                    <motion.div 
-                      className="bg-black border rounded px-1" 
-                      variants={textVariants} 
-                      animate="scrollButton">
-                      <FaArrowRightLong className="text-white"/>
-                    </motion.div>
-                    <Link href="https://apply.bugemauniv.ac.ug/" claseducasName="flex rounded-md bg-primary dark:bg-primary/60 py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80">
-                        Apply Now
-                        <BiSolidPencil className="text-xl mx-2" />
-                    </Link>
-                  </motion.div> */}
-
-              {/* Learn more button */}
-              {/* <motion.div 
-                    className="flex hover:scale-105 transition-all duration-300 flex-col text-center items-center justify-center" 
-                    variants={textVariants}>
-                    <Link href="/learn-more" className="flex rounded-md bg-black/30 py-1 px-3 md:py-2 md:px-4 text-base font-semibold text-black/90 duration-300 ease-in-out hover:bg-black/30 dark:bg-transparent dark:border dark:text-white">
-                        Learn More
-                        <BiBookOpen className="text-xl mx-2" />
-                    </Link>
-                  </motion.div>
-
-                </motion.div> */}
-
               {/* Motto on small screens */}
               <motion.h1
                 className="md:hidden capitalize text-3xl sm:text-4xl font-bold leading-tight text-black/70 dark:text-primary sm:leading-tight md:text-5xl md:leading-tight"
@@ -124,18 +87,6 @@ const Hero = () => {
                 Excellence <br />
                 in service
               </motion.h1>
-
-              {/* Motto on big screens */}
-              {/* <motion.h1 className="hidden md:block capitalize text-3xl sm:text-4xl font-bold leading-tight text-black/90 dark:text-primary sm:leading-tight md:text-6xl md:leading-tight" 
-                variants={textVariants}>
-                  We envision <br/>excellence in service
-                </motion.h1> */}
-
-              {/* Subtitle */}
-              {/* <motion.h2 className="hidden capitalize text-black/70 dark:text-white/40 md:text-black/80 text-xl dark:font-bold leading-tight sm:leading-tight md:text-3xl md:leading-tight" 
-                variants={textVariants}>
-                  Make your <br className="md:hidden"/>dreams come true
-                </motion.h2> */}
 
               {/* Buttons on small screens */}
               <motion.div
@@ -179,15 +130,6 @@ const Hero = () => {
               </motion.div>
             </motion.div>
 
-            {/* Sliding bg text container on big screens */}
-            {/* <motion.div 
-                className="hidden md:block slidingTextContainer text-[#0000001f] dark:text-[#ffffff09] w-[220%] font-bold" 
-                variants={sliderVariants} 
-                initial="initial" 
-                animate="animate"
-              >
-                Bugema University
-              </motion.div> */}
           </div>
 
           {/* Rotating Photos/Logos */}
