@@ -45,18 +45,18 @@ const EventsAndNews: React.FC = () => {
   const dateStyle = "text-xs text-surface/75 dark:text-neutral-300 dark:text-black";
 
   return (
-    <section id='eventsnadnews'>
+    <section id='eventsnadnews' className='mt-10'>
         <SectionTitle
-          title="Our Latest Events And News"
+          title="Events And News"
           paragraph="You'll find a wealth of 
         knowledge and insights on various topics related to academia, student life, research, and more."
           center
         />
-        <div className="flex flex-col md:flex-row gap-4 container">
+        <div className="flex flex-col md:flex-row gap-4 container mt-10">
 
             {/* Events Column */}
             <div className="w-full h-[300px] md:w-1/2 relative">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4 dark:text-white">Our Latest Events</h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-4 dark:text-white">Upcoming Events</h2>
             <SwiperComponent
                 spaceBetween={30}
                 centeredSlides
@@ -101,7 +101,7 @@ const EventsAndNews: React.FC = () => {
 
             {/* News Column */}
             <div className="w-full md:w-1/2 relative">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4 dark:text-white">Our Latest News</h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-4 dark:text-white">Happening Around Campus</h2>
             <SwiperComponent
                 spaceBetween={30}
                 centeredSlides

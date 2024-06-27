@@ -140,15 +140,15 @@ const Header = () => {
                                     </button>
                                     <nav
                                           id="navbarCollapse"
-                                          className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100 ${
+                                          className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100 ${
                                           navbarOpen ? "top-full opacity-100 right-0" : "top-[120%] opacity-0 right-[-250px]"
                                           }`}
                                           >
-                                          <ul className="block lg:flex lg:space-x-12 top-0 left-0 h-full bg-primary dark:bg-white  transform -skew-x-12 text-white">
+                                          <ul className="block lg:flex lg:space-x-12 bg-black/50 top-0 left-0 h-full dark:bg-white  transform -skew-x-12 text-white">
                                           <li className="group relative">
                                                 <Link
                                                 href="."
-                                                className={`nav hover ml-3 flex py-2 dark:text-black text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                                                className={`nav hover ml-3 flex py-2 dark:text-black text-lg text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                                                 onClick={first_modal}
                                                 >
                                                 <span className={showModel ? "active" : ""}>Programs</span>
@@ -160,7 +160,7 @@ const Header = () => {
                                           <li>
                                                 <Link
                                                 href=""
-                                                className={`nav hover flex py-2 text-base dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                                                className={`nav hover flex py-2 text-lg dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                                                 onClick={second_modal}
                                                 >
                                                 <span className={showModel1 ? "active" : ""}>Student life</span>
@@ -172,7 +172,7 @@ const Header = () => {
                                           <li>
                                                 <Link
                                                 href=""
-                                                className={`nav hover flex py-2 text-base dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                                                className={`nav hover flex py-2 text-lg dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                                                 onClick={third_modal}
                                                 >
                                                 <span className={showModel2 ? "active" : ""}>Research</span>
@@ -184,7 +184,7 @@ const Header = () => {
                                           <li>
                                                 <Link
                                                 href=""
-                                                className={`nav hover flex py-2 text-base dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                                                className={`nav hover flex py-2 text-lg dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                                                 onClick={forth_modal}
                                                 >
                                                 <span className={showModel3 ? "active" : ""}>Campuses</span>
@@ -196,7 +196,7 @@ const Header = () => {
                                           <li>
                                                 <Link
                                                 href=""
-                                                className={`nav hover flex py-2 text-base dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                                                className={`nav hover flex py-2 text-lg dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                                                 onClick={fifth_modal}
                                                 >
                                                 <span className={showModel4 ? "active" : ""}>More..</span>
