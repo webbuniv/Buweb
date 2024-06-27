@@ -138,12 +138,12 @@ const Header = () => {
                     navbarOpen ? "top-full opacity-100 right-0" : "top-[120%] opacity-0 right-[-250px]"
                   }`}
                 >
-                  <ul className="block lg:flex lg:space-x-12 top-0 left-0 h-full bg-primary dark:bg-white  transform -skew-x-12 text-white">
+                  <ul className="block lg:flex bg-black/50 lg:space-x-12 top-0 left-0 h-full dark:bg-white  transform -skew-x-12 text-white">
                     <li className="group relative">
                       <Link
                         href="."
-                        className={`nav hover ml-3 flex py-2 dark:text-black text-base text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onClick={first_modal}
+                        className={`nav hover ml-3 flex py-2 dark:text-black text-lg text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0}
+                        onClick={first_modal`}
                       >
                         <span className={showModel ? "active" : ""}>Programs</span>
                         <span className="my-1 ml-2 dark:text-dark text-white text-bold">
@@ -154,7 +154,7 @@ const Header = () => {
                     <li>
                       <Link
                         href=""
-                        className={`nav hover flex py-2 text-base dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav hover flex py-2 text-lg dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onClick={second_modal}
                       >
                         <span className={showModel1 ? "active" : ""}>Student life</span>
@@ -166,7 +166,7 @@ const Header = () => {
                     <li>
                       <Link
                         href=""
-                        className={`nav hover flex py-2 text-base dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav hover flex py-2 text-lg dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onClick={third_modal}
                       >
                         <span className={showModel2 ? "active" : ""}>Research</span>
@@ -178,7 +178,7 @@ const Header = () => {
                     <li>
                       <Link
                         href=""
-                        className={`nav hover flex py-2 text-base dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav hover flex py-2 text-lg dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onClick={forth_modal}
                       >
                         <span className={showModel3 ? "active" : ""}>Campuses</span>
@@ -190,7 +190,7 @@ const Header = () => {
                     <li>
                       <Link
                         href=""
-                        className={`nav hover flex py-2 text-base dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav hover flex py-2 text-lg dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onClick={fifth_modal}
                       >
                         <span className={showModel4 ? "active" : ""}>More..</span>
