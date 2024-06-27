@@ -29,7 +29,7 @@ const AboutSectionSeven = () => {
             </h3>
             <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
               <div className="mb-9 flex-1">
-                <StarIcon className="w-12 h-12 text-black dark:text-white" />
+                {/* <StarIcon className="w-12 h-12 text-black dark:text-white" /> */}
                 <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
                    Award-winning Careers and Employability Service
                 </h3>
