@@ -193,7 +193,7 @@ const Header = () => {
                         className={`nav hover flex py-2 text-base dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onClick={fifth_modal}
                       >
-                        <span className={showModel4 ? "active" : ""}>More..</span>
+                        <span className={showModel4 ? "active" : ""}>Contact Us</span>
                         <span className="my-1 ml-2 dark:text-dark text-white">
                           <FaChevronDown className={showModel4 ? "drop" : ""} />
                         </span>
