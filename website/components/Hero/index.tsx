@@ -48,6 +48,7 @@ const Hero = () => {
         id="home"
         className="hero-section w-full h-[200px] md:h-[800px] relative z-10"
       >
+
         <HeroVideo src={heroVid} />
         <HeroOverlay
           title="BUGEMA UNIVERSITY"
@@ -55,6 +56,7 @@ const Hero = () => {
           buttonText="Apply Now"
           buttonLink="/apply-now"
         />
+        
       </section>
 
       <div className="container px-4 mt-5 w-full h-full">
