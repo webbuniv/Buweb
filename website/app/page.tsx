@@ -19,6 +19,7 @@ import { Component } from "react";
 import EventsAndNews from "@/components/EventsandNews/EventsAndNews";
 import CampusNews from "@/components/CampusNews";
 import ResearchSection from "@/components/Research";
+import Welcome from "@/components/Welcome/Welcome";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,17 +30,19 @@ export default function Home() {
       <Hero />
       <BelowHero />
       <Features />
+      <Welcome />
       <ExploreBugema />
-      <Brands />
+      <EventsAndNews />
+      {/* <Features /> */}
       <ResearchSection />
-      <AboutSectionOne />
+      <SchoolsPage />
+      {/* <AboutSectionOne /> */}
       {/* <AboutSectionTwo /> */}
       {/* <Testimonials /> */}
-      <EventsAndNews />
-      <Blog />
-      {/* <Contact /> */}
       <CampusNews />
-      <SchoolsPage />
+      <Blog />
+      <Brands />
+      <Contact />
       <ScrollToTop />
     </>
   );
