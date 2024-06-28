@@ -6,7 +6,7 @@ import HeroVideo from "../HeroVideo/HeroVideo";
 import HeroOverlay from "../HeroOverlay/HeroOverlay";
 
 export const bgImage = "/images/features/life.jpg";
-export const heroVid = "/video/welcome.mp4";
+export const heroVid = "/video/hero-vid1.mp4";
 
 // Variants for hero content
 const textVariants = {

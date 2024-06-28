@@ -11,8 +11,8 @@ const Welcome = () => {
     <>
       <section id="features" className="bg-primary/[.03] pt-8 -mt-5">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
-            <div className="flex flex-col mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 ">
+            <div className="flex flex-col mt-10 ">
               {/* Section title on big screens */}
               <div className="mb-8 hidden md:flex md:flex-col">
                 <div className="wow fadeInUp w-full" data-wow-delay=".1s">
@@ -92,11 +92,11 @@ const Welcome = () => {
 
             <div className="">
               <Image
-                className="img1 hidden md:block mt-36 rounded"
+                className="img1 hidden md:block mt-28 rounded"
                 src={img1}
                 alt="Bugema University"
-                width="600"
-                height="250"
+                width={500}
+                height={245}
               />
             </div>
           </div>
