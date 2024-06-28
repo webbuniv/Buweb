@@ -15,10 +15,11 @@ export default function Modal({hideModal}: Props) {
 
         {/* Main modal */}
         <div className='fixed top-[50%] left-[50%] w-[350px] h-[250px] md:w-[500px] md:h-[300px] lg:w-[800px] lg:h-[500px] z-[21] translate-x-[-50%] translate-y-[-50%]'>
-            <iframe 
-                src="https://www.youtube.com/embed/uadddadon-M?si=LdcIJDUgltF0y28f"
+            <iframe title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen
+                src="https://www.youtube.com/embed/MNurEKZ0T20?si=7pRV-TCvIL1v9dPz"
                 className='w-full h-full'>
             </iframe>
+            
         </div>
 
     </div>
