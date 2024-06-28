@@ -4,8 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FaChevronDown } from 'react-icons/fa'
-import { FaCopyright } from "react-icons/fa";
+import { BiLogoWhatsapp } from "react-icons/bi";
+import { BiPhoneCall } from "react-icons/bi";
 import { BiCopyright } from "react-icons/bi";
+import { BiLogoGmail } from "react-icons/bi";
+import { FaArrowRight } from "react-icons/fa";
+import { FaLocationPin } from "react-icons/fa6";
 import image from "@/public/images/logo/bugema.png";
 import palm_girls1 from "../../public/images/nav/palm-girls1.jpg";
 import { url } from "inspector";
@@ -32,12 +36,14 @@ const Footer = () => {
   return (
     <>
             <footer className="wow fadeInUp relative z-10  pt-16 md:pt-20 lg:pt-24" data-wow-delay=".1s" 
-            style={{    
-                  backgroundColor: 'rgba(0, 0, 0, 0.4)',
+            style={{  
+                  // backgroundColor: ,  
+                  
+                  backgroundColor: 'rgba(0, 0, 10, 0.7)',
                   backgroundImage: `url(${imgfooter})`,
                   backgroundSize: 'cover',  // Ensures the image covers the entire area
                   backgroundPosition: 'center',  // Positions the image in the center
-                  height: '80vh',  // Sets the height to 100% of the viewport height
+                  height: '70vh',  // Sets the height to 100% of the viewport height
                   textAlign: 'center',  // Aligns text content in the center
                   padding: 0,  // Removes any default padding
                   margin: 0,  // Removes any default margin
@@ -71,7 +77,7 @@ const Footer = () => {
                                           />
                                     </Link>
                                     <h1 className="mb-9 text-base font-medium leading-relaxed text-body-color">
-                                    Bugema University, P.O. Box 6529 Kampala, Uganda
+                                    Bugema University
                                     </h1>
                                     
                                     <div className="flex items-center justify-center">
@@ -142,57 +148,42 @@ const Footer = () => {
 
                               <div className="hidden text-start md:block w-full md:pr-6 px-4 md:px-0 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
                               <div className="my-10 mb-12 lg:mb-16">
-                              <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
+                              <h2 className="mb-10 text-xl font-bold text-white dark:text-white">
                                     Useful Links
                               </h2>
                               <ul>
+                                 
                                     <li>
                                     <Link
                                     href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                                    className="mb-4 flex gap-1 inline-block text-base font-medium text-body-color hover:text-primary"
                                     >
                                     {" "}
-                                   
-                                    News & Announcements{" "}
-                                    </Link>
-                                    </li>
-                                    <li>
-                                    <Link
-                                    href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
-                                    >
-                                    {" "}
-                                    Apply Today{" "}
-                                    </Link>
-                                    </li>
-                                    <li>
-                                    <Link
-                                    href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
-                                    >
-                                    {" "}
+                                    <FaArrowRight className="my-1"/>
                                     Graduate Verification{" "}
                                     </Link>
                                     </li>
                                     <li>
                                     <Link
                                     href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                                    className="mb-4 flex gap-1 inline-block text-base font-medium text-body-color hover:text-primary"
                                     >
                                     {" "}
+                                     <FaArrowRight className="my-1"/>
                                     ERMS Staff Login{" "}
                                     </Link>
                                     </li>
                                     <li>
                                     <Link
                                     href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                                    className="mb-4 flex gap-1 inline-block text-base font-medium text-body-color hover:text-primary"
                                     >
                                     {" "}
+                                     <FaArrowRight className="my-1"/>
                                     Student Portal{" "}
                                     </Link>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                     <Link
                                     href="/"
                                     className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
@@ -200,22 +191,24 @@ const Footer = () => {
                                     {" "}
                                     E-Learning{" "}
                                     </Link>
-                                    </li>
+                                    </li> */}
                                     <li>
                                     <Link
                                     href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                                    className="mb-4 flex gap-1 inline-block text-base font-medium text-body-color hover:text-primary"
                                     >
                                     {" "}
+                                     <FaArrowRight className="my-1"/>
                                     Library{" "}
                                     </Link>
                                     </li>
                                     <li>
                                     <Link
                                     href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                                    className="mb-4 flex gap-1 inline-block text-base font-medium text-body-color hover:text-primary"
                                     >
                                     {" "}
+                                     <FaArrowRight className="my-1"/>
                                     E-Library{" "}
                                     </Link>
                                     </li>
@@ -247,24 +240,7 @@ const Footer = () => {
                               </div>
                               {isOpen.usefulLinks && (
                                     <ul className="list-none">
-                                    <li>
-                                    <Link
-                                    href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
-                                    >
-                                    {" "}
-                                    News & Announcements{" "}
-                                    </Link>
-                                    </li>
-                                    <li>
-                                    <Link
-                                    href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
-                                    >
-                                    {" "}
-                                    Apply Today{" "}
-                                    </Link>
-                                    </li>
+                                    
                                     <li>
                                     <Link
                                     href="/"
@@ -292,15 +268,7 @@ const Footer = () => {
                                     Student Portal{" "}
                                     </Link>
                                     </li>
-                                    <li>
-                                    <Link
-                                    href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
-                                    >
-                                    {" "}
-                                    E-Learning{" "}
-                                    </Link>
-                                    </li>
+                                    
                                     <li>
                                     <Link
                                     href="/"
@@ -326,70 +294,59 @@ const Footer = () => {
 
                               <div className="hidden text-start md:block w-full md:pl-6 px-4 md:px-0 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
                               <div className=" my-10 mb-12 lg:mb-16">
-                              <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
+                              <h2 className="mb-10 text-xl font-bold text-white dark:text-white">
                                     Downloads
                               </h2>
                               <ul>
+                                    
                                     <li>
                                     <Link
                                     href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                                    className="mb-3 flex gap-1 inline-block text-base font-medium text-body-color hover:text-primary"
                                     >
                                     {" "}
-                                    Strategic Plan{" "}
-                                    </Link>
-                                    </li>
-                                    <li>
-                                    <Link
-                                    href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
-                                    >
-                                    {" "}
+                                    <FaArrowRight className="my-1"/>
                                     Synopsis Concept{" "}
                                     </Link>
                                     </li>
                                     <li>
                                     <Link
                                     href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                                    className="mb-3 flex gap-1 inline-block text-base font-medium text-body-color hover:text-primary"
                                     >
                                     {" "}
+                                    <FaArrowRight className="my-1"/>
                                     Annual Report{" "}
                                     </Link>
                                     </li>
                                     <li>
                                     <Link
                                     href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                                    className="mb-3 flex gap-1 inline-block text-base font-medium text-body-color hover:text-primary"
                                     >
                                     {" "}
+                                    <FaArrowRight className="my-1"/>
                                     State Of The University Address{" "}
                                     </Link>
                                     </li>
+                                    
                                     <li>
                                     <Link
                                     href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                                    className="mb-3 flex gap-1 inline-block text-base font-medium text-body-color hover:text-primary"
                                     >
                                     {" "}
-                                    Gender Equality Plan{" "}
-                                    </Link>
-                                    </li>
-                                    <li>
-                                    <Link
-                                    href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
-                                    >
-                                    {" "}
+                                    <FaArrowRight className="my-1"/>
                                     Graduating Class Requirements{" "}
                                     </Link>
                                     </li>
                                     <li>
                                     <Link
                                     href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                                    className="mb-3 flex gap-1 inline-block text-base font-medium text-body-color hover:text-primary"
                                     >
                                     {" "}
+                                    <FaArrowRight className="my-1"/>
                                     Grading System Transcript{" "}
                                     </Link>
                                     </li>
@@ -421,15 +378,7 @@ const Footer = () => {
                               </div>
                               {isOpen.downloads && (
                                     <ul className="list-none">
-                                    <li>
-                                    <Link
-                                    href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
-                                    >
-                                    {" "}
-                                    Strategic Plan{" "}
-                                    </Link>
-                                    </li>
+                                    
                                     <li>
                                     <Link
                                     href="/"
@@ -457,15 +406,7 @@ const Footer = () => {
                                     State Of The University Address{" "}
                                     </Link>
                                     </li>
-                                    <li>
-                                    <Link
-                                    href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
-                                    >
-                                    {" "}
-                                    Gender Equality Plan{" "}
-                                    </Link>
-                                    </li>
+                                    
                                     <li>
                                     <Link
                                     href="/"
@@ -489,19 +430,34 @@ const Footer = () => {
                               </div>
                               </div>
 
-                              <div className="hidden text-start md:block w-full md:pl-6 px-4 md:px-0 md:w-1/2 lg:w-4/12 xl:w-3/12">
-                              <div className=" my-10 mb-12 lg:mb-16">
-                              <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                                    Policies
+                              
+                              
+                              
+
+                              <div className="hidden text-start md:block w-full md:pr-6 px-4 md:px-0 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
+                              <div className="my-10 mb-12 lg:mb-16">
+                              <h2 className="mb-10 text-xl font-bold text-white dark:text-white">
+                                    Contact Us
                               </h2>
+                              {/* <div className="textwidget">
+                                    <p>Plot 11A, Rotary Avenue,<br/>
+                                    Lugogo Bypass, Kololo<br/>
+                                    Kampala, Uganda</p>
+                                    <p>Tel: +256 414 237 524/5/6</p>
+                                    <p>Mobile : +256 776 373 548</p>
+                                    <p>WhatsApp : +256 758 237 525</p>
+                                    <p>Email: <a href="mailto:info@isbatuniversity.com">info@isbatuniversity.com</a></p>
+                                    </div> */}
                               <ul>
+                                    
                                     <li>
                                     <Link
                                     href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                                    className="mb-4 flex gap-2 inline-block text-base font-medium text-body-color hover:text-primary"
                                     >
                                     {" "}
-                                    Examination Policy{" "}
+                                    <FaLocationPin className="my-1"/>
+                                    32 km along gayaza-zirobwe road{" "}
                                     </Link>
                                     </li>
                                     <li>
@@ -510,74 +466,74 @@ const Footer = () => {
                                     className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                                     >
                                     {" "}
-                                    ICT Policy{" "}
+                                    P.O. Box 6529 Kampala, Uganda{" "}
                                     </Link>
                                     </li>
                                     <li>
                                     <Link
                                     href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                                    className="mb-4 flex gap-2 inline-block text-base font-medium text-body-color hover:text-primary"
                                     >
                                     {" "}
-                                    Annual Report{" "}
+                                    <BiPhoneCall className="my-1"/>
+                                     <a  href="tel:+256774821571" >+256 774 821571</a> {" "}
+                                    </Link>
+                                    </li>
+                                    
+                                    <li>
+                                    <Link
+                                    href="/"
+                                    className="mb-4 flex gap-2 inline-block text-base font-medium text-body-color hover:text-primary"
+                                    >
+                                    {" "}
+                                    <BiLogoWhatsapp className="my-1"/>+256 774 821571{" "}
                                     </Link>
                                     </li>
                                     <li>
                                     <Link
                                     href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                                    className="mb-4 flex gap-2 inline-block text-base font-medium text-body-color hover:text-primary"
                                     >
                                     {" "}
-                                    Blended Learning Policy{" "}
-                                    </Link>
-                                    </li>
-                                    <li>
-                                    <Link
-                                    href="/"
-                                    className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
-                                    >
-                                    {" "}
-                                    BU Research Policy{" "}
+                                    <BiLogoGmail className="my-1"/> <a href="mailto: info@bugemauniv.ac.ug">info@bugemauniv.ac.ug</a> {" "}
                                     </Link>
                                     </li>
                               </ul>
                               </div>
-                              
                               </div>
-                              
-                              
-
+                                    {/* ======S  M  A  L  L     S  C  R  E  E  N====== */}
                               <div className="md:hidden w-full md:pr-6 px-4 md:px-0 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
                               <div className="mb-12 lg:mb-16">
                               <div className="flex justify-between">
                                     <h2 className=" text-xl font-bold text-black dark:text-white">
-                                    {isOpen.policies ? (
+                                    {isOpen.usefulLinks ? (
                                     <button
                                           className="text-left focus:outline-none mb-4 block"
-                                          onClick={() => toggleDropdown("policies")}
+                                          onClick={() => toggleDropdown("usefulLinks")}
                                     >
-                                          Policies
+                                          Contact Us
                                     </button>
                                     ) : (
                                     <button
                                           className="text-left focus:outline-none mb-4 block"
-                                          onClick={() => toggleDropdown("policies")}
+                                          onClick={() => toggleDropdown("usefulLinks")}
                                     >
-                                          Policies
+                                         Contact Us
                                     </button>
                                     )}
                                     </h2>
                                     <FaChevronDown />
                               </div>
-                              {isOpen.policies && (
+                              {isOpen.usefulLinks && (
                                     <ul className="list-none">
+                                    
                                     <li>
                                     <Link
                                     href="/"
                                     className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                                     >
                                     {" "}
-                                    Examination Policy{" "}
+                                    Graduate Verification{" "}
                                     </Link>
                                     </li>
                                     <li>
@@ -586,7 +542,7 @@ const Footer = () => {
                                     className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                                     >
                                     {" "}
-                                    ICT Policy{" "}
+                                    ERMS Staff Login{" "}
                                     </Link>
                                     </li>
                                     <li>
@@ -595,41 +551,40 @@ const Footer = () => {
                                     className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                                     >
                                     {" "}
-                                    Annual Report{" "}
+                                    Student Portal{" "}
                                     </Link>
                                     </li>
+                                    
                                     <li>
                                     <Link
                                     href="/"
                                     className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                                     >
                                     {" "}
-                                    Blended Learning Policy{" "}
+                                    Library{" "}
                                     </Link>
                                     </li>
                                     <li>
                                     <Link
                                     href="/"
-                                    className=" inline-block text-base font-medium text-body-color hover:text-primary"
+                                    className="inline-block text-base font-medium text-body-color hover:text-primary"
                                     >
                                     {" "}
-                                    BU Research Policy{" "}
+                                    E-Library{" "}
                                     </Link>
                                     </li>
                                     </ul>
                               )}
-                              
                               </div>
-                               
                               </div>
                               
 
                         </div>
                         
-                        <div className="container-fluid  bg-transparent">
-                              <hr className="text-white"/>
+                        <div className="container-fluid -my-6  bg-transparent">
+                              <hr className="text-white "/>
 
-                              <h1 className="bg-dark text-white text-center flex gap-2 py-1 justify-center items-center ">
+                              <h1 className="bg-transparent text-white text-center flex gap-2 py-1 justify-center items-center ">
                                     <BiCopyright />
                                    2024 Bugema University | All Rights Reserved
                                           

@@ -10,7 +10,7 @@ const HeroOverlay = ({ title, subtitle, buttonText, buttonLink }) => {
 
       <p className='text-2xl mt-5'>{subtitle}</p>
 
-      <Link href={buttonLink} className="button w-fit border-white border-2 px-4 py-1 border-r-2 rounded hover:scale-105 transition-all duration-300">
+      <Link href={buttonLink} className="button w-fit border-white animate-bounce bg-dark border-2 px-4 py-1 border-r-2 rounded hover:scale-105 transition-all duration-500">
         <span className='flex flex-row gap-2 justify-center items-center'>
             {buttonText}
             <FaArrowDown/>
