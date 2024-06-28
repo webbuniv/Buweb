@@ -219,7 +219,7 @@ const Footer = () => {
                               <div className="md:hidden w-full md:pr-6 px-4 md:px-0 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
                               <div className="mb-12 lg:mb-16">
                               <div className="flex justify-between">
-                                    <h2 className=" text-xl font-bold text-black dark:text-white">
+                                    <h2 className=" text-xl font-bold text-white dark:text-white">
                                     {isOpen.usefulLinks ? (
                                     <button
                                           className="text-left focus:outline-none mb-4 block"
@@ -357,7 +357,7 @@ const Footer = () => {
                               <div className="md:hidden w-full md:pr-6 px-4 md:px-0 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
                               <div className="mb-12 lg:mb-16">
                               <div className="flex justify-between">
-                                    <h2 className=" text-xl font-bold text-black dark:text-white">
+                                    <h2 className=" text-xl font-bold text-white dark:text-white">
                                     {isOpen.downloads ? (
                                     <button
                                           className="text-left focus:outline-none mb-4 block"
@@ -439,15 +439,7 @@ const Footer = () => {
                               <h2 className="mb-10 text-xl font-bold text-white dark:text-white">
                                     Contact Us
                               </h2>
-                              {/* <div className="textwidget">
-                                    <p>Plot 11A, Rotary Avenue,<br/>
-                                    Lugogo Bypass, Kololo<br/>
-                                    Kampala, Uganda</p>
-                                    <p>Tel: +256 414 237 524/5/6</p>
-                                    <p>Mobile : +256 776 373 548</p>
-                                    <p>WhatsApp : +256 758 237 525</p>
-                                    <p>Email: <a href="mailto:info@isbatuniversity.com">info@isbatuniversity.com</a></p>
-                                    </div> */}
+                              
                               <ul>
                                     
                                     <li>
@@ -505,7 +497,7 @@ const Footer = () => {
                               <div className="md:hidden w-full md:pr-6 px-4 md:px-0 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
                               <div className="mb-12 lg:mb-16">
                               <div className="flex justify-between">
-                                    <h2 className=" text-xl font-bold text-black dark:text-white">
+                                    <h2 className=" text-xl font-bold text-white dark:text-white">
                                     {isOpen.usefulLinks ? (
                                     <button
                                           className="text-left focus:outline-none mb-4 block"

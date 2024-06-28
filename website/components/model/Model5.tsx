@@ -133,30 +133,52 @@ const why_bugema = () =>{
                               </div>
                               <div className="mr-2 my-5  slider slide--slow ">
                                     <Link  href={"/schools/school-of-science"}>
-                                    <h1  style={{color:'gray',fontSize: '20px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' ><span id='Kampala' className='animated'>School of Science & Technology</span></h1> 
+                                          <h1  style={{color:'gray',fontSize: '20px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' ><span id='Kampala' className='animated'>School of Science & Technology</span></h1> 
                                     </Link>
                               </div>
+                              
                               <div className="mr-2 my-5  slider slide--slower">
-                                    <h1  style={{color:'gray',fontSize: '20px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '>  <span id='Mbale' className='animated'> School of Bussiness</span></h1> 
+                                    <Link href={"/schools/school-of-business"}>
+                                          <h1  style={{color:'gray',fontSize: '20px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '>  <span id='Mbale' className='animated'> School of Bussiness</span></h1> 
+                                    </Link>
                               </div>
+
                               <div className="mr-2 my-5 slider slide--slowest ">
+                                    <Link  href={"/schools/school-of-health"} >
                                     <h1  style={{color:'gray',fontSize: '20px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' > <span className='animated' id='Kasese'> School of Heath & Alied Sciences</span></h1> 
+                                    </Link> 
                               </div>
 
+
                               <div className="mr-2 my-5 slider slide--slowest ">
+
+                                    <Link href={"/schools/school-of-agric"}  >
                                     <h1  style={{color:'gray',fontSize: '20px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '> <span className='animated' id='Arua'> School of Agric & Applied Sciences</span></h1> 
+                                    </Link>
+                                   
                               </div>
 
                               <div className="mr-2 my-5 slider slide--slowest ">
-                                    <h1  style={{color:'gray',fontSize: '20px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '> <span className='animated' id='Arua'> School of Theology & Religious Studies</span></h1> 
+
+                                    <Link href={"/schools/school-of-theology"}>
+                                          <h1  style={{color:'gray',fontSize: '20px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '> <span className='animated' id='Arua'> School of Theology & Religious Studies</span></h1>
+                                    </Link>
+                                     
                               </div>
 
                               <div className="mr-2 my-5 slider slide--slowest ">
-                                    <h1  style={{color:'gray',fontSize: '20px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '> <span className='animated' id='Arua'> School of Education,Humanities and <br/> Social sciences</span></h1> 
+                                    <Link href={"/schools/school-of-education"} >
+                                          <h1  style={{color:'gray',fontSize: '20px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '> <span className='animated' id='Arua'> School of Education,Humanities and <br/> Social sciences</span></h1> 
+                                    </Link>
+                                    
                               </div>
 
                               <div className="mr-2 my-5 slider slide--slowest ">
-                                    <h1  style={{color:'gray',fontSize: '20px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '> <span className='animated' id='Arua'> School of Graduate studies, Reseacrch <br/>&  Publications</span></h1> 
+
+                                    <Link href={"/schools/school-of-graduate"}>
+                                           <h1  style={{color:'gray',fontSize: '20px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '> <span className='animated' id='Arua'> School of Graduate studies, Reseacrch <br/>&  Publications</span></h1>
+                                    </Link>
+                                     
                               </div>
 
                               {/*###===============================================================================
