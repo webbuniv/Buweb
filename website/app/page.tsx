@@ -8,6 +8,7 @@ import ScrollUp from "@/components/Common/ScrollUp";
 import Contact from "@/components/Contact";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
+import BelowHero from "@/components/BelowHero";
 import SchoolsPage from "../components/Schools/Schools";
 import ScrollToTop from "@/components/ScrollToTop";
 // import Pricing from "@/components/Pricing";
@@ -27,6 +28,7 @@ export default function Home() {
     <>
       <ScrollUp />
       <Hero />
+      <BelowHero />
       <Welcome />
       <ExploreBugema />
       <EventsAndNews />
