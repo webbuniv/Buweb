@@ -29,7 +29,6 @@ export default function Home() {
       <ScrollUp />
       <Hero />
       <BelowHero />
-      <Features />
       <Welcome />
       <ExploreBugema />
       <EventsAndNews />
