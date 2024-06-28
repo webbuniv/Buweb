@@ -16,12 +16,12 @@ import { useEffect, useState } from "react";
 
 const Model4 = ({is4visible, onClose, children}) => {
       if (!is4visible) return null;
-const handleclose = (e)=>{
+      const handleclose = (e)=>{
       
       if( e.target.id === 'wrapper ') onClose();
       document.querySelector('.active')?.classList.remove('active');
       
-}
+      }
 
 const main = ()=>{
       let schools = document.querySelector('schools');
@@ -119,7 +119,7 @@ const why_bugema = () =>{
                               lineHeight: '30px',
                               position: 'absolute',
                               right: '70px',
-                              top: '70px',
+                              top: '20px',
                               }}
                               onClick={onClose}>
                               <span className="text-white text-xl">X</span>
