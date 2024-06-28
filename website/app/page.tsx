@@ -20,6 +20,8 @@ import CampusNews from "@/components/CampusNews";
 import ResearchSection from "@/components/Research";
 import Welcome from "@/components/Welcome/Welcome";
 
+
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {

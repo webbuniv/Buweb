@@ -142,8 +142,8 @@ const Header = () => {
                     <li className="group relative">
                       <Link
                         href="."
-                        className={`nav hover ml-3 flex py-2 dark:text-black text-lg text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0}
-                        onClick={first_modal`}
+                        className={`nav hover ml-3 flex py-2 dark:text-black text-lg text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        onClick={first_modal}
                       >
                         <span className={showModel ? "active" : ""}>Programs</span>
                         <span className="my-1 ml-2 dark:text-dark text-white text-bold">
