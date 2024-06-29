@@ -105,27 +105,7 @@ const why_bugema = () =>{
         
             <div className=" fade-in fixed inset-0 backdrop-blur-sm flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden bg-white" id="wrapper">
                   
-                  <div className='flex '>
-                        <button 
-                              style={{
-                              borderRadius: '50%',
-                              width: '30px',
-                              height: '30px',
-                              backgroundColor: 'black',
-                              borderColor:'black',
-                              color: 'white',
-                              fontSize: '20px',
-                              textAlign: 'center',
-                              lineHeight: '30px',
-                              position: 'absolute',
-                              right: '70px',
-                              top: '20px',
-                              }}
-                              onClick={onClose}>
-                              <span className="text-white text-xl">X</span>
-                        </button>
-
-                  </div>    
+                     
                   <div id="programs">
 
                         <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'25%'}}> 
