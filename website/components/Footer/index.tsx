@@ -212,6 +212,17 @@ const Footer = () => {
                                     E-Library{" "}
                                     </Link>
                                     </li>
+
+                                    <li>
+                                    <Link
+                                    href="/"
+                                    className="mb-4 flex gap-1 inline-block text-base font-medium text-body-color hover:text-primary"
+                                    >
+                                    {" "}
+                                     <FaArrowRight className="my-1"/>
+                                    E-Learning{" "}
+                                    </Link>
+                                    </li>
                               </ul>
                               </div>
                               </div>
@@ -287,6 +298,17 @@ const Footer = () => {
                                     E-Library{" "}
                                     </Link>
                                     </li>
+
+                                    <li>
+                                    <Link
+                                    href="/"
+                                    className="inline-block text-base font-medium text-body-color hover:text-primary"
+                                    >
+                                    {" "}
+                                    E-Learning{" "}
+                                    </Link>
+                                    </li>
+                                    
                                     </ul>
                               )}
                               </div>
@@ -563,6 +585,16 @@ const Footer = () => {
                                     >
                                     {" "}
                                     E-Library{" "}
+                                    </Link>
+                                    </li>
+
+                                    <li>
+                                    <Link
+                                    href="/"
+                                    className="inline-block text-base font-medium text-body-color hover:text-primary"
+                                    >
+                                    {" "}
+                                    E-Learnig{" "}
                                     </Link>
                                     </li>
                                     </ul>

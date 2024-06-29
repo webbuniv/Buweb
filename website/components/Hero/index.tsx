@@ -52,10 +52,14 @@ const Hero = () => {
         <HeroVideo src={heroVid} />
         <HeroOverlay
           title="BUGEMA UNIVERSITY"
+          title2 = "Head, Heart and Hand"
           subtitle="Excellence In Service"
+          subtitle2="A Symphony of Learning, Purpose and Excellence..."
           buttonText="Apply Now"
           buttonLink="/apply-now"
         />
+
+        
         
       </section>
 
