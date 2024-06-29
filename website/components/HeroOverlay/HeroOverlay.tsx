@@ -2,23 +2,33 @@ import Link from 'next/link';
 import React from 'react';
 import { FaArrowDown } from 'react-icons/fa6';
 
-const HeroOverlay = ({ title, subtitle, buttonText, buttonLink }) => {
+const HeroOverlay = ({ title,title2, subtitle,subtitle2, buttonText, buttonLink }) => {
   return (
-    <div className="hidden hero-overlay md:flex flex-col space-y-4 justify-center mx-auto items-center mt-4">
+      <>
+            <div className="hidden hero-overlay md:flex flex-col space-y-4 justify-center mx-auto items-center mt-4">
 
-      <h1 className='text-6xl mb-4'>{title}</h1>
+            <h1 className='text-6xl mb-4'>{title}</h1>
 
-      <p className='text-2xl mt-5'>{subtitle}</p>
+            <p className='text-2xl mt-5'>{subtitle}</p>
 
+            <Link href={buttonLink} className="button w-fit border-white animate-bounce bg-dark border-2 px-4 py-1 border-r-2 rounded hover:scale-105 transition-all duration-500">
+            <span className='flex flex-row gap-2 justify-center items-center'>
+                  {buttonText}
+                  <FaArrowDown/>
+            </span>
+            </Link>
 
-      <Link href={buttonLink} className="button w-fit border-white animate-bounce bg-dark border-2 px-4 py-1 border-r-2 rounded hover:scale-105 transition-all duration-500">
+            </div>
 
-        <span className='flex flex-row gap-2 justify-center items-center'>
-            {buttonText}
-            <FaArrowDown/>
-        </span>
-      </Link>
-    </div>
+            <div className='hero-overlay2'>
+
+            <h1 className='text-6xl mb-0'>{title2}</h1>
+
+            <p className='text-2xl mt-5'>{subtitle2}</p>
+
+            </div>
+      </>
+    
   );
 };
 

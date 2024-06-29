@@ -101,25 +101,16 @@ const Video = () => {
       {/* Section title on big screens */}
       <div className="mb-8 hidden md:flex md:flex-col">
         <div className="wow fadeInUp w-full" data-wow-delay=".1s">
-          <h2 className="mb-2 font-bold !leading-tight text-black/80 dark:text-white md:text-xl">
-            You Are Welcome To
-          </h2>
+          
           <h1 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px]">
-            Bugema University
+          Discover Your Path at Bugema University! 
           </h1>
           <p className="text-base !leading-relaxed text-body-color md:text-lg">
-            At Bugema University, we understand the importance of
-            quality assurance. We have developed comprehensive
-            self-regulating and self-maintaining procedures to ensure
-            the highest standards of excellence in academic delivery and
-            performance. <br />
-            <br /> Join us at Bugema University, where education is
-            embraced as a catalyst for empowerment and change.
-            Experience an inclusive and enriching learning environment
-            where equal opportunities, academic excellence, and a
-            commitment to the success of the students define our core
-            values. Together, we can shape a brighter future through
-            education.
+          
+At Bugema, it’s not just about academics; it’s about nurturing your mind, heart, and hands. Bugema fosters holistic excellence – where character development meets intellectual growth.
+With Flexible Intakes, whether you’re a fresh high school graduate or a working professional seeking advancement, Bugema offers multiple intakes throughout the year. No need to wait – start your journey now!
+Bugema University, where dreams take root, friendships flourish, and purpose unfolds. Join us today – your adventure awaits! 
+
           </p>
         </div>
       </div>
