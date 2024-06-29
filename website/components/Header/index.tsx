@@ -8,13 +8,15 @@ import Model1 from "@/components/model/Model1";
 import Model2 from "@/components/model/Model2";
 import Model3 from "@/components/model/Model3";
 import Model4 from "@/components/model/Model4";
-import image from "../../public/images/logo/bugema.png";
+import Model5 from "@/components/model/Model5";
+import image from "../../public/images/logo/logo1.png";
 import "../../styles/nav.css";
 import "../../styles/index.css";
 import { FaChevronDown } from "react-icons/fa";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const [showModel5, setShowModel5] = useState(false);
   const [showModel4, setShowModel4] = useState(false);
   const [showModel3, setShowModel3] = useState(false);
   const [showModel, setShowModel] = useState(false);
@@ -56,7 +58,8 @@ const Header = () => {
     setShowModel1(false);
     setShowModel2(false);
     setShowModel3(false);
-    setShowModel4(false);   
+    setShowModel4(false);  
+    setShowModel5(false); 
   };
 
   useEffect(() => {
@@ -68,7 +71,8 @@ const Header = () => {
     setShowModel(false);
     setShowModel2(false);
     setShowModel3(false);
-    setShowModel4(false);   
+    setShowModel4(false);  
+    setShowModel5(false); 
     
   };
 
@@ -81,7 +85,8 @@ const Header = () => {
     setShowModel(false);
     setShowModel1(false);
     setShowModel3(false);
-    setShowModel4(false);   
+    setShowModel4(false);  
+    setShowModel5(false); 
     
   };  
 
@@ -94,7 +99,8 @@ const Header = () => {
     setShowModel(false); 
     setShowModel1(false);
     setShowModel2(false);
-    setShowModel4(false);              
+    setShowModel4(false);  
+    setShowModel5(false);            
   }
   useEffect(() => {
     document.body.style.overflow = showModel4 ? 'hidden' : 'auto';        
@@ -105,72 +111,98 @@ const Header = () => {
     setShowModel(false); 
     setShowModel1(false);
     setShowModel2(false);
+    setShowModel5(false);
     
     
-  };  
+  };
+
+  useEffect(() => {
+      document.body.style.overflow = showModel5 ? 'hidden' : 'auto';        
+    }, [showModel5]); 
+    const sixth_modal =() =>{
+      setShowModel5(true);
+      setShowModel4(false);
+      setShowModel3(false);
+      setShowModel(false); 
+      setShowModel1(false);
+      setShowModel2(false);
+      
+      
+    }; 
         
   return (
     <>
-      <header className={`header top-0 left-0 z-40 flex w-full items-center bg-transparent mt-[-8px] ${sticky ? "!fixed !z-[9999] ! !bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100" : "absolute"}`}>
+      <header className={`header top-0 left-0 z-40 flex w-full items-center  mt-[-8px] ${sticky ? " bg-dark !fixed !z-[9999] ! bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100" : "absolute"}`}>
         <div className="container">
-          <div className="relative -mx-4 flex items-center justify-between">
-            <div className="w-40 px-4 xl:mr-12">
-              <Link href="/" className={`header-logo block w-full ${sticky ? "py-5 lg:py-2" : "py-8"}`}>
-                <Image src={image} alt="logo" width={140} height={20} className="w-full dark:hidden" />
-                <Image src={image} alt="logo" width={100} height={20} className="hidden w-full dark:block" />
-                  
-              </Link>
+          <div className="relative flex items-center justify-between">
+            <div className="w-60 relative z-10" >
+                  <Link href="/"  className={`header-logo block w-full ${sticky ? "py-2 lg:py-2" : "py-8"}`}>
+                        <Image src={image} alt="logo" width={140} height={40} className="w-full dark:hidden" />
+                        <Image src={image} alt="logo" width={100} height={20} className="hidden w-full dark:block" />
+                         
+                  </Link>
+                 
             </div>
-            <div className="flex space-x-20 justify-between transform">
+            <div className="flex space-x-20 justify-between transform bg-white">
               <div>
-                <button
-                  onClick={navbarToggleHandler}
-                  id="navbarToggler"
-                  aria-label="Mobile Menu"
-                  className="absolute right-4 top-1/2 block translate-y-[-50%] rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden">
-                  <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? " top-[7px] rotate-45" : " "}`} />
-                  <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? "opacity-0 " : " "}`} />
-                  <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? " top-[-8px] -rotate-45" : " "}`} />
-                </button>
+                
                 <nav
                   id="navbarCollapse"
-                  className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100 ${
+                  className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-dark lg:p-0 lg:opacity-100 ${
                     navbarOpen ? "top-full opacity-100 right-0" : "top-[120%] opacity-0 right-[-250px]"
                   }`}
                 >
-                  <ul className="block lg:flex bg-black/50 lg:space-x-12 top-0 left-0 h-full dark:bg-white  transform -skew-x-12 text-white">
+                  <ul className="block lg:flex bg-white lg:space-x-8 top-0 left-0 h-full  text-black">
                     <li className="group relative">
                       <Link
                         href="."
-                        className={`nav hover ml-3 flex py-2 dark:text-black text-lg text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onClick={first_modal}
+                        className={`nav hover ml-3 flex py-2 text-black text-lg  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        onMouseEnter={first_modal}
+                        // onMouseLeave={setShowModel(false)}
                       >
                         <span className={showModel ? "active" : ""}>Programs</span>
-                        <span className="my-1 ml-2 dark:text-dark text-white text-bold">
+                        <span className="my-1 ml-2 dark:text-dark  text-bold">
                           <FaChevronDown className={showModel ? "drop" : ""} />
                         </span>
                       </Link>
                     </li>
+
+                    
+
                     <li>
                       <Link
                         href=""
-                        className={`nav hover flex py-2 text-lg dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onClick={second_modal}
+                        className={`nav hover flex py-2 text-lg text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        onMouseEnter={second_modal}
                       >
                         <span className={showModel1 ? "active" : ""}>Student life</span>
-                        <span className="my-1 ml-2 dark:text-dark text-white">
+                        <span className="my-1 ml-2 dark:text-dark ">
                           <FaChevronDown className={showModel1 ? "drop" : ""} />
                         </span>
                       </Link>
                     </li>
+
+                    <li className="group relative">
+                      <Link
+                        href="/"
+                        className={`nav hover ml-3 flex py-2 text-black text-lg  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        onMouseEnter={sixth_modal}
+                      >
+                       <span className={showModel5 ? "active" : ""}>Staff & Faculty</span>
+                        <span className="my-1 ml-2 dark:text-dark  text-bold">
+                          <FaChevronDown className={showModel5 ? "drop" : ""} />
+                        </span>
+                      </Link>
+                    </li>
+
                     <li>
                       <Link
                         href=""
-                        className={`nav hover flex py-2 text-lg dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onClick={third_modal}
+                        className={`nav hover flex py-2 text-lg text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        onMouseEnter={third_modal}
                       >
                         <span className={showModel2 ? "active" : ""}>Research</span>
-                        <span className={"my-1 ml-2 dark:text-dark text-white"}>
+                        <span className={"my-1 ml-2 dark:text-dark "}>
                           <FaChevronDown className={showModel2 ? "drop" : ""} />
                         </span>
                       </Link>
@@ -178,32 +210,30 @@ const Header = () => {
                     <li>
                       <Link
                         href=""
-                        className={`nav hover flex py-2 text-lg dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onClick={forth_modal}
+                        className={`nav hover flex py-2 text-lg text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        onMouseEnter={forth_modal}
                       >
                         <span className={showModel3 ? "active" : ""}>Campuses</span>
-                        <span className="my-1 ml-2 dark:text-dark text-white">
+                        <span className="my-1 ml-2 dark:text-dark ">
                           <FaChevronDown className={showModel3 ? "drop" : ""} />
                         </span>
                       </Link>
                     </li>
+
+                    
+
                     <li>
                       <Link
                         href=""
-                        className={`nav hover flex py-2 text-lg dark:text-black text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onClick={fifth_modal}
+                        className={`nav hover flex py-2 text-lg text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        onMouseEnter={fifth_modal}
                       >
                         <span className={showModel4 ? "active" : ""}>Contact Us</span>
-                        <span className="my-1 ml-2 dark:text-dark text-white">
+                        <span className="my-1 ml-2 text-dark ">
                           <FaChevronDown className={showModel4 ? "drop" : ""} />
                         </span>
                       </Link>
                     </li>
-                    <div className="bg- flex items-center justify-end pr-16 lg:pr-0">
-                      <div>
-                        <ThemeToggler />
-                      </div>
-                    </div>
                   </ul>
                 </nav>
               </div>
@@ -229,6 +259,10 @@ const Header = () => {
             <>
             </>
           </Model4>
+          <Model5 is5visible={showModel5} onClose={() => setShowModel5(false)}>
+            <>
+            </>
+          </Model5>
         </div>
       </header>
     </>

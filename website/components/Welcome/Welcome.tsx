@@ -1,21 +1,21 @@
 import SectionTitle from "../Common/SectionTitle";
 import Image from "next/image";
-import img1 from "../../public/images/vc/vc-1.jpeg";
+import img1 from "../../public/images/vc/vc.jpg";
 
 import React, { useState } from "react";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
-
+export const img = "/images/vc/vc.jpg";
 const Welcome = () => {
   return (
     <>
       <section id="features" className="bg-primary/[.03] pt-8 -mt-5">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
-            <div className="flex flex-col mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-60">
+            <div className="flex flex-col mt-10 ">
               {/* Section title on big screens */}
-              <div className="mb-8 hidden md:flex md:flex-col">
-                <div className="wow fadeInUp w-full" data-wow-delay=".1s">
+              <div className=" mb-8 hidden md:flex md:flex-col">
+                <div className="ml-12 wow fadeInUp w-full" data-wow-delay=".1s">
                   <h2 className="mb-2 font-bold !leading-tight text-black/80 dark:text-white md:text-xl">
                     You Are Welcome To
                   </h2>
@@ -60,7 +60,7 @@ const Welcome = () => {
                   <div className="">
                     <Image
                       className="img1 mb-2 rounded"
-                      src={img1}
+                      src={img}
                       alt="Bugema University"
                       width="600"
                       height="250"
@@ -92,11 +92,11 @@ const Welcome = () => {
 
             <div className="">
               <Image
-                className="img1 hidden md:block mt-36 rounded"
-                src={img1}
+                className="img1 hidden md:block mt-28 rounded"
+                src={img}
                 alt="Bugema University"
-                width="600"
-                height="250"
+                width={500}
+                height={245}
               />
             </div>
           </div>
