@@ -60,6 +60,20 @@
   .hero-overlay p {
     margin: 0; /* Remove default margins for better layout */
   }
+  .hero-overlay2 {
+      position: absolute;
+      top: 70%; 
+      left: 10%; 
+      /* transform: translate(-50%, -50%);  */
+      color: white; 
+      text-align: center; 
+    }
+    
+    .hero-overlay2 h1,
+    .hero-overlay2 p {
+      left: 0; /* Remove default margins for better layout */
+    }
+  
 
   /* Hero section styling starts here */
   .head {
