@@ -6,7 +6,7 @@ import HeroVideo from "../HeroVideo/HeroVideo";
 import HeroOverlay from "../HeroOverlay/HeroOverlay";
 
 export const bgImage = "/images/features/life.jpg";
-export const heroVid = "/video/hero-vid1.mp4";
+export const heroVid = "https://res.cloudinary.com/duaqiajka/video/upload/v1719686933/WELCOME_VIDEO_og2jma.mp4";
 
 // Variants for hero content
 const textVariants = {
@@ -52,10 +52,14 @@ const Hero = () => {
         <HeroVideo src={heroVid} />
         <HeroOverlay
           title="BUGEMA UNIVERSITY"
+          title2 = "Head, Heart and Hand"
           subtitle="Excellence In Service"
+          subtitle2="A Symphony of Learning, Purpose and Excellence..."
           buttonText="Apply Now"
           buttonLink="/apply-now"
         />
+
+        
         
       </section>
 
