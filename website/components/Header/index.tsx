@@ -164,104 +164,128 @@ const Header = () => {
                   <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? "opacity-0 " : " "}`} />
                   <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? " top-[-8px] -rotate-45" : " "}`} />
                 </button>
-                
-                <nav
-                  id="navbarCollapse"
-                  className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-dark lg:p-0 lg:opacity-100 ${
-                    navbarOpen ? "top-full opacity-100 right-0" : "top-[120%] opacity-0 right-[-250px]"
-                  }`}
-                >
-                  <ul className="block lg:flex bg-white lg:space-x-8 top-0 left-0 h-full  text-black">
-                    <li className="group relative">
-                      <Link
-                        href="."
-                        className={`nav hover ml-3 flex py-2 text-black text-lg  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onMouseEnter={first_modal}
-                        onMouseLeave={close}
+                {navbarOpen && (
+                  <nav
+                    id="navbarCollapse"
+                    className="hidden md:block navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-dark lg:p-0 lg:opacity-100"
+                  >
+                    <ul className="block lg:flex bg-white lg:space-x-8 top-0 left-0 h-full  text-black">
+                      <li className="group relative">
+                        <Link
+                          href="."
+                          className={`nav hover ml-3 flex py-2 text-black text-lg  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                          onMouseEnter={first_modal}
+                          onMouseLeave={close}
 
-                        // onMouseLeave={setShowModel(false)}
-                      >
-                        <span className={showModel ? "active" : ""}>Programs</span>
-                        <span className="my-1 ml-2 dark:text-dark  text-bold">
-                          <FaChevronDown className={showModel ? "drop" : ""} />
-                        </span>
+                          // onMouseLeave={setShowModel(false)}
+                        >
+                          <span className={showModel ? "active" : ""}>Programs</span>
+                          <span className="my-1 ml-2 dark:text-dark  text-bold">
+                            <FaChevronDown className={showModel ? "drop" : ""} />
+                          </span>
+                        </Link>
+                      </li>
+
+                      
+
+                      <li>
+                        <Link
+                          href=""
+                          className={`nav hover flex py-2 text-lg text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                          onMouseEnter={second_modal}
+                          onMouseLeave={close}
+                        >
+                          <span className={showModel1 ? "active" : ""}>Student life</span>
+                          <span className="my-1 ml-2 dark:text-dark ">
+                            <FaChevronDown className={showModel1 ? "drop" : ""} />
+                          </span>
+                        </Link>
+                      </li>
+
+                      <li className="group relative">
+                        <Link
+                          href="/"
+                          className={`nav hover ml-3 flex py-2 text-black text-lg  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                          onMouseEnter={sixth_modal}
+                          onMouseLeave={close}
+                        >
+                        <span className={showModel5 ? "active" : ""}>Staff & Faculty</span>
+                          <span className="my-1 ml-2 dark:text-dark  text-bold">
+                            <FaChevronDown className={showModel5 ? "drop" : ""} />
+                          </span>
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                          href=""
+                          className={`nav hover flex py-2 text-lg text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                          onMouseEnter={third_modal}
+                          onMouseLeave={close}
+                        >
+                          <span className={showModel2 ? "active" : ""}>Research</span>
+                          <span className={"my-1 ml-2 dark:text-dark "}>
+                            <FaChevronDown className={showModel2 ? "drop" : ""} />
+                          </span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href=""
+                          className={`nav hover flex py-2 text-lg text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                          onMouseEnter={forth_modal}
+                          onMouseLeave={close}
+                        >
+                          <span className={showModel3 ? "active" : ""}>Campuses</span>
+                          <span className="my-1 ml-2 dark:text-dark ">
+                            <FaChevronDown className={showModel3 ? "drop" : ""} />
+                          </span>
+                        </Link>
+                      </li>
+
+                      
+
+                      <li>
+                        <Link
+                          href=""
+                          className={`nav hover flex py-2 text-lg text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                          onMouseEnter={fifth_modal}
+                          onMouseLeave={close}
+                        >
+                          <span className={showModel4 ? "active" : ""}>Contact Us</span>
+                          <span className="my-1 ml-2 text-dark ">
+                            <FaChevronDown className={showModel4 ? "drop" : ""} />
+                          </span>
+                        </Link>
+                      </li>
+                    </ul>
+                  </nav>
+                )}
+
+                {navbarOpen && (
+                  <div className="lg:hidden">
+                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                      <Link href="/" className="block">
+                        Programs
                       </Link>
-                    </li>
-
-                    
-
-                    <li>
-                      <Link
-                        href=""
-                        className={`nav hover flex py-2 text-lg text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onMouseEnter={second_modal}
-                        onMouseLeave={close}
-                      >
-                        <span className={showModel1 ? "active" : ""}>Student life</span>
-                        <span className="my-1 ml-2 dark:text-dark ">
-                          <FaChevronDown className={showModel1 ? "drop" : ""} />
-                        </span>
+                      <Link href="/" className="block">
+                        Student Life
                       </Link>
-                    </li>
-
-                    <li className="group relative">
-                      <Link
-                        href="/"
-                        className={`nav hover ml-3 flex py-2 text-black text-lg  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onMouseEnter={sixth_modal}
-                        onMouseLeave={close}
-                      >
-                       <span className={showModel5 ? "active" : ""}>Staff & Faculty</span>
-                        <span className="my-1 ml-2 dark:text-dark  text-bold">
-                          <FaChevronDown className={showModel5 ? "drop" : ""} />
-                        </span>
+                      <Link href="/" className="block">
+                        Staff & Faculty
                       </Link>
-                    </li>
-
-                    <li>
-                      <Link
-                        href=""
-                        className={`nav hover flex py-2 text-lg text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onMouseEnter={third_modal}
-                        onMouseLeave={close}
-                      >
-                        <span className={showModel2 ? "active" : ""}>Research</span>
-                        <span className={"my-1 ml-2 dark:text-dark "}>
-                          <FaChevronDown className={showModel2 ? "drop" : ""} />
-                        </span>
+                      <Link href="/" className="block">
+                        Research
                       </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href=""
-                        className={`nav hover flex py-2 text-lg text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onMouseEnter={forth_modal}
-                        onMouseLeave={close}
-                      >
-                        <span className={showModel3 ? "active" : ""}>Campuses</span>
-                        <span className="my-1 ml-2 dark:text-dark ">
-                          <FaChevronDown className={showModel3 ? "drop" : ""} />
-                        </span>
+                      <Link href="/" className="block">
+                        Campuses
                       </Link>
-                    </li>
-
-                    
-
-                    <li>
-                      <Link
-                        href=""
-                        className={`nav hover flex py-2 text-lg text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onMouseEnter={fifth_modal}
-                        onMouseLeave={close}
-                      >
-                        <span className={showModel4 ? "active" : ""}>Contact Us</span>
-                        <span className="my-1 ml-2 text-dark ">
-                          <FaChevronDown className={showModel4 ? "drop" : ""} />
-                        </span>
+                      <Link href="/" className="block">
+                        Contact Us
                       </Link>
-                    </li>
-                  </ul>
-                </nav>
+                    </div>
+                </div>
+                )}
               </div>
             </div>
           </div>
