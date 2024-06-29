@@ -8,7 +8,6 @@ import Model1 from "@/components/model/Model1";
 import Model2 from "@/components/model/Model2";
 import Model3 from "@/components/model/Model3";
 import Model4 from "@/components/model/Model4";
-import Model5 from "@/components/model/Model5";
 import image from "../../public/images/logo/logo1.png";
 import "../../styles/nav.css";
 import "../../styles/index.css";
@@ -59,7 +58,7 @@ const Header = () => {
     setShowModel2(false);
     setShowModel3(false);
     setShowModel4(false);  
-    setShowModel5(false); 
+     
   };
   
 
@@ -73,7 +72,7 @@ const Header = () => {
     setShowModel2(false);
     setShowModel3(false);
     setShowModel4(false);  
-    setShowModel5(false); 
+     
     
   };
 
@@ -86,8 +85,7 @@ const Header = () => {
     setShowModel(false);
     setShowModel1(false);
     setShowModel3(false);
-    setShowModel4(false);  
-    setShowModel5(false); 
+    setShowModel4(false); 
     
   };  
 
@@ -101,7 +99,7 @@ const Header = () => {
     setShowModel1(false);
     setShowModel2(false);
     setShowModel4(false);  
-    setShowModel5(false);            
+                
   }
   useEffect(() => {
     document.body.style.overflow = showModel4 ? 'hidden' : 'auto';        
@@ -112,26 +110,13 @@ const Header = () => {
     setShowModel(false); 
     setShowModel1(false);
     setShowModel2(false);
-    setShowModel5(false);
+    
     
     
   };
 
-  useEffect(() => {
-      document.body.style.overflow = showModel5 ? 'hidden' : 'auto';        
-    }, [showModel5]); 
-    const sixth_modal =() =>{
-      setShowModel5(true);
-      setShowModel4(false);
-      setShowModel3(false);
-      setShowModel(false); 
-      setShowModel1(false);
-      setShowModel2(false);
-      
-      
-    }; 
    const close =()=>{
-      setShowModel5(false);
+      
       setShowModel4(false);
       setShowModel3(false);
       setShowModel(false); 
@@ -204,19 +189,6 @@ const Header = () => {
                       </Link>
                     </li>
 
-                    <li className="group relative">
-                      <Link
-                        href="/"
-                        className={`nav hover ml-3 flex py-2 text-black text-lg  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onMouseEnter={sixth_modal}
-                        onMouseLeave={close}
-                      >
-                       <span className={showModel5 ? "active" : ""}>Staff & Faculty</span>
-                        <span className="my-1 ml-2 dark:text-dark  text-bold">
-                          <FaChevronDown className={showModel5 ? "drop" : ""} />
-                        </span>
-                      </Link>
-                    </li>
 
                     <li>
                       <Link
@@ -285,10 +257,7 @@ const Header = () => {
             <>
             </>
           </Model4>
-          <Model5 is5visible={showModel5} onClose={() => setShowModel5(false)}>
-            <>
-            </>
-          </Model5>
+          
         </div>
       </header>
     </>

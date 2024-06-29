@@ -20,13 +20,19 @@ const HeroOverlay = ({ title,title2, subtitle,subtitle2, buttonText, buttonLink 
 
             </div>
 
-            <div className='hero-overlay2'>
 
-            <h1 className='text-6xl mb-0'>{title2}</h1>
-
-            <p className='text-2xl mt-5'>{subtitle2}</p>
-
+            <div  className='hero-overlay2 '>
+            <div className='flex-1'>
+                  <h1 className='text-start sm:text-6xl text-4xl font-medium font-bold mb-0'>{title2}</h1>
             </div>
+
+                  <div className='flex-1 hidden sm:block'> {/* Hide on small screens, show on medium and above */}
+                   <h2 className='text-start mt-5'>{subtitle2}</h2>
+                  </div>
+            </div>
+
+            
+            
       </>
     
   );
