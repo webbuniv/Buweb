@@ -145,7 +145,7 @@ const Header = () => {
         <div className="container">
           <div className="relative flex items-center justify-between">
             <div className="w-60 relative z-10" >
-                  <Link href="/"  className={`header-logo block w-full ${sticky ? "py-2 lg:py-2" : "py-8"}`}>
+                  <Link href="/"  className={`header-logo block w-full ${sticky ? "py-2 lg:py-2" : "py-3"}`}>
                         <Image src={image} alt="logo" width={140} height={40} className="w-full dark:hidden" />
                         <Image src={image} alt="logo" width={100} height={20} className="hidden w-full dark:block" />
                          
@@ -164,6 +164,7 @@ const Header = () => {
                   <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? "opacity-0 " : " "}`} />
                   <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? " top-[-8px] -rotate-45" : " "}`} />
                 </button>
+
                 {navbarOpen && (
                   <nav
                     id="navbarCollapse"
