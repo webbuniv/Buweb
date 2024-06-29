@@ -130,7 +130,7 @@ const Header = () => {
         <div className="container">
           <div className="relative flex items-center justify-between">
             <div className="w-60 relative z-10" >
-                  <Link href="/"  className={`header-logo block w-full ${sticky ? "py-2 lg:py-2" : "py-8"}`}>
+                  <Link href="/"  className={`header-logo block w-full ${sticky ? "py-2 lg:py-2" : "py-3"}`}>
                         <Image src={image} alt="logo" width={140} height={40} className="w-full dark:hidden" />
                         <Image src={image} alt="logo" width={100} height={20} className="hidden w-full dark:block" />
                          
@@ -160,7 +160,7 @@ const Header = () => {
                     <li className="group relative">
                       <Link
                         href="."
-                        className={`nav hover ml-3 flex py-2 text-black text-lg  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav hover ml-3 flex py-2 text-black text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onMouseEnter={first_modal}
                         onMouseLeave={close}
 
@@ -178,7 +178,7 @@ const Header = () => {
                     <li>
                       <Link
                         href=""
-                        className={`nav hover flex py-2 text-lg text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onMouseEnter={second_modal}
                         onMouseLeave={close}
                       >
@@ -190,10 +190,12 @@ const Header = () => {
                     </li>
 
 
+
+
                     <li>
                       <Link
                         href=""
-                        className={`nav hover flex py-2 text-lg text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onMouseEnter={third_modal}
                         onMouseLeave={close}
                       >
@@ -206,7 +208,7 @@ const Header = () => {
                     <li>
                       <Link
                         href=""
-                        className={`nav hover flex py-2 text-lg text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onMouseEnter={forth_modal}
                         onMouseLeave={close}
                       >
@@ -222,7 +224,7 @@ const Header = () => {
                     <li>
                       <Link
                         href=""
-                        className={`nav hover flex py-2 text-lg text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onMouseEnter={fifth_modal}
                         onMouseLeave={close}
                       >
