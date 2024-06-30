@@ -2,10 +2,10 @@ import Link from 'next/link';
 import React from 'react';
 import { FaArrowDown } from 'react-icons/fa6';
 
-const HeroOverlay = ({ title,title2, subtitle,subtitle2, buttonText, buttonLink }) => {
+const HeroOverlay = ({ title,title2,title3, subtitle,subtitle2,subtitle3, buttonText, buttonLink }) => {
   return (
       <>
-            <div className="hidden hero-overlay md:flex flex-col space-y-4 justify-center mx-auto items-center mt-4">
+            <div className="hidden hero-overlay lg:flex flex-col space-y-4 justify-center mx-auto items-center mt-4">
 
             <h1 className='text-6xl mb-4'>{title}</h1>
 
@@ -20,13 +20,24 @@ const HeroOverlay = ({ title,title2, subtitle,subtitle2, buttonText, buttonLink 
 
             </div>
 
-            <div className='hero-overlay2'>
 
-            <h1 className='text-6xl mb-0'>{title2}</h1>
-
-            <p className='text-2xl mt-5'>{subtitle2}</p>
-
+            <div  className='hero-overlay2 '>
+            <div className='flex-1'>
+                  <h1 className='text-start sm:text-6xl text-4xl font-medium font-bold mb-0'>{title3}</h1>
             </div>
+            <div className='flex-1'>
+                  <h1 className=' text-start text-8xl text-4xl font-medium font-bold mb-0'>{title2}</h1>
+            </div>
+
+                  <div className='flex-1 hidden sm:block'> {/* Hide on small screens, show on medium and above */}
+                   <h2 className='text-start text-2xl mt-5'>{subtitle2},<br />{subtitle3}</h2>
+                  </div>
+
+                 
+            </div>
+
+            
+            
       </>
     
   );

@@ -64,9 +64,9 @@
       position: absolute;
       top: 70%; 
       left: 10%; 
-      /* transform: translate(-50%, -50%);  */
+      transform: translate(-5%, -60%); 
       color: white; 
-      text-align: center; 
+      text-align: center;
     }
     
     .hero-overlay2 h1,

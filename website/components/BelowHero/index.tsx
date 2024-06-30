@@ -11,11 +11,11 @@ import {IoBookOutline} from "react-icons/io5";
 const AboutSectionLife2 = () => {
   return (
     <section className="top-0">
-            <div className="container ">
+            <div className="container  -my-24">
                   <div className="container mx-auto">
-                        <div className="flex flex-wrap -mx-4">
-                        <div className="w-full px-4 lg:w-1/2 xl:w-1/4 transition-transform duration-300 hover:scale-105 cursor-pointer rounded bg-[#234297]">
-                        <div className="wow fadeInUp relative mx-auto mb-6 aspect-[25/24] text-center lg:m-0 flex flex-col justify-center items-center text-center" data-wow-delay=".15s ">
+                        <div className="flex flex-wrap -mx-4 gap-2 lg:gap-0">
+                        <div className="w-full px-4 lg:w-1/2 xl:w-1/4 transition-transform duration-300 lg:hover:scale-105 cursor-pointer rounded bg-[#234297]">
+                        <div className="wow fadeInUp relative mx-auto mb-6 aspect-[25/24] lg:m-0 flex flex-col justify-center items-center text-center" data-wow-delay=".15s ">
 
                               <FaWpforms className="w-10 h-8  text-black dark:text-white items-center"/>
 
@@ -30,8 +30,8 @@ const AboutSectionLife2 = () => {
                         </button>
                         </div>
                         </div>
-                        <div className="w-full px-4 lg:w-1/2 xl:w-1/4 transition-transform duration-300 hover:scale-105 cursor-pointer rounded bg-[#e72725]">
-                        <div className="wow fadeInUp relative mx-auto mb-6 aspect-[25/24] text-center lg:m-0 flex flex-col justify-center items-center text-center" data-wow-delay=".15s">
+                        <div className="w-full px-4 lg:w-1/2 xl:w-1/4 transition-transform duration-300 lg:hover:scale-105 cursor-pointer rounded bg-[#e72725]">
+                        <div className="wow fadeInUp relative mx-auto mb-6 aspect-[25/24] lg:m-0 flex flex-col justify-center items-center text-center" data-wow-delay=".15s">
                         <FaMoneyCheckDollar className="w-10 h-8 text-black dark:text-white items-center"/>
                         <h3 className="mb-2 mt-3 text-xl font-bold text-white sm:text-2xl lg:text-xl xl:text-2xl">
                               Finacial Info
@@ -45,8 +45,8 @@ const AboutSectionLife2 = () => {
                         </button>
                         </div>
                         </div>
-                        <div className="w-full px-4 lg:w-1/2 xl:w-1/4 transition-transform duration-300 hover:scale-105 cursor-pointer rounded bg-[#234297]">
-                        <div className="wow fadeInUp relative mx-auto mb-6 aspect-[25/24] text-center lg:m-0 flex flex-col justify-center items-center text-center" data-wow-delay=".15s">
+                        <div className="w-full px-4 lg:w-1/2 xl:w-1/4 transition-transform duration-300 lg:hover:scale-105 cursor-pointer rounded bg-[#234297]">
+                        <div className="wow fadeInUp relative mx-auto mb-6 aspect-[25/24] lg:m-0 flex flex-col justify-center items-center text-center" data-wow-delay=".15s">
                         <IoBookOutline className="w-10 h-8 text-black dark:text-white items-center"/>
                         <h3 className="mb-2 mt-3 text-xl font-bold text-white sm:text-2xl lg:text-xl xl:text-2xl">
                         Student Portal
@@ -59,8 +59,8 @@ const AboutSectionLife2 = () => {
                         </button>
                         </div>
                         </div>
-                        <div className="w-full px-4 lg:w-1/2 xl:w-1/4 transition-transform duration-300 hover:scale-105 cursor-pointer rounded bg-[#e72725] ">
-                        <div className="wow fadeInUp relative mx-auto mb-12 aspect-[25/24] text-center lg:m-0 flex flex-col justify-center items-center text-center" data-wow-delay=".15s">
+                        <div className="w-full px-4 lg:w-1/2 xl:w-1/4 transition-transform duration-300 lg:hover:scale-105 cursor-pointer rounded bg-[#e72725] ">
+                        <div className="wow fadeInUp relative mx-auto mb-12 aspect-[25/24] lg:m-0 flex flex-col justify-center items-center text-center" data-wow-delay=".15s">
                         <FaScroll className="w-10 h-8 text-black dark:text-white "/>
                         <h3 className="mb-2 mt-3 text-xl font-bold text-white sm:text-2xl lg:text-xl xl:text-2xl">
                         Programs
