@@ -6,17 +6,22 @@ export const createNews = async (req, res) => {
       title, 
       category, 
       content, 
-      date 
+      date, 
+      author, 
+      tags, 
+      summary 
     } = req.body;
     const photo = req.picturePath; 
-
 
     const newNews = new News({ 
       title, 
       category, 
       content, 
       photo, 
-      date 
+      date, 
+      author, 
+      tags, 
+      summary 
     });
     const savedNews = await newNews.save();
     res.status(201).json(savedNews);
@@ -52,7 +57,7 @@ export const updateNewsById = async (req, res) => {
     let news = await News.findById(req.params.id);
 
     if (!news) {
-      return res.status(404).json({ message: "Slide not found" });
+      return res.status(404).json({ message: "News not found" });
     }
 
     const data = {
@@ -60,7 +65,10 @@ export const updateNewsById = async (req, res) => {
       category: req.body.category || news.category, 
       content: req.body.content || news.content, 
       photo: req.picturePath || news.photo, 
-      date: req.body.date || news.date 
+      date: req.body.date || news.date,
+      author: req.body.author || news.author,
+      tags: req.body.tags || news.tags,
+      summary: req.body.summary || news.summary
     };
 
     const updatedNews = await News.findByIdAndUpdate(
@@ -74,11 +82,12 @@ export const updateNewsById = async (req, res) => {
   }
 };
 
-
-
 export const deleteNewsById = async (req, res) => {
   try {
     const deletedNews = await News.findByIdAndDelete(req.params.id);
+    if (!deletedNews) {
+      return res.status(404).json({ message: "News not found" });
+    }
     res.status(200).json(deletedNews);
   } catch (error) {
     res.status(500).json({ message: error.message });

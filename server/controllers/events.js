@@ -2,7 +2,7 @@ import Event from '../models/Events.js';
 
 export const createEvent = async (req, res) => {
   try {
-    const { title, description, date, location } = req.body;
+    const { title, description, date, location, organizer, tags } = req.body;
     const coverPhotoUrl = req.picturePath;
 
     const newEvent = new Event({
@@ -11,6 +11,8 @@ export const createEvent = async (req, res) => {
       date,
       location,
       coverPhotoUrl,
+      organizer,
+      tags,
     });
 
     const savedEvent = await newEvent.save();
@@ -58,7 +60,9 @@ export const updateEventById = async (req, res) => {
       description: req.body.description || event.description,
       date: req.body.date || event.date,
       location: req.body.location || event.location,
-      coverPhotoUrl: req.picturePath || event.coverPhotoUrlUrl,
+      coverPhotoUrl: req.picturePath || event.coverPhotoUrl,
+      organizer: req.body.organizer || event.organizer,
+      tags: req.body.tags || event.tags,
     };
 
     const updatedEvent = await Event.findByIdAndUpdate(req.params.id, data, { new: true });
@@ -73,6 +77,9 @@ export const updateEventById = async (req, res) => {
 export const deleteEventById = async (req, res) => {
   try {
     const deletedEvent = await Event.findByIdAndDelete(req.params.id);
+    if (!deletedEvent) {
+      return res.status(404).json({ message: "Event not found" });
+    }
     res.status(200).json(deletedEvent);
   } catch (error) {
     console.error("Error deleting event by ID:", error);

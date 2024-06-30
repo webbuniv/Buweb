@@ -70,6 +70,7 @@ const Header = () => {
     setShowModel2(false);
     setShowModel3(false);
     setShowModel4(false);  
+     
     
   };
 
@@ -95,7 +96,8 @@ const Header = () => {
     setShowModel(false); 
     setShowModel1(false);
     setShowModel2(false);
-    setShowModel4(false);            
+    setShowModel4(false);  
+                
   }
   useEffect(() => {
     document.body.style.overflow = showModel4 ? 'hidden' : 'auto';        
@@ -106,6 +108,7 @@ const Header = () => {
     setShowModel(false); 
     setShowModel1(false);
     setShowModel2(false);
+    
     
     
   };
@@ -180,6 +183,8 @@ const Header = () => {
                       </Link>
                     </li>
 
+
+
                     <li>
                       <Link
                         href=""
@@ -227,10 +232,18 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <Model isvisible={showModel} onClose={() => setShowModel(false)}>
+          
+          
+        </div>
+        
+          
+      </header>
+      
+      <Model isvisible={showModel} onClose={() => setShowModel(false)}>
             <>
             </>
           </Model>
+
           <Model1 issvisible={showModel1} onClose={() => setShowModel1(false)}>
             <>
             </>
@@ -247,8 +260,6 @@ const Header = () => {
             <>
             </>
           </Model4>
-        </div>
-      </header>
     </>
   );
 };

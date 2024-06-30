@@ -53,8 +53,10 @@ const Hero = () => {
         <HeroOverlay
           title="BUGEMA UNIVERSITY"
           title2 = "Head, Heart and Hand"
+          title3="Experience a Hands on based Education..."
           subtitle="Excellence In Service"
-          subtitle2="With over 75 Years of experience, Bugema University is where Knowledge meets Opportunity to offer you Quality education with a hands on experience..."
+          subtitle2="With over 75 Years of experience, Bugema University is where Knowledge meets Opportunity "
+          subtitle3="to offer you Quality education with a hands on experience. . ."
           buttonText="Apply Now"
           buttonLink="/apply-now"
         />
