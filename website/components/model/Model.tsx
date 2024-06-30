@@ -108,7 +108,7 @@ const why_bugema = () =>{
                         <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'25%'}}> 
                               <div className="mr-2 my-5 slider slide--fast">
                                     
-                                    <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '   onClick={main}> <span id='main' className='animated href=""'>Courses</span></h1> 
+                                    <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '   onClick={main}> <span id='main' className='current animated href=""'>Courses</span></h1> 
                               </div>
                               <div className="mr-2 my-5  slider slide--slow ">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={payments}><span id='payments' className='animated'>Fees and Payments</span></h1> 
@@ -304,49 +304,68 @@ const why_bugema = () =>{
                   <div className=" fade-in ml-24 my-24 hidden " style={{marginTop:'6%'}} id='get-in-touch'> 
                         <ul className='ml-10 my-20'>
                               <li>
-                              <div className="mr-2 my-5 ">
-                              
-                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Science and Technology  </h1> 
-                              
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>School of Heath and Alied Sciences</h1> 
-                              </div>
-                              </li>
-                              <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Theology and Religious Studies </h1> 
-                              </div>
-                              </li>
-                              <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Agriculture and Applied Sciences</h1>
+                                    <Link href={"/schools/school-of-science"}>
+                                          <div className="mr-2 my-5 ">
                                     
-                              </div>
+                                                <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Science and Technology  </h1> 
+                                    
+                                          </div>
+                                    </Link>
+                              
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5  ">
+                                    <Link href={"/schools/school-of-health"}>
+                                    <div className="mr-2 my-5  ">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>School of Heath and Alied Sciences</h1> 
+                                    </div>
+                                    </Link>
+                              
+                              </li>
+                              <li>
+                              <Link href={"/schools/school-of-theology"} >
+                                    <div className="mr-2 my-5  ">
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Theology and Religious Studies </h1> 
+                                    </div>
+                              </Link>
+                             
+                              </li>
+                              <li>
+                                    <Link href={"/schools/school-of-agric"} >
+                                          <div className="mr-2 my-5  ">
+                                                <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Agriculture and Applied Sciences</h1>
+                                                
+                                          </div>
+                                    </Link>
+                              </li>
+                              
+                              <li>
+                                    <Link href={"/schools/school-of-agric"}>
+                                    <div className="mr-2 my-5  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Business</h1> 
                                     
                               </div>
+                                    </Link>
+                              
                               </li>
 
                               <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Education,Humanities and <br/> Social sciences</h1> 
-                                    
-                              </div>
+                                    <Link href={"/schools/school-of-education"}>
+                                          <div className="mr-2 my-5  ">
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Education,Humanities and <br/> Social sciences</h1> 
+                                          </div>
+                                    </Link>
+                              
                               </li>
 
                               <li>
-                              <div className="mr-2 my-5  ">
+                                    <Link href={"/schools/school-of-graduate"}>
+                                    <div className="mr-2 my-5  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Graduate studies, Reseacrch <br/>&  Publications</h1> 
                                     
-                              </div>
+                                    </div>
+                                    </Link>
+                              
                               </li>
 
                         </ul>
