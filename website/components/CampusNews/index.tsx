@@ -3,10 +3,10 @@ import Image from 'next/image';
 import SectionTitle from '../Common/SectionTitle';
 const newsData = [
   {
-    category: "Health & Medicine",
-    title: "Three depression ‘biotypes’ identified in BU Medicine study",
-    link: "/",
-    imageSrc: "/images/features/health.jpg",
+    category: "Sports",
+    title: "Bugema University sports play a vital role in student life ............",
+    link: "/studentlife",
+    imageSrc: "/images/life/sport.jpg",
     altText: "Image related to depression biotypes",
   },
   {
