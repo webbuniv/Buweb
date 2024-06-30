@@ -20,6 +20,8 @@ import EventsAndNews from "@/components/EventsandNews/EventsAndNews";
 import CampusNews from "@/components/CampusNews";
 import ResearchSection from "@/components/Research";
 import Welcome from "@/components/Welcome/Welcome";
+import Events from "@/components/Events";
+import News from "@/components/News";
 
 
 
@@ -33,13 +35,10 @@ export default function Home() {
       <BelowHero />
       <Welcome />
       <ExploreBugema />
-      <EventsAndNews />
-      {/* <Features /> */}
+      <Events />
+      <News />
       <ResearchSection />
       <SchoolsPage />
-      {/* <AboutSectionOne /> */}
-      {/* <AboutSectionTwo /> */}
-      {/* <Testimonials /> */}
       <CampusNews />
       <Blog />
       <Brands />

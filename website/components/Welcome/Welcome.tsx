@@ -10,7 +10,7 @@ const Welcome = () => {
   return (
     <>
       <section id="features" className="bg-primary/[.03] pt-8 -mt-5">
-        <div className="container">
+        <div className="container mt-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-60">
             <div className="flex flex-col mt-10 ">
               {/* Section title on big screens */}
@@ -38,7 +38,7 @@ const Welcome = () => {
                   </p>
                 </div>
 
-                <div className="bg-primary hover:bg-primary/90 duration-300 rounded-md py-1 px-3 md:py-2 md:px-4 mt-4 w-[170px] transition-all hover:scale-105">
+                <div className="bg-primary hover:bg-primary/90 duration-300 rounded-md py-1 px-3 md:py-2 md:px-4 ml-12 mt-4 w-[170px] transition-all hover:scale-105">
                   <Link
                     href="/whybugema"
                     className="text-base font-semibold text-white"
