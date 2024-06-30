@@ -32,7 +32,7 @@ const Events = () => {
   }, [events]);
 
   return (
-    <section id="blog" className="bg-primary/5 py-16 md:py-20 lg:py-28">
+    <section id="blog" className="bg-primary/5 py-6 md:py-6 lg:py-6">
       <div className="container">
         <SectionTitle
           title="Upcoming Events"
