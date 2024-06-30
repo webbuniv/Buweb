@@ -7,7 +7,7 @@ type Props = {
     post: News;
 }
 
-const SingleEvent = ({ post }: Props) => {
+const SingleNews = ({ post }: Props) => {
   return (
     <div className="wow fadeInUp relative overflow-hidden rounded-md bg-white shadow-one h-[450px] dark:bg-dark w-[220] mt-5">
       <Link href={`/newss/${post._id}`} passHref className="relative block h-[220px] w-full">
@@ -51,4 +51,4 @@ const SingleEvent = ({ post }: Props) => {
   );
 };
 
-export default SingleEvent;
+export default SingleNews;
