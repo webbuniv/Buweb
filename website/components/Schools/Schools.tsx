@@ -93,7 +93,7 @@ export default function SchoolsPage() {
               spaceBetween: 15,
             },
             700: {
-              slidesPerView: 4,
+              slidesPerView: 3,
               spaceBetween: 15,
             },
           }}

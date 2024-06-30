@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import SectionTitle from "../Common/SectionTitle";
 import SingleNews from "./SingleNews";
 
-const Event = () => {
+const News = () => {
   const [news, setNews] = useState([]);
   const [error, setError] = useState(null);
 
@@ -34,7 +34,7 @@ const Event = () => {
     <section id="blog" className="bg-primary/5 py-16 md:py-20 lg:py-28">
       <div className="container">
         <SectionTitle
-          title="Our Latest Blogs"
+          title="Our Latest News"
           paragraph="You'll find a wealth of 
         knowledge and insights on various topics related to academia, student life, research, and more."
           center
@@ -54,4 +54,4 @@ const Event = () => {
   );
 };
 
-export default Event;
+export default News;
