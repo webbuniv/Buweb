@@ -4,12 +4,14 @@ import Link from "next/link";
 import { Event } from "@/types/types";
 
 type Props = {
+
     post: Event;
 }
 
 const SingleEvent = ({ post }: Props) => {
   return (
     <div className="wow fadeInUp relative overflow-hidden rounded-md bg-white shadow-one h-[450px] dark:bg-dark w-[220] mt-5">
+
       <Link href={`/news/${post._id}`} passHref className="relative block h-[220px] w-full">
           <span className="absolute top-6 right-6 z-20 inline-flex items-center justify-center rounded-full bg-primary py-2 px-4 text-sm font-semibold capitalize text-white">
             {post.status}
