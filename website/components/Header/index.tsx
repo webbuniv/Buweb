@@ -134,13 +134,7 @@ const Header = () => {
   return (
     <>
     {/* Header on big screens */}
-      <header
-        className={`hidden header top-0 left-0 z-40 lg:flex w-full items-center  mt-[-8px] ${
-          sticky
-            ? " bg-dark !fixed !z-[9999] ! bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100"
-            : "absolute"
-        }`}
-      >
+      <header className={`hidden lg:flex w-full items-center mt-[-8px] ${sticky ? "fixed top-0 left-0 z-[9999] bg-dark bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in transition" : "absolute"}`}>
         <div className="container">
           <div className="relative flex items-center justify-between">
             <div className="w-60 relative z-10">
@@ -293,7 +287,7 @@ const Header = () => {
                       </Link>
                     </li>
                   </ul>
-                </nav>
+                </button>
 
               </div>
             </div>
