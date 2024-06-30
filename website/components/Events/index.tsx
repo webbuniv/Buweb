@@ -36,8 +36,7 @@ const Events = () => {
       <div className="container">
         <SectionTitle
           title="Upcoming Events"
-          paragraph="You'll find a wealth of 
-        knowledge and insights on various topics related to academia, student life, research, and more."
+          paragraph="Explore a diverse array of activities whether workshops and seminars, cultural and social engagements, sports activities you do not want to miss."
           center
         />
 

@@ -10,14 +10,14 @@ const News = () => {
     const fetchPosts = async () => {
       try {
         const response = await fetch("https://buweb.onrender.com/news", {
-          method: 'GET',
+          method: "GET",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         });
 
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
 
         const data = await response.json();
@@ -36,8 +36,7 @@ const News = () => {
       <div className="container">
         <SectionTitle
           title="Our Latest News"
-          paragraph="You'll find a wealth of 
-        knowledge and insights on various topics related to academia, student life, research, and more."
+          paragraph="Stories about latest developments, timely insights, campus happenings, academic strides, and much more at Bugema where every moment counts."
           center
         />
 
