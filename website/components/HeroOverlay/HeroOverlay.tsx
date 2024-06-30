@@ -5,7 +5,7 @@ import { FaArrowDown } from 'react-icons/fa6';
 const HeroOverlay = ({ title,title2, subtitle,subtitle2, buttonText, buttonLink }) => {
   return (
       <>
-            <div className="hidden hero-overlay md:flex flex-col space-y-4 justify-center mx-auto items-center mt-4">
+            <div className="hidden hero-overlay lg:flex flex-col space-y-4 justify-center mx-auto items-center mt-4">
 
             <h1 className='text-6xl mb-4'>{title}</h1>
 
@@ -20,7 +20,7 @@ const HeroOverlay = ({ title,title2, subtitle,subtitle2, buttonText, buttonLink 
 
             </div>
 
-            <div className='hero-overlay2'>
+            <div className='hero-overlay2 hidden lg:flex flex-col space-y-4 justify-center'>
 
             <h1 className='text-6xl mb-0'>{title2}</h1>
 
