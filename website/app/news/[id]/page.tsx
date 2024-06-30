@@ -33,7 +33,6 @@ export default async function NewsPage({ params }: Props) {
   if (!news) {
     return notFound();
   }
-
   return (
     <div className="pt-[120px] pb-[120px]">
       <div className="container p-20">
@@ -55,3 +54,4 @@ export default async function NewsPage({ params }: Props) {
     </div>
   );
 }
+
