@@ -44,7 +44,7 @@ const MobileNav = ({ setNavbarOpen, navbarOpen }) => {
                         setProgramsOpen(false);
                       }}
                     >
-                      Program 1
+                      School Of Science And Technology
                     </Link>
                   </li>
                   <li>
@@ -55,7 +55,7 @@ const MobileNav = ({ setNavbarOpen, navbarOpen }) => {
                         setProgramsOpen(false);
                       }}
                     >
-                      Program 2
+                      School Of Health And Alied Science
                     </Link>
                   </li>
                   <li>

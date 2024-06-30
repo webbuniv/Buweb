@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import SectionTitle from "../Common/SectionTitle";
 import SingleNews from "./SingleNews";
 
-const Event = () => {
+const News = () => {
   const [news, setNews] = useState([]);
   const [error, setError] = useState(null);
 
@@ -10,18 +10,19 @@ const Event = () => {
     const fetchPosts = async () => {
       try {
         const response = await fetch("https://buweb.onrender.com/news", {
-          method: 'GET',
+          method: "GET",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         });
 
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
 
         const data = await response.json();
-        setNews(data);
+        const reversedData = data.slice(0).reverse();
+        setNews(reversedData);
       } catch (err) {
         setError(err.message);
       }
@@ -34,9 +35,8 @@ const Event = () => {
     <section id="blog" className="bg-primary/5 py-16 md:py-20 lg:py-28">
       <div className="container">
         <SectionTitle
-          title="Our Latest Blogs"
-          paragraph="You'll find a wealth of 
-        knowledge and insights on various topics related to academia, student life, research, and more."
+          title="Our Latest News"
+          paragraph="Stories about latest developments, timely insights, campus happenings, academic strides, and much more at Bugema where every moment counts."
           center
         />
 
@@ -54,4 +54,4 @@ const Event = () => {
   );
 };
 
-export default Event;
+export default News;
