@@ -5,10 +5,8 @@ import { useEffect, useState } from "react";
 import { FaChevronDown, FaChevronRight } from "react-icons/fa";
 import { FaCopyright } from "react-icons/fa6";
 
-
-
 const MobileNav = ({ setNavbarOpen, navbarOpen }) => {
-  
+
     const [programsOpen, setProgramsOpen] = useState(false);
     const [studentLifeOpen, setStudentLifeOpen] = useState(false);
     const [researchOpen, setResearchOpen] = useState(false);
