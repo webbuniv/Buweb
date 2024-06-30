@@ -65,6 +65,12 @@ const News = () => {
     date: "",
   });
 
+  const classes = useStyles();
+
+  useEffect(() => {
+    fetchNews();
+  }, []);
+
   const fetchNews = async () => {
     setLoading(true);
     try {
@@ -80,10 +86,6 @@ const News = () => {
       setLoading(false);
     }
   };
-
-  useEffect(() => {
-    fetchNews();
-  }, []);
 
   const handleCreateNews = async (e) => {
     e.preventDefault();
@@ -105,15 +107,14 @@ const News = () => {
       if (response.status === 201) {
         fetchNews();
         setShowNewNewsModal(false);
-        setCreateFormFields({ photo: "", title: "", category: "", content: "", date: "" });
+        resetCreateForm();
       }
     } catch (error) {
       setError(error.message);
     } finally {
       setIsCreating(false);
       setShowNewNewsModal(false);
-      setCreateFormFields({ photo: "", title: "", category: "", content: "", date: "" });
-      fetchNews();
+      resetCreateForm();
     }
   };
 
@@ -138,13 +139,13 @@ const News = () => {
       });
       fetchNews();
       setShowEditNewsModal(false);
-      setEditFormFields({ _id: "", photo: "", title: "", category: "", content: "", date: "" });
+      resetEditForm();
     } catch (error) {
       setError(error.message);
     } finally {
       setIsUpdating(false);
-      fetchNews();
       setShowEditNewsModal(false);
+      fetchNews();
     }
   };
 
@@ -173,7 +174,13 @@ const News = () => {
     }
   };
 
-  const classes = useStyles();
+  const resetCreateForm = () => {
+    setCreateFormFields({ photo: "", title: "", category: "", content: "", date: "" });
+  };
+
+  const resetEditForm = () => {
+    setEditFormFields({ _id: "", photo: null, title: "", category: "", content: "", date: "" });
+  };
 
   const columns = [
     { name: 'photo',  label: 'Photo' },
@@ -210,7 +217,7 @@ const News = () => {
                 Create New News
               </Button>
             </SoftBox>
-            {loading && <CircularProgress alignItems="center"/>}
+            {loading && <CircularProgress />}
             {!loading && (
               <TableContainer component={Paper}>
                 <Table className={classes.table}>

@@ -3,11 +3,13 @@ import mongoose from "mongoose";
 const NewsSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
     category: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
     content: {
         type: String,
@@ -19,7 +21,22 @@ const NewsSchema = new mongoose.Schema({
     },
     date: {
         type: Date,
+        default: Date.now,
         required: true
+    },
+    author: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    tags: {
+        type: [String],
+        default: []
+    },
+    summary: {
+        type: String,
+        required: true,
+        trim: true
     }
 });
 
