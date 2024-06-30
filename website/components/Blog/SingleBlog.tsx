@@ -45,7 +45,7 @@ const SingleBlog = ({ post }: Props) => {
             <h4 className="mb-1 text-sm font-medium text-dark dark:text-white">
               Date
             </h4>
-            <p className="text-xs text-body-color">{post.publishedAt}</p>
+            <p className="text-xs text-body-color">{new Date(post.publishedAt).toLocaleDateString()}</p>
           </div>
         </div>
       </div>
