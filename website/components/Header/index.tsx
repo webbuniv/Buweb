@@ -15,7 +15,6 @@ import { FaChevronDown } from "react-icons/fa";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const [showModel5, setShowModel5] = useState(false);
   const [showModel4, setShowModel4] = useState(false);
   const [showModel3, setShowModel3] = useState(false);
   const [showModel, setShowModel] = useState(false);
@@ -122,7 +121,7 @@ const Header = () => {
       setShowModel(false); 
       setShowModel1(false);
       setShowModel2(false);
-   } 
+   };
         
   return (
     <>
@@ -162,7 +161,7 @@ const Header = () => {
                         href="."
                         className={`nav hover ml-3 flex py-2 text-black text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onMouseEnter={first_modal}
-                        onMouseLeave={close}
+                        // onMouseLeave={close}
 
                         // onMouseLeave={setShowModel(false)}
                       >
@@ -180,7 +179,7 @@ const Header = () => {
                         href=""
                         className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onMouseEnter={second_modal}
-                        onMouseLeave={close}
+                        // onMouseLeave={close}
                       >
                         <span className={showModel1 ? "active" : ""}>Student life</span>
                         <span className="my-1 ml-2 dark:text-dark ">
@@ -197,7 +196,7 @@ const Header = () => {
                         href=""
                         className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onMouseEnter={third_modal}
-                        onMouseLeave={close}
+                        // onMouseLeave={close}
                       >
                         <span className={showModel2 ? "active" : ""}>Research</span>
                         <span className={"my-1 ml-2 dark:text-dark "}>
@@ -210,7 +209,7 @@ const Header = () => {
                         href=""
                         className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onMouseEnter={forth_modal}
-                        onMouseLeave={close}
+                        // onMouseLeave={close}
                       >
                         <span className={showModel3 ? "active" : ""}>Campuses</span>
                         <span className="my-1 ml-2 dark:text-dark ">
@@ -226,7 +225,7 @@ const Header = () => {
                         href=""
                         className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onMouseEnter={fifth_modal}
-                        onMouseLeave={close}
+                        // onMouseLeave={close}
                       >
                         <span className={showModel4 ? "active" : ""}>Contact Us</span>
                         <span className="my-1 ml-2 text-dark ">
