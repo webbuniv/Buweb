@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import SectionTitle from "../Common/SectionTitle";
 import SingleEvent from "./SingleEvent";
 
-const Event = () => {
+const Events = () => {
   const [events, setEvents] = useState([]);
   const [error, setError] = useState(null);
 
@@ -21,7 +21,8 @@ const Event = () => {
         }
 
         const data = await response.json();
-        setEvents(data);
+        const reversedData = data.slice(0).reverse();
+        setEvents(reversedData);
       } catch (err) {
         setError(err.message);
       }
@@ -34,9 +35,8 @@ const Event = () => {
     <section id="blog" className="bg-primary/5 py-16 md:py-20 lg:py-28">
       <div className="container">
         <SectionTitle
-          title="Our Latest Blogs"
-          paragraph="You'll find a wealth of 
-        knowledge and insights on various topics related to academia, student life, research, and more."
+          title="Upcoming Events"
+          paragraph="Explore a diverse array of activities whether workshops and seminars, cultural and social engagements, sports activities you do not want to miss."
           center
         />
 
@@ -54,4 +54,4 @@ const Event = () => {
   );
 };
 
-export default Event;
+export default Events;
