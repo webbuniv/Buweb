@@ -11,7 +11,7 @@ const Welcome = () => {
     <>
       <section id="features" className="bg-primary/[.03] pt-8 -mt-5">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-60">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-60">
             <div className="flex flex-col mt-10 ">
               {/* Section title on big screens */}
               <div className=" mb-8 hidden md:flex md:flex-col">
