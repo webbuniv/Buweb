@@ -127,8 +127,6 @@ const Header = () => {
       setShowModel(false); 
       setShowModel1(false);
       setShowModel2(false);
-      
-      
     }; 
    const close =()=>{
       setShowModel5(false);
@@ -179,7 +177,6 @@ const Header = () => {
                         onMouseEnter={first_modal}
                         onMouseLeave={close}
 
-                        // onMouseLeave={setShowModel(false)}
                       >
                         <span className={showModel ? "active" : ""}>Programs</span>
                         <span className="my-1 ml-2 dark:text-dark  text-bold">
@@ -187,8 +184,6 @@ const Header = () => {
                         </span>
                       </Link>
                     </li>
-
-                    
 
                     <li>
                       <Link
