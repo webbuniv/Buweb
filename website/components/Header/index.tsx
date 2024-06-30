@@ -237,10 +237,18 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <Model isvisible={showModel} onClose={() => setShowModel(false)}>
+          
+          
+        </div>
+        
+          
+      </header>
+      
+      <Model isvisible={showModel} onClose={() => setShowModel(false)}>
             <>
             </>
           </Model>
+
           <Model1 issvisible={showModel1} onClose={() => setShowModel1(false)}>
             <>
             </>
@@ -257,9 +265,6 @@ const Header = () => {
             <>
             </>
           </Model4>
-          
-        </div>
-      </header>
     </>
   );
 };
