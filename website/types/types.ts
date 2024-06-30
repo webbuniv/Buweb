@@ -1,3 +1,4 @@
+// types.ts
 export interface News {
     _id: string;
     title: string;
