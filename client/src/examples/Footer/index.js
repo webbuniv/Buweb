@@ -44,10 +44,10 @@ function Footer({ company, links }) {
         fontSize={size.sm}
         px={1.5}
       >
-        &copy; {new Date().getFullYear()}, made with
+        &copy; {new Date().getFullYear()}, Copyright
         <SoftBox fontSize={size.md} color="text" mb={-0.5} mx={0.25}>
           <Icon color="inherit" fontSize="inherit">
-            favorite
+            f
           </Icon>
         </SoftBox>
         by
@@ -56,7 +56,7 @@ function Footer({ company, links }) {
             &nbsp;{name}&nbsp;
           </SoftTypography>
         </Link>
-        for a better web.
+        All rights Reserved.
       </SoftBox>
       <SoftBox
         component="ul"
@@ -83,12 +83,12 @@ function Footer({ company, links }) {
 
 // Setting default values for the props of Footer
 Footer.defaultProps = {
-  company: { href: "https://www.creative-tim.com/", name: "Creative Tim" },
+  company: { href: "https://bugemauniv.ac.ug/", name: "Bugema University" },
   links: [
-    { href: "https://www.creative-tim.com/", name: "Creative Tim" },
-    { href: "https://www.creative-tim.com/presentation", name: "About Us" },
-    { href: "https://www.creative-tim.com/blog", name: "Blog" },
-    { href: "https://www.creative-tim.com/license", name: "License" },
+    { href: "https://bugemauniv.ac.ug/", name: "Bugema University" },
+    { href: "https://bugemauniv.ac.ug/", name: "About Us" },
+    { href: "https://bugemauniv.ac.ug/blog", name: "Blog" },
+    { href: "https://bugemauniv.ac.ug/license", name: "Contact Us" },
   ],
 };
 
