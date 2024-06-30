@@ -10,6 +10,7 @@ export interface News {
     summary: string;
 }
 
+
 export interface Event {
     _id: string;
     title: string;
