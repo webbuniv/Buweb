@@ -51,12 +51,15 @@ const Events = () => {
   const token = useSelector((state) => state.token);
 
   const [createFormFields, setCreateFormFields] = useState({
-    coverPhotoUrl: "",
+    coverPhotoUrl: null,
     title: "",
     description: "",
     date: "",
     location: "",
+    organizer: "",
+    tags: "",
   });
+
   const [editFormFields, setEditFormFields] = useState({
     _id: "",
     coverPhotoUrl: null,
@@ -64,6 +67,8 @@ const Events = () => {
     description: "",
     date: "",
     location: "",
+    organizer: "",
+    tags: "",
   });
 
   const fetchEvents = async () => {
@@ -96,6 +101,8 @@ const Events = () => {
       formData.append("description", createFormFields.description);
       formData.append("date", createFormFields.date);
       formData.append("location", createFormFields.location);
+      formData.append("organizer", createFormFields.organizer);
+      formData.append("tags", createFormFields.tags);
 
       const response = await axios.post("https://buweb.onrender.com/events/create", formData, {
         headers: {
@@ -108,26 +115,19 @@ const Events = () => {
         fetchEvents();
         setShowNewEventModal(false);
         setCreateFormFields({
-          coverPhotoUrl: "",
+          coverPhotoUrl: null,
           title: "",
           description: "",
           date: "",
           location: "",
+          organizer: "",
+          tags: "",
         });
       }
     } catch (error) {
       setError(error.message);
     } finally {
       setIsCreating(false);
-      fetchEvents();
-      setShowNewEventModal(false);
-      setCreateFormFields({
-        coverPhotoUrl: "",
-        title: "",
-        description: "",
-        date: "",
-        location: "",
-      });
     }
   };
 
@@ -143,6 +143,8 @@ const Events = () => {
       formData.append("description", editFormFields.description);
       formData.append("date", editFormFields.date);
       formData.append("location", editFormFields.location);
+      formData.append("organizer", editFormFields.organizer);
+      formData.append("tags", editFormFields.tags);
 
       await axios.patch(`https://buweb.onrender.com/events/${editFormFields._id}/update`, formData, {
         headers: {
@@ -154,11 +156,13 @@ const Events = () => {
       setShowEditEventModal(false);
       setEditFormFields({
         _id: "",
-        coverPhotoUrl: "",
+        coverPhotoUrl: null,
         title: "",
         description: "",
         date: "",
         location: "",
+        organizer: "",
+        tags: "",
       });
     } catch (error) {
       setError(error.message);
@@ -170,11 +174,13 @@ const Events = () => {
   const handleEditEvent = (event) => {
     setEditFormFields({
       _id: event._id,
-      coverPhotoUrl: event.coverPhotoUrlUrl,
+      coverPhotoUrl: event.coverPhotoUrl,
       title: event.title,
       description: event.description,
       date: event.date,
       location: event.location,
+      organizer: event.organizer,
+      tags: event.tags,
     });
     setShowEditEventModal(true);
   };
@@ -285,20 +291,16 @@ const Events = () => {
             }}
           >
             <form onSubmit={handleCreateEvent}>
-              <div
-                style={{
-                  display: "grid",
-                  gap: "30px",
-                  gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
-                }}
+              <Box
+                display="grid"
+                gap="30px"
+                gridTemplateColumns="repeat(4, minmax(0, 1fr))"
               >
-                <div
-                  style={{
-                    gridColumn: "span 4",
-                    border: "1px solid",
-                    borderRadius: "5px",
-                    padding: "1rem",
-                  }}
+                <Box
+                  gridColumn="span 4"
+                  border="1px solid"
+                  borderRadius="5px"
+                  p="1rem"
                 >
                   <Dropzone
                     acceptedFiles=".jpg,.jpeg,.png"
@@ -311,27 +313,25 @@ const Events = () => {
                     }
                   >
                     {({ getRootProps, getInputProps }) => (
-                      <div
+                      <Box
                         {...getRootProps()}
-                        style={{
-                          border: "2px dashed",
-                          padding: "1rem",
-                          cursor: "pointer",
-                        }}
+                        border="2px dashed"
+                        p="1rem"
+                        sx={{ "&:hover": { cursor: "pointer" } }}
                       >
                         <input {...getInputProps()} />
                         {!createFormFields.coverPhotoUrl ? (
-                          <p>Add Cover Photo Here</p>
+                          <Typography>Add Cover Photo Here</Typography>
                         ) : (
                           <div>
                             <Typography>{createFormFields.coverPhotoUrl.name}</Typography>
                             <EditOutlinedIcon />
                           </div>
                         )}
-                      </div>
+                      </Box>
                     )}
                   </Dropzone>
-                </div>
+                </Box>
                 <TextField
                   label="Title"
                   type="text"
@@ -342,7 +342,7 @@ const Events = () => {
                       title: e.target.value,
                     }))
                   }
-                  style={{ gridColumn: "span 4" }}
+                  sx={{ gridColumn: `span 4` }}
                 />
                 <TextField
                   label="Description"
@@ -354,7 +354,10 @@ const Events = () => {
                       description: e.target.value,
                     }))
                   }
-                  style={{ gridColumn: "span 4" }}
+                  multiline
+                  rows={10}
+                  variant="outlined"
+                  sx={{ gridColumn: "span 4" }}
                 />
                 <TextField
                   label="Date"
@@ -366,7 +369,7 @@ const Events = () => {
                       date: e.target.value,
                     }))
                   }
-                  style={{ gridColumn: "span 4" }}
+                  sx={{ gridColumn: `span 4` }}
                 />
                 <TextField
                   label="Location"
@@ -378,16 +381,40 @@ const Events = () => {
                       location: e.target.value,
                     }))
                   }
-                  style={{ gridColumn: "span 4" }}
+                  sx={{ gridColumn: `span 4` }}
                 />
-              </div>
-              <div>
+                <TextField
+                  label="Organizer"
+                  type="text"
+                  value={createFormFields.organizer}
+                  onChange={(e) =>
+                    setCreateFormFields((prevFields) => ({
+                      ...prevFields,
+                      organizer: e.target.value,
+                    }))
+                  }
+                  sx={{ gridColumn: `span 4` }}
+                />
+                <TextField
+                  label="Tags"
+                  type="text"
+                  value={createFormFields.tags}
+                  onChange={(e) =>
+                    setCreateFormFields((prevFields) => ({
+                      ...prevFields,
+                      tags: e.target.value,
+                    }))
+                  }
+                  sx={{ gridColumn: `span 4` }}
+                />
+              </Box>
+              <Box>
                 <Button
                   fullWidth
                   type="submit"
-                  style={{
-                    margin: "2rem 0",
-                    padding: "1rem",
+                  sx={{
+                    m: "2rem 0",
+                    p: "1rem",
                     backgroundColor: "#000",
                     color: "#fff",
                     "&:hover": { backgroundColor: "#333" },
@@ -396,7 +423,7 @@ const Events = () => {
                 >
                   {isCreating ? <CircularProgress size={24} /> : "Create Event"}
                 </Button>
-              </div>
+              </Box>
             </form>
           </Box>
         </Modal>
@@ -413,7 +440,8 @@ const Events = () => {
             borderRadius={2}
             maxWidth="500px"
             mx="auto"
-            mt="10%"
+            mt="5%"
+            mb="5%"
             sx={{
               height: '80vh',
               overflowY: 'scroll'
@@ -450,7 +478,7 @@ const Events = () => {
                       >
                         <input {...getInputProps()} />
                         {!editFormFields.coverPhotoUrl ? (
-                          <p>Add Cover Photo Here</p>
+                          <Typography>Add Cover Photo Here</Typography>
                         ) : (
                           <div>
                             <Typography>{editFormFields.coverPhotoUrl.name}</Typography>
@@ -483,7 +511,10 @@ const Events = () => {
                       description: e.target.value,
                     }))
                   }
-                  sx={{ gridColumn: `span 4` }}
+                  multiline
+                  rows={10}
+                  variant="outlined"
+                  sx={{ gridColumn: "span 4" }}
                 />
                 <TextField
                   label="Date"
@@ -505,6 +536,30 @@ const Events = () => {
                     setEditFormFields((prevFields) => ({
                       ...prevFields,
                       location: e.target.value,
+                    }))
+                  }
+                  sx={{ gridColumn: `span 4` }}
+                />
+                <TextField
+                  label="Organizer"
+                  type="text"
+                  value={editFormFields.organizer}
+                  onChange={(e) =>
+                    setEditFormFields((prevFields) => ({
+                      ...prevFields,
+                      organizer: e.target.value,
+                    }))
+                  }
+                  sx={{ gridColumn: `span 4` }}
+                />
+                <TextField
+                  label="Tags"
+                  type="text"
+                  value={editFormFields.tags}
+                  onChange={(e) =>
+                    setEditFormFields((prevFields) => ({
+                      ...prevFields,
+                      tags: e.target.value,
                     }))
                   }
                   sx={{ gridColumn: `span 4` }}
