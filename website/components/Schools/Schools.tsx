@@ -63,7 +63,7 @@ export default function SchoolsPage() {
               >
                 <Link
                   href={item.cardlink}
-                  className="group relative mx-auto mb-12 flex h-[250px] w-[280px] cursor-pointer flex-col gap-6 overflow-hidden rounded-xl px-6 py-8 text-white shadow-lg lg:h-[400px] lg:w-[350px]"
+                  className="group relative mx-auto mb-12 flex h-[150px] w-[100px] cursor-pointer flex-col gap-6 overflow-hidden rounded-xl px-6 py-8 text-white shadow-lg lg:h-[200px] lg:w-[150px]"
                 >
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-all duration-700 group-hover:scale-125"
@@ -93,7 +93,7 @@ export default function SchoolsPage() {
               spaceBetween: 15,
             },
             700: {
-              slidesPerView: 3,
+              slidesPerView: 4,
               spaceBetween: 15,
             },
           }}
@@ -114,7 +114,7 @@ export default function SchoolsPage() {
               >
                 <Link
                   href={item.cardlink}
-                  className="group relative mb-14 flex h-[250px] w-[215px] cursor-pointer flex-col gap-6 overflow-hidden rounded-xl px-6 py-8 text-white shadow-lg lg:h-[400px] lg:w-[350px]"
+                  className="group relative mb-14 flex h-[200px] w-[165px] cursor-pointer flex-col gap-6 overflow-hidden rounded-xl px-6 py-8 text-white shadow-lg lg:h-[400px] lg:w-[350px]"
                 >
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-all duration-700 group-hover:scale-125"
