@@ -13,6 +13,7 @@ import image from "../../public/images/logo/logo1.png";
 import "../../styles/nav.css";
 import "../../styles/index.css";
 import { FaChevronDown } from "react-icons/fa";
+import MobileNav from "../MobileNav/MobileNav";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -25,6 +26,13 @@ const Header = () => {
   const [sticky, setSticky] = useState(false);
   const [openIndex, setOpenIndex] = useState(-1);
   const [showModel2, setShowModel2] = useState(false);
+
+  const [programsOpen, setProgramsOpen] = useState(false);
+  const [studentLifeOpen, setStudentLifeOpen] = useState(false);
+  const [researchOpen, setResearchOpen] = useState(false);
+  const [campusesOpen, setCampusesOpen] = useState(false);
+
+
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
   };
@@ -51,124 +59,157 @@ const Header = () => {
     }
   };
   useEffect(() => {
-    document.body.style.overflow = showModel ? 'hidden' : 'auto';    
+    document.body.style.overflow = showModel ? "hidden" : "auto";
   }, [showModel]);
-  const first_modal = () =>{
+  const first_modal = () => {
     setShowModel(true);
     setShowModel1(false);
     setShowModel2(false);
     setShowModel3(false);
-    setShowModel4(false);  
-    setShowModel5(false); 
+    setShowModel4(false);
+    setShowModel5(false);
   };
-  
 
   useEffect(() => {
-    document.body.style.overflow = showModel1 ? 'hidden' : 'auto';
-          
+    document.body.style.overflow = showModel1 ? "hidden" : "auto";
   }, [showModel1]);
-  const second_modal =() =>{
-    setShowModel1(true), document.body.style.overflow = showModel1 ? 'hidden' : 'auto';
+  const second_modal = () => {
+    setShowModel1(true),
+      (document.body.style.overflow = showModel1 ? "hidden" : "auto");
     setShowModel(false);
     setShowModel2(false);
     setShowModel3(false);
-    setShowModel4(false);  
-    setShowModel5(false); 
-    
+    setShowModel4(false);
+    setShowModel5(false);
   };
 
   useEffect(() => {
-    document.body.style.overflow = showModel2 ? 'hidden' : 'auto';           
+    document.body.style.overflow = showModel2 ? "hidden" : "auto";
   }, [showModel2]);
 
-  const third_modal =() =>{
+  const third_modal = () => {
     setShowModel2(true);
     setShowModel(false);
     setShowModel1(false);
     setShowModel3(false);
-    setShowModel4(false);  
-    setShowModel5(false); 
-    
-  };  
-
-  useEffect(() => {
-    document.body.style.overflow = showModel3 ? 'hidden' : 'auto';         
-  }, [showModel3]); 
-
-  const forth_modal =() =>{
-    setShowModel3(true);
-    setShowModel(false); 
-    setShowModel1(false);
-    setShowModel2(false);
-    setShowModel4(false);  
-    setShowModel5(false);            
-  }
-  useEffect(() => {
-    document.body.style.overflow = showModel4 ? 'hidden' : 'auto';        
-  }, [showModel4]); 
-  const fifth_modal =() =>{
-    setShowModel4(true);
-    setShowModel3(false);
-    setShowModel(false); 
-    setShowModel1(false);
-    setShowModel2(false);
+    setShowModel4(false);
     setShowModel5(false);
-    
-    
   };
 
   useEffect(() => {
-      document.body.style.overflow = showModel5 ? 'hidden' : 'auto';        
-    }, [showModel5]); 
-    const sixth_modal =() =>{
-      setShowModel5(true);
-      setShowModel4(false);
-      setShowModel3(false);
-      setShowModel(false); 
-      setShowModel1(false);
-      setShowModel2(false);
-      
-      
-    }; 
-   const close =()=>{
-      setShowModel5(false);
-      setShowModel4(false);
-      setShowModel3(false);
-      setShowModel(false); 
-      setShowModel1(false);
-      setShowModel2(false);
-   } 
-        
+    document.body.style.overflow = showModel3 ? "hidden" : "auto";
+  }, [showModel3]);
+
+  const forth_modal = () => {
+    setShowModel3(true);
+    setShowModel(false);
+    setShowModel1(false);
+    setShowModel2(false);
+    setShowModel4(false);
+    setShowModel5(false);
+  };
+  useEffect(() => {
+    document.body.style.overflow = showModel4 ? "hidden" : "auto";
+  }, [showModel4]);
+  const fifth_modal = () => {
+    setShowModel4(true);
+    setShowModel3(false);
+    setShowModel(false);
+    setShowModel1(false);
+    setShowModel2(false);
+    setShowModel5(false);
+  };
+
+  useEffect(() => {
+    document.body.style.overflow = showModel5 ? "hidden" : "auto";
+  }, [showModel5]);
+  const sixth_modal = () => {
+    setShowModel5(true);
+    setShowModel4(false);
+    setShowModel3(false);
+    setShowModel(false);
+    setShowModel1(false);
+    setShowModel2(false);
+  };
+  const close = () => {
+    setShowModel5(false);
+    setShowModel4(false);
+    setShowModel3(false);
+    setShowModel(false);
+    setShowModel1(false);
+    setShowModel2(false);
+  };
+
   return (
     <>
-      <header className={`header top-0 left-0 z-40 flex w-full items-center  mt-[-8px] ${sticky ? " bg-dark !fixed !z-[9999] ! bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100" : "absolute"}`}>
+    {/* Header on big screens */}
+      <header
+        className={`hidden header top-0 left-0 z-40 lg:flex w-full items-center  mt-[-8px] ${
+          sticky
+            ? " bg-dark !fixed !z-[9999] ! bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100"
+            : "absolute"
+        }`}
+      >
         <div className="container">
           <div className="relative flex items-center justify-between">
-            <div className="w-60 relative z-10" >
-                  <Link href="/"  className={`header-logo block w-full ${sticky ? "py-2 lg:py-2" : "py-3"}`}>
-                        <Image src={image} alt="logo" width={140} height={40} className="w-full dark:hidden" />
-                        <Image src={image} alt="logo" width={100} height={20} className="hidden w-full dark:block" />
-                         
-                  </Link>
-                 
+            <div className="w-60 relative z-10">
+              <Link
+                href="/"
+                className={`header-logo block w-full ${
+                  sticky ? "py-2 lg:py-2" : "py-3"
+                }`}
+              >
+                <Image
+                  src={image}
+                  alt="logo"
+                  width={140}
+                  height={40}
+                  className="w-full dark:hidden"
+                />
+                <Image
+                  src={image}
+                  alt="logo"
+                  width={100}
+                  height={20}
+                  className="hidden w-full dark:block"
+                />
+              </Link>
             </div>
             <div className="flex space-x-20 justify-between transform bg-white">
               <div>
-
-              <button
-                  onClick={navbarToggleHandler}
+                <button
+                  onClick={() => {
+                    setNavbarOpen(!navbarOpen);
+                    setProgramsOpen(false);
+                    setStudentLifeOpen(false);
+                    setResearchOpen(false);
+                    setCampusesOpen(false);
+                  }}
                   id="navbarToggler"
                   aria-label="Mobile Menu"
-                  className="absolute right-4 top-1/2 block translate-y-[-50%] rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden">
-                  <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? " top-[7px] rotate-45" : " "}`} />
-                  <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? "opacity-0 " : " "}`} />
-                  <span className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${navbarOpen ? " top-[-8px] -rotate-45" : " "}`} />
+                  className="absolute right-4 top-1/2 block translate-y-[-50%] rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
+                >
+                  <span
+                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
+                      navbarOpen ? " top-[7px] rotate-45" : " "
+                    }`}
+                  />
+                  <span
+                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
+                      navbarOpen ? "opacity-0 " : " "
+                    }`}
+                  />
+                  <span
+                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
+                      navbarOpen ? " top-[-8px] -rotate-45" : " "
+                    }`}
+                  />
                 </button>
 
-                {navbarOpen && (
+                {!navbarOpen && (
                   <nav
                     id="navbarCollapse"
-                    className="hidden md:block navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-dark lg:p-0 lg:opacity-100"
+                    className="hidden lg:block navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-dark lg:p-0 lg:opacity-100"
                   >
                     <ul className="block lg:flex bg-white lg:space-x-8 top-0 left-0 h-full  text-black">
                       <li className="group relative">
@@ -180,14 +221,16 @@ const Header = () => {
 
                           // onMouseLeave={setShowModel(false)}
                         >
-                          <span className={showModel ? "active" : ""}>Programs</span>
+                          <span className={showModel ? "active" : ""}>
+                            Programs
+                          </span>
                           <span className="my-1 ml-2 dark:text-dark  text-bold">
-                            <FaChevronDown className={showModel ? "drop" : ""} />
+                            <FaChevronDown
+                              className={showModel ? "drop" : ""}
+                            />
                           </span>
                         </Link>
                       </li>
-
-                      
 
                       <li>
                         <Link
@@ -196,23 +239,13 @@ const Header = () => {
                           onMouseEnter={second_modal}
                           onMouseLeave={close}
                         >
-                          <span className={showModel1 ? "active" : ""}>Student life</span>
-                          <span className="my-1 ml-2 dark:text-dark ">
-                            <FaChevronDown className={showModel1 ? "drop" : ""} />
+                          <span className={showModel1 ? "active" : ""}>
+                            Student life
                           </span>
-                        </Link>
-                      </li>
-
-                      <li className="group relative">
-                        <Link
-                          href="/"
-                          className={`nav hover ml-3 flex py-2 text-black text-lg  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                          onMouseEnter={sixth_modal}
-                          onMouseLeave={close}
-                        >
-                        <span className={showModel5 ? "active" : ""}>Staff & Faculty</span>
-                          <span className="my-1 ml-2 dark:text-dark  text-bold">
-                            <FaChevronDown className={showModel5 ? "drop" : ""} />
+                          <span className="my-1 ml-2 dark:text-dark ">
+                            <FaChevronDown
+                              className={showModel1 ? "drop" : ""}
+                            />
                           </span>
                         </Link>
                       </li>
@@ -224,9 +257,13 @@ const Header = () => {
                           onMouseEnter={third_modal}
                           onMouseLeave={close}
                         >
-                          <span className={showModel2 ? "active" : ""}>Research</span>
+                          <span className={showModel2 ? "active" : ""}>
+                            Research
+                          </span>
                           <span className={"my-1 ml-2 dark:text-dark "}>
-                            <FaChevronDown className={showModel2 ? "drop" : ""} />
+                            <FaChevronDown
+                              className={showModel2 ? "drop" : ""}
+                            />
                           </span>
                         </Link>
                       </li>
@@ -237,14 +274,16 @@ const Header = () => {
                           onMouseEnter={forth_modal}
                           onMouseLeave={close}
                         >
-                          <span className={showModel3 ? "active" : ""}>Campuses</span>
+                          <span className={showModel3 ? "active" : ""}>
+                            Campuses
+                          </span>
                           <span className="my-1 ml-2 dark:text-dark ">
-                            <FaChevronDown className={showModel3 ? "drop" : ""} />
+                            <FaChevronDown
+                              className={showModel3 ? "drop" : ""}
+                            />
                           </span>
                         </Link>
                       </li>
-
-                      
 
                       <li>
                         <Link
@@ -253,69 +292,115 @@ const Header = () => {
                           onMouseEnter={fifth_modal}
                           onMouseLeave={close}
                         >
-                          <span className={showModel4 ? "active" : ""}>Contact Us</span>
+                          <span className={showModel4 ? "active" : ""}>
+                            Contact Us
+                          </span>
                           <span className="my-1 ml-2 text-dark ">
-                            <FaChevronDown className={showModel4 ? "drop" : ""} />
+                            <FaChevronDown
+                              className={showModel4 ? "drop" : ""}
+                            />
                           </span>
                         </Link>
                       </li>
                     </ul>
                   </nav>
                 )}
-
-                {navbarOpen && (
-                  <div className="lg:hidden">
-                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                      <Link href="/" className="block">
-                        Programs
-                      </Link>
-                      <Link href="/" className="block">
-                        Student Life
-                      </Link>
-                      <Link href="/" className="block">
-                        Staff & Faculty
-                      </Link>
-                      <Link href="/" className="block">
-                        Research
-                      </Link>
-                      <Link href="/" className="block">
-                        Campuses
-                      </Link>
-                      <Link href="/" className="block">
-                        Contact Us
-                      </Link>
-                    </div>
-                </div>
-                )}
               </div>
             </div>
           </div>
           <Model isvisible={showModel} onClose={() => setShowModel(false)}>
-            <>
-            </>
+            <></>
           </Model>
           <Model1 issvisible={showModel1} onClose={() => setShowModel1(false)}>
-            <>
-            </>
+            <></>
           </Model1>
           <Model2 isssvisible={showModel2} onClose={() => setShowModel2(false)}>
-            <>
-            </>
+            <></>
           </Model2>
           <Model3 is3visible={showModel3} onClose={() => setShowModel3(false)}>
-            <>
-            </>
+            <></>
           </Model3>
           <Model4 is4visible={showModel4} onClose={() => setShowModel4(false)}>
-            <>
-            </>
+            <></>
           </Model4>
           <Model5 is5visible={showModel5} onClose={() => setShowModel5(false)}>
-            <>
-            </>
+            <></>
           </Model5>
         </div>
       </header>
+
+      {/* Header on small screens */}
+      <header
+        className={`lg:hidden header top-0 left-0 z-40 flex w-full items-center bg-dark mt-[-8px] ${
+          sticky
+            ? " bg-dark !fixed !z-[9999] ! bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100"
+            : "absolute"
+        }`}
+      >
+        <div className="container">
+          <div className="relative flex items-center justify-between">
+            <div className="w-60 relative z-10">
+              <Link
+                href="/"
+                className={`header-logo block w-full ${
+                  sticky ? "py-2 lg:py-2" : "py-3"
+                }`}
+              >
+                <Image
+                  src={image}
+                  alt="logo"
+                  width={140}
+                  height={40}
+                  className="w-full dark:hidden"
+                />
+                <Image
+                  src={image}
+                  alt="logo"
+                  width={100}
+                  height={20}
+                  className="hidden w-full dark:block"
+                />
+              </Link>
+            </div>
+            <div className="flex space-x-20 justify-between transform bg-white">
+              <div>
+                <button
+                  onClick={() => {
+                    setNavbarOpen(!navbarOpen);
+                    setProgramsOpen(false);
+                    setStudentLifeOpen(false);
+                    setResearchOpen(false);
+                    setCampusesOpen(false);
+                  }}
+                  id="navbarToggler"
+                  aria-label="Mobile Menu"
+                  className="absolute right-4 top-1/2 block translate-y-[-50%] rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
+                >
+                  <span
+                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
+                      navbarOpen ? " top-[7px] rotate-45" : " "
+                    }`}
+                  />
+                  <span
+                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
+                      navbarOpen ? "opacity-0 " : " "
+                    }`}
+                  />
+                  <span
+                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
+                      navbarOpen ? " top-[-8px] -rotate-45" : " "
+                    }`}
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {navbarOpen && (
+        <MobileNav setNavbarOpen={setNavbarOpen} navbarOpen={navbarOpen}/>
+      )}
     </>
   );
 };
