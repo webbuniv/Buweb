@@ -33,7 +33,6 @@ export default async function NewsPage({ params }: Props) {
   if (!news) {
     return notFound();
   }
-
   return (
     <div className="pt-[120px] pb-[120px]">
       <div className="container p-20">
@@ -43,7 +42,7 @@ export default async function NewsPage({ params }: Props) {
         <h1 className="text-4xl lg:text-6xl text-center leading-relaxed font-bold mt-5">
           {news.title}
         </h1>
-        <p className="my-5 text-center text-xl text-gray-400">{news.date}</p>
+        <p className="my-5 text-center text-xl text-gray-400">{news.author}</p>
         <div className="my-5 flex items-center justify-center text-lg">
           <span>{news.title}</span>
         </div>
@@ -55,3 +54,4 @@ export default async function NewsPage({ params }: Props) {
     </div>
   );
 }
+

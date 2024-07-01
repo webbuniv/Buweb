@@ -37,8 +37,10 @@ const News = () => {
   }, []);
 
   return (
+
     <section id="blog" className="py-2">
       <div className="container flex flex-col lg:flex-row lg:gap-4">
+
         {error && <p>Error: {error}</p>}
 
         <div className="w-full">

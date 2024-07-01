@@ -32,7 +32,9 @@ const Events = () => {
   }, [events]);
 
   return (
+
     <section id="blog" className="bg-white mt-4">
+
       <div className="container">
 
         {error && <p>Error: {error}</p>}

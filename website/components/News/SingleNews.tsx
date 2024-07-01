@@ -7,8 +7,9 @@ type Props = {
   post: News;
 };
 
-const SingleNews = ({ post }: Props) => {
+const SingleEvent = ({ post }: Props) => {
   return (
+
     <div className="wow fadeInUp relative rounded-md bg-white shadow-one dark:bg-dark w-[220] mt-5">
       <Link
         href={`/newss/${post._id}`}
@@ -44,6 +45,7 @@ const SingleNews = ({ post }: Props) => {
               ? `${post.title.slice(0, 23)}...`
               : post.title}
           </Link>
+
         </div>
         <p className="mb-4 text-base font-medium text-body-color dark:border-white dark:border-opacity-10">
           {post.content.length > 20
@@ -55,4 +57,4 @@ const SingleNews = ({ post }: Props) => {
   );
 };
 
-export default SingleNews;
+export default SingleEvent;
