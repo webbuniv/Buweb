@@ -1,3 +1,4 @@
+// types.ts
 export interface News {
     _id: string;
     title: string;
@@ -9,6 +10,7 @@ export interface News {
     author: string;
     summary: string;
 }
+
 
 export interface Event {
     _id: string;
