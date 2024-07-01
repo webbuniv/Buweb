@@ -30,7 +30,7 @@ const brandsData: Brand[] = [
     id: 5,
     name: "Flair ERMS",
     href: "",
-    image: "/images/logo/flair1.jpg",
+    image: "/images/brands/flair1.jpg",
   },
 ];
 
