@@ -81,12 +81,12 @@ const Video = () => {
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20 ">
             <div
-              className="wow fadeInUp overflow-hidden rounded-md h-[400px]  "
+              className="wow fadeInUp overflow-hidden rounded-md h-[300px]  "
               data-wow-delay=".15s"
             >
               <iframe
-                width="500"
-                height="300"
+                width="100"
+                height="100"
                 title="YouTube video player"
                 allow="accelerometer; loop=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
@@ -100,7 +100,7 @@ const Video = () => {
               {/* Section title on big screens */}
               <div className="mb-8 hidden md:flex md:flex-col">
                 <div className="wow fadeInUp w-full" data-wow-delay=".1s">
-                  <h1 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px]">
+                  <h1 className="mb-4 text-2xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px]">
                     Discover Your Path at Bugema University!
                   </h1>
                   <p className="text-base !leading-relaxed text-body-color md:text-lg">
@@ -109,10 +109,7 @@ const Video = () => {
                     holistic excellence, where character development meets
                     intellectual growth. With Flexible Intakes, whether you are a
                     fresh high school graduate or a working professional seeking
-                    advancement, Bugema offers multiple intakes throughout the
-                    year. No need to wait, start your journey now! Bugema
-                    University, where dreams take root, friendships flourish,
-                    and purpose unfolds. Join us today, your adventure awaits!
+                    advancement!
                   </p>
                 </div>
               </div>
