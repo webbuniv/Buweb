@@ -1,145 +1,69 @@
-import React, { useEffect, useState } from 'react';
-import { Swiper as SwiperComponent, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import { Event, News } from '@/types/types';
-import Image from 'next/image';
-import SectionTitle from '../Common/SectionTitle'
-import Link from 'next/link';
+import React from "react";
+import SectionTitle from "../Common/SectionTitle";
+import Events from "../Events";
+import News from "../News";
+import Link from "next/link";
 const EventsAndNews: React.FC = () => {
-  const [events, setEvents] = useState<Event[]>([]);
-  const [news, setNews] = useState<News[]>([]);
-
-  const fetchEvents = async () => {
-    try {
-      const response = await fetch('https://buweb.onrender.com/events');
-      const data = await response.json();
-      setEvents(data);
-    } catch (error) {
-      console.error('Error fetching events:', error);
-    }
-  };
-
-  const fetchNews = async () => {
-    try {
-      const response = await fetch('https://buweb.onrender.com/news');
-      const data = await response.json();
-      setNews(data);
-    } catch (error) {
-      console.error('Error fetching news:', error);
-    }
-  };
-
-  useEffect(() => {
-    fetchEvents();
-    fetchNews();
-  }, []);
-
-  const slideStyle = " flex flex-col rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark  md:max-w-xl md:flex-row h-[200px]";
-  const imgStyle = "h-96 w-full rounded-t-lg object-cover md:h-auto md:w-48 md:!rounded-none md:!rounded-s-lg";
-  const contentStyle = "flex flex-col justify-center p-6";
-  const titleStyle = "mb-2 text-xl font-medium dark:text-black";
-  const textStyle = "mb-4 text-base dark:text-black";
-  const dateStyle = "text-xs text-surface/75 dark:text-neutral-300 dark:text-black";
-
   return (
-    <section id='eventsnadnews' className='mt-10'>
-        <SectionTitle
-          title="Events And News"
-          paragraph="You'll find a wealth of 
-        knowledge and insights on various topics related to academia, student life, research, and more."
-          center
-        />
-        <div className="flex flex-col md:flex-row gap-4 container mt-10">
+    <section id="eventsnadnews" className="mt-10 mb-5">
+      {/* On smaller screens */}
+      <div
+        className="first-line:wow mx-3 w-[80%] px-1 text-start fadeInUp md:hidden block"
+        data-wow-delay=".1s"
+      >
+        <h2 className="mb-2 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px]">
+          Upcoming Events And News
+        </h2>
+        <p className="text-base !leading-relaxed text-body-color md:text-lg">
+          Explore a diverse array of activities you do not want to miss. Stories
+          about latest developments, timely insights, campus happenings,
+          academic strides, and much more at Bugema where every moment counts.
+        </p>
+      </div>
 
-            {/* Events Column */}
-            <div className="w-full h-[300px] md:w-1/2 relative">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4 dark:text-white">Upcoming Events</h2>
-            <SwiperComponent
-                spaceBetween={30}
-                centeredSlides
-                autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-                }}
-                pagination={{
-                clickable: true,
-                renderBullet: (index, className) => `<span class="${className} bg-gray-300 w-4 h-[280] rounded-full inline-block mx-1"></span>`,
-                }}
-                navigation
-                modules={[Autoplay, Pagination, Navigation]}
-                className="mySwiper"
-            >
-                {events.map((event) => (
+      {/* On big screens */}
+      <div
+        className="hidden md:block first-line:wow mx-10 w-[80%] px-1 text-center fadeInUp"
+        data-wow-delay=".1s"
+      >
+        <h2 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px]">
+          Upcoming Events And News
+        </h2>
+        <p className="text-base !leading-relaxed text-body-color md:text-lg">
+          Explore a diverse array of activities whether workshops and seminars,
+          cultural and social engagements, sports activities you do not want to
+          miss. Stories about latest developments, timely insights, campus
+          happenings, academic strides, and much more at Bugema where every
+          moment counts.
+        </p>
+      </div>
 
-                  
-                    <SwiperSlide key={event._id}>
-                    <div className={slideStyle}>
-                    
-                    <Image
-                        className={imgStyle}
-                        src={event.coverPhotoUrl}
-                        alt={event.title}
-                        width={200}
-                        height={200}
-                    />
-                    <div className={contentStyle}>
-                      <Link href={`/events/${event._id}`}>
-                        <h3 className={titleStyle}>{event.title}</h3>
-                        <p className={textStyle}>{event.description}</p>
-                        <p className={dateStyle}>{new Date(event.date).toLocaleDateString()}</p>
-                        <p className={dateStyle}>{event.location}</p>
-                      </Link>
-                    </div>
-                    </div>
-                </SwiperSlide>
-                ))}
-            </SwiperComponent>
-            </div>
+      <div className="flex flex-col md:flex-row gap-4 container mt-2 pt-4 bg-primary/5 h-[550px]">
+        {/* News Column */}
+        <div className="w-full md:w-[70%] hidden md:block">
+          <h2 className="text-xl font-semibold text-black/80 mb-1 dark:text-white">
+            News & Updates
+          </h2>
+          <Link href="/news" className=" text-yellow-600">
+            Read All News
+          </Link>
+          <News />
+        </div>
 
-            {/* News Column */}
-            <div className="w-full md:w-1/2 relative">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4 dark:text-white">Happening Around Campus</h2>
-            <SwiperComponent
-                spaceBetween={30}
-                centeredSlides
-                autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-                }}
-                pagination={{
-                clickable: true,
-                renderBullet: (index, className) => `<span class="${className} bg-gray-300 w-4 h-4 rounded-full inline-block mx-1"></span>`,
-                }}
-                navigation
-                modules={[Autoplay, Pagination, Navigation]}
-                className="mySwiper"
-            >
-                {news.map((item) => (
-                <SwiperSlide key={item._id}>
-                    <div className={slideStyle}>
-                    <Image
-                        className={imgStyle}
-                        src={item.photo}
-                        alt={item.title}
-                        width={200}
-                        height={200}
-                    />
-                    <div className={contentStyle}>
-                      <Link href={`/news/${item._id}`}>
-                        <h3 className={titleStyle}>{item.title}</h3>
-                        <p className={textStyle}>{item.content}</p>
-                        <p className={dateStyle}>{new Date(item.date).toLocaleDateString()}</p>
-                        </Link>
-                    </div>
-                    </div>
-                </SwiperSlide>
-                ))}
-            </SwiperComponent>
-            </div>
-            </div>
+        {/* Events Column */}
+        <div className="w-full h-[300px] md:w-[30%]">
+          <h2 className="text-xl font-semibold text-black/80 mb-2 dark:text-white flex">
+            Upcoming Events <span className="block lg:hidden">And News</span>
+          </h2>
+          <Link href="/events" className="mb-2 text-yellow-600">
+            Read All Events
+          </Link>
+          <Link href="/events" className="mb-2 text-yellow-600 lg:hidden block">
+            Read All News
+          </Link>
+          <Events />
+        </div>
+      </div>
     </section>
   );
 };
