@@ -135,7 +135,7 @@ const Video = () => {
 
             <div className="flex flex-col ">
               {/* Section title on big screens */}
-              <div className="mb-8 hidden md:flex md:flex-col">
+              {/* <div className="mb-8 hidden md:flex md:flex-col">
                 <div className="wow fadeInUp w-full" data-wow-delay=".1s">
                   <h1 className="mb-4 text-2xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px]">
                     Discover Your Path at Bugema University!
@@ -149,7 +149,7 @@ const Video = () => {
                     advancement!
                   </p>
                 </div>
-              </div>
+              </div> */}
 
               {/* Section title on small screens */}
               <div className="mb-8 block md:hidden text-sm">
@@ -172,6 +172,7 @@ const Video = () => {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </section>
     </>
