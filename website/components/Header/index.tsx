@@ -128,7 +128,7 @@ const Header = () => {
           <div className="relative flex items-center justify-between">
             <div className="w-60 relative z-10" >
                   <Link href="/"  className={`header-logo block w-full ${sticky ? "py-2 lg:py-2" : "py-3"}`}>
-                        <Image src={image} alt="logo" width={140} height={40} className="w-full dark:hidden" />
+                        <Image src={image} alt="logo" width={4572} height={1296} className="w-full dark:hidden" />
                         <Image src={image} alt="logo" width={100} height={20} className="hidden w-full dark:block" />
                          
                   </Link>

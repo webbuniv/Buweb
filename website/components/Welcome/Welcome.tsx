@@ -23,18 +23,13 @@ const Welcome = () => {
                     Bugema University
                   </h1>
                   <p className="text-base !leading-relaxed text-body-color md:text-lg">
-                    At Bugema University, we understand the importance of
-                    quality assurance. We have developed comprehensive
-                    self-regulating and self-maintaining procedures to ensure
+                    We understand the importance of
+                    quality assurance. We have developed the best procedures to ensure
                     the highest standards of excellence in academic delivery and
-                    performance. <br />
-                    <br /> Join us at Bugema University, where education is
-                    embraced as a catalyst for empowerment and change.
-                    Experience an inclusive and enriching learning environment
+                    performance. Experience an inclusive and enriching learning environment
                     where equal opportunities, academic excellence, and a
-                    commitment to the success of the students define our core
-                    values. Together, we can shape a brighter future through
-                    education.
+                    commitment to success of the students define our core
+                    values. Together, we can shape a brighter future.
                   </p>
                 </div>
 

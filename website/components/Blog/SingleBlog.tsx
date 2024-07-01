@@ -11,7 +11,7 @@ type Props = {
 
 const SingleBlog = ({ post }: Props) => {
   return (
-    <div className="wow fadeInUp relative overflow-hidden rounded-md bg-white shadow-one h-[600px] dark:bg-dark w-[220]">
+    <div className="wow fadeInUp relative overflow-hidden rounded-md bg-white shadow-one h-fit dark:bg-dark w-[220]">
       <Link href={`/blog/${post.slug}`} passHref className="relative block h-[220px] w-full">
           <span className="absolute top-6 right-6 z-20 inline-flex items-center justify-center rounded-full bg-primary py-2 px-4 text-sm font-semibold capitalize text-white">
             {post.title}
