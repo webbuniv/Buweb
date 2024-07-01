@@ -199,7 +199,6 @@ const News = () => {
     { name: 'photo',  label: 'Photo' },
     { name: 'title', label: 'Title' },
     { name: 'category', label: 'Category' },
-    { name: 'content', label: 'Content' },
     { name: 'date', label: 'Date' },
     {
       name: 'actions',

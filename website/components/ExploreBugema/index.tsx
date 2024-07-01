@@ -6,8 +6,7 @@ import Image from "next/image";
 import { useState,useEffect } from "react";
 import SectionTitle from "../Common/SectionTitle";
 import Modal from "../Helper/Modal";
-export const img = "/images/nav/palm-girls1.jpg"
-
+export const img = "/images/nav/palm-girls1.jpg";
 
 
 const Video = () => {
@@ -34,20 +33,19 @@ const Video = () => {
   
 
   return (
-      <>
+    <>
       <section className="flex relative z-10 py-6 md:py-6 lg:py-6">
+        {/* Modal */}
+        {showModal && <Modal hideModal={closeModalHandler} />}
 
-{/* Modal */}
-{showModal && <Modal hideModal={closeModalHandler} />}
-
-{/* <div className="container flex">
+        {/* <div className="container flex">
 
       <div>
             
             {/* Section Title on big screens */}
 
-            <div className="hidden md:block">
-            {/* <SectionTitle
+        <div className="hidden md:block">
+          {/* <SectionTitle
                   title="Explore Bugema University"
                   paragraph="At Bugema University, we understand the importance of quality assurance. We have developed comprehensive self-regulating and self-maintaining procedures to ensure the highest standards of excellence in academic delivery and performance.
 
@@ -55,9 +53,9 @@ const Video = () => {
                   center
                   mb="50px"
             /> */}
-            </div>
+        </div>
 
-            {/* Section Title on small screens 
+        {/* Section Title on small screens 
             <div className="md:hidden block">
             <SectionTitle 
                   title="Explore Bugema University"
@@ -96,9 +94,8 @@ const Video = () => {
     </div>
   </div>
 </div> */}
-
-
       </section>
+
 
 <section id="features" className="bg-primary/[.03] pt-8 -mt-5">
 <div className="container">
@@ -135,42 +132,49 @@ const Video = () => {
         </div>
       </div>
 
-      {/* Section title on small screens */}
-      <div className="mb-8 block md:hidden text-sm">
-        <div className="wow fadeInUp w-full" data-wow-delay=".1s">
-          <h1 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl">
-            You Are Welcome
-          </h1>
-          <div className="">
-            <Image
-              className="img1 mb-2 rounded"
-              src={img}
-              alt="Bugema University"
-              width="600"
-              height="250"
-            />
+
+            <div className="flex flex-col ">
+              {/* Section title on big screens */}
+              <div className="mb-8 hidden md:flex md:flex-col">
+                <div className="wow fadeInUp w-full" data-wow-delay=".1s">
+                  <h1 className="mb-4 text-2xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px]">
+                    Discover Your Path at Bugema University!
+                  </h1>
+                  <p className="text-base !leading-relaxed text-body-color md:text-lg">
+                    At Bugema, it is not just about academics; it is about
+                    nurturing your mind, heart, and hands. Bugema fosters
+                    holistic excellence, where character development meets
+                    intellectual growth. With Flexible Intakes, whether you are a
+                    fresh high school graduate or a working professional seeking
+                    advancement!
+                  </p>
+                </div>
+              </div>
+
+              {/* Section title on small screens */}
+              <div className="mb-8 block md:hidden text-sm">
+                <div className="wow fadeInUp w-full" data-wow-delay=".1s">
+                  <h1 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl">
+                  Discover Your Path!
+                  </h1>
+                  <p className="text-base !leading-relaxed text-body-color md:text-lg">
+                  At Bugema, it is not just about academics; it is about
+                    nurturing your mind, heart, and hands. Bugema fosters
+                    holistic excellence, where character development meets
+                    intellectual growth. With Flexible Intakes, whether you are a
+                    fresh high school graduate or a working professional seeking
+                    advancement, Bugema offers multiple intakes throughout the
+                    year. No need to wait, start your journey now! Bugema
+                    University, where dreams take root, friendships flourish,
+                    and purpose unfolds. Join us today, your adventure awaits!
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <p className="text-base !leading-relaxed text-body-color md:text-lg">
-            Join us at Bugema University, where education is embraced as
-            a catalyst for empowerment and change. Experience an
-            inclusive and enriching learning environment where equal
-            opportunities, academic excellence, and a commitment to the
-            success of the students define our core values. Together, we
-            can shape a brighter future through education.
-          </p>
         </div>
-
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
-</section>
-
-      </>
-    
+      </section>
+    </>
   );
 };
 
