@@ -26,6 +26,12 @@ const brandsData: Brand[] = [
     href: "https://bugemauniv.ac.ug",
     image: "/images/logo/bugema.png",
   },
+  {
+    id: 5,
+    name: "Flair ERMS",
+    href: "",
+    image: "/images/logo/flair1.jpg",
+  },
 ];
 
 const Brands = () => {
