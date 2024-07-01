@@ -25,8 +25,6 @@ const School = ({
             <div className="overflow-hidden md:overflow-auto -my-10 max-w-full bg-dark ">
                   <Image src={nurses1} alt='img'  className=""/>
             </div>
-            
-            
 
             <div className=" overflow-hidden md:overflow-auto flex flex-col space-y-12">
                   
