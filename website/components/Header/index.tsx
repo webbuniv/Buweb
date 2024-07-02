@@ -2,13 +2,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import ThemeToggler from "./ThemeToggler";
 import Model from "@/components/model/Model";
 import Model1 from "@/components/model/Model1";
 import Model2 from "@/components/model/Model2";
 import Model3 from "@/components/model/Model3";
 import Model4 from "@/components/model/Model4";
-import image from "../../public/images/logo/logo1.png";
+
+
+import image from "../../public/images/logo/bu_logo_nav.png";
+
 import "../../styles/nav.css";
 import "../../styles/index.css";
 import { FaChevronDown } from "react-icons/fa";
@@ -57,7 +59,6 @@ const Header = () => {
     setShowModel2(false);
     setShowModel3(false);
     setShowModel4(false);  
-     
   };
   
 
@@ -84,7 +85,7 @@ const Header = () => {
     setShowModel(false);
     setShowModel1(false);
     setShowModel3(false);
-    setShowModel4(false); 
+    setShowModel4(false);  
     
   };  
 
@@ -115,22 +116,21 @@ const Header = () => {
   };
 
    const close =()=>{
-      
       setShowModel4(false);
       setShowModel3(false);
       setShowModel(false); 
       setShowModel1(false);
       setShowModel2(false);
-   };
+   } 
         
   return (
     <>
       <header className={`header top-0 left-0 z-40 flex w-full items-center  mt-[-8px] ${sticky ? " bg-dark !fixed !z-[9999] ! bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100" : "absolute"}`}>
         <div className="container">
           <div className="relative flex items-center justify-between">
-            <div className="w-60 relative z-10" >
+            <div className="w-60 relative z-10">
                   <Link href="/"  className={`header-logo block w-full ${sticky ? "py-2 lg:py-2" : "py-3"}`}>
-                        <Image src={image} alt="logo" width={140} height={40} className="w-full dark:hidden" />
+                        <Image src={image} alt="logo" width={4572} height={1296} className="w-full dark:hidden" />
                         <Image src={image} alt="logo" width={100} height={20} className="hidden w-full dark:block" />
                          
                   </Link>
@@ -161,9 +161,7 @@ const Header = () => {
                         href="."
                         className={`nav hover ml-3 flex py-2 text-black text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onMouseEnter={first_modal}
-                        // onMouseLeave={close}
 
-                        // onMouseLeave={setShowModel(false)}
                       >
                         <span className={showModel ? "active" : ""}>Programs</span>
                         <span className="my-1 ml-2 dark:text-dark  text-bold">
@@ -172,14 +170,11 @@ const Header = () => {
                       </Link>
                     </li>
 
-                    
-
                     <li>
                       <Link
                         href=""
                         className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onMouseEnter={second_modal}
-                        // onMouseLeave={close}
                       >
                         <span className={showModel1 ? "active" : ""}>Student life</span>
                         <span className="my-1 ml-2 dark:text-dark ">
@@ -195,7 +190,6 @@ const Header = () => {
                         href=""
                         className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onMouseEnter={third_modal}
-                        // onMouseLeave={close}
                       >
                         <span className={showModel2 ? "active" : ""}>Research</span>
                         <span className={"my-1 ml-2 dark:text-dark "}>
@@ -208,7 +202,6 @@ const Header = () => {
                         href=""
                         className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onMouseEnter={forth_modal}
-                        // onMouseLeave={close}
                       >
                         <span className={showModel3 ? "active" : ""}>Campuses</span>
                         <span className="my-1 ml-2 dark:text-dark ">
@@ -224,7 +217,6 @@ const Header = () => {
                         href=""
                         className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onMouseEnter={fifth_modal}
-                        // onMouseLeave={close}
                       >
                         <span className={showModel4 ? "active" : ""}>Contact Us</span>
                         <span className="my-1 ml-2 text-dark ">

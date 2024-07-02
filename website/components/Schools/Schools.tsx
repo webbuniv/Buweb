@@ -9,7 +9,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 
-import { FreeMode, Pagination, Navigation } from "swiper/modules";
+import { FreeMode, Pagination, Navigation, Autoplay } from "swiper/modules";
 
 import { RxArrowLeft, RxArrowRight, RxArrowTopRight } from "react-icons/rx";
 import { SchoolsData } from "@/app/constants/schools";
@@ -45,12 +45,16 @@ export default function SchoolsPage() {
           navigation
           onSwiper={setSwiper}
           loop={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+            }}
           slidesPerView={1}
           freeMode={true}
           pagination={{
             clickable: true,
           }}
-          modules={[FreeMode, Pagination, Navigation]}
+          modules={[Autoplay, FreeMode, Pagination, Navigation]}
           className="max-w-[90%] lg:max-w-[80%]"
         >
           {SchoolsData.map((item, index) => (
@@ -87,13 +91,17 @@ export default function SchoolsPage() {
         <Swiper
           onSwiper={setSwiper}
           loop={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+            }}
           breakpoints={{
             340: {
               slidesPerView: 2,
               spaceBetween: 15,
             },
             700: {
-              slidesPerView: 4,
+              slidesPerView: 3,
               spaceBetween: 15,
             },
           }}
@@ -101,7 +109,7 @@ export default function SchoolsPage() {
           pagination={{
             clickable: true,
           }}
-          modules={[FreeMode, Pagination]}
+          modules={[Autoplay, FreeMode, Pagination]}
           className="max-w-[90%] lg:max-w-[80%]"
         >
           {SchoolsData.map((item, index) => (

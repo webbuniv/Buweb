@@ -1,12 +1,14 @@
-import React from 'react';
-import Image from 'next/image';
-import SectionTitle from '../Common/SectionTitle';
+import React from "react";
+import Image from "next/image";
+import SectionTitle from "../Common/SectionTitle";
+import Link from "next/link";
 const newsData = [
   {
-    category: "Health & Medicine",
-    title: "Three depression ‘biotypes’ identified in BU Medicine study",
-    link: "/",
-    imageSrc: "/images/features/health.jpg",
+    category: "Sports",
+    title:
+      "Bugema University sports play a vital role in student life ............",
+    link: "/studentlife",
+    imageSrc: "/images/life/sport.jpg",
     altText: "Image related to depression biotypes",
   },
   {
@@ -25,32 +27,18 @@ const newsData = [
   },
   {
     category: "Commencement 2024",
-    title: "‘You’re not a wave. You’re water,’ Melinda French tells Bugema University ’29th graduates",
-    link: "/",
-    imageSrc: "/images/features/bu.jpg",
-    altText: "Melinda French Gates delivers Commencement address",
-  },
-  {
-    category: "Commencement 2024",
     title: "Congratulations, graduates!",
     link: "/",
     imageSrc: "/images/features/grad.jpg",
     altText: "Commencement 2024 highlights",
   },
-  {
-    category: "Science & Engineering",
-    title: "Center harnesses AI to advance autonomous space exploration",
-    link: "/",
-    imageSrc: "/images/features/ai.webp",
-    altText: "AI and space exploration",
-  },
 ];
 
 const CampusNews: React.FC = () => {
   return (
-    <section className="p-8">
-        <div className="container">
-            <div className="hidden md:block">
+    <section className="px-8">
+      <div className="container">
+        <div className="hidden md:block">
           <SectionTitle
             title="Students Life"
             paragraph="At Bugema University, student life goes beyond the classroom. 
@@ -63,31 +51,50 @@ const CampusNews: React.FC = () => {
 
         {/* Section Title on small screens */}
         <div className="md:hidden block">
-          <SectionTitle 
-            title="Explore Bugema University"
-            paragraph="Join us at Bugema University, where education is embraced as a catalyst for empowerment and change. Experience an inclusive and enriching learning environment where equal opportunities, academic excellence, and a commitment to students' success define our core values. Together, we can shape a brighter future through education."
-            center
-            mb="50px"
-          />
+          <div
+            className="wow fadeInUp w-full mx-auto text-start"
+            data-wow-delay=".1s"
+          >
+            <h2 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px]">
+              Students Life
+            </h2>
+            <p className="text-base !leading-relaxed text-body-color md:text-lg">
+              At Bugema University, student life goes beyond the classroom.
+            </p>
+          </div>
         </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {newsData.map((news, index) => (
-                <article key={index} className="bg-white shadow-md rounded-lg overflow-hidden">
-                    <div className="h-48 overflow-hidden">
-                    <a href={news.link} aria-hidden="true" tabIndex={-1}>
-                        <Image src={news.imageSrc} alt={news.altText} height={350} width={350} />
-                    </a>
-                    </div>
-                    <div className="p-4">
-                    <div className="text-sm text-gray-500 mb-2">{news.category}</div>
-                    <h3 className="text-lg text-black font-semibold"><a href={news.link}>{news.title}</a></h3>
-                    </div>
-                </article>
-                ))}
-            </div>
-            <div className="text-center mt-8">
-                <a href="https://news.stanford.edu/report/" className="text-blue-500 font-bold" data-ga-category="Call to action" data-ga-action="More campus news">More campus news</a>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {newsData.map((news, index) => (
+            <article
+              key={index}
+              className="bg-white shadow-md rounded-lg overflow-hidden"
+            >
+              <div className="h-48 overflow-hidden">
+                <a href={news.link} aria-hidden="true" tabIndex={-1}>
+                  <Image
+                    src={news.imageSrc}
+                    alt={news.altText}
+                    height={350}
+                    width={350}
+                  />
+                </a>
+              </div>
+              <div className="p-4">
+                <div className="text-sm text-gray-500 mb-2">
+                  {news.category}
+                </div>
+                <h3 className="text-lg text-black font-semibold">
+                  <a href={news.link}>{news.title}</a>
+                </h3>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div className="text-center mt-8">
+          <Link href="/studentlife" className="text-blue-500 font-bold">
+            More About Students Life
+          </Link>
+        </div>
       </div>
     </section>
   );

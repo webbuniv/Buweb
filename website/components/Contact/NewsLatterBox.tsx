@@ -37,18 +37,18 @@ const NewsLatterBox: React.FC = () => {
     <div>
       {/* On big devices */}
       <div
-        className="hidden md:flex flex-row w-[1200px] mx-auto justify-center items-center gap-20 wow fadeInUp relative z-10 rounded-md bg-primary/[3%] p-8 dark:bg-primary/10"
+        className="hidden md:flex flex-row w-[1200px] mx-auto justify-start items-center gap-28 wow fadeInUp relative z-10 rounded-md bg-primary/[3%] p-8 dark:bg-primary/10"
         data-wow-delay=".2s"
       >
         <div>
-          <Image src={life} width={500} height={500} alt="life" className="rounded" />
+          <Image src={life} width={400} height={400} alt="life" className="rounded" />
         </div>
         <div>
           <div>
-            <h3 className="mb-4 text-2xl font-bold leading-tight text-black dark:text-white">
+            <h3 className="mb-2 text-2xl font-bold leading-tight text-black dark:text-white">
               Subscribe to receive the latest from us.
             </h3>
-            <p className="mb-11 border-b border-body-color border-opacity-25 pb-11 text-base font-medium leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
+            <p className="mb-4 border-b border-body-color border-opacity-25 pb-4 text-base font-medium leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
               Please subscribe to our newsletter
             </p>
           </div>

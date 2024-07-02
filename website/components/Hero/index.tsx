@@ -52,10 +52,10 @@ const Hero = () => {
         <HeroVideo src={heroVid} />
         <HeroOverlay
           title="BUGEMA UNIVERSITY"
-          title2 = "Head, Heart and Hand"
-          title3="Experience a Hands on based Education..."
+          title2 = "Service."
+          title3="Where Head, Heart and Hands unite in"
           subtitle="Excellence In Service"
-          subtitle2="With over 75 Years of experience, Bugema University is where Knowledge meets Opportunity "
+          subtitle2="With over 100 academic programs, Bugema University is where Knowledge meets Opportunity "
           subtitle3="to offer you Quality education with a hands on experience. . ."
           buttonText="Apply Now"
           buttonLink="/apply-now"
@@ -105,7 +105,7 @@ const Hero = () => {
                   variants={textVariants}
                 >
                   <motion.div
-                    className="bg-black border rounded py-1"
+                    className="bg-black/50 border rounded py-1"
                     variants={textVariants}
                     animate="scrollButton2"
                   >

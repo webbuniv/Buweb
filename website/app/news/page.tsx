@@ -1,12 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import SingleEvent from "@/components/Events/SingleEvent";
+import SingleNews from "@/components/News/SingleNews";
 import Breadcrumb from "@/components/Common/Breadcrumb";
-import { getPosts } from "@/lib/requests";
 import Contact from "@/components/Contact";
 
 export default function Blog  () {
-    const [events, setEvents] = useState([]);
+    const [news, setNews] = useState([]);
     const [error, setError] = useState(null);
   
     useEffect(() => {
@@ -24,7 +23,7 @@ export default function Blog  () {
           }
   
           const data = await response.json();
-          setEvents(data);
+          setNews(data);
         } catch (err) {
           setError(err.message);
         }
@@ -45,8 +44,8 @@ export default function Blog  () {
       <section className="pt-[120px] pb-[120px]">
         <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {events.map((post) => (
-              <SingleEvent key={post._id} post={post} />
+            {news.map((post) => (
+              <SingleNews key={post._id} post={post} />
             ))}
           </div>
           <div>
