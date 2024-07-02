@@ -12,6 +12,7 @@
     "@heroicons/react": "^1.0.6",
     "@t3-oss/env-nextjs": "^0.7.1",
     "@tanstack/react-query": "^5.17.9",
+    "axios": "^1.7.2",
     "eslint": "^8.33.0",
     "eslint-config-next": "13.1.6",
     "framer-motion": "^11.2.10",
