@@ -2,13 +2,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import ThemeToggler from "./ThemeToggler";
 import Model from "@/components/model/Model";
 import Model1 from "@/components/model/Model1";
 import Model2 from "@/components/model/Model2";
 import Model3 from "@/components/model/Model3";
 import Model4 from "@/components/model/Model4";
-import image from "../../public/images/logo/logo1.png";
+
+
+import image from "../../public/images/logo/bu_logo_nav.png";
+
 import "../../styles/nav.css";
 import "../../styles/index.css";
 import { FaChevronDown } from "react-icons/fa";
@@ -126,9 +128,9 @@ const Header = () => {
       <header className={`header top-0 left-0 z-40 flex w-full items-center  mt-[-8px] ${sticky ? " bg-dark !fixed !z-[9999] ! bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100" : "absolute"}`}>
         <div className="container">
           <div className="relative flex items-center justify-between">
-            <div className="w-60 relative z-10" >
+            <div className="w-60 relative z-10">
                   <Link href="/"  className={`header-logo block w-full ${sticky ? "py-2 lg:py-2" : "py-3"}`}>
-                        <Image src={image} alt="logo" width={140} height={40} className="w-full dark:hidden" />
+                        <Image src={image} alt="logo" width={4572} height={1296} className="w-full dark:hidden" />
                         <Image src={image} alt="logo" width={100} height={20} className="hidden w-full dark:block" />
                          
                   </Link>
