@@ -2,7 +2,7 @@
 
 const API_KEY = "AIzaSyBGNIEfagDFYNP7MGYlq1M3k0JB-sYNgMM";
 const CHANNEL_ID = "UCS_rf3JZ95_0sTI42N2xP9Q";
-const MAX_RESULTS = 10;
+const MAX_RESULTS = 6;
 
 interface YouTubeVideo {
   id: {
