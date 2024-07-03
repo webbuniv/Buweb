@@ -12,6 +12,7 @@ import image from "../../public/images/logo/bu_logo_nav.png";
 import "../../styles/nav.css";
 import "../../styles/index.css";
 import { FaChevronDown } from "react-icons/fa";
+import MobileNav from "../MobileNav/MobileNav";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -19,7 +20,6 @@ const Header = () => {
   const [showModel3, setShowModel3] = useState(false);
   const [showModel, setShowModel] = useState(false);
   const [showModel1, setShowModel1] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
   const [sticky, setSticky] = useState(false);
   const [openIndex, setOpenIndex] = useState(-1);
   const [showModel2, setShowModel2] = useState(false);
@@ -149,9 +149,7 @@ const Header = () => {
                 
                 <nav
                   id="navbarCollapse"
-                  className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-dark lg:p-0 lg:opacity-100 ${
-                    navbarOpen ? "top-full opacity-100 right-0" : "top-[120%] opacity-0 right-[-250px]"
-                  }`}
+                  className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-dark lg:p-0 lg:opacity-100`}
                 >
                   <ul className="block lg:flex bg-white lg:space-x-8 top-0 left-0 h-full  text-black">
                     <li className="group relative">
@@ -228,7 +226,8 @@ const Header = () => {
             </div>
           </div>
           
-          
+          <MobileNav setNavbarOpen={setNavbarOpen} navbarOpen={navbarOpen} />
+
         </div>
         
           
