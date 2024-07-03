@@ -23,9 +23,6 @@ const Header = () => {
   const [sticky, setSticky] = useState(false);
   const [openIndex, setOpenIndex] = useState(-1);
   const [showModel2, setShowModel2] = useState(false);
-  const navbarToggleHandler = () => {
-    setNavbarOpen(!navbarOpen);
-  };
 
   const handleStickyNavbar = () => {
     if (window.scrollY >= 700) {
@@ -150,7 +147,7 @@ const Header = () => {
             <div className="flex space-x-20 justify-between transform bg-white">
               <div>
                 <button
-                  onClick={navbarToggleHandler}
+                  onClick={() => setNavbarOpen(!navbarOpen)}
                   id="navbarToggler"
                   aria-label="Mobile Menu"
                   className="absolute right-4 top-1/2 block translate-y-[-50%] rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
@@ -174,7 +171,7 @@ const Header = () => {
 
                 <nav
                   id="navbarCollapse"
-                  className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-dark lg:p-0 lg:opacity-100`}
+                  className={`navbar hidden lg:block absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-dark lg:p-0 lg:opacity-100`}
                 >
                   <ul className="block lg:flex bg-white lg:space-x-8 top-0 left-0 h-full  text-black">
                     <li className="group relative">
@@ -259,7 +256,9 @@ const Header = () => {
         </div>
       </header>
       
-      <MobileNav setNavbarOpen={setNavbarOpen} navbarOpen={navbarOpen} />
+      {navbarOpen && (
+        <MobileNav setNavbarOpen={setNavbarOpen} navbarOpen={navbarOpen} />
+      )}
 
       <Model isvisible={showModel} onClose={() => setShowModel(false)}>
         <></>
