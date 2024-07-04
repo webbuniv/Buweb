@@ -29,7 +29,7 @@ const Events = () => {
     };
 
     fetchPosts();
-  }, [events]);
+  }, []);
 
   return (
 
