@@ -1,4 +1,4 @@
-import JobAnnouncement from '../models/JobAnnouncement.js';
+import JobAnnouncement from '../models/Jobs.js';
 
 // Create a new job announcement
 export const createJobAnnouncement = async (req, res) => {
@@ -39,12 +39,6 @@ export const createJobAnnouncement = async (req, res) => {
 export const getAllJobAnnouncements = async (req, res) => {
     try {
         const allJobAnnouncements = await JobAnnouncement.find();
-        allJobAnnouncements.forEach(async (job) => {
-            if (job.deadline <= Date.now() && job.status !== 'done') {
-                job.status = 'done';
-                await job.save();
-            }
-        });
         res.status(200).json(allJobAnnouncements);
     } catch (error) {
         console.error("Error getting job announcements:", error);
@@ -70,10 +64,6 @@ export const getJobAnnouncementById = async (req, res) => {
         if (!jobAnnouncement) {
             res.status(404).json({ message: "Job announcement not found" });
             return;
-        }
-        if (jobAnnouncement.deadline <= Date.now() && jobAnnouncement.status !== 'done') {
-            jobAnnouncement.status = 'done';
-            await jobAnnouncement.save();
         }
         res.status(200).json(jobAnnouncement);
     } catch (error) {
@@ -112,7 +102,6 @@ export const updateJobAnnouncementById = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
-
 // Delete a job announcement by ID
 export const deleteJobAnnouncementById = async (req, res) => {
     try {

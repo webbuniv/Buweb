@@ -55,15 +55,5 @@ const JobAnnouncementSchema = new mongoose.Schema({
     }
 });
 
-JobAnnouncementSchema.pre('find', function(next) {
-    this.find().forEach(job => {
-        if (job.deadline <= Date.now()) {
-            job.status = 'done';
-            job.save();
-        }
-    });
-    next();
-});
-
 const JobAnnouncement = mongoose.model("JobAnnouncement", JobAnnouncementSchema);
 export default JobAnnouncement;
