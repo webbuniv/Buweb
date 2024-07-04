@@ -4,6 +4,7 @@ import image from "../../public/images/nav/labs.jpg";
 import scie from "../../public/images/scienceTech/scie.png";
 
 const School = ({
+  topImg,
   dean,
   deanImage,
   message,
@@ -11,6 +12,7 @@ const School = ({
   goal,
   mb = "10px",
 }: {
+  topImg:string;
   dean: string;
   deanImage: string;
   message: string;
@@ -22,8 +24,14 @@ const School = ({
 }) => {
   return (
       <>
-            <div className="overflow-hidden md:overflow-auto -my-10 max-w-full bg-dark ">
-                  <Image src={nurses1} alt='img'  className=""/>
+            <div className="overflow-hidden md:overflow-auto -my-10 max-w-full bg-dark " >
+                  <div className="absolute text-center ml-[2%] my-[18%]  z-10"> 
+                        <h1 className="font-bold text-white text-7xl">
+                              Shool of Science and Technology
+                        </h1>
+                   </div>
+                  <Image src={topImg} alt='img' width={1920} height={100}  className="opacity-50"/>
+                  
             </div>
 
             <div className=" overflow-hidden md:overflow-auto flex flex-col space-y-12">

@@ -7,6 +7,7 @@ export default function SchoolOfScience() {
     <div>
       <section className="my-20 mt-36 mx-10">
         <School
+          topImg={"/images/nav/lab1.jpg"}
           dean="DR. LOWU FRANCIS"
           deanImage={"/images/blog/author-03.png"}
           message="As technology evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems."
