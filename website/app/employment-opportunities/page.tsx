@@ -8,7 +8,8 @@ import img from "@/public/images/features/bu_job_banner.png";
 export default function EmploymentOpportunities() {
   return (
     <>
-      <section className="pt-[120px] pb-[50px]">
+      <section className="pb-[50px] md:-mt-[10px]">
+        <div className="absolute bg-dark inset-0 top-0 h-[100px]"/>
         <div className="flex justify-center ">
           <Image src={img} alt="jobs-banner" objectFit="contain" />
         </div>
