@@ -3,37 +3,38 @@ import JobAnnouncement from '../models/Jobs.js';
 // Create a new job announcement
 export const createJobAnnouncement = async (req, res) => {
     try {
-        const {
-            title,
-            numberOfPositions,
-            responsibleTo,
-            termsOfEmployment,
-            purposeOfJob,
-            minimumQualifications,
-            additionalRequirements,
-            immediateContact,
-            deadline
-        } = req.body;
-
-        const newJobAnnouncement = new JobAnnouncement({
-            title,
-            numberOfPositions,
-            responsibleTo,
-            termsOfEmployment,
-            purposeOfJob,
-            minimumQualifications,
-            additionalRequirements,
-            immediateContact,
-            deadline
-        });
-
-        const savedJobAnnouncement = await newJobAnnouncement.save();
-        res.status(201).json(savedJobAnnouncement);
+      const {
+        title,
+        numberOfPositions,
+        responsibleTo,
+        termsOfEmployment,
+        purposeOfJob,
+        minimumQualifications,
+        additionalRequirements,
+        immediateContact,
+        deadline,
+      } = req.body;
+  
+      const newJobAnnouncement = new JobAnnouncement({
+        title,
+        numberOfPositions,
+        responsibleTo,
+        termsOfEmployment,
+        purposeOfJob,
+        minimumQualifications,
+        additionalRequirements,
+        immediateContact,
+        deadline,
+      });
+  
+      const savedJobAnnouncement = await newJobAnnouncement.save();
+      res.status(201).json(savedJobAnnouncement);
     } catch (error) {
-        console.error("Error creating job announcement:", error);
-        res.status(409).json({ message: error.message });
+      console.error("Error creating job announcement:", error);
+      res.status(409).json({ message: error.message });
     }
-};
+  };
+  
 
 // Get all job announcements (both open and done)
 export const getAllJobAnnouncements = async (req, res) => {

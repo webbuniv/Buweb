@@ -48,11 +48,6 @@ const JobAnnouncementSchema = new mongoose.Schema({
         enum: ['open', 'done'],
         default: 'open'
     },
-    createdAt: {
-        type: Date,
-        default: Date.now,
-        required: true
-    }
 });
 
 const JobAnnouncement = mongoose.model("JobAnnouncement", JobAnnouncementSchema);
