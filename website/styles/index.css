@@ -213,7 +213,7 @@
 .slider {
   animation-name: slide-in;
   animation-timing-function: ease-in-out;
-  animation-delay: 0.2s;
+  animation-delay: 0s;
 }
 
 /* Fast and slow classes */
@@ -284,4 +284,30 @@
   height: 400px;
   object-fit: cover;
   overflow-x: hidden; 
+}
+
+@keyframes slide-up {
+      from{
+      transform: translateY(100px);
+      }
+      to {
+      transform: translateY(0);
+      }
+}
+.slider-up {
+      animation-name: slide-up;
+      animation-timing-function: ease-in-out;
+      animation-delay: 0s;
+    }
+.slide-up-faster{
+      animation-duration: 1s
+}  
+.slide-up-fast{
+      animation-duration: 1.5s
+}  
+.slide-up-slow{
+      animation-duration: 2s
+}
+.slide-up-slower{
+      animation-duration: 2.5s
 }
