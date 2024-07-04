@@ -30,6 +30,7 @@ const School = ({
                               Shool of Science and Technology
                         </h1>
                    </div>
+                   
                   <Image src={topImg} alt='img' width={1920} height={100}  className="opacity-50"/>
                   
             </div>
