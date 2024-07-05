@@ -3,10 +3,10 @@ import { FaArrowDownLong, FaArrowRightLong } from "react-icons/fa6";
 import { BiBookOpen, BiSolidPencil } from "react-icons/bi";
 import { motion } from "framer-motion";
 import LifeHeroVideo from "../HeroVideo/HeroVideo";
-import LifeHeroOverlay from "../HeroOverlay/HeroOverlay";
+import LifeHeroOverlay from "../LifeHeroOverlay/LifeHeroOverlay";
 
 export const bgImage = "/images/features/life.jpg";
-export const LifeheroVid = "/video/life.mp4";
+export const heroVid = "https://res.cloudinary.com/duaqiajka/video/upload/v1719686933/WELCOME_VIDEO_og2jma.mp4";
 
 // Variants for hero content
 const textVariants = {
@@ -49,7 +49,7 @@ const LifeHero = () => {
         className="hero-section w-full h-[200px] md:h-[800px] relative z-10"
       >
 
-        <LifeHeroVideo src={LifeheroVid} />
+        <LifeHeroVideo src={heroVid} />
         <LifeHeroOverlay
           title="STUDENT LIFE"
           subtitle=""

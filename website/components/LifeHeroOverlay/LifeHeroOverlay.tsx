@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import { FaArrowDown } from 'react-icons/fa6';
 
-const WhyHeroOverlay = ({ title, subtitle, buttonText, buttonLink }) => {
+const LifeHeroOverlay = ({ title, subtitle, buttonText, buttonLink }) => {
   return (
     <div className="hidden hero-overlay md:flex flex-col space-y-4 justify-center mx-auto items-center mt-4">
 
@@ -20,4 +20,4 @@ const WhyHeroOverlay = ({ title, subtitle, buttonText, buttonLink }) => {
   );
 };
 
-export default WhyHeroOverlay;
+export default LifeHeroOverlay;
