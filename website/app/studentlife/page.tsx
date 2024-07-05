@@ -12,11 +12,13 @@ const AboutPage = () => {
     <>
       <LifeHero />
       <Breadcrumb
-        pageName="Student Life"
-        description=""
+        pageName="Bugema University Student Life"
+        description="Welcome to the Bugema University Student Life page! Here, you'll find student life
+         on various topics related to academia, student life, research, and more."
       />
       <HomePage />
       <AboutSectionLife2 />
+      {/* <AboutSectionLife /> */}
     </>
   );
 };
