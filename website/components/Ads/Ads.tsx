@@ -32,46 +32,40 @@ export default function Ads() {
       {isVisible && (
         <div
           onClick={() => setIsPopupVisible(true)}
-          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-md bg-primary text-white shadow-md transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
+          className="flex h-10 w-fit cursor-pointer items-center justify-center rounded-md bg-red-500 text-dark/90 px-2 animate-pulse shadow-md transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
         >
-          <span className="mt-[6px] text-white">Jobs Available</span>
-
-          <Popup trigger={isPopupVisible} setTrigger={setIsPopupVisible}>
-            <div className=" text-dark/90">
-              <h2 className="mb-2">Looking for a job at Bugema?</h2>
-              <p>
-                We{"'"}re always hiring! Check out our latest job listings,
-                apply directly through our website at{" "}
-                <span>
-                  <Link href="/employment-opportunities">
-                    www.bugemauniv.ac.ug/employment-opportunities
-                  </Link>
-                </span>
-                , or contact us for more information.
-              </p>
-            </div>
-          </Popup>
-
-          <Popup
-            trigger={isTimedPopupVisible}
-            setTrigger={setTimedPopupVisible}
-          >
-            <div className="text-white">
-              <h2 className="mb-2">Looking for a job at Bugema?</h2>
-              <p>
-                We{"'"}re always hiring! Check out our latest job listings,
-                apply directly through our website at{" "}
-                <span>
-                  <Link href="/employment-opportunities">
-                    www.bugemauniv.ac.ug/employment-opportunities
-                  </Link>
-                </span>
-                , or contact us for more information.
-              </p>
-            </div>
-          </Popup>
+          <span className="mt-[6px] text-white">Jobs Available!!</span>
         </div>
       )}
+      <Popup trigger={isPopupVisible} setTrigger={setIsPopupVisible}>
+      <div className="text-dark/90">
+          <h2 className="mb-2 text-blue-500">Looking for a job at Bugema?</h2>
+          <p>
+            We{"'"}re always hiring! Check out our latest job listings, apply
+            directly through our website{" "}
+            <span>
+              <Link href="/employment-opportunities" className="underline text-blue-500">
+                HERE
+              </Link>
+            </span>
+          </p>
+        </div>
+      </Popup>
+
+      <Popup trigger={isTimedPopupVisible} setTrigger={setTimedPopupVisible}>
+        <div className="text-dark/90">
+        <h2 className="mb-2 text-blue-500">Looking for a job at Bugema?</h2>
+          <p>
+            We{"'"}re always hiring! Check out our latest job listings, apply
+            directly through our website{" "}
+            <span>
+              <Link href="/employment-opportunities" className="underline text-blue-500">
+                HERE
+              </Link>
+            </span>
+          </p>
+        </div>
+      </Popup>
     </div>
   );
 }
