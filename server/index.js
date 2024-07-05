@@ -18,6 +18,7 @@ import eventsRoutes from "./routes/events.js";
 import publicationRoutes from "./routes/publication.js";
 import lecturerRoutes from "./routes/lecturer.js";
 import departmentRoutes from "./routes/department.js";
+import jobsRoutes from "./routes/jobs.js";
 
 dotenv.config();
 const app = express();
@@ -45,6 +46,7 @@ app.use("/events", eventsRoutes);
 app.use("/publication", publicationRoutes);
 app.use("/lecturer", lecturerRoutes);
 app.use("/department", departmentRoutes);
+app.use("/jobs", jobsRoutes);
 
 const PORT = process.env.PORT || 6001;
 
