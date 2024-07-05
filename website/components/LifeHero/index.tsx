@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FaArrowDownLong, FaArrowRightLong } from "react-icons/fa6";
 import { BiBookOpen, BiSolidPencil } from "react-icons/bi";
 import { motion } from "framer-motion";
-import LifeHeroVideo from "../HeroVideo/HeroVideo";
+import LifeHeroVideo from "../LifeHeroVideo/LifeHeroVideo";
 import LifeHeroOverlay from "../LifeHeroOverlay/LifeHeroOverlay";
 
 export const bgImage = "/images/features/life.jpg";

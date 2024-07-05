@@ -8,7 +8,7 @@ import Breadcrumb from "@/components/Common/Breadcrumb";
 import WhyHero from "@/components/WhyHero";
 import backgroundImage from "../../public/images/features/int.jpg";
 
-const AboutPage = () => {
+const WhyBugemaPage = () => {
   return (
     <>
       <WhyHero />
@@ -24,4 +24,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default WhyBugemaPage;

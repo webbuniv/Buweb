@@ -7,7 +7,7 @@ import AboutSectionLife2 from "@/components/About/AboutSectionLife2";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import LifeHero from "@/components/LifeHero";
 
-const AboutPage = () => {
+const StudentLifePage = () => {
   return (
     <>
       <LifeHero />
@@ -23,4 +23,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default StudentLifePage;

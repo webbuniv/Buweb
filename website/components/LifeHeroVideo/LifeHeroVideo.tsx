@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WhyHeroVideo = ({ src, muted = true, autoPlay = true, loop = true }) => {
+const LifeHeroVideo = ({ src, muted = true, autoPlay = true, loop = true }) => {
   return (
     <div className="hero-video">
       <video src={src} muted={muted} autoPlay={autoPlay} loop={loop}/>
@@ -9,4 +9,4 @@ const WhyHeroVideo = ({ src, muted = true, autoPlay = true, loop = true }) => {
   );
 };
 
-export default WhyHeroVideo;
+export default LifeHeroVideo;
