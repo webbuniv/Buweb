@@ -2,11 +2,16 @@
 
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
+import img from "@/public/images/features/bu_job_banner.png";
 
 export default function EmploymentOpportunities() {
   return (
     <>
       <section className="pt-[120px] pb-[50px]">
+        <div className="flex justify-center ">
+          <Image src={img} alt="jobs-banner" objectFit="contain" />
+        </div>
         <div className="container my-2 bg-gray-100 rounded">
           <div className="pt-5 text-start border-b border-body-color border-opacity-10 pb-2 md:pb-5 mb-2 md:mb-5">
             <h1 className="text-xl md:text-2xl text-green-500">
@@ -57,7 +62,7 @@ export default function EmploymentOpportunities() {
               completion of the selection exercise should consider themselves as
               unsuccessful.
             </p>
-            <p>
+            <div>
               Bugema University is located 32 Kilometers north of Kampala{"'"}s
               along Gayaza – Zirobwe Road. <br />
               <div className="mt-2">
@@ -77,7 +82,7 @@ export default function EmploymentOpportunities() {
                   </span>
                 </div>
               </div>
-            </p>
+            </div>
           </div>
         </div>
 

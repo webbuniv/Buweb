@@ -8,9 +8,8 @@ export default function Ads() {
   const [isTimedPopupVisible, setTimedPopupVisible] = useState(false);
 
   useEffect(() => {
-    // Button is displayed after scrolling for 500 pixels
     const toggleVisibility = () => {
-      if (window.pageYOffset > 100) {
+      if (window.pageYOffset > 300) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -29,17 +28,16 @@ export default function Ads() {
   }, []);
 
   return (
-    <div className="fixed bottom-8 right-8 z-[99]">
+    <div className="fixed bottom-8 left-8 z-[99]">
       {isVisible && (
         <div
           onClick={() => setIsPopupVisible(true)}
-          aria-label="scroll to top"
           className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-md bg-primary text-white shadow-md transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
         >
           <span className="mt-[6px] text-white">Jobs Available</span>
 
           <Popup trigger={isPopupVisible} setTrigger={setIsPopupVisible}>
-            <div className="text-white">
+            <div className=" text-dark/90">
               <h2 className="mb-2">Looking for a job at Bugema?</h2>
               <p>
                 We{"'"}re always hiring! Check out our latest job listings,
