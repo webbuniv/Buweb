@@ -7,6 +7,9 @@ export default function SchoolOfBusiness() {
     <div>
       <section className="my-20 mt-36 mx-10">
         <School
+          tittle="School of Business"
+          subtittle="The School of Business is a leading business school in the country. It is a center"
+          topImg=""
           dean="DR. LUBOWA MARTIN"
           deanImage={"/images/blog/author-03.png"}
           message="As business times evolve, so are the skills needed to run such environments. The school of business Bugema University is always evolving to meet the current business trends. We shall equip you with the necessary skills in the areas of accounting, procurement, and management. Your decision to join us is a perfect one. Looking forward to serving and preparing you for a better future."

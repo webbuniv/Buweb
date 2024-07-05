@@ -8,6 +8,7 @@ import Events from "./layouts/events";
 import News from "./layouts/news";
 import Publication from "./layouts/publication";
 import Department from "./layouts/department";
+import Jobs from "./layouts/Jobs";
 
 // Soft UI Dashboard React icons
 import Shop from "./examples/Icons/Shop";
@@ -71,6 +72,15 @@ const routes = [
     route: "/publication",
     icon: <Settings size="12px" />,
     component: <Publication />,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "Jobs",
+    key: "jobs",
+    route: "/jobs",
+    icon: <Settings size="12px" />,
+    component: <Jobs />,
     noCollapse: true,
   },
   { type: "title", title: "Account Pages", key: "account-pages" },

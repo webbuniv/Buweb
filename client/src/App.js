@@ -19,6 +19,7 @@ import SignIn from "./layouts/authentication/sign-in";
 import Events from "./layouts/events";
 import News from "./layouts/news";
 import Publication from "./layouts/publication";
+import Jobs from "./layouts/Jobs";
 import routes from "./routes";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "./context";
 import brand from "./assets/images/logos/logo.png";
@@ -163,6 +164,14 @@ export default function App() {
           element={
             <ProtectedRoute>
               <Publication />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/jobs"
+          element={
+            <ProtectedRoute>
+              <Jobs />
             </ProtectedRoute>
           }
         />
