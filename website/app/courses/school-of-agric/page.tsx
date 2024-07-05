@@ -18,8 +18,11 @@ export default function SchoolOfAgric() {
       </h3>
         <div className='md:pl-2 mx-auto md:mx-0'>
           <ul className='flex flex-col space-y-5 text-body-color'>
-            <li>Department Of Agricultural Sciences</li>
-            <li>Department Of Environmental And Applied Sciences</li>
+            <li>Bachelor of science in Agriculture with options</li>
+            <li>Bachelor of Science in Agribusiness Innovation and management</li>
+            <li>Diploma in crop Science And Management</li>
+            <li>Diploma in animal production and management</li>
+            <li>Bachelor certificate in agriculture</li>
           </ul>
         </div>
 
@@ -28,8 +31,9 @@ export default function SchoolOfAgric() {
       </h3>
         <div className='md:pl-2 mx-auto md:mx-0'>
           <ul className='flex flex-col space-y-5 text-body-color'>
-            <li>Department Of Agricultural Sciences</li>
-            <li>Department Of Environmental And Applied Sciences</li>
+            <li>Bachelor of science in Environment science</li>
+            <li>Bachelor of science in Food Technology and human Nutrition</li>
+            <li>Diploma in food science and processing technology</li>
           </ul>
         </div>
       </div>
