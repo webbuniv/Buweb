@@ -17,10 +17,27 @@ export default function SchoolOfTheology() {
             paragraph=''/>
         </div>
 
+        <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
+        Department Of Theology
+      </h3>
         <div className='md:pl-2 mx-auto md:mx-0'>
           <ul className='flex flex-col space-y-5 text-body-color'>
-            <li>Department Of Theology</li>
-            <li>Department Of Religious Studies</li>
+            <li>Bachelor of Theology</li>
+            <li>Diploma of Theology</li>
+            <li>Certificate of Theology</li>
+          </ul>
+        </div>
+
+        <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
+        Department Of Religious Studies
+      </h3>
+        <div className='md:pl-2 mx-auto md:mx-0'>
+          <ul className='flex flex-col space-y-5 text-body-color'>
+            <li>Bachelor of Arts in Religious with Options</li>
+            <li>Development ministry</li>
+            <li>Chaplaincy</li>
+            <li>Evangelism And Church Growth</li>
+            <li>Urban Ministry</li>
           </ul>
         </div>
       </div>
