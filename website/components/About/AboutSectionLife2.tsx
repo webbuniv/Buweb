@@ -8,7 +8,7 @@ import sport from "../../public/images/life/sport.jpg";
 import wooda from "../../public/images/life/woodball/wooda.jpg";
 import woodb from "../../public/images/life/woodball/woode.jpg";
 import woodc from "@/public/images/life/woodball/woodc.jpg";
-import woodd from "../../public/images/life/woodball/woodd.jpg";
+import woodd from "@/public/images/life/woodball/woodd.jpg";
 
 import neta from "../../public/images/life/netball/nete.jpeg";
 import netb from "../../public/images/life/netball/netb.jpeg";
