@@ -4,7 +4,7 @@ import React from "react";
 
 export default function SchoolOfScience() {
   return (
-    <div>
+    <div className="overflow-hidden">
       <section className="my-20 mt-36 mx-10">
         <School
           tittle="Shool of Science and Technology"
@@ -23,7 +23,7 @@ export default function SchoolOfScience() {
           <SectionTitle title="Departments In The Faculty" paragraph="" />
         </div>
 
-        <div className='md:pl-2 mx-auto md:mx-0'>
+        <div className='md:pl-2 mx-auto md:mx-0 '>
           <ul className='flex flex-col space-y-5 text-body-color'>
             <li>Department Of Computing And Informatics</li>
             <li>Department Of Life And Physical Science</li>
