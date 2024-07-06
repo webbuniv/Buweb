@@ -80,7 +80,7 @@ const Jobs = () => {
   const fetchJobs = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:3001/jobs", {
+      const response = await axios.get("https://buweb.onrender.com/jobs", {
             headers: {
             Authorization: `Bearer ${token}`,
           }
@@ -110,7 +110,7 @@ const Jobs = () => {
       };
   
       const response = await axios.post(
-        "http://localhost:3001/jobs/create",
+        "https://buweb.onrender.com/jobs/create",
         formData,
         {
           headers: {
@@ -151,7 +151,7 @@ const Jobs = () => {
       formData.append("minimumQualifications", createFormFields.minimumQualifications.join(","));
 
       await axios.patch(
-        `http://localhost:3001/jobs/${editFormFields._id}/update`,
+        `https://buweb.onrender.com/jobs/${editFormFields._id}/update`,
         formData,
         {
           headers: {
@@ -190,7 +190,7 @@ const Jobs = () => {
 
   const handleDeleteJob = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/jobs/${id}/delete`, {
+      await axios.delete(`https://buweb.onrender.com/jobs/${id}/delete`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
