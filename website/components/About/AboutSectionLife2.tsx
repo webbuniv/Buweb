@@ -5,25 +5,25 @@ import { StarIcon } from '@heroicons/react/solid';
 import { EyeIcon } from '@heroicons/react/solid';
 import image from "@/public/images/features/bu.jpg";
 import sport from "@/public/images/life/sport.jpg";
-import wooda from "@/public/images/life/woodball/wooda.jpg";
-import woodb from "@/public/images/life/woodball/woode.jpg";
-import woodc from "@/public/images/life/woodball/woodc.jpg";
-import woodd from "@/public/images/life/woodball/woodd.jpg";
+import wooda from "@/public/images/life/sport.jpg";
+import woodb from "@/public/images/life/sport.jpg";
+import woodc from "@/public/images/life/sport.jpg";
+import woodd from "@/public/images/life/sport.jpg";
 
-import neta from "@/public/images/life/netball/nete.jpeg";
-import netb from "@/public/images/life/netball/netb.jpeg";
-import netc from "@/public/images/life/netball/netc.jpeg";
-import netd from "@/public/images/life/netball/netd.jpeg";
+import neta from "@/public/images/life/sport.jpg";
+import netb from "@/public/images/life/sport.jpg";
+import netc from "@/public/images/life/sport.jpg";
+import netd from "@/public/images/life/sport.jpg";
 
-import foota from "@/public/images/life/football/foota.jpg";
-import footb from "@/public/images/life/football/footb.jpg";
-import footc from "@/public/images/life/football/footc.jpg";
-import footd from "@/public/images/life/football/footd.jpg";
+import foota from "@/public/images/life/sport.jpg";
+import footb from "@/public/images/life/sport.jpg";
+import footc from "@/public/images/life/sport.jpg";
+import footd from "@/public/images/life/sport.jpg";
 
-import basketa from "@/public/images/life/basketball/baska.jpg";
-import basketb from "@/public/images/life/basketball/baskb.jpg";
-import basketc from "@/public/images/life/basketball/baskc.jpg";
-import basketd from "@/public/images/life/basketball/baskd.jpg";
+import basketa from "@/public/images/life/sport.jpg";
+import basketb from "@/public/images/life/sport.jpg";
+import basketc from "@/public/images/life/sport.jpg";
+import basketd from "@/public/images/life/sport.jpg";
 
 
 const AboutSectionLife2 = () => {
