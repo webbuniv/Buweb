@@ -12,7 +12,7 @@ const SingleEvent = ({ post }: Props) => {
 
     <div className="wow fadeInUp relative rounded-md bg-white shadow-one dark:bg-dark w-[220] mt-5">
       <Link
-        href={`/newss/${post._id}`}
+        href={`/news/${post._id}`}
         passHref
         className="relative lg:hidden block w-full"
       >
@@ -24,7 +24,7 @@ const SingleEvent = ({ post }: Props) => {
       <div className="p-6 sm:p-8 md:px-4 lg:p-8 xl:py-4 xl:px-4">
         <div className="flex gap-5">
           <Link
-            href={`/newss/${post._id}`}
+            href={`/news/${post._id}`}
             passHref
             className="relative hidden lg:block"
           >
