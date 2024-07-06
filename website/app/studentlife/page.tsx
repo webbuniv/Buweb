@@ -7,18 +7,20 @@ import AboutSectionLife2 from "@/components/About/AboutSectionLife2";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import LifeHero from "@/components/LifeHero";
 
-const AboutPage = () => {
+const StudentLifePage = () => {
   return (
     <>
       <LifeHero />
       <Breadcrumb
-        pageName="Student Life"
-        description=""
+        pageName="Bugema University Student Life"
+        description="Welcome to the Bugema University Student Life page! Here, you'll find student life
+         on various topics related to academia, student life, research, and more."
       />
       <HomePage />
       <AboutSectionLife2 />
+      {/* <AboutSectionLife /> */}
     </>
   );
 };
 
-export default AboutPage;
+export default StudentLifePage;
