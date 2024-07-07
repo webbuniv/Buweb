@@ -5,10 +5,10 @@ import { StarIcon } from '@heroicons/react/solid';
 import { EyeIcon } from '@heroicons/react/solid';
 import image from "@/public/images/features/bu.jpg";
 import sport from "@/public/images/life/sport.jpg";
-import wooda from "@/public/images/life/sport.jpg";
-import woodb from "@/public/images/life/sport.jpg";
-import woodc from "@/public/images/life/sport.jpg";
-import woodd from "@/public/images/life/sport.jpg";
+import wooda from "@/public/images/life/Woodball/wooda.jpg";
+import woodb from "@/public/images/life/Woodball/woodb.jpg";
+import woodc from "@/public/images/life/Woodball/woodc.jpg";
+import woodd from "@/public/images/life/Woodball/woodd.jpg";
 
 import neta from "@/public/images/life/sport.jpg";
 import netb from "@/public/images/life/sport.jpg";
