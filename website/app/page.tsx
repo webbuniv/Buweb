@@ -31,7 +31,7 @@ export default function Home() {
       <Blog />
       <Brands />
       <Contact />
-      <Ads />
+      {/* <Ads /> */}
       <ScrollToTop />
     </>
   );
