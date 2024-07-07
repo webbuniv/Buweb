@@ -140,15 +140,15 @@ const Jobs = () => {
     setIsUpdating(true);
     try {
       const formData = new FormData();
-      formData.append("title", createFormFields.title);
-      formData.append("numberOfPositions", createFormFields.numberOfPositions);
-      formData.append("responsibleTo", createFormFields.responsibleTo);
-      formData.append("deadline", createFormFields.deadline);
-      formData.append("immediateContact", createFormFields.immediateContact);
-      formData.append("purposeOfJob", createFormFields.purposeOfJob);
-      formData.append("termsOfEmployment", createFormFields.termsOfEmployment);
-      formData.append("additionalRequirements", createFormFields.additionalRequirements.join(","));
-      formData.append("minimumQualifications", createFormFields.minimumQualifications.join(","));
+      formData.append("title", editFormFields.title);
+      formData.append("numberOfPositions", editFormFields.numberOfPositions);
+      formData.append("responsibleTo", editFormFields.responsibleTo);
+      formData.append("deadline", editFormFields.deadline);
+      formData.append("immediateContact", editFormFields.immediateContact);
+      formData.append("purposeOfJob", editFormFields.purposeOfJob);
+      formData.append("termsOfEmployment", editFormFields.termsOfEmployment);
+      formData.append("additionalRequirements", editFormFields.additionalRequirements.join(","));
+      formData.append("minimumQualifications", editFormFields.minimumQualifications.join(","));
 
       await axios.patch(
         `https://buweb.onrender.com/jobs/${editFormFields._id}/update`,
@@ -178,12 +178,12 @@ const Jobs = () => {
       title: jobItem.title,
       numberOfPositions: jobItem.numberOfPositions,
       responsibleTo: jobItem.responsibleTo,
-      deadline: jobItem.deadline,
-      immediateContact: jobItem.immediateContact,
-      purposeOfJob: jobItem.purposeOfJob,
       termsOfEmployment: jobItem.termsOfEmployment,
-      additionalRequirements: jobItem.additionalRequirements,
+      purposeOfJob: jobItem.purposeOfJob,
       minimumQualifications: jobItem.minimumQualifications,
+      additionalRequirements: jobItem.additionalRequirements,
+      immediateContact: jobItem.immediateContact,
+      deadline: jobItem.deadline,
     });
     setShowEditJobModal(true);
   };
@@ -501,133 +501,133 @@ const Jobs = () => {
         >
           <Typography variant="h6">Edit Job</Typography>
           <form onSubmit={handleUpdateJob}>
-            <TextField
-                fullWidth
-                margin="none"
-                label="Title"
-                value={createFormFields.title}
-                onChange={(e) =>
-                  setCreateFormFields({
-                    ...createFormFields,
-                    title: e.target.value,
-                  })
-                }
-              />
-              <TextField
-                fullWidth
-                margin="normal"
-                label="Positions"
-                type="number"
-                value={createFormFields.numberOfPositions}
-                onChange={(e) =>
-                  setCreateFormFields({
-                    ...createFormFields,
-                    numberOfPositions: e.target.value,
-                  })
-                }
-              />
-              <TextField
-                fullWidth
-                margin="normal"
-                label="Responsible To"
-                value={createFormFields.responsibleTo}
-                onChange={(e) =>
-                  setCreateFormFields({
-                    ...createFormFields,
-                    responsibleTo: e.target.value,
-                  })
-                }
-              />
-              <TextField
-                fullWidth
-                margin="normal"
-                label="Deadline"
-                type="date"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                value={createFormFields.deadline}
-                onChange={(e) =>
-                  setCreateFormFields({
-                    ...createFormFields,
-                    deadline: e.target.value,
-                  })
-                }
-              />
-              <TextField
-                fullWidth
-                margin="normal"
-                label="Immediate Contact"
-                type="email"
-                value={createFormFields.immediateContact}
-                onChange={(e) =>
-                  setCreateFormFields({
-                    ...createFormFields,
-                    immediateContact: e.target.value,
-                  })
-                }
-              />
-              <TextField
-                fullWidth
-                margin="normal"
-                label="Purpose Of Job"
-                type="text"
-                value={createFormFields.purposeOfJob}
-                onChange={(e) =>
-                  setCreateFormFields({
-                    ...createFormFields,
-                    purposeOfJob: e.target.value,
-                  })
-                }
-              />
-              <TextField
-                fullWidth
-                margin="normal"
-                label="Terms Of Employment"
-                value={createFormFields.termsOfEmployment}
-                onChange={(e) =>
-                  setCreateFormFields({
-                    ...createFormFields,
-                    termsOfEmployment: e.target.value,
-                  })
-                }
-                multiline
-                  rows={4}
-                  variant="outlined"
-                  sx={{ gridColumn: "span 4" }}
-              />
-              <TextField
-                  fullWidth
-                  margin="normal"
-                  label="Additional Requirements (comma separated)"
-                  value={createFormFields.additionalRequirements.join(",")}
-                  onChange={(e) =>
-                      setCreateFormFields({
-                      ...createFormFields,
-                      additionalRequirements: e.target.value.split(","),
-                      })
-                  }
-                  multiline
-                  rows={10}
-                  variant="outlined"
-                  sx={{ gridColumn: "span 4" }}
-              />
-              <TextField
-                  fullWidth
-                  margin="normal"
-                  label="Minimum Qualifications (comma separated)"
-                  value={createFormFields.minimumQualifications.join(",")}
-                  onChange={(e) =>
-                      setCreateFormFields({
-                      ...createFormFields,
-                      minimumQualifications: e.target.value.split(","),
-                      })
-                  }
-                  multiline
-                  rows={10}
-                  variant="outlined"
-                  sx={{ gridColumn: "span 4" }}
-              />
+          <TextField
+                    fullWidth
+                    margin="none"
+                    label="Title"
+                    value={editFormFields.title}
+                    onChange={(e) =>
+                        setEditFormFields((prevFields) => ({
+                            ...prevFields,
+                            title: e.target.value,
+                        }))
+                    }
+                />
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="Positions"
+                    type="number"
+                    value={editFormFields.numberOfPositions}
+                    onChange={(e) =>
+                        setEditFormFields((prevFields) => ({
+                            ...prevFields,
+                            numberOfPositions: e.target.value,
+                        }))
+                    }
+                />
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="Responsible To"
+                    value={editFormFields.responsibleTo}
+                    onChange={(e) =>
+                        setEditFormFields((prevFields) => ({
+                            ...prevFields,
+                            responsibleTo: e.target.value,
+                        }))
+                    }
+                />
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="Deadline"
+                    type="date"
+                    InputLabelProps={{
+                    shrink: true,
+                    }}
+                    value={editFormFields.deadline}
+                    onChange={(e) =>
+                        setEditFormFields((prevFields) => ({
+                            ...prevFields,
+                            deadline: e.target.value,
+                        }))
+                    }
+                />
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="Immediate Contact"
+                    type="email"
+                    value={editFormFields.immediateContact}
+                    onChange={(e) =>
+                        setEditFormFields((prevFields) => ({
+                            ...prevFields,
+                            immediateContact: e.target.value,
+                        }))
+                    }
+                />
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="Purpose Of Job"
+                    type="text"
+                    value={editFormFields.purposeOfJob}
+                    onChange={(e) =>
+                        setEditFormFields((prevFields) => ({
+                            ...prevFields,
+                            purposeOfJob: e.target.value,
+                        }))
+                    }
+                />
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="Terms Of Employment"
+                    value={editFormFields.termsOfEmployment}
+                    onChange={(e) =>
+                        setEditFormFields((prevFields) => ({
+                            ...prevFields,
+                            termsOfEmployment: e.target.value,
+                        }))
+                    }
+                    multiline
+                    rows={4}
+                    variant="outlined"
+                    sx={{ gridColumn: "span 4" }}
+                />
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="Minimum Qualifications (comma separated)"
+                    value={editFormFields.minimumQualifications}
+                    onChange={(e) =>
+                        setEditFormFields((prevFields) => ({
+                            ...prevFields,
+                            minimumQualifications: e.target.value.split(",").map(tag => tag.trim()),
+                        }))
+                    }
+                    multiline
+                    rows={10}
+                    variant="outlined"
+                    sx={{ gridColumn: "span 4" }}
+                />
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="Additional Requirements (comma separated)"
+                    value={editFormFields.additionalRequirements}
+                    onChange={(e) =>
+                        setEditFormFields((prevFields) => ({
+                            ...prevFields,
+                            additionalRequirements: e.target.value.split(",").map(tag => tag.trim()),
+                        }))
+                    }
+                    multiline
+                    rows={10}
+                    variant="outlined"
+                    sx={{ gridColumn: "span 4" }}
+                />
             <Box mt={2}>
               <Button
                 type="submit"
