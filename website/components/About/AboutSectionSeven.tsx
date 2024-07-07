@@ -43,7 +43,7 @@ const AboutSectionSeven = () => {
         <h3 className="mb-2 mt-3 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-4xl text-center">
            Excellence in research, teaching, and medical care
         </h3>
-        <div className="flex items-center gap-10 mt-8 -mb-8">
+        <div className="flex flex-col lg:flex-row items-center gap-10 mt-8 -mb-8">
         <div
             className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
             data-wow-delay=".15s" 
@@ -123,7 +123,7 @@ const AboutSectionSeven = () => {
     </div>
         </div>
 
-        <div className="flex items-center gap-10 -mt-20">
+        <div className="flex flex-col lg:flex-row items-center gap-10 -mt-20">
           <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Expert Lecturers
@@ -189,7 +189,7 @@ const AboutSectionSeven = () => {
           </div>
         </div>
       </div>
-    </div>
+         </div>
 
           <div
             className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
@@ -202,7 +202,7 @@ const AboutSectionSeven = () => {
             />
           </div>
         </div>
-      <div className="flex items-center gap-10 -mt-20">
+      <div className="flex flex-col lg:flex-row items-center gap-10 -mt-20">
          <div
               className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
               data-wow-delay=".15s" 
@@ -227,7 +227,7 @@ const AboutSectionSeven = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-10 -mt-20">
+        <div className="flex flex-col lg:flex-row items-center gap-10 -mt-20">
           <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Faculty-Student Interaction
@@ -254,7 +254,7 @@ const AboutSectionSeven = () => {
             />
           </div>
         </div>
-        <div className="flex items-center gap-10 -mt-20">
+        <div className="flex flex-col lg:flex-row items-center gap-10 -mt-20">
         <div
             className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
             data-wow-delay=".15s" 
@@ -280,7 +280,7 @@ const AboutSectionSeven = () => {
           </div>
           
         </div>
-        <div className="flex items-center gap-10 -mt-20">
+        <div className="flex flex-col lg:flex-row items-center gap-10 -mt-20">
 
         <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
           <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">

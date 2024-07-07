@@ -5,25 +5,25 @@ import { StarIcon } from '@heroicons/react/solid';
 import { EyeIcon } from '@heroicons/react/solid';
 import image from "@/public/images/features/bu.jpg";
 import sport from "@/public/images/life/sport.jpg";
-import wooda from "@/public/images/life/sport.jpg";
-import woodb from "@/public/images/life/sport.jpg";
-import woodc from "@/public/images/life/sport.jpg";
-import woodd from "@/public/images/life/sport.jpg";
+import wooda from "@/public/images/life/Woodball/wooda.jpg";
+import woodb from "@/public/images/life/Woodball/woodb.jpg";
+import woodc from "@/public/images/life/Woodball/woodc.jpg";
+import woodd from "@/public/images/life/Woodball/woodd.jpg";
 
-import neta from "@/public/images/life/sport.jpg";
-import netb from "@/public/images/life/sport.jpg";
-import netc from "@/public/images/life/sport.jpg";
-import netd from "@/public/images/life/sport.jpg";
+import neta from "@/public/images/life/netball/nete.jpeg";
+import netb from "@/public/images/life/netball/netb.jpeg";
+import netc from "@/public/images/life/netball/netc.jpeg";
+import netd from "@/public/images/life/netball/netd.jpeg";
 
-import foota from "@/public/images/life/sport.jpg";
-import footb from "@/public/images/life/sport.jpg";
-import footc from "@/public/images/life/sport.jpg";
-import footd from "@/public/images/life/sport.jpg";
+import foote from "@/public/images/life/football/footc.jpg";
+import footb from "@/public/images/life/football/footb.jpg";
+import footc from "@/public/images/life/football/footc.jpg";
+import footf from "@/public/images/life/football/footb.jpg";
 
-import basketa from "@/public/images/life/sport.jpg";
-import basketb from "@/public/images/life/sport.jpg";
-import basketc from "@/public/images/life/sport.jpg";
-import basketd from "@/public/images/life/sport.jpg";
+import basketa from "@/public/images/life/basketball/baska.jpg";
+import basketb from "@/public/images/life/basketball/baskb.jpg";
+import basketc from "@/public/images/life/basketball/baskc.jpg";
+import basketd from "@/public/images/life/basketball/baske.jpg";
 
 
 const AboutSectionLife2 = () => {
@@ -231,7 +231,7 @@ const AboutSectionLife2 = () => {
             <div className="w-full px-4 lg:w-1/4 transition-transform duration-300 hover:scale-105 cursor-pointer">
               <div className="wow fadeInUp relative mx-auto mb-12 aspect-[25/24] text-center lg:m-0" data-wow-delay=".15s">
                 <Image
-                  src={foota}
+                  src={foote}
                   alt="about image 1"
                   className="w-full h-auto"
                 />
@@ -288,7 +288,7 @@ const AboutSectionLife2 = () => {
             <div className="w-full px-4 lg:w-1/4 transition-transform duration-300 hover:scale-105 cursor-pointer">
               <div className="wow fadeInUp relative mx-auto mb-12 aspect-[25/24] text-center lg:m-0" data-wow-delay=".15s">
                 <Image
-                  src={footd}
+                  src={footf}
                   alt="about image 4"
                   className="w-full h-auto"
                 />
