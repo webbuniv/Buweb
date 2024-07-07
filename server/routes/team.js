@@ -6,7 +6,7 @@ import {getAllTeamMembers, createTeamMember, deleteTeamMemberById, updateTeamMem
 const router = express.Router();
 
 /* Slide */
-router.get("/", verifyToken, getAllTeamMembers);
+router.get("/", getAllTeamMembers);
 router.patch("/:id/update", verifyToken, updateTeamMemberById)
 router.post("/create", verifyToken, createTeamMember);
 router.delete("/:id/delete", verifyToken, deleteTeamMemberById)
