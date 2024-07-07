@@ -1,8 +1,34 @@
+"use client";
 import SectionTitle from "@/components/Common/SectionTitle";
 import School from "@/components/school/School";
 import React from "react";
+import { useState } from "react";
+import Image from "next/image";
+import image from "@/public/images/nav/labs.jpg";
 
 export default function SchoolOfBusiness() {
+
+      const [accounting, setAccounting] = useState(true)
+      const [management, setManagement] = useState(false)
+
+      const handleaccounting = ()=>{
+            setAccounting(true)
+            setManagement(false)
+            document.getElementById('accounting').classList.remove('hidden')
+            document.getElementById('accounthandler').classList.add('active2')
+            document.getElementById('management').classList.add('hidden')
+            document.getElementById('managehandler').classList.remove('active2')
+            
+      };
+      const handlephysical =()=>{
+            setAccounting(false)
+            setManagement(true)
+            document.getElementById('accounting').classList.add('hidden')
+            document.getElementById('management').classList.remove('hidden')
+            document.getElementById('accounthandler').classList.remove('active2')
+            document.getElementById('managehandler').classList.add('active2')
+      };
+
   return (
     <div>
       <section className="my-20 mt-36 mx-10">
@@ -18,18 +44,52 @@ export default function SchoolOfBusiness() {
         />
       </section>
 
-      <div className="flex flex-col items-start mx-auto md:pl-28">
-        <div className="md:pl-2">
-          <SectionTitle title="Departments In The Faculty" paragraph="" />
-        </div>
+      <div className=" flex flex-col gap-2 justify-center mx-auto ">
+            <div className="  md:pl-2">
+            <SectionTitle title="Departments In The Faculty" paragraph="" />
+            </div>
 
-        <div className='md:pl-2 mx-auto md:mx-0'>
-          <ul className='flex flex-col space-y-5 text-body-color'>
-            <li>Department Of Accounting And Finance</li>
-            <li>Department Of Management</li>
-          </ul>
-        </div>
+            <div className=' flex flex-col gap-2 md:flex-row md:justify-center md:gap-[35%]'>
+
+                  <div className=" ">
+                        <h1 className=" active2 text-xs font-bold text-body-color md:text-xl  " id="accounthandler" style={{cursor:"pointer"}} onClick={handleaccounting}> Department Of Accounting and Finance</h1>
+                  </div>
+
+                  <div className=" ">
+                        <h1 className="text-body-color text-xs font-bold md:text-xl " id="managehandler" style={{cursor:"pointer"}} onClick={handlephysical}> Department Of Management</h1>
+                  </div>
+            
+            </div>
+            {/* D e p a r t m e n t    O f   A c c o u n t i n g   A n d   F i n a n c e */}
+            <div className="my-5 px-1 flex flex-col md:flex-row justify-center gap-[5%]" id="accounting">
+                  <div className="bg-blue-100">
+                        <h1 className="px-2 py-5">
+                        As technology evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
+                        </h1>
+                  </div>
+
+                  <div>
+                        <Image src={image} alt='img' objectFit="contain" width={1920} height={500} />
+                  </div>
+                        
+            </div>
+
+            {/*D e p a  r t me  n t   O f   M a n a g e m  e n t*/}
+            <div className=" hidden my-5 px-1 flex flex-col md:flex-row justify-center gap-[5%]" id="management">
+                  <div className="bg-blue-100">
+                        <h1 className="px-2 py-5">
+                        As Physical evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
+                        </h1>
+                  </div>
+
+                  <div>
+                        <Image src={image} alt='img' objectFit="contain" width={1920} height={500} />
+                  </div>
+                        
+            </div>
       </div>
+
+      
     </div>
   );
 }

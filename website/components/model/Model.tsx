@@ -341,7 +341,7 @@ const why_bugema = () =>{
                               </li>
                               
                               <li>
-                                    <Link href={"/schools/school-of-agric"}>
+                                    <Link href={"/schools/school-of-business"}>
                                     <div className="mr-2 my-5  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onClick={onClose}> School of Business</h1> 
                                     
