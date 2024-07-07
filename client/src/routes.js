@@ -9,6 +9,7 @@ import News from "./layouts/news";
 import Publication from "./layouts/publication";
 import Department from "./layouts/department";
 import Jobs from "./layouts/Jobs";
+import Team from "./layouts/admin"
 
 // Soft UI Dashboard React icons
 import Shop from "./examples/Icons/Shop";
@@ -86,11 +87,11 @@ const routes = [
   { type: "title", title: "Account Pages", key: "account-pages" },
   {
     type: "collapse",
-    name: "Team",
-    key: "profile",
-    route: "/profile",
+    name: "Administrators",
+    key: "administrators",
+    route: "/administrators",
     icon: <CustomerSupport size="12px" />,
-    component: <Profile />,
+    component: <Team />,
     noCollapse: true,
   },
   {

@@ -1,46 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import img from "@/public/images/features/bu_job_banner.png";
+import React from "react";
 
 export default function EmploymentOpportunities() {
-  const [jobs, setJobs] = useState([]);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchJobs = async () => {
-      try {
-        const response = await fetch("https://buweb.onrender.com/jobs", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-
-        const data = await response.json();
-        console.log(data);
-        setJobs(data);
-      } catch (err) {
-        setError(err.message);
-      }
-    };
-
-    fetchJobs();
-  }, []);
   return (
     <>
-      <section className="pb-[50px] md:-mt-[10px]">
-        <div className="absolute bg-dark inset-0 top-0 h-[100px]"/>
-        <div className="flex justify-center ">
-          <Image src={img} alt="jobs-banner" objectFit="contain" />
-        </div>
-        {error && <p>Error: {error}</p>}
+      <section className="pt-[120px] pb-[50px]">
         <div className="container my-2 bg-gray-100 rounded">
           <div className="pt-5 text-start border-b border-body-color border-opacity-10 pb-2 md:pb-5 mb-2 md:mb-5">
             <h1 className="text-xl md:text-2xl text-green-500">
@@ -91,7 +57,7 @@ export default function EmploymentOpportunities() {
               completion of the selection exercise should consider themselves as
               unsuccessful.
             </p>
-            <div>
+            <p>
               Bugema University is located 32 Kilometers north of Kampala{"'"}s
               along Gayaza – Zirobwe Road. <br />
               <div className="mt-2">
@@ -111,31 +77,33 @@ export default function EmploymentOpportunities() {
                   </span>
                 </div>
               </div>
-            </div>
+            </p>
           </div>
         </div>
 
         <div className="container text-dark/90 py-5 bg-gray-100 rounded mt-2 md:mt-5">
-          {jobs.map((job) => (
-            <div key={job.id}>
+
+          {/* Single Job card */}
+          <div>
             <div className="flex flex-col gap-1 mx-auto text-blue-500">
               <h2 className="font-bold">
                 Job Title:{" "}
                 <span className="font-medium">
-                  {job.title}
+                  REGISTRAR OF ADMISSIONS AND RECORDS
                 </span>
               </h2>
               <h2 className="font-bold">
-                Vacancies: <span className=" font-medium">{job.numberOfPositions}</span>
+                Vacancies: <span className=" font-medium">01</span>
               </h2>
               <h2 className="font-bold">
                 Responsilbe To:{" "}
-                <span className=" font-medium">{job.responsibleTo}</span>
+                <span className=" font-medium">The DVC-Academics</span>
               </h2>
               <h2 className="font-bold">
                 Terms of Employment:{" "}
                 <span className=" font-medium">
-                  {job.termsOfEmployment}
+                  Five years performance contract renewable once upon
+                  satisfactory performance.
                 </span>
               </h2>
             </div>
@@ -146,7 +114,8 @@ export default function EmploymentOpportunities() {
 
                 <ul className="list-disc ml-10 mt-2">
                   <li>
-                    {job.purposeOfJob}
+                    An officer responsible for the Admission, registration,
+                    enrollment, and academic grades of students.
                   </li>
                 </ul>
               </div>
@@ -157,18 +126,27 @@ export default function EmploymentOpportunities() {
                 </h1>
 
                 <ul className="list-disc ml-10 mt-2">
-                {Array.isArray(job.minimumQualifications)
-                      ? job.minimumQualifications.map((qualification, index) => (
-                          <li key={index}>{qualification.trim()}</li>
-                        ))
-                      : job.minimumQualifications.split(',').map((qualification, index) => (
-                          <li key={index}>{qualification.trim()}</li>
-                        ))}
+                  <li>Mature, vibrant person aged between 35-55</li>
+                  <li>
+                    Masters Degree in Education Management or curriculum
+                    development, and computer knowledge is a must. A post
+                    graduate qualification in education management, public
+                    administration or a related field if the Masters field is
+                    from other fields other than Education.
+                  </li>
+                  <li>
+                    At least 5 years of actual academic administrative
+                    experience in students records in an academic or institution
+                    of higher learning. Or Having served in the position of
+                    Deputy registrar for three years or Senior Assistant
+                    registrar for five years in a recognised Higher Education
+                    Institution or University. Subscription to Bugema University
+                    norms and core values is a must
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
-          ))}
 
         </div>
 

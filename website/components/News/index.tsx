@@ -25,7 +25,7 @@ const News = () => {
         const data = await response.json();
         const reversedData = data.reverse().slice(0, 2);
         const latestNews = reversedData.slice(0, 1);
-        
+        console.log(data);
         setNews(reversedData);
         setLatestNews(latestNews);
       } catch (err) {
@@ -48,7 +48,7 @@ const News = () => {
             <div key={post.id} className="w-full">
               <div className="wow fadeInUp relative overflow-hidden rounded-md h-fit bg-white shadow-one dark:bg-dark w-[220] mt-5">
                 <Link
-                  href={`/newss/${post._id}`}
+                  href={`/news/${post._id}`}
                   passHref
                   className="relative lg:block hidden h-[220px] w-full"
                 >
