@@ -15,10 +15,10 @@ import netb from "@/public/images/life/netball/netb.jpeg";
 import netc from "@/public/images/life/netball/netc.jpeg";
 import netd from "@/public/images/life/netball/netd.jpeg";
 
-import foota from "@/public/images/life/football/foota.jpg";
+import foote from "@/public/images/life/football/foota.jpg";
 import footb from "@/public/images/life/football/footb.jpg";
 import footc from "@/public/images/life/football/footc.jpg";
-import footd from "@/public/images/life/football/footd.jpg";
+import footf from "@/public/images/life/football/footd.jpg";
 
 import basketa from "@/public/images/life/basketball/baska.jpg";
 import basketb from "@/public/images/life/basketball/baskb.jpg";
@@ -231,7 +231,7 @@ const AboutSectionLife2 = () => {
             <div className="w-full px-4 lg:w-1/4 transition-transform duration-300 hover:scale-105 cursor-pointer">
               <div className="wow fadeInUp relative mx-auto mb-12 aspect-[25/24] text-center lg:m-0" data-wow-delay=".15s">
                 <Image
-                  src={foota}
+                  src={foote}
                   alt="about image 1"
                   className="w-full h-auto"
                 />
@@ -288,7 +288,7 @@ const AboutSectionLife2 = () => {
             <div className="w-full px-4 lg:w-1/4 transition-transform duration-300 hover:scale-105 cursor-pointer">
               <div className="wow fadeInUp relative mx-auto mb-12 aspect-[25/24] text-center lg:m-0" data-wow-delay=".15s">
                 <Image
-                  src={footd}
+                  src={footf}
                   alt="about image 4"
                   className="w-full h-auto"
                 />
