@@ -15,10 +15,10 @@ import netb from "@/public/images/life/netball/netb.jpeg";
 import netc from "@/public/images/life/netball/netc.jpeg";
 import netd from "@/public/images/life/netball/netd.jpeg";
 
-import foote from "@/public/images/life/football/foota.jpg";
+import foote from "@/public/images/life/football/footc.jpg";
 import footb from "@/public/images/life/football/footb.jpg";
 import footc from "@/public/images/life/football/footc.jpg";
-import footf from "@/public/images/life/football/footd.jpg";
+import footf from "@/public/images/life/football/footb.jpg";
 
 import basketa from "@/public/images/life/basketball/baska.jpg";
 import basketb from "@/public/images/life/basketball/baskb.jpg";
