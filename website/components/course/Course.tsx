@@ -29,8 +29,7 @@ const Course = ({
                         <h1 className=" hidden my-5 text-start  text-white md:text-3xl md:block ">{subtittle}</h1>
                         </div>
                         
-                  <Image src={topImg} alt='img' objectFit="contain" width={1920} height={500} className="opacity-50 "/>
-                  
+                  <Image src={topImg} alt='img' objectFit="contain" width={1920} height={300} className="opacity-50 "/>  
             </div>
 
             <div className=" overflow-hidden md:overflow-auto flex flex-col space-y-12">
