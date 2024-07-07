@@ -1,15 +1,17 @@
 import Team from '../models/Team.js';
-import { cloudinaryController } from './cloudinary.js';
 export const createTeamMember = async (req, res) => {
   try {
-    const { name, position, social_twitter, social_facebook, social_instagram, social_linkedin, bio, quote } = req.body;
-    let image_url = '';
-
-    if (req.file) {
-      await cloudinaryController.uploadImage(req, res, async () => {
-        image_url = req.picturePath;
-      });
-    }
+    const { 
+      name, 
+      position, 
+      social_twitter, 
+      social_facebook, 
+      social_instagram, 
+      social_linkedin, 
+      bio, 
+      quote 
+    } = req.body;
+    const image_url = req.picturePath;
 
     const newTeamMember = new Team({
       name,
@@ -57,31 +59,26 @@ export const getTeamMemberById = async (req, res) => {
 
 export const updateTeamMemberById = async (req, res) => {
     try {
-      const { name, position, social_twitter, social_facebook, social_instagram, social_linkedin, bio, quote } = req.body;
-  
-      let updatedFields = {
-        name,
-        position,
-        social_twitter,
-        social_facebook,
-        social_instagram,
-        social_linkedin,
-        bio,
-        quote
-      };
-  
-      // Check if there is a file attached for image
-      if (req.file) {
-        // If file is present, upload it to Cloudinary
-        await cloudinaryController.uploadImage(req, res, async () => {
-          // If upload is successful, get the image URL and add it to updatedFields
-          updatedFields.image_url = req.picturePath;
-        });
+      let teams = await Team.findById(req.params.id);
+
+      if (!teams) {
+        return res.status(404).json({ message: "Team member not found" });
+      }
+      const data = {
+        image_url: req.picturePath || teams.image_url,
+        name: req.body.name || teams.name,
+        position: req.body.position || teams.position,
+        social_twitter: req.body.social_twitter || teams.social_twitter,
+        social_facebook: req.body.social_facebook || teams.social_facebook,
+        social_instagram: req.body.social_instagram || teams.social_instagram,
+        social_linkedin: req.body.social_linkedin || teams.social_linkedin,
+        bio: req.body.bio || teams.bio,
+        quote: req.body.quote || teams.quote,
       }
   
       const updatedTeamMember = await Team.findByIdAndUpdate(
         req.params.id,
-        updatedFields,
+        data,
         { new: true }
       );
       res.status(200).json(updatedTeamMember);
