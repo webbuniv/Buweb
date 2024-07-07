@@ -1,8 +1,33 @@
+"use client";
 import SectionTitle from "@/components/Common/SectionTitle";
 import School from "@/components/school/School";
 import React from "react";
-
+import Image from "next/image";
+import { useState } from "react";
+export const image = "/images/nav/labs.jpg";
 export default function SchoolOfGraduate() {
+
+      const [computing, setComputing] = useState(true)
+      const [physical, setphysical] = useState(false)
+
+      const handlecomputing = ()=>{
+            setComputing(true)
+            setphysical(false)
+            document.getElementById('computing').classList.remove('hidden')
+            document.getElementById('comphandler').classList.add('active2')
+            document.getElementById('physical').classList.add('hidden')
+            document.getElementById('phyhandler').classList.remove('active2')
+            
+      };
+      const handlephysical =()=>{
+            setComputing(false)
+            setphysical(true)
+            document.getElementById('computing').classList.add('hidden')
+            document.getElementById('physical').classList.remove('hidden')
+            document.getElementById('comphandler').classList.remove('active2')
+            document.getElementById('phyhandler').classList.add('active2')
+      };
+
   return (
     <div>
       <section className="my-20 mt-36 mx-10">
@@ -19,7 +44,52 @@ export default function SchoolOfGraduate() {
         />
       </section>
 
-      <div className="flex flex-col items-start mx-auto md:pl-28">
+      <div className="hidden flex flex-col gap-2 justify-center mx-auto ">
+            <div className="  md:pl-2">
+            <SectionTitle title="Departments In The Faculty" paragraph="" />
+            </div>
+
+            <div className=' flex flex-col gap-2 md:flex-row md:justify-center md:gap-[35%]'>
+
+                  <div className=" ">
+                        <h1 className=" active2 text-xs font-bold text-body-color md:text-xl  " id="comphandler" style={{cursor:"pointer"}} onClick={handlecomputing}> Department Of Computing And Informatics</h1>
+                  </div>
+
+                  <div className=" ">
+                        <h1 className="text-body-color text-xs font-bold md:text-xl " id="phyhandler" style={{cursor:"pointer"}} onClick={handlephysical}> Department Of Life And Physical Sciences</h1>
+                  </div>
+            
+            </div>
+            {/* C O M P U T I N G    A N D   I N F O R M A T I C S   I N F O R M A T I O N */}
+            <div className="my-5 px-1 flex flex-col md:flex-row justify-center gap-[5%]" id="computing">
+                  <div className="bg-blue-100">
+                        <h1 className="px-2 py-5">
+                        As technology evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
+                        </h1>
+                  </div>
+
+                  <div>
+                        <Image src={image} alt='img' objectFit="contain" width={1920} height={500} />
+                  </div>
+                        
+            </div>
+
+            {/*L I F E   A N D    P H Y S I C A L    S C I E N C E S*/}
+            <div className=" hidden my-5 px-1 flex flex-col md:flex-row justify-center gap-[5%]" id="physical">
+                  <div className="bg-blue-100">
+                        <h1 className="px-2 py-5">
+                        As Physical evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
+                        </h1>
+                  </div>
+
+                  <div>
+                        <Image src={image} alt='img' objectFit="contain" width={1920} height={500} />
+                  </div>
+                        
+            </div>
+      </div>
+      
+      {/* <div className="flex flex-col items-start mx-auto md:pl-28">
         <div className="md:pl-2">
           <SectionTitle title="Departments In The Faculty" paragraph="" />
         </div>
@@ -29,7 +99,7 @@ export default function SchoolOfGraduate() {
             <li>Currently One Department In The faculty</li>
           </ul>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
