@@ -77,7 +77,7 @@ const Teams = () => {
   const fetchTeams = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:3001/team", {
+      const response = await axios.get("https://buweb.onrender.com/team", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -111,7 +111,7 @@ const Teams = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:3001/team/create",
+        "https://buweb.onrender.com/team/create",
         formData,
         {
           headers: {
@@ -161,7 +161,7 @@ const Teams = () => {
       formData.append("quote", editFormFields.quote);
 
       await axios.patch(
-        `https://buweb.onrender.com/teams/${editFormFields._id}/update`,
+        `https://buweb.onrender.com/team/${editFormFields._id}/update`,
         formData,
         {
           headers: {
@@ -209,7 +209,7 @@ const Teams = () => {
 
   const handleDeleteTeam = async (id) => {
     try {
-      await axios.delete(`https://buweb.onrender.com/teams/${id}/delete`, {
+      await axios.delete(`https://buweb.onrender.com/team/${id}/delete`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
