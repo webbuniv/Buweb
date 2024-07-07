@@ -30,8 +30,8 @@ const useStyles = makeStyles({
     minWidth: 550,
   },
   image: {
-    maxWidth: '100px',
-    maxHeight: '50px',
+    maxWidth: "100px",
+    maxHeight: "50px",
   },
   headerCell: {
     fontWeight: "bold",
@@ -50,7 +50,7 @@ const Teams = () => {
   const token = useSelector((state) => state.token);
 
   const [createFormFields, setCreateFormFields] = useState({
-    coverPhotoUrl: null,
+    image_url: null,
     name: "",
     position: "",
     social_twitter: "",
@@ -63,7 +63,7 @@ const Teams = () => {
 
   const [editFormFields, setEditFormFields] = useState({
     _id: "",
-    coverPhotoUrl: null,
+    image_url: null,
     name: "",
     position: "",
     social_twitter: "",
@@ -77,7 +77,7 @@ const Teams = () => {
   const fetchTeams = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("https://buweb.onrender.com/teams", {
+      const response = await axios.get("http://localhost:3001/team", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -98,29 +98,34 @@ const Teams = () => {
     e.preventDefault();
     setIsCreating(true);
     try {
-      const formData = new FormData();
-      formData.append("coverPhotoUrl", createFormFields.coverPhotoUrl);
-      formData.append("name", createFormFields.name);
-      formData.append("position", createFormFields.position);
-      formData.append("social_twitter", createFormFields.social_twitter);
-      formData.append("social_facebook", createFormFields.social_facebook);
-      formData.append("social_instagram", createFormFields.social_instagram);
-      formData.append("social_linkedin", createFormFields.social_linkedin);
-      formData.append("bio", createFormFields.bio);
-      formData.append("quote", createFormFields.quote);
+      const formData = {
+        image_url: createFormFields.image_url,
+      name: createFormFields.name,
+      position: createFormFields.position,
+      social_twitter: createFormFields.social_twitter,
+      social_facebook: createFormFields.social_facebook,
+      social_instagram: createFormFields.social_instagram,
+      social_linkedin: createFormFields.social_linkedin,
+      bio: createFormFields.bio,
+      quote: createFormFields.quote
+      }
 
-      const response = await axios.post("https://buweb.onrender.com/teams/create", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.post(
+        "http://localhost:3001/team/create",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (response.status === 201) {
         fetchTeams();
         setShowNewTeamModal(false);
         setCreateFormFields({
-          coverPhotoUrl: null,
+          image_url: null,
           name: "",
           position: "",
           social_twitter: "",
@@ -143,8 +148,8 @@ const Teams = () => {
     setIsUpdating(true);
     try {
       const formData = new FormData();
-      if (editFormFields.coverPhotoUrl) {
-        formData.append("coverPhotoUrl", editFormFields.coverPhotoUrl);
+      if (editFormFields.image_url) {
+        formData.append("image_url", editFormFields.image_url);
       }
       formData.append("name", editFormFields.name);
       formData.append("position", editFormFields.position);
@@ -155,17 +160,21 @@ const Teams = () => {
       formData.append("bio", editFormFields.bio);
       formData.append("quote", editFormFields.quote);
 
-      await axios.patch(`https://buweb.onrender.com/teams/${editFormFields._id}/update`, formData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      await axios.patch(
+        `https://buweb.onrender.com/teams/${editFormFields._id}/update`,
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       fetchTeams();
       setShowEditTeamModal(false);
       setEditFormFields({
         _id: "",
-        coverPhotoUrl: null,
+        image_url: null,
         name: "",
         position: "",
         social_twitter: "",
@@ -185,7 +194,7 @@ const Teams = () => {
   const handleEditTeam = (team) => {
     setEditFormFields({
       _id: team._id,
-      coverPhotoUrl: team.coverPhotoUrl,
+      image_url: team.image_url,
       name: team.name,
       position: team.position,
       social_twitter: team.social_twitter,
@@ -214,25 +223,29 @@ const Teams = () => {
   const classes = useStyles();
 
   const columns = [
-    { name: 'coverPhotoUrl', label: 'Cover Photo' },
-    { name: 'name', label: 'Name' },
-    { name: 'position', label: 'Position' },
-    { name: 'social_twitter', label: 'Twitter' },
-    { name: 'social_facebook', label: 'Facebook' },
-    { name: 'social_instagram', label: 'Instagram' },
-    { name: 'social_linkedin', label: 'LinkedIn' },
-    { name: 'bio', label: 'Bio' },
-    { name: 'quote', label: 'Quote' },
+    { name: "image_url", label: "Cover Photo" },
+    { name: "name", label: "Name" },
+    { name: "position", label: "Position" },
+
     {
-      name: 'actions',
-      align: 'center',
-      label: 'Actions',
+      name: "actions",
+      align: "center",
+      label: "Actions",
       render: (team) => (
         <div>
-          <Button variant="contained" color="primary" onClick={() => handleEditTeam(team)} style={{ marginRight: '8px' }}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => handleEditTeam(team)}
+            style={{ marginRight: "8px" }}
+          >
             Edit
           </Button>
-          <Button variant="contained" color="secondary" onClick={() => handleDeleteTeam(team._id)}>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => handleDeleteTeam(team._id)}
+          >
             Delete
           </Button>
         </div>
@@ -246,15 +259,23 @@ const Teams = () => {
       <SoftBox py={3}>
         <SoftBox mb={3}>
           <Card>
-            <SoftBox display="flex" justifyContent="space-between" alignItems="center" p={3}>
+            <SoftBox
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              p={3}
+            >
               <SoftTypography variant="h6">Teams Table</SoftTypography>
-              <Button variant="contained" color="primary" onClick={() => setShowNewTeamModal(true)}>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => setShowNewTeamModal(true)}
+              >
                 Create New Team Member
               </Button>
             </SoftBox>
             {loading && <CircularProgress />}
-            {error && <div>Error: {error}</div>}
-            {!loading && !error && (
+            {!loading && (
               <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                   <TableBody>
@@ -270,13 +291,23 @@ const Teams = () => {
                     {teams.map((team) => (
                       <TableRow key={team._id}>
                         {columns.map((column) => (
-                          <TableCell key={column.name} align={column.align} component="th" scope="row">
+                          <TableCell
+                            key={column.name}
+                            align={column.align}
+                            component="th"
+                            scope="row"
+                          >
                             {column.render
                               ? column.render(team)
-                              : (column.name === 'coverPhotoUrl'
-                                ? <img src={team[column.name]} alt="Cover Photo" className={classes.image} />
-                                : team[column.name]
-                              )}
+                              : column.name === "image_url"
+                              ? team.image_url && (
+                                  <img
+                                    src={team.image_url}
+                                    alt="Cover"
+                                    className={classes.image}
+                                  />
+                                )
+                              : team[column.name]}
                           </TableCell>
                         ))}
                       </TableRow>
@@ -292,16 +323,17 @@ const Teams = () => {
 
       <Modal open={showNewTeamModal} onClose={() => setShowNewTeamModal(false)}>
         <Box
+          p={3}
+          bgcolor="background.paper"
+          boxShadow={3}
+          borderRadius={2}
+          maxWidth="500px"
+          mx="auto"
+          mt="5%"
+          mb="5%"
           sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: 400,
-            bgcolor: "background.paper",
-            border: "2px solid #000",
-            boxShadow: 24,
-            p: 4,
+            height: '80vh',
+            overflowY: 'scroll'
           }}
         >
           <Typography variant="h6" component="h2">
@@ -309,18 +341,30 @@ const Teams = () => {
           </Typography>
           <form onSubmit={handleCreateTeam}>
             <Dropzone
-              onDrop={(acceptedFiles) => setCreateFormFields({ ...createFormFields, coverPhotoUrl: acceptedFiles[0] })}
+              acceptedFiles=".jpg,.jpeg,.png"
+              multiple={false}
+              onDrop={(acceptedFiles) =>
+                setCreateFormFields((prevFields) => ({
+                  ...prevFields,
+                  image_url: acceptedFiles[0],
+                }))
+              }
             >
               {({ getRootProps, getInputProps }) => (
-                <Box {...getRootProps()} p={2} border="1px dashed gray" mb={2}>
+                <Box
+                  {...getRootProps()}
+                  border="2px dashed"
+                  p="1rem"
+                  sx={{ "&:hover": { cursor: "pointer" } }}
+                >
                   <input {...getInputProps()} />
-                  <Typography>Drag 'n' drop a photo here, or click to select one</Typography>
-                  {createFormFields.coverPhotoUrl && (
-                    <img
-                      src={URL.createObjectURL(createFormFields.coverPhotoUrl)}
-                      alt="Cover Photo"
-                      className={classes.image}
-                    />
+                  {!createFormFields.image_url ? (
+                    <Typography>Add Cover Photo Here</Typography>
+                  ) : (
+                    <div>
+                      <Typography>{createFormFields.image_url.name}</Typography>
+                      <EditOutlinedIcon />
+                    </div>
                   )}
                 </Box>
               )}
@@ -331,7 +375,12 @@ const Teams = () => {
               fullWidth
               margin="normal"
               value={createFormFields.name}
-              onChange={(e) => setCreateFormFields({ ...createFormFields, name: e.target.value })}
+              onChange={(e) =>
+                setCreateFormFields((prevFields) => ({
+                  ...prevFields,
+                  name: e.target.value,
+                }))
+              }
             />
             <TextField
               label="Position"
@@ -339,7 +388,12 @@ const Teams = () => {
               fullWidth
               margin="normal"
               value={createFormFields.position}
-              onChange={(e) => setCreateFormFields({ ...createFormFields, position: e.target.value })}
+              onChange={(e) =>
+                setCreateFormFields((prevFields) => ({
+                  ...prevFields,
+                  position: e.target.value,
+                }))
+              }
             />
             <TextField
               label="Twitter"
@@ -347,7 +401,12 @@ const Teams = () => {
               fullWidth
               margin="normal"
               value={createFormFields.social_twitter}
-              onChange={(e) => setCreateFormFields({ ...createFormFields, social_twitter: e.target.value })}
+              onChange={(e) =>
+                setCreateFormFields((prevFields) => ({
+                  ...prevFields,
+                  social_twitter: e.target.value,
+                }))
+              }
             />
             <TextField
               label="Facebook"
@@ -355,7 +414,12 @@ const Teams = () => {
               fullWidth
               margin="normal"
               value={createFormFields.social_facebook}
-              onChange={(e) => setCreateFormFields({ ...createFormFields, social_facebook: e.target.value })}
+              onChange={(e) =>
+                setCreateFormFields((prevFields) => ({
+                  ...prevFields,
+                  social_facebook: e.target.value,
+                }))
+              }
             />
             <TextField
               label="Instagram"
@@ -363,7 +427,12 @@ const Teams = () => {
               fullWidth
               margin="normal"
               value={createFormFields.social_instagram}
-              onChange={(e) => setCreateFormFields({ ...createFormFields, social_instagram: e.target.value })}
+              onChange={(e) =>
+                setCreateFormFields((prevFields) => ({
+                  ...prevFields,
+                  social_instagram: e.target.value,
+                }))
+              }
             />
             <TextField
               label="LinkedIn"
@@ -371,7 +440,12 @@ const Teams = () => {
               fullWidth
               margin="normal"
               value={createFormFields.social_linkedin}
-              onChange={(e) => setCreateFormFields({ ...createFormFields, social_linkedin: e.target.value })}
+              onChange={(e) =>
+                setCreateFormFields((prevFields) => ({
+                  ...prevFields,
+                  social_linkedin: e.target.value,
+                }))
+              }
             />
             <TextField
               label="Bio"
@@ -381,7 +455,12 @@ const Teams = () => {
               multiline
               rows={4}
               value={createFormFields.bio}
-              onChange={(e) => setCreateFormFields({ ...createFormFields, bio: e.target.value })}
+              onChange={(e) =>
+                setCreateFormFields((prevFields) => ({
+                  ...prevFields,
+                  bio: e.target.value,
+                }))
+              }
             />
             <TextField
               label="Quote"
@@ -389,7 +468,12 @@ const Teams = () => {
               fullWidth
               margin="normal"
               value={createFormFields.quote}
-              onChange={(e) => setCreateFormFields({ ...createFormFields, quote: e.target.value })}
+              onChange={(e) =>
+                setCreateFormFields((prevFields) => ({
+                  ...prevFields,
+                  quote: e.target.value,
+                }))
+              }
             />
             <Button
               variant="contained"
@@ -407,16 +491,17 @@ const Teams = () => {
 
       <Modal open={showEditTeamModal} onClose={() => setShowEditTeamModal(false)}>
         <Box
+          p={3}
+          bgcolor="background.paper"
+          boxShadow={3}
+          borderRadius={2}
+          maxWidth="500px"
+          mx="auto"
+          mt="5%"
+          mb="5%"
           sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: 400,
-            bgcolor: "background.paper",
-            border: "2px solid #000",
-            boxShadow: 24,
-            p: 4,
+            height: '80vh',
+            overflowY: 'scroll'
           }}
         >
           <Typography variant="h6" component="h2">
@@ -424,18 +509,30 @@ const Teams = () => {
           </Typography>
           <form onSubmit={handleUpdateTeam}>
             <Dropzone
-              onDrop={(acceptedFiles) => setEditFormFields({ ...editFormFields, coverPhotoUrl: acceptedFiles[0] })}
+              acceptedFiles=".jpg,.jpeg,.png"
+              multiple={false}
+              onDrop={(acceptedFiles) =>
+                setEditFormFields((prevFields) => ({
+                  ...prevFields,
+                  image_url: acceptedFiles[0],
+                }))
+              }
             >
               {({ getRootProps, getInputProps }) => (
-                <Box {...getRootProps()} p={2} border="1px dashed gray" mb={2}>
+                <Box
+                  {...getRootProps()}
+                  border="2px dashed"
+                  p="1rem"
+                  sx={{ "&:hover": { cursor: "pointer" } }}
+                >
                   <input {...getInputProps()} />
-                  <Typography>Drag 'n' drop a photo here, or click to select one</Typography>
-                  {editFormFields.coverPhotoUrl && (
-                    <img
-                      src={URL.createObjectURL(editFormFields.coverPhotoUrl)}
-                      alt="Cover Photo"
-                      className={classes.image}
-                    />
+                  {!editFormFields.image_url ? (
+                    <Typography>Add Cover Photo Here</Typography>
+                  ) : (
+                    <div>
+                      <Typography>{editFormFields.image_url.name}</Typography>
+                      <EditOutlinedIcon />
+                    </div>
                   )}
                 </Box>
               )}
@@ -446,7 +543,12 @@ const Teams = () => {
               fullWidth
               margin="normal"
               value={editFormFields.name}
-              onChange={(e) => setEditFormFields({ ...editFormFields, name: e.target.value })}
+              onChange={(e) =>
+                setEditFormFields((prevFields) => ({
+                  ...prevFields,
+                  name: e.target.value,
+                }))
+              }
             />
             <TextField
               label="Position"
@@ -454,7 +556,12 @@ const Teams = () => {
               fullWidth
               margin="normal"
               value={editFormFields.position}
-              onChange={(e) => setEditFormFields({ ...editFormFields, position: e.target.value })}
+              onChange={(e) =>
+                setEditFormFields((prevFields) => ({
+                  ...prevFields,
+                  position: e.target.value,
+                }))
+              }
             />
             <TextField
               label="Twitter"
@@ -462,7 +569,12 @@ const Teams = () => {
               fullWidth
               margin="normal"
               value={editFormFields.social_twitter}
-              onChange={(e) => setEditFormFields({ ...editFormFields, social_twitter: e.target.value })}
+              onChange={(e) =>
+                setEditFormFields((prevFields) => ({
+                  ...prevFields,
+                  social_twitter: e.target.value,
+                }))
+              }
             />
             <TextField
               label="Facebook"
@@ -470,7 +582,12 @@ const Teams = () => {
               fullWidth
               margin="normal"
               value={editFormFields.social_facebook}
-              onChange={(e) => setEditFormFields({ ...editFormFields, social_facebook: e.target.value })}
+              onChange={(e) =>
+                setEditFormFields((prevFields) => ({
+                  ...prevFields,
+                  social_facebook: e.target.value,
+                }))
+              }
             />
             <TextField
               label="Instagram"
@@ -478,7 +595,12 @@ const Teams = () => {
               fullWidth
               margin="normal"
               value={editFormFields.social_instagram}
-              onChange={(e) => setEditFormFields({ ...editFormFields, social_instagram: e.target.value })}
+              onChange={(e) =>
+                setEditFormFields((prevFields) => ({
+                  ...prevFields,
+                  social_instagram: e.target.value,
+                }))
+              }
             />
             <TextField
               label="LinkedIn"
@@ -486,7 +608,12 @@ const Teams = () => {
               fullWidth
               margin="normal"
               value={editFormFields.social_linkedin}
-              onChange={(e) => setEditFormFields({ ...editFormFields, social_linkedin: e.target.value })}
+              onChange={(e) =>
+                setEditFormFields((prevFields) => ({
+                  ...prevFields,
+                  social_linkedin: e.target.value,
+                }))
+              }
             />
             <TextField
               label="Bio"
@@ -496,15 +623,27 @@ const Teams = () => {
               multiline
               rows={4}
               value={editFormFields.bio}
-              onChange={(e) => setEditFormFields({ ...editFormFields, bio: e.target.value })}
+              onChange={(e) =>
+                setEditFormFields((prevFields) => ({
+                  ...prevFields,
+                  bio: e.target.value,
+                }))
+              }
             />
             <TextField
               label="Quote"
               variant="outlined"
               fullWidth
               margin="normal"
+              multiline
+              rows={4}
               value={editFormFields.quote}
-              onChange={(e) => setEditFormFields({ ...editFormFields, quote: e.target.value })}
+              onChange={(e) =>
+                setEditFormFields((prevFields) => ({
+                  ...prevFields,
+                  quote: e.target.value,
+                }))
+              }
             />
             <Button
               variant="contained"
