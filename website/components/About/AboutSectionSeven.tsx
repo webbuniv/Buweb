@@ -10,32 +10,22 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from "next/link"
 
 const AboutSectionSeven = () => {
-  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
-  const [isDropdown, setIsDropdown] = useState(false);
-
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const dropdownRefe = useRef<HTMLDivElement>(null);
-
-  const handleMouseEnter = () => {
-    setIsDropdownVisible(true);
-    setIsDropdown(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsDropdownVisible(false);
-    setIsDropdown(false);
-  };
-
+  const [isDropdownVisibleProfessional, setIsDropdownVisibleProfessional] = useState(false);
+  const [isDropdownVisibleExpert, setIsDropdownVisibleExpert] = useState(false);
+  const dropdownRefProfessional = useRef<HTMLDivElement>(null);
+  const dropdownRefExpert = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-      setIsDropdownVisible(false);
-      setIsDropdown(false);
+    if (dropdownRefProfessional.current && !dropdownRefProfessional.current.contains(event.target as Node)) {
+      setIsDropdownVisibleProfessional(false);
+    }
+    if (dropdownRefExpert.current && !dropdownRefExpert.current.contains(event.target as Node)) {
+      setIsDropdownVisibleExpert(false);
     }
   };
 
   useEffect(() => {
-    if (isDropdownVisible) {
+    if (isDropdownVisibleProfessional || isDropdownVisibleExpert) {
       document.addEventListener('mousedown', handleClickOutside);
     } else {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -44,19 +34,7 @@ const AboutSectionSeven = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isDropdownVisible]);
-
-  useEffect(() => {
-    if (isDropdown) {
-      document.addEventListener('mousedown', handleClickOutside);
-    } else {
-      document.removeEventListener('mousedown', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isDropdown]);
+  }, [isDropdownVisibleProfessional, isDropdownVisibleExpert]);
 
   return (
     <section className="py-16 md:py-20 lg:py-28">
@@ -87,18 +65,17 @@ const AboutSectionSeven = () => {
           </p>
           <div
             className="relative inline-block mt-12"
-            onMouseEnter={handleMouseEnter}
-            ref={dropdownRef}
+            onMouseEnter={() => setIsDropdownVisibleProfessional(true)}
+            ref={dropdownRefProfessional}
           >
             <button className="bg-gray-700 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary-300">
               Explore more
             </button>
-            {isDropdownVisible && (
-               <div
-               className="absolute left-0 mt-2 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-all duration-300 ease-in-out w-full sm:w-64 md:w-80 lg:w-96 xl:w-[400px]"
-
-               onMouseLeave={handleMouseLeave}
-             >
+            {isDropdownVisibleProfessional && (
+              <div
+                className="absolute left-0 mt-2 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-all duration-300 ease-in-out w-full sm:w-64 md:w-80 lg:w-96 xl:w-[400px]"
+                onMouseLeave={() => setIsDropdownVisibleProfessional(false)}
+              >
                 
                 <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
 
@@ -154,20 +131,20 @@ const AboutSectionSeven = () => {
            <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
               <div className="flex-1">
               <p className="">The university treasures the quality of it&apos;s products, and for that reason, we hire the quality and experienced lecturers to train and produce the quality for our students. Our lecturers are associated with industry enterprises which helps them get the market experience that they instil in our students. Research is a core role for our lecturers to keep producing relevant knowledge for the market.</p>
-              <div
+           <div
             className="relative inline-block mt-12"
-            onMouseEnter={handleMouseEnter}
-            ref={dropdownRefe}
+            onMouseEnter={() => setIsDropdownVisibleExpert(true)}
+            ref={dropdownRefExpert}
           >
             <button className="bg-gray-700 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary-300">
               Explore more
             </button>
-            {isDropdown && (
-               <div
-               className="absolute left-0 mt-2 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-all duration-300 ease-in-out w-full sm:w-64 md:w-80 lg:w-96 xl:w-[400px]"
-
-               onMouseLeave={handleMouseLeave}
-             >
+            {isDropdownVisibleExpert && (
+              <div
+                className="absolute left-0 mt-2 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-all duration-300 ease-in-out w-full sm:w-64 md:w-80 lg:w-96 xl:w-[400px]"
+                onMouseLeave={() => setIsDropdownVisibleExpert(false)}
+              >
+          
                 
                 <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
 
