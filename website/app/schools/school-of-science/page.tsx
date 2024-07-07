@@ -5,7 +5,7 @@ import React from "react";
 import Image from "next/image";
 import { useState } from "react";
 import { useAmp } from "next/amp";
-export const image = "/images/nav/labs.jpg";
+import image from "@/public/images/nav/labs.jpg";
 
 export default function SchoolOfScience() {
 
