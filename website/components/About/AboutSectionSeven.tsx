@@ -4,25 +4,33 @@ import { GlobeAltIcon } from '@heroicons/react/solid';
 import { StarIcon } from '@heroicons/react/solid';
 import { EyeIcon } from '@heroicons/react/solid';
 import image from "../../public/images/features/bu.jpg";
+import learning from "../../public/images/schools/lab1.jpg";
+import worship from "../../public/images/schools/theology.jpg";
 import React, { useState, useEffect, useRef } from 'react';
 import Link from "next/link"
 
 const AboutSectionSeven = () => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [isDropdown, setIsDropdown] = useState(false);
+
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownRefe = useRef<HTMLDivElement>(null);
 
   const handleMouseEnter = () => {
     setIsDropdownVisible(true);
+    setIsDropdown(true);
   };
 
   const handleMouseLeave = () => {
     setIsDropdownVisible(false);
+    setIsDropdown(false);
   };
 
 
   const handleClickOutside = (event: MouseEvent) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
       setIsDropdownVisible(false);
+      setIsDropdown(false);
     }
   };
 
@@ -38,6 +46,18 @@ const AboutSectionSeven = () => {
     };
   }, [isDropdownVisible]);
 
+  useEffect(() => {
+    if (isDropdown) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isDropdown]);
+
   return (
     <section className="py-16 md:py-20 lg:py-28">
 
@@ -51,7 +71,7 @@ const AboutSectionSeven = () => {
             data-wow-delay=".15s" 
           >
             <Image
-              src={image}
+              src={learning}
               alt="Bugema University"
               className="w-[500px]"
             />
@@ -134,12 +154,66 @@ const AboutSectionSeven = () => {
            <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
               <div className="flex-1">
               <p className="">The university treasures the quality of it&apos;s products, and for that reason, we hire the quality and experienced lecturers to train and produce the quality for our students. Our lecturers are associated with industry enterprises which helps them get the market experience that they instil in our students. Research is a core role for our lecturers to keep producing relevant knowledge for the market.</p>
-              <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
-                Explore more
-              </button>
+              <div
+            className="relative inline-block mt-12"
+            onMouseEnter={handleMouseEnter}
+            ref={dropdownRefe}
+          >
+            <button className="bg-gray-700 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary-300">
+              Explore more
+            </button>
+            {isDropdown && (
+               <div
+               className="absolute left-0 mt-2 z-50 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-all duration-300 ease-in-out w-full sm:w-64 md:w-80 lg:w-96 xl:w-[400px]"
+
+               onMouseLeave={handleMouseLeave}
+             >
+                
+                <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+
+                <div className="mr-10 my-5 slider slide--fast ">
+                <Link href={"/schools/school-of-science"} >
+                  <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Science and Technology </h1> 
+                </Link>
+                </div>
+                <div className="mr-2 my-5 slider slide--fast ">
+                <Link href={"/schools/school-of-health"} >
+                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Heath and Alied Sciences</h1> 
+              </Link> 
               </div>
+              <div className="mr-2 my-5 slider slide--fast ">
+              <Link href={"/schools/school-of-theology"} >
+                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Theology and Religious Studies </h1> 
+              </Link> 
+              </div>
+              <div className="mr-2 my-5 slider slide--fast ">
+              <Link href={"/schools/school-of-agric"} >
+                  <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Agriculture and Applied Sciences</h1> 
+            </Link> 
             </div>
+            <div className="mr-2 my-5 slider slide--fast ">
+            <Link href={"/schools/school-of-business"} >
+                <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Business</h1> 
+          </Link> 
           </div>
+          <div className="mr-2 my-5 slider slide--fast ">
+          <Link href={"/schools/school-of-education"} >
+                <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Education,Humanities and <br/> Social sciences</h1> 
+          </Link> 
+          </div>
+          <div className="mr-2 my-5 slider slide--fast ">
+          <Link href={"/schools/school-of-graduate"} >
+                <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Graduate studies, Reseacrch <br/>&  Publications</h1> 
+          </Link> 
+          </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+
           <div
             className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
             data-wow-delay=".15s" 
@@ -157,7 +231,7 @@ const AboutSectionSeven = () => {
               data-wow-delay=".15s" 
             >
               <Image
-                src={image}
+                src={learning}
                 alt="Bugema University"
                 className="w-[500px]"
               />
@@ -170,7 +244,7 @@ const AboutSectionSeven = () => {
               <div className="flex-1">
               <p className="">Our blended learning programs combine traditional classroom instruction with interactive online components, empowering students to engage with course materials, collaborate with peers. Our E-Learning system is available all the time to cater for those that may be in different time zones. Our support team will take you step by step on how to get the best from the platform. Pay a visit to our E-Learning Platform.</p>
               <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
-                Explore more
+                Login
               </button>
               </div>
             </div>
@@ -184,9 +258,11 @@ const AboutSectionSeven = () => {
            <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
               <div className="flex-1">
               <p className="">We believe in creating relationships that last with our clients. The institution has academic families where each student is assigned to a mentor. This increases the bond between our students and lecturers. Since students are let free to interact with the lecturers, this gives them a chance to be well prepared for the market challenges ahead of them. This enriches their (Students) career readiness as well.</p>
-              <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
-                Explore more
-              </button>
+              <Link href={"/studentlife"} >
+                <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
+                  Explore more
+                </button>
+              </Link>
               </div>
             </div>
           </div>
@@ -195,13 +271,23 @@ const AboutSectionSeven = () => {
             data-wow-delay=".15s" 
           >
             <Image
-              src={image}
+              src={worship}
               alt="Bugema University"
               className="w-[500px]"
             />
           </div>
         </div>
         <div className="flex items-center gap-10 -mt-20">
+        <div
+            className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
+            data-wow-delay=".15s" 
+          >
+            <Image
+              src={worship}
+              alt="Bugema University"
+              className="w-[500px]"
+            />
+          </div>
           <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
              Worship
@@ -215,28 +301,10 @@ const AboutSectionSeven = () => {
               </div>
             </div>
           </div>
-          <div
-            className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
-            data-wow-delay=".15s" 
-          >
-            <Image
-              src={image}
-              alt="Bugema University"
-              className="w-[500px]"
-            />
-          </div>
+          
         </div>
         <div className="flex items-center gap-10 -mt-20">
-        <div
-            className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
-            data-wow-delay=".15s" 
-          >
-            <Image
-              src={image}
-              alt="Bugema University"
-              className="w-[500px]"
-            />
-        </div>
+
         <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
           <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
           Professional Certificate
@@ -250,7 +318,19 @@ const AboutSectionSeven = () => {
             </div>
           </div>
         </div>
+        <div
+            className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
+            data-wow-delay=".15s" 
+          >
+            <Image
+              src={image}
+              alt="Bugema University"
+              className="w-[500px]"
+            />
         </div>
+        
+        </div>
+        
       </div>
 
       <div className="container">
