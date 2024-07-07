@@ -2,6 +2,7 @@ import Image from "next/image";
 import nurses1 from "../../public/images/nav/nurses1.jpg";
 import image from "../../public/images/nav/labs.jpg";
 import scie from "../../public/images/scienceTech/scie.png";
+import { Carousel } from "flowbite-react";
 
 const School = ({
   tittle, 
@@ -28,20 +29,38 @@ const School = ({
 }) => {
   return (
       
-      <div className="mx-0">
-
-      
-            <div className="overflow-hidden relative -my-10 bg-black w-full left-0" >
-                  <div className="absolute justify-center ml-[2%] my-[24%]"> 
-                        <h1 className="font-bold text-start text-xs text-white md:text-7xl">
-                              {tittle} 
-                        </h1>
-                        <h1 className=" hidden my-5 text-start  text-white md:text-3xl md:block ">{subtittle}</h1>
-                        </div>
+      <div className="w-screen -ml-12 -my-14">
+            
+            <div className="w-full bg-black">
+                  <Carousel data-carousel="slide">
+                        <div className="overflow-hidden rounded-lg relative -my-10 top-0 left-0 bg-black w-full " >
+                              <div className="absolute justify-center ml-[2%] my-[24%]"> 
+                                    <h1 className="font-bold text-start text-xs text-white md:text-7xl">
+                                          {tittle} 
+                                    </h1>
+                                    <h1 className=" hidden my-5 text-start  text-white md:text-3xl md:block ">{subtittle}</h1>
+                              </div>
+                              
+                              <Image src={topImg} alt='img' objectFit="contain" width={1920} height={500} className="opacity-50 "/>
                         
-                  <Image src={topImg} alt='img' objectFit="contain" width={1920} height={500} className="opacity-50 "/>
-                  
+                        </div>
+
+                        <div className="overflow-hidden rounded-lg relative -my-10 top-0 left-0 bg-black w-full " >
+                              <div className="absolute justify-center ml-[2%] my-[24%]"> 
+                                    <h1 className="font-bold text-start text-xs text-white md:text-7xl">
+                                          {tittle} 
+                                    </h1>
+                                    <h1 className=" hidden my-5 text-start  text-white md:text-3xl md:block ">{subtittle}</h1>
+                              </div>
+                              
+                              <Image src={image} alt='img' objectFit="contain" width={1920} height={500} className="opacity-50 "/>
+                        
+                        </div>
+                  </Carousel>
             </div>
+            
+            
+            
 
             <div className=" overflow-hidden md:overflow-auto flex flex-col space-y-12">
                   
