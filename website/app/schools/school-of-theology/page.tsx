@@ -3,7 +3,7 @@ import Image from 'next/image';
 import SectionTitle from '@/components/Common/SectionTitle'
 import School from '@/components/school/School'
 import React from 'react'
-export const image = "/images/nav/labs.jpg";
+import image from "@/public/images/nav/labs.jpg";
 import { useState } from "react";
 
 export default function SchoolOfTheology() {

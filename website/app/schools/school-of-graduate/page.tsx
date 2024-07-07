@@ -4,7 +4,7 @@ import School from "@/components/school/School";
 import React from "react";
 import Image from "next/image";
 import { useState } from "react";
-export const image = "/images/nav/labs.jpg";
+import image from "@/public/images/nav/labs.jpg";
 export default function SchoolOfGraduate() {
 
       const [computing, setComputing] = useState(true)
