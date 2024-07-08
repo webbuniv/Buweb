@@ -455,7 +455,9 @@ const why_bugema = () =>{
                               </div>
                               <div className="ml-19 -mr-5 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
                                     <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> How to Apply  <FaArrowRight className='arrow1'/></h1>
+                                          <Link href={"/administrator"}>
+                                                <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Administrators  <FaArrowRight className='arrow1'/></h1>
+                                          </Link>
                                     </div>
                               </div> 
                               

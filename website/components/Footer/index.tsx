@@ -152,7 +152,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href="https://erms.bugemauniv.ac.ug/student/"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
@@ -215,7 +215,7 @@ const Footer = () => {
                   <ul className="list-none">
                     <li>
                       <Link
-                      href="/"
+                      href="http://apply.bugemauniv.ac.ug/"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
@@ -242,7 +242,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                      href="/"
+                      href="https://erms.bugemauniv.ac.ug/student/"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
