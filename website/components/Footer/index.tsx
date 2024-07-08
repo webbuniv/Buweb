@@ -52,7 +52,7 @@ const Footer = () => {
                 </h1>
                 <div className="flex items-center justify-center">
                   <Link
-                    href="/https://www.facebook.com"
+                    href="https://www.facebook.com"
                     aria-label="social-link"
                     className="mr-6 text-[#CED3F6] hover:text-primary"
                     // text-[#4d5fe6]
@@ -63,7 +63,7 @@ const Footer = () => {
                     </svg>
                   </Link>
                   <Link
-                    href="/https://www.x.com"
+                    href="https://www.x.com"
                     aria-label="social-link"
                     className="mr-6 text-[#CED3F6] hover:text-primary"
                   >
@@ -83,7 +83,7 @@ const Footer = () => {
                     </svg>
                   </Link>
                   <Link
-                    href="/https://www.youtube.com"
+                    href="https://www.youtube.com"
                     aria-label="social-link"
                     className="mr-6 text-[#CED3F6] hover:text-primary"
                   >
@@ -93,7 +93,7 @@ const Footer = () => {
                     </svg>
                   </Link>
                   <Link
-                    href="/https://www.linkedin.com"
+                    href="https://www.linkedin.com"
                     aria-label="social-link"
                     className="mr-6 text-[#CED3F6] hover:text-primary"
                   >
@@ -103,7 +103,7 @@ const Footer = () => {
                     </svg>
                   </Link>
                   <Link
-                    href="/https://www.instagram.com"
+                    href="https://www.instagram.com"
                     aria-label="social-link"
                     className="mr-6 text-[#CED3F6] hover:text-primary"
                   >
@@ -152,7 +152,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href="https://erms.bugemauniv.ac.ug/student/login"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
@@ -161,7 +161,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href="https://elearning.bugemauniv.ac.ug/"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
@@ -179,7 +179,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href="https://e-library.bugemauniv.ac.ug/"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
