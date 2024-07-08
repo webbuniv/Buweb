@@ -6,29 +6,7 @@ import scie from "../../public/images/scienceTech/scie.png";
 import image from "@/public/images/nav/labs.jpg";
 import { useState, useEffect } from "react";
 
-const School = ({
-  tittle, 
-  subtittle,  
-  topImg,
-  dean,
-  deanImage,
-  message,
-  preamble,
-  goal,
-  mb = "10px",
-}: {
-  tittle:string;
-  subtittle:string;
-  topImg:string;
-  dean: string;
-  deanImage: string;
-  message: string;
-  preamble: string;
-  goal: string;
-  width?: string;
-  center?: boolean;
-  mb?: string;
-}) => {
+const School = () => {
 
 
       const [admin, setAdmin] = useState([]);
@@ -77,7 +55,7 @@ const School = ({
                   
             {/* V I C E   C H A N C E L L O R*/}
 
-            <div className={` my-24 wow fadeInUp w-full flex flex-col md:flex-row justify-center items-center mx-auto`} data-wow-delay=".1s" style={{ marginBottom: mb }}>
+            <div className={` my-24 wow fadeInUp w-full flex flex-col md:flex-row justify-center items-center mx-auto`} data-wow-delay=".1s" style={{ marginBottom: "10px"}}>
                   {vc.map((v) => (
                         v && (
                         <div key={v._id} className=" ">
@@ -85,7 +63,7 @@ const School = ({
                                     <Image src={v.image_url} alt="VC" width={400} height={200} className="rounded-lg"/>
 
                                     <h2 className="mb-4 text-center text-dark font-bold  !leading-tight text-black/70 dark:text-white sm:text-4xl">
-                                          {v.name}
+                                          Prof.{v.name}
                                     </h2>
                                     <h1 className="mb-4 text-4xl font-bold text-[#FF0000] ">{v.position}</h1>
                               </div>
