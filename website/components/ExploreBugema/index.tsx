@@ -106,7 +106,7 @@ const Video = () => {
         data-wow-delay=".15s">
            
             <iframe width="500" height="300" title="YouTube video player"  allow="accelerometer; loop=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen
-                src="https://www.youtube.com/embed/MNurEKZ0T20?si=7pRV-TCvIL1v9dPz&autoplay=1"
+                src="https://www.youtube.com/embed/MNurEKZ0T20?si=7pRV-TCvIL1v9dPz"
                 className='w-full h-full'>
             </iframe>
 
@@ -124,8 +124,8 @@ const Video = () => {
           </h1>
           <p className="text-base !leading-relaxed text-body-color md:text-lg">
           
-                  At Bugema, it’s not just about academics; it’s about nurturing your mind, heart, and hands. Bugema fosters holistic excellence – where character development meets intellectual growth.
-                  With Flexible Intakes, whether you’re a fresh high school graduate or a working professional seeking advancement, Bugema offers multiple intakes throughout the year. No need to wait – start your journey now!
+                  At Bugema, it is not just about academics; it is about nurturing your mind, heart, and hands. Bugema fosters holistic excellence – where character development meets intellectual growth.
+                  With Flexible Intakes, whether you are a fresh high school graduate or a working professional seeking advancement, Bugema offers multiple intakes throughout the year. No need to wait – start your journey now.
                   Bugema University, where dreams take root, friendships flourish, and purpose unfolds. Join us today – your adventure awaits! 
 
           </p>
@@ -164,7 +164,7 @@ const Video = () => {
                     intellectual growth. With Flexible Intakes, whether you are a
                     fresh high school graduate or a working professional seeking
                     advancement, Bugema offers multiple intakes throughout the
-                    year. No need to wait, start your journey now! Bugema
+                    year. No need to wait, start your journey now. Bugema
                     University, where dreams take root, friendships flourish,
                     and purpose unfolds. Join us today, your adventure awaits!
                   </p>
