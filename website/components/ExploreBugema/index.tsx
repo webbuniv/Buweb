@@ -106,7 +106,7 @@ const Video = () => {
         data-wow-delay=".15s">
            
             <iframe width="500" height="300" title="YouTube video player"  allow="accelerometer; loop=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen
-                src="https://www.youtube.com/embed/MNurEKZ0T20?si=7pRV-TCvIL1v9dPz&autoplay=1"
+                src="https://www.youtube.com/embed/MNurEKZ0T20?si=7pRV-TCvIL1v9dPz"
                 className='w-full h-full'>
             </iframe>
 
