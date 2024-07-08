@@ -6,7 +6,7 @@ import LifeHeroVideo from "../LifeHeroVideo/LifeHeroVideo";
 import LifeHeroOverlay from "../LifeHeroOverlay/LifeHeroOverlay";
 
 export const bgImage = "/images/features/life.jpg";
-export const heroVid = "https://res.cloudinary.com/duaqiajka/video/upload/v1719686933/WELCOME_VIDEO_og2jma.mp4";
+export const heroVid = "https://res.cloudinary.com/duaqiajka/video/upload/STUDENTS_LIFE_vwivdr.mp4";
 
 // Variants for hero content
 const textVariants = {
