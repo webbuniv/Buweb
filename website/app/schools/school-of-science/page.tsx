@@ -35,7 +35,7 @@ export default function SchoolOfScience() {
       <section className="my-20 mt-36 mx-10">
         <School
           tittle="Shool of Science and Technology"
-          subtittle="Our Aim is to train and encourage our Learners to cope up with the continouosly changing and emerging technologies by giving them a hands on experience to make them problem solvers..."
+          subtittle="Our Aim is to train and encourage our Learners to cope up with the continuosly changing and emerging technologies by giving them a hands on experience to make them problem solvers..."
           topImg={"/images/schools/lab1.jpg"}
           dean="DR. LOWU FRANCIS"
           deanImage={"/images/schools/commando.jpg"}
