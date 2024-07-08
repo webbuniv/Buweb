@@ -23,6 +23,7 @@ import Jobs from "./layouts/Jobs";
 import routes from "./routes";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "./context";
 import brand from "./assets/images/logos/logo.png";
+import Teams from "./layouts/admin";
 
 // eslint-disable-next-line react/prop-types
 function ProtectedRoute({ children }) {
@@ -172,6 +173,14 @@ export default function App() {
           element={
             <ProtectedRoute>
               <Jobs />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/administrators"
+          element={
+            <ProtectedRoute>
+              <Teams />
             </ProtectedRoute>
           }
         />

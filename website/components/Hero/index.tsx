@@ -55,10 +55,13 @@ const Hero = () => {
           title2 = "Service."
           title3="Where Head, Heart and Hands unite in"
           subtitle="Excellence In Service"
-          subtitle2="With over 100 academic programs, Bugema University is where Knowledge meets Opportunity "
+          subtitle2="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity "
           subtitle3="to offer you Quality education with a hands on experience. . ."
           buttonText="Apply Now"
-          buttonLink="http://apply.bugemauniv.ac.ug/"
+
+
+          buttonLink="https://apply.bugemauniv.ac.ug/"
+
         />
 
         
