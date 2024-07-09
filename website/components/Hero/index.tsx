@@ -11,7 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 export const heroMedia = [
   { type: 'video', src: "https://res.cloudinary.com/duaqiajka/video/upload/v1719686933/WELCOME_VIDEO_og2jma.mp4" },
-  { type: 'image', src: "/images/vc/chancellor.jpg" }
+  { type: 'image', src: "/images/vc/chancellor_banner.jpg" }
 ];
 
 const textVariants = {
