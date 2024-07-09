@@ -58,7 +58,10 @@ const Hero = () => {
           subtitle2="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity "
           subtitle3="to offer you Quality education with a hands on experience. . ."
           buttonText="Apply Now"
+
+
           buttonLink="https://apply.bugemauniv.ac.ug/"
+
         />
 
         
@@ -112,7 +115,7 @@ const Hero = () => {
                     <FaArrowDownLong className="text-white" />
                   </motion.div>
                   <Link
-                    href="/apply"
+                    href="http://apply.bugemauniv.ac.ug/"
                     className="flex rounded-md bg-primary dark:bg-primary/60 py-2 px-4  text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
                   >
                     Apply Now
