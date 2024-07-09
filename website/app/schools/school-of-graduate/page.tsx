@@ -4,6 +4,7 @@ import School from "@/components/school/School";
 import React from "react";
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
 import image from "@/public/images/nav/labs.jpg";
 export default function SchoolOfGraduate() {
 
@@ -44,19 +45,19 @@ export default function SchoolOfGraduate() {
         />
       </section>
 
-      <div className="hidden flex flex-col gap-2 justify-center mx-auto ">
+      <div className="flex flex-col gap-2 justify-center mx-auto ">
             <div className="  md:pl-2">
-            <SectionTitle title="Departments In The Faculty" paragraph="" />
+            <SectionTitle title="Programs" paragraph="" />
             </div>
 
-            <div className=' flex flex-col gap-2 md:flex-row md:justify-center md:gap-[35%]'>
+            <div className='flex flex-col gap-2 md:flex-row md:justify-center md:gap-[35%]'>
 
                   <div className=" ">
-                        <h1 className=" active2 text-xs font-bold text-body-color md:text-xl  " id="comphandler" style={{cursor:"pointer"}} onClick={handlecomputing}> Department Of Computing And Informatics</h1>
+                        <h1 className=" active2 text-xs font-bold text-body-color md:text-xl  " id="comphandler" style={{cursor:"pointer"}} onClick={handlecomputing}> PHD</h1>
                   </div>
 
                   <div className=" ">
-                        <h1 className="text-body-color text-xs font-bold md:text-xl " id="phyhandler" style={{cursor:"pointer"}} onClick={handlephysical}> Department Of Life And Physical Sciences</h1>
+                        <h1 className="text-body-color text-xs font-bold md:text-xl " id="phyhandler" style={{cursor:"pointer"}} onClick={handlephysical}> MBA</h1>
                   </div>
             
             </div>
@@ -66,6 +67,38 @@ export default function SchoolOfGraduate() {
                         <h1 className="px-2 py-5">
                         As technology evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
                         </h1>
+                        <h3 className="mb-5 text-xl font-bold text-body-color dark:text-white sm:text-2xl lg:text-xl xl:text-2xl" style={{ color: 'blue' }}>
+                        Programs
+                        </h3>
+                        <div className='md:pl-2 mx-auto md:mx-0'>
+                        <ul className='flex flex-col space-y-5'>
+                        <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  PhD in Educational Management 
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  PhD in Environmental Management
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  PhD in Rural Development
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                              
+                        </ul>
+                        </div>
                   </div>
 
                   <div>
@@ -80,6 +113,119 @@ export default function SchoolOfGraduate() {
                         <h1 className="px-2 py-5">
                         As Physical evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
                         </h1>
+                        <h3 className="mb-5 text-xl font-bold text-body-color dark:text-white sm:text-2xl lg:text-xl xl:text-2xl" style={{ color: 'blue' }}>
+                        Programs
+                        </h3>
+                        <div className='md:pl-2 mx-auto md:mx-0'>
+                        <ul className='flex flex-col space-y-5'>
+                        <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Master of Public Administration and Management
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Master of Procurement and Logistics
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Master of Project Planning and Management 
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Postgraduate Diploma in Business Management
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Masters in Business Administration
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Masters in Education Management
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Postgraduate Diploma in Information Technology
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Masters of Science in Information Technology
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Master of Public Health
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Master of Social Work
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Master of Science in Counseling Psychology
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Postgraduate Diploma in Public Administration and
+                              Management
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Master of Arts in Development Studies
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                              
+                        </ul>
+                        </div>
                   </div>
 
                   <div>
