@@ -70,6 +70,29 @@ export default function SchoolOfEducation() {
                         <h1 className="px-2 py-5">
                         As technology evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
                         </h1>
+                        <h3 className="mb-5 text-xl font-bold text-body-color dark:text-white sm:text-2xl lg:text-xl xl:text-2xl" style={{ color: 'blue' }}>
+                        Programs
+                        </h3>
+                        <div className='md:pl-2 mx-auto md:mx-0'>
+                        <ul className='flex flex-col space-y-5'>
+                        <li>Bachelor of Humanitarian Emergency and Disaster Management</li>
+                        <li>Bachelor of Arts in Development Studies</li>
+                        <li>Bachelor of Arts in Community Development</li>
+                        <li>Bachelor of Arts in Peace and Conflict Management</li>
+                        <li>Bachelor of Journalism and Mass Communication</li>
+                        <li>Bachelor of Public Administration and Management</li>
+                        <li>Bachelor of Social Work and Social Administration</li>
+                        <li>Bachelor of Science in Psychology and Counselling</li>
+                        <li>Diploma in Journalism and mass Communication</li>
+                        <li>Diploma in Development Studies</li>
+                        <li>Diploma in Development Studies</li>
+                        <li>Diploma in Social Work and Social Administration</li>
+                        <li>Diploma in Public Administration and Management</li>
+                        <li>Diploma in Counselling</li>
+                        <li>Certificate in Counselling</li>
+          
+                        </ul>
+                        </div>
                   </div>
 
                   <div>
@@ -84,6 +107,19 @@ export default function SchoolOfEducation() {
                         <h1 className="px-2 py-5">
                         As Physical evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
                         </h1>
+                        <h3 className="mb-5 text-xl font-bold text-body-color dark:text-white sm:text-2xl lg:text-xl xl:text-2xl" style={{ color: 'blue' }}>
+                        Programs
+                        </h3>
+                        <div className='md:pl-2 mx-auto md:mx-0'>
+                        <ul className='flex flex-col space-y-5'>
+                        <li>Bachelor of Arts or Science with Education-Secondary</li>
+                        <li>Bachelor of Arts or Science with Education-Primary</li>
+                        <li>Bachelor in Early Childhood Development</li>
+                        <li>Diploma in Education-Primary</li>
+                        <li>Diploma in Early Child Development (ECD) </li>
+                  
+                        </ul>
+                        </div>
                   </div>
 
                   <div>

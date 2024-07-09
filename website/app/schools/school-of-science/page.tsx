@@ -67,6 +67,22 @@ export default function SchoolOfScience() {
                         <h1 className="px-2 py-5">
                         As technology evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
                         </h1>
+                        <h3 className="mb-5 text-xl font-bold text-body-color dark:text-white sm:text-2xl lg:text-xl xl:text-2xl" style={{ color: 'blue' }}>
+                        Programs
+                        </h3>
+                        <div className='md:pl-2 mx-auto md:mx-0'>
+                        <ul className='flex flex-col space-y-5'>
+                        <li>Bachelor of Business Computing</li>
+                        <li>Bachelor of Information Technology</li>
+                        <li>Bachelor of Library and Information Science</li>
+                        <li>Bachelor of Science in Software Engineering</li>
+                        <li>Bachelor of Science in Network Systems Administration</li>
+                        <li>Diploma in Information Technology</li>
+                        <li>Diploma in Computer Forensics</li>
+                        <li>Certificate in Information Technology (UBTEB)</li>
+                                          
+                        </ul>
+                        </div>
                   </div>
 
                   <div>
@@ -81,6 +97,17 @@ export default function SchoolOfScience() {
                         <h1 className="px-2 py-5">
                         As Physical evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
                         </h1>
+                        <h3 className="mb-5 text-xl font-bold text-body-color dark:text-white sm:text-2xl lg:text-xl xl:text-2xl" style={{ color: 'blue' }}>
+                        Programs
+                        </h3>
+                        <div className='md:pl-2 mx-auto md:mx-0'>
+                        <ul className='flex flex-col space-y-5'>
+                        <li>Bachelor of Science in Biochemistry</li>
+                        <li>Bachelor of Science in Statistics</li>
+                        <li>Diploma in Science Laboratory Technology</li>
+                        <li>Diploma in Biomedical Engineering and Technology</li>
+                        </ul>
+                        </div>
                   </div>
 
                   <div>

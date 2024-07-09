@@ -44,19 +44,19 @@ export default function SchoolOfGraduate() {
         />
       </section>
 
-      <div className="hidden flex flex-col gap-2 justify-center mx-auto ">
+      <div className="flex flex-col gap-2 justify-center mx-auto ">
             <div className="  md:pl-2">
-            <SectionTitle title="Departments In The Faculty" paragraph="" />
+            <SectionTitle title="Programs" paragraph="" />
             </div>
 
-            <div className=' flex flex-col gap-2 md:flex-row md:justify-center md:gap-[35%]'>
+            <div className='flex flex-col gap-2 md:flex-row md:justify-center md:gap-[35%]'>
 
                   <div className=" ">
-                        <h1 className=" active2 text-xs font-bold text-body-color md:text-xl  " id="comphandler" style={{cursor:"pointer"}} onClick={handlecomputing}> Department Of Computing And Informatics</h1>
+                        <h1 className=" active2 text-xs font-bold text-body-color md:text-xl  " id="comphandler" style={{cursor:"pointer"}} onClick={handlecomputing}> PHD</h1>
                   </div>
 
                   <div className=" ">
-                        <h1 className="text-body-color text-xs font-bold md:text-xl " id="phyhandler" style={{cursor:"pointer"}} onClick={handlephysical}> Department Of Life And Physical Sciences</h1>
+                        <h1 className="text-body-color text-xs font-bold md:text-xl " id="phyhandler" style={{cursor:"pointer"}} onClick={handlephysical}> MBA</h1>
                   </div>
             
             </div>
@@ -66,6 +66,17 @@ export default function SchoolOfGraduate() {
                         <h1 className="px-2 py-5">
                         As technology evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
                         </h1>
+                        <h3 className="mb-5 text-xl font-bold text-body-color dark:text-white sm:text-2xl lg:text-xl xl:text-2xl" style={{ color: 'blue' }}>
+                        Programs
+                        </h3>
+                        <div className='md:pl-2 mx-auto md:mx-0'>
+                        <ul className='flex flex-col space-y-5'>
+                              <li>PhD in Educational Management </li>
+                              <li>PhD in Environmental Management  </li>
+                              <li>PhD in Rural Development   </li>
+                              
+                        </ul>
+                        </div>
                   </div>
 
                   <div>
@@ -80,6 +91,29 @@ export default function SchoolOfGraduate() {
                         <h1 className="px-2 py-5">
                         As Physical evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
                         </h1>
+                        <h3 className="mb-5 text-xl font-bold text-body-color dark:text-white sm:text-2xl lg:text-xl xl:text-2xl" style={{ color: 'blue' }}>
+                        Programs
+                        </h3>
+                        <div className='md:pl-2 mx-auto md:mx-0'>
+                        <ul className='flex flex-col space-y-5'>
+                              <li>Master of Public Administration and Management </li>
+                              <li>Master of Procurement and Logistics  </li>
+                              <li>Master of Project Planning and Management </li>
+                              <li>Postgraduate Diploma in Business Management </li>
+                              <li>Masters in Business Administration </li>
+
+                              <li>Masters in Education Management </li>
+                              <li>Postgraduate Diploma in Information Technology  </li>
+                              <li>Masters of Science in Information Technology  </li>
+                              <li>Master of Public Health  </li>
+                              <li>Master of Social Work  </li>
+                              <li>Master of Science in Counseling Psychology </li>
+                              <li>Postgraduate Diploma in Public Administration and
+                              Management  </li>
+                              <li>Master of Arts in Development Studies  </li>
+                              
+                        </ul>
+                        </div>
                   </div>
 
                   <div>

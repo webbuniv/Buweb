@@ -66,6 +66,18 @@ export default function SchoolOfBusiness() {
                         <h1 className="px-2 py-5">
                         As technology evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
                         </h1>
+                        <h3 className="mb-5 text-xl font-bold text-body-color dark:text-white sm:text-2xl lg:text-xl xl:text-2xl" style={{ color: 'blue' }}>
+                        Programs
+                        </h3>
+                        <div className='md:pl-2 mx-auto md:mx-0'>
+                        <ul className='flex flex-col space-y-5'>
+                              <li>Bachelor of Business Administration (Accounting)</li>
+                              <li>Bachelor of Science in Finance and Banking</li>
+                              <li>Bachelor of Science in Accounting</li>
+                              <li>Bachelor of Business Administration in Insurance</li>
+                              <li>Diploma in Accounting</li>
+                        </ul>
+                        </div>
                   </div>
 
                   <div>
@@ -80,6 +92,26 @@ export default function SchoolOfBusiness() {
                         <h1 className="px-2 py-5">
                         As Physical evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
                         </h1>
+                        <h3 className="mb-5 text-xl font-bold text-body-color dark:text-white sm:text-2xl lg:text-xl xl:text-2xl" style={{ color: 'blue' }}>
+                        Programs
+                        </h3>
+                        <div className='md:pl-2 mx-auto md:mx-0'>
+                        <ul className='flex flex-col space-y-5'>
+                        <li>Bachelor of Secretarial Science and office Administration</li>
+                        <li>Bachelor of Business Administration in Marketing</li>
+                        <li>Bachelor of Business Administration in management</li>
+                        <li>Bachelor of Arts in Economics</li>
+                        <li>Bachelor of Entrepreneurship</li>
+                        <li>Bachelor of Procurement And Supply Chain Management</li>
+                        <li>Bachelor of Business Administration in project planning And Grant Management</li>
+                        <li>Bachelor of Human Resource Management</li>
+                        <li>Diploma in Management</li>
+                        <li>Diploma in Office Administration</li>
+                        <li>Diploma in Human Resource Management</li>
+                        <li>Diploma in Procurement and Supply Chain Management</li>
+                  
+                        </ul>
+                        </div>
                   </div>
 
                   <div>
