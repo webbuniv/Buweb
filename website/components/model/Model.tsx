@@ -115,7 +115,7 @@ const why_bugema = () =>{
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={payments}><span id='payments' className='animated'>Fees and Payments</span></h1> 
                               </div>
                               <div className="mr-2 my-5  slider slide--slower">
-                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold 'onClick={why_bugema} >  <span id='why_bugema' className='animated'> Why Bugema University </span></h1> 
+                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold 'onClick={why_bugema} >  <Link href="/whybugema" id='why_bugema' className='animated'> Why Bugema University </Link></h1> 
                               </div>
                               {/* <div className="mr-2 my-5 slider slide--slowest ">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={touch}> <span className='animated' id='contact'> Staff & Faculty </span></h1> 
@@ -465,7 +465,9 @@ const why_bugema = () =>{
                               </div>
                               <div className="ml-19 -mr-5 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
                                     <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> How to Apply  <FaArrowRight className='arrow1'/></h1>
+                                          <Link href={"/administrator"} onClick={onClose}>
+                                                <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Administrators  <FaArrowRight className='arrow1'/></h1>
+                                          </Link>
                                     </div>
                               </div> 
                               

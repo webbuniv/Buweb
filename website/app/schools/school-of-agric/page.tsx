@@ -2,7 +2,7 @@
 import SectionTitle from "@/components/Common/SectionTitle";
 import School from "@/components/school/School";
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import image from "@/public/images/nav/labs.jpg";
@@ -28,6 +28,8 @@ export default function SchoolOfAgric() {
             document.getElementById('Agrichandler').classList.remove('active2')
             document.getElementById('Envhandler').classList.add('active2')
       };
+
+      
 
   return (
     <div>
@@ -62,6 +64,7 @@ export default function SchoolOfAgric() {
             </div>
             {/* A G R I C U L T U R A L    S C I E N C E S*/}
             <div className="my-5 px-1 flex flex-col md:flex-row justify-center gap-[5%]" id="Agriculture">
+            
                   <div className="bg-blue-100">
                         <h1 className="px-2 py-5">
                         As technology evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
@@ -114,8 +117,8 @@ export default function SchoolOfAgric() {
                         </ul>
                         </div>
                   </div>
-
-                  <div>
+                  
+                  <div >
                         <Image src={image} alt='img' objectFit="contain" width={1920} height={500} />
                   </div>
                         
