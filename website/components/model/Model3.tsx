@@ -114,10 +114,10 @@ const why_bugema = () =>{
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' ><span id='Kampala' className='animated'>Kampala Campus</span></h1> 
                               </div>
                               <div className="mr-2 my-5  slider slide--slower">
-                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '>  <span id='Mbale' className='animated'> Mbale Campus</span></h1> 
+                                    {/* <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '>  <span id='Mbale' className='animated'> Mbale Campus</span></h1>  */}
                               </div>
                               <div className="mr-2 my-5 slider slide--slowest ">
-                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' > <span className='animated' id='Kasese'> Kasese Campus</span></h1> 
+                                    {/* <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' > <span className='animated' id='Kasese'> Kasese Campus</span></h1>  */}
                               </div>
 
                               <div className="mr-2 my-5 slider slide--slowest ">
