@@ -4,7 +4,7 @@ import HeroOverlay from "../HeroOverlay/HeroOverlay";
 
 const HeroSlide = ({ media }) => {
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full z-10">
       {media.type === "video" ? (
         <div>
           <video className="w-full h-full object-cover" autoPlay muted loop>
