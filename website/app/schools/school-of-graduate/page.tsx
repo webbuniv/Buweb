@@ -72,9 +72,30 @@ export default function SchoolOfGraduate() {
                         </h3>
                         <div className='md:pl-2 mx-auto md:mx-0'>
                         <ul className='flex flex-col space-y-5'>
-                              <li>PhD in Educational Management </li>
-                              <li>PhD in Environmental Management  </li>
-                              <li>PhD in Rural Development   </li>
+                        <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  PhD in Educational Management 
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  PhD in Environmental Management
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  PhD in Rural Development
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
                               
                         </ul>
                         </div>
@@ -97,21 +118,111 @@ export default function SchoolOfGraduate() {
                         </h3>
                         <div className='md:pl-2 mx-auto md:mx-0'>
                         <ul className='flex flex-col space-y-5'>
-                              <li>Master of Public Administration and Management </li>
-                              <li>Master of Procurement and Logistics  </li>
-                              <li>Master of Project Planning and Management </li>
-                              <li>Postgraduate Diploma in Business Management </li>
-                              <li>Masters in Business Administration </li>
-
-                              <li>Masters in Education Management </li>
-                              <li>Postgraduate Diploma in Information Technology  </li>
-                              <li>Masters of Science in Information Technology  </li>
-                              <li>Master of Public Health  </li>
-                              <li>Master of Social Work  </li>
-                              <li>Master of Science in Counseling Psychology </li>
-                              <li>Postgraduate Diploma in Public Administration and
-                              Management  </li>
-                              <li>Master of Arts in Development Studies  </li>
+                        <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Master of Public Administration and Management
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Master of Procurement and Logistics
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Master of Project Planning and Management 
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Postgraduate Diploma in Business Management
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Masters in Business Administration
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Masters in Education Management
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Postgraduate Diploma in Information Technology
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Masters of Science in Information Technology
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Master of Public Health
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Master of Social Work
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Master of Science in Counseling Psychology
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Postgraduate Diploma in Public Administration and
+                              Management
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Master of Arts in Development Studies
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
                               
                         </ul>
                         </div>

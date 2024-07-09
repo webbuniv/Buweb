@@ -76,21 +76,126 @@ export default function SchoolOfEducation() {
                         </h3>
                         <div className='md:pl-2 mx-auto md:mx-0'>
                         <ul className='flex flex-col space-y-5'>
-                        <li>Bachelor of Humanitarian Emergency and Disaster Management</li>
-                        <li>Bachelor of Arts in Development Studies</li>
-                        <li>Bachelor of Arts in Community Development</li>
-                        <li>Bachelor of Arts in Peace and Conflict Management</li>
-                        <li>Bachelor of Journalism and Mass Communication</li>
-                        <li>Bachelor of Public Administration and Management</li>
-                        <li>Bachelor of Social Work and Social Administration</li>
-                        <li>Bachelor of Science in Psychology and Counselling</li>
-                        <li>Diploma in Journalism and mass Communication</li>
-                        <li>Diploma in Development Studies</li>
-                        <li>Diploma in Development Studies</li>
-                        <li>Diploma in Social Work and Social Administration</li>
-                        <li>Diploma in Public Administration and Management</li>
-                        <li>Diploma in Counselling</li>
-                        <li>Certificate in Counselling</li>
+                        <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Bachelor of Humanitarian Emergency and Disaster Management
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Bachelor of Arts in Development Studies
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Bachelor of Arts in Community Development
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Bachelor of Arts in Peace and Conflict Management
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Bachelor of Journalism and Mass Communication
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Bachelor of Public Administration and Management
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Bachelor of Social Work and Social Administration
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Bachelor of Science in Psychology and Counselling
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Diploma in Journalism and mass Communication
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Diploma in Development Studies
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Diploma in Development Studies
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Diploma in Social Work and Social Administration
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Diploma in Public Administration and Management
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Diploma in Counselling
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Certificate in Counselling
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
           
                         </ul>
                         </div>
@@ -113,12 +218,46 @@ export default function SchoolOfEducation() {
                         </h3>
                         <div className='md:pl-2 mx-auto md:mx-0'>
                         <ul className='flex flex-col space-y-5'>
-                        <li>Bachelor of Arts or Science with Education-Secondary</li>
-                        <li>Bachelor of Arts or Science with Education-Primary</li>
-                        <li>Bachelor in Early Childhood Development</li>
-                        <li>Diploma in Education-Primary</li>
-                        <li>Diploma in Early Child Development (ECD) </li>
-                  
+                        <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Bachelor of Arts or Science with Education-Secondary
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Bachelor of Arts or Science with Education-Primary
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Bachelor in Early Childhood Development
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Diploma in Education-Primary
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Diploma in Early Child Development (ECD)
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
                         </ul>
                         </div>
                   </div>
