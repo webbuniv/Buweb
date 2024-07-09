@@ -5,6 +5,7 @@ import React from "react";
 import { useState } from "react";
 import Image from "next/image";
 import image from "@/public/images/nav/labs.jpg";
+import Link from "next/link";
 
 export default function SchoolOfBusiness() {
 

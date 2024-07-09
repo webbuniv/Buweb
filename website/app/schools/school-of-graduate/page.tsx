@@ -4,6 +4,7 @@ import School from "@/components/school/School";
 import React from "react";
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
 import image from "@/public/images/nav/labs.jpg";
 export default function SchoolOfGraduate() {
 

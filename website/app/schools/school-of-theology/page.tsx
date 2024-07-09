@@ -4,6 +4,7 @@ import SectionTitle from '@/components/Common/SectionTitle'
 import School from '@/components/school/School'
 import React from 'react'
 import image from "@/public/images/nav/labs.jpg";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function SchoolOfTheology() {
