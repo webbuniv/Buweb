@@ -7,6 +7,7 @@ import {IoClipboardOutline} from "react-icons/io5";
 import {FaWpforms} from "react-icons/fa";
 import {IoBookOutline} from "react-icons/io5";
 import { useState,useEffect } from "react";
+import Link from "next/link";
 
 
 const AboutSectionLife2 = () => {
@@ -43,9 +44,11 @@ const AboutSectionLife2 = () => {
                                           <p className="mb-4 text-base text-white ">
                                           Embark on your journey towards exellence.
                                           </p>
-                                          <button className="px-6 py-2 text-white bg-[#e72725] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                                                Apply Now
-                                          </button>
+                                          <Link href="https://apply.bugemauniv.ac.ug/">
+                                                <button className="px-6 py-2 text-white bg-[#e72725] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                                                      Apply Now
+                                                </button>
+                                          </Link>
                                     </div>
                               </div>
                               <div className={`w-full px-4 lg:w-1/2 xl:w-1/4 transition-transform duration-300 lg:hover:scale-105 cursor-pointer rounded bg-[#e72725] ${animate ?"slider-up slide-up-fast":"" } `}>
@@ -58,9 +61,11 @@ const AboutSectionLife2 = () => {
                                           Providing quality education that is affordable for all students. 
                                           </p>
                                     
-                                          <button className="px-6 py-2 text-white bg-[#234297] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                                                Explore
-                                          </button>
+                                          <Link href="/">
+                                                <button className="px-6 py-2 text-white bg-[#234297] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                                                      Explore
+                                                </button>
+                                          </Link>
                                     </div>
                               </div>
                               <div className={`w-full px-4 lg:w-1/2 xl:w-1/4 transition-transform duration-300 lg:hover:scale-105 cursor-pointer rounded bg-[#234297] ${animate ?"slider-up slide-up-slow":"" }`}>
@@ -72,9 +77,12 @@ const AboutSectionLife2 = () => {
                                           <p className="mb-4 text-base text-white dark:text-gray-300">
                                           Access all your information and notifications
                                           </p>
-                                          <button className="px-6 py-2 text-white bg-[#e72725] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                                                Login
-                                          </button>
+                                          <Link href="https://erms.bugemauniv.ac.ug/student/">
+                                                <button className="px-6 py-2 text-white bg-[#e72725] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                                                      Login
+                                                </button>
+                                          </Link>
+                                          
                                     </div>
                               </div>
                               <div className={`w-full px-4 lg:w-1/2 xl:w-1/4 transition-transform duration-300 lg:hover:scale-105 cursor-pointer rounded bg-[#e72725] ${animate ?"slider-up slide-up-slower":"" } `}>
@@ -86,9 +94,12 @@ const AboutSectionLife2 = () => {
                                           <p className="mb-2 text-base text-white ">
                                           With over 100 academic programs delivering world-class education.
                                           </p>
-                                          <button className="px-6 py-2 mt-2 text-white bg-[#234297] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                                                Learn More
-                                          </button>
+                                          <Link href="">
+                                                <button className="px-6 py-2 mt-2 text-white bg-[#234297] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                                                      Learn More
+                                                </button>
+                                          </Link>
+                                          
                                     </div>
                               </div>
                         </div>

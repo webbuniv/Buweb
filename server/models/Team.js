@@ -2,10 +2,12 @@ import mongoose from "mongoose";
 
 const TeamSchema = new mongoose.Schema({
     name: {
-        type: String
+        type: String,
+        required: true
     },
     position: {
-        type: String
+        type: String,
+        required: true
     },
     image_url: {
         type: String

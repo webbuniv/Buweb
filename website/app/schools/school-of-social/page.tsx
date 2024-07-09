@@ -6,7 +6,7 @@ import { useState } from "react";
 import Image from "next/image";
 import image from "@/public/images/nav/labs.jpg";
 
-export default function SchoolOfEducation() {
+export default function SchoolOfSocial() {
 
       const [Social, setSocial] = useState(true)
       const [education, setEducation] = useState(false)
@@ -34,7 +34,7 @@ export default function SchoolOfEducation() {
       <section className="my-20 mt-36 mx-10">
         <School
          tittle=""
-         subtittle="School of Education"
+         subtittle="School of Social Sciences"
          topImg=""
           dean="DR. SSERUNJOGI CHARLES"
           deanImage={"/images/blog/author-03.png"}
@@ -56,11 +56,11 @@ export default function SchoolOfEducation() {
             <div className=' flex flex-col gap-2 md:flex-row md:justify-center md:gap-[35%]'>
 
                   <div className=" ">
-                        <h1 className=" active2 text-xs font-bold text-body-color md:text-xl  " id="socialhandler" style={{cursor:"pointer"}} onClick={handleSocial}> Department Of Social Sciences</h1>
+                        <h1 className=" active2 text-xs font-bold text-body-color md:text-xl  " id="socialhandler" style={{cursor:"pointer"}} onClick={handleSocial}> Department Of Social development And Humanitarian Studies</h1>
                   </div>
 
                   <div className=" ">
-                        <h1 className="text-body-color text-xs font-bold md:text-xl " id="educhandler" style={{cursor:"pointer"}} onClick={handleEducation}> Department Of Education And Humanities</h1>
+                        <h1 className="text-body-color text-xs font-bold md:text-xl " id="educhandler" style={{cursor:"pointer"}} onClick={handleEducation}> Department Of Social Work And Counselling</h1>
                   </div>
             
             </div>

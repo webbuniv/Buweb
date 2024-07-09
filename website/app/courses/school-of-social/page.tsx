@@ -8,7 +8,7 @@ export default function SchoolOfEducation() {
       <section className="my-20 mt-36 mx-10">
       <Course
          tittle="Courses in the school of education"
-         subtittle="School of Education"
+         subtittle="School of Social Sciences"
          topImg=""
           
         />

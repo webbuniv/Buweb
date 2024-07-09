@@ -1,8 +1,35 @@
+"use client";
 import SectionTitle from "@/components/Common/SectionTitle";
 import School from "@/components/school/School";
 import React from "react";
+import { useState,useEffect } from "react";
+import Image from "next/image";
+import image from "@/public/images/nav/labs.jpg";
 
 export default function SchoolOfAgric() {
+      const [Agriculture, setAgriculture] = useState(true)
+      const [physical, setphysical] = useState(false)
+
+      const handleAgricultural = ()=>{
+            setAgriculture(true)
+            setphysical(false)
+            document.getElementById('Agriculture').classList.remove('hidden')
+            document.getElementById('Agrichandler').classList.add('active2')
+            document.getElementById('Environment').classList.add('hidden')
+            document.getElementById('Envhandler').classList.remove('active2')
+            
+      };
+      const handlephysical =()=>{
+            setAgriculture(false)
+            setphysical(true)
+            document.getElementById('Agriculture').classList.add('hidden')
+            document.getElementById('Environment').classList.remove('hidden')
+            document.getElementById('Agrichandler').classList.remove('active2')
+            document.getElementById('Envhandler').classList.add('active2')
+      };
+
+      
+
   return (
     <div>
       <section className="my-20 mt-36 mx-10">
@@ -18,18 +45,53 @@ export default function SchoolOfAgric() {
         />
       </section>
 
-      <div className="flex flex-col items-start mx-auto md:pl-28">
-        <div className="md:pl-2">
-          <SectionTitle title="Departments In The Faculty" paragraph="" />
-        </div>
+      <div className=" flex flex-col gap-2 justify-center mx-auto ">
+            <div className="  md:pl-2">
+            <SectionTitle title="Departments In The Faculty" paragraph="" />
+            </div>
 
-        <div className='md:pl-2 mx-auto md:mx-0'>
-          <ul className='flex flex-col space-y-5 text-body-color'>
-            <li>Department Of Agricultural Sciences</li>
-            <li>Department Of Environmental And Applied Sciences</li>
-          </ul>
-        </div>
+            <div className=' flex flex-col gap-2 md:flex-row md:justify-center md:gap-[35%]'>
+
+                  <div className=" ">
+                        <h1 className=" active2 text-xs font-bold text-body-color md:text-xl  " id="Agrichandler" style={{cursor:"pointer"}} onClick={handleAgricultural}> Department Of Agricultural Sciences</h1>
+                  </div>
+
+                  <div className=" ">
+                        <h1 className="text-body-color text-xs font-bold md:text-xl " id="Envhandler" style={{cursor:"pointer"}} onClick={handlephysical}> Department Of Environmental And Applied Sciences</h1>
+                  </div>
+            
+            </div>
+            {/* A G R I C U L T U R A L    S C I E N C E S*/}
+            <div className="my-5 px-1 flex flex-col md:flex-row justify-center gap-[5%]" id="Agriculture">
+            
+                  <div className="bg-blue-100">
+                        <h1 className="px-2 py-5">
+                        As technology evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
+                        </h1>
+                  </div>
+                  
+                  <div >
+                        <Image src={image} alt='img' objectFit="contain" width={1920} height={500} />
+                  </div>
+                        
+            </div>
+
+            {/*E n v i r o n m e n t a l     A n d   A p p l i e d   S c i e n c e s*/}
+            <div className=" hidden my-5 px-1 flex flex-col md:flex-row justify-center gap-[5%]" id="Environment">
+                  <div className="bg-blue-100">
+                        <h1 className="px-2 py-5">
+                        As Physical evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
+                        </h1>
+                  </div>
+
+                  <div>
+                        <Image src={image} alt='img' objectFit="contain" width={1920} height={500} />
+                  </div>
+                        
+            </div>
       </div>
+
+      
     </div>
   );
 }

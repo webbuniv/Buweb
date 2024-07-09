@@ -123,6 +123,10 @@
   color: gold;
   border-bottom: 2px solid gold;
 }
+.active2 {
+      color: rgb(31, 6, 130);
+      border-bottom: 3px solid gold;
+    }
 
 .hover {
   transition: background-color 0.5s, color 2s, border-top 0.5s;
