@@ -42,7 +42,7 @@ const Hero = () => {
             <HeroSlide key={index} media={media} />
           ))}
         </Slider>
-        <HeroOverlay
+        {/* <HeroOverlay
           title="BUGEMA UNIVERSITY"
           title2="Service."
           title3="Where Head, Heart and Hands unite in"
@@ -54,7 +54,7 @@ const Hero = () => {
 
           buttonLink="https://apply.bugemauniv.ac.ug/"
 
-        />
+        /> */}
       </section>
 
       <div className="container px-4 mt-[100px] mb-[50px] w-full h-full">
