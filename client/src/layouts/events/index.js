@@ -361,7 +361,10 @@ const Events = () => {
                 />
                 <TextField
                   label="Date"
-                  type="text"
+                  type="date"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                   value={createFormFields.date}
                   onChange={(e) =>
                     setCreateFormFields((prevFields) => ({
@@ -518,7 +521,10 @@ const Events = () => {
                 />
                 <TextField
                   label="Date"
-                  type="text"
+                  type="date"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                   value={editFormFields.date}
                   onChange={(e) =>
                     setEditFormFields((prevFields) => ({
