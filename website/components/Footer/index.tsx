@@ -25,7 +25,7 @@ const Footer = () => {
       url: "/bulletin.pdf",
     },
     {
-      name: "School of graduates bulletin",
+      name: "School of Graduates Bulletin",
       url: "/grad_bulletin.pdf",
     },
   ];
@@ -513,7 +513,7 @@ const Footer = () => {
             <div className="hidden md:block w-full md:pl-6 px-4 md:px-0 md:w-1/2 lg:w-4/12 xl:w-3/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                  Downloads
+                  Useful Downloads
                 </h2>
                 <ul>
                   {files.map((file, index) => (
@@ -540,14 +540,14 @@ const Footer = () => {
                         className="text-left focus:outline-none mb-4 block"
                         onClick={() => toggleDropdown("policies")}
                       >
-                        Downloads
+                        Useful Downloads
                       </button>
                     ) : (
                       <button
                         className="text-left focus:outline-none mb-4 block"
                         onClick={() => toggleDropdown("policies")}
                       >
-                        Downloads
+                        Useful Downloads
                       </button>
                     )}
                   </h2>
