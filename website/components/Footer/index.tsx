@@ -10,23 +10,23 @@ const Footer = () => {
   const files = [
     {
       name: "Fees Structure",
-      url: "/fees_structure.xlsx",
+      url: "https://res.cloudinary.com/duaqiajka/raw/upload/FEE_STRUCT_2022-2023_bnyls8.xlsx",
     },
     {
       name: "Nursing Fees Structure",
-      url: "/nurs_fees_structure.pdf",
+      url: "https://res.cloudinary.com/duaqiajka/image/upload/NUR20191aud_oixsyf.pdf",
     },
     {
       name: "Current Programs",
-      url: "/current_programs.pdf",
+      url: "https://res.cloudinary.com/duaqiajka/image/upload/CURRENT_BU_PROGRAMMES_giamju.pdf",
     },
     {
       name: "Official Bulletin",
-      url: "/bulletin.pdf",
+      url: "https://res.cloudinary.com/duaqiajka/image/upload/Bulletin_2019-2024_Final_suwdwr.pdf",
     },
     {
       name: "School of Graduates Bulletin",
-      url: "/grad_bulletin.pdf",
+      url: "https://res.cloudinary.com/duaqiajka/image/upload/School_of_Graduate_School_Bulletin_xcuc76.pdf",
     },
   ];
 
