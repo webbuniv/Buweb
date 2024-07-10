@@ -69,7 +69,7 @@ export default function SchoolOfScience() {
                         As technology evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
                         </h1>
                         <h3 className="mb-5 text-xl font-bold text-body-color dark:text-white sm:text-2xl lg:text-xl xl:text-2xl" style={{ color: 'blue' }}>
-                        Programs
+                        Programmes
                         </h3>
                         <div className='md:pl-2 mx-auto md:mx-0'>
                   <ul className='flex flex-col space-y-5'>
@@ -113,7 +113,15 @@ export default function SchoolOfScience() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  
+                  </ul>
+                  </div>
+
+                  </div>
+
+                  <div>
+                        <ul className='md:pl-2 mx-auto md:mx-0'>
+                        <Link href="https://apply.bugemauniv.ac.ug/">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                         Diploma in Information Technology
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -137,12 +145,7 @@ export default function SchoolOfScience() {
                         </span>
                   </li>
                   </Link>
-                  </ul>
-                  </div>
-
-                  </div>
-
-                  <div>
+                        </ul>
                         <Image src={image} alt='img' objectFit="contain" width={1920} height={500} />
                   </div>
                         
@@ -155,7 +158,7 @@ export default function SchoolOfScience() {
                         As Physical evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
                         </h1>
                         <h3 className="mb-5 text-xl font-bold text-body-color dark:text-white sm:text-2xl lg:text-xl xl:text-2xl" style={{ color: 'blue' }}>
-                        Programs
+                        Programmes
                         </h3>
                         <div className='md:pl-2 mx-auto md:mx-0'>
                         <ul className='flex flex-col space-y-5'>
