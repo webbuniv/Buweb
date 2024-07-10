@@ -374,6 +374,9 @@ const News = () => {
                 fullWidth
                 label="Date"
                 type="date"
+                InputLabelProps={{
+                  shrink: true,
+                }}
                 value={createFormFields.date}
                 onChange={(e) =>
                   setCreateFormFields((prevFields) => ({
@@ -381,9 +384,6 @@ const News = () => {
                     date: e.target.value,
                   }))
                 }
-                InputLabelProps={{
-                  shrink: true,
-                }}
                 sx={{ gridColumn: "span 4" }}
               />
 
@@ -557,6 +557,9 @@ const News = () => {
                 fullWidth
                 label="Date"
                 type="date"
+                InputLabelProps={{
+                  shrink: true,
+                }}
                 value={editFormFields.date}
                 onChange={(e) =>
                   setEditFormFields((prevFields) => ({
@@ -564,9 +567,7 @@ const News = () => {
                     date: e.target.value,
                   }))
                 }
-                InputLabelProps={{
-                  shrink: true,
-                }}
+                
                 sx={{ gridColumn: "span 4" }}
               />
 
