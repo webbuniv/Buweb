@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import HeroOverlay from "../HeroOverlay/HeroOverlay";
 
+
 const HeroSlide = ({ media }) => {
   return (
     <div className="relative w-full h-full z-10">
@@ -27,8 +28,8 @@ const HeroSlide = ({ media }) => {
           <Image
             src={media.src}
             alt="Hero Slide"
-            className="w-full h-[800px] object-cover"
-            width={1200}
+            className="w-full h-[700px] object-cover"
+            width={1020}
             height={100}
           />
           <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
