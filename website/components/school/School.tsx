@@ -114,7 +114,7 @@ const School = ({
                               </div>
 
                               <div className="  flex flex-col items-center text-center md:text-start -mt-10 md:w-[90%] md:px-6">
-                                    <p className="text-base !leading-relaxed text-body-color md:text-lg">
+                                    <p className="text-base !leading-relaxed md:text-lg">
                                           {message}
                                     </p>
                               </div>
