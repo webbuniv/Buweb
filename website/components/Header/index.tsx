@@ -8,7 +8,6 @@ import Model2 from "@/components/model/Model2";
 import Model3 from "@/components/model/Model3";
 import Model4 from "@/components/model/Model4";
 
-
 import image from "../../public/images/logo/bu_logo_nav.png";
 
 import "../../styles/nav.css";
@@ -25,6 +24,7 @@ const Header = () => {
   const [sticky, setSticky] = useState(false);
   const [openIndex, setOpenIndex] = useState(-1);
   const [showModel2, setShowModel2] = useState(false);
+  const [hideMobileNav, setHideMobileNav] = useState(false);
 
   const handleStickyNavbar = () => {
     if (window.scrollY >= 700) {
@@ -32,7 +32,13 @@ const Header = () => {
     } else {
       setSticky(false);
     }
+    if (window.scrollY > 50) {
+      setHideMobileNav(true);
+    } else {
+      setHideMobileNav(false);
+    }
   };
+
   useEffect(() => {
     window.addEventListener("scroll", handleStickyNavbar);
     return () => {
@@ -47,9 +53,11 @@ const Header = () => {
       setOpenIndex(index);
     }
   };
+
   useEffect(() => {
     document.body.style.overflow = showModel ? "hidden" : "auto";
   }, [showModel]);
+
   const first_modal = () => {
     setShowModel(true);
     setShowModel1(false);
@@ -61,9 +69,10 @@ const Header = () => {
   useEffect(() => {
     document.body.style.overflow = showModel1 ? "hidden" : "auto";
   }, [showModel1]);
+
   const second_modal = () => {
-    setShowModel1(true),
-      (document.body.style.overflow = showModel1 ? "hidden" : "auto");
+    setShowModel1(true);
+    document.body.style.overflow = showModel1 ? "hidden" : "auto";
     setShowModel(false);
     setShowModel2(false);
     setShowModel3(false);
@@ -93,9 +102,11 @@ const Header = () => {
     setShowModel2(false);
     setShowModel4(false);
   };
+
   useEffect(() => {
     document.body.style.overflow = showModel4 ? "hidden" : "auto";
   }, [showModel4]);
+
   const fifth_modal = () => {
     setShowModel4(true);
     setShowModel3(false);
@@ -254,11 +265,10 @@ const Header = () => {
               </div>
             </div>
           </div>
-
         </div>
       </header>
       
-      {navbarOpen && (
+      {navbarOpen && !hideMobileNav && (
         <MobileNav setNavbarOpen={setNavbarOpen} navbarOpen={navbarOpen} />
       )}
 

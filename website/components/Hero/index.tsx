@@ -11,7 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 export const heroMedia = [
   { type: 'video', src: "https://res.cloudinary.com/duaqiajka/video/upload/v1719686933/WELCOME_VIDEO_og2jma.mp4" },
-  { type: 'image', src: "/images/vc/chancellor.jpg" }
+  { type: 'image', src: "/images/vc/chancellor_banner2.jpg" }
 ];
 
 const textVariants = {
@@ -42,19 +42,6 @@ const Hero = () => {
             <HeroSlide key={index} media={media} />
           ))}
         </Slider>
-        <HeroOverlay
-          title="BUGEMA UNIVERSITY"
-          title2="Service."
-          title3="Where Head, Heart and Hands unite in"
-          subtitle="Excellence In Service"
-          subtitle2="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity"
-          subtitle3="to offer you Quality education with a hands on experience. . ."
-          buttonText="Apply Now"
-
-
-          buttonLink="https://apply.bugemauniv.ac.ug/"
-
-        />
       </section>
 
       <div className="container px-4 mt-[100px] mb-[50px] w-full h-full">

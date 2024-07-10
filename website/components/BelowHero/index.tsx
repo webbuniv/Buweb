@@ -94,7 +94,7 @@ const AboutSectionLife2 = () => {
                                           <p className="mb-2 text-base text-white ">
                                           With over 100 academic programs delivering world-class education.
                                           </p>
-                                          <Link href="">
+                                          <Link href="https://unche.or.ug/institution/bugema-university/">
                                                 <button className="px-6 py-2 mt-2 text-white bg-[#234297] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                                                       Learn More
                                                 </button>
