@@ -73,7 +73,7 @@ const Footer = () => {
                     </svg>
                   </Link>
                   <Link
-                    href="/"
+                    href="https://www.youtube.com"
                     aria-label="social-link"
                     className="mr-6 text-[#CED3F6] hover:text-primary"
                   >
@@ -83,7 +83,7 @@ const Footer = () => {
                     </svg>
                   </Link>
                   <Link
-                    href="https://www.youtube.com"
+                    href="https://www.linkedin.com"
                     aria-label="social-link"
                     className="mr-6 text-[#CED3F6] hover:text-primary"
                   >
@@ -93,7 +93,7 @@ const Footer = () => {
                     </svg>
                   </Link>
                   <Link
-                    href="https://www.linkedin.com"
+                    href="/"
                     aria-label="social-link"
                     className="mr-6 text-[#CED3F6] hover:text-primary"
                   >
