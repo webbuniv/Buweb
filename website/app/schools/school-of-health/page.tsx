@@ -5,6 +5,7 @@ import React from "react";
 import Image from "next/image";
 import { useState } from "react";
 import image from "@/public/images/nav/labs.jpg";
+import Link from "next/link";
 
 export default function SchoolOfHealth() {
 
@@ -66,6 +67,45 @@ export default function SchoolOfHealth() {
                         <h1 className="px-2 py-5">
                         As technology evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
                         </h1>
+                        <h3 className="mb-5 text-xl font-bold text-body-color dark:text-white sm:text-2xl lg:text-xl xl:text-2xl" style={{ color: 'blue' }}>
+                        Programmes
+                        </h3>
+                        <div className='md:pl-2 mx-auto md:mx-0'>
+                        <ul className='flex flex-col space-y-5'>
+                        <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Diploma in Nursing
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Diploma in Midwifery
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Certificate in Nursing
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
+                  Certificate in Midwifery
+                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
+                        Apply Now
+                        </span>
+                  </li>
+                  </Link>
+                        </ul>
+                        </div>
                   </div>
 
                   <div>
@@ -80,6 +120,15 @@ export default function SchoolOfHealth() {
                         <h1 className="px-2 py-5">
                         As Physical evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
                         </h1>
+                        <h3 className="mb-5 text-xl font-bold text-body-color dark:text-white sm:text-2xl lg:text-xl xl:text-2xl" style={{ color: 'blue' }}>
+                        Programmes
+                        </h3>
+                        <div className='md:pl-2 mx-auto md:mx-0'>
+                        <ul className='flex flex-col space-y-5'>
+                              <li>Bachelor of Public Health</li>
+                              <li>Bachelor of Biomedical Engineering</li>
+                        </ul>
+                        </div>
                   </div>
 
                   <div>
