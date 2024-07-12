@@ -61,7 +61,7 @@ const AboutSectionLife2 = () => {
                                           Providing quality education that is affordable for all students. 
                                           </p>
                                     
-                                          <Link href="/">
+                                          <Link href="/finances.pdf" target="_blank" rel="noopener noreferrer">
                                                 <button className="px-6 py-2 text-white bg-[#234297] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                                                       Explore
                                                 </button>
