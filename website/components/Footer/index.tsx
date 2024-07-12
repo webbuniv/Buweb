@@ -519,7 +519,7 @@ const Footer = () => {
                   {files.map((file, index) => (
                     <li key={index}>
                       <Link
-                        href={file.url} download
+                        href={file.url} target="_blank" rel="noopener noreferrer"
                         className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                       >
                         {" "}
