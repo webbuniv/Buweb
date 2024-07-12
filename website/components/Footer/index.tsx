@@ -95,7 +95,7 @@ const Footer = () => {
                     </svg>
                   </Link>
                   <Link
-                    href="https://www.x.com"
+                    href="https://twitter.com/UnivBugema"
                     aria-label="social-link"
                     className="mr-6 text-[#CED3F6] hover:text-primary"
                   >
@@ -115,7 +115,7 @@ const Footer = () => {
                     </svg>
                   </Link>
                   <Link
-                    href="https://www.youtube.com"
+                    href="https://youtube.com/@bugemauniversity3502"
                     aria-label="social-link"
                     className="mr-6 text-[#CED3F6] hover:text-primary"
                   >
@@ -155,7 +155,7 @@ const Footer = () => {
                     </svg>
                   </Link>
                   <Link
-                    href="/"
+                    href="https://www.tiktok.com/@BugemaUniv"
                     aria-label="social-link"
                     className="mr-6 text-[#CED3F6] hover:text-primary"
                   >
