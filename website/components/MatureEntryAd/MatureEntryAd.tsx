@@ -40,7 +40,7 @@ export default function MatureEntryAd() {
                 for our mature entry program exams are now available. You can
                 check them{" "}
                 <span>
-                  <Link href="/mature_entry.pdf" target="_blank" rel="noopener noreferrer">here</Link>
+                  <Link href="/mature_entry.pdf" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">here</Link>
                 </span>
                 , or if you have any questions, please do not hesitate to
                 contact our admissions office.
