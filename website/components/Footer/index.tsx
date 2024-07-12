@@ -213,7 +213,7 @@ const Footer = () => {
                       Apply Today{" "}
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link
                       href="/"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
@@ -221,10 +221,10 @@ const Footer = () => {
                       {" "}
                       Graduate Verification{" "}
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link
-                      href="/"
+                      href="http://erms.bugemauniv.ac.ug/buerms"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
@@ -304,7 +304,7 @@ const Footer = () => {
                         Apply Today{" "}
                       </Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link
                         href="/"
                         className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
@@ -312,10 +312,10 @@ const Footer = () => {
                         {" "}
                         Graduate Verification{" "}
                       </Link>
-                    </li>
+                    </li> */}
                     <li>
                       <Link
-                        href="/"
+                        href="http://erms.bugemauniv.ac.ug/buerms"
                         className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                       >
                         {" "}
@@ -333,7 +333,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                        href="/"
+                        href="https://elearning.bugemauniv.ac.ug/"
                         className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                       >
                         {" "}
