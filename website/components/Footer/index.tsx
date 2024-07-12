@@ -363,7 +363,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="hidden md:block w-full md:pl-6 px-4 md:px-0 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
+            {/* <div className="hidden md:block w-full md:pl-6 px-4 md:px-0 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
                   Resources
@@ -425,9 +425,9 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> */}
 
-            <div className="md:hidden w-full md:pr-6 px-4 md:px-0 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
+            {/* <div className="md:hidden w-full md:pr-6 px-4 md:px-0 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
               <div className="mb-12 lg:mb-16">
                 <div className="flex justify-between">
                   <h2 className=" text-xl font-bold text-black dark:text-white">
@@ -508,7 +508,7 @@ const Footer = () => {
                   </ul>
                 )}
               </div>
-            </div>
+            </div> */}
 
             <div className="hidden md:block w-full md:pl-6 px-4 md:px-0 md:w-1/2 lg:w-4/12 xl:w-3/12">
               <div className="mb-12 lg:mb-16">
@@ -519,7 +519,7 @@ const Footer = () => {
                   {files.map((file, index) => (
                     <li key={index}>
                       <Link
-                        href={file.url} download
+                        href={file.url} target="_blank" rel="noopener noreferrer"
                         className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                       >
                         {" "}
@@ -558,7 +558,7 @@ const Footer = () => {
                     {files.map((file, index) => (
                     <li key={index}>
                       <Link
-                        href={file.url} download
+                        href={file.url} target="_blank" rel="noopener noreferrer"
                         className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                       >
                         {" "}
