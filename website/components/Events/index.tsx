@@ -21,7 +21,7 @@ const Events = () => {
 
         const data = await response.json();
         const reversedData = data.slice(0).reverse();
-        const fewEvents = reversedData.slice(0, 3);
+        const fewEvents = reversedData.slice(0, 2);
         setEvents(fewEvents);
       } catch (err) {
         setError(err.message);
