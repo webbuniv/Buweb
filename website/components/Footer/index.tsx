@@ -95,7 +95,7 @@ const Footer = () => {
                     </svg>
                   </Link>
                   <Link
-                    href="https://www.x.com"
+                    href="https://twitter.com/UnivBugema"
                     aria-label="social-link"
                     className="mr-6 text-[#CED3F6] hover:text-primary"
                   >
@@ -115,7 +115,7 @@ const Footer = () => {
                     </svg>
                   </Link>
                   <Link
-                    href="https://www.youtube.com"
+                    href="https://youtube.com/@bugemauniversity3502"
                     aria-label="social-link"
                     className="mr-6 text-[#CED3F6] hover:text-primary"
                   >
@@ -155,7 +155,7 @@ const Footer = () => {
                     </svg>
                   </Link>
                   <Link
-                    href="/"
+                    href="https://www.tiktok.com/@BugemaUniv"
                     aria-label="social-link"
                     className="mr-6 text-[#CED3F6] hover:text-primary"
                   >
@@ -213,7 +213,7 @@ const Footer = () => {
                       Apply Today{" "}
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link
                       href="/"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
@@ -221,10 +221,10 @@ const Footer = () => {
                       {" "}
                       Graduate Verification{" "}
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link
-                      href="/"
+                      href="http://erms.bugemauniv.ac.ug/buerms"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
@@ -304,7 +304,7 @@ const Footer = () => {
                         Apply Today{" "}
                       </Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link
                         href="/"
                         className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
@@ -312,10 +312,10 @@ const Footer = () => {
                         {" "}
                         Graduate Verification{" "}
                       </Link>
-                    </li>
+                    </li> */}
                     <li>
                       <Link
-                        href="/"
+                        href="http://erms.bugemauniv.ac.ug/buerms"
                         className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                       >
                         {" "}
@@ -333,7 +333,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                        href="/"
+                        href="https://elearning.bugemauniv.ac.ug/"
                         className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                       >
                         {" "}
