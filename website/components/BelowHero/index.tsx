@@ -55,7 +55,7 @@ const AboutSectionLife2 = () => {
                                     <div className="wow fadeInUp relative mx-auto mb-6 aspect-[25/24] lg:m-0 flex flex-col justify-center items-center text-center" data-wow-delay=".15s">
                                           <FaMoneyCheckDollar className="w-10 h-8 text-black dark:text-white items-center"/>
                                           <h3 className="mb-2 mt-3 text-xl font-bold text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                                                Financial Info
+                                                Financial Information
                                           </h3>
                                           <p className="mb-4 text-base text-white">
                                           Providing quality education that is affordable for all students. 
@@ -94,7 +94,7 @@ const AboutSectionLife2 = () => {
                                           <p className="mb-2 text-base text-white ">
                                           With over 100 academic programs delivering world-class education.
                                           </p>
-                                          <Link href="">
+                                          <Link href="https://unche.or.ug/institution/bugema-university/">
                                                 <button className="px-6 py-2 mt-2 text-white bg-[#234297] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                                                       Learn More
                                                 </button>
