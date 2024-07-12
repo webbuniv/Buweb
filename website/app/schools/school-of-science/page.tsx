@@ -35,7 +35,7 @@ export default function SchoolOfScience() {
     <div className="overflow-hidden">
       <section className="my-20 mt-36 mx-10">
         <School
-          tittle="Shool of Science and Technology"
+          tittle="School of Science and Technology"
           subtittle="Our Aim is to train and encourage our Learners to cope up with the continuosly changing and emerging technologies by giving them a hands on experience to make them problem solvers..."
           topImg={"/images/schools/lab1.jpg"}
           dean="DR. LOWU FRANCIS"

@@ -55,7 +55,7 @@ const AboutSectionLife2 = () => {
                                     <div className="wow fadeInUp relative mx-auto mb-6 aspect-[25/24] lg:m-0 flex flex-col justify-center items-center text-center" data-wow-delay=".15s">
                                           <FaMoneyCheckDollar className="w-10 h-8 text-black dark:text-white items-center"/>
                                           <h3 className="mb-2 mt-3 text-xl font-bold text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                                                Financial Info
+                                                Financial Information
                                           </h3>
                                           <p className="mb-4 text-base text-white">
                                           Providing quality education that is affordable for all students. 
