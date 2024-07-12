@@ -38,7 +38,7 @@ const sliderSettings = {
 const Hero = () => {
   return (
     <>
-      <section id="home" className="hero-section w-full lg:h-[800px] relative z-10">
+      <section id="home" className="hero-section w-full lg:h-[800px] h-[800px] relative z-10">
         <Slider {...sliderSettings}>
           {heroMedia.map((media, index) => (
             <HeroSlide key={index} media={media} />

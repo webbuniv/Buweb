@@ -5,7 +5,6 @@ import MaturePopup from "../MaturePopup/MaturePopup";
 export default function MatureEntryAd() {
   const [isVisible, setIsVisible] = useState(false);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
-  const [isTimedPopupVisible, setTimedPopupVisible] = useState(false);
 
   useEffect(() => {
     // Button is displayed after scrolling for 500 pixels
@@ -34,13 +33,13 @@ export default function MatureEntryAd() {
 
           <MaturePopup trigger={isPopupVisible} setTrigger={setIsPopupVisible}>
             <div className="text-dark">
-              <h2 className="mb-2">Mature Entry Results Out!!</h2>
+              <h2 className="mb-2 text-blue-600">Mature Entry Results Out!!</h2>
               <p>
                 The wait is over! We{"'"}re pleased to announce that the results
                 for our mature entry program exams are now available. You can
                 check them{" "}
                 <span>
-                  <Link href="/mature_entry.pdf" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">here</Link>
+                  <Link href="/mature_entry.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">here</Link>
                 </span>
                 , or if you have any questions, please do not hesitate to
                 contact our admissions office.
