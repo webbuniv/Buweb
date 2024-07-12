@@ -30,7 +30,7 @@ export default function MatureEntryAd() {
           aria-label="scroll to top"
           className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-md bg-primary text-white shadow-md transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
         >
-          <span className="mt-[6px] text-white">Jobs Available</span>
+          <span className="mt-[6px] text-white">Mature Entry Results Out!!</span>
 
           <MaturePopup trigger={isPopupVisible} setTrigger={setIsPopupVisible}>
             <div className="text-dark">
