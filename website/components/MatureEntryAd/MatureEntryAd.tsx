@@ -25,7 +25,7 @@ export default function MatureEntryAd() {
     <div className="fixed bottom-8 left-8 z-[99]">
       {isVisible && (
         <div
-          onClick={() => setIsPopupVisible(true)}
+          onClick={() => setIsPopupVisible(!isPopupVisible)}
           aria-label="scroll to top"
           className="flex h-10 w-[220px] cursor-pointer items-center justify-center rounded-md bg-primary text-white shadow-md transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
         >
