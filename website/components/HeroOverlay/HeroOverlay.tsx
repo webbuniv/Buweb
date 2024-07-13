@@ -37,7 +37,7 @@ const HeroOverlay = ({
           </h1>
         </div>
         <div className="flex-1">
-          <h1 className=" text-start text-4xl font-medium mb-0">
+          <h1 className=" text-start text-6xl font-medium mb-0">
             {title2}
           </h1>
         </div>

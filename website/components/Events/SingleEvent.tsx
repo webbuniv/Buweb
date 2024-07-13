@@ -15,7 +15,7 @@ const SingleEvent = ({ post }: Props) => {
       <div className="py-2 sm:p-4 md:py-2 md:px-2 lg:p-6 xl:py-2 xl:px-1 2xl:p-6">
 
         <h3>
-          <Link href={`/news/${post._id}`} passHref className="mb-1 block text-lg font-bold text-black/80 hover:text-primary dark:text-white dark:hover:text-primary sm:text-md">
+          <Link href={`/events/${post._id}`} passHref className="mb-1 block text-lg font-bold text-black/80 hover:text-primary dark:text-white dark:hover:text-primary sm:text-md">
               {post.title.toUpperCase()}
           </Link>
         </h3>

@@ -286,13 +286,14 @@ const why_bugema = () =>{
                                     
                               </div>
                               </li>
+                                    <li>
+                                    <Link href={"/hospital"} >
+                                          <div className="mr-2 my-5  ">
+                                                <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Hospital</h1>
+                                          </div>
+                                    </Link>
+                                    </li>
                               
-                              <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Health</h1>
-                                    
-                              </div>
-                              </li>
                               
                               <li>
                               <div className="mr-2 my-5  ">
