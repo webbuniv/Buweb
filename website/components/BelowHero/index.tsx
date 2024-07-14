@@ -30,7 +30,7 @@ const AboutSectionLife2 = () => {
 
   return (
     <section className="top-0">
-            <div className="container  -my-24">
+            <div className="container  -my-4">
                   <div className="container mx-auto">
                         <div className="flex flex-wrap -mx-4 gap-2 lg:gap-0">
                               <div className={`w-full px-4 lg:w-1/2 xl:w-1/4 transition-transform duration-300 lg:hover:scale-105 cursor-pointer rounded bg-[#234297] ${animate ?"slider-up slide-up-faster":"" }`}>
@@ -61,7 +61,7 @@ const AboutSectionLife2 = () => {
                                           Providing quality education that is affordable for all students. 
                                           </p>
                                     
-                                          <Link href="/">
+                                          <Link href="/finances.pdf" target="_blank" rel="noopener noreferrer">
                                                 <button className="px-6 py-2 text-white bg-[#234297] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                                                       Explore
                                                 </button>
