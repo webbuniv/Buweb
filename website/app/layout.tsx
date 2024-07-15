@@ -37,7 +37,7 @@ export default function RootLayout({
             `,
           }}
         />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-TE9HEEZ2BK"></script>
+        
       </body>
     </html>
   );
