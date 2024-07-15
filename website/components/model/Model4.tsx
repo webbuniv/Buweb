@@ -262,9 +262,15 @@ const why_bugema = () =>{
                               </div>
 
                               <h1  style={{fontSize: '19px',cursor:"pointer",height:"50px"}} className='new-arr change-on-hover2 text-black'> ERMS  <FaArrowRight className='new-arr'/></h1>
+                              
+                              <Link href='https://erms.bugemauniv.ac.ug/buerms/'>
                               <h1  style={{fontSize: '19px',cursor:"pointer",height:"50px"}} className='new-arr change-on-hover2 text-black'> ERMS-staff  <FaArrowRight className='new-arr'/></h1>
-                                    
-                              <h1  style={{fontSize: '19px',cursor:"pointer",height:"50px"}} className='new-arr change-on-hover2 text-black'> E-Library  <FaArrowRight className='new-arr'/></h1>
+                              </Link>
+                                 
+                              <Link href='https://e-library.bugemauniv.ac.ug/'>
+                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"50px"}} className='new-arr change-on-hover2 text-black'> E-Library  <FaArrowRight className='new-arr'/></h1>
+                                </Link>   
+                              
                               
                               
                         </div>
