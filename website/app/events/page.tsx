@@ -5,7 +5,7 @@ import Breadcrumb from "@/components/Common/Breadcrumb";
 import { getPosts } from "@/lib/requests";
 import Contact from "@/components/Contact";
 
-export default function Blog() {
+export default function EventsPage() {
   const [events, setEvents] = useState([]);
   const [error, setError] = useState(null);
 
@@ -36,15 +36,15 @@ export default function Blog() {
 
   return (
     <>
-      <div className="container mt-[500px]">
+      <div className="container mt-[100px] md:mt-[120px]">
         <Breadcrumb
-          pageName="Bugema University Blogs"
-          description="Welcome to the Bugema University Blog page! Here, you'll find a wealth of 
-        knowledge and insights on various topics related to academia, student life, research, and more. 
+          pageName="Bugema University Events Page"
+          description="Welcome to the Bugema University Events page! Here, you'll find a wealth of 
+        all the upcoming events happening in Bugema. You will also have access to the past events. 
         "
         />
 
-        <section className="pt-[120px] pb-[120px]">
+        <section className="pt-[50px] pb-[10px] md:pb-[80px]">
           <div className="container">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {events.map((post) => (

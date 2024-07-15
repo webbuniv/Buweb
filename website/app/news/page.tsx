@@ -35,7 +35,7 @@ export default function Blog() {
 
   return (
     <>
-      <div className="container mt-[500px]">
+      <div className="container mt-[100px] md:mt-[120px]">
         <Breadcrumb
           pageName="Bugema University Blogs"
           description="Welcome to the Bugema University Blog page! Here, you'll find a wealth of 
@@ -43,7 +43,7 @@ export default function Blog() {
         "
         />
 
-        <section className="pt-[120px] pb-[120px]">
+        <section className="pt-[50px] pb-[10px] md:pb-[80px]">
           <div className="container">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {news.map((post) => (
