@@ -5,13 +5,14 @@ import { BiBookOpen, BiSolidPencil } from "react-icons/bi";
 import { motion } from "framer-motion";
 import Slider from "react-slick";
 import HeroSlide from "./HeroSlide";
-import HeroOverlay from "../HeroOverlay/HeroOverlay";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export const heroMedia = [
   { type: 'video', src: "https://res.cloudinary.com/duaqiajka/video/upload/v1719686933/WELCOME_VIDEO_og2jma.mp4" },
-  { type: 'image', src: "/images/vc/chancellor_banner.jpg" }
+  { type: 'image', src: "/images/vc/chancellor_banner2.jpg" },
+  { type: 'image', src: "/images/banners/it.jpg" },
+  { type: 'image', src: "/images/banners/nursing.jpg" }
 ];
 
 const textVariants = {
@@ -36,28 +37,15 @@ const sliderSettings = {
 const Hero = () => {
   return (
     <>
-      <section id="home" className="hero-section w-full lg:h-[800px] relative z-10">
+      <section id="home" className="hidden md:block hero-section w-full lg:h-[800px] h-[700px] relative z-10 mb-[100px]">
         <Slider {...sliderSettings}>
           {heroMedia.map((media, index) => (
             <HeroSlide key={index} media={media} />
           ))}
         </Slider>
-        <HeroOverlay
-          title="BUGEMA UNIVERSITY"
-          title2="Service."
-          title3="Where Head, Heart and Hands unite in"
-          subtitle="Excellence In Service"
-          subtitle2="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity"
-          subtitle3="to offer you Quality education with a hands on experience. . ."
-          buttonText="Apply Now"
-
-
-          buttonLink="https://apply.bugemauniv.ac.ug/"
-
-        />
       </section>
 
-      <div className="container px-4 mt-[100px] mb-[50px] w-full h-full">
+      <div className="block md:hidden container px-4 mt-[120px] mb-[50px] w-full h-full">
         <div className="flex flex-wrap justify-center md:justify-between">
           <div className="w-full px-4 md:w-2/3">
             <motion.div

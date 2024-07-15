@@ -199,7 +199,14 @@ const News = () => {
     { name: 'photo',  label: 'Photo' },
     { name: 'title', label: 'Title' },
     { name: 'category', label: 'Category' },
-    { name: 'date', label: 'Date' },
+    {
+      name: 'date',
+      label: 'Date',
+      render: (newsItem) => {
+        const date = new Date(newsItem.date);
+        return date.toLocaleDateString(); 
+      },
+    },
     {
       name: 'actions',
       align: 'center',
@@ -374,6 +381,9 @@ const News = () => {
                 fullWidth
                 label="Date"
                 type="date"
+                InputLabelProps={{
+                  shrink: true,
+                }}
                 value={createFormFields.date}
                 onChange={(e) =>
                   setCreateFormFields((prevFields) => ({
@@ -381,9 +391,6 @@ const News = () => {
                     date: e.target.value,
                   }))
                 }
-                InputLabelProps={{
-                  shrink: true,
-                }}
                 sx={{ gridColumn: "span 4" }}
               />
 
@@ -557,6 +564,9 @@ const News = () => {
                 fullWidth
                 label="Date"
                 type="date"
+                InputLabelProps={{
+                  shrink: true,
+                }}
                 value={editFormFields.date}
                 onChange={(e) =>
                   setEditFormFields((prevFields) => ({
@@ -564,9 +574,7 @@ const News = () => {
                     date: e.target.value,
                   }))
                 }
-                InputLabelProps={{
-                  shrink: true,
-                }}
+                
                 sx={{ gridColumn: "span 4" }}
               />
 

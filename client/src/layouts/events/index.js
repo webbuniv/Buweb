@@ -204,7 +204,14 @@ const Events = () => {
     { name: 'coverPhotoUrl', label: 'Cover Photo' },
     { name: 'title', label: 'Title' },
     { name: 'description', label: 'Description' },
-    { name: 'date', label: 'Date' },
+    {
+      name: 'date',
+      label: 'Date',
+      render: (newsItem) => {
+        const date = new Date(newsItem.date);
+        return date.toLocaleDateString(); 
+      },
+    },
     { name: 'location', label: 'Location' },
     {
       name: 'actions',
@@ -361,7 +368,10 @@ const Events = () => {
                 />
                 <TextField
                   label="Date"
-                  type="text"
+                  type="date"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                   value={createFormFields.date}
                   onChange={(e) =>
                     setCreateFormFields((prevFields) => ({
@@ -518,7 +528,10 @@ const Events = () => {
                 />
                 <TextField
                   label="Date"
-                  type="text"
+                  type="date"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                   value={editFormFields.date}
                   onChange={(e) =>
                     setEditFormFields((prevFields) => ({

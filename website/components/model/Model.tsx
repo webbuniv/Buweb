@@ -160,7 +160,7 @@ const why_bugema = () =>{
                               <div className="mr-2 my-5 slider slide--fast ">
                                      
                                     <Link href={"/schools/school-of-graduate"} >
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Graduate studies, Reseacrch <br/>&  Publications</h1> 
+                                          <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Graduate studies, Reseacrch <br/>&  Publications</h1> 
                                     </Link> 
                               </div>
                               </li>
@@ -168,7 +168,7 @@ const why_bugema = () =>{
                               <li>
                               <div className="mr-2 my-5 slider slide--slower "> 
                                     <Link href={"/schools/school-of-business"} >
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Business</h1> 
+                                          <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Business</h1> 
                                     </Link> 
                               </div>
                               </li>
@@ -176,7 +176,7 @@ const why_bugema = () =>{
                               <li>
                               <div className="mr-2 my-5 slider slide--slow ">
                                     <Link href={"/schools/school-of-agric"} >
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Agriculture and Applied Sciences</h1> 
+                                          <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Agriculture and Applied Sciences</h1> 
                                     </Link> 
                               </div>
                               </li>
@@ -185,7 +185,7 @@ const why_bugema = () =>{
                               <div className="mr-2 my-5 slider slide--slow ">
                                      
                                     <Link href={"/schools/school-of-education"} >
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Education </h1> 
+                                          <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Education </h1> 
                                     </Link> 
                               </div>
                               </li>
@@ -194,7 +194,7 @@ const why_bugema = () =>{
                               <div className="mr-2 my-5 slider slide--slow ">
                                      
                                     <Link href={"/schools/school-of-social"} >
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Social sciences</h1> 
+                                          <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Social sciences</h1> 
                                     </Link> 
                               </div>
                               </li>
@@ -203,7 +203,7 @@ const why_bugema = () =>{
                               <div className="mr-2 my-5 slider slide--fast ">
                                      
                                     <Link href={"/schools/school-of-theology"} >
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Theology and Religious Studies </h1> 
+                                          <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Theology and Religious Studies </h1> 
                                     </Link> 
                               </div>
                               </li>
@@ -212,7 +212,7 @@ const why_bugema = () =>{
                               <div className="mr-2 my-5 slider slide--slow ">
                                     
                                     <Link href={"/schools/school-of-health"} >
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Heath and Alied Sciences</h1> 
+                                          <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Heath and Alied Sciences</h1> 
                                     </Link> 
                               </div>
                               </li>
@@ -220,7 +220,7 @@ const why_bugema = () =>{
                               <li>
                               <div className="mr-2 my-5 slider slide--slow ">
                                     <Link href={"/schools/school-of-science"} >
-                                          <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Science and Technology </h1> 
+                                          <h1 onClick={onClose} style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Science and Technology </h1> 
                                     </Link> 
                               </div>
                               </li>
@@ -296,8 +296,9 @@ const why_bugema = () =>{
                               
                               <li>
                               <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Health</h1>
-                                    
+                              <Link href={"/hospital"} >
+                                    <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Hospital</h1>
+                              </Link>
                               </div>
                               </li>
                               
