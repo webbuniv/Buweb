@@ -256,6 +256,7 @@ const why_bugema = () =>{
                               
                               <li>
                               <div className="mr-2 my-5  ">
+                                    
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> BUSA Fees</h1>
                                     
                               </div>
@@ -263,7 +264,11 @@ const why_bugema = () =>{
                               
                               <li>
                               <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> NHCE Fees</h1> 
+
+                              <Link href='https://imis.unche.or.ug:81/frmTrnStudentPayment.aspx' target="_blank" rel="noopener noreferrer">
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> NHCE Fees</h1>
+                              </Link>
+                                    
                                     
                               </div>
                               </li>
