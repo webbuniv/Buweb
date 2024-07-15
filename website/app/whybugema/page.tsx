@@ -11,6 +11,7 @@ import backgroundImage from "../../public/images/features/int.jpg";
 const WhyBugemaPage = () => {
   return (
     <>
+    <div className="container mt-[100px] md:mt-0">
       <WhyHero />
       <Breadcrumb
         pageName="Why Bugema"
@@ -20,6 +21,7 @@ const WhyBugemaPage = () => {
       />
       {/* <AboutSectionSix /> */}
       <AboutSectionSeven />
+    </div>
     </>
   );
 };
