@@ -46,7 +46,7 @@ const Hero = () => {
         </Slider>
       </section>
 
-      <div className="block md:hidden container px-4 mt-[100px] mb-[50px] w-full h-full">
+      <div className="block md:hidden container px-4 mt-[120px] mb-[50px] w-full h-full">
         <div className="flex flex-wrap justify-center md:justify-between">
           <div className="w-full px-4 md:w-2/3">
             <motion.div
