@@ -28,8 +28,8 @@ const HeroSlide = ({ media }) => {
           <Image
             src={media.src}
             alt="Hero Slide"
-            className="w-fit h-[800px] object-cover"
-            width={900}
+            className="w-fit h-[800px] object-cover lg:w-full"
+            width={1020}
             height={800}
           />
           <div className="absolute top-0 left-0 w-full h-full opacity-50"></div>
