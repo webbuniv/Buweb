@@ -204,7 +204,14 @@ const Events = () => {
     { name: 'coverPhotoUrl', label: 'Cover Photo' },
     { name: 'title', label: 'Title' },
     { name: 'description', label: 'Description' },
-    { name: 'date', label: 'Date' },
+    {
+      name: 'date',
+      label: 'Date',
+      render: (newsItem) => {
+        const date = new Date(newsItem.date);
+        return date.toLocaleDateString(); 
+      },
+    },
     { name: 'location', label: 'Location' },
     {
       name: 'actions',
