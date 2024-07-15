@@ -5,7 +5,6 @@ import { BiBookOpen, BiSolidPencil } from "react-icons/bi";
 import { motion } from "framer-motion";
 import Slider from "react-slick";
 import HeroSlide from "./HeroSlide";
-import HeroOverlay from "../HeroOverlay/HeroOverlay";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
