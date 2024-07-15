@@ -18,6 +18,7 @@ export default function Head() {
             `,
           }}
         />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-TE9HEEZ2BK"></script>
       <link rel="shortcut icon" type="image/x-icon" href="bu_logo.png"  />
     </>
   );

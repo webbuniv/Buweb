@@ -788,6 +788,7 @@ const Footer = () => {
             </defs>
           </svg>
         </div>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-TE9HEEZ2BK"></script>
       </footer>
     </>
   );
