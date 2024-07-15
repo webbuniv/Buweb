@@ -30,11 +30,9 @@ const School = () => {
     
             const data = await response.json();
             const reversedData = data.slice(0).reverse();
-            console.log(data);
             setAdmin(reversedData);
 
             const vicechancellor = data.filter(vice => vice._id === vc_id );
-            console.log(vicechancellor);
             setVc(vicechancellor);
 
           } catch (err) {
