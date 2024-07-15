@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Event } from "@/types/types";
 
 type Props = {
-
     post: Event;
 }
 
