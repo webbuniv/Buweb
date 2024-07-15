@@ -32,7 +32,7 @@ const HeroSlide = ({ media }) => {
             width={1020}
             height={100}
           />
-          <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+          <div className="absolute top-0 left-0 w-full h-full opacity-50"></div>
         </>
       )}
     </div>
