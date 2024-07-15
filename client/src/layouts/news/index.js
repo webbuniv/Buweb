@@ -199,7 +199,14 @@ const News = () => {
     { name: 'photo',  label: 'Photo' },
     { name: 'title', label: 'Title' },
     { name: 'category', label: 'Category' },
-    { name: 'date', label: 'Date' },
+    {
+      name: 'date',
+      label: 'Date',
+      render: (newsItem) => {
+        const date = new Date(newsItem.date);
+        return date.toLocaleDateString(); 
+      },
+    },
     {
       name: 'actions',
       align: 'center',
