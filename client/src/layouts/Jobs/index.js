@@ -234,7 +234,14 @@ const Jobs = () => {
     { name: "title", label: "Title" },
     { name: "numberOfPosistions", label: "Positions" },
     { name: "responsibleTo", label: "Responsible To" },
-    { name: "deadline", label: "Deadline" },
+    {
+      name: 'deadline',
+      label: 'Deadline',
+      render: (newsItem) => {
+        const date = new Date(newsItem.date);
+        return date.toLocaleDateString(); 
+      },
+    },
     {
       name: "actions",
       align: "center",
