@@ -38,7 +38,7 @@ const sliderSettings = {
 const Hero = () => {
   return (
     <>
-      <section id="home" className="hero-section w-full lg:h-[800px] h-[800px] relative z-10">
+      <section id="home" className="hidden md:block hero-section w-full lg:h-[800px] h-[700px] relative z-10 mb-[100px]">
         <Slider {...sliderSettings}>
           {heroMedia.map((media, index) => (
             <HeroSlide key={index} media={media} />
@@ -46,7 +46,7 @@ const Hero = () => {
         </Slider>
       </section>
 
-      <div className="container px-4 mt-[50px] mb-[50px] w-full h-full">
+      <div className="block md:hidden container px-4 mt-[100px] mb-[50px] w-full h-full">
         <div className="flex flex-wrap justify-center md:justify-between">
           <div className="w-full px-4 md:w-2/3">
             <motion.div
