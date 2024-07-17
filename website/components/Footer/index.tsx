@@ -206,22 +206,13 @@ const Footer = () => {
                 <ul>
                   <li>
                     <Link
-                      href="http://apply.bugemauniv.ac.ug/"
+                      href="https://crm.acu.ac.uk/civicrm/mailing/view?reset=1&id=1854&cid=193430&cs=0ec7ff44c2144ca272008e8d3379f78e_1720621804_336"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Apply Today{" "}
+                      ACU Synthesis: July 2024{" "}
                     </Link>
                   </li>
-                  {/* <li>
-                    <Link
-                      href="/"
-                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
-                    >
-                      {" "}
-                      Graduate Verification{" "}
-                    </Link>
-                  </li> */}
                   <li>
                     <Link
                       href="https://erms.bugemauniv.ac.ug/buerms/"
@@ -251,7 +242,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href="https://www.myloft.xyz/"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
@@ -297,30 +288,21 @@ const Footer = () => {
                   <ul className="list-none">
                     <li>
                       <Link
-                        href="http://apply.bugemauniv.ac.ug/"
+                        href="https://crm.acu.ac.uk/civicrm/mailing/view?reset=1&id=1854&cid=193430&cs=0ec7ff44c2144ca272008e8d3379f78e_1720621804_336"
                         className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                       >
                         {" "}
-                        Apply Today{" "}
+                        ACU Synthesis: July 2024{" "}
                       </Link>
                     </li>
-                    {/* <li>
+                    <li>
                       <Link
-                        href="/"
+                        href="https://erms.bugemauniv.ac.ug/buerms/"
                         className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                       >
                         {" "}
-                        Graduate Verification{" "}
+                        ERMS Staff Login{" "}
                       </Link>
-                    </li> */}
-                    <li>
-                      <Link
-                      href="https://erms.bugemauniv.ac.ug/buerms/"
-                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
-                    >
-                      {" "}
-                      ERMS Staff Login{" "}
-                    </Link>
                     </li>
                     <li>
                       <Link
@@ -519,7 +501,9 @@ const Footer = () => {
                   {files.map((file, index) => (
                     <li key={index}>
                       <Link
-                        href={file.url} target="_blank" rel="noopener noreferrer"
+                        href={file.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                       >
                         {" "}
@@ -556,16 +540,18 @@ const Footer = () => {
                 {isOpen.policies && (
                   <ul className="list-none">
                     {files.map((file, index) => (
-                    <li key={index}>
-                      <Link
-                        href={file.url} target="_blank" rel="noopener noreferrer"
-                        className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
-                      >
-                        {" "}
-                        {file.name}{" "}
-                      </Link>
-                    </li>
-                  ))}
+                      <li key={index}>
+                        <Link
+                          href={file.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                        >
+                          {" "}
+                          {file.name}{" "}
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 )}
               </div>
