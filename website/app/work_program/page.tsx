@@ -1,5 +1,7 @@
+'use client';
 import React from 'react'
 import Image from 'next/image'
+import { useState, useEffect } from 'react';
 import { BookOpenIcon } from '@heroicons/react/solid';
 import { GlobeAltIcon } from '@heroicons/react/solid';
 import { StarIcon } from '@heroicons/react/solid';
@@ -9,7 +11,55 @@ import sport from "@/public/images/life/sport.jpg";
 import Slider from "react-slick";
 import { BiChevronDown } from 'react-icons/bi';
 
-const workp = () => {
+const Workp = () => {
+
+      const [animate, setAnimate] = useState(false);
+      const [animate1, setAnimate1] = useState(false);
+      const [animate2, setAnimate2] = useState(false);
+
+      const animated = () => {
+            if (window.scrollY >=100) {
+                  setAnimate(true);
+            } else {
+                  setAnimate(false);
+            }
+          };
+          useEffect(() => {
+            window.addEventListener("scroll", animated);
+            return () => {
+              window.removeEventListener("scroll", animated);
+            };
+          }, []);
+// A N I M A T  E D 1
+          const animated1 = () => {
+            if (window.scrollY >= 1000) {
+                  setAnimate1(true);
+            } else {
+                  setAnimate1(false);
+            }
+          };
+          useEffect(() => {
+            window.addEventListener("scroll", animated1);
+            return () => {
+              window.removeEventListener("scroll", animated1);
+            };
+          }, []);
+
+          const animated2 = () => {
+            if (window.scrollY >= 2000) {
+                  setAnimate2(true);
+            } else {
+                  setAnimate2(false);
+            }
+          };
+          useEffect(() => {
+            window.addEventListener("scroll", animated2);
+            return () => {
+              window.removeEventListener("scroll", animated2);
+            };
+          }, []);
+
+
   return (
       <div className='flex flex-col'>
             <div className=" overflow-hidden -ml-28 flex flex-col relative min-h-screen" style={{ backgroundImage:`url('/images/workp/DSC_0267.jpg')`,transform:'revert' ,backgroundRepeat:'no-repeat',backgroundSize:'cover',backgroundPosition:'center', backgroundBlendMode:'multiply'}}  >
@@ -121,7 +171,7 @@ const workp = () => {
 
 
             {/* W O R K   P R O G R A M   O N E  */}
-            <div className={`wow mt-20 fadeInUp w-full gap-16 max-w-full justify-center items-center  md:flex md:mb-20 ` } data-wow-delay=".1s">
+            <div className={`wow mt-20 fadeInUp w-full gap-16 max-w-full justify-center items-center  md:flex md:mb-20 ${animate?"slider-up slide-up-faster":""}`} data-wow-delay=".1s">
 
                   <div className="-my-10 text-start flex-col ml-[10%] items-center  md:text-start -mt-12 md:w-[90%] md:px-6">
                         <h2 className="mb-4 text-2xl font-bold  !leading-tight text-[#0000FF]/70 dark:text-white sm:text-4xl md:text-[45px]">
@@ -154,7 +204,7 @@ const workp = () => {
 
             {/* W O R K   P R O G R A M   T W O */}
 
-            <div className={`wow mt-20 md:mb-32 fadeInUp w-full gap-16 max-w-full justify-center items-center  md:flex ` } data-wow-delay=".1s">
+            <div className={`wow mt-20 md:mb-32 fadeInUp w-full gap-16 max-w-full justify-center items-center  md:flex ${animate1?"slider-up slide-up-faster":""} ` } data-wow-delay=".1s">
 
                   <div className=" hidden md:block bg-dark flex ml-[4%] mr-[2%]" >
 
@@ -179,7 +229,7 @@ const workp = () => {
 
 
             {/* W O R K   P R O G R A M   T H R E E  */}
-            <div className={`wow mt-20 fadeInUp w-full gap-16 max-w-full justify-center items-center  md:flex md:mb-20 ` } data-wow-delay=".1s">
+            <div className={`wow mt-20 fadeInUp w-full gap-16 max-w-full justify-center items-center  md:flex md:mb-20 ${animate2?"slider-up slide-up-faster":""}` } data-wow-delay=".1s">
 
                   <div className="-my-10 text-start flex-col ml-[10%] items-center  md:text-start -mt-12 md:w-[90%] md:px-6">
                         <h2 className="mb-4 text-2xl font-bold  !leading-tight text-[#0000FF]/70 dark:text-white sm:text-4xl md:text-[45px]">
@@ -213,4 +263,4 @@ const workp = () => {
   )
 }
 
-export default workp
+export default Workp;
