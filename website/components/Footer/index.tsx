@@ -224,7 +224,7 @@ const Footer = () => {
                   </li> */}
                   <li>
                     <Link
-                      href="http://erms.bugemauniv.ac.ug/buerms"
+                      href="https://erms.bugemauniv.ac.ug/buerms/"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
@@ -315,12 +315,12 @@ const Footer = () => {
                     </li> */}
                     <li>
                       <Link
-                        href="http://erms.bugemauniv.ac.ug/buerms"
-                        className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
-                      >
-                        {" "}
-                        ERMS Staff Login{" "}
-                      </Link>
+                      href="https://erms.bugemauniv.ac.ug/buerms/"
+                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                    >
+                      {" "}
+                      ERMS Staff Login{" "}
+                    </Link>
                     </li>
                     <li>
                       <Link
