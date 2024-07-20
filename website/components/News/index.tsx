@@ -25,7 +25,6 @@ const News = () => {
         const data = await response.json();
         const reversedData = data.reverse().slice(0, 2);
         const latestNews = reversedData.slice(0, 1);
-        console.log(data);
         setNews(reversedData);
         setLatestNews(latestNews);
       } catch (err) {

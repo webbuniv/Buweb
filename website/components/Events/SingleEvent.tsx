@@ -9,7 +9,7 @@ type Props = {
 
 const SingleEvent = ({ post }: Props) => {
   return (
-    <div className="wow fadeInUp relative overflow-hidden shadow-one dark:bg-dark w-[220]">
+    <div className="wow fadeInUp relative overflow-hidden shadow-one dark:bg-dark w-[220] mb-8">
 
       <div className="py-2 sm:p-4 md:py-2 md:px-2 lg:p-6 xl:py-2 xl:px-1 2xl:p-6">
 

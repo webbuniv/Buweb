@@ -315,3 +315,10 @@
 .slide-up-slower{
       animation-duration: 2.5s
 }
+.borderc {
+      border-left: 5px solid rgb(47, 0, 255);
+    }
+    
+.color:hover{
+      color: rgb(47, 0, 255);
+      }
