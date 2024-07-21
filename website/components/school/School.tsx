@@ -140,7 +140,7 @@ const School = ({
                                     
                               </div>
 
-                              <div className="bg-dark flex flex-col ml-[10%] justify-center items-center">
+                              {/* <div className="bg-dark flex flex-col ml-[10%] justify-center items-center">
                                     <Image src={deanImage} alt="dean" width={200} height={200} />
 
                                     <h1 className="mb-4 text-body-color">{dean}</h1>
@@ -201,7 +201,7 @@ const School = ({
                                     <h2 className=" mb-4 text-3xl font-bold !leading-tight text-white/70 dark:text-white sm:text-4xl md:text-[30px]">
                                           qualification
                                     </h2>
-                              </div>
+                              </div> */}
 
 
                         </div>
@@ -212,8 +212,6 @@ const School = ({
             </div>
       </div>
 
-
-    
   );
 };
 
