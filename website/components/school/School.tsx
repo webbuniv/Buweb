@@ -208,7 +208,6 @@ const School = ({
 
                   </div>
 
-                  
             </div>
       </div>
 
