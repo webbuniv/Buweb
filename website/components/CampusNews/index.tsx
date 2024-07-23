@@ -8,7 +8,7 @@ const newsData = [
     title:
       "Bugema University sports play a vital role in student life ............",
     link: "/studentlife",
-    imageSrc: "/images/life/sport.jpg",
+    imageSrc: "https://res.cloudinary.com/dfqmkufnq/image/upload/v1721710563/basketball_timqtm.webp",
     altText: "Image related to depression biotypes",
   },
   {
