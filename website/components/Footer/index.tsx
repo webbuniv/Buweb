@@ -14,19 +14,19 @@ const Footer = () => {
     },
     {
       name: "Nursing Fees Structure",
-      url: "/public/docs/NUR.pdf",
+      url: "/docs/NUR.pdf",
     },
     {
       name: "Current Programs",
-      url: "/public/docs/CURRENT.pdf",
+      url: "/docs/CURRENT.pdf",
     },
     {
       name: "Official Bulletin",
-      url: "/public/docs/Bulletin.pdf",
+      url: "public/docs/Bulletin.pdf",
     },
     {
       name: "School of Graduates Bulletin",
-      url: "/public/docs/School.pdf",
+      url: "/docs/School.pdf",
     },
   ];
 
