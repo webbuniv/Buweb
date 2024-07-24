@@ -22,7 +22,7 @@ const Footer = () => {
     },
     {
       name: "Official Bulletin",
-      url: "/docs/Bulletin.pdf",
+      url: "public/docs/Bulletin.pdf",
     },
     {
       name: "School of Graduates Bulletin",
