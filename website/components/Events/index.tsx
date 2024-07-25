@@ -40,12 +40,13 @@ const Events = () => {
         {error && <p>Error: {error}</p>}
 
         <div className="grid grid-cols-1 gap-y-2">
-          {events.map((post) => (
-            <div key={post.id} className="w-full">
-              <SingleEvent post={post} />
+          {events.map((event) => (
+            <div key={event.id} className="w-full">
+              <SingleEvent post={event} />
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

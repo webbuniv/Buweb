@@ -14,7 +14,7 @@ const SingleEvent = ({ post }: Props) => {
       <div className="py-2 sm:p-4 md:py-2 md:px-2 lg:p-6 xl:py-2 xl:px-1 2xl:p-6">
 
         <h3>
-          <Link href={`/events/${post._id}`} passHref className="mb-1 block text-lg font-bold text-black/80 hover:text-primary dark:text-white dark:hover:text-primary sm:text-md">
+          <Link href={`/events/${post._id}`} passHref className="mb-1 block text-sm md:text-lg font-bold text-black/80 hover:text-primary dark:text-white dark:hover:text-primary sm:text-md">
               {post.title.toUpperCase()}
           </Link>
         </h3>
@@ -32,18 +32,18 @@ const SingleEvent = ({ post }: Props) => {
             </div>
             <div className="w-full">
 
-              <h4 className="mb-1 text-md font-medium text-dark dark:text-white">
+              <h4 className="mb-1 text-xs md:text-md font-medium text-dark dark:text-white">
                 By {post.organizer}
               </h4>
-              <p className="text-sm text-body-color">{post.title}</p>
+              <p className="text-xs md:text-sm text-body-color">{post.title}</p>
 
             </div>
           </div>
           <div className="inline-block">
-            <h4 className="mb-1 text-md font-medium text-dark dark:text-white">
+            <h4 className="mb-1 text-xs md:text-md font-medium text-dark dark:text-white">
               Date
             </h4>
-            <p className="text-sm text-red-500">{ new Date(post.date).toLocaleDateString()}</p>
+            <p className="text-xs md:text-sm text-red-500">{ new Date(post.date).toLocaleDateString()}</p>
           </div>
         </div>
       </div>
