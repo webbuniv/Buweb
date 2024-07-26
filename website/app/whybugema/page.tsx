@@ -22,7 +22,7 @@ const WhyBugemaPage = () => {
             objectFit="cover"
             className="z-0"
           />
-          <div className="absolute inset-0 flex flex-col mt-[150px] z-10 bg-black bg-opacity-10">
+          <div className="absolute inset-0 flex flex-col mt-[50px] lg:mt-[150px] z-10 bg-black bg-opacity-10">
             <Breadcrumb
               pageName="Why Bugema"
               description="
