@@ -18,6 +18,7 @@ export default function Head() {
             `,
           }}
         />
+        
       <link rel="shortcut icon" type="image/x-icon" href="bu_logo.png"  />
     </>
   );

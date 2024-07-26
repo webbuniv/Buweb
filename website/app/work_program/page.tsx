@@ -148,7 +148,7 @@ const Workp = () => {
                                     <h2 className="mb-4 text-3xl font-bold !leading-tight text-black/70 dark:text-white sm:text-4xl md:text-[45px]">
                                           Dean
                                     </h2>
-                                    <h1 className="mb-4 text-body-color">HEAD</h1>
+                                    <h1 className="mb-4 text-body-color">HEAD  WORK PROGRAM</h1>
                               </div>
 
                               <div className="  flex flex-col text-center md:text-start -mt-10 md:w-[90%] md:px-6">

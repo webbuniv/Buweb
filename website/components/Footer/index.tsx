@@ -14,19 +14,19 @@ const Footer = () => {
     },
     {
       name: "Nursing Fees Structure",
-      url: "https://res.cloudinary.com/duaqiajka/image/upload/NUR20191aud_oixsyf.pdf",
+      url: "/docs/NUR.pdf",
     },
     {
       name: "Current Programs",
-      url: "https://res.cloudinary.com/duaqiajka/image/upload/CURRENT_BU_PROGRAMMES_giamju.pdf",
+      url: "/docs/CURRENT.pdf",
     },
     {
       name: "Official Bulletin",
-      url: "https://res.cloudinary.com/duaqiajka/image/upload/Bulletin_2019-2024_Final_suwdwr.pdf",
+      url: "/docs/Bulletin.pdf",
     },
     {
       name: "School of Graduates Bulletin",
-      url: "https://res.cloudinary.com/duaqiajka/image/upload/School_of_Graduate_School_Bulletin_xcuc76.pdf",
+      url: "/docs/School.pdf",
     },
   ];
 
