@@ -7,7 +7,7 @@ import AboutSectionSeven from "@/components/About/AboutSectionSeven";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import WhyHero from "@/components/WhyHero";
 import AboutSectionBu from "@/components/BelowBugema";
-import backgroundImage from "../../public/images/footer/aerial1.png";
+import backgroundImage from "@/public/images/footer/aerial1.png";
 
 const WhyBugemaPage = () => {
   return (
