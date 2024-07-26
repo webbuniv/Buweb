@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useState } from "react";
 import Image from "next/image";
@@ -12,9 +12,9 @@ import backgroundImage from "../../public/images/features/int.jpg";
 const WhyBugemaPage = () => {
   return (
     <>
-    <div className="container mt-[100px] md:mt-0">
-      {/* <WhyHero /> */}
-      <div className="relative w-full h-96">
+      <div className="container mt-[100px] md:mt-0">
+        {/* <WhyHero /> */}
+        <div className="relative w-full mt-[30px] h-[300px] md:h-[500px]">
           <Image 
             src={backgroundImage}
             alt="Background"
@@ -31,9 +31,9 @@ const WhyBugemaPage = () => {
             />
           </div>
         </div>
-      <AboutSectionBu />
-      <AboutSectionSeven />
-    </div>
+        <AboutSectionBu />
+        <AboutSectionSeven />
+      </div>
     </>
   );
 };
