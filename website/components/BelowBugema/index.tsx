@@ -39,11 +39,14 @@ const AboutSectionBu = () => {
                                           {/* <FaWpforms className="w-10 h-8  text-black dark:text-white items-center"/> */}
 
                                           <h3 className="mb-2 mt-3 text-xl font-bold text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                                          Our Mision
+                                          Our Mission 
                                           </h3>
-                                          {/* <p className="mb-4 text-base text-white ">
-                                          Embark on your journey towards exellence.
-                                          </p> */}
+                                          <p className="mb-4 text-base text-white ">
+                                          To offer an excellent and distinctive holistic Christian
+                                          education designed to prepare students, through training, research, and scholarship, for
+                                          productive lives of useful service to God and to the community with integrity, honesty
+                                          and loyalty.
+                                          </p>
                                     </div>
                               </div>
                               <div className={`w-full px-4 lg:w-1/2 xl:w-1/4 transition-transform duration-300 lg:hover:scale-105 cursor-pointer rounded bg-[#e72725] ${animate ?"slider-up slide-up-fast":"" } `}>
@@ -52,32 +55,36 @@ const AboutSectionBu = () => {
                                           <h3 className="mb-2 mt-3 text-xl font-bold text-white sm:text-2xl lg:text-xl xl:text-2xl">
                                                 Our Vision
                                           </h3>
-                                          {/* <p className="mb-4 text-base text-white">
-                                          Providing quality education that is affordable for all students. 
-                                          </p> */}
+                                          <p className="mb-4 text-base text-white">
+                                          Bugema University envisions training for “Excellence in Service”.
+                                          </p>
                                     </div>
                               </div>
                               <div className={`w-full px-4 lg:w-1/2 xl:w-1/4 transition-transform duration-300 lg:hover:scale-105 cursor-pointer rounded bg-[#234297] ${animate ?"slider-up slide-up-slow":"" }`}>
                                     <div className="wow fadeInUp relative mx-auto mb-6 aspect-[25/24] lg:m-0 flex flex-col justify-center items-center text-center" data-wow-delay=".15s">
                                           {/* <IoBookOutline className="w-10 h-8 text-black dark:text-white items-center"/> */}
                                           <h3 className="mb-2 mt-3 text-xl font-bold text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                                          Our Goals
+                                          Our Philosophy
                                           </h3>
-                                          {/* <p className="mb-4 text-base text-white dark:text-gray-300">
-                                          Access all your information and notifications
+                                          <p className="mb-4 text-base text-white dark:text-gray-300">
+                                          Bugema University holds as its philosophy the belief that true education fosters
+                                          the restoration of the lost image of God in human beings through the harmonious
+                                          development of the physical, mental, social, and spiritual dimensions of life.
                                           </p>
-                                           */}
+                                          
                                     </div>
                               </div>
                               <div className={`w-full px-4 lg:w-1/2 xl:w-1/4 transition-transform duration-300 lg:hover:scale-105 cursor-pointer rounded bg-[#e72725] ${animate ?"slider-up slide-up-slower":"" } `}>
                                     <div className="wow fadeInUp relative mx-auto mb-12 aspect-[25/24] lg:m-0 flex flex-col justify-center items-center text-center" data-wow-delay=".15s">
                                           {/* <FaScroll className="w-10 h-8 text-black dark:text-white "/> */}
                                           <h3 className="mb-2 mt-3 text-xl font-bold text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                                          Core Values
+                                          Accreditation
                                           </h3>
-                                          {/* <p className="mb-2 text-base text-white ">
-                                          With over 100 academic programs delivering world-class education.
-                                          </p> */}
+                                          <p className="mb-2 text-base text-white ">
+                                          Bugema University holds accreditation from the Adventist Accrediting Association
+                                          based in Maryland, USA. (AAA) and chartered by the Republic of Uganda through the
+                                          National Council of Higher Education, as an institution of higher learning.
+                                          </p>
                                           
                                     </div>
                               </div>
