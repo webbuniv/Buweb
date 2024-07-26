@@ -30,7 +30,7 @@ const AboutSectionBu = () => {
 
   return (
     <section className="top-0">
-            <div className="container  -my-4">
+            <div className="container  -my-4 mt-[20px]">
                   <div className="container mx-auto">
                         <div className="flex flex-wrap -mx-4 gap-2 lg:gap-0">
                               <div className={`w-full px-4 lg:w-1/2 xl:w-1/4 transition-transform duration-300 lg:hover:scale-105 cursor-pointer rounded bg-[#234297] ${animate ?"slider-up slide-up-faster":"" }`}>

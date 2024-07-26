@@ -7,7 +7,7 @@ import AboutSectionSeven from "@/components/About/AboutSectionSeven";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import WhyHero from "@/components/WhyHero";
 import AboutSectionBu from "@/components/BelowBugema";
-import backgroundImage from "../../public/images/features/int.jpg";
+import backgroundImage from "../../public/images/footer/aerial1.png";
 
 const WhyBugemaPage = () => {
   return (
@@ -22,7 +22,7 @@ const WhyBugemaPage = () => {
             objectFit="cover"
             className="z-0"
           />
-          <div className="absolute inset-0 flex flex-col justify-center items-center text-center z-10 bg-black bg-opacity-50">
+          <div className="absolute inset-0 flex flex-col mt-[150px] z-10 bg-black bg-opacity-10">
             <Breadcrumb
               pageName="Why Bugema"
               description="
