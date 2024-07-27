@@ -19,7 +19,7 @@ const AboutSectionWbu = () => {
     <section className="py-16 md:py-20">
 
     <div className="container">
-        <h3 className="mb-2 -mb-16 lg:mt-3 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-4xl text-center">
+        <h3 className="mb-2 -mb-16 lg:mb-1 lg:mt-3 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-4xl text-center">
         A Brief History of Bugema
         </h3>
         
@@ -61,7 +61,7 @@ const AboutSectionWbu = () => {
                 </button>
               </Link>
           </div>
-          <div className="w-full px-2 lg:w-1/5 h-[500px] lg:-mt-[300px] lg:mt-0">
+          <div className="w-full px-2 lg:w-1/5 h-[500px] -mt-[5px] lg:mt-[20px]">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Address
             </h3>
