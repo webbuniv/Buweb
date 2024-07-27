@@ -37,10 +37,10 @@ const AboutSectionSeven = () => {
   }, [isDropdownVisibleProfessional, isDropdownVisibleExpert]);
 
   return (
-    <section className="py-16 md:py-20 lg:py-28">
+    <section className="py-16 md:py-20">
 
     <div className="container">
-        <h3 className="mb-2 mt-3 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-4xl text-center">
+        <h3 className="mb-2 -mt-[300px] lg:-mt-[200px] text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-4xl text-center">
            Excellence in research, teaching, and medical care
         </h3>
         <div className="flex flex-col lg:flex-row items-center gap-10 mt-8 -mb-8">
