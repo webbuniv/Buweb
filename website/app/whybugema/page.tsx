@@ -4,6 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import AboutSectionSix from "@/components/About/AboutSectionSix";
 import AboutSectionSeven from "@/components/About/AboutSectionSeven";
+import AboutSectionWbu from "@/components/About/AboutSectionWbu";
+
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import WhyHero from "@/components/WhyHero";
 import AboutSectionBu from "@/components/BelowBugema";
@@ -32,6 +34,7 @@ const WhyBugemaPage = () => {
           </div>
         </div>
         <AboutSectionBu />
+        <AboutSectionWbu />
         <AboutSectionSeven />
       </div>
     </>
