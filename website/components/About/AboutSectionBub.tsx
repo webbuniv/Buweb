@@ -82,7 +82,7 @@ const AboutSectionBub = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row items-center gap-10 mt-[10px] lg:-mt-[250px] lg:-mb-[250px]">
+        <div className="flex flex-col lg:flex-row items-center gap-10 mt-[10px] lg:-mt-[250px] mb-[-300px] lg:-mb-[250px]">
           <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Faculty-Student Interaction
