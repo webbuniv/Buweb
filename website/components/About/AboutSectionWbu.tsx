@@ -41,30 +41,43 @@ const AboutSectionWbu = () => {
 
     <div className="container">
         <h3 className="mb-2 mt-3 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-4xl text-center">
-           Excellence in research, teaching, and medical care
+        A Brief History of Bugema
         </h3>
         
-      <div className="flex flex-col lg:flex-row items-center gap-10 -mt-[200px] lg:mt-10">
-         <div
-              className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
+      <div className="flex flex-col lg:flex-row items-center gap-10 mt-[100px] lg:mt-10">
+         {/* <div
+              className="wow h-[500px] fadeInUp relative mx-auto lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
               data-wow-delay=".15s" 
-            >
-              <Image
-                src={learning}
-                alt="Bugema University"
-                className="w-[500px]"
-              />
+            > */}
+            <div className="flex-1">
+              <p className="">
+              With the entry of the Adventist church in Uganda in 1927 came also the first Adventist
+              educational institution in Nchwanga in West Central Uganda. The primary function of
+              the institution was to train pastors and church workers. In 1948 the institution moved to
+              a newly purchased property of 640 acres in Bugema, 34 Kilometers from Kampala. Two
+              years later a secondary education at ‘O’ level was started. By 1970 a junior college began
+              its operations training pastors for the field. Four years later, the denomination upgraded
+              the institution into a four-year seminary, granting bachelor’s degrees in theology (BTh).
+              In 1985 business was added, and in 1990 education. In 1994, the institution obtained
+              a government license to operate as a university. The Adventist Accrediting Association
+              (AAA) visited the University in 1995 and recommended accreditation to Bachelor of
+              Theology, Bachelor of Business Administration (in Management and Accounting), and
+              Bachelor of Arts in Religion.
+
+              </p>
+              {/* </div> */}
           </div>
-          <div className="w-full px-2 lg:w-1/2 h-[500px] -mt-[300px] lg:mt-5">
-            <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
+          <div className="w-full px-2 lg:w-1/5 h-[500px] -mt-[300px] lg:mt-5">
+            {/* <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Blended Learning
-            </h3>
+            </h3> */}
            <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
               <div className="flex-1">
-              <p className="">Our blended learning programs combine traditional classroom instruction with interactive online components, empowering students to engage with course materials, collaborate with peers. Our E-Learning system is available all the time to cater for those that may be in different time zones. Our support team will take you step by step on how to get the best from the platform. Pay a visit to our E-Learning Platform.</p>
-              <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
-                Login
-              </button>
+              <p className="">
+              Bugema University is located 32 kilometers north of Kampala on Gayaza-Zirobwe Road.
+              Public Taxis are available at a cost of Ushs 4,000 from the Old Taxi Park in Kampala city,
+              or special cars can be hired at an approximate cost of UShs 60,000.
+              </p>
               </div>
             </div>
           </div>
