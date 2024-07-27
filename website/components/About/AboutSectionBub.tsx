@@ -11,7 +11,7 @@ const AboutSectionBub = () => {
 
     <div className="container">
 
-    <div className="flex flex-col lg:flex-row items-center gap-10 mt-[30px] lg:mt-[-250px]">
+    <div className="flex flex-col lg:flex-row items-center gap-10 mt-[-300px] lg:mt-[-250px]">
   <div className="w-full px-2 lg:w-1/2 h-[500px]">
     <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
       <div className="flex-1">
@@ -33,7 +33,7 @@ const AboutSectionBub = () => {
     </div>
   </div>
 
-  <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
+  <div className="w-full px-2 lg:w-1/2 h-[500px] mt-[100px] lg:mt-5">
     <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
       <div className="flex-1">
         <p className="">
@@ -53,8 +53,8 @@ const AboutSectionBub = () => {
   </div>
 </div>
 
-      <div className="flex flex-col lg:flex-row items-center gap-10 -mt-[200px] lg:-mt-20">
-         <div
+      <div className="flex flex-col lg:flex-row items-center gap-10 mt-[120px] lg:-mt-40">
+         {/* <div
               className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
               data-wow-delay=".15s" 
             >
@@ -63,22 +63,26 @@ const AboutSectionBub = () => {
                 alt="Bugema University"
                 className="w-[500px]"
               />
-          </div>
-          <div className="w-full px-2 lg:w-1/2 h-[500px] -mt-[300px] lg:mt-5">
-            <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
+          </div> */}
+          <div className="w-full px-2 lg:w-1/2 h-[500px] mt-[1px] lg:mt-5">
+            {/* <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Blended Learning
-            </h3>
+            </h3> */}
            <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
               <div className="flex-1">
-              <p className="">Our blended learning programs combine traditional classroom instruction with interactive online components, empowering students to engage with course materials, collaborate with peers. Our E-Learning system is available all the time to cater for those that may be in different time zones. Our support team will take you step by step on how to get the best from the platform. Pay a visit to our E-Learning Platform.</p>
-              <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
-                Login
-              </button>
+              <p className="">Currently, Bugema University offers a wide range of undergraduate programs in
+              areas of Health Sciences, Natural Sciences, Education, Theology and religious studies,
+              Social Sciences, Business and Computing and informatics. At Graduate studies level,
+              the programs include Business Administartion, Development Studies, Counseling
+              Psychology, Public Health, Education, Computer Science, Social Work and Social
+              Administration. Furthermore, the Graduate School offers PhD programs in Rural
+              Development, Environmental Management and Education.</p>
+              
               </div>
             </div>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row items-center gap-10 mt-[10px] lg:-mt-20">
+        <div className="flex flex-col lg:flex-row items-center gap-10 mt-[10px] lg:-mt-[250px] lg:-mb-[250px]">
           <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Faculty-Student Interaction
@@ -105,60 +109,6 @@ const AboutSectionBub = () => {
             />
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row items-center gap-10 -mt-[200px] lg:-mt-20">
-        <div
-            className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
-            data-wow-delay=".15s" 
-          >
-            <Image
-              src={worship}
-              alt="Bugema University"
-              className="w-[500px]"
-            />
-          </div>
-          <div className="w-full px-2 lg:w-1/2 h-[500px]  -mt-[300px] lg:mt-5">
-            <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-             Worship
-            </h3>
-           <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
-              <div className="flex-1">
-              <p className="">We understand the importance of holistic development and the role of spirituality in our students&apos; lives. We provide a nurturing environment that fosters personal growth and offers opportunities for spiritual enrichment. Our university offers worship services and spaces that cater to diverse religious and spiritual needs. Students can engage in prayer, meditation, and other spiritual activities to promote a sense of community, mindfulness, and well-being.</p>
-              <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
-                Explore more
-              </button>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-        <div className="flex flex-col lg:flex-row items-center gap-10 mt-[20px] lg:-mt-20">
-
-        <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
-          <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-          Professional Certificate
-          </h3>
-          <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
-            <div className="flex-1">
-            <p className="">We believe in equipping our students with the necessary skills and credentials to excel in their chosen professions. As part of our commitment to professional development, we offer a range of professional certification programs. These certifications are designed to enhance students&apos; expertise, improve their marketability, and demonstrate their proficiency in specific areas of study.</p>
-            <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
-              Explore more
-            </button>
-            </div>
-          </div>
-        </div>
-        <div
-            className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
-            data-wow-delay=".15s" 
-          >
-            <Image
-              src={image}
-              alt="Bugema University"
-              className="w-[500px]"
-            />
-        </div>
-        
-        </div>
-        
       </div>
     </section>
   );

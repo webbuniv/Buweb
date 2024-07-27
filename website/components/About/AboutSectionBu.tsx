@@ -56,7 +56,7 @@ const AboutSectionBu = () => {
               licenses.
               </p>
           </div>
-          <div className="w-full px-2 lg:w-1/5 h-[500px] -mt-[5px] lg:mt-[20px]">
+          <div className="w-full px-2 lg:w-1/5 h-[500px] mt-[10px] lg:mt-[20px]">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Address
             </h3>
