@@ -20,8 +20,8 @@ const AboutSectionWbu = () => {
 
     <div className="container">
         <h3 className="mb-2 -mb-16 lg:mb-1 lg:mt-3 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-4xl text-center">
-        A Brief History of Bugema
-        </h3>
+        A Brief History of Bugema University
+        </h3> 
         
       <div className="flex flex-col lg:flex-row mt-[100px] lg:mt-10">
          {/* <div
@@ -44,6 +44,7 @@ const AboutSectionWbu = () => {
               Bachelor of Arts in Religion.
 
               </p>
+              <br />
               <p className="">
               Subsequent visit of the AAA and International Board of Education (IBE) allowed the
               university to restructure their programs under two schools: School of Arts and Social
