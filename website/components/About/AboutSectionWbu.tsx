@@ -44,12 +44,12 @@ const AboutSectionWbu = () => {
         A Brief History of Bugema
         </h3>
         
-      <div className="flex flex-col lg:flex-row items-center gap-10 mt-[100px] lg:mt-10">
+      <div className="flex flex-col lg:flex-row mt-[100px] lg:mt-10">
          {/* <div
               className="wow h-[500px] fadeInUp relative mx-auto lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
               data-wow-delay=".15s" 
             > */}
-            <div className="flex-1">
+            <div className="flex-1 -lg:mt-20">
               <p className="">
               With the entry of the Adventist church in Uganda in 1927 came also the first Adventist
               educational institution in Nchwanga in West Central Uganda. The primary function of
@@ -65,12 +65,22 @@ const AboutSectionWbu = () => {
               Bachelor of Arts in Religion.
 
               </p>
+              <p className="">
+              Subsequent visit of the AAA and International Board of Education (IBE) allowed the
+              university to restructure their programs under two schools: School of Arts and Social
+              Sciences and School of Business. The former includes four departments: Development
+              Studies, Education, Social Work and Social Admnistration, and Theology and Religious
+              Studies. The later includes three departments: Accounting and Finance, Management,
+              and Information Technology. Under these departments, the university offers 12 degree
+              programs with various majors and several vocational certificates and professional
+              licenses.
+              </p>
               {/* </div> */}
           </div>
-          <div className="w-full px-2 lg:w-1/5 h-[500px] -mt-[300px] lg:mt-5">
-            {/* <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-            Blended Learning
-            </h3> */}
+          <div className="w-full px-2 lg:w-1/5 h-[500px] -mt-[300px] lg:mt-0">
+            <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
+            Address
+            </h3>
            <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
               <div className="flex-1">
               <p className="">
