@@ -44,6 +44,7 @@ const AboutSectionBu = () => {
               Bachelor of Arts in Religion.
 
               </p>
+              <br />
               <p className="">
               Subsequent visit of the AAA and International Board of Education (IBE) allowed the
               university to restructure their programs under two schools: School of Arts and Social

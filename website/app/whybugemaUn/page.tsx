@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import AboutSectionSeven from "@/components/About/AboutSectionSeven";
+import AboutSectionBub from "@/components/About/AboutSectionBub";
 import AboutSectionBu from "@/components/About/AboutSectionBu";
 
 import Breadcrumb from "@/components/Common/Breadcrumb";
@@ -31,7 +31,7 @@ const WhyBugemaUnPage = () => {
           </div>
         </div>
         <AboutSectionBu />
-        <AboutSectionSeven />
+        <AboutSectionBub />
       </div>
     </>
   );
