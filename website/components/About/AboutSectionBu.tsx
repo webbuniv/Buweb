@@ -9,7 +9,7 @@ import worship from "../../public/images/schools/theology.jpg";
 import React, { useState, useEffect, useRef } from 'react';
 import Link from "next/link"
 
-const AboutSectionWbu = () => {
+const AboutSectionBu = () => {
   // const [isDropdownVisibleProfessional, setIsDropdownVisibleProfessional] = useState(false);
   // const [isDropdownVisibleExpert, setIsDropdownVisibleExpert] = useState(false);
   // const dropdownRefProfessional = useRef<HTMLDivElement>(null);
@@ -54,12 +54,6 @@ const AboutSectionWbu = () => {
               programs with various majors and several vocational certificates and professional
               licenses.
               </p>
-              {/* </div> */}
-              <Link href={"/whybugemaUn"} >
-                <button className="bg-gray-700 mt-5 mb-5 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
-                  More About Bugema University
-                </button>
-              </Link>
           </div>
           <div className="w-full px-2 lg:w-1/5 h-[500px] -mt-[5px] lg:mt-[20px]">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
@@ -82,4 +76,4 @@ const AboutSectionWbu = () => {
   );
 };
 
-export default AboutSectionWbu;
+export default AboutSectionBu;
