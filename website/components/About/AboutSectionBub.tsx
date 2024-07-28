@@ -85,18 +85,30 @@ const AboutSectionBub = () => {
         <div className="flex flex-col lg:flex-row items-center gap-10 mt-[10px] lg:-mt-[250px] mb-[-300px] lg:-mb-[250px]">
           <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-            Faculty-Student Interaction
+            Aim & Objectives
             </h3>
-           <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
+            <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
               <div className="flex-1">
-              <p className="">We believe in creating relationships that last with our clients. The institution has academic families where each student is assigned to a mentor. This increases the bond between our students and lecturers. Since students are let free to interact with the lecturers, this gives them a chance to be well prepared for the market challenges ahead of them. This enriches their (Students) career readiness as well.</p>
-              <Link href={"/studentlife"} >
-                <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
-                  Explore more
-                </button>
-              </Link>
+                <ul className="list-disc list-inside space-y-2">
+                  <li>
+                    Bugema University aims to develop the whole person; therefore, the following
+                    objectives reflect this holistic approach:
+                  </li>
+                  <li>
+                    To provide academic programs which will allow the students to acquaint themselves
+                    with various fields of knowledge and to acquire skills that will facilitate personal,
+                    social, academic, and professional development in order to meet individual and
+                    societal demands.
+                  </li>
+                  <li>
+                    To instill in the students an unswerving allegiance to the principles of Christian
+                    faith and a sense of personal responsibility so that they are prepared to render useful
+                    service to God and to humanity.
+                  </li>
+                </ul>
               </div>
             </div>
+
           </div>
           <div
             className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"

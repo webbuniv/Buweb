@@ -1,11 +1,5 @@
 import Image from "next/image";
-import { BookOpenIcon } from '@heroicons/react/solid';
-import { GlobeAltIcon } from '@heroicons/react/solid';
-import { StarIcon } from '@heroicons/react/solid';
-import { EyeIcon } from '@heroicons/react/solid';
-import image from "../../public/images/features/bu.jpg";
-import learning from "../../public/images/schools/lab1.jpg";
-import worship from "../../public/images/schools/theology.jpg";
+import { FaArrowRight } from "react-icons/fa";
 import React, { useState, useEffect, useRef } from 'react';
 import Link from "next/link"
 
@@ -55,12 +49,17 @@ const AboutSectionWbu = () => {
               programs with various majors and several vocational certificates and professional
               licenses.
               </p>
-              {/* </div> */}
-              <Link href={"/whybugemaUn"} >
-                <button className="bg-gray-700 mt-5 mb-5 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
-                  More About Bugema University
-                </button>
-              </Link>
+              <div className="bg-primary hover:bg-primary/90 duration-300 rounded-md py-1 px-3 md:py-2 md:px-4 ml-12 mt-4 w-[170px] transition-all hover:scale-105">
+                  <Link
+                    href={"/whybugemaUn"}
+                    className="text-base font-semibold text-white"
+                  >
+                    <span className="flex items-center gap-2 justify-center">
+                    Explore More
+                      <FaArrowRight />
+                    </span>
+                  </Link>
+                </div>
           </div>
           <div className="w-full px-2 lg:w-1/5 h-[500px] -mt-[5px] lg:mt-[20px]">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
