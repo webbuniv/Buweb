@@ -54,17 +54,17 @@ const AboutSectionBub = () => {
 </div>
 
       <div className="flex flex-col lg:flex-row items-center gap-10 mt-[120px] lg:-mt-40">
-         {/* <div
+         <div
               className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
               data-wow-delay=".15s" 
             >
               <Image
-                src={learning}
+                src={worship}
                 alt="Bugema University"
                 className="w-[500px]"
               />
-          </div> */}
-          <div className="w-full px-2 lg:w-1/2 h-[500px] mt-[1px] lg:mt-5">
+          </div>
+          <div className="w-full px-2 lg:w-1/2 h-[500px] mt-[-350px] lg:mt-5">
             {/* <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Blended Learning
             </h3> */}
@@ -82,7 +82,7 @@ const AboutSectionBub = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row items-center gap-10 mt-[10px] lg:-mt-[250px] mb-[-300px] lg:-mb-[250px]">
+        <div className="flex flex-col lg:flex-row items-center gap-10 mt-[10px] lg:-mt-[250px] mb-[50px] lg:-mb-[250px]">
           <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Aim & Objectives
@@ -110,15 +110,29 @@ const AboutSectionBub = () => {
             </div>
 
           </div>
-          <div
-            className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
-            data-wow-delay=".15s" 
-          >
-            <Image
-              src={worship}
-              alt="Bugema University"
-              className="w-[500px]"
-            />
+          <div className="w-full px-2 lg:w-1/2 h-[500px] mt-[50px] lg:mt-10">
+            <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
+            <div className="flex-1">
+                <ul className="list-disc list-inside space-y-2">
+                  <li>
+                  To lay emphasis on applied research relevant to the development needs of the
+                  community, including encouraging research leading to the development of patents.
+                  </li>
+                  <li>
+                  To encourage all faculties to devote part of their time to research for publication in
+                  internationally recognized journals.
+                  </li>
+                  <li>
+                  To select its students solely on the basis of merit while taking cognizance of the need
+                  to apply special criteria to potentially able but disadvantaged students.
+                  </li>
+                  <li>
+                  To continue upgrading the quality of its teaching, research and administrative staff
+                  through vigorous staff development and staff appraisal schemes.
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
