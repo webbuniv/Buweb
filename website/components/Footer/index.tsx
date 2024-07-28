@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import image from "@/public/images/logo/bugema.png";
+import LoadingStars from '@/components/Common/LoadingStar';
 
 const Footer = () => {
   const files = [
@@ -49,7 +50,8 @@ const Footer = () => {
         className="wow fadeInUp relative z-10 bg-primary bg-opacity-5 pt-16 md:pt-20 lg:pt-24"
         data-wow-delay=".1s"
       >
-        <div className="container">
+        <LoadingStars />
+        <div className="relative container">
           <div className="-mx-4 flex flex-wrap justify-center">
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-5/12">
               <div className="mb-12 max-w-[360px] lg:mb-16 flex flex-col justify-center text-center">
@@ -560,7 +562,7 @@ const Footer = () => {
         </div>
 
         <div className="bg-primary/10 py-8">
-          <div className="container md:flex md:justify-center text-center md:space-x-12">
+          <div className="relative container md:flex md:justify-center text-center md:space-x-12">
             <Link
               href="/"
               className="text-center hover:scale-105 hover:transition-all hover:duration-300 text-base text-body-color dark:text-white"
