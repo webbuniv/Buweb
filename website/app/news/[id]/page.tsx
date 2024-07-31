@@ -35,11 +35,11 @@ export default async function NewsPage({ params }: Props) {
   }
   return (
     <div className="pt-[120px] pb-[120px]">
-      <div className="container p-20">
+      <div className="container md:p-20">
         <div className="flex items-center justify-center ">
           <Image src={news.photo} alt={news.title} width={1200} height={100} className="custom-image" />
         </div> 
-        <h1 className="text-4xl lg:text-6xl text-center leading-relaxed font-bold mt-5">
+        <h1 className="text-3xl lg:text-6xl md:text-center md:leading-relaxed font-bold mt-5">
           {news.title}
         </h1>
         <p className="my-5 text-center text-xl text-gray-400">{news.author}</p>
