@@ -54,7 +54,11 @@ export default function Hospital() {
         <div className="flex-1 p-4 border rounded-md">
           <h2 className="text-3xl font-semibold text-blue-700">About Our Hospital</h2>
           <p>
-            You are welcome to the School of Agricultural and Applied Sciences which is the niche of Bugema University. This is the basis of the economy not only in Uganda but also in most developing economies around the world. This school continues to make astronomical steps in working with local rural communities to positively change their livelihoods with minimal impact on the environment. The school welcomes both students and faculty who wish to learn, exchange knowledge, and collaborate with other faculties around the world not only to meet global sustainable development goals but to ensure the future of humanity.
+          A medical center with the services of qualified medical personnel is located on campus.
+          Health and emergency care are available to students as well as members of the community.
+          The facility includes services for both inpatients and outpatients, laboratory services,
+          maternal – child health services, dental services, optical services, HIV counseling and
+          testing and a range of community health services.
           </p>
         </div>
         <div className="flex-1 p-4 border rounded-md mx-10">
