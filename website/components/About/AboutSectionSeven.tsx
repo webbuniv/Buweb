@@ -37,10 +37,10 @@ const AboutSectionSeven = () => {
   }, [isDropdownVisibleProfessional, isDropdownVisibleExpert]);
 
   return (
-    <section className="py-16 md:py-20 lg:py-28">
+    <section className="py-16 md:py-20">
 
     <div className="container">
-        <h3 className="mb-2 mt-3 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-4xl text-center">
+        <h3 className="mb-2 -mt-[300px] lg:-mt-[200px] text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-4xl text-center">
            Excellence in research, teaching, and medical care
         </h3>
         <div className="flex flex-col lg:flex-row items-center gap-10 mt-8 -mb-8">
@@ -54,7 +54,7 @@ const AboutSectionSeven = () => {
               className="w-[500px]"
             />
           </div>
-          <div className="w-full px-2 lg:w-1/2 h-[500px] mt-8">
+          <div className="w-full px-2 lg:w-1/2 h-[500px] -mt-[300px] lg:mt-8">
       <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
         Professional Courses
       </h3>
@@ -123,7 +123,7 @@ const AboutSectionSeven = () => {
     </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center gap-10 -mt-20">
+        <div className="flex flex-col lg:flex-row items-center gap-10 mt-[30px] lg:-mt-20">
           <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Expert Lecturers
@@ -202,7 +202,7 @@ const AboutSectionSeven = () => {
             />
           </div>
         </div>
-      <div className="flex flex-col lg:flex-row items-center gap-10 -mt-20">
+      <div className="flex flex-col lg:flex-row items-center gap-10 -mt-[200px] lg:-mt-20">
          <div
               className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
               data-wow-delay=".15s" 
@@ -213,7 +213,7 @@ const AboutSectionSeven = () => {
                 className="w-[500px]"
               />
           </div>
-          <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
+          <div className="w-full px-2 lg:w-1/2 h-[500px] -mt-[300px] lg:mt-5">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Blended Learning
             </h3>
@@ -227,7 +227,7 @@ const AboutSectionSeven = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row items-center gap-10 -mt-20">
+        <div className="flex flex-col lg:flex-row items-center gap-10 mt-[10px] lg:-mt-20">
           <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Faculty-Student Interaction
@@ -254,7 +254,7 @@ const AboutSectionSeven = () => {
             />
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row items-center gap-10 -mt-20">
+        <div className="flex flex-col lg:flex-row items-center gap-10 -mt-[200px] lg:-mt-20">
         <div
             className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
             data-wow-delay=".15s" 
@@ -265,7 +265,7 @@ const AboutSectionSeven = () => {
               className="w-[500px]"
             />
           </div>
-          <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
+          <div className="w-full px-2 lg:w-1/2 h-[500px]  -mt-[300px] lg:mt-5">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
              Worship
             </h3>
@@ -280,7 +280,7 @@ const AboutSectionSeven = () => {
           </div>
           
         </div>
-        <div className="flex flex-col lg:flex-row items-center gap-10 -mt-20">
+        <div className="flex flex-col lg:flex-row items-center gap-10 mt-[20px] lg:-mt-20">
 
         <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
           <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
@@ -311,7 +311,7 @@ const AboutSectionSeven = () => {
       </div>
 
       <div className="container">
-        <div className="flex flex-wrap items-center -mx-4 -mt-12">
+        <div className="flex flex-wrap items-center -mx-4 -mt-[150px] lg:mt-[12px]">
           <div className="w-full px-4 lg:w-1/2">
             <div
               className="wow fadeInUp relative mx-auto mb-12 aspect-[25/24] text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
@@ -325,7 +325,7 @@ const AboutSectionSeven = () => {
               />
             </div>
           </div>
-          <div className="w-full px-4 lg:w-1/2">
+          <div className="w-full px-4 lg:w-1/2 ">
             <h3 className="mb-5 mt-3 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
               Careers
             </h3>
@@ -335,7 +335,7 @@ const AboutSectionSeven = () => {
                 <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
                    Award-winning Careers and Employability Service
                 </h3>
-                <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
+                <p className="text-base font-medium leading-relaxed sm:text-lg sm:leading-relaxed">
                    Personal guidance and advice on career planning, interview technique and assessment centres.
                 </p>
               </div>
@@ -344,7 +344,7 @@ const AboutSectionSeven = () => {
                 <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
                    Accredited programmes
                 </h3>
-                <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
+                <p className="text-base font-medium leading-relaxed sm:text-lg sm:leading-relaxed">
                   Many subject areas offer professionally accredited programmes.
                 </p>
               </div>
@@ -357,7 +357,7 @@ const AboutSectionSeven = () => {
                   
                   Volunteering and paid work opportunities
               </h3>
-                <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
+                <p className="text-base font-medium leading-relaxed sm:text-lg sm:leading-relaxed">
                 A chance to gain valuable and rewarding experience.
                 </p>
               </div>
@@ -367,7 +367,7 @@ const AboutSectionSeven = () => {
                   
                     Career planning
                 </h3>
-                <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
+                <p className="text-base font-medium leading-relaxed sm:text-lg sm:leading-relaxed">
                 We will help you put a plan in place to reach your goals with support and advice when you need it.
                 </p>
               </div>
