@@ -2,16 +2,13 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import AboutSectionSix from "@/components/About/AboutSectionSix";
-import AboutSectionSeven from "@/components/About/AboutSectionSeven";
-import AboutSectionWbu from "@/components/About/AboutSectionWbu";
+import AboutSectionBub from "@/components/About/AboutSectionBub";
+import AboutSectionBu from "@/components/About/AboutSectionBu";
 
 import Breadcrumb from "@/components/Common/Breadcrumb";
-import WhyHero from "@/components/WhyHero";
-import AboutSectionBu from "@/components/BelowBugema";
 import backgroundImage from "@/public/images/footer/aerial1.png";
 
-const WhyBugemaPage = () => {
+const WhyBugemaUnPage = () => {
   return (
     <>
       <div className="container mt-[100px] md:mt-0">
@@ -34,11 +31,10 @@ const WhyBugemaPage = () => {
           </div>
         </div>
         <AboutSectionBu />
-        <AboutSectionWbu />
-        <AboutSectionSeven />
+        <AboutSectionBub />
       </div>
     </>
   );
 };
 
-export default WhyBugemaPage;
+export default WhyBugemaUnPage;
