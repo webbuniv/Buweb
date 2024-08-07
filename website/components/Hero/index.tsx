@@ -10,7 +10,8 @@ import "slick-carousel/slick/slick-theme.css";
 
 export const heroMedia = [
   // { type: 'video', src: "https://res.cloudinary.com/duaqiajka/video/upload/v1719686933/WELCOME_VIDEO_og2jma.mp4" },
-  { type: 'image', src: "/images/vc/chancellor_banner2.jpg" },
+  { type: 'image', src: "/images/banners/augintake.jpeg" },
+  { type: 'image', src: "/images/banners/augintake2.jpeg" },
   { type: 'image', src: "/images/banners/agrigrow.jpeg" },
   { type: 'image', src: "/images/banners/it.jpg" },
   { type: 'image', src: "/images/banners/nursing.jpg" }
