@@ -72,7 +72,7 @@ export default function SchoolOfGraduate() {
                         </h3>
                         <div className='md:pl-2 mx-auto md:mx-0'>
                         <ul className='flex flex-col space-y-5'>
-                        <Link href="https://apply.bugemauniv.ac.ug/">
+                        <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   PhD in Educational Management 
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -80,7 +80,7 @@ export default function SchoolOfGraduate() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   PhD in Environmental Management
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -88,7 +88,7 @@ export default function SchoolOfGraduate() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   PhD in Rural Development
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -118,7 +118,7 @@ export default function SchoolOfGraduate() {
                         </h3>
                         <div className='md:pl-2 mx-auto md:mx-0'>
                         <ul className='flex flex-col space-y-5'>
-                        <Link href="https://apply.bugemauniv.ac.ug/">
+                        <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Master of Public Administration and Management
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -126,7 +126,7 @@ export default function SchoolOfGraduate() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Master of Procurement and Logistics
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -134,7 +134,7 @@ export default function SchoolOfGraduate() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Master of Project Planning and Management 
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -142,7 +142,7 @@ export default function SchoolOfGraduate() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Postgraduate Diploma in Business Management
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -150,7 +150,7 @@ export default function SchoolOfGraduate() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Masters in Business Administration
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -158,7 +158,7 @@ export default function SchoolOfGraduate() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Masters in Education Management
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -166,7 +166,7 @@ export default function SchoolOfGraduate() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Postgraduate Diploma in Information Technology
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -174,7 +174,7 @@ export default function SchoolOfGraduate() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Masters of Science in Information Technology
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -190,7 +190,7 @@ export default function SchoolOfGraduate() {
 
                   <div>
                         <ul className='flex flex-col space-y-5'>
-                        <Link href="https://apply.bugemauniv.ac.ug/">
+                        <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Master of Social Work
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -198,7 +198,7 @@ export default function SchoolOfGraduate() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Master of Science in Counseling Psychology
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -206,7 +206,7 @@ export default function SchoolOfGraduate() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Postgraduate Diploma in Public Administration and
                               Management
@@ -215,7 +215,7 @@ export default function SchoolOfGraduate() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Master of Arts in Development Studies
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -223,7 +223,7 @@ export default function SchoolOfGraduate() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Master of Public Health
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>

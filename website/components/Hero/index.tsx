@@ -85,7 +85,7 @@ const Hero = () => {
                     <FaArrowDownLong className="text-white" />
                   </motion.div>
                   <Link
-                    href="http://apply.bugemauniv.ac.ug/"
+                    href="http://erms.bugemauniv.ac.ug/application"
                     className="flex rounded-md bg-primary dark:bg-primary/60 py-2 px-4  text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
                   >
                     Apply Now

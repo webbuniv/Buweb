@@ -44,7 +44,7 @@ const AboutSectionLife2 = () => {
                                           <p className="mb-4 text-base text-white ">
                                           Embark on your journey towards exellence.
                                           </p>
-                                          <Link href="https://apply.bugemauniv.ac.ug/">
+                                          <Link href="http://erms.bugemauniv.ac.ug/application">
                                                 <button className="px-6 py-2 text-white bg-[#e72725] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                                                       Apply Now
                                                 </button>
