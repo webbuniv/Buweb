@@ -1,6 +1,8 @@
 import { Event } from "@/types/types";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import React from 'react';
+import { format } from 'date-fns/format';
 
 type Props = {
   params: {
@@ -36,24 +38,15 @@ export default async function EventPage({ params }: Props) {
 
   return (
     <div className="pt-[120px] pb-[120px]">
-      <div className="container p-20">
+      <div className="container md:p-20">
         <div className="flex items-center justify-center ">
           <Image src={event.coverPhotoUrl} alt={event.title} width={1200} height={100} className="custom-image" />
         </div> 
-        <h1 className="text-4xl lg:text-6xl text-center leading-relaxed font-bold mt-5">
+        <h1 className="text-3xl lg:text-6xl md:text-center md:leading-relaxed font-bold mt-5">
           {event.title}
         </h1>
-        <p className="my-5 text-center text-xl text-gray-400">{event.date}</p>
+        <p className="my-5 text-center text-xl text-gray-400">{format(new Date(event.date), 'dd-MM-yyyy')}</p>
         <div className="my-5 flex items-center justify-center text-lg">
-          {/* {event.author.profilePicture && (
-            <Image
-              src={event.author.profilePicture}
-              alt={event.author.name}
-              width={40}
-              height={40}
-              className="rounded-full"
-            />
-          )} */}
           <span>{event.title}</span>
         </div>
         <div
