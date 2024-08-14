@@ -402,7 +402,7 @@ const why_bugema = () =>{
 
                                     <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
 
-                                         <Link href='https://apply.bugemauniv.ac.ug/application.php'>
+                                         <Link href='https://apply.bugemauniv.ac.ug'>
                                          <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Apply now <FaArrowRight className='arrow1'/></h1>
                                          </Link> 
                                      
