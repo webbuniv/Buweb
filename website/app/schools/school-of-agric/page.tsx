@@ -74,7 +74,9 @@ export default function SchoolOfAgric() {
                         </h3>
                         <div className='md:pl-2 mx-auto md:mx-0'>
                         <ul className='flex flex-col space-y-5'>
-                        <Link href="https://apply.bugemauniv.ac.ug/">
+
+                        <Link href="http://erms.bugemauniv.ac.ug/application">
+
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Bachelor of science in Agriculture with options
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -82,7 +84,9 @@ export default function SchoolOfAgric() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
+
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Bachelor of Science in Agribusiness Innovation and management
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -90,7 +94,9 @@ export default function SchoolOfAgric() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
+
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Diploma in crop Science And Management
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -98,7 +104,9 @@ export default function SchoolOfAgric() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
+
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Diploma in animal production and management
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -106,7 +114,9 @@ export default function SchoolOfAgric() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
+
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Bachelor certificate in agriculture
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -135,7 +145,9 @@ export default function SchoolOfAgric() {
                         </h3>
                         <div className='md:pl-2 mx-auto md:mx-0'>
                         <ul className='flex flex-col space-y-5'>
-                        <Link href="https://apply.bugemauniv.ac.ug/">
+
+                        <Link href="http://erms.bugemauniv.ac.ug/application">
+
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Bachelor of science in Environment science
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -143,7 +155,9 @@ export default function SchoolOfAgric() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
+
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Bachelor of science in Food Technology and human Nutrition
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -151,7 +165,9 @@ export default function SchoolOfAgric() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
+
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Diploma in food science and processing technology
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>

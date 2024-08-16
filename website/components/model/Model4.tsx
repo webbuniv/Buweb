@@ -1,7 +1,6 @@
 import React, { Children } from 'react';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa6';
-import { BiX } from 'react-icons/bi';
 import { BiPhoneCall } from 'react-icons/bi';
 import imagenew from "../../public/images/nav/IMG_9313.jpg";
 import image from "../../public/images/nav/labs.jpg";
@@ -103,30 +102,7 @@ const why_bugema = () =>{
 }
   return (
       <>
-        
-            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-lg flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden" id="wrapper" onScroll={onClose} onMouseLeave={onClose}>
-
-            <div className='flex '>
-                        <button 
-                              style={{
-                              borderRadius: '50%',
-                              width: '30px',
-                              height: '30px',
-                              backgroundColor: 'black',
-                              borderColor:'black',
-                              color: 'white',
-                              fontSize: '20px',
-                              textAlign: 'center',
-                              lineHeight: '30px',
-                              position: 'absolute',
-                              right: '70px',
-                              top: '20px',
-                              }}
-                              onClick={onClose}>
-                              <span className="text-white text-xl"><BiX className='text-3xl'/></span>
-                        </button>
-
-                  </div> 
+            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden bg-white" id="wrapper" onMouseLeave={onClose}>
                   
                      
                   <div id="programs">

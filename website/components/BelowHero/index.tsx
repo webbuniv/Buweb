@@ -44,7 +44,8 @@ const AboutSectionLife2 = () => {
                                           <p className="mb-4 text-base text-white ">
                                           Embark on your journey towards exellence.
                                           </p>
-                                          <Link href="https://apply.bugemauniv.ac.ug/" target="_blank">
+
+                                          <Link href="http://erms.bugemauniv.ac.ug/application">
                                                 <button className="px-6 py-2 text-white bg-[#e72725] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                                                       Apply Now
                                                 </button>
@@ -92,7 +93,8 @@ const AboutSectionLife2 = () => {
                                           Programs
                                           </h3>
                                           <p className="mb-2 text-base text-white ">
-                                          With over 70 academic programs delivering world-class education.
+
+                                          With over 100 academic programs delivering world-class education.
                                           </p>
                                           <Link href="https://unche.or.ug/institution/bugema-university/">
                                                 <button className="px-6 py-2 mt-2 text-white bg-[#234297] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
