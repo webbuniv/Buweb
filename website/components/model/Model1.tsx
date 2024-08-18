@@ -163,7 +163,7 @@ const Foot = () =>{
   return (
       <>
         
-            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden bg-white" id="wrapper" onMouseLeave={onClose}>
+            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-lg flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden " id="wrapper" onMouseLeave={onClose}>
                   
                      
                   <div id="programs">
@@ -272,9 +272,6 @@ const Foot = () =>{
                               
                               <li>
 
-                              <div className="mr-2 my-5 fade-in-slow  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> News</h1> 
-                                    </div>
                               <div className="mr-2 my-5 slider slide--fast ">
                                      
                                     <Link href={'/events'}>
