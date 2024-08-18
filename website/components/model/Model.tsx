@@ -101,7 +101,7 @@ const why_bugema = () =>{
       <>
         
         
-            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden bg-white" id="wrapper" onMouseLeave={onClose}>
+            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-lg flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden " id="wrapper" onMouseLeave={onClose}>
                   
        
                   <div id="programs">
@@ -114,6 +114,15 @@ const why_bugema = () =>{
                               <div className="mr-2 my-5  slider slide--slow ">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={payments}><span id='payments' className='animated'>Fees and Payments</span></h1> 
                               </div>
+
+                              <div className="mr-2 my-5  slider slide--slow ">
+                                    <Link href='/administrator'>
+                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={onClose}><span id='payments' className='animated'>Administrators</span></h1>
+                                    </Link>
+                                     
+                              </div>
+
+
                               <div className="mr-2 my-5  slider slide--slower">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold 'onClick={why_bugema} >  <Link href="/whybugema" id='why_bugema' className='animated'> Why Bugema University </Link></h1> 
                               </div>
