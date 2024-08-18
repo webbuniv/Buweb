@@ -38,10 +38,11 @@ const MobileNav = ({ setNavbarOpen, navbarOpen }) => {
                 }`}>
                   <li>
                     <Link
-                      href="/"
+                      href={"/schools/school-of-science"}
                       onClick={() => {
                         setNavbarOpen(!navbarOpen);
                         setProgramsOpen(false);
+                        
                       }}
                     >
                       School Of Science And Technology
@@ -49,7 +50,7 @@ const MobileNav = ({ setNavbarOpen, navbarOpen }) => {
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href={"/schools/school-of-health"}
                       onClick={() => {
                         setNavbarOpen(!navbarOpen);
                         setProgramsOpen(false);
