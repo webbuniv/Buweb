@@ -24,12 +24,13 @@ export default function MatureEntryAd() {
   return (
     <div className="fixed bottom-8 left-8 z-[99]">
       {isVisible && (
-        <div
-          onClick={() => setIsPopupVisible(!isPopupVisible)}
+        <Link
+          href={'/calendar'}
+          // onClick={() => setIsPopupVisible(!isPopupVisible)}
           aria-label="scroll to top"
-          className="flex h-10 w-[220px] cursor-pointer items-center justify-center rounded-md bg-primary text-white shadow-md transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
+          className="flex px-1 h-10 w-[240px] cursor-pointer items-center justify-center rounded-md bg-primary text-white shadow-md transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
         >
-          <span className="mt-[6px] text-white">Mature Entry Results Out!!</span>
+          <span className="text-white">Bugema University Calendar</span>
 
           <MaturePopup trigger={isPopupVisible} setTrigger={setIsPopupVisible}>
             <div className="text-dark">
