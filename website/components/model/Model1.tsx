@@ -1,5 +1,6 @@
 import React, { Children } from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
+import { BiX } from 'react-icons/bi';
 import football from "../../public/images/nav/sports/football.jpg";
 import image from "../../public/images/nav/labs.jpg";
 import nurses from "../../public/images/nav/nurses.jpg";
@@ -163,7 +164,29 @@ const Foot = () =>{
   return (
       <>
         
-            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-lg flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden " id="wrapper" onMouseLeave={onClose}>
+            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-lg flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden " id="wrapper" onScroll={onClose} onMouseLeave={onClose}>
+
+            <div className='flex '>
+                        <button 
+                              style={{
+                              borderRadius: '50%',
+                              width: '30px',
+                              height: '30px',
+                              backgroundColor: 'black',
+                              borderColor:'black',
+                              color: 'white',
+                              fontSize: '20px',
+                              textAlign: 'center',
+                              lineHeight: '30px',
+                              position: 'absolute',
+                              right: '70px',
+                              top: '20px',
+                              }}
+                              onClick={onClose}>
+                              <span className="text-white text-xl"><BiX className='text-3xl'/></span>
+                        </button>
+
+                  </div> 
                   
                      
                   <div id="programs">

@@ -34,8 +34,8 @@ export default function SchoolOfEducation() {
     <div>
       <section className="my-20 mt-36 mx-10">
         <School
-         tittle=""
-         subtittle="School of Education"
+         tittle="School of Education"
+         subtittle="We offer Quality Education in both High School and Primary Teaching to make sure our teachers produce quality output"
          topImg="/images/nav/lab1.jpg"
           dean="DR. SSERUNJOGI CHARLES"
           deanImage={"/images/blog/author-03.png"}
