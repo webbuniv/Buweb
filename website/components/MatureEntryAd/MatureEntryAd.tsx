@@ -48,7 +48,7 @@ export default function MatureEntryAd() {
             </div>
           </MaturePopup>
 
-        </div>
+        </Link>
       )}
     </div>
   );
