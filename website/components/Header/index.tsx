@@ -144,7 +144,7 @@ const Header = () => {
               <Link
                 href="/"
                 className={`header-logo block w-full ${
-                  sticky ? "py-2 lg:py-2" : "py-3"
+                  sticky ? "py-2 lg:py-2 block w-full" : "py-3 hidden"
                 }`}
               >
                 <Image
