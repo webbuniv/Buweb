@@ -7,6 +7,10 @@ import Script from 'next/script';
 import ScrollToTop from "@/components/ScrollToTop";
 import "node_modules/react-modal-video/css/modal-video.css";
 import "../styles/index.css";
+import { Analytics } from "@vercel/analytics/react";
+import { Providers } from "./providers";
+import Head from "./head";
+
 
 
 export default function RootLayout({
@@ -17,9 +21,9 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="en">
       <Head />
-
       <body className="dark:bg-black overflow-x-hidden" >
         <Providers>
+          <Analytics />
           <Header />
           {children}
           <Footer />
@@ -43,6 +47,5 @@ export default function RootLayout({
   );
 }
 
-import { Providers } from "./providers";import Head from "./head";
 
 
