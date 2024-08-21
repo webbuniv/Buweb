@@ -10,6 +10,7 @@ import "../styles/index.css";
 import { Analytics } from "@vercel/analytics/react";
 import { Providers } from "./providers";
 import Head from "./head";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body className="dark:bg-black overflow-x-hidden" >
         <Providers>
           <Analytics />
+          <SpeedInsights/>
           <Header />
           {children}
           <Footer />
