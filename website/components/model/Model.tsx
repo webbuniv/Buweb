@@ -200,7 +200,7 @@ const why_bugema = () =>{
                               <div className="mr-2 my-5 slider slide--fast ">
                                      
                                     <Link href={"/schools/school-of-graduate"} >
-                                          <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Graduate studies, Reseacrch <br/>&  Publications</h1> 
+                                          <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Graduate studies, Research <br/>&  Publications</h1> 
                                     </Link> 
                               </div>
                               </li>
@@ -416,7 +416,7 @@ const why_bugema = () =>{
                               <li>
                                     <Link href={"/schools/school-of-graduate"}>
                                     <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onClick={onClose}> School of Graduate studies, Reseacrch <br/>&  Publications</h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onClick={onClose}> School of Graduate studies, Research <br/>&  Publications</h1> 
                                     
                                     </div>
                                     </Link>
