@@ -33,7 +33,6 @@ export default function Home() {
       <Brands />
       <Contact />
       <JobAdvert />
-      <MatureEntryAd />
       <ScrollToTop />
     </>
   );
