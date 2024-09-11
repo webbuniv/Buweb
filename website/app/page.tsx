@@ -12,7 +12,7 @@ import { Inter } from "next/font/google";
 import EventsAndNews from "@/components/EventsandNews/EventsAndNews";
 import CampusNews from "@/components/CampusNews";
 import Welcome from "@/components/Welcome/Welcome";
-import Ads from "@/components/Ads/Ads";
+import MatureEntryAd from "@/components/MatureEntryAd/MatureEntryAd";
 
 
 
@@ -31,7 +31,7 @@ export default function Home() {
       <Blog />
       <Brands />
       <Contact />
-      <Ads />
+      <MatureEntryAd />
       <ScrollToTop />
     </>
   );
