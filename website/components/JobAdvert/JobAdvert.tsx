@@ -30,7 +30,7 @@ export default function MatureEntryAd() {
           aria-label="scroll to top"
           className="flex px-1 h-10 w-[240px] cursor-pointer items-center justify-center rounded-md bg-primary text-white shadow-md transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
         >
-          <span className="text-white">Bugema University Calendar</span>
+          <Link href="/Detailed_Advert_BU_2024.pdf" target="_blank" rel="noopener noreferrer" className="text-white">Jobs Available! Checkout Here!</Link>
 
           <MaturePopup trigger={isPopupVisible} setTrigger={setIsPopupVisible}>
             <div className="text-dark">
