@@ -13,6 +13,7 @@ import EventsAndNews from "@/components/EventsandNews/EventsAndNews";
 import CampusNews from "@/components/CampusNews";
 import Welcome from "@/components/Welcome/Welcome";
 import MatureEntryAd from "@/components/MatureEntryAd/MatureEntryAd";
+import JobAdvert from "@/components/JobAdvert/JobAdvert";
 
 
 
@@ -31,6 +32,7 @@ export default function Home() {
       <Blog />
       <Brands />
       <Contact />
+      <JobAdvert />
       <MatureEntryAd />
       <ScrollToTop />
     </>
