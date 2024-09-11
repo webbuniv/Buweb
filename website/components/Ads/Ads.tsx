@@ -44,7 +44,7 @@ export default function Ads() {
               <p>
                 We{"'"}re always hiring! Check out our latest job listings {" "}
                 <span>
-                  <Link href="/Detailed_Advert_BU_2024.pdf">
+                  <Link href="/Detailed_Advert_BU_2024.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
                     here
                   </Link>
                 </span>
