@@ -22,7 +22,7 @@ export default function JobAdvert() {
   }, []);
 
   return (
-    <div className="fixed bottom-20 left-8 z-[99]">
+    <div className="fixed bottom-8 left-8 z-[99]">
       {isVisible && (
         <Link
           href={'/calendar'}
