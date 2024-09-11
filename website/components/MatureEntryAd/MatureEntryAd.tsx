@@ -40,6 +40,7 @@ export default function MatureEntryAd() {
                 </span>, or contact our Human Resources department for more information.
       
               </p>
+              <p className="text-black mt-3" onClick={() => setIsPopupVisible(!isPopupVisible)}>Close</p>
             </div>
           </MaturePopup>
 
