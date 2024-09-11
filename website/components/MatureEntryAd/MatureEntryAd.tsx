@@ -24,31 +24,26 @@ export default function MatureEntryAd() {
   return (
     <div className="fixed bottom-8 left-8 z-[99]">
       {isVisible && (
-        <Link
-          href={'/calendar'}
-          // onClick={() => setIsPopupVisible(!isPopupVisible)}
+        <div
+          onClick={() => setIsPopupVisible(!isPopupVisible)}
           aria-label="scroll to top"
           className="flex px-1 h-10 w-[240px] cursor-pointer items-center justify-center rounded-md bg-primary text-white shadow-md transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
         >
-          <span className="text-white">Bugema University Calendar</span>
+          <span className="text-white">Jobs Available! Checkout!</span>
 
           <MaturePopup trigger={isPopupVisible} setTrigger={setIsPopupVisible}>
             <div className="text-dark">
-              <h2 className="mb-2 text-blue-600">Mature Entry Results Out!!</h2>
+              <h2 className="mb-2 text-blue-600">Jobs Opportunities at Bugema University!!</h2>
               <p>
-                The wait is over! We{"'"}re pleased to announce that the results
-                for our mature entry program exams are now available. You can
-                check them{" "}
-                <span>
-                  <Link href="/mature_entry.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">here</Link>
-                </span>
-                , or if you have any questions, please do not hesitate to
-                contact our admissions office.
+                Bugema University is seeking talented individuals to join our dynamic team. We offer a rewarding work environment and opportunities for professional growth. Whether you{"'"}re an experienced professional or a recent graduate, we encourage you to explore our current job openings. Click <span>
+                  <Link href="/employment-opportunities" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">here</Link>
+                </span>, or contact our Human Resources department for more information.
+      
               </p>
             </div>
           </MaturePopup>
 
-        </Link>
+        </div>
       )}
     </div>
   );
