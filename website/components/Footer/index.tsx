@@ -32,6 +32,14 @@ const Footer = () => {
       name: "Academic Journal for the Graduate School",
       url: "/academic-journal.pdf",
     },
+    {
+      name: "Job Adverts - Summary",
+      url: "/Summarised_Advert_BU_2024.pdf",
+    },
+    {
+      name: "Job Adverts - Detailed",
+      url: "/Detailed_Advert_BU_2024.pdf",
+    },
   ];
 
   const [isOpen, setIsOpen] = useState({
