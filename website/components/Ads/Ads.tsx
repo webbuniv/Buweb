@@ -42,14 +42,13 @@ export default function Ads() {
             <div className="text-white">
               <h2 className="mb-2">Looking for a job at Bugema?</h2>
               <p>
-                We{"'"}re always hiring! Check out our latest job listings,
-                apply directly through our website at{" "}
+                We{"'"}re always hiring! Check out our latest job listings {" "}
                 <span>
-                  <Link href="/employment-opportunities">
-                    www.bugemauniv.ac.ug/employment-opportunities
+                  <Link href="/Detailed_Advert_BU_2024.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                    here
                   </Link>
                 </span>
-                , or contact us for more information.
+                , and apply or contact us for more information.
               </p>
             </div>
           </Popup>
