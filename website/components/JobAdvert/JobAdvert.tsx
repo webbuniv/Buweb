@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import MaturePopup from "../MaturePopup/MaturePopup";
 
-export default function MatureEntryAd() {
+export default function JobAdvert() {
   const [isVisible, setIsVisible] = useState(false);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
