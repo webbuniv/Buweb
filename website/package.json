@@ -9,11 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^1.0.6",
     "@t3-oss/env-nextjs": "^0.7.1",
     "@tanstack/react-query": "^5.17.9",
-    "@vercel/analytics": "^1.3.1",
-    "@vercel/speed-insights": "^1.0.12",
     "axios": "^1.7.2",
     "date-fns": "^3.6.0",
     "eslint": "^8.33.0",
