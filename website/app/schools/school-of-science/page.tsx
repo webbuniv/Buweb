@@ -73,7 +73,8 @@ export default function SchoolOfScience() {
                         </h3>
                         <div className='md:pl-2 mx-auto md:mx-0'>
                   <ul className='flex flex-col space-y-5'>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                         Bachelor of Business Computing
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -81,7 +82,8 @@ export default function SchoolOfScience() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                         Bachelor of Information Technology
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -89,7 +91,8 @@ export default function SchoolOfScience() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                         Bachelor of Library and Information Science
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -97,7 +100,8 @@ export default function SchoolOfScience() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                         Bachelor of Science in Software Engineering
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -105,7 +109,8 @@ export default function SchoolOfScience() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                         Bachelor of Science in Network Systems Administration
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -121,7 +126,8 @@ export default function SchoolOfScience() {
 
                   <div>
                         <ul className='md:pl-2 mx-auto md:mx-0'>
-                        <Link href="https://apply.bugemauniv.ac.ug/">
+
+                        <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                         Diploma in Information Technology
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -129,7 +135,8 @@ export default function SchoolOfScience() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                         Diploma in Computer Forensics
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -137,7 +144,8 @@ export default function SchoolOfScience() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                         Certificate in Information Technology (UBTEB)
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -162,7 +170,8 @@ export default function SchoolOfScience() {
                         </h3>
                         <div className='md:pl-2 mx-auto md:mx-0'>
                         <ul className='flex flex-col space-y-5'>
-                        <Link href="https://apply.bugemauniv.ac.ug/">
+
+                        <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Bachelor of Science in Biochemistry
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -170,7 +179,8 @@ export default function SchoolOfScience() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                      Bachelor of Science in Statistics
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -178,7 +188,8 @@ export default function SchoolOfScience() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Diploma in Science Laboratory Technology
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -186,7 +197,8 @@ export default function SchoolOfScience() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                      Diploma in Biomedical Engineering and Technology
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>

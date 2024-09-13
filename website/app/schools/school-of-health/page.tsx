@@ -72,7 +72,8 @@ export default function SchoolOfHealth() {
                         </h3>
                         <div className='md:pl-2 mx-auto md:mx-0'>
                         <ul className='flex flex-col space-y-5'>
-                        <Link href="https://apply.bugemauniv.ac.ug/">
+
+                        <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Diploma in Nursing
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -80,7 +81,8 @@ export default function SchoolOfHealth() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Diploma in Midwifery
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -88,7 +90,8 @@ export default function SchoolOfHealth() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Certificate in Nursing
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -96,7 +99,8 @@ export default function SchoolOfHealth() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Certificate in Midwifery
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
