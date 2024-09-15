@@ -25,31 +25,28 @@ export default function MatureEntryAd() {
     <div className="fixed bottom-8 left-8 z-[99]">
       {isVisible && (
 
-        <Link
-          href={'/calendar'}
-          // onClick={() => setIsPopupVisible(!isPopupVisible)}
+        <div
+          onClick={() => setIsPopupVisible(!isPopupVisible)}
           aria-label="scroll to top"
-          className="flex px-1 h-10 w-[240px] cursor-pointer items-center justify-center rounded-md bg-primary text-white shadow-md transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
+          className="flex px-1 h-10 w-[240px] cursor-pointer items-center justify-center rounded-md bg-primary text-black shadow-md transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
         >
-          <span className="text-white">Bugema University Calendar</span>
+          <span className="text-black">Jobs Available! Checkout!</span>
 
           <MaturePopup trigger={isPopupVisible} setTrigger={setIsPopupVisible}>
-            <div className="text-dark">
-              <h2 className="mb-2 text-blue-600">Mature Entry Results Out!!</h2>
+            <div className="text-black">
+              <h2 className="mb-2 text-blue-600">We are hiring !!</h2>
               <p>
-                The wait is over! We{"'"}re pleased to announce that the results
-                for our mature entry program exams are now available. You can
-                check them{" "}
+                Looking for a job at Bugema University? Checkout out latest job listings{" "}
                 <span>
-                  <Link href="/mature_entry.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">here</Link>
+                  <Link href="/Detailed_Advert_BU_2024.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">here</Link>
                 </span>
-                , or if you have any questions, please do not hesitate to
-                contact our admissions office.
+                , and apply accordingly or if you have any questions, please do not hesitate to
+                contact us for more clarification.
               </p>
             </div>
           </MaturePopup>
 
-        </Link>
+        </div>
       )}
     </div>
   );
