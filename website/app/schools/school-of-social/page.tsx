@@ -34,15 +34,20 @@ export default function SchoolOfSocial() {
     <div>
       <section className="my-20 mt-36 mx-10">
         <School
-         tittle="School of Social Sciences"
-         subtittle="The School of Education believes that a true teacher is one that is mentally, physically and spiritually sound to impart the same virtues in his/her learners making them best suited for service to God and mankind in this world and in the world to come."
-         topImg="/images/schools/ss-hero.jpg"
+
+         tittle=""
+         subtittle="School of Social Sciences"
+         topImg=""
           dean="DR. SSERUNJOGI CHARLES"
           deanImage={"/images/blog/author-03.png"}
           message="Having made a choice to join the school of education Bugema University, I take this opportunity to welcome you and assure you that you have made the best decision. As school of education, we look forward to serving you with a complete package."
           preamble="The School of Education believes that a true teacher is one that is mentally, physically and spiritually sound to impart the same virtues in his/her learners making them best suited for service to God and mankind in this world and in the world to come."
-          goal="Understanding people, understanding the world."
-        
+
+          goal="1. Train educators in the light of the Seventh day Adventist philosophy of education, which places emphasis on restoring the image of God in mankind through a harmonious development of the physical, mental, spiritual and social powers. 
+        2. Impart in student-teachers knowledge and skills that will make them effective and efficient teachers in various levels of education. 
+        3. Equip students with relevant knowledge and skills to enable them assume leadership roles in the educational systems and other institutions of society. 
+        4. Develop educators who will seek to identify themselves with and create a positive impact on the youth who make up a large percentage of our society. 
+        5. Prepare candidates for higher education."
         />
       </section>
 
@@ -73,7 +78,8 @@ export default function SchoolOfSocial() {
                         </h3>
                         <div className='md:pl-2 mx-auto md:mx-0'>
                         <ul className='flex flex-col space-y-5'>
-                        <Link href="https://apply.bugemauniv.ac.ug/">
+
+                        <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Bachelor of Journalism and Mass Communication
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -81,7 +87,8 @@ export default function SchoolOfSocial() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Bachelor of Arts in Community Development
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -89,7 +96,8 @@ export default function SchoolOfSocial() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Diploma in Public Administration 
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -99,7 +107,8 @@ export default function SchoolOfSocial() {
                   </Link>
 
 
-                        <Link href="https://apply.bugemauniv.ac.ug/">
+
+                        <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Bachelor of Humanitarian Emergency and Disaster
                   Management
@@ -108,7 +117,8 @@ export default function SchoolOfSocial() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                   Bachelor of Arts in Development Studies
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -122,7 +132,8 @@ export default function SchoolOfSocial() {
 
                   <div>
                         <ul className='flex flex-col space-y-5'>
-                        <Link href="https://apply.bugemauniv.ac.ug/">
+
+                        <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                      Diploma in Social Work and Social Administration
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -130,7 +141,8 @@ export default function SchoolOfSocial() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                         Bachelor of Public Administration and Management
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -155,7 +167,8 @@ export default function SchoolOfSocial() {
                         </h3>
                         <div className='md:pl-2 mx-auto md:mx-0'>
                         <ul className='flex flex-col space-y-5'>
-                        <Link href="https://apply.bugemauniv.ac.ug/">
+
+                        <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                        Diploma in Counselling
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -163,7 +176,8 @@ export default function SchoolOfSocial() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                      Bachelor of Science in Psychology and Counselling 
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -171,7 +185,8 @@ export default function SchoolOfSocial() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                       Bachelor of Social Work and Social Administration
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
@@ -179,7 +194,8 @@ export default function SchoolOfSocial() {
                         </span>
                   </li>
                   </Link>
-                  <Link href="https://apply.bugemauniv.ac.ug/">
+
+                  <Link href="http://erms.bugemauniv.ac.ug/application">
                   <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
                          Certificate in Counselling (UBTEB)
                         <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>

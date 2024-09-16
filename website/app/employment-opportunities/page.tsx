@@ -12,7 +12,9 @@ export default function EmploymentOpportunities() {
             <h1 className="text-xl md:text-2xl text-green-500">
               EMPLOYMENT OPPORTUNITIES
             </h1>
+
             <h2 className="text-xl text-blue-500">External Advert June 2024</h2>
+
           </div>
 
           <div className=" text-dark/90 border-b border-body-color border-opacity-10 pb-5">
@@ -35,24 +37,30 @@ export default function EmploymentOpportunities() {
                   className="text-blue-500 "
                 >
                   bugemahumanresource@gmail.com{" "}
+
                 </Link>
               </span>
               <span className="font-semibold">
                 Not Later than on the 15, July, 2024 at 5pm. Hardcopies shall
+
                 not be accepted.
               </span>
             </p>
             <p className="mb-2">
+
               All applicants must attach relevant soft copies of academic
               transcripts, certificates and relevant appointment letters. <br />
               <span className="text-red-500">
                 Note: PDF copies maximum 10MB.
+
               </span>
             </p>
             <p className="mb-2 font-medium">
               Only shortlisted candidates shall be contacted for interviews. All
               documents tendered in shall be verified with the relevant
+
               authorities. Bugema University provides equal opportunities to
+
               everyone. Applicants who shall not hear from Bugema University on
               completion of the selection exercise should consider themselves as
               unsuccessful.
@@ -126,7 +134,9 @@ export default function EmploymentOpportunities() {
                 </h1>
 
                 <ul className="list-disc ml-10 mt-2">
+
                   <li>Mature, vibrant person aged between 35-55</li>
+
                   <li>
                     Masters Degree in Education Management or curriculum
                     development, and computer knowledge is a must. A post
