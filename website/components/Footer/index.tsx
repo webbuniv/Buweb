@@ -28,6 +28,7 @@ const Footer = () => {
       name: "School of Graduates Bulletin",
       url: "/docs/School.pdf",
     },
+
   ];
 
   const [isOpen, setIsOpen] = useState({
