@@ -5,6 +5,8 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Agriculture from "@/components/Agriculture";
+import AgricultureBelow from "@/components/AgricultureBelow";
+import AgricBelowHero from "@/components/AgricBelowHero";
 
 
 export default function Hospital() {
@@ -16,6 +18,11 @@ export default function Hospital() {
 
   return (
     
-    <Agriculture/>
+    <>
+    <Agriculture />
+    <AgricBelowHero/>
+    <AgricultureBelow />
+    </>
+    
   );
 }
