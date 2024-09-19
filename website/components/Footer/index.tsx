@@ -28,10 +28,7 @@ const Footer = () => {
       name: "School of Graduates Bulletin",
       url: "/docs/School.pdf",
     },
-    {
-      name: "Academic Journal for the Graduate School",
-      url: "/academic-journal.pdf",
-    },
+
   ];
 
   const [isOpen, setIsOpen] = useState({

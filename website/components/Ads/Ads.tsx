@@ -42,6 +42,7 @@ export default function Ads() {
             <div className="text-white">
               <h2 className="mb-2">Looking for a job at Bugema?</h2>
               <p>
+
                 We{"'"}re always hiring! Check out our latest job listings,
                 apply directly through our website at{" "}
                 <span>
