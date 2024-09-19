@@ -22,7 +22,16 @@ const AgricultureBelow: React.FC = () => {
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
             The most effective way to manage plant disease is by prevention. Know exactly where, what and when to spray, even down to the best time of day. Save costs on chemicals and spraying while you maximize protection.
             </p>
+
+            <button
+            type="button"
+            className="bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Explore More
+            {/* <img src="/images/user.svg" alt="icon" className="inline-block w-4 h-4 ml-2" /> */}
+          </button>
           </div>
+          
         </div>
 
         {/* Right-hand side (news articles) */}
@@ -56,7 +65,7 @@ const AgricultureBelow: React.FC = () => {
           {/* First image (covers the entire column) */}
           <div className="h-96">
             <img
-              src="/images/agric/agri.jpg"
+              src="/images/agric/ho.jpg"
               alt="Bugema University"
               className="w-full h-full object-cover"
             />
@@ -65,7 +74,7 @@ const AgricultureBelow: React.FC = () => {
           {/* Second image (allowed to move outside the boundaries of the first image) */}
           <div className="absolute -bottom-10 -left-10 w-[60%] h-[50%]">
             <img
-              src="/images/agric/agr.avif"
+              src="/images/agric/car.jpg"
               alt="Bugema University"
               className="w-full h-full object-cover shadow-lg"
             />
@@ -84,6 +93,14 @@ const AgricultureBelow: React.FC = () => {
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
             The system calculates a dynamic, daily infection risk that takes into account conditions for fungal growth, plant growth, crop type, and previous crop protection applications. The system also recommends the day and time to minimize environmental loss.
             </p>
+
+            <button
+            type="button"
+            className="bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Explore More
+            {/* <img src="/images/user.svg" alt="icon" className="inline-block w-4 h-4 ml-2" /> */}
+          </button>
           </div>
         </div>
       </div>
@@ -91,7 +108,7 @@ const AgricultureBelow: React.FC = () => {
       <div className="container grid grid-cols-1 lg:grid-cols-3 gap-4 lg:mb-20">
 
         {/* Left-hand side (section title) */}
-        <div className="lg:flex lg:justify-end lg:mt-20 ">
+        <div className="lg:flex lg:justify-end lg:mt-20 sm:mb-20">
           <div
             className="wow fadeInUp w-full mx-auto text-start"
             data-wow-delay=".1s"
@@ -102,6 +119,13 @@ const AgricultureBelow: React.FC = () => {
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
             The most effective way to manage plant disease is by prevention. Know exactly where, what and when to spray, even down to the best time of day. Save costs on chemicals and spraying while you maximize protection.
             </p>
+            <button
+            type="button"
+            className="bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Explore More About Our Crops
+            {/* <img src="/images/user.svg" alt="icon" className="inline-block w-4 h-4 ml-2" /> */}
+          </button>
           </div>
         </div>
 

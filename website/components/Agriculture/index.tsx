@@ -68,13 +68,19 @@ const Agriculture = () => {
       </div>
 
       <div className=" flex flex-1 items-start">
-      <Image 
+      {/* <Image 
         src="/images/agric/agri.jpg" 
         alt="agriculture" 
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className=" w-full h-full object-cover"
         width={100}
         height={100}
-      />
+        // style={{ filter: 'brightness(1.5)' }}
+      /> */}
+            <img
+              src="/images/agric/agri.jpg"
+              alt="Bugema University"
+              className="absolute top-0 left-0 w-full h-full object-cover"
+            />
       </div>
     </section>
   )
