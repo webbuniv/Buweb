@@ -8,7 +8,9 @@ const Agriculture = () => {
 
       <div className="relative z-20 flex flex-1 flex-col xl:w-1/2">
         
-        <h1 className="bold-52 lg:bold-25">Agriculture in your community</h1>
+        <h2 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px] items-center text-center">
+        Agriculture At Bugema University
+        </h2>
         <p className="regular-16 mt-6 text-blue-800 xl:max-w-[520px]">
         “9 out of 10 people breathe polluted air”
         </p>
@@ -65,7 +67,7 @@ const Agriculture = () => {
         </div>
       </div>
 
-      <div className="relative flex flex-1 items-start">
+      <div className=" flex flex-1 items-start">
       <Image 
         src="/images/agric/agri.jpg" 
         alt="agriculture" 

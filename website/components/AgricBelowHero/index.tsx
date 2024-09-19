@@ -31,7 +31,7 @@ const AgricBelowHero = () => {
           }, []);
 
   return (
-    <section className="top-0 bg-gray-100">
+    <section className="top-0 bg-gray-100 ">
             <div className="container  -my-4">
                   <div className="container mx-auto">
                         <div className="flex flex-wrap items-center justify-center al -mx-6 gap-2 lg:gap-6">

@@ -8,7 +8,7 @@ import Link from "next/link";
 const AgricultureBelow: React.FC = () => {
   return (
     <section className="px-8">
-      <div className="container grid grid-cols-1 lg:grid-cols-3 gap-4 lg:mb-20">
+      <div className="container grid grid-cols-1 -sm:mt-10 lg:grid-cols-3 gap-4 lg:mb-20 lg:mt-10">
 
         {/* Left-hand side (section title) */}
         <div className="lg:flex lg:justify-end lg:mt-20 ">
@@ -30,7 +30,7 @@ const AgricultureBelow: React.FC = () => {
           {/* First image (covers the entire column) */}
           <div className="h-96">
             <img
-              src="/images/agric/agri.jpg"
+              src="/images/agric/home.jpg"
               alt="Bugema University"
               className="w-full h-full object-cover"
             />
@@ -39,7 +39,7 @@ const AgricultureBelow: React.FC = () => {
           {/* Second image (allowed to move outside the boundaries of the first image) */}
           <div className="absolute -bottom-10 -right-10 w-[60%] h-[50%]">
             <img
-              src="/images/agric/agr.avif"
+              src="/images/agric/hom.jpg"
               alt="Bugema University"
               className="w-full h-full object-cover shadow-lg"
             />

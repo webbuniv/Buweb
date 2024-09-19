@@ -20,6 +20,7 @@ export default function Hospital() {
     
     <>
     <Agriculture />
+    <div className="w-full border-t border-black lg:mt-20 mb-5" />
     <AgricBelowHero/>
     <AgricultureBelow />
     </>
