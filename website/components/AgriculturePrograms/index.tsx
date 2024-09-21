@@ -37,7 +37,7 @@ const newsData = [
 const AgricPrograms: React.FC = () => {
   return (
     <section className="px-8">
-      <div className="container">
+      <div className="">
         <div className="hidden md:block lg:mt-10">
           <SectionTitle
             title="Featured research collaborations"
@@ -53,21 +53,21 @@ const AgricPrograms: React.FC = () => {
             className="wow fadeInUp w-full mx-auto text-start"
             data-wow-delay=".1s"
           >
-            <h2 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px]">
-              Students Life
+            <h2 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px] mt-10">
+              Agriculture
             </h2>
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
-              At Bugema University, student life goes beyond the classroom.
+              At Bugema University, Agriculture goes beyond the classroom.
             </p>
           </div>
         </div>
-        <div className="grid lg:mt-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid lg:mt-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ">
           {newsData.map((news, index) => (
             <article
               key={index}
-              className="bg-white shadow-md rounded-lg overflow-hidden"
+              className="bg-white shadow-md rounded-lg overflow-hidden hover:bg-blue-50 hover:text-blue-900 hover:shadow-lg transition duration-500 cursor-pointer"
             >
-              <div className="h-48 overflow-hidden">
+              <div className="h-48 overflow-hidden ">
                 <a href={news.link} aria-hidden="true" tabIndex={-1}>
                   <Image
                     src={news.imageSrc}
@@ -92,7 +92,7 @@ const AgricPrograms: React.FC = () => {
           {newsData.map((news, index) => (
             <article
               key={index}
-              className="bg-white shadow-md rounded-lg overflow-hidden"
+              className="bg-white shadow-md rounded-lg overflow-hidden hover:bg-blue-50 hover:text-blue-900 hover:shadow-lg transition duration-500 cursor-pointer"
             >
               <div className="h-48 overflow-hidden">
                 <a href={news.link} aria-hidden="true" tabIndex={-1}>
@@ -119,7 +119,7 @@ const AgricPrograms: React.FC = () => {
           {newsData.map((news, index) => (
             <article
               key={index}
-              className="bg-white shadow-md rounded-lg overflow-hidden"
+              className="bg-white shadow-md rounded-lg overflow-hidden hover:bg-blue-50 hover:text-blue-900 hover:shadow-lg transition duration-500 cursor-pointer"
             >
               <div className="h-48 overflow-hidden">
                 <a href={news.link} aria-hidden="true" tabIndex={-1}>
