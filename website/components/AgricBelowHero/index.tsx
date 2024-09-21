@@ -46,11 +46,6 @@ const AgricBelowHero = () => {
                                           <p className="mb-4 text-base text-black ">
                                           African Cities
                                           </p>
-                                          {/* <Link href="https://apply.bugemauniv.ac.ug/">
-                                                <button className="px-6 py-2 text-white bg-[#e72725] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                                                      Apply Now
-                                                </button>
-                                          </Link> */}
                                     </div>
                               </div>
                               <div className={`w-full px-4 lg:w-1/2 xl:w-1/6 transition-transform duration-300 lg:hover:scale-105 cursor-pointer rounded bg-gray-300 ${animate ?"slider-up slide-up-faster":"" }`}>
