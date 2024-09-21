@@ -40,7 +40,7 @@ const sliderSettings = {
 const Hero = () => {
   return (
     <>
-      <section id="home" className="hidden md:block hero-section w-full lg:h-[600px] h-[400px] relative z-10 mb-[50px]">
+      <section id="home" className="hidden md:block hero-section w-full lg:h-[800px] h-[700px] relative z-10 mb-[100px]">
         <Slider {...sliderSettings}>
           {heroMedia.map((media, index) => (
             <HeroSlide key={index} media={media} />
@@ -62,13 +62,13 @@ const Hero = () => {
                 className="md:hidden uppercase font-medium leading-relaxed text-gray-500/70 dark:text-white dark:opacity-90 sm:text-xl text-2xl"
                 variants={textVariants}
               >
-                Bugema University
+                Agriculture
               </motion.h2>
               <motion.h1
                 className="md:hidden capitalize text-3xl sm:text-4xl font-bold leading-tight text-black/70 dark:text-primary sm:leading-tight md:text-5xl md:leading-tight"
                 variants={textVariants}
               >
-                Excellence <br /> in service
+                At <br /> Bugema University
               </motion.h1>
               <motion.div
                 className="md:hidden flex flex-col items-center justify-center space-y-4"

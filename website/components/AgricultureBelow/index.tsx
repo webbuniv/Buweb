@@ -8,7 +8,7 @@ import Link from "next/link";
 const AgricultureBelow: React.FC = () => {
   return (
     <section className="px-8">
-      <div className="container grid grid-cols-1 -sm:mt-10 lg:grid-cols-3 gap-4 lg:mb-20 lg:mt-10">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:mb-20 lg:mt-10 mt-10">
 
         {/* Left-hand side (section title) */}
         <div className="lg:flex lg:justify-end lg:mt-20 ">
@@ -22,14 +22,15 @@ const AgricultureBelow: React.FC = () => {
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
             The most effective way to manage plant disease is by prevention. Know exactly where, what and when to spray, even down to the best time of day. Save costs on chemicals and spraying while you maximize protection.
             </p>
-
-            <button
-            type="button"
-            className="bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          >
-            Explore More
-            {/* <img src="/images/user.svg" alt="icon" className="inline-block w-4 h-4 ml-2" /> */}
-          </button>
+            <Link href='/agriprogram'>
+              <button
+              type="button"
+              className="bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Explore More
+                {/* <img src="/images/user.svg" alt="icon" className="inline-block w-4 h-4 ml-2" /> */}
+              </button>
+            </Link>
           </div>
           
         </div>
@@ -58,7 +59,7 @@ const AgricultureBelow: React.FC = () => {
 
       </div>
       {/* SECOND ROW */}
-      <div className="container grid grid-cols-1 lg:grid-cols-3 gap-4 lg:mb-20">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:mb-20 lg:mt-10 mt-20">
 
         {/* Right-hand side (news articles) */}
         <div className="lg:col-span-2 relative overflow-visible">
@@ -82,7 +83,7 @@ const AgricultureBelow: React.FC = () => {
         </div>
 
         {/* RIGHT-hand side (section title) */}
-        <div className="lg:flex lg:justify-end lg:mt-20 ">
+        <div className="lg:flex lg:justify-end lg:mt-20 mt-20">
           <div
             className="wow fadeInUp w-full mx-auto text-start"
             data-wow-delay=".1s"
@@ -105,7 +106,7 @@ const AgricultureBelow: React.FC = () => {
         </div>
       </div>
       {/* THIRD ROW */}
-      <div className="container grid grid-cols-1 lg:grid-cols-3 gap-4 lg:mb-20">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:mb-20 lg:mt-10 mt-20 mb-20">
 
         {/* Left-hand side (section title) */}
         <div className="lg:flex lg:justify-end lg:mt-20 sm:mb-20">
