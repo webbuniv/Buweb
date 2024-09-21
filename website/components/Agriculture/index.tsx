@@ -1,89 +1,118 @@
-import Image from 'next/image'
-import Button from './Button'
+import React from 'react';
+import Link from "next/link";
+import { FaArrowDownLong, FaArrowRightLong } from "react-icons/fa6";
+import { BiBookOpen, BiSolidPencil } from "react-icons/bi";
+import { motion } from "framer-motion";
+import Slider from "react-slick";
+import HeroSlide from "./HeroSlide";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const Agriculture = () => {
+export const heroMedia = [
+  // { type: 'video', src: "https://res.cloudinary.com/duaqiajka/video/upload/v1719686933/WELCOME_VIDEO_og2jma.mp4" },
+  { type: 'image', src: "/images/agric/agri.jpg" },
+
+  { type: 'image', src: "/images/agric/hom.jpg" },
+  { type: 'image', src: "/images/banners/agrigrow.jpeg" },
+  { type: 'image', src: "/images/agric/car.jpg" },
+  { type: 'image', src: "/images/agric/home.jpg" }
+];
+
+const textVariants = {
+  initial: { x: -500, opacity: 0 },
+  animate: {
+    x: 0, opacity: 1, transition: { duration: 1, staggerChildren: 0.1 }
+  },
+  scrollButton: { opacity: 0, x: 10, transition: { duration: 2, repeat: Infinity } },
+  scrollButton2: { opacity: 0, y: 10, transition: { duration: 2, repeat: Infinity } },
+};
+
+const sliderSettings = {
+  dots: true,
+  infinite: true,
+  speed: 600,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 6000
+};
+
+const Hero = () => {
   return (
-    <section className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row">
-      <div className="hero-map" />
+    <>
+      <section id="home" className="hidden md:block hero-section w-full lg:h-[600px] h-[400px] relative z-10 mb-[50px]">
+        <Slider {...sliderSettings}>
+          {heroMedia.map((media, index) => (
+            <HeroSlide key={index} media={media} />
+          ))}
+        </Slider>
+      </section>
 
-      <div className="relative z-20 flex flex-1 flex-col xl:w-1/2">
-        
-        <h2 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px] items-center text-center">
-        Agriculture At Bugema University
-        </h2>
-        <p className="regular-16 mt-6 text-blue-800 xl:max-w-[520px]">
-        “9 out of 10 people breathe polluted air”
-        </p>
-        <p className="regular-16 mt-6 text-gray-30 xl:max-w-[520px]">
-        We empower communities with accurate, hyperlocal and timely air quality data to drive air pollution mitigation actions
-        </p>
+      <div className="block md:hidden container px-4 mt-[120px] mb-[50px] w-full h-full">
+        <div className="flex flex-wrap justify-center md:justify-between">
+          <div className="w-full px-4 md:w-2/3">
+            <motion.div
+              className="text-center md:text-left space-y-4 md:space-y-8 mx-auto max-w-[800px] fadeInUp"
+              data-wow-delay=".2s"
+              variants={textVariants}
+              initial="initial"
+              animate="animate"
+            >
+              <motion.h2
+                className="md:hidden uppercase font-medium leading-relaxed text-gray-500/70 dark:text-white dark:opacity-90 sm:text-xl text-2xl"
+                variants={textVariants}
+              >
+                Bugema University
+              </motion.h2>
+              <motion.h1
+                className="md:hidden capitalize text-3xl sm:text-4xl font-bold leading-tight text-black/70 dark:text-primary sm:leading-tight md:text-5xl md:leading-tight"
+                variants={textVariants}
+              >
+                Excellence <br /> in service
+              </motion.h1>
+              <motion.div
+                className="md:hidden flex flex-col items-center justify-center space-y-4"
+                variants={textVariants}
+              >
+                <motion.div
+                  className="flex hover:scale-105 transition-all duration-300 space-y-6 flex-col items-center "
+                  variants={textVariants}
+                >
+                  <motion.div
+                    className="bg-black/50 border rounded py-1"
+                    variants={textVariants}
+                    animate="scrollButton2"
+                  >
+                    <FaArrowDownLong className="text-white" />
+                  </motion.div>
+                  <Link
 
-        <div className="my-11 flex flex-wrap gap-5">
-          <div className="flex items-center gap-2">
-            {Array(5).fill(1).map((_, index) => (
-              <Image 
-                src="/images/star.svg"
-                key={index}
-                alt="star"
-                width={24}
-                height={24}
-              />
-            ))}
+                    href="http://erms.bugemauniv.ac.ug/application"
+                    className="flex rounded-md bg-primary dark:bg-primary/60 py-2 px-4  text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
+                  >
+                    Apply Now
+                    <BiSolidPencil className="text-xl mx-2" />
+                  </Link>
+                </motion.div>
+                <motion.div
+                  className="flex hover:scale-105 transition-all duration-300 flex-col text-center items-center justify-center"
+                  variants={textVariants}
+                >
+                  <Link
+                    href="/learn-more"
+                    className="mt-4 flex rounded-md bg-black/30 py-1 px-3 md:py-2 md:px-4 text-lg font-semibold text-black/90 duration-300 ease-in-out hover:bg-black/30 dark:bg-transparent dark:border dark:text-white"
+                  >
+                    Learn More
+                    <BiBookOpen className="text-xl mx-2" />
+                  </Link>
+                </motion.div>
+              </motion.div>
+            </motion.div>
           </div>
-
-          <p className="bold-16 lg:bold-20 text-blue-70">
-            198k
-            <span className="regular-16 lg:regular-20 ml-1">Excellent Reviews</span>
-          </p>
-        </div>
-
-        <div className="flex flex-col w-full gap-3 sm:flex-row">
-        <button
-            type="button"
-            className="ml-4 bg-blue-100 hover:bg-green-700 text-black font-bold py-2 px-4 rounded"
-          >
-            Get Involved
-            <img src="/images/user.svg" alt="icon" className="inline-block w-4 h-4 ml-2" />
-          </button>
-          <button
-            type="button"
-            className="bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          >
-            Explore Data
-            <img src="/images/user.svg" alt="icon" className="inline-block w-4 h-4 ml-2" />
-          </button>
-
-          {/* <Button 
-            type="button" 
-            title="Download App" 
-            variant="btn_green" 
-          />
-          <Button 
-            type="button" 
-            title="How we work?" 
-            icon="/play.svg"
-            variant="btn_white_text" 
-          /> */}
         </div>
       </div>
+    </>
+  );
+};
 
-      <div className=" flex flex-1 items-start">
-      {/* <Image 
-        src="/images/agric/agri.jpg" 
-        alt="agriculture" 
-        className=" w-full h-full object-cover"
-        width={100}
-        height={100}
-        // style={{ filter: 'brightness(1.5)' }}
-      /> */}
-            <img
-              src="/images/agric/agri.jpg"
-              alt="Bugema University"
-              className="absolute top-0 left-0 w-full h-full object-cover"
-            />
-      </div>
-    </section>
-  )
-}
-
-export default Agriculture
+export default Hero;
