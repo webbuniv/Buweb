@@ -3,6 +3,7 @@ import SectionTitle from "../Common/SectionTitle";
 import Events from "../Events";
 import News from "../News";
 import Link from "next/link";
+
 const EventsAndNews: React.FC = () => {
   return (
     <section id="eventsnadnews" className="mt-10 mb-5">
@@ -38,30 +39,31 @@ const EventsAndNews: React.FC = () => {
         </p>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-4 container mt-2 pt-4 bg-primary/5 h-[550px]">
-        {/* News Column */}
-        <div className="w-full md:w-[70%] hidden md:block">
+      <div className="container mt-2 pt-4 bg-primary/5 flex flex-col gap-4 md:flex-row md:h-[550px]">
+        {/* News Column (visible on all screens) */}
+        <div className="w-full md:w-[70%]">
           <h2 className="text-xl font-semibold text-black/80 mb-1 dark:text-white">
             News & Updates
           </h2>
-          <Link href="/news" className=" text-yellow-600">
+          <Link href="/news" className="text-yellow-600">
             Read All News
           </Link>
-          <News />
+          <div className="mt-2">
+            <News />
+          </div>
         </div>
 
         {/* Events Column */}
-        <div className="w-full h-[300px] md:w-[30%]">
+        <div className="w-full md:w-[30%] h-auto md:h-[350px]">
           <h2 className="text-xl font-semibold text-black/80 mb-2 dark:text-white flex">
-            Upcoming Events <span className="block lg:hidden">And News</span>
+            Upcoming Events
           </h2>
-          <Link href="/events" className="mb-2 text-yellow-600">
-            Read All Events
-          </Link>
           <Link href="/events" className="mb-2 text-yellow-600 lg:hidden block">
             Read All News
           </Link>
-          <Events />
+          <div className="h-[350px] md:h-auto overflow-y-auto">
+            <Events />
+          </div>
         </div>
       </div>
     </section>
