@@ -121,7 +121,7 @@ const AgricultureBelow: React.FC = () => {
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
             The most effective way to manage plant disease is by prevention. Know exactly where, what and when to spray, even down to the best time of day. Save costs on chemicals and spraying while you maximize protection.
             </p>
-            <Link href='/agriprogram'>
+            <Link href='/agripro'>
             <button
             type="button"
             className="bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
