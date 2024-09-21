@@ -34,7 +34,7 @@ const newsData = [
   },
 ];
 
-const AgriculturePrograms: React.FC = () => {
+const AgricProgramTwo: React.FC = () => {
   return (
     <section className="px-8">
       <div className="">
@@ -152,4 +152,4 @@ const AgriculturePrograms: React.FC = () => {
   );
 };
 
-export default AgriculturePrograms;
+export default AgricProgramTwo;

@@ -94,14 +94,15 @@ const AgricultureBelow: React.FC = () => {
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
             The system calculates a dynamic, daily infection risk that takes into account conditions for fungal growth, plant growth, crop type, and previous crop protection applications. The system also recommends the day and time to minimize environmental loss.
             </p>
-
+            <Link href='/agriprogramtwo'>
             <button
             type="button"
             className="bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          >
-            Explore More
-            {/* <img src="/images/user.svg" alt="icon" className="inline-block w-4 h-4 ml-2" /> */}
-          </button>
+            >
+              Explore More
+              {/* <img src="/images/user.svg" alt="icon" className="inline-block w-4 h-4 ml-2" /> */}
+            </button>
+          </Link>
           </div>
         </div>
       </div>
@@ -120,13 +121,15 @@ const AgricultureBelow: React.FC = () => {
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
             The most effective way to manage plant disease is by prevention. Know exactly where, what and when to spray, even down to the best time of day. Save costs on chemicals and spraying while you maximize protection.
             </p>
+            <Link href='/agriprogram'>
             <button
             type="button"
             className="bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          >
-            Explore More About Our Crops
-            {/* <img src="/images/user.svg" alt="icon" className="inline-block w-4 h-4 ml-2" /> */}
-          </button>
+            >
+              Explore More About Our Crops
+              {/* <img src="/images/user.svg" alt="icon" className="inline-block w-4 h-4 ml-2" /> */}
+            </button>
+          </Link>
           </div>
         </div>
 
