@@ -97,7 +97,7 @@ const thirdData = [
   },
 ];
 
-const AgriculturePrograms: React.FC = () => {
+const TableTenisPrograms: React.FC = () => {
   return (
     <section className="px-8">
       <div className="">
@@ -215,4 +215,4 @@ const AgriculturePrograms: React.FC = () => {
   );
 };
 
-export default AgriculturePrograms;
+export default TableTenisPrograms;

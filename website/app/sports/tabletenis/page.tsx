@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import AgricPrograms from '@/components/AgriculturePrograms';
+import TableTenisPrograms from '@/components/Sports/TableTenisPrograms';
 
-const AgriProgramPage = () => {
+const TableTenisPage = () => {
   return (
       // <section className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row">
       <>
@@ -18,10 +18,10 @@ const AgriProgramPage = () => {
           </div>
         </div>
       </div>
-        <AgricPrograms/>
+        <TableTenisPrograms />
 </>
 
   )
 }
 
-export default AgriProgramPage
+export default TableTenisPage

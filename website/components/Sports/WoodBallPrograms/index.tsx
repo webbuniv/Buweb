@@ -8,28 +8,28 @@ const newsData = [
     title:
       "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/agric/ag.jpeg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Image related to depression biotypes",
   },
   {
     category: "......",
     title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/agric/agrr.jpeg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Image related to advertising study",
   },
   {
     category: "...................",
     title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/agric/agrri.jpeg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Image related to epilepsy study",
   },
   {
     category: "..................",
     title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/agric/rice.jpeg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Commencement 2024 highlights",
   },
 ];
@@ -40,28 +40,28 @@ const secondData = [
     title:
       "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/agric/a.jpeg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Image related to depression biotypes",
   },
   {
     category: "......",
     title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/agric/b.jpeg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Image related to advertising study",
   },
   {
     category: "...............",
     title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/agric/aa.jpeg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Image related to epilepsy study",
   },
   {
     category: "................",
     title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/agric/bb.jpeg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Commencement 2024 highlights",
   },
 ];
@@ -71,33 +71,33 @@ const thirdData = [
     title:
       "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/agric/aaa.jpeg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Image related to depression biotypes",
   },
   {
     category: "......",
     title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/agric/bbb.jpeg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Image related to advertising study",
   },
   {
     category: "...............",
     title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/agric/ccc.jpeg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Image related to epilepsy study",
   },
   {
     category: "................",
     title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/agric/ddd.jpeg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Commencement 2024 highlights",
   },
 ];
 
-const AgriculturePrograms: React.FC = () => {
+const WoodBallPrograms: React.FC = () => {
   return (
     <section className="px-8">
       <div className="">
@@ -215,4 +215,4 @@ const AgriculturePrograms: React.FC = () => {
   );
 };
 
-export default AgriculturePrograms;
+export default WoodBallPrograms;
