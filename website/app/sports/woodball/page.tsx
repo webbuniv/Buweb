@@ -7,7 +7,7 @@ const WoodBallPage = () => {
       <>
       <div 
         className="max-container lg:h-[600px] h-[300px] -my-4 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/images/life/football/footc.jpg)' }}
+        style={{ backgroundImage: 'url(/images/life/Woodball/wooda.jpg)' }}
       >
         <div className="container mx-auto ">
           <div className="flex flex-wrap text-center justify-center al -mx-6 gap-2 lg:gap-6 ">

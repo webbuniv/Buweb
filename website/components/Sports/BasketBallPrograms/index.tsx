@@ -103,8 +103,8 @@ const BasketBallPrograms: React.FC = () => {
       <div className="">
         <div className="hidden md:block lg:mt-10">
           <SectionTitle
-            title="Featured research collaborations"
-            paragraph="Microsoft collaborates with the global research community through programs, events, learning opportunities, and joint research endeavors."
+            title="Basketball Collaborations at Bugema University"
+            paragraph="Bugema University supports basketball through collaborative efforts such as tournaments, training camps, events, and initiatives designed to develop skills, foster teamwork, and promote the sport within the university and beyond."
             center
             mb="50px"
           />
@@ -117,10 +117,10 @@ const BasketBallPrograms: React.FC = () => {
             data-wow-delay=".1s"
           >
             <h2 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px] mt-10">
-              Agriculture
+            Basketball
             </h2>
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
-              At Bugema University, Agriculture goes beyond the classroom.
+              At Bugema University.
             </p>
           </div>
         </div>

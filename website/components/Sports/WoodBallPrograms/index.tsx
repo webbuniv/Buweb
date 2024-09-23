@@ -8,28 +8,28 @@ const newsData = [
     title:
       "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/Woodball/wooda.jpg",
     altText: "Image related to depression biotypes",
   },
   {
     category: "......",
     title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Image related to advertising study",
   },
   {
     category: "...................",
     title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/Woodball/woodc.jpg",
     altText: "Image related to epilepsy study",
   },
   {
     category: "..................",
     title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/Woodball/woodd.jpg",
     altText: "Commencement 2024 highlights",
   },
 ];
@@ -40,28 +40,28 @@ const secondData = [
     title:
       "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/Woodball/woode.jpg",
     altText: "Image related to depression biotypes",
   },
   {
     category: "......",
     title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/Woodball/woodd.jpg",
     altText: "Image related to advertising study",
   },
   {
     category: "...............",
     title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/Woodball/woodd.jpg",
     altText: "Image related to epilepsy study",
   },
   {
     category: "................",
     title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/Woodball/woodd.jpg",
     altText: "Commencement 2024 highlights",
   },
 ];
@@ -71,28 +71,28 @@ const thirdData = [
     title:
       "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Image related to depression biotypes",
   },
   {
     category: "......",
     title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Image related to advertising study",
   },
   {
     category: "...............",
     title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Image related to epilepsy study",
   },
   {
     category: "................",
     title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Commencement 2024 highlights",
   },
 ];
@@ -103,8 +103,8 @@ const WoodBallPrograms: React.FC = () => {
       <div className="">
         <div className="hidden md:block lg:mt-10">
           <SectionTitle
-            title="Featured research collaborations"
-            paragraph="Microsoft collaborates with the global research community through programs, events, learning opportunities, and joint research endeavors."
+            title="Wood Ball Collaborations"
+            paragraph="Wood Ball collaborates with the global community through tournaments, events, training programs, and joint efforts to promote the sport worldwide."
             center
             mb="50px"
           />
