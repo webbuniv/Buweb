@@ -35,25 +35,27 @@ const School = ({
                   <Carousel data-carousel="slide">
                         <div className="overflow-hidden rounded-lg relative -my-10 top-0 left-0 bg-black w-full " >
                               <div className="absolute justify-center ml-[2%] my-[24%]"> 
-                                    <h1 className=" -mt-20 font-bold text-start text-xs text-white md:text-7xl">
-                                          {tittle} 
-                                    </h1>
-                                    <h1 className=" hidden my-5 text-start  text-white md:text-2xl md:block ">{subtittle}</h1>
-                              </div>
-                              
-                              <Image src={topImg} alt='img' objectFit="contain" width={1920} height={700} className="opacity-50 "/>
-                        
-                        </div>
 
-                        <div className="overflow-hidden rounded-lg relative -my-10 top-0 left-0 bg-black w-full " >
-                              <div className="absolute justify-center ml-[2%] my-[24%]"> 
-                                    <h1 className=" -mt-20 font-bold text-start text-xs text-white md:text-7xl">
+                                    <h1 className="font-bold text-start text-xs text-white md:text-7xl">
                                           {tittle} 
                                     </h1>
                                     <h1 className=" hidden my-5 text-start  text-white md:text-3xl md:block ">{subtittle}</h1>
                               </div>
                               
-                              <Image src={topImg} alt='img' objectFit="contain" width={1920} height={800} className="opacity-50 "/>
+
+                              <Image src={topImg} alt='img' objectFit="contain" width={1920} height={500} className="opacity-50 "/>
+                        
+                        </div>
+
+                        <div className="overflow-hidden rounded-lg relative -my-10 top-0 left-0 bg-black w-full " >
+                              <div className="absolute justify-center ml-[2%] my-[24%]"> 
+                                    <h1 className="font-bold text-start text-xs text-white md:text-7xl">
+                                          {tittle} 
+                                    </h1>
+                                    <h1 className=" hidden my-5 text-start  text-white md:text-3xl md:block ">{subtittle}</h1>
+                              </div>
+                              
+                              <Image src={image} alt='img' objectFit="contain" width={1920} height={500} className="opacity-50 "/>
                         
                         </div>
                   </Carousel>
@@ -140,8 +142,69 @@ const School = ({
                                     
                               </div>
 
-                              
 
+                              {/* <div className="bg-dark flex flex-col ml-[10%] justify-center items-center">
+                                    <Image src={deanImage} alt="dean" width={200} height={200} />
+
+                                    <h1 className="mb-4 text-body-color">{dean}</h1>
+                                    <h2 className=" mb-4 text-3xl font-bold !leading-tight text-white/70 dark:text-white sm:text-4xl md:text-[30px]">
+                                          qualification
+                                    </h2>
+                              </div>
+
+                              <div className="bg-dark flex flex-col ml-[10%] justify-center items-center">
+                                    <Image src={deanImage} alt="dean" width={200} height={200} />
+
+                                    <h1 className="mb-4 text-body-color">{dean}</h1>
+                                    <h2 className=" mb-4 text-3xl font-bold !leading-tight text-white/70 dark:text-white sm:text-4xl md:text-[30px]">
+                                          qualification
+                                    </h2>
+                              </div>
+
+                              <div className="bg-dark flex flex-col ml-[10%] justify-center items-center">
+                                    <Image src={deanImage} alt="dean" width={200} height={200} />
+
+                                    <h1 className="mb-4 text-body-color">{dean}</h1>
+                                    <h2 className=" mb-4 text-3xl font-bold !leading-tight text-white/70 dark:text-white sm:text-4xl md:text-[30px]">
+                                          qualification
+                                    </h2>
+                              </div>
+
+                              <div className="bg-dark flex flex-col ml-[10%] justify-center items-center">
+                                    <Image src={deanImage} alt="dean" width={200} height={200} />
+
+                                    <h1 className="mb-4 text-body-color">{dean}</h1>
+                                    <h2 className=" mb-4 text-3xl font-bold !leading-tight text-white/70 dark:text-white sm:text-4xl md:text-[30px]">
+                                          qualification
+                                    </h2>
+                              </div>
+
+                              <div className="bg-dark flex flex-col ml-[10%] justify-center items-center">
+                                    <Image src={deanImage} alt="dean" width={200} height={200} />
+
+                                    <h1 className="mb-4 text-body-color">{dean}</h1>
+                                    <h2 className=" mb-4 text-3xl font-bold !leading-tight text-white/70 dark:text-white sm:text-4xl md:text-[30px]">
+                                          qualification
+                                    </h2>
+                              </div>
+
+                              <div className="bg-dark flex flex-col ml-[10%] justify-center items-center">
+                                    <Image src={deanImage} alt="dean" width={200} height={200} />
+
+                                    <h1 className="mb-4 text-body-color">{dean}</h1>
+                                    <h2 className=" mb-4 text-3xl font-bold !leading-tight text-white/70 dark:text-white sm:text-4xl md:text-[30px]">
+                                          qualification
+                                    </h2>
+                              </div>
+
+                              <div className="bg-dark flex flex-col ml-[10%] justify-center items-center">
+                                    <Image src={deanImage} alt="dean" width={200} height={200} />
+
+                                    <h1 className="mb-4 text-body-color">{dean}</h1>
+                                    <h2 className=" mb-4 text-3xl font-bold !leading-tight text-white/70 dark:text-white sm:text-4xl md:text-[30px]">
+                                          qualification
+                                    </h2>
+                              </div> */}
 
                         </div>
 

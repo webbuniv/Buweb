@@ -146,7 +146,8 @@ const Header = () => {
               <Link
                 href="/"
                 className={`header-logo block w-full ${
-                  sticky ? "py-2 lg:py-2 block w-full" : "py-3 hidden"
+
+                  sticky ? "py-2 lg:py-2" : "py-3"
                 }`}
               >
                 <Image
@@ -199,7 +200,8 @@ const Header = () => {
                       <Link
                         href=""
                         className={`nav hover ml-3 flex py-2 text-black text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onClick={first_modal}
+
+                        onMouseEnter={first_modal}
                       >
                         <span className={showModel ? "active" : ""}>
                           Programs
@@ -215,7 +217,8 @@ const Header = () => {
                       <Link
                         href=""
                         className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onClick={second_modal}
+
+                        onMouseEnter={second_modal}
                       >
                         <span className={showModel1 ? "active" : ""}>
                           Student life
@@ -230,7 +233,8 @@ const Header = () => {
                       <Link
                         href=""
                         className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onClick={third_modal}
+
+                        onMouseEnter={third_modal}
                       >
                         <span className={showModel2 ? "active" : ""}>
                           Research
@@ -244,7 +248,9 @@ const Header = () => {
                       <Link
                         href=""
                         className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+
                         onClick={forth_modal}
+
 
                       >
                         <span className={showModel3 ? "active" : ""}>
@@ -260,7 +266,8 @@ const Header = () => {
                       <Link
                         href=""
                         className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onClick={fifth_modal}
+
+                        onMouseEnter={fifth_modal}
                       >
                         <span className={showModel4 ? "active" : ""}>
                           Contact Us

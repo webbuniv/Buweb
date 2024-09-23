@@ -20,7 +20,8 @@ const HeroSlide = ({ media }) => {
             subtitle2="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity"
             subtitle3="to offer you Quality education with a hands on experience. . ."
             buttonText="Apply Now"
-            buttonLink="https://apply.bugemauniv.ac.ug/"
+
+            buttonLink="http://erms.bugemauniv.ac.ug/application"
           />
         </div>
       ) : (
