@@ -13,7 +13,7 @@ export const heroMedia = [
   { type: 'image', src: "/images/agric/agri.jpg" },
 
   { type: 'image', src: "/images/agric/hom.jpg" },
-  { type: 'image', src: "/images/banners/agrigrow.jpeg" },
+  { type: 'image', src: "/images/agric/agr.jpeg" },
   { type: 'image', src: "/images/agric/car.jpg" },
   { type: 'image', src: "/images/agric/home.jpg" }
 ];

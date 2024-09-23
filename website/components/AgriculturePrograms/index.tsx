@@ -4,32 +4,95 @@ import SectionTitle from "../Common/SectionTitle";
 import Link from "next/link";
 const newsData = [
   {
-    category: "Sports",
+    category: ".....",
     title:
       "Bugema University sports play a vital role in student life ............",
-    link: "/studentlife",
-    imageSrc: "/images/agric/agri.jpg",
+    link: "#",
+    imageSrc: "/images/agric/ag.jpeg",
     altText: "Image related to depression biotypes",
   },
   {
-    category: "Business",
+    category: "......",
     title: "Why advertisers pay more to reach viewers who watch less",
-    link: "/",
-    imageSrc: "/images/agric/agri.jpg",
+    link: "#",
+    imageSrc: "/images/agric/agrr.jpeg",
     altText: "Image related to advertising study",
   },
   {
-    category: "Health & Medicine",
+    category: "...................",
     title: "Study finds high blood pressure drug may prevent epilepsy",
-    link: "/",
-    imageSrc: "/images/agric/agri.jpg",
+    link: "#",
+    imageSrc: "/images/agric/agrri.jpeg",
     altText: "Image related to epilepsy study",
   },
   {
-    category: "Commencement 2024",
+    category: "..................",
     title: "Congratulations, graduates!",
-    link: "/",
-    imageSrc: "/images/agric/agri.jpg",
+    link: "#",
+    imageSrc: "/images/agric/rice.jpeg",
+    altText: "Commencement 2024 highlights",
+  },
+];
+
+const secondData = [
+  {
+    category: ".....",
+    title:
+      "Bugema University sports play a vital role in student life ............",
+    link: "#",
+    imageSrc: "/images/agric/a.jpeg",
+    altText: "Image related to depression biotypes",
+  },
+  {
+    category: "......",
+    title: "Why advertisers pay more to reach viewers who watch less",
+    link: "#",
+    imageSrc: "/images/agric/b.jpeg",
+    altText: "Image related to advertising study",
+  },
+  {
+    category: "...............",
+    title: "Study finds high blood pressure drug may prevent epilepsy",
+    link: "#",
+    imageSrc: "/images/agric/aa.jpeg",
+    altText: "Image related to epilepsy study",
+  },
+  {
+    category: "................",
+    title: "Congratulations, graduates!",
+    link: "#",
+    imageSrc: "/images/agric/bb.jpeg",
+    altText: "Commencement 2024 highlights",
+  },
+];
+const thirdData = [
+  {
+    category: ".....",
+    title:
+      "Bugema University sports play a vital role in student life ............",
+    link: "#",
+    imageSrc: "/images/agric/aaa.jpeg",
+    altText: "Image related to depression biotypes",
+  },
+  {
+    category: "......",
+    title: "Why advertisers pay more to reach viewers who watch less",
+    link: "#",
+    imageSrc: "/images/agric/bbb.jpeg",
+    altText: "Image related to advertising study",
+  },
+  {
+    category: "...............",
+    title: "Study finds high blood pressure drug may prevent epilepsy",
+    link: "#",
+    imageSrc: "/images/agric/ccc.jpeg",
+    altText: "Image related to epilepsy study",
+  },
+  {
+    category: "................",
+    title: "Congratulations, graduates!",
+    link: "#",
+    imageSrc: "/images/agric/ddd.jpeg",
     altText: "Commencement 2024 highlights",
   },
 ];
@@ -89,7 +152,7 @@ const AgriculturePrograms: React.FC = () => {
           ))}
         </div>
         <div className="grid lg:mt-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {newsData.map((news, index) => (
+          {secondData.map((news, index) => (
             <article
               key={index}
               className="bg-white shadow-md rounded-lg overflow-hidden hover:bg-blue-50 hover:text-blue-900 hover:shadow-lg transition duration-500 cursor-pointer"
@@ -116,7 +179,7 @@ const AgriculturePrograms: React.FC = () => {
           ))}
         </div>
         <div className="grid lg:mt-10 lg:mb-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {newsData.map((news, index) => (
+          {thirdData.map((news, index) => (
             <article
               key={index}
               className="bg-white shadow-md rounded-lg overflow-hidden hover:bg-blue-50 hover:text-blue-900 hover:shadow-lg transition duration-500 cursor-pointer"
