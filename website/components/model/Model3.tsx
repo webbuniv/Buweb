@@ -98,10 +98,20 @@ const why_bugema = () =>{
       document.getElementById('attachment-why-bugema').classList.remove('hidden');
 
 }
+
+const handelScroll = () =>{
+      document.addEventListener('scroll', function(){
+            onClose();
+      })
+            // if (window.scrollY > 1){
+            //       onClose();
+            // };
+      }
+
   return (
       <>
         
-            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-lg flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden" id="wrapper" onScroll={onClose} onMouseLeave={onClose}>
+            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-lg flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden" id="wrapper" onScroll={handelScroll}>
                   
                      
                   <div id="programs">

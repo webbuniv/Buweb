@@ -38,7 +38,7 @@ export default function SchoolOfSocial() {
          subtittle="The School of Education believes that a true teacher is one that is mentally, physically and spiritually sound to impart the same virtues in his/her learners making them best suited for service to God and mankind in this world and in the world to come."
          topImg="/images/schools/ss-hero.jpg"
           dean="DR. SSERUNJOGI CHARLES"
-          deanImage={"/images/blog/author-03.png"}
+          deanImage={"/blank/blank.jpg"}
           message="Having made a choice to join the school of education Bugema University, I take this opportunity to welcome you and assure you that you have made the best decision. As school of education, we look forward to serving you with a complete package."
           preamble="The School of Education believes that a true teacher is one that is mentally, physically and spiritually sound to impart the same virtues in his/her learners making them best suited for service to God and mankind in this world and in the world to come."
           goal="Understanding people, understanding the world."

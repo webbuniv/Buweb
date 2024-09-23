@@ -128,6 +128,8 @@ const Header = () => {
     setShowModel2(false);
   };
 
+  
+
   return (
     <>
     {/* Header on big screens */}
@@ -195,7 +197,7 @@ const Header = () => {
                   <ul className="block lg:flex bg-white lg:space-x-8 top-0 left-0 h-full  text-black">
                     <li className="group relative">
                       <Link
-                        href="."
+                        href=""
                         className={`nav hover ml-3 flex py-2 text-black text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onClick={first_modal}
                       >
@@ -428,6 +430,7 @@ const Header = () => {
       <Model4 is4visible={showModel4} onClose={() => setShowModel4(false)}>
         <></>
       </Model4>
+      
     </>
   );
 };
