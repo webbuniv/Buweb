@@ -8,28 +8,28 @@ const newsData = [
     title:
       "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/agric/ag.jpeg",
+    imageSrc: "/images/life/netball/neta.jpeg",
     altText: "Image related to depression biotypes",
   },
   {
     category: "......",
     title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/agric/agrr.jpeg",
+    imageSrc: "/images/life/netball/neta.jpeg",
     altText: "Image related to advertising study",
   },
   {
     category: "...................",
     title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/agric/agrri.jpeg",
+    imageSrc: "/images/life/netball/neta.jpeg",
     altText: "Image related to epilepsy study",
   },
   {
     category: "..................",
     title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/agric/rice.jpeg",
+    imageSrc: "/images/life/netball/neta.jpeg",
     altText: "Commencement 2024 highlights",
   },
 ];
@@ -40,28 +40,28 @@ const secondData = [
     title:
       "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/agric/a.jpeg",
+    imageSrc: "/images/life/netball/neta.jpeg",
     altText: "Image related to depression biotypes",
   },
   {
     category: "......",
     title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/agric/b.jpeg",
+    imageSrc: "/images/life/netball/netb.jpeg",
     altText: "Image related to advertising study",
   },
   {
     category: "...............",
     title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/agric/aa.jpeg",
+    imageSrc: "/images/life/netball/netc.jpeg",
     altText: "Image related to epilepsy study",
   },
   {
     category: "................",
     title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/agric/bb.jpeg",
+    imageSrc: "/images/life/netball/netd.jpeg",
     altText: "Commencement 2024 highlights",
   },
 ];
@@ -71,40 +71,40 @@ const thirdData = [
     title:
       "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/agric/aaa.jpeg",
+    imageSrc: "/images/life/netball/nete.jpeg",
     altText: "Image related to depression biotypes",
   },
   {
     category: "......",
     title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/agric/bbb.jpeg",
+    imageSrc: "/images/life/netball/neta.jpeg",
     altText: "Image related to advertising study",
   },
   {
     category: "...............",
     title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/agric/ccc.jpeg",
+    imageSrc: "/images/life/netball/neta.jpeg",
     altText: "Image related to epilepsy study",
   },
   {
     category: "................",
     title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/agric/ddd.jpeg",
+    imageSrc: "/images/life/netball/neta.jpeg",
     altText: "Commencement 2024 highlights",
   },
 ];
 
-const AgriculturePrograms: React.FC = () => {
+const NetBallPrograms: React.FC = () => {
   return (
     <section className="px-8">
       <div className="">
         <div className="hidden md:block lg:mt-10">
           <SectionTitle
-            title="Featured research collaborations"
-            paragraph="Microsoft collaborates with the global research community through programs, events, learning opportunities, and joint research endeavors."
+            title="Netball Collaborations"
+            paragraph="Bugema University fosters the development of netball through various collaborative efforts. The university engages with local and international sports organizations, offering events, training programs, and joint research initiatives focused on enhancing netball performance and sportsmanship. These collaborations provide valuable learning opportunities and contribute to the growth of netball within the university and beyond."
             center
             mb="50px"
           />
@@ -215,4 +215,4 @@ const AgriculturePrograms: React.FC = () => {
   );
 };
 
-export default AgriculturePrograms;
+export default NetBallPrograms;
