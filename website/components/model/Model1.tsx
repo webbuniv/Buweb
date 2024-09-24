@@ -177,6 +177,7 @@ const Foot = () =>{
                               </div>
                               <div className="mr-2 my-5  slider slide--slow ">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={payments}><span id='payments' className='animated'>Sports</span></h1> 
+                              
                               </div>
                               <div className="mr-2 my-5  slider slide--slower">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold 'onClick={why_bugema} >  <span id='why_bugema' className='animated'>Clubs & Associations</span></h1> 
@@ -233,8 +234,9 @@ const Foot = () =>{
                               
                               <li>
                               <div className="mr-2 my-5 fade-in-slow  ">
+                              <Link href="/sports/sports">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Sports </h1> 
-                                    
+                              </Link>
                               </div>
                               </li>
                               <li>
