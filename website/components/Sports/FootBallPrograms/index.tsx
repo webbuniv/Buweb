@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import SectionTitle from "../Common/SectionTitle";
+import SectionTitle from "../../Common/SectionTitle";
 import Link from "next/link";
 const newsData = [
   {
@@ -8,28 +8,28 @@ const newsData = [
     title:
       "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/agric/ag.jpeg",
+    imageSrc: "/images/life/football/footd.jpg",
     altText: "Image related to depression biotypes",
   },
   {
     category: "......",
     title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/agric/agrr.jpeg",
+    imageSrc: "/images/life/football/foota.jpg",
     altText: "Image related to advertising study",
   },
   {
     category: "...................",
     title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/agric/agrri.jpeg",
+    imageSrc: "/images/life/football/footb.jpg",
     altText: "Image related to epilepsy study",
   },
   {
     category: "..................",
     title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/agric/rice.jpeg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Commencement 2024 highlights",
   },
 ];
@@ -40,28 +40,28 @@ const secondData = [
     title:
       "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/agric/a.jpeg",
+    imageSrc: "/images/life/football/foote.jpg",
     altText: "Image related to depression biotypes",
   },
   {
     category: "......",
     title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/agric/b.jpeg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Image related to advertising study",
   },
   {
     category: "...............",
     title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/agric/aa.jpeg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Image related to epilepsy study",
   },
   {
     category: "................",
     title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/agric/bb.jpeg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Commencement 2024 highlights",
   },
 ];
@@ -71,40 +71,40 @@ const thirdData = [
     title:
       "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/agric/aaa.jpeg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Image related to depression biotypes",
   },
   {
     category: "......",
     title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/agric/bbb.jpeg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Image related to advertising study",
   },
   {
     category: "...............",
     title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/agric/ccc.jpeg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Image related to epilepsy study",
   },
   {
     category: "................",
     title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/agric/ddd.jpeg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Commencement 2024 highlights",
   },
 ];
 
-const AgriculturePrograms: React.FC = () => {
+const FootBallPrograms: React.FC = () => {
   return (
     <section className="px-8">
       <div className="">
         <div className="hidden md:block lg:mt-10">
           <SectionTitle
-            title="Featured research collaborations"
-            paragraph="Microsoft collaborates with the global research community through programs, events, learning opportunities, and joint research endeavors."
+            title="FootBall At Bugema University"
+            paragraph="Bugema University offers a range of opportunities for students passionate about football. The university not only focuses on nurturing talent through its well-established football teams but also encourages joint research collaborations related to sports science, performance analytics, and athlete development. These collaborations provide students and faculty members the chance to explore innovative approaches to football training, injury prevention, and team dynamics, contributing to the broader understanding of the sport and enhancing player performance both on and off the field."
             center
             mb="50px"
           />
@@ -215,4 +215,4 @@ const AgriculturePrograms: React.FC = () => {
   );
 };
 
-export default AgriculturePrograms;
+export default FootBallPrograms;

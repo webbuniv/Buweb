@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import SectionTitle from "../Common/SectionTitle";
+import SectionTitle from "../../Common/SectionTitle";
 import Link from "next/link";
 const newsData = [
   {
@@ -8,28 +8,28 @@ const newsData = [
     title:
       "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/agric/ag.jpeg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Image related to depression biotypes",
   },
   {
     category: "......",
     title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/agric/agrr.jpeg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Image related to advertising study",
   },
   {
     category: "...................",
     title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/agric/agrri.jpeg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Image related to epilepsy study",
   },
   {
     category: "..................",
     title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/agric/rice.jpeg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Commencement 2024 highlights",
   },
 ];
@@ -40,28 +40,28 @@ const secondData = [
     title:
       "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/agric/a.jpeg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Image related to depression biotypes",
   },
   {
     category: "......",
     title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/agric/b.jpeg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Image related to advertising study",
   },
   {
     category: "...............",
     title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/agric/aa.jpeg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Image related to epilepsy study",
   },
   {
     category: "................",
     title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/agric/bb.jpeg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Commencement 2024 highlights",
   },
 ];
@@ -71,40 +71,40 @@ const thirdData = [
     title:
       "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/agric/aaa.jpeg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Image related to depression biotypes",
   },
   {
     category: "......",
     title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/agric/bbb.jpeg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Image related to advertising study",
   },
   {
     category: "...............",
     title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/agric/ccc.jpeg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Image related to epilepsy study",
   },
   {
     category: "................",
     title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/agric/ddd.jpeg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Commencement 2024 highlights",
   },
 ];
 
-const AgriculturePrograms: React.FC = () => {
+const TableTenisPrograms: React.FC = () => {
   return (
     <section className="px-8">
       <div className="">
         <div className="hidden md:block lg:mt-10">
           <SectionTitle
-            title="Featured research collaborations"
-            paragraph="Microsoft collaborates with the global research community through programs, events, learning opportunities, and joint research endeavors."
+            title="Table Tennis Collaborations at Bugema University"
+            paragraph="Bugema University actively promotes table tennis through various collaborations, including tournaments, coaching programs, events, and initiatives aimed at enhancing player performance and fostering a vibrant sports community."
             center
             mb="50px"
           />
@@ -117,10 +117,10 @@ const AgriculturePrograms: React.FC = () => {
             data-wow-delay=".1s"
           >
             <h2 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px] mt-10">
-              Agriculture
+            Table Tennis
             </h2>
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
-              At Bugema University, Agriculture goes beyond the classroom.
+              At Bugema University.
             </p>
           </div>
         </div>
@@ -215,4 +215,4 @@ const AgriculturePrograms: React.FC = () => {
   );
 };
 
-export default AgriculturePrograms;
+export default TableTenisPrograms;

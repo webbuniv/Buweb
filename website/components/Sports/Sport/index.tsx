@@ -10,12 +10,12 @@ import "slick-carousel/slick/slick-theme.css";
 
 export const heroMedia = [
   // { type: 'video', src: "https://res.cloudinary.com/duaqiajka/video/upload/v1719686933/WELCOME_VIDEO_og2jma.mp4" },
-  { type: 'image', src: "/images/agric/agri.jpg" },
+  { type: 'image', src: "/images/life/basketball/baska.jpg" },
 
-  { type: 'image', src: "/images/agric/hom.jpg" },
-  { type: 'image', src: "/images/agric/agr.jpeg" },
-  { type: 'image', src: "/images/agric/car.jpg" },
-  { type: 'image', src: "/images/agric/home.jpg" }
+  { type: 'image', src: "/images/life/football/foota.jpg" },
+  { type: 'image', src: "/images/life/netball/netb.jpeg" },
+  { type: 'image', src: "/images/life/Woodball/woodc.jpg" },
+  { type: 'image', src: "/images/life/sport.jpg" }
 ];
 
 const textVariants = {
@@ -37,10 +37,10 @@ const sliderSettings = {
   autoplaySpeed: 6000
 };
 
-const Hero = () => {
+const Sport = () => {
   return (
     <>
-      <section id="home" className="hidden md:block hero-section w-full lg:h-[800px] h-[700px] relative z-10 mb-[100px]">
+      <section id="home" className="container hidden md:block hero-section w-full lg:h-[800px] h-[700px] relative z-10 mb-[100px]">
         <Slider {...sliderSettings}>
           {heroMedia.map((media, index) => (
             <HeroSlide key={index} media={media} />
@@ -62,7 +62,7 @@ const Hero = () => {
                 className="md:hidden uppercase font-medium leading-relaxed text-gray-500/70 dark:text-white dark:opacity-90 sm:text-xl text-2xl"
                 variants={textVariants}
               >
-                Agriculture
+                Sports
               </motion.h2>
               <motion.h1
                 className="md:hidden capitalize text-3xl sm:text-4xl font-bold leading-tight text-black/70 dark:text-primary sm:leading-tight md:text-5xl md:leading-tight"
@@ -115,4 +115,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Sport;

@@ -297,40 +297,45 @@ const Foot = () =>{
                         <ul className='ml-10 my-20'>
                               <li>
                               <div className="mr-2 my-5 ">
-                              
-                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Foot} > Football </h1> 
-                              
+                              <Link href="/sports/football">
+                                <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Foot} > Football </h1> 
+                              </Link>
                               </div>
                               </li>
                               <li>
                               <div className="mr-2 my-5  ">
+                              <Link href="/sports/netball">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Net}>Net ball</h1> 
-                                    
+                              </Link>
                               </div>
                               </li>
                               <li>
                               <div className="mr-2 my-5  ">
+                              <Link href="/sports/volleyball">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Volley}> Volley </h1> 
-                                    
+                              </Link>
                               </div>
                               </li>
                               <li>
                               <div className="mr-2 my-5  ">
+                              <Link href="/sports/woodball">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Wood}> Wood ball</h1>
-                                    
+                              </Link>
                               </div>
                               </li>
 
                               <li>
                               <div className="mr-2 my-5  ">
+                              <Link href="/sports/basketball">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Basket}>Basket</h1> 
-                                    
+                              </Link>
                               </div>
                               </li>
                               <li>
                               <div className="mr-2 my-5  ">
+                              <Link href="/sports/tabletenis">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Table}>Table Tenis</h1> 
-                                    
+                              </Link>
                               </div>
                               </li>
  
