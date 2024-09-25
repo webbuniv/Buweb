@@ -6,6 +6,7 @@ import HomePage from "@/components/About/AboutSectionLife";
 import AboutSectionLife2 from "@/components/About/AboutSectionLife2";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import LifeHero from "@/components/LifeHero";
+import StudentLifePrograms from "@/components/About/StudentLife";
 
 const StudentLifePage = () => {
   return (
@@ -17,6 +18,7 @@ const StudentLifePage = () => {
          on various topics related to academia, student life, research, and more."
       />
       <HomePage />
+      <StudentLifePrograms />
       <AboutSectionLife2 />
       {/* <AboutSectionLife /> */}
     </>
