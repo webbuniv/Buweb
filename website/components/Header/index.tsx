@@ -140,7 +140,7 @@ const Header = () => {
       >
         <div className="container">
           <div className="relative flex items-center justify-between">
-            <div className="w-60 relative z-10">
+{/*             <div className="w-60 relative z-10">
               <Link
                 href="/"
                 className={`header-logo block w-full ${
@@ -163,7 +163,7 @@ const Header = () => {
                   className="hidden w-full dark:block"
                 />
               </Link>
-            </div>
+            </div> */}
             <div className="flex space-x-20 justify-between transform bg-white">
               <div>
                 <button
