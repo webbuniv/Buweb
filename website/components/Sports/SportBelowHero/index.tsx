@@ -41,10 +41,10 @@ const SportsBelowHero = () => {
                                           {/* <FaWpforms className="w-10 h-8  text-black dark:text-white items-center"/> */}
 
                                           <h3 className="mb-2 mt-3 text-xl font-bold text-black sm:text-2xl lg:text-xl xl:text-2xl">
-                                          8+
+                                          50+
                                           </h3>
                                           <p className="mb-4 text-base text-black ">
-                                          African Cities
+                                          Sports Events per year
                                           </p>
                                     </div>
                               </div>
@@ -54,10 +54,10 @@ const SportsBelowHero = () => {
                                           {/* <FaWpforms className="w-10 h-8  text-black dark:text-white items-center"/> */}
 
                                           <h3 className="mb-2 mt-3 text-xl font-bold text-black sm:text-2xl lg:text-xl xl:text-2xl">
-                                          1500+
+                                          10+
                                           </h3>
                                           <p className="mb-4 text-base text-black ">
-                                          Community Champions
+                                          Teams Participating
                                           </p>
                                           {/* <Link href="https://apply.bugemauniv.ac.ug/">
                                                 <button className="px-6 py-2 text-white bg-[#e72725] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
@@ -70,10 +70,10 @@ const SportsBelowHero = () => {
                                     <div className="wow fadeInUp relative mx-auto mb-6 aspect-[25/24] lg:m-0 flex flex-col justify-center items-center text-center" data-wow-delay=".15s">
                                           {/* <FaMoneyCheckDollar className="w-10 h-8 text-black dark:text-white items-center"/> */}
                                           <h3 className="mb-2 mt-3 text-xl font-bold text-black sm:text-2xl lg:text-xl xl:text-2xl">
-                                                67+
+                                                25+
                                           </h3>
                                           <p className="mb-4 text-base text-black">
-                                          Data Records
+                                          Expert Coaches
                                           </p>
                                     
                                           {/* <Link href="/finances.pdf" target="_blank" rel="noopener noreferrer">
@@ -87,10 +87,10 @@ const SportsBelowHero = () => {
                                     <div className="wow fadeInUp relative mx-auto mb-6 aspect-[25/24] lg:m-0 flex flex-col justify-center items-center text-center" data-wow-delay=".15s">
                                           {/* <IoBookOutline className="w-10 h-8 text-black dark:text-white items-center"/> */}
                                           <h3 className="mb-2 mt-3 text-xl font-bold text-black sm:text-2xl lg:text-xl xl:text-2xl">
-                                          10+
+                                          60+
                                           </h3>
                                           <p className="mb-4 text-base text-black dark:text-gray-300">
-                                          Research Papers
+                                          Registered Players
                                           </p>
                                           {/* <Link href="https://erms.bugemauniv.ac.ug/student/">
                                                 <button className="px-6 py-2 text-white bg-[#e72725] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
@@ -104,10 +104,10 @@ const SportsBelowHero = () => {
                                     <div className="wow fadeInUp relative mx-auto mb-12 aspect-[25/24] lg:m-0 flex flex-col justify-center items-center text-center" data-wow-delay=".15s">
                                           {/* <FaScroll className="w-10 h-8 text-black dark:text-white "/> */}
                                           <h3 className="mb-2 mt-3 text-xl font-bold text-black sm:text-2xl lg:text-xl xl:text-2xl">
-                                          300+
+                                          8+
                                           </h3>
                                           <p className="mb-2 text-base text-black ">
-                                          Partners
+                                          Sponsors
                                           </p>
                                           {/* <Link href="https://unche.or.ug/institution/bugema-university/">
                                                 <button className="px-6 py-2 mt-2 text-white bg-[#234297] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
