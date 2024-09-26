@@ -197,8 +197,9 @@ const why_bugema = () =>{
                               
                               <li>
                               <div className="mr-2 my-5  fade-in-slow  ">
+                              <Link href={'/agriculture'}>
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Agriculture </h1> 
-                                    
+                              </Link>
                               </div>
                               </li>
                               
@@ -269,9 +270,9 @@ const why_bugema = () =>{
                         <ul className='ml-10 my-20'>
                               <li>
                               <div className="mr-2 my-5 ">
-                              
+                              <Link href="/sports/sports">
                               <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Sports </h1> 
-                              
+                              </Link>
                               </div>
                               </li>
                               
