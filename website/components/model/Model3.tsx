@@ -8,6 +8,7 @@ import burundi from "../../public/images/nav/burundi.jpg";
 import bucosa from "../../public/images/nav/bucosa.jpg";
 import palm_girls from "../../public/images/nav/palm-girls.jpg";
 import palm_girls1 from "../../public/images/nav/palm-girls1.jpg";
+import { BiX } from 'react-icons/bi';
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
