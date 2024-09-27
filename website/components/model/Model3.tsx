@@ -1,6 +1,5 @@
 import React, { Children } from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
-import { BiX } from 'react-icons/bi';
 import imagenew from "../../public/images/nav/IMG_9313.jpg";
 import image from "../../public/images/nav/labs.jpg";
 import gate from "../../public/images/nav/gate.jpg";

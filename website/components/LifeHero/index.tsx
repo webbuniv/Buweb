@@ -6,7 +6,8 @@ import LifeHeroVideo from "../LifeHeroVideo/LifeHeroVideo";
 import LifeHeroOverlay from "../LifeHeroOverlay/LifeHeroOverlay";
 
 export const bgImage = "/images/features/life.jpg";
-export const heroVid = "/images/features/life.jpg";
+
+export const heroVid = "https://res.cloudinary.com/duaqiajka/video/upload/STUDENTS_LIFE_vwivdr.mp4";
 
 // Variants for hero content
 const textVariants = {
@@ -54,7 +55,8 @@ const LifeHero = () => {
           title="STUDENT LIFE"
           subtitle=""
           buttonText="Apply Now"
-          buttonLink="/apply-now"
+
+          buttonLink="http://erms.bugemauniv.ac.ug/application"
         />
         
       </section>
@@ -106,7 +108,8 @@ const LifeHero = () => {
                     <FaArrowDownLong className="text-white" />
                   </motion.div>
                   <Link
-                    href="/apply"
+
+                    href="http://erms.bugemauniv.ac.ug/application"
                     className="flex rounded-md bg-primary dark:bg-primary/60 py-2 px-4  text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
                   >
                     Apply Now

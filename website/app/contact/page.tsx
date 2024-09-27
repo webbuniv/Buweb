@@ -4,10 +4,11 @@ import Contact from "@/components/Contact";
 const ContactPage = () => {
   return (
     <>
-      <div className="container mt-[150px]">
+      <div className="container mt-[500px]">
         <Breadcrumb
-          pageName="Contact Us"
-          description=""
+          pageName="Contact Page"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
+
         />
 
         <Contact />

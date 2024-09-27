@@ -29,7 +29,9 @@ const School = () => {
             }
     
             const data = await response.json();
-            const reversedData = data.slice().reverse();
+
+            const reversedData = data.slice(0).reverse();
+
             setAdmin(reversedData);
 
             const vicechancellor = data.filter(vice => vice._id === vc_id );
@@ -39,7 +41,7 @@ const School = () => {
             setError(err.message);
           }
         };
-      
+
         fetchAdmin();
       }, []);
 
@@ -61,7 +63,8 @@ const School = () => {
                                     <Image src={v.image_url} alt="VC" width={400} height={200} className="rounded-lg"/>
 
                                     <h2 className="mb-4 text-center text-dark font-bold  !leading-tight text-black/70 dark:text-white sm:text-4xl">
-                                          {v.name}
+
+                                          Prof.{v.name}
                                     </h2>
                                     <h1 className="mb-4 text-4xl font-bold text-[#FF0000] ">{v.position}</h1>
                               </div>
@@ -80,7 +83,7 @@ const School = () => {
             </div>
 
 
-      {/* B O A R D   M E M B E R S */}
+      {/* L E C T U R E R S */}
 
       <div className="my-10 ml-0  flex grid grid-cols-1  md:grid md:grid-cols-4 gap-1 gap-y-3">
             {error && <p>Error: {error}</p>} 
