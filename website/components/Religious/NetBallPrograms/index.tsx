@@ -4,107 +4,107 @@ import SectionTitle from "../../Common/SectionTitle";
 import Link from "next/link";
 const newsData = [
   {
-    category: "",
+    category: ".....",
     title:
-      "Bugema University sports play a vital role in student life",
+      "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/life/football/footd.jpg",
+    imageSrc: "/images/life/netball/neta.jpeg",
     altText: "Image related to depression biotypes",
   },
   {
-    category: "",
-    title: "Bugema University sports play a vital role in student life",
+    category: "......",
+    title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/life/football/foota.jpg",
+    imageSrc: "/images/life/netball/neta.jpeg",
     altText: "Image related to advertising study",
   },
   {
-    category: "",
-    title: "Bugema University sports play a vital role in student life",
+    category: "...................",
+    title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/life/football/footb.jpg",
+    imageSrc: "/images/life/netball/neta.jpeg",
     altText: "Image related to epilepsy study",
   },
   {
-    category: "",
-    title: "Bugema University sports play a vital role in student life",
+    category: "..................",
+    title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/netball/neta.jpeg",
     altText: "Commencement 2024 highlights",
   },
 ];
 
 const secondData = [
   {
-    category: "",
+    category: ".....",
     title:
-      "Bugema University sports play a vital role in student life",
+      "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/life/football/foote.jpg",
+    imageSrc: "/images/life/netball/neta.jpeg",
     altText: "Image related to depression biotypes",
   },
   {
-    category: "",
-    title: "Bugema University sports play a vital role in student life",
+    category: "......",
+    title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/netball/netb.jpeg",
     altText: "Image related to advertising study",
   },
   {
-    category: "",
-    title: "Bugema University sports play a vital role in student life",
+    category: "...............",
+    title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/netball/netc.jpeg",
     altText: "Image related to epilepsy study",
   },
   {
-    category: "",
-    title: "Bugema University sports play a vital role in student life",
+    category: "................",
+    title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/netball/netd.jpeg",
     altText: "Commencement 2024 highlights",
   },
 ];
 const thirdData = [
   {
-    category: "",
+    category: ".....",
     title:
-      "Bugema University sports play a vital role in student life",
+      "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/netball/nete.jpeg",
     altText: "Image related to depression biotypes",
   },
   {
-    category: "",
-    title: "Bugema University sports play a vital role in student life",
+    category: "......",
+    title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/netball/neta.jpeg",
     altText: "Image related to advertising study",
   },
   {
-    category: "",
-    title: "Bugema University sports play a vital role in student life",
+    category: "...............",
+    title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/netball/neta.jpeg",
     altText: "Image related to epilepsy study",
   },
   {
-    category: "",
-    title: "Bugema University sports play a vital role in student life",
+    category: "................",
+    title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/netball/neta.jpeg",
     altText: "Commencement 2024 highlights",
   },
 ];
 
-const FootBallPrograms: React.FC = () => {
+const NetBallPrograms: React.FC = () => {
   return (
     <section className="px-8">
       <div className="">
         <div className="hidden md:block lg:mt-10">
           <SectionTitle
-            title="FootBall At Bugema University"
-            paragraph="Bugema University offers a range of opportunities for students passionate about football. The university not only focuses on nurturing talent through its well-established football teams but also encourages joint research collaborations related to sports science, performance analytics, and athlete development. These collaborations provide students and faculty members the chance to explore innovative approaches to football training, injury prevention, and team dynamics, contributing to the broader understanding of the sport and enhancing player performance both on and off the field."
+            title="Netball Collaborations"
+            paragraph="Bugema University fosters the development of netball through various collaborative efforts. The university engages with local and international sports organizations, offering events, training programs, and joint research initiatives focused on enhancing netball performance and sportsmanship. These collaborations provide valuable learning opportunities and contribute to the growth of netball within the university and beyond."
             center
             mb="50px"
           />
@@ -215,4 +215,4 @@ const FootBallPrograms: React.FC = () => {
   );
 };
 
-export default FootBallPrograms;
+export default NetBallPrograms;
