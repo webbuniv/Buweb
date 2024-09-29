@@ -263,7 +263,9 @@ const Foot = () =>{
                               <li>
 
                               <div className="mr-2 my-5 fade-in-slow  ">
+                              <Link href={'/religious/religious'}>
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Religious Matters</h1> 
+                              </Link>
                                  </div>   
                               <div className="mr-2 my-5 slider slide--slow ">
                                     <Link href={'/news'}>

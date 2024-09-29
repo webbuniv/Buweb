@@ -20,7 +20,7 @@ const SportsBelow: React.FC = () => {
             Football
             </h2>
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
-            The most effective way to manage plant disease is by prevention. Know exactly where, what and when to spray, even down to the best time of day. Save costs on chemicals and spraying while you maximize protection.
+            Football at Bugema University is more than just a sport; its a tradition that brings together students, staff, and the community. Our teams have consistently performed at top levels in both national and regional competitions. With state-of-the-art facilities and experienced coaches, we foster talent and teamwork on and off the field. Football here promotes physical fitness, leadership, and a sense of unity among players and fans alike.
             </p>
             <Link href='/sports/football'>
               <button
@@ -92,7 +92,7 @@ const SportsBelow: React.FC = () => {
             BasketBall
             </h2>
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
-            The system calculates a dynamic, daily infection risk that takes into account conditions for fungal growth, plant growth, crop type, and previous crop protection applications. The system also recommends the day and time to minimize environmental loss.
+            Basketball at Bugema University offers students a chance to develop their skills in a highly competitive environment. Our basketball team is known for its agility, teamwork, and consistent performance in inter-university tournaments. With a focus on both mental and physical development, we provide the facilities and coaching necessary to excel on the court while promoting discipline and sportsmanship.
             </p>
             <Link href='/sports/basketball'>
             <button
@@ -119,7 +119,7 @@ const SportsBelow: React.FC = () => {
             NetBall
             </h2>
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
-            The most effective way to manage plant disease is by prevention. Know exactly where, what and when to spray, even down to the best time of day. Save costs on chemicals and spraying while you maximize protection.
+            Bugema Universitys Netball team showcases strong leadership, teamwork, and strategic play. Our team participates in various regional and national competitions, continually striving for excellence. With dedicated training sessions, modern facilities, and experienced coaching staff, our players are equipped to excel both on and off the court.
             </p>
             <Link href='/sports/netball'>
             <button
@@ -189,7 +189,7 @@ const SportsBelow: React.FC = () => {
             TableTenis
             </h2>
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
-            The system calculates a dynamic, daily infection risk that takes into account conditions for fungal growth, plant growth, crop type, and previous crop protection applications. The system also recommends the day and time to minimize environmental loss.
+            Bugema University provides an excellent platform for Table Tennis enthusiasts to refine their skills. With state-of-the-art facilities and regular tournaments, our players have the opportunity to compete at the highest level. The focus is on both physical and mental agility, fostering a spirit of sportsmanship and excellence.
             </p>
             <Link href='/sports/tabletenis'>
             <button
@@ -216,7 +216,7 @@ const SportsBelow: React.FC = () => {
             Volleyball
             </h2>
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
-            The most effective way to manage plant disease is by prevention. Know exactly where, what and when to spray, even down to the best time of day. Save costs on chemicals and spraying while you maximize protection.
+            Volleyball at Bugema University is more than just a sport—it’s a community. Our teams engage in regular training and competitive matches, fostering teamwork, resilience, and excellence. With modern facilities and dedicated coaches, students have the opportunity to excel both on and off the court.
             </p>
             <Link href='/sports/volleyball'>
             <button
@@ -287,7 +287,7 @@ const SportsBelow: React.FC = () => {
             Woodball
             </h2>
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
-            The system calculates a dynamic, daily infection risk that takes into account conditions for fungal growth, plant growth, crop type, and previous crop protection applications. The system also recommends the day and time to minimize environmental loss.
+            Woodball is a unique sport at Bugema University, offering students the chance to develop precision, focus, and strategy. Our dedicated facilities and experienced coaches ensure that both beginners and seasoned players thrive. With regular tournaments, Woodball fosters camaraderie and a competitive spirit among our students.
             </p>
             <Link href='/sports/woodball'>
             <button
