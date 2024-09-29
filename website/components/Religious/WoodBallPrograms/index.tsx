@@ -4,107 +4,107 @@ import SectionTitle from "../../Common/SectionTitle";
 import Link from "next/link";
 const newsData = [
   {
-    category: "",
+    category: ".....",
     title:
-      "Bugema University sports play a vital role in student life",
+      "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/life/football/footd.jpg",
+    imageSrc: "/images/life/Woodball/wooda.jpg",
     altText: "Image related to depression biotypes",
   },
   {
-    category: "",
-    title: "Bugema University sports play a vital role in student life",
+    category: "......",
+    title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/life/football/foota.jpg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Image related to advertising study",
   },
   {
-    category: "",
-    title: "Bugema University sports play a vital role in student life",
+    category: "...................",
+    title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/life/football/footb.jpg",
+    imageSrc: "/images/life/Woodball/woodc.jpg",
     altText: "Image related to epilepsy study",
   },
   {
-    category: "",
-    title: "Bugema University sports play a vital role in student life",
+    category: "..................",
+    title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/Woodball/woodd.jpg",
     altText: "Commencement 2024 highlights",
   },
 ];
 
 const secondData = [
   {
-    category: "",
+    category: ".....",
     title:
-      "Bugema University sports play a vital role in student life",
+      "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/life/football/foote.jpg",
+    imageSrc: "/images/life/Woodball/woode.jpg",
     altText: "Image related to depression biotypes",
   },
   {
-    category: "",
-    title: "Bugema University sports play a vital role in student life",
+    category: "......",
+    title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/Woodball/woodd.jpg",
     altText: "Image related to advertising study",
   },
   {
-    category: "",
-    title: "Bugema University sports play a vital role in student life",
+    category: "...............",
+    title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/Woodball/woodd.jpg",
     altText: "Image related to epilepsy study",
   },
   {
-    category: "",
-    title: "Bugema University sports play a vital role in student life",
+    category: "................",
+    title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/Woodball/woodd.jpg",
     altText: "Commencement 2024 highlights",
   },
 ];
 const thirdData = [
   {
-    category: "",
+    category: ".....",
     title:
-      "Bugema University sports play a vital role in student life",
+      "Bugema University sports play a vital role in student life ............",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Image related to depression biotypes",
   },
   {
-    category: "",
-    title: "Bugema University sports play a vital role in student life",
+    category: "......",
+    title: "Why advertisers pay more to reach viewers who watch less",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Image related to advertising study",
   },
   {
-    category: "",
-    title: "Bugema University sports play a vital role in student life",
+    category: "...............",
+    title: "Study finds high blood pressure drug may prevent epilepsy",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Image related to epilepsy study",
   },
   {
-    category: "",
-    title: "Bugema University sports play a vital role in student life",
+    category: "................",
+    title: "Congratulations, graduates!",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/Woodball/woodb.jpg",
     altText: "Commencement 2024 highlights",
   },
 ];
 
-const FootBallPrograms: React.FC = () => {
+const WoodBallPrograms: React.FC = () => {
   return (
     <section className="px-8">
       <div className="">
         <div className="hidden md:block lg:mt-10">
           <SectionTitle
-            title="FootBall At Bugema University"
-            paragraph="Bugema University offers a range of opportunities for students passionate about football. The university not only focuses on nurturing talent through its well-established football teams but also encourages joint research collaborations related to sports science, performance analytics, and athlete development. These collaborations provide students and faculty members the chance to explore innovative approaches to football training, injury prevention, and team dynamics, contributing to the broader understanding of the sport and enhancing player performance both on and off the field."
+            title="Wood Ball Collaborations"
+            paragraph="Wood Ball collaborates with the global community through tournaments, events, training programs, and joint efforts to promote the sport worldwide."
             center
             mb="50px"
           />
@@ -215,4 +215,4 @@ const FootBallPrograms: React.FC = () => {
   );
 };
 
-export default FootBallPrograms;
+export default WoodBallPrograms;
