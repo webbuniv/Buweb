@@ -145,10 +145,9 @@ const Header = () => {
                 href="/"
                 className={`header-logo block w-full ${
 
-                  sticky ? "py-2 lg:py-2" : "py-3"
+                  sticky ? "py-2 lg:py-2" : "hidden py-3"
                 }`}
-              >
-                {/* 
+              > 
                 <Image
                   src={image}
                   alt="logo"
@@ -162,7 +161,7 @@ const Header = () => {
                   width={100}
                   height={20}
                   className="hidden w-full dark:block"
-                /> */}
+                /> 
               </Link>
             </div> 
             <div className="flex space-x-20 justify-between transform bg-white">
