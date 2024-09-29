@@ -4,7 +4,7 @@ import { subscribeToNewsletter } from "@/lib/requests";
 import { toast } from "sonner";
 import Brands from "../Brands";
 import Image from "next/image";
-import life from '@/public/images/features/life2.jpg';
+import life from '@/public/images/features/life.jpg';
 
 const NewsLatterBox: React.FC = () => {
   const [email, setEmail] = useState("");
