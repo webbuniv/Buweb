@@ -9,7 +9,6 @@ import life from '@/public/images/features/life.jpg';
 const NewsLatterBox: React.FC = () => {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("");
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("");
