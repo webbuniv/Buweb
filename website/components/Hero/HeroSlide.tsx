@@ -12,7 +12,7 @@ const HeroSlide = ({ media }) => {
             <source src={media.src} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <HeroOverlay
+          {/* <HeroOverlay
             title="BUGEMA UNIVERSITY"
             title2="Service."
             title3="Where Head, Heart and Hands unite in"
@@ -22,7 +22,7 @@ const HeroSlide = ({ media }) => {
             buttonText="Apply Now"
 
             buttonLink="http://erms.bugemauniv.ac.ug/application"
-          />
+          /> */}
         </div>
       ) : (
         <>
