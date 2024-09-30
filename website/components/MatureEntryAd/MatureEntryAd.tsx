@@ -23,7 +23,6 @@ export default function MatureEntryAd() {
 
   return (
     <div className="fixed bottom-8 left-8 z-[99]">
-      {isVisible && (
 
         <div
           onClick={() => setIsPopupVisible(!isPopupVisible)}
@@ -32,22 +31,7 @@ export default function MatureEntryAd() {
         >
           <span className="text-white">Calender</span>
 
-          <MaturePopup trigger={isPopupVisible} setTrigger={setIsPopupVisible}>
-            <div className="text-black">
-              <h2 className="mb-2 text-blue-600">We are hiring !!</h2>
-              <p>
-                Looking for a job at Bugema University? Checkout out latest job listings{" "}
-                <span>
-                  <Link href="/Detailed_Advert_BU_2024.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">here</Link>
-                </span>
-                , and apply accordingly or if you have any questions, please do not hesitate to
-                contact us for more clarification.
-              </p>
-            </div>
-          </MaturePopup>
-
         </div>
-      )}
     </div>
   );
 }
