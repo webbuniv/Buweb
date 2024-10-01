@@ -12,7 +12,7 @@ import { useState,useEffect } from "react";
 import Link from "next/link";
 
 
-const SportsBelowHero = () => {
+const ReligiousBelowHero = () => {
 
       const [animate, setAnimate] = useState(false);
 
@@ -124,4 +124,4 @@ const SportsBelowHero = () => {
   );
 };
 
-export default SportsBelowHero;
+export default ReligiousBelowHero;

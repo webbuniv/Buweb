@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 export const heroMedia = [
   // { type: 'video', src: "https://res.cloudinary.com/duaqiajka/video/upload/v1719686933/WELCOME_VIDEO_og2jma.mp4" },
-  { type: 'image', src: "/images/life/basketball/baska.jpg" },
+  { type: 'image', src: "/images/vc/chancellor_banner.jpg" },
 
   { type: 'image', src: "/images/life/football/foota.jpg" },
   { type: 'image', src: "/images/life/netball/netb.jpeg" },
