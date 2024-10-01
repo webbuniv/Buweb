@@ -250,14 +250,20 @@ const why_bugema = () =>{
                               </div>
                               <div className="ml-19 mr-5 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
                                     <div className='columns-1 bg-black  change-on-hover '>
+                                          <Link href='https://apply.bugemauniv.ac.ug'>
+                                    
                                     <h1  style={{fontSize: '19px',cursor:"pointer",height:"50px"}} className='new-arr change-on-hover2'>Apply here  <FaArrowRight className='new-arr'/></h1>
+                                    </Link>
                                     </div>
                               </div> 
                         
                               <div className="ml-24 -mr-3 my-2 transform text-white grid-rows-2 " style={{borderRadius:'9px',}} >
                                     <div className='columns-1 bg-black  change-on-hover'>
+                                    <a href="tel:+256-312-351-400" className="nav-link p-0 text-body-secondary">
                                     <h1  style={{fontSize: '19px',cursor:"pointer",height:"50px"}} className='new-arr change-on-hover2'> Talk to Us <BiPhoneCall className='new-arr'/></h1>
+                                    </a>
                                     </div>
+                                    
                               </div>
                               <Link href='https://erms.bugemauniv.ac.ug/student/'>
                               <h1  style={{fontSize: '19px',cursor:"pointer",height:"50px"}} className='new-arr change-on-hover2 text-black'> ERMS-students  <FaArrowRight className='new-arr'/></h1>
