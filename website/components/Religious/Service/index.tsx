@@ -6,31 +6,31 @@ const newsData = [
   {
     category: "",
     title:
-      "Bugema University sports play a vital role in student life",
+      "",
     link: "#",
-    imageSrc: "/images/life/football/footd.jpg",
-    altText: "Image related to depression biotypes",
+    imageSrc: "/images/church/pre.jpeg",
+    altText: "",
   },
   {
     category: "",
-    title: "Bugema University sports play a vital role in student life",
+    title: "",
     link: "#",
-    imageSrc: "/images/life/football/foota.jpg",
-    altText: "Image related to advertising study",
+    imageSrc: "/images/church/preee.jpeg",
+    altText: "",
   },
   {
     category: "",
-    title: "Bugema University sports play a vital role in student life",
+    title: "",
     link: "#",
-    imageSrc: "/images/life/football/footb.jpg",
-    altText: "Image related to epilepsy study",
+    imageSrc: "/images/church/prere.jpeg",
+    altText: "",
   },
   {
     category: "",
-    title: "Bugema University sports play a vital role in student life",
+    title: "",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
-    altText: "Commencement 2024 highlights",
+    imageSrc: "/images/church/prree.jpeg",
+    altText: "",
   },
 ];
 
@@ -38,31 +38,31 @@ const secondData = [
   {
     category: "",
     title:
-      "Bugema University sports play a vital role in student life",
+      "",
     link: "#",
-    imageSrc: "/images/life/football/foote.jpg",
-    altText: "Image related to depression biotypes",
+    imageSrc: "/images/church/sig.jpeg",
+    altText: "",
   },
   {
     category: "",
-    title: "Bugema University sports play a vital role in student life",
+    title: "",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
-    altText: "Image related to advertising study",
+    imageSrc: "/images/church/siggn.jpeg",
+    altText: "",
   },
   {
     category: "",
-    title: "Bugema University sports play a vital role in student life",
+    title: "",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
-    altText: "Image related to epilepsy study",
+    imageSrc: "/images/church/prrer.jpeg",
+    altText: "",
   },
   {
     category: "",
-    title: "Bugema University sports play a vital role in student life",
+    title: "",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
-    altText: "Commencement 2024 highlights",
+    imageSrc: "/images/church/preee.jpeg",
+    altText: "",
   },
 ];
 const thirdData = [
@@ -97,13 +97,13 @@ const thirdData = [
   },
 ];
 
-const FootBallPrograms: React.FC = () => {
+const ServicePrograms: React.FC = () => {
   return (
     <section className="px-8">
       <div className="">
         <div className="hidden md:block lg:mt-10">
           <SectionTitle
-            title="FootBall At Bugema University"
+            title="Bugema University service programe"
             paragraph="Bugema University offers a range of opportunities for students passionate about football. The university not only focuses on nurturing talent through its well-established football teams but also encourages joint research collaborations related to sports science, performance analytics, and athlete development. These collaborations provide students and faculty members the chance to explore innovative approaches to football training, injury prevention, and team dynamics, contributing to the broader understanding of the sport and enhancing player performance both on and off the field."
             center
             mb="50px"
@@ -117,10 +117,10 @@ const FootBallPrograms: React.FC = () => {
             data-wow-delay=".1s"
           >
             <h2 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px] mt-10">
-              Agriculture
+              
             </h2>
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
-              At Bugema University, Agriculture goes beyond the classroom.
+              
             </p>
           </div>
         </div>
@@ -178,33 +178,6 @@ const FootBallPrograms: React.FC = () => {
             </article>
           ))}
         </div>
-        <div className="grid lg:mt-10 lg:mb-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {thirdData.map((news, index) => (
-            <article
-              key={index}
-              className="bg-white shadow-md rounded-lg overflow-hidden hover:bg-blue-50 hover:text-blue-900 hover:shadow-lg transition duration-500 cursor-pointer"
-            >
-              <div className="h-48 overflow-hidden">
-                <a href={news.link} aria-hidden="true" tabIndex={-1}>
-                  <Image
-                    src={news.imageSrc}
-                    alt={news.altText}
-                    height={350}
-                    width={350}
-                  />
-                </a>
-              </div>
-              <div className="p-4">
-                <div className="text-sm text-gray-500 mb-2">
-                  {news.category}
-                </div>
-                <h3 className="text-lg text-black font-semibold">
-                  <a href={news.link}>{news.title}</a>
-                </h3>
-              </div>
-            </article>
-          ))}
-        </div>
         {/* <div className="text-center mt-8">
           <Link href="/studentlife" className="text-blue-500 font-bold">
             More About Students Life
@@ -215,4 +188,4 @@ const FootBallPrograms: React.FC = () => {
   );
 };
 
-export default FootBallPrograms;
+export default ServicePrograms;

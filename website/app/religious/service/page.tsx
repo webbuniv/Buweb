@@ -1,13 +1,13 @@
 import Image from 'next/image'
-import FootBallPrograms from '@/components/Sports/FootBallPrograms';
+import ServicePrograms from '@/components/Religious/Service';
 
-const FootBallPage = () => {
+const SportPage = () => {
   return (
       // <section className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row">
       <>
       <div 
         className="max-container lg:h-[600px] h-[300px] -my-4 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/images/life/football/footc.jpg)' }}
+        style={{ backgroundImage: 'url(/images/church/prprpr.jpeg)' }}
       >
         <div className="container mx-auto ">
           <div className="flex flex-wrap text-center justify-center al -mx-6 gap-2 lg:gap-6 ">
@@ -18,10 +18,10 @@ const FootBallPage = () => {
           </div>
         </div>
       </div>
-        <FootBallPrograms />
+        <ServicePrograms/>
 </>
 
   )
 }
 
-export default FootBallPage
+export default SportPage
