@@ -109,7 +109,7 @@ const ReligiousBelow: React.FC = () => {
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
             Basketball at Bugema University offers students a chance to develop their skills in a highly competitive environment. Our basketball team is known for its agility, teamwork, and consistent performance in inter-university tournaments. With a focus on both mental and physical development, we provide the facilities and coaching necessary to excel on the court while promoting discipline and sportsmanship.
             </p>
-            <Link href='/sports/basketball'>
+            <Link href='/religious/choir'>
             <button
             type="button"
             className="bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
