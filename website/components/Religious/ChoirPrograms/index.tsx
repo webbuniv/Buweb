@@ -4,65 +4,65 @@ import SectionTitle from "../../Common/SectionTitle";
 import Link from "next/link";
 const newsData = [
   {
-    category: ".....",
+    category: "",
     title:
-      "Bugema University sports play a vital role in student life ............",
+      "",
     link: "#",
-    imageSrc: "/images/life/basketball/baska.jpg",
-    altText: "Image related to depression biotypes",
+    imageSrc: "/images/church/pr.jpeg",
+    altText: "",
   },
   {
-    category: "......",
-    title: "Why advertisers pay more to reach viewers who watch less",
+    category: "",
+    title: "",
     link: "#",
-    imageSrc: "/images/life/basketball/baskb.jpg",
-    altText: "Image related to advertising study",
+    imageSrc: "/images/church/cchoi.jpeg",
+    altText: "",
   },
   {
-    category: "...................",
-    title: "Study finds high blood pressure drug may prevent epilepsy",
+    category: "",
+    title: "",
     link: "#",
-    imageSrc: "/images/life/basketball/baskc.jpg",
-    altText: "Image related to epilepsy study",
+    imageSrc: "/images/church/sig.jpeg",
+    altText: "",
   },
   {
-    category: "..................",
-    title: "Congratulations, graduates!",
+    category: "",
+    title: "",
     link: "#",
-    imageSrc: "/images/life/basketball/baskd.jpg",
-    altText: "Commencement 2024 highlights",
+    imageSrc: "/images/church/choo.jpeg",
+    altText: "",
   },
 ];
 
 const secondData = [
   {
-    category: ".....",
+    category: "",
     title:
-      "Bugema University sports play a vital role in student life ............",
+      "",
     link: "#",
-    imageSrc: "/images/life/basketball/baske.jpg",
-    altText: "Image related to depression biotypes",
+    imageSrc: "/images/church/choi.jpeg",
+    altText: "",
   },
   {
-    category: "......",
-    title: "Why advertisers pay more to reach viewers who watch less",
+    category: "",
+    title: "",
     link: "#",
-    imageSrc: "/images/life/basketball/baskf.jpg",
-    altText: "Image related to advertising study",
+    imageSrc: "/images/church/choir.jpeg",
+    altText: "",
   },
   {
-    category: "...............",
-    title: "Study finds high blood pressure drug may prevent epilepsy",
+    category: "",
+    title: "",
     link: "#",
-    imageSrc: "/images/life/basketball/baska.jpg",
-    altText: "Image related to epilepsy study",
+    imageSrc: "/images/church/cchoi.jpeg",
+    altText: "",
   },
   {
-    category: "................",
-    title: "Congratulations, graduates!",
+    category: "",
+    title: "",
     link: "#",
-    imageSrc: "/images/life/basketball/baska.jpg",
-    altText: "Commencement 2024 highlights",
+    imageSrc: "/images/church/siggn.jpeg",
+    altText: "",
   },
 ];
 const thirdData = [
@@ -103,8 +103,8 @@ const ChoirPrograms: React.FC = () => {
       <div className="">
         <div className="hidden md:block lg:mt-10">
           <SectionTitle
-            title="Bugema University"
-            paragraph="Bugema University "
+            title="Bugema University "
+            paragraph=" Bugema University's choir is a vibrant part of our religious community, offering students the chance to express their faith through music. With a diverse repertoire of traditional hymns, contemporary worship songs, and gospel music, the choir plays a central role in our church services and special events. Joining the choir provides students with opportunities for spiritual growth, fellowship, and the development of musical talents, all while contributing to the enriching worship experience at the university. The choir is open to all students passionate about praising through music."
             center
             mb="50px"
           />
@@ -178,7 +178,7 @@ const ChoirPrograms: React.FC = () => {
             </article>
           ))}
         </div>
-        <div className="grid lg:mt-10 lg:mb-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* <div className="grid lg:mt-10 lg:mb-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {thirdData.map((news, index) => (
             <article
               key={index}
@@ -204,7 +204,7 @@ const ChoirPrograms: React.FC = () => {
               </div>
             </article>
           ))}
-        </div>
+        </div> */}
         {/* <div className="text-center mt-8">
           <Link href="/studentlife" className="text-blue-500 font-bold">
             More About Students Life

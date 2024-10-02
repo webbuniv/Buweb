@@ -107,7 +107,7 @@ const ReligiousBelow: React.FC = () => {
             Our Choir
             </h2>
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
-            Basketball at Bugema University offers students a chance to develop their skills in a highly competitive environment. Our basketball team is known for its agility, teamwork, and consistent performance in inter-university tournaments. With a focus on both mental and physical development, we provide the facilities and coaching necessary to excel on the court while promoting discipline and sportsmanship.
+            Bugema Universitys choir is a vibrant part of our religious community, offering students the chance to express their faith through music. With a diverse repertoire of traditional hymns, contemporary worship songs, and gospel music, the choir plays a central role in our church services and 
             </p>
             <Link href='/religious/choir'>
             <button
@@ -134,9 +134,9 @@ const ReligiousBelow: React.FC = () => {
             Prayers
             </h2>
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
-            Bugema Universitys Netball team showcases strong leadership, teamwork, and strategic play. Our team participates in various regional and national competitions, continually striving for excellence. With dedicated training sessions, modern facilities, and experienced coaching staff, our players are equipped to excel both on and off the court.
+            Bugema University places a strong emphasis on the power of prayer as a cornerstone of spiritual life. The university organizes regular prayer sessions, including morning devotionals, weekly prayer meetings, and special prayer retreats, providing a space for students and faculty to seek guidance, reflect on their faith, and 
             </p>
-            <Link href='/sports/netball'>
+            <Link href='/religious/prayer'>
             <button
             type="button"
             className="bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
