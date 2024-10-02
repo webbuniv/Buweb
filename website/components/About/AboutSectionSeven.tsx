@@ -5,7 +5,7 @@ import { StarIcon } from '@heroicons/react/solid';
 import { EyeIcon } from '@heroicons/react/solid';
 import image from "../../public/images/features/bu.jpg";
 import learning from "../../public/images/schools/lab1.jpg";
-import worship from "../../public/images/schools/theology.jpg";
+import worship from "../../public/images/church/prr.jpeg";
 import React, { useState, useEffect, useRef } from 'react';
 import Link from "next/link"
 
