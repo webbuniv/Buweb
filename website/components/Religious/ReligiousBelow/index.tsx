@@ -31,13 +31,7 @@ const ReligiousBelow: React.FC = () => {
             Our Services
           </h2>
           <p className="text-base !leading-relaxed text-body-color md:text-lg">
-            Football at Bugema University is more than just a sport; it’s a
-            tradition that brings together students, staff, and the community.
-            Our teams have consistently performed at top levels in both national
-            and regional competitions. With state-of-the-art facilities and
-            experienced coaches, we foster talent and teamwork on and off the
-            field. Football here promotes physical fitness, leadership, and a
-            sense of unity among players and fans alike.
+          Bugema University is deeply committed to fostering spiritual growth and community involvement through its church service programs. These services offer students and faculty members the opportunity to participate in meaningful worship experiences, Bible study groups, and outreach activities. 
           </p>
           <Link href="/religious/service">
             <button
