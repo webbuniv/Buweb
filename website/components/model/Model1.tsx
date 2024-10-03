@@ -1,7 +1,7 @@
 import React, { Children } from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
 import football from "../../public/images/nav/sports/football.jpg";
-import image from "../../public/images/nav/labs.jpg";
+import image from "../../public/images/nav/culturee.jpg";
 import nurses from "../../public/images/nav/nurses.jpg";
 import nurses1 from "../../public/images/nav/nurses1.jpg";
 import burundi from "../../public/images/nav/burundi.jpg";
@@ -14,6 +14,7 @@ import basket from "../../public/images/nav/sports/basket.jpg";
 import netball from "../../public/images/nav/sports/netball.jpg";
 import woodball from "../../public/images/nav/sports/woodball.jpg";
 import Image from "next/image";
+import { BiX } from 'react-icons/bi';
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
@@ -164,9 +165,31 @@ const Foot = () =>{
       <>
         
 
-            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden bg-white" id="wrapper" onMouseLeave={onClose}>                  
+            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex w-full h-4/5 my-16 border border-black overflow-auto overflow-x-hidden bg-white" id="wrapper" >                  
                      
                   <div id="programs">
+
+                        <div className='flex '>
+                              <button 
+                                    style={{
+                                    borderRadius: '50%',
+                                    width: '30px',
+                                    height: '30px',
+                                    backgroundColor: 'black',
+                                    borderColor:'black',
+                                    color: 'white',
+                                    fontSize: '20px',
+                                    textAlign: 'center',
+                                    lineHeight: '30px',
+                                    position: 'absolute',
+                                    right: '70px',
+                                    top: '20px',
+                                    }}
+                                    onClick={onClose}>
+                                    <span className="text-white text-xl"><BiX className='text-3xl'/></span>
+                              </button>
+
+                        </div> 
 
                         <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'25%'}}> 
                               <div className="mr-2 my-5 slider slide--fast">
@@ -222,7 +245,7 @@ const Foot = () =>{
                   
                   </div>
                   {/*###=============== A  C  C  O  M  M  O  D  A  T  I  O  N ================###*/}
-                  <div className=" ml-12 my-24 fade-in-slow " id='courses' style={{marginTop:'15%'}}> 
+                  <div className=" ml-12 my-16 fade-in-slow h-[70%] w-[30%] " id='courses' style={{marginTop:'15%'}}> 
                         <ul>
                               <li>
                               <div className="mr-2 my-5  ">
@@ -241,21 +264,21 @@ const Foot = () =>{
                               </li>
                               <li>
                               <div className="mr-2 my-5 fade-in-slow  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Exhibition </h1> 
+                                    {/* <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Exhibition </h1>  */}
                                     
                               </div>
                               </li>
                               
                               <li>
                               <div className="mr-2 my-5 fade-in-slow  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Entreprenuership </h1>
+                                    {/* <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Entreprenuership </h1> */}
                                     
                               </div>
                               </li>
                               
                               <li>
                               <div className="mr-2 my-5 fade-in-slow ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Innovations and Inventions</h1> 
+                                    {/* <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Innovations and Inventions</h1>  */}
                                     
                               </div>
                               </li>
@@ -269,7 +292,7 @@ const Foot = () =>{
                                  </div>   
                               <div className="mr-2 my-5 slider slide--slow ">
                                     <Link href={'/news'}>
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Events</h1>
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>News</h1>
                                     </Link>
                               </div>
                               </li>
@@ -277,13 +300,10 @@ const Foot = () =>{
                               <li>
 
 
-                              <div className="mr-2 my-5 fade-in-slow  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> News</h1> 
-                                    </div>
                               <div className="mr-2 my-5 slider slide--fast ">
                                      
                                     <Link href={'/events'}>
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> News</h1>
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Events</h1>
                                     </Link>
 
                               </div>
@@ -449,24 +469,7 @@ const Foot = () =>{
 
                   {/* SCIENCE AND TECHNOLOGY COURSES */}
                   <div className='ml-10  my-24 transform -skew-x-12'  id='IT'>
-                        {/* <div className="mr-2 my-5  ">
-                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Certificate in Information Technology</h1> 
-                        </div>
-                        <div className="mr-2 my-5  ">
-                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Bachelor of Science in Software Engineering</h1> 
-                        </div>
-                        <div className="mr-2 my-5  ">
-                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Bachelor of Science in Network Systems<br/> Administration</h1> 
-                        </div>
-                        <div className="mr-2 my-5  ">
-                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Bachelor of Science in Computer Engineering</h1> 
-                        </div>
-                        <div className="mr-2 my-5  ">
-                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Diploma in Computer Forensics</h1> 
-                        </div>
-                        <div className="mr-2 my-5  ">
-                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Diploma in Information technology</h1> 
-                        </div>*/}
+
 
 
 

@@ -71,28 +71,28 @@ const thirdData = [
     title:
       "Bugema University sports play a vital role in student life",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/football/footi.jpg",
     altText: "Image related to depression biotypes",
   },
   {
     category: "",
     title: "Bugema University sports play a vital role in student life",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/football/footf.jpg",
     altText: "Image related to advertising study",
   },
   {
     category: "",
     title: "Bugema University sports play a vital role in student life",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/football/footg.jpg",
     altText: "Image related to epilepsy study",
   },
   {
     category: "",
     title: "Bugema University sports play a vital role in student life",
     link: "#",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/football/footh.jpg",
     altText: "Commencement 2024 highlights",
   },
 ];

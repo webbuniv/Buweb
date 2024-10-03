@@ -9,7 +9,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export const heroMedia = [
-  // { type: 'video', src: "https://res.cloudinary.com/duaqiajka/video/upload/v1719686933/WELCOME_VIDEO_og2jma.mp4" },
   { type: 'image', src: "/images/life/basketball/baska.jpg" },
 
   { type: 'image', src: "/images/life/football/foota.jpg" },
@@ -40,7 +39,7 @@ const sliderSettings = {
 const Sport = () => {
   return (
     <>
-      <section id="home" className="container hidden md:block hero-section w-full lg:h-[800px] h-[700px] relative z-10 mb-[100px]">
+      <section id="home" className="hidden md:block hero-section w-full lg:h-[800px] h-[700px] relative z-10 mb-[100px]">
         <Slider {...sliderSettings}>
           {heroMedia.map((media, index) => (
             <HeroSlide key={index} media={media} />
