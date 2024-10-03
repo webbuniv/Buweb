@@ -19,7 +19,7 @@ const HeroOverlay = ({
 
         <p className="text-2xl mt-5">{subtitle}</p>
 
-        <Link
+        {/* <Link
           href={buttonLink}
           className="button w-fit border-white animate-bounce bg-dark border-2 px-4 py-1 border-r-2 rounded hover:scale-105 transition-all duration-500"
         >
@@ -27,17 +27,17 @@ const HeroOverlay = ({
             {buttonText}
             <FaArrowDown />
           </span>
-        </Link>
+        </Link> */}
       </div>
 
-      <div className="hero-overlay2 hidden lg:flex lg:flex-col">
+      <div className="hero-overlay2 bg-gradient-to-r from-blue-900 opacity-100 hidden lg:flex lg:flex-col">
         <div className="flex-1">
-          <h1 className="text-start sm:text-6xl text-4xl font-medium mb-0">
+          <h1 className="text-start sm:text-6xl text-4xl md:font-bold mb-0">
             {title3}
           </h1>
         </div>
         <div className="flex-1">
-          <h1 className=" text-start text-6xl font-medium mb-0">
+          <h1 className=" text-start text-6xl md:font-bold mb-0">
             {title2}
           </h1>
         </div>

@@ -9,13 +9,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export const heroMedia = [
-  // { type: 'video', src: "https://res.cloudinary.com/duaqiajka/video/upload/v1719686933/WELCOME_VIDEO_og2jma.mp4" },
-  { type: 'image', src: "/images/life/basketball/baska.jpg" },
+  { type: 'image', src: "/images/church/lad.jpeg" },
 
-  { type: 'image', src: "/images/life/football/foota.jpg" },
-  { type: 'image', src: "/images/life/netball/netb.jpeg" },
-  { type: 'image', src: "/images/life/Woodball/woodc.jpg" },
-  { type: 'image', src: "/images/life/sport.jpg" }
+  { type: 'image', src: "/images/church/choi.jpeg" },
+  { type: 'image', src: "/images/church/cchoi.jpeg" },
+  { type: 'image', src: "/images/church/chhc.jpeg" },
+  { type: 'image', src: "/images/church/prree.jpeg" }
 ];
 
 const textVariants = {
@@ -40,7 +39,7 @@ const sliderSettings = {
 const Religious = () => {
   return (
     <>
-      <section id="home" className="container hidden md:block hero-section w-full lg:h-[800px] h-[700px] relative z-10 mb-[100px]">
+      <section id="home" className="hidden md:block hero-section w-full lg:h-[800px] h-[700px] relative z-10 mb-[100px]">
         <Slider {...sliderSettings}>
           {heroMedia.map((media, index) => (
             <HeroSlide key={index} media={media} />

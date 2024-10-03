@@ -4,65 +4,65 @@ import SectionTitle from "../../Common/SectionTitle";
 import Link from "next/link";
 const newsData = [
   {
-    category: ".....",
+    category: "",
     title:
-      "Bugema University sports play a vital role in student life ............",
+      "",
     link: "#",
-    imageSrc: "/images/life/netball/neta.jpeg",
-    altText: "Image related to depression biotypes",
+    imageSrc: "/images/church/cch.jpeg",
+    altText: "",
   },
   {
-    category: "......",
-    title: "Why advertisers pay more to reach viewers who watch less",
+    category: "",
+    title: "",
     link: "#",
-    imageSrc: "/images/life/netball/neta.jpeg",
-    altText: "Image related to advertising study",
+    imageSrc: "/images/church/chchch.jpeg",
+    altText: "",
   },
   {
-    category: "...................",
-    title: "Study finds high blood pressure drug may prevent epilepsy",
+    category: "",
+    title: "",
     link: "#",
-    imageSrc: "/images/life/netball/neta.jpeg",
-    altText: "Image related to epilepsy study",
+    imageSrc: "/images/church/chchchch.jpeg",
+    altText: "",
   },
   {
-    category: "..................",
-    title: "Congratulations, graduates!",
+    category: "",
+    title: "",
     link: "#",
-    imageSrc: "/images/life/netball/neta.jpeg",
-    altText: "Commencement 2024 highlights",
+    imageSrc: "/images/church/chh.jpeg",
+    altText: "",
   },
 ];
 
 const secondData = [
   {
-    category: ".....",
+    category: "",
     title:
-      "Bugema University sports play a vital role in student life ............",
+      "",
     link: "#",
-    imageSrc: "/images/life/netball/neta.jpeg",
-    altText: "Image related to depression biotypes",
+    imageSrc: "/images/church/chhc.jpeg",
+    altText: "",
   },
   {
-    category: "......",
-    title: "Why advertisers pay more to reach viewers who watch less",
+    category: "",
+    title: "",
     link: "#",
-    imageSrc: "/images/life/netball/netb.jpeg",
-    altText: "Image related to advertising study",
+    imageSrc: "/images/church/chor.jpeg",
+    altText: "",
   },
   {
-    category: "...............",
-    title: "Study finds high blood pressure drug may prevent epilepsy",
+    category: "",
+    title: "",
     link: "#",
-    imageSrc: "/images/life/netball/netc.jpeg",
-    altText: "Image related to epilepsy study",
+    imageSrc: "/images/church/chr.jpeg",
+    altText: "",
   },
   {
-    category: "................",
-    title: "Congratulations, graduates!",
+    category: "",
+    title: "",
     link: "#",
-    imageSrc: "/images/life/netball/netd.jpeg",
-    altText: "Commencement 2024 highlights",
+    imageSrc: "/images/church/men.jpeg",
+    altText: "",
   },
 ];
 const thirdData = [
@@ -97,14 +97,14 @@ const thirdData = [
   },
 ];
 
-const NetBallPrograms: React.FC = () => {
+const PrayerPrograms: React.FC = () => {
   return (
     <section className="px-8">
       <div className="">
         <div className="hidden md:block lg:mt-10">
           <SectionTitle
-            title="Netball Collaborations"
-            paragraph="Bugema University fosters the development of netball through various collaborative efforts. The university engages with local and international sports organizations, offering events, training programs, and joint research initiatives focused on enhancing netball performance and sportsmanship. These collaborations provide valuable learning opportunities and contribute to the growth of netball within the university and beyond."
+            title="Prayers"
+            paragraph="Bugema University places a strong emphasis on the power of prayer as a cornerstone of spiritual life. The university organizes regular prayer sessions, including morning devotionals, weekly prayer meetings, and special prayer retreats, providing a space for students and faculty to seek guidance, reflect on their faith, and strengthen their relationship with God. These moments of collective and personal prayer foster a sense of community and spiritual growth, supporting students throughout their academic and personal journeys."
             center
             mb="50px"
           />
@@ -117,10 +117,10 @@ const NetBallPrograms: React.FC = () => {
             data-wow-delay=".1s"
           >
             <h2 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px] mt-10">
-              Agriculture
+              Prayers
             </h2>
             <p className="text-base !leading-relaxed text-body-color md:text-lg">
-              At Bugema University, Agriculture goes beyond the classroom.
+              
             </p>
           </div>
         </div>
@@ -178,7 +178,7 @@ const NetBallPrograms: React.FC = () => {
             </article>
           ))}
         </div>
-        <div className="grid lg:mt-10 lg:mb-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* <div className="grid lg:mt-10 lg:mb-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {thirdData.map((news, index) => (
             <article
               key={index}
@@ -204,7 +204,7 @@ const NetBallPrograms: React.FC = () => {
               </div>
             </article>
           ))}
-        </div>
+        </div> */}
         {/* <div className="text-center mt-8">
           <Link href="/studentlife" className="text-blue-500 font-bold">
             More About Students Life
@@ -215,4 +215,4 @@ const NetBallPrograms: React.FC = () => {
   );
 };
 
-export default NetBallPrograms;
+export default PrayerPrograms;

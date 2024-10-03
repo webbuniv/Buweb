@@ -12,7 +12,7 @@ import { useState,useEffect } from "react";
 import Link from "next/link";
 
 
-const SportsBelowHero = () => {
+const ReligiousBelowHero = () => {
 
       const [animate, setAnimate] = useState(false);
 
@@ -44,7 +44,7 @@ const SportsBelowHero = () => {
                                           50+
                                           </h3>
                                           <p className="mb-4 text-base text-black ">
-                                          Sports Events per year
+                                          ----------
                                           </p>
                                     </div>
                               </div>
@@ -57,7 +57,7 @@ const SportsBelowHero = () => {
                                           10+
                                           </h3>
                                           <p className="mb-4 text-base text-black ">
-                                          Teams Participating
+                                          ---------
                                           </p>
                                           {/* <Link href="https://apply.bugemauniv.ac.ug/">
                                                 <button className="px-6 py-2 text-white bg-[#e72725] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
@@ -73,7 +73,7 @@ const SportsBelowHero = () => {
                                                 25+
                                           </h3>
                                           <p className="mb-4 text-base text-black">
-                                          Expert Coaches
+                                          -------------
                                           </p>
                                     
                                           {/* <Link href="/finances.pdf" target="_blank" rel="noopener noreferrer">
@@ -90,7 +90,7 @@ const SportsBelowHero = () => {
                                           60+
                                           </h3>
                                           <p className="mb-4 text-base text-black dark:text-gray-300">
-                                          Registered Players
+                                          -------------
                                           </p>
                                           {/* <Link href="https://erms.bugemauniv.ac.ug/student/">
                                                 <button className="px-6 py-2 text-white bg-[#e72725] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
@@ -107,7 +107,7 @@ const SportsBelowHero = () => {
                                           8+
                                           </h3>
                                           <p className="mb-2 text-base text-black ">
-                                          Sponsors
+                                          ------------
                                           </p>
                                           {/* <Link href="https://unche.or.ug/institution/bugema-university/">
                                                 <button className="px-6 py-2 mt-2 text-white bg-[#234297] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
@@ -124,4 +124,4 @@ const SportsBelowHero = () => {
   );
 };
 
-export default SportsBelowHero;
+export default ReligiousBelowHero;
