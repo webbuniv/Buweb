@@ -12,17 +12,18 @@ const HeroSlide = ({ media }) => {
             <source src={media.src} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          {/* <HeroOverlay
-            title="BUGEMA UNIVERSITY"
-            title2="Service."
-            title3="Where Head, Heart and Hands unite in"
-            subtitle="Excellence In Service"
-            subtitle2="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity"
-            subtitle3="to offer you Quality education with a hands on experience. . ."
-            buttonText="Apply Now"
+          <HeroOverlay
+                  // title="BUGEMA UNIVERSITY"
+                  title2="Service."
+                  title3="Where Head, Heart and Hands unite in"
+                  // subtitle="Excellence In Service"
+                  subtitle2="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity"
+                  subtitle3="to offer you Quality education with a hands on experience. . ."
+                  title={undefined} subtitle={undefined} buttonText={undefined} buttonLink={undefined}
+                  // buttonText="Apply Now"
 
-            buttonLink="http://erms.bugemauniv.ac.ug/application"
-          /> */}
+            // buttonLink="http://erms.bugemauniv.ac.ug/application"
+          />
         </div>
       ) : (
         <>
@@ -33,7 +34,20 @@ const HeroSlide = ({ media }) => {
             width={1000}
             height={800}
           />
-          <div className="absolute top-0 left-0 w-full h-full opacity-50"></div>
+          <div className="absolute top-0 left-0 w-full h-full opacity-100">
+          <HeroOverlay
+                  // title="BUGEMA UNIVERSITY"
+                  title2="Service."
+                  title3="Where Head, Heart and Hands unite in"
+                  // subtitle="Excellence In Service"
+                  subtitle2="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity"
+                  subtitle3="to offer you Quality education with a hands on experience. . ."
+                  title={undefined} subtitle={undefined} buttonText={undefined} buttonLink={undefined}
+                  // buttonText="Apply Now"
+
+            // buttonLink="http://erms.bugemauniv.ac.ug/application"
+          />
+          </div>
         </>
       )}
     </div>
