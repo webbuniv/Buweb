@@ -110,7 +110,7 @@ const handelScroll = () =>{
 
   return (
       <>
-        <div className=" fade-in fixed z-40 inset-0 backdrop-blur-lg flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden" id="wrapper" onScroll={handelScroll}>
+        <div className=" fade-in fixed z-40 inset-0 bg-white flex w-full h-4/5 my-16 border border-black overflow-auto overflow-x-hidden" id="wrapper" onScroll={handelScroll}>
                   
                      
                   <div id="programs">
