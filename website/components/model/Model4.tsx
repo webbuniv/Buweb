@@ -8,6 +8,7 @@ import nurses from "../../public/images/nav/nurses.jpg";
 import nurses1 from "../../public/images/nav/nurses1.jpg";
 import burundi from "../../public/images/nav/burundi.jpg";
 import bucosa from "../../public/images/nav/bucosa.jpg";
+import { BiX } from 'react-icons/bi';
 import palm_girls from "../../public/images/nav/palm-girls.jpg";
 import palm_girls1 from "../../public/images/nav/palm-girls1.jpg";
 import Image from "next/image";
@@ -102,10 +103,32 @@ const why_bugema = () =>{
 }
   return (
       <>
-            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden bg-white" id="wrapper" onMouseLeave={onClose}>
+            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex w-full h-4/5 my-16 border border-black overflow-auto overflow-x-hidden bg-white" id="wrapper" >
                   
                      
                   <div id="programs">
+
+                  <div className='flex '>
+                              <button 
+                                    style={{
+                                    borderRadius: '50%',
+                                    width: '30px',
+                                    height: '30px',
+                                    backgroundColor: 'black',
+                                    borderColor:'black',
+                                    color: 'white',
+                                    fontSize: '20px',
+                                    textAlign: 'center',
+                                    lineHeight: '30px',
+                                    position: 'absolute',
+                                    right: '70px',
+                                    top: '20px',
+                                    }}
+                                    onClick={onClose}>
+                                    <span className="text-white text-xl"><BiX className='text-3xl'/></span>
+                              </button>
+
+                        </div> 
 
                         <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'25%'}}> 
                              
