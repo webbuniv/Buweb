@@ -47,6 +47,20 @@ module.exports = {
         one: "0px 2px 3px rgba(7, 7, 77, 0.05)",
         sticky: "inset 0 -1px 0 0 rgba(0, 0, 0, 0.1)",
       },
+      animation: {
+        'shrink-out': 'shrinkOut 1s forwards',  // Animation for shrinking out effect
+        'grow-in': 'growIn 1s forwards',        // Animation for growing in effect
+      },
+      keyframes: {
+        shrinkOut: {
+          '0%': { transform: 'scale(1)', opacity: '1' },
+          '100%': { transform: 'scale(0)', opacity: '0' },  // Shrinks to 0 and fades out
+        },
+        growIn: {
+          '0%': { transform: 'scale(0)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },  // Grows to full size and fades in
+        },
+      },
     },
   },
   plugins: [require("flowbite/plugin")],
