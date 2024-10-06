@@ -29,7 +29,7 @@ const newsData = [
     category: "Graduation 2024 - 2025",
     title: "Commencement Countdown", // Placeholder for commencement countdown
     link: "/",
-    imageSrc: "/images/banners/grad2.png",
+    imageSrc: "/images/graduation/graduation.jpeg",
     altText: "Graduation 2024 - 2025 highlights",
   },
 ];
