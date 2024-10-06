@@ -30,7 +30,7 @@ const HeroOverlay = ({
         </Link> */}
       </div>
 
-      <div className="hero-overlay2 bg-gradient-to-r from-blue-900 opacity-100 hidden lg:flex lg:flex-col">
+      <div className="hero-overlay2  hidden lg:flex lg:flex-col">
         <div className="flex-1">
           <h1 className="text-start sm:text-6xl text-4xl md:font-bold mb-0">
             {title3}
