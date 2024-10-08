@@ -97,6 +97,91 @@ export default function EmploymentOpportunities() {
               <h2 className="font-bold">
                 Job Title:{" "}
                 <span className="font-medium">
+                DVC- Development
+                </span>
+              </h2>
+              <h2 className="font-bold">
+                Vacancies: <span className=" font-medium">01</span>
+              </h2>
+              <h2 className="font-bold">
+                Responsilbe To:{" "}
+                <span className=" font-medium">Vice Chancellor</span>
+              </h2>
+              <h2 className="font-bold">
+                Terms of Employment:{" "}
+                <span className=" font-medium">
+                Five-year contract but with annual performance appraisal.
+                </span>
+              </h2>
+            </div>
+
+            <div className="py-4">
+              <div className="py-2">
+                <h1 className="text-xl font-semibold">Purpose of the Job</h1>
+
+                <ul className="list-disc ml-10 mt-2">
+                  <li>
+                  Responsible for coordinating the preparation and implementation of the University&apos;s strategic and Development plans. 
+                  </li>
+                </ul>
+              </div>
+
+              <div className="py-2">
+                  <h1 className="text-xl font-semibold">
+                        Minimum Qualifications
+                  </h1>
+
+                  <ul className="list-disc ml-10 mt-2">
+
+                        A PhD and Master&apos;s degree but with a rich experience of hands-on in developing projects.<br/>
+                        High level of maturity, leadership, and supervisory skills, ability to build, lead, and work with teams, Quick judgment and decision making, ability to provide strategic leadership, Excellent public relations and negations skills, a high level of integrity and a strong concern with equity. Subscription to Bugema University norms and core values is a must.
+
+                  </ul>
+
+                <h1 className="text-xl font-semibold">
+                  Key Functions
+                </h1>
+
+                The DVC Development shall:
+                  1.	Be the third Deputy Vice-Chancellor and in the absence of the second DVC to perform the functions of the Vice Chancellor.<br/>
+                  2.	Be responsible for identifying and carrying out appropriate development planning.<br/>
+                  3.	Develop and implement programs focused on planned giving, endowment funds, foundations, and donor funds by the missions, aims, and objectives as well as the strategic plan of the University.<br/>
+                  4.	Monitor and coordinate the infrastructural development of the University based on the Master Plan, including coordination of site visits by contractors as well as receiving progress reports on ongoing construction projects.<br/>
+                  5.	Develop systems that will facilitate the preparation and submission of grant proposals from both academic and non-academic staff.<br/>
+                  6.	Mobilize, build, and strengthen the network of individuals, alumni, corporations, and organizations that contribute to the development of BU.<br/>
+                  7.	Act as liaison between funding sources and the University and maintain personal contacts with their representatives for funding sources.<br/>
+                  8.	Work as a steward of foundations and corporations that have provided support for institution projects.<br/>
+                  9.	Act as liaison officer between the Government and the University on matters affecting the BU community.<br/>
+                  10.	Be responsible for resource creation and mobilization.<br/>
+                  11.	Link with stakeholders, Institutions, and various agencies with a view of fostering and enhancing the development of the University.<br/>
+                  12.	Ensure the production of materials and activities intended for fundraising.<br/>
+                  13.	Supervise the development and alumni affairs support staff as well as volunteers in the implementation of development and alumni affairs programs.<br/>
+                  14.	Liaise with the Deputy Vice-Chancellor- Finance and Administration on the utilization of donated funds, timely completion of projects, accurate documentation, and prompt reporting as per agreements with donors.<br/>
+                  15.	Process the delivery of deferred and presented gifts for the use and benefit of BU.<br/>
+                  16.	Evaluating the profitability of each enterprise project for sustainable growth.<br/>
+                  17.	Liaise with the Deputy Vice-Chancellor-Academics and the Deputy Vice-Chancellor-Finance and Administration on the equipment and facility needs and developing funding requests to relevant donors.<br/>
+                  18.	Conduct research as well as collaborations with embassies and missions that will help in the development of funding requests from various departments of the University including funding for needy and worthy students.<br/>
+                  19.	Initiate development projects that link the University to the community and industry.<br/>
+                  20.	Developing overall business strategies for the self-sustaining, revenue-generating auxiliary enterprises and activities that ensure their fiscal stability.<br/>
+                  21.	Evaluating operational procedures/policies and developing and implementing new strategies for specific units.<br/>
+                  22.	Perform any other duties as reasonably assigned by the Vice Chancellor.
+
+
+              </div>
+              
+            </div>
+          </div>
+
+        </div>
+
+        <div className="container text-dark/90 py-5 bg-gray-100 rounded mt-2 md:mt-5">
+
+          {/* Single Job card */}
+          <div>
+            <div className="flex flex-col gap-1 mx-auto text-blue-500">
+              <h2 className="font-bold">
+                Job Title:{" "}
+                <span className="font-medium">
                 Warden for Male Students
                 </span>
               </h2>
