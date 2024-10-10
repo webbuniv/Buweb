@@ -29,7 +29,7 @@ const newsData = [
     category: "Graduation 2024 - 2025",
     title: "Commencement Countdown", // Placeholder for commencement countdown
     link: "/",
-    imageSrc: "/images/banners/grad2.png",
+    imageSrc: "/images/graduation/graduation.jpeg",
     altText: "Graduation 2024 - 2025 highlights",
   },
 ];
@@ -132,12 +132,12 @@ const CampusNews: React.FC = () => {
                 <h3 className="text-lg text-black font-semibold">
                   <a href={news.link}>
                     {news.category === "Cultural Gala 2024 - 2025" ? (
-                      <span className="text-red-500">
+                      <span className="text-blue-500">
                         {galaTimeLeft.days} days : {galaTimeLeft.hours} hours : {galaTimeLeft.minutes} minutes :{" "}
                         {galaTimeLeft.seconds} seconds
                       </span>
                     ) : news.category === "Graduation 2024 - 2025" ? (
-                      <span className="text-red-500">
+                      <span className="text-blue-500">
                         {commencementTimeLeft.days} days : {commencementTimeLeft.hours} hours : {commencementTimeLeft.minutes} minutes :{" "}
                         {commencementTimeLeft.seconds} seconds
                       </span>

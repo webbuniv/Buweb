@@ -196,6 +196,21 @@ const Header = () => {
                   className={`navbar hidden lg:block absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-dark lg:p-0 lg:opacity-100`}
                 >
                   <ul className="block lg:flex bg-white lg:space-x-8 top-0 left-0 h-full  text-black" >
+
+                  <li className="group relative">
+                      <Link
+                        href="/"
+                        className={`nav hover ml-3 flex py-2 text-black text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+
+                        >
+
+                        <span className={""}>
+                          HOME
+                        </span>
+                        
+                      </Link>
+                    </li>
+
                     <li className="group relative">
                       <Link
                         href=""

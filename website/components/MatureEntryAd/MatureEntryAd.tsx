@@ -22,12 +22,12 @@ export default function MatureEntryAd() {
   return (
     <div className="fixed bottom-8 left-8 z-[99]">
       {isVisible && (
-        <Link href="/calendar">
+        <Link href="/employment-opportunities">
           <div
             aria-label="go to calendar"
             className="flex px-1 h-10 w-[240px] cursor-pointer items-center justify-center rounded-md bg-primary text-black shadow-md transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
           >
-            <span className="text-white">Calendar</span>
+            <span className="text-white">Jobs Available</span>
           </div>
         </Link>
       )}
