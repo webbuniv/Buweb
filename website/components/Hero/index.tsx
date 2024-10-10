@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export const heroMedia = [
-  { type: 'video', src: "https://res.cloudinary.com/do5ubr3sa/video/upload/v1719685852/ayxyrcvleddu33lelk69.mp4" },
+  // { type: 'video', src: "https://res.cloudinary.com/do5ubr3sa/video/upload/v1719685852/ayxyrcvleddu33lelk69.mp4" },
   { type: 'no-overlay', src: "/images/banners/grad.png" },
   { type: 'image', src: "/images/banners/grad2.png" },
   // { type: 'image', src: "/images/banners/agrigrow.jpeg" },
