@@ -138,7 +138,7 @@ const AboveHeader = () => {
     <>
     {/* Header on big screens */}
       <header
-        className={`hidden md:flex header top-0 left-0 z-20 w-full items-center bg-white  mt-[-14px] ${
+        className={`hidden md:flex header top-0 left-0 z-20 w-full items-center bg-white  mt-[-20px] ] ${
           sticky
             ? "hidden bg-white ! bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100"
             : "absolute fixed"
@@ -203,7 +203,7 @@ const AboveHeader = () => {
 
                   <li className="group relative">
                       <Link
-                        href="/"
+                        href="/calendar"
                         className={`nav hover ml-3 flex py-2 text-black text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
                         >
