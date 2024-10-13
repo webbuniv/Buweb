@@ -8,7 +8,7 @@ const newsData = [
     category: "Sports",
     title: "Bugema University sports play a vital role in student life.",
     link: "/sports/sports",
-    imageSrc: "/images/life/football/footb.jpg",
+    imageSrc: "/images/life/football/footc.jpg",
     altText: "Image related to football",
   },
   {
@@ -19,11 +19,11 @@ const newsData = [
     altText: "Image related to cultural gala",
   },
   {
-    category: "Health & Medicine",
-    title: "Study finds high blood pressure drug may prevent epilepsy",
+    category: "Students Clubs",
+    title: "Unleashing Potential: Discovering the Diverse Clubs at Bugema University",
     link: "/",
-    imageSrc: "/images/features/hos.jpg",
-    altText: "Image related to epilepsy study",
+    imageSrc: "/images/club/club.jpeg",
+    altText: "Student Club",
   },
   {
     category: "Graduation 2024 - 2025",
