@@ -220,7 +220,10 @@ const AboveHeader = () => {
                         href=""
                         className={`nav hover ml-3 flex py-2 text-black text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
-                        onClick={first_modal}>
+                        onClick={() =>
+                          window.open("https://elearning.bugemauniv.ac.ug/", "_blank")
+                        }
+                        >
 
                         <span className={showModel ? "active" : ""}>
                           eLearning
@@ -236,8 +239,9 @@ const AboveHeader = () => {
                         href=""
                         className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
-                        onClick={forth_modal}
-
+                        onClick={() =>
+                          window.open("https://erms.bugemauniv.ac.ug/buerms/default.aspx/", "_blank")
+                        }
 
                       >
                         <span className={showModel3 ? "active" : ""}>
@@ -264,11 +268,13 @@ const AboveHeader = () => {
 
                         {/* Dropdown Menu */}
                         <div
-                          className="absolute top-full mt-2 z-30 right-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:visible group-hover:opacity-100 hover:visible hover:opacity-100 transition-opacity duration-300"
+                          className="absolute top-full right-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:visible group-hover:opacity-100 hover:visible hover:opacity-100 transition-opacity duration-300"
                         >
                           <button
                             className="block w-full text-left px-4 py-2 hover:bg-gray-200 text-black font-semibold"
-                            onClick={() => alert("Button 1 clicked!")}
+                            onClick={() =>
+                              window.open("https://erms.bugemauniv.ac.ug/student/login/", "_blank")
+                            }
                           >
                             Login
                           </button>
@@ -280,12 +286,12 @@ const AboveHeader = () => {
                           >
                             Register
                           </button>
-                          <button
+                          {/* <button
                             className="block w-full text-left px-4 py-2 hover:bg-gray-200 text-black font-semibold"
                             onClick={() => alert("Button 3 clicked!")}
                           >
                             Button 3
-                          </button>
+                          </button> */}
                         </div>
                       </li>
                     
@@ -308,6 +314,10 @@ const AboveHeader = () => {
                     <Link
                       href=""
                       className={`nav hover flex py-3 px-6 text-white font-bold bg-blue-700 rounded-lg group-hover:opacity-80 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} 
+                      onClick={() =>
+                        window.open("https://erms.bugemauniv.ac.ug/application/", "_blank")
+                      }
+
                     >
                       <span className={showModel4 ? "active" : ""}>
                         Apply Online

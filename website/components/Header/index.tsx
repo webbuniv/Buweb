@@ -139,7 +139,7 @@ const Header = () => {
         //     ? " bg-dark !fixed !z-[9999] ! bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100"
         //     : "absolute"
         // }`}
-        className={`hidden md:flex z-50 header left-0 w-full items-center  ${
+        className={`hidden md:flex header left-0 w-full items-center  ${
           sticky
             ? "bg-dark text-white top-0 !fixed !z-[9999] bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition"
             : "absolute top-10 bg-dark text-white"
