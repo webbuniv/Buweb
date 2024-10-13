@@ -15,7 +15,7 @@ const newsData = [
     category: "Cultural Gala 2024 - 2025",
     title: "Cultural Gala Countdown", // Placeholder for countdown
     link: "/",
-    imageSrc: "/images/gala/ga.jpg",
+    imageSrc: "/images/gala/new.jpg",
     altText: "Image related to cultural gala",
   },
   {
