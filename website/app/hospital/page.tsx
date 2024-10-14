@@ -48,7 +48,7 @@ export default function Hospital() {
   };
 
   return (
-    <div className="relative flex flex-col gap-2 justify-center mx-auto mt-8">
+    <div className="relative flex flex-col gap-2 justify-center mx-auto mt-[140px]">
       <SlidingImages onCycleComplete={handleCycleComplete} />
       <div className="flex flex-col md:flex-row gap-2 mt-4">
         <div className="flex-1 p-4 border rounded-md">
