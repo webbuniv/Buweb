@@ -21,7 +21,7 @@ const newsData = [
   {
     category: "Students Clubs",
     title: "Unleashing Potential: Discovering the Diverse Clubs at Bugema University",
-    link: "/",
+    link: "/clubs/clubs",
     imageSrc: "/images/club/club.jpeg",
     altText: "Student Club",
   },
