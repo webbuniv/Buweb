@@ -31,7 +31,7 @@ export default function SchoolOfGraduate() {
 
   return (
     <div>
-      <section className="my-20 mt-36 mx-10">
+      <section className="my-20 mt-56 mx-10">
         <School
         tittle="School of Graduate Studies"
         subtittle="The School of Graduate Studies (SGS) is the administrative body of the graduate programs"
