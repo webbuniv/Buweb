@@ -144,7 +144,7 @@ const why_bugema = () =>{
                               </div>
 
                               <div className="mr-2 my-5  slider slide--slower">
-                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold 'onClick={why_bugema} >  <Link href="/whybugema" id='why_bugema' className='animated'> Why Bugema University </Link></h1> 
+                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold 'onClick={why_bugema} >  <Link href="#" id='why_bugema' className='animated'> Why Bugema University </Link></h1> 
                               </div>
                               {/* <div className="mr-2 my-5 slider slide--slowest ">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={touch}> <span className='animated' id='contact'> Staff & Faculty </span></h1> 

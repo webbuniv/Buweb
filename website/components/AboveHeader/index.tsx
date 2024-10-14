@@ -144,8 +144,8 @@ const AboveHeader = () => {
             : "absolute fixed"
         }`}
       >
-        <div className="container">
-          <div className="flex items-center justify-between bg-white">
+        <div className="container ">
+          <div className="flex items-center justify-between bg-white ">
             <div className="w-60 relative z-10">
               <Link
                 href="/"
@@ -313,13 +313,13 @@ const AboveHeader = () => {
                     <li>
                     <Link
                       href=""
-                      className={`nav hover flex py-3 px-8 text-white font-bold bg-blue-700 rounded-lg group-hover:opacity-80 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} 
+                      className={`nav flex py-3 px-8 text-white font-bold bg-blue-700 rounded-lg group-hover:opacity-80 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} 
                       onClick={() =>
                         window.open("https://erms.bugemauniv.ac.ug/application/", "_blank")
                       }
 
                     >
-                      <span className={showModel4 ? "active" : ""}>
+                      <span >
                         Apply Online
                       </span>
                     </Link>
