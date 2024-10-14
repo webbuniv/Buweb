@@ -175,11 +175,11 @@ const AboveHeader = () => {
         }`}
       >
         <div className="container ">
-          <div className="flex items-center justify-between bg-white ">
+          <div className="flex items-center justify-between bg-white mt-[20px]">
           <div className="w-160 relative z-10">
             <p className="text-blue-600 text-2xl">{displayedText}</p> {/* Text color and size */}
           </div>
-            <div className="flex space-x-20 justify-between transform bg-white">
+            <div className="flex space-x-20 justify-between transform bg-white mt-[-10px] mb-[-10px]">
               <div>
                 <button
                   onClick={() => setNavbarOpen(!navbarOpen)}
