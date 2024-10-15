@@ -28,9 +28,40 @@ const AboveHeader = () => {
   const [hideMobileNav, setHideMobileNav] = useState(false);
   const [showModel0, setShowModel0] = useState(false);
 
+  const [currentStatement, setCurrentStatement] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [letterIndex, setLetterIndex] = useState(0);
+
+  useEffect(() => {
+    const statements = [
+      "Welcome To Bugema University",
+      "Discover the Power of Knowledge",
+      "Join the Future of Innovation",
+      "Upcoming Events",
+      "Cultural Gala On 17th October 2024",
+      "Graduation from 8th to 19th Nov 2024"
+    ];
+
+    if (letterIndex < statements[currentStatement].length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText((prev) => prev + statements[currentStatement][letterIndex]);
+        setLetterIndex(letterIndex + 1);
+      }, 100);
+      return () => clearTimeout(timeout);
+    } else {
+      const timeout = setTimeout(() => {
+        setLetterIndex(0);
+        setDisplayedText("");
+        setCurrentStatement((prev) => (prev + 1) % statements.length);
+      }, 2000);
+      return () => clearTimeout(timeout);
+    }
+  }, [letterIndex, currentStatement]);
+
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
   };
+  
 
   const handleStickyNavbar = () => {
     if (window.scrollY >= 700) {
@@ -131,7 +162,6 @@ const AboveHeader = () => {
   const toggleDropdown = () => {
     setShowModel0(!showModel0);
   };
-
   
 
   return (
@@ -145,32 +175,11 @@ const AboveHeader = () => {
         }`}
       >
         <div className="container ">
-          <div className="flex items-center justify-between bg-white ">
-            <div className="w-60 relative z-10">
-              <Link
-                href="/"
-                className={`header-logo block w-full ${
-
-                  sticky ? "py-2 lg:py-2" : "hidden py-3"
-                }`}
-              > 
-                <Image
-                  src={image}
-                  alt="logo"
-                  width={4572}
-                  height={1296}
-                  className="hidden w-full dark:hidden"
-                />
-                <Image
-                  src={image}
-                  alt="logo"
-                  width={100}
-                  height={20}
-                  className="hidden w-full dark:block"
-                /> 
-              </Link>
-            </div> 
-            <div className="flex space-x-20 justify-between transform bg-white">
+          <div className="flex items-center justify-between bg-white mt-[20px]">
+          <div className="w-160 relative z-10">
+            <p className="text-blue-600 text-2xl">{displayedText}</p> {/* Text color and size */}
+          </div>
+            <div className="flex space-x-20 justify-between transform bg-white mt-[-10px] mb-[-10px]">
               <div>
                 <button
                   onClick={() => setNavbarOpen(!navbarOpen)}
