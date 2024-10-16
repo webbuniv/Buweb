@@ -2,6 +2,7 @@
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import AboveHeader from "@/components/AboveHeader";
 import Model from "@/components/model/Model";
 import Script from 'next/script';
 import ScrollToTop from "@/components/ScrollToTop";
@@ -20,6 +21,7 @@ export default function RootLayout({
 
       <body className="dark:bg-black overflow-x-hidden" >
         <Providers>
+          <AboveHeader />
           <Header />
           {children}
           <Footer />

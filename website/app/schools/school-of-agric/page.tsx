@@ -33,7 +33,7 @@ export default function SchoolOfAgric() {
 
   return (
     <div>
-      <section className="my-20 mt-36 mx-10">
+      <section className="my-20 mt-56 mx-10">
         <School
          tittle="School of Agriculture and Applied Sciences"
          subtittle="This school is designed to train and produce well-groomed scientists and technicians who are capable of working under varying and changing local and global environments in both developed and developing economies."

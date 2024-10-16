@@ -32,7 +32,7 @@ export default function SchoolOfBusiness() {
 
   return (
     <div>
-      <section className="my-20 mt-36 mx-10">
+      <section className="my-20 mt-56 mx-10">
         <School
           tittle="School of Business"
           subtittle="The School of Business is a leading business school in the country. It is a center"
