@@ -43,7 +43,7 @@ const School = ({
                               </div>
                               
 
-                              <Image src={topImg} alt='img' objectFit="contain" width={1920} height={500} className="opacity-50 "/>
+                              <img src={topImg} alt='img' width={1920} height={500} className="opacity-50 " />
                         
                         </div>
 
