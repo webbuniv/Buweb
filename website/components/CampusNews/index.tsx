@@ -8,28 +8,28 @@ const newsData = [
     category: "Sports",
     title: "Bugema University sports play a vital role in student life.",
     link: "/sports/sports",
-    imageSrc: "/images/life/football/footc.jpg",
+    imageSrc: "/images/life/football/new.jpeg",
     altText: "Image related to football",
   },
   {
     category: "Cultural Gala 2024 - 2025",
-    title: "Cultural Gala Countdown", // Placeholder for countdown
+    title: "A Spectacular Cultural Gala 2024-2025: Bridging Traditions and Cultures", 
     link: "/",
-    imageSrc: "/images/gala/new.jpg",
+    imageSrc: "/images/gala/ne.jpeg",
     altText: "Image related to cultural gala",
   },
   {
     category: "Students Clubs",
     title: "Unleashing Potential: Discovering the Diverse Clubs at Bugema University",
     link: "/clubs/clubs",
-    imageSrc: "/images/club/club.jpeg",
+    imageSrc: "/images/club/new.jpeg",
     altText: "Student Club",
   },
   {
     category: "Graduation 2024 - 2025",
     title: "Commencement Countdown", // Placeholder for commencement countdown
     link: "/",
-    imageSrc: "/images/graduation/graduation.jpeg",
+    imageSrc: "/images/graduation/gra.jpeg",
     altText: "Graduation 2024 - 2025 highlights",
   },
 ];
@@ -131,7 +131,7 @@ const CampusNews: React.FC = () => {
                 <div className="text-sm text-gray-500 mb-2">{news.category}</div>
                 <h3 className="text-lg text-black font-semibold">
                   <a href={news.link}>
-                    {news.category === "Cultural Gala 2024 - 2025" ? (
+                    {news.category === "Cultural Gala 2024-2025" ? (
                       <span className="text-blue-500">
                         {galaTimeLeft.days} days : {galaTimeLeft.hours} hours : {galaTimeLeft.minutes} minutes :{" "}
                         {galaTimeLeft.seconds} seconds
