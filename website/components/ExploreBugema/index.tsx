@@ -102,7 +102,7 @@ const Video = () => {
   <div className="grid grid-cols-1 md:grid-cols-2 gap-20 ">
 
       <div
-        className={`wow fadeInUp overflow-hidden rounded-md h-[400px]  ${animate ?"slider slide--slower":"" }`}
+        className={`wow fadeInUp overflow-hidden rounded-md h-[400px]  ${animate ?"slider slide--slower":"" }`} 
         data-wow-delay=".15s">
            
             <iframe width="500" height="300" title="YouTube video player"  allow="accelerometer; loop=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen
