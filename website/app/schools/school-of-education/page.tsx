@@ -35,9 +35,9 @@ export default function SchoolOfEducation() {
       <section className="my-20 mt-56 mx-10">
         <School
 
-         tittle=""
-         subtittle="School of Education"
-         topImg=""
+         tittle="School of Education "
+         subtittle="Because We Are, The World Is..."
+         topImg="/images/schools/lab1.jpg"
           dean="DR. SSERUNJOGI CHARLES"
           deanImage={"/blank/blank.jpg"}
           message="Having made a choice to join the school of education Bugema University, I take this opportunity to welcome you and assure you that you have made the best decision. As school of education, we look forward to serving you with a complete package."
