@@ -31,7 +31,7 @@ export default function SchoolOfTheology() {
       };
   return (
     <div className='mb-10'>
-      <section className='mt-36 mx-10 mb-5'>
+      <section className='mt-56 mx-10 mb-5'>
         <School 
           tittle='School of Theology'
           subtittle='The School of Theology is a place where students can learn about the Bible and theology'

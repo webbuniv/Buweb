@@ -32,7 +32,7 @@ export default function SchoolOfEducation() {
 
   return (
     <div>
-      <section className="my-20 mt-36 mx-10">
+      <section className="my-20 mt-56 mx-10">
         <School
 
          tittle=""

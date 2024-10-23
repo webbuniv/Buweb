@@ -32,7 +32,7 @@ export default function SchoolOfHealth() {
 
   return (
     <div>
-      <section className="my-20 mt-36 mx-10">
+      <section className="my-20 mt-56 mx-10">
         <School
           tittle="School of Health"
           subtittle="We  Strive to be a leading center of excellence, providing quality and holistic health care education and services in Uganda and beyond."

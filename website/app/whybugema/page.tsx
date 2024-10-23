@@ -16,7 +16,7 @@ const WhyBugemaPage = () => {
     <>
       <div className="container mt-[100px] md:mt-0">
         {/* <WhyHero /> */}
-        <div className="relative w-full mt-[30px] h-[300px] md:h-[500px]">
+        <div className="relative w-full mt-[130px] h-[300px] md:h-[500px]">
           <Image 
             src={backgroundImage}
             alt="Background"

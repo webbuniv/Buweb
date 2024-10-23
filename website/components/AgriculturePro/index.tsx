@@ -4,32 +4,63 @@ import SectionTitle from "../Common/SectionTitle";
 import Link from "next/link";
 const newsData = [
   {
-    category: "Sports",
+    category: "Crops",
     title:
-      "Bugema University sports play a vital role in student life ............",
-    link: "/studentlife",
-    imageSrc: "/images/agric/agri.jpg",
+      "",
+    link: "#",
+    imageSrc: "/images/agric/cro.jpeg",
     altText: "Image related to depression biotypes",
   },
   {
-    category: "Business",
-    title: "Why advertisers pay more to reach viewers who watch less",
-    link: "/",
-    imageSrc: "/images/agric/agri.jpg",
+    category: "Crops",
+    title: "",
+    link: "#",
+    imageSrc: "/images/agric/crop.jpeg",
     altText: "Image related to advertising study",
   },
   {
-    category: "Health & Medicine",
-    title: "Study finds high blood pressure drug may prevent epilepsy",
+    category: "crops",
+    title: "",
     link: "/",
-    imageSrc: "/images/agric/agri.jpg",
+    imageSrc: "/images/agric/cropp.jpeg",
     altText: "Image related to epilepsy study",
   },
   {
-    category: "Commencement 2024",
-    title: "Congratulations, graduates!",
+    category: "Crops",
+    title: "",
+    link: "#",
+    imageSrc: "/images/agric/croro.jpeg",
+    altText: "Commencement 2024 highlights",
+  },
+];
+const secondData = [
+  {
+    category: "Crops",
+    title:
+      "",
+    link: "#",
+    imageSrc: "/images/agric/crroo.jpeg",
+    altText: "Image related to depression biotypes",
+  },
+  {
+    category: "Crops",
+    title: "",
+    link: "#",
+    imageSrc: "/images/agric/ddd.jpeg",
+    altText: "Image related to advertising study",
+  },
+  {
+    category: "crops",
+    title: "",
     link: "/",
-    imageSrc: "/images/agric/agri.jpg",
+    imageSrc: "/images/agric/agrr.jpeg",
+    altText: "Image related to epilepsy study",
+  },
+  {
+    category: "Crops",
+    title: "",
+    link: "#",
+    imageSrc: "/images/agric/agrri.jpeg",
     altText: "Commencement 2024 highlights",
   },
 ];
@@ -41,7 +72,7 @@ const AgricPro: React.FC = () => {
         <div className="hidden md:block lg:mt-10">
           <SectionTitle
             title="Featured research collaborations"
-            paragraph="Microsoft collaborates with the global research community through programs, events, learning opportunities, and joint research endeavors."
+            paragraph="The most effective way to manage plant disease is by prevention. Know exactly where, what and when to spray, even down to the best time of day. Save costs on chemicals and spraying while you maximize protection."
             center
             mb="50px"
           />
@@ -89,7 +120,7 @@ const AgricPro: React.FC = () => {
           ))}
         </div>
         <div className="grid lg:mt-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {newsData.map((news, index) => (
+          {secondData.map((news, index) => (
             <article
               key={index}
               className="bg-white shadow-md rounded-lg overflow-hidden hover:bg-blue-50 hover:text-blue-900 hover:shadow-lg transition duration-500 cursor-pointer"
