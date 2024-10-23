@@ -15,7 +15,7 @@ const newsData = [
   {
     category: "Cultural Gala 2024 - 2025",
     title: "A Spectacular Cultural Gala 2024-2025: Bridging Traditions and Cultures", 
-    link: "/",
+    link: "/studentlife",
     imageSrc: "/images/gala/ne.jpeg",
     altText: "Image related to cultural gala",
   },

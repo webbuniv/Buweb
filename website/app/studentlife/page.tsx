@@ -19,7 +19,7 @@ const StudentLifePage = () => {
       />
       <HomePage />
       <StudentLifePrograms />
-      <AboutSectionLife2 />
+      {/* <AboutSectionLife2 /> */}
       {/* <AboutSectionLife /> */}
     </>
   );
