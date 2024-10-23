@@ -60,7 +60,7 @@ export default function EventsPage() {
 
   return (
     <>
-      <div className="container mt-[100px] md:mt-[120px]">
+      <div className="container mt-[100px] md:mt-[180px]">
         <Breadcrumb
           pageName="Bugema University Calendar"
           description="The Bugema University Academic Calendar stipulates all the university programs and activities for every academic year. 
