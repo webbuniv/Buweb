@@ -210,7 +210,7 @@ const Header = () => {
                         >
 
                         <span className={""}>
-                          HOME
+                          Home
                         </span>
                         
                       </Link>
