@@ -38,7 +38,6 @@ const AboveHeader = () => {
       "Discover the Power of Knowledge",
       "Join the Future of Innovation",
       "Upcoming Events",
-      "Cultural Gala On 17th October 2024",
       "Graduation from 8th to 19th Nov 2024"
     ];
 
