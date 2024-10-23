@@ -26,7 +26,7 @@ export default function JobAdvert() {
       {isVisible && (
         <Link
           href={'/calendar'}
-          // onClick={() => setIsPopupVisible(!isPopupVisible)}
+          onClick={() => setIsPopupVisible(!isPopupVisible)}
           aria-label="scroll to top"
           className="flex px-1 h-10 w-[240px] cursor-pointer items-center justify-center rounded-md bg-primary text-white shadow-md transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
         >
