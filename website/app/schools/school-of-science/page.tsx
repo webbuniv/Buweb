@@ -33,7 +33,7 @@ export default function SchoolOfScience() {
       
   return (
     <div className="overflow-hidden">
-      <section className="my-20 mt-36 mx-10">
+      <section className="my-20 mt-56 mx-10">
         <School
           tittle="School of Science and Technology"
           subtittle="Our Aim is to train and encourage our Learners to cope up with the continuosly changing and emerging technologies by giving them a hands on experience to make them problem solvers..."

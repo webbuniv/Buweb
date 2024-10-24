@@ -33,7 +33,7 @@ const School = ({
             
             <div className="w-full bg-black">
                   <Carousel data-carousel="slide">
-                        <div className="overflow-hidden rounded-lg relative -my-10 top-0 left-0 bg-black w-full " >
+                        <div className="overflow-hidden rounded-lg relative  -my-10 top-0 left-0 bg-black w-full " >
                               <div className="absolute justify-center ml-[2%] my-[24%]"> 
 
                                     <h1 className="font-bold text-start text-xs text-white md:text-7xl">
@@ -43,7 +43,7 @@ const School = ({
                               </div>
                               
 
-                              <Image src={topImg} alt='img' objectFit="contain" width={1920} height={500} className="opacity-50 "/>
+                              <img src={topImg} alt='img' width={1920} height={500} className="opacity-50 " />
                         
                         </div>
 
