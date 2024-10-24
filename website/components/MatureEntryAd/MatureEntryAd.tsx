@@ -22,7 +22,7 @@ export default function MatureEntryAd() {
   return (
     <div className="fixed bottom-8 left-8 z-[99]">
       {isVisible && (
-        <Link href="/docs/graduation-list-2024.pdf">
+        <Link href="/docs/final-graduation.pdf">
           <div
             aria-label="go to calendar"
             className="flex px-1 h-10 w-[240px] cursor-pointer items-center justify-center rounded-md bg-primary text-black shadow-md transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
