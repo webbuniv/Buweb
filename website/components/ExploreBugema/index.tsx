@@ -110,10 +110,16 @@ const Video = () => {
                 className='w-full h-full'>
             </iframe> */}
 
-            <iframe width="500" height="300" title="YouTube video player"  allow="accelerometer; loop=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen
-                src="https://www.youtube.com/embed/8lEWpGiwZVA"
-                className='w-full h-full'>
-            </iframe>
+          <iframe
+            width="500"
+            height="300"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            src="https://www.youtube.com/embed/8lEWpGiwZVA?autoplay=1&loop=1&playlist=8lEWpGiwZVA"
+            className="w-full h-full">
+          </iframe>
         
       </div>
 
