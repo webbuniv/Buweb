@@ -36,8 +36,8 @@ const AboveHeader = () => {
     const statements = [
       "Welcome To Bugema University",
       "Discover the Power of Knowledge",
-      "Join the Future of Innovation",
-      "Upcoming Events",
+      "Stay Tuned for Exciting Upcoming Events!",
+      "Celebrate Success!",
       "Graduation from 8th to 19th Nov 2024"
     ];
 
