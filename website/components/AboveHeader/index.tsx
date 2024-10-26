@@ -34,8 +34,9 @@ const AboveHeader = () => {
 
   useEffect(() => {
     const statements = [
-      "Welcome To Bugema University",
-      "Discover the Power of Knowledge",
+      "Greetings from Bugema University",
+      "Step Into Excellence at Bugema University!",
+      "Unleash the Power of Knowledge",
       "Stay Tuned for Exciting Upcoming Events!",
       "Celebrate Success!",
       "Graduation from 8th to 19th Nov 2024"
