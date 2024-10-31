@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'next/link';
-import image from "@/public/images/features/bu.jpg";
 
 export 
 
@@ -12,7 +11,7 @@ const Complex = () => {
       <h1 className='text-center font-bold md:text-3xl '>PROPOSED COMPLETION OF LABORATORY BUILDING AT BUGEMA UNIVERSITY LUWERO</h1>
       
       
-      <Link href="/docs/complex.jpg" download >
+      <Link href="/docs/complex.jpg" target="_blank" rel="noopener noreferrer" download >
             <h1 className='text-center text-3xl font-bold text-blue-500' >
                   download
             </h1>
