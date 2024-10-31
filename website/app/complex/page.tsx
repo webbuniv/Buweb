@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link';
+import image from "@/public/images/features/bu.jpg";
 
 export 
 
