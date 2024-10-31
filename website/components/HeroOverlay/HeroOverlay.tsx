@@ -31,8 +31,8 @@ const HeroOverlay = ({
       </div>
 
       <div className="hero-overlay2  hidden lg:flex lg:flex-col">
-        <div className="flex-1">
-          <h1 className="text-start sm:text-6xl text-4xl md:font-bold mb-0">
+        <div className="flex-1 mt-[200px]">
+          <h1 className="text-start sm:text-6xl text-4xl md:font-bold mb-0 ">
             {title3}
           </h1>
         </div>
