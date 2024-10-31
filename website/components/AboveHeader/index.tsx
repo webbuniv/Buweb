@@ -34,11 +34,12 @@ const AboveHeader = () => {
 
   useEffect(() => {
     const statements = [
-      "Welcome To Bugema University",
-      "Discover the Power of Knowledge",
-      "Join the Future of Innovation",
-      "Upcoming Events",
-      "Graduation from 8th to 19th Nov 2024"
+      "Greetings from Bugema University",
+      "Step Into Excellence at Bugema University!",
+      "Unleash the Power of Knowledge",
+      "Stay Tuned for Exciting Upcoming Events!",
+      "Celebrate Success!",
+      "Graduation from 8th to 10th Nov 2024"
     ];
 
     if (letterIndex < statements[currentStatement].length) {
@@ -212,7 +213,7 @@ const AboveHeader = () => {
                   <li className="group relative">
                       <Link
                         href="/calendar"
-                        className={`nav hover ml-3 flex py-2 text-black text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav hover ml-3 flex py-2 text-black text-sm  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
                         >
 
@@ -226,7 +227,7 @@ const AboveHeader = () => {
                     <li className="group relative">
                       <Link
                         href=""
-                        className={`nav hover ml-3 flex py-2 text-black text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav hover ml-3 flex py-2 text-black text-sm  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
                         onClick={() =>
                           window.open("https://elearning.bugemauniv.ac.ug/", "_blank")
@@ -245,7 +246,7 @@ const AboveHeader = () => {
                     <li>
                       <Link
                         href=""
-                        className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav hover flex py-2  text-black text-sm font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
                         onClick={() =>
                           window.open("https://erms.bugemauniv.ac.ug/buerms/default.aspx/", "_blank")
@@ -266,7 +267,7 @@ const AboveHeader = () => {
                         {/* The "Students Portal" link */}
                         <Link
                           href="#"
-                          className={`nav flex py-2 text-black font-bold lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                          className={`nav flex py-2 text-black text-sm font-bold lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         >
                           <span>Students Portal</span>
                           <span className="my-1 ml-2 dark:text-dark">
@@ -321,7 +322,7 @@ const AboveHeader = () => {
                     <li>
                     <Link
                       href=""
-                      className={`nav flex py-3 px-8 text-white font-bold bg-blue-700 rounded-lg group-hover:opacity-80 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} 
+                      className={`nav flex py-3 px-8 text-white text-sm font-bold bg-blue-700 rounded-lg group-hover:opacity-80 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} 
                       onClick={() =>
                         window.open("https://erms.bugemauniv.ac.ug/application/", "_blank")
                       }
