@@ -39,7 +39,7 @@ const AboveHeader = () => {
       "Unleash the Power of Knowledge",
       "Stay Tuned for Exciting Upcoming Events!",
       "Celebrate Success!",
-      "Graduation from 8th to 19th Nov 2024"
+      "Graduation from 8th to 10th Nov 2024"
     ];
 
     if (letterIndex < statements[currentStatement].length) {

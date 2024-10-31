@@ -13,7 +13,7 @@ export const heroMedia = [
   // { type: 'no-overlay', src: "/images/graduation/one.jpeg"},
   { type: 'no-overlay', src: "/images/graduation/three.jpeg"},
   { type: 'no-overlay', src: "/images/hero/slider.jpg" },
-  { type: 'no-overlay', src: "/images/hero/ambu.jpg" },
+  { type: 'image', src: "/images/hero/ambu.jpg" },
   // { type: 'image', src: "/images/gala/newa.jpeg" },
 ];
 
