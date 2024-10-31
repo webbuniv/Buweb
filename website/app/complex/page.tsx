@@ -21,7 +21,7 @@ const Complex = () => {
      </div>
 
     </div>
-  )
-}
+  );
+};
 
 export default Complex;
