@@ -1,8 +1,6 @@
 import React from 'react'
 import Link from 'next/link';
 
-export 
-
 const Complex = () => {
   return (
     <div className='mx-auto '>
