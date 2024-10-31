@@ -11,7 +11,7 @@ const Complex = () => {
       <h1 className='text-center font-bold md:text-3xl '>PROPOSED COMPLETION OF LABORATORY BUILDING AT BUGEMA UNIVERSITY LUWERO</h1>
       
       
-      <Link href="/docs/complex.JPEG"target="_blank" rel="noopener noreferrer" download >
+      <Link href="/docs/complex.JPEG"  download >
             <h1 className='text-center text-3xl font-bold text-blue-500' >
                   download
             </h1>
