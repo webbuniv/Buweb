@@ -35,9 +35,9 @@ export default function SchoolOfSocial() {
       <section className="my-20 mt-56 mx-10">
         <School
 
-         tittle=""
-         subtittle="School of Social Sciences"
-         topImg=""
+         tittle="School of Social Sciences"
+         subtittle="Impart in student-teachers knowledge and skills that will make them effective and efficient teachers in various levels of education."
+         topImg="/images/schools/ss-hero.jpg"
           dean="DR. SSERUNJOGI CHARLES"
           deanImage={"/blank/blank.jpg"}
           message="Having made a choice to join the school of education Bugema University, I take this opportunity to welcome you and assure you that you have made the best decision. As school of education, we look forward to serving you with a complete package."

@@ -11,13 +11,15 @@ const newsData = [
     imageSrc: "/images/life/football/new.jpeg",
     altText: "Image related to football",
   },
+
   {
     category: "Cultural Gala 2024 - 2025",
     title: "A Spectacular Cultural Gala 2024-2025: Bridging Traditions and Cultures", 
-    link: "/",
+    link: "/studentlife",
     imageSrc: "/images/gala/ne.jpeg",
     altText: "Image related to cultural gala",
   },
+
   {
     category: "Students Clubs",
     title: "Unleashing Potential: Discovering the Diverse Clubs at Bugema University",
@@ -121,22 +123,27 @@ const CampusNews: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {newsData.map((news, index) => (
-            <article key={index} className="bg-white shadow-md rounded-lg overflow-hidden">
-              <div className="h-48 overflow-hidden">
+            <article key={index} className="bg-white shadow-md rounded-lg  overflow-hidden">
+              <div className="h-48 overflow-hidden ">
                 <a href={news.link} aria-hidden="true" tabIndex={-1}>
                   <Image src={news.imageSrc} alt={news.altText} height={350} width={350} />
                 </a>
               </div>
               <div className="p-4">
                 <div className="text-sm text-gray-500 mb-2">{news.category}</div>
-                <h3 className="text-lg text-black font-semibold">
+                <h3 className="text-lg text-black  font-semibold">
                   <a href={news.link}>
+
+                   
+
                     {news.category === "Cultural Gala 2024-2025" ? (
+
                       <span className="text-blue-500">
                         {galaTimeLeft.days} days : {galaTimeLeft.hours} hours : {galaTimeLeft.minutes} minutes :{" "}
                         {galaTimeLeft.seconds} seconds
                       </span>
-                    ) : news.category === "Graduation 2024 - 2025" ? (
+                    )
+                     : news.category === "Graduation 2024 - 2025" ? (
                       <span className="text-blue-500">
                         {commencementTimeLeft.days} days : {commencementTimeLeft.hours} hours : {commencementTimeLeft.minutes} minutes :{" "}
                         {commencementTimeLeft.seconds} seconds

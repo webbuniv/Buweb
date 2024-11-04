@@ -35,17 +35,24 @@ const HeroSlide = ({ media }) => {
             height={800}
           />
           <div className="absolute top-0 left-0 w-full h-full opacity-100">
-            <HeroOverlay
+          <HeroOverlay
               // title="BUGEMA UNIVERSITY"
-              title2="Service."
-              title3="Where Head, Heart and Hands unite in"
+              title2=""
+              title3="Bugema University officially receives an ambulance donation from ADRA Uganda"
               // subtitle="Excellence In Service"
-              subtitle2="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity"
-              subtitle3="to offer you Quality education with a hands-on experience. . ."
+              subtitle2=""
+              subtitle3=""
               title={undefined} subtitle={undefined} buttonText={undefined} buttonLink={undefined}
               // buttonText="Apply Now"
               // buttonLink="http://erms.bugemauniv.ac.ug/application"
             />
+            {/* <HeroOverlay
+              title2="Service."
+              title3="Where Head, Heart and Hands unite in"
+              subtitle2="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity"
+              subtitle3="to offer you Quality education with a hands-on experience. . ."
+              title={undefined} subtitle={undefined} buttonText={undefined} buttonLink={undefined}
+            /> */}
           </div>
         </>
       ) : (
