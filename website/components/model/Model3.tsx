@@ -11,6 +11,7 @@ import palm_girls1 from "../../public/images/nav/palm-girls1.jpg";
 import { BiX } from 'react-icons/bi';
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import Link from 'next/link';
 
 
 const Model3 = ({is3visible, onClose, children}) => {
@@ -139,11 +140,14 @@ const handelScroll = () =>{
 
                         <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'25%'}}> 
                               <div className="mr-2 my-5 slider slide--fast">
-                                    
+                              <Link href={"/"}>
                                     <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main ' > <span id='Main' className='animated href=""'> Main Campus</span></h1> 
+                                    </Link>
                               </div>
                               <div className="mr-2 my-5  slider slide--slow ">
+                                    <Link href={"https://kc.bugemauniv.ac.ug/"}>
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' ><span id='Kampala' className='animated'>Kampala Campus</span></h1> 
+                                    </Link>
                               </div>
                               <div className="mr-2 my-5  slider slide--slower">
                                     {/* <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '>  <span id='Mbale' className='animated'> Mbale Campus</span></h1>  */}
