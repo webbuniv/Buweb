@@ -20,6 +20,7 @@ export default function Religion() {
     
     <>
     <Graduation />
+    <div className="w-full border-t border-black lg:mt-20 mb-20" />
     <ExploreGraduation />
     <div className="w-full border-t border-black lg:mt-20 mb-5" />
     <ClubBelow />

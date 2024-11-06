@@ -8,29 +8,20 @@ import SectionTitle from "../Common/SectionTitle";
 import Modal from "../Helper/Modal";
 export const img = "/images/nav/palm-girls1.jpg";
 
-// Define the structure of timeRemaining
-interface TimeRemaining {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-  milliseconds: number;
-}
-
 // Countdown Date for the Graduation Ceremony
 const targetDate = new Date("2024-11-10T00:00:00");
 
 const ExploreGraduation = () => {
+  const [showModal, setShowModal] = useState(false);
   const [animate, setAnimate] = useState(false);
-  const [timeRemaining, setTimeRemaining] = useState<TimeRemaining>({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-    milliseconds: 0,
-  });
-  const [currentTime, setCurrentTime] = useState(new Date());
+  const [timeRemaining, setTimeRemaining] = useState("");
+  const [currentTime, setCurrentTime] = useState("");
 
+  // Show/Hide Modal Handlers
+  const showModalHandler = () => setShowModal(true);
+  const closeModalHandler = () => setShowModal(false);
+
+  // Animation on scroll
   const animated = () => {
     if (window.scrollY >= 1000) {
       setAnimate(true);
@@ -44,38 +35,49 @@ const ExploreGraduation = () => {
     return () => window.removeEventListener("scroll", animated);
   }, []);
 
-  // Update Uganda current time and countdown every 100 milliseconds
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const options = {
+        timeZone: 'Africa/Kampala',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true,
+      };
+
+      const time = new Date().toLocaleString('en-US', options);
+      setCurrentTime(time);
+    }, 1000); // Update every second
+
+    // Clear interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
+
+  // Countdown Timer and Clock
   useEffect(() => {
     const timer = setInterval(() => {
-      const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Africa/Kampala" }));
-      setCurrentTime(now);
-
-      const distance = targetDate.getTime() - now.getTime();
+      const now = new Date();
+      const distance = targetDate - now;
+      
       if (distance > 0) {
-        setTimeRemaining({
-          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((distance % (1000 * 60)) / 1000),
-          milliseconds: Math.floor(distance % 1000),
-        });
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        setTimeRemaining(`${days}d ${hours}h ${minutes}m ${seconds}s`);
       } else {
-        setTimeRemaining({
-          days: 0,
-          hours: 0,
-          minutes: 0,
-          seconds: 0,
-          milliseconds: 0,
-        });
+        setTimeRemaining("Congratulations to all graduates!");
       }
-    }, 100);
+      
+      setCurrentTime(now.toLocaleTimeString());
+    }, 1000);
 
     return () => clearInterval(timer);
   }, []);
 
   return (
     <>
-      <section id="features" className="bg-primary/[.03] pt-8 -mt-[100px]">
+      <section id="features" className="bg-primary/[.03] pt-8 sm:mt-20 -mt-[100px] ">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20 ">
 
@@ -123,28 +125,20 @@ const ExploreGraduation = () => {
           </div>
 
           
-           {/* Clock and Timer Section */}
-           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-10">
-            {/* Left Column: Circular Analog Clock */}
+          {/* Clock and Timer Section */}
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* Left Column: Wall Clock */}
             <div className="flex justify-center items-center">
-              <div className="relative w-40 h-40 bg-white border-4 border-gray-200 rounded-full flex items-center justify-center shadow-lg">
-                {/* Hour Hand */}
-                <div
-                  className="absolute w-1 h-10 bg-gray-800 origin-bottom rounded-full"
-                  style={{ transform: `rotate(${(currentTime.getHours() % 12) * 30 + currentTime.getMinutes() * 0.5}deg)` }}
-                ></div>
-                {/* Minute Hand */}
-                <div
-                  className="absolute w-1 h-14 bg-gray-600 origin-bottom rounded-full"
-                  style={{ transform: `rotate(${currentTime.getMinutes() * 6}deg)` }}
-                ></div>
-                {/* Second Hand */}
-                <div
-                  className="absolute w-[1px] h-16 bg-red-500 origin-bottom"
-                  style={{ transform: `rotate(${currentTime.getSeconds() * 6}deg)` }}
-                ></div>
-                {/* Center Dot */}
-                <div className="absolute w-3 h-3 bg-black rounded-full"></div>
+              <div className="text-center">
+                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                  Current Time
+                </h2>
+                <p className="text-5xl font-bold text-gray-800 dark:text-gray-100">
+                  {currentTime}
+                </p>
+                <p className="text-lg text-gray-600 dark:text-gray-400">
+                  {new Date().toLocaleDateString('en-US', { timeZone: 'Africa/Kampala' })}
+                </p>
               </div>
             </div>
 
@@ -153,13 +147,9 @@ const ExploreGraduation = () => {
               <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
                 Graduation Countdown
               </h2>
-              <div className="flex space-x-2 text-center">
-                <div className="text-4xl font-bold text-red-600 dark:text-red-400">{timeRemaining.days}d</div>
-                <div className="text-4xl font-bold text-red-600 dark:text-red-400">{timeRemaining.hours}h</div>
-                <div className="text-4xl font-bold text-red-600 dark:text-red-400">{timeRemaining.minutes}m</div>
-                <div className="text-4xl font-bold text-red-600 dark:text-red-400">{timeRemaining.seconds}s</div>
-                <div className="text-2xl font-bold text-red-600 dark:text-red-400">{timeRemaining.milliseconds}ms</div>
-              </div>
+              <p className="text-4xl font-bold text-red-600 dark:text-red-400 mb-4">
+                {timeRemaining}
+              </p>
               <p className="text-lg text-gray-600 dark:text-gray-300 mt-1">
                 Congratulations to all the graduates of Bugema University!
               </p>

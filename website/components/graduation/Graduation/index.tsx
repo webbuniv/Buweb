@@ -91,7 +91,7 @@ const Graduation = () => {
                   </Link>
                 </motion.div>
                 <motion.div
-                  className="flex hover:scale-105 transition-all duration-300 flex-col text-center items-center justify-center"
+                  className="flex hover:scale-105 transition-all duration-300 flex-col text-center items-center justify-center "
                   variants={textVariants}
                 >
                   <Link
