@@ -5,38 +5,61 @@ import Link from "next/link";
 
 const newsData = [
   {
+    category: "Are You Ready for Exams?",
+    title: "The countdown has begun! Bugema University is set to conduct its end-of-semester examinations.",
+    link: "/",
+    imageSrc: "/images/club/two.jpg",
+    altText: "Image related to Exams",
+  },
+  {
     category: "Sports",
     title: "Bugema University sports play a vital role in student life.",
     link: "/sports/sports",
-    imageSrc: "/images/life/football/new.jpeg",
+    imageSrc: "/images/life/football/footf.jpg",
     altText: "Image related to football",
+  },
+  {
+    category: "Students Clubs",
+    title: "Unleashing Potential: Discovering the Diverse Clubs at Bugema University",
+    link: "/clubs/clubs",
+    imageSrc: "/images/club/r.jpg",
+    altText: "Student Club",
   },
 
   {
     category: "Cultural Gala 2024 - 2025",
     title: "A Spectacular Cultural Gala 2024-2025: Bridging Traditions and Cultures", 
     link: "/studentlife",
-    imageSrc: "/images/gala/ne.jpeg",
+    imageSrc: "/images/gala/neww.jpeg",
     altText: "Image related to cultural gala",
   },
-
   {
-    category: "Students Clubs",
-    title: "Unleashing Potential: Discovering the Diverse Clubs at Bugema University",
-    link: "/clubs/clubs",
-    imageSrc: "/images/club/new.jpeg",
-    altText: "Student Club",
-  },
-  {
-    category: "Graduation 2024 - 2025",
+    category: "30th Graduation Ceremony",
     title: "Commencement Countdown", // Placeholder for commencement countdown
     link: "/",
-    imageSrc: "/images/graduation/gra.jpeg",
+    imageSrc: "/images/graduation/four.jpeg",
     altText: "Graduation 2024 - 2025 highlights",
   },
 ];
 
 const CampusNews: React.FC = () => {
+  const [currentStartIndex, setCurrentStartIndex] = useState(0);
+  const visibleNewsCount = 4;
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentStartIndex((prevIndex) => (prevIndex + 1) % newsData.length);
+    }, 5000); 
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  // Calculate the visible items based on the current start index
+  const visibleNews = [
+    ...newsData.slice(currentStartIndex, currentStartIndex + visibleNewsCount),
+    ...newsData.slice(0, Math.max(0, (currentStartIndex + visibleNewsCount) - newsData.length)),
+  ].slice(0, visibleNewsCount); 
+
   const [galaTimeLeft, setGalaTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -86,6 +109,8 @@ const CampusNews: React.FC = () => {
       }
     };
 
+    
+
     const galaTimerId = setInterval(updateGalaTime, 1000);
     const commencementTimerId = setInterval(updateCommencementTime, 1000);
 
@@ -122,8 +147,8 @@ const CampusNews: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {newsData.map((news, index) => (
-            <article key={index} className="bg-white shadow-md rounded-lg  overflow-hidden">
+          {visibleNews.map((news, index) => (
+            <article key={index} className="bg-white shadow-md rounded-lg overflow-hidden">
               <div className="h-48 overflow-hidden ">
                 <a href={news.link} aria-hidden="true" tabIndex={-1}>
                   <Image src={news.imageSrc} alt={news.altText} height={350} width={350} />
@@ -131,19 +156,14 @@ const CampusNews: React.FC = () => {
               </div>
               <div className="p-4">
                 <div className="text-sm text-gray-500 mb-2">{news.category}</div>
-                <h3 className="text-lg text-black  font-semibold">
+                <h3 className="text-lg text-black font-semibold">
                   <a href={news.link}>
-
-                   
-
-                    {news.category === "Cultural Gala 2024-2025" ? (
-
+                    {news.category === "Cultural Gala" ? (
                       <span className="text-blue-500">
                         {galaTimeLeft.days} days : {galaTimeLeft.hours} hours : {galaTimeLeft.minutes} minutes :{" "}
                         {galaTimeLeft.seconds} seconds
                       </span>
-                    )
-                     : news.category === "Graduation 2024 - 2025" ? (
+                    ) : news.category === "30th Graduation Ceremony" ? (
                       <span className="text-blue-500">
                         {commencementTimeLeft.days} days : {commencementTimeLeft.hours} hours : {commencementTimeLeft.minutes} minutes :{" "}
                         {commencementTimeLeft.seconds} seconds
