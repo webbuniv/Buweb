@@ -4,30 +4,30 @@ import SectionTitle from "../../Common/SectionTitle";
 import Link from "next/link";
 const newsData = [
   {
-    category: ".....",
+    category: "",
     title:
-      "Bugema University sports play a vital role in student life ............",
+      "Bugema University sports play a vital role in student life",
     link: "#",
     imageSrc: "/images/life/basketball/baska.jpg",
     altText: "Image related to depression biotypes",
   },
   {
-    category: "......",
-    title: "Why advertisers pay more to reach viewers who watch less",
+    category: "",
+    title: "Bugema University sports play a vital role in student life",
     link: "#",
     imageSrc: "/images/life/basketball/baskb.jpg",
     altText: "Image related to advertising study",
   },
   {
-    category: "...................",
-    title: "Study finds high blood pressure drug may prevent epilepsy",
+    category: "",
+    title: "Bugema University sports play a vital role in student life",
     link: "#",
     imageSrc: "/images/life/basketball/baskc.jpg",
     altText: "Image related to epilepsy study",
   },
   {
-    category: "..................",
-    title: "Congratulations, graduates!",
+    category: "",
+    title: "Bugema University sports play a vital role in student life",
     link: "#",
     imageSrc: "/images/life/basketball/baskd.jpg",
     altText: "Commencement 2024 highlights",
@@ -36,30 +36,30 @@ const newsData = [
 
 const secondData = [
   {
-    category: ".....",
+    category: "",
     title:
-      "Bugema University sports play a vital role in student life ............",
+      "Bugema University sports play a vital role in student life",
     link: "#",
     imageSrc: "/images/life/basketball/baske.jpg",
     altText: "Image related to depression biotypes",
   },
   {
-    category: "......",
-    title: "Why advertisers pay more to reach viewers who watch less",
+    category: "",
+    title: "Bugema University sports play a vital role in student life",
     link: "#",
     imageSrc: "/images/life/basketball/baskf.jpg",
     altText: "Image related to advertising study",
   },
   {
-    category: "...............",
-    title: "Study finds high blood pressure drug may prevent epilepsy",
+    category: "",
+    title: "Bugema University sports play a vital role in student life",
     link: "#",
     imageSrc: "/images/life/basketball/baska.jpg",
     altText: "Image related to epilepsy study",
   },
   {
-    category: "................",
-    title: "Congratulations, graduates!",
+    category: "",
+    title: "Bugema University sports play a vital role in student life",
     link: "#",
     imageSrc: "/images/life/basketball/baska.jpg",
     altText: "Commencement 2024 highlights",
@@ -67,30 +67,30 @@ const secondData = [
 ];
 const thirdData = [
   {
-    category: ".....",
+    category: "",
     title:
-      "Bugema University sports play a vital role in student life ............",
+      "Bugema University sports play a vital role in student life",
     link: "#",
     imageSrc: "/images/life/basketball/baska.jpg",
     altText: "Image related to depression biotypes",
   },
   {
-    category: "......",
-    title: "Why advertisers pay more to reach viewers who watch less",
+    category: "",
+    title: "Bugema University sports play a vital role in student life",
     link: "#",
     imageSrc: "/images/life/basketball/baska.jpg",
     altText: "Image related to advertising study",
   },
   {
-    category: "...............",
-    title: "Study finds high blood pressure drug may prevent epilepsy",
+    category: "",
+    title: "Bugema University sports play a vital role in student life",
     link: "#",
     imageSrc: "/images/life/basketball/baska.jpg",
     altText: "Image related to epilepsy study",
   },
   {
-    category: "................",
-    title: "Congratulations, graduates!",
+    category: "",
+    title: "Bugema University sports play a vital role in student life",
     link: "#",
     imageSrc: "/images/life/basketball/baska.jpg",
     altText: "Commencement 2024 highlights",

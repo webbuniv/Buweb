@@ -4,12 +4,11 @@ import { subscribeToNewsletter } from "@/lib/requests";
 import { toast } from "sonner";
 import Brands from "../Brands";
 import Image from "next/image";
-import life from '@/public/images/features/life.jpg';
+import life from '@/public/images/nav/culturee.jpg';
 
 const NewsLatterBox: React.FC = () => {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("");
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("");

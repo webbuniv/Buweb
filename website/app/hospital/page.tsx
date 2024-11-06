@@ -8,7 +8,10 @@ import image1 from "@/public/images/hospital/one.jpg";
 import image2 from "@/public/images/hospital/two.jpg";
 import image3 from "@/public/images/hospital/three.jpg";
 import image4 from "@/public/images/hospital/four.jpg";
-import image5 from "@/public/images/hospital/five.jpg"; // New image
+import image6 from "@/public/images/hero/ambu.jpg";
+import image7 from "@/public/images/hero/am.jpg";
+import image8 from "@/public/images/hero/amb.jpg";
+import image9 from "@/public/images/hero/a.jpg";
 
 const images = [image1, image2, image3];
 
@@ -48,7 +51,7 @@ export default function Hospital() {
   };
 
   return (
-    <div className="relative flex flex-col gap-2 justify-center mx-auto mt-8">
+    <div className="relative flex flex-col gap-2 justify-center mx-auto mt-[140px]">
       <SlidingImages onCycleComplete={handleCycleComplete} />
       <div className="flex flex-col md:flex-row gap-2 mt-4">
         <div className="flex-1 p-4 border rounded-md">
@@ -82,7 +85,7 @@ export default function Hospital() {
 
       <div className="flex flex-col md:flex-row gap-2 mt-4">
         <div className="flex-1 p-4 border rounded-md mx-6">
-          <Image src={image4} alt="hospital" width={400} height={300} className="rounded-lg mt-6" />
+          <Image src={image6} alt="hospital" width={400} height={300} className="rounded-lg mt-6" />
         </div>
         <div className="flex-1 p-4 border rounded-md">
           <h2 className="text-3xl font-semibold text-blue-700">Ambulance</h2>
@@ -96,6 +99,17 @@ export default function Hospital() {
         </div>
         
       </div>
+      <div className="flex flex-col md:flex-row gap-2 mt-4">
+        <div className="flex-1 p-4 border rounded-md mx-6">
+          <Image src={image7} alt="hospital" width={400} height={300} className="rounded-lg mt-6" />
+        </div>
+        <div className="flex-1 p-4 border rounded-md mx-6">
+          <Image src={image8} alt="hospital" width={400} height={300} className="rounded-lg mt-6" />
+        </div>
+        <div className="flex-1 p-4 border rounded-md mx-6">
+          <Image src={image9} alt="hospital" width={400} height={300} className="rounded-lg mt-6" />
+        </div>
+        </div>
     </div>
   );
 }

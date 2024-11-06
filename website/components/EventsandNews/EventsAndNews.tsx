@@ -54,17 +54,21 @@ const EventsAndNews: React.FC = () => {
         </div>
 
         {/* Events Column */}
-        <div className="w-full md:w-[30%] h-auto md:h-[350px]">
+        <div className="w-full md:w-[30%] flex flex-col h-full">
           <h2 className="text-xl font-semibold text-black/80 mb-2 dark:text-white flex">
-            Upcoming Events
+            Upcoming Events <span className="block lg:hidden">And News</span>
           </h2>
+          <Link href="/events" className="mb-2 text-yellow-600">
+            Read All Events
+          </Link>
           <Link href="/events" className="mb-2 text-yellow-600 lg:hidden block">
             Read All News
           </Link>
-          <div className="h-[350px] md:h-auto overflow-y-auto">
+          <div className="h-[350px] overflow-y-auto">
             <Events />
           </div>
         </div>
+
       </div>
     </section>
   );

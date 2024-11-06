@@ -32,14 +32,14 @@ export default function SchoolOfSocial() {
 
   return (
     <div>
-      <section className="my-20 mt-36 mx-10">
+      <section className="my-20 mt-56 mx-10">
         <School
 
-         tittle=""
-         subtittle="School of Social Sciences"
-         topImg=""
+         tittle="School of Social Sciences"
+         subtittle="Impart in student-teachers knowledge and skills that will make them effective and efficient teachers in various levels of education."
+         topImg="/images/schools/ss-hero.jpg"
           dean="DR. SSERUNJOGI CHARLES"
-          deanImage={"/images/blog/author-03.png"}
+          deanImage={"/blank/blank.jpg"}
           message="Having made a choice to join the school of education Bugema University, I take this opportunity to welcome you and assure you that you have made the best decision. As school of education, we look forward to serving you with a complete package."
           preamble="The School of Education believes that a true teacher is one that is mentally, physically and spiritually sound to impart the same virtues in his/her learners making them best suited for service to God and mankind in this world and in the world to come."
 

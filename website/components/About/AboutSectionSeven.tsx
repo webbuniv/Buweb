@@ -5,7 +5,7 @@ import { StarIcon } from '@heroicons/react/solid';
 import { EyeIcon } from '@heroicons/react/solid';
 import image from "../../public/images/features/bu.jpg";
 import learning from "../../public/images/schools/lab1.jpg";
-import worship from "../../public/images/schools/theology.jpg";
+import worship from "../../public/images/church/prr.jpeg";
 import React, { useState, useEffect, useRef } from 'react';
 import Link from "next/link"
 
@@ -272,9 +272,11 @@ const AboutSectionSeven = () => {
            <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
               <div className="flex-1">
               <p className="">We understand the importance of holistic development and the role of spirituality in our students&apos; lives. We provide a nurturing environment that fosters personal growth and offers opportunities for spiritual enrichment. Our university offers worship services and spaces that cater to diverse religious and spiritual needs. Students can engage in prayer, meditation, and other spiritual activities to promote a sense of community, mindfulness, and well-being.</p>
-              <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
-                Explore more
-              </button>
+              <Link href={'/religious/religious'}>
+                <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
+                  Explore more
+                </button>
+              </Link>
               </div>
             </div>
           </div>

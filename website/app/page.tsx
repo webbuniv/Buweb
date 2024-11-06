@@ -1,5 +1,5 @@
 'use client'
-
+import React from "react";
 import Blog from "@/components/Blog";
 import Brands from "@/components/Brands";
 import ScrollUp from "@/components/Common/ScrollUp";
@@ -13,6 +13,7 @@ import EventsAndNews from "@/components/EventsandNews/EventsAndNews";
 import CampusNews from "@/components/CampusNews";
 import Welcome from "@/components/Welcome/Welcome";
 import MatureEntryAd from "@/components/MatureEntryAd/MatureEntryAd";
+
 
 
 
@@ -31,8 +32,8 @@ export default function Home() {
       <Blog />
       <Brands />
       <Contact />
-      <MatureEntryAd />
       <ScrollToTop />
+      <MatureEntryAd />
     </>
   );
 }

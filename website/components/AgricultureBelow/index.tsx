@@ -138,7 +138,7 @@ const AgricultureBelow: React.FC = () => {
           {/* First image (covers the entire column) */}
           <div className="h-96">
             <img
-              src="/images/agric/agri.jpg"
+              src="/images/agric/croro.jpeg"
               alt="Bugema University"
               className="w-full h-full object-cover"
             />
@@ -147,7 +147,7 @@ const AgricultureBelow: React.FC = () => {
           {/* Second image (allowed to move outside the boundaries of the first image) */}
           <div className="absolute -bottom-10 -right-10 w-[60%] h-[50%]">
             <img
-              src="/images/agric/agr.avif"
+              src="/images/agric/crppo.jpeg"
               alt="Bugema University"
               className="w-full h-full object-cover shadow-lg"
             />

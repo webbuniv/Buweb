@@ -8,8 +8,10 @@ import burundi from "../../public/images/nav/burundi.jpg";
 import bucosa from "../../public/images/nav/bucosa.jpg";
 import palm_girls from "../../public/images/nav/palm-girls.jpg";
 import palm_girls1 from "../../public/images/nav/palm-girls1.jpg";
+import { BiX } from 'react-icons/bi';
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import Link from 'next/link';
 
 
 const Model3 = ({is3visible, onClose, children}) => {
@@ -97,22 +99,55 @@ const why_bugema = () =>{
       document.getElementById('attachment-why-bugema').classList.remove('hidden');
 
 }
+
+const handelScroll = () =>{
+      document.addEventListener('scroll', function(){
+            onClose();
+      })
+            // if (window.scrollY > 1){
+            //       onClose();
+            // };
+      }
+
   return (
       <>
-        
-
-            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden bg-white" id="wrapper" onMouseLeave={onClose}>
+        <div className=" fade-in fixed z-40 inset-0 bg-white flex w-full h-4/5 my-16 mt-[110px] border border-black overflow-auto overflow-x-hidden" id="wrapper" onScroll={handelScroll}>
                   
                      
                   <div id="programs">
 
+                        <div className='flex '>
+                              <button 
+                                    style={{
+                                    borderRadius: '50%',
+                                    width: '30px',
+                                    height: '30px',
+                                    backgroundColor: 'black',
+                                    borderColor:'black',
+                                    color: 'white',
+                                    fontSize: '20px',
+                                    textAlign: 'center',
+                                    lineHeight: '30px',
+                                    position: 'absolute',
+                                    right: '70px',
+                                    top: '20px',
+                                    }}
+                                    onClick={onClose}>
+                                    <span className="text-white text-xl"><BiX className='text-3xl'/></span>
+                              </button>
+
+                        </div> 
+
                         <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'25%'}}> 
                               <div className="mr-2 my-5 slider slide--fast">
-                                    
+                              <Link href={"/"}>
                                     <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main ' > <span id='Main' className='animated href=""'> Main Campus</span></h1> 
+                                    </Link>
                               </div>
                               <div className="mr-2 my-5  slider slide--slow ">
+                                    <Link href={"https://kc.bugemauniv.ac.ug/"}>
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' ><span id='Kampala' className='animated'>Kampala Campus</span></h1> 
+                                    </Link>
                               </div>
                               <div className="mr-2 my-5  slider slide--slower">
                                     {/* <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '>  <span id='Mbale' className='animated'> Mbale Campus</span></h1>  */}
