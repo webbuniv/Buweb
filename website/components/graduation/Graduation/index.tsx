@@ -36,7 +36,7 @@ const sliderSettings = {
 const Graduation = () => {
   return (
     <>
-      <section id="home" className="hidden md:block hero-section w-full lg:h-[800px] h-[700px] mt-[120px] relative z-10 mb-[100px]">
+      <section id="home" className="hidden md:block hero-section w-full lg:h-[800px] h-[700px] mt-[120px] relative z-10">
         <Slider {...sliderSettings}>
           {heroMedia.map((media, index) => (
             <HeroSlide key={index} media={media} />

@@ -77,7 +77,7 @@ const ExploreGraduation = () => {
 
   return (
     <>
-      <section id="features" className="bg-primary/[.03] pt-8 sm:mt-20 -mt-[100px] ">
+      <section id="features" className="bg-primary/[.03] -lg:mt-[200px]">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20 ">
 
