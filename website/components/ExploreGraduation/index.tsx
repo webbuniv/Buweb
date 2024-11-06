@@ -57,7 +57,8 @@ const ExploreGraduation = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date();
-      const distance = targetDate - now;
+      const distance = targetDate.getTime() - now.getTime();
+
       
       if (distance > 0) {
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -69,7 +70,7 @@ const ExploreGraduation = () => {
         setTimeRemaining("Congratulations to all graduates!");
       }
       
-      setCurrentTime(now.toLocaleTimeString());
+      setCurrentTime(now.toLocaleTimeString('en-US', { timeZone: 'Africa/Kampala' }));
     }, 1000);
 
     return () => clearInterval(timer);
