@@ -37,12 +37,12 @@ const ExploreGraduation = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const options = {
-        timeZone: 'Africa/Kampala',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true,
+      const options: Intl.DateTimeFormatOptions = { 
+        timeZone: 'UTC', 
+        hour: 'numeric', 
+        minute: 'numeric', 
+        second: 'numeric', 
+        hour12: false 
       };
 
       const time = new Date().toLocaleString('en-US', options);
