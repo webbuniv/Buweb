@@ -4,8 +4,9 @@ import School from "@/components/school/School";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Clubs from "@/components/clubs/Clubs";
 import ClubBelow from "@/components/clubs/ClubBelow";
+import Graduation from "@/components/graduation/Graduation";
+import ExploreGraduation from "@/components/ExploreGraduation";
 
 
 export default function Religion() {
@@ -18,9 +19,9 @@ export default function Religion() {
   return (
     
     <>
-    <Clubs />
+    <Graduation />
+    <ExploreGraduation />
     <div className="w-full border-t border-black lg:mt-20 mb-5" />
-    {/* <ReligiousBelowHero /> */}
     <ClubBelow />
     </>
     

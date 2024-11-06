@@ -6,7 +6,7 @@ import Link from "next/link";
 const newsData = [
   {
     category: "Are You Ready for Exams?",
-    title: "The countdown has begun! Bugema University is set to conduct its end-of-semester examinations.",
+    title: "The countdown has begun! As the exam days draw closer, students are encouraged to... ",
     link: "/",
     imageSrc: "/images/club/two.jpg",
     altText: "Image related to Exams",
@@ -36,7 +36,7 @@ const newsData = [
   {
     category: "30th Graduation Ceremony",
     title: "Commencement Countdown", // Placeholder for commencement countdown
-    link: "/",
+    link: "/graduation/graduation",
     imageSrc: "/images/graduation/four.jpeg",
     altText: "Graduation 2024 - 2025 highlights",
   },
