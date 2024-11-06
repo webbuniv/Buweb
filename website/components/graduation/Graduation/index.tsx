@@ -9,12 +9,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export const heroMedia = [
-  // { type: 'video', src: "https://res.cloudinary.com/do5ubr3sa/video/upload/v1719685852/ayxyrcvleddu33lelk69.mp4" },
-  // { type: 'no-overlay', src: "/images/graduation/bukedde.png"},
-  { type: 'no-overlay', src: "/images/graduation/three.jpeg"},
-  { type: 'no-overlay', src: "/images/hero/slider.jpg" },
-  { type: 'image', src: "/images/hero/ambu.jpg" },
-  // { type: 'image', src: "/images/gala/newa.jpeg" },
+  { type: 'image', src: "/images/graduation/gra.jpeg" },
+  // { type: 'image', src: "/images/graduation/.jpeg" },
+  { type: 'image', src: "/images/graduation/graduation.jpeg" }
 ];
 
 const textVariants = {
@@ -36,10 +33,10 @@ const sliderSettings = {
   autoplaySpeed: 6000
 };
 
-const Hero = () => {
+const Graduation = () => {
   return (
     <>
-      <section id="home" className="hidden md:block hero-section w-full lg:h-[800px] h-[700px] relative z-10 mt-[120px] mb-[100px]">
+      <section id="home" className="hidden md:block hero-section w-full lg:h-[800px] h-[700px] mt-[120px] relative z-10">
         <Slider {...sliderSettings}>
           {heroMedia.map((media, index) => (
             <HeroSlide key={index} media={media} />
@@ -61,13 +58,13 @@ const Hero = () => {
                 className="md:hidden uppercase font-medium leading-relaxed text-gray-500/70 dark:text-white dark:opacity-90 sm:text-xl text-2xl"
                 variants={textVariants}
               >
-                Bugema University
+                Graduation
               </motion.h2>
               <motion.h1
                 className="md:hidden capitalize text-3xl sm:text-4xl font-bold leading-tight text-black/70 dark:text-primary sm:leading-tight md:text-5xl md:leading-tight"
                 variants={textVariants}
               >
-                Excellence <br /> in service
+                At <br /> Bugema University
               </motion.h1>
               <motion.div
                 className="md:hidden flex flex-col items-center justify-center space-y-4"
@@ -94,7 +91,7 @@ const Hero = () => {
                   </Link>
                 </motion.div>
                 <motion.div
-                  className="flex hover:scale-105 transition-all duration-300 flex-col text-center items-center justify-center"
+                  className="flex hover:scale-105 transition-all duration-300 flex-col text-center items-center justify-center "
                   variants={textVariants}
                 >
                   <Link
@@ -114,4 +111,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Graduation;
