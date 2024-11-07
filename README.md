@@ -83,7 +83,7 @@ We welcome contributions to the Bugema University website. To contribute:
 For any inquiries or support, please contact:
 
 Bugema University Web Development Team
-Email: [https://info@bugemauniv.ac.ug](https://info@bugemauniv.ac.ug)
+Email: [mail:info@bugemauniv.ac.ug](info@bugemauniv.ac.ug)
 Website: [https://bugemauniv.ac.ug](https://bugemauniv.ac.ug)
 
 Thank you for visiting the repository, and we hope you find this project useful and engaging!
