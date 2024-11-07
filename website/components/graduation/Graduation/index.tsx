@@ -36,9 +36,9 @@ const sliderSettings = {
 const Graduation = () => {
   return (
     <>
-    <section id="home" className="hero-section w-full lg:h-[800px] h-[700px] mt-[120px] relative z-10 mb-[200px] lg:-mb-[300px] flex flex-col md:flex-row">
+    <section id="home" className="hero-section w-full lg:h-[800px] h-[700px] mt-[120px] relative z-10 mb-[300px] lg:-mb-[300px] flex flex-col md:flex-row">
         {/* Left Column: Information about the Entrepreneurship Class Exhibition */}
-        <div className="w-full md:w-1/2 h-full flex bg-gray-100 dark:bg-gray-500 p-8 md:p-12 lg:h-[500px] ">
+        <div className="w-full md:w-1/2 h-full flex bg-gray-100 dark:bg-gray-500 p-8 mb-[100px] md:p-12 lg:h-[500px] ">
           <div className="text-center md:text-left">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4">
             30th Graduation Ceremony
@@ -49,7 +49,7 @@ const Graduation = () => {
           </div>
         </div>
         {/* Right Column: Slider */}
-        <div className="w-full md:w-1/2 h-full flex items-center p-4 md:p-6 -mb-[200px] md:mb-6">
+        <div className="w-full md:w-1/2 h-full flex items-center p-4 md:p-6 md:mb-6">
           <Slider {...sliderSettings} className="w-full">
             {heroMedia.map((media, index) => (
               <HeroSlide key={index} media={media} />
