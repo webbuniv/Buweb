@@ -7,7 +7,7 @@ const newsData = [
   {
     category: "Entreprenuership Class Exhibition",
     title: "Showcasing Innovative Business Ideas by Students",
-    link: "/",
+    link: "/exhibition",
     imageSrc: "/images/exhibition/e.jpeg",
     altText: "Image related to Exams",
   },
