@@ -40,12 +40,27 @@ const sliderSettings = {
 const ExhHero = () => {
   return (
     <>
-      <section id="home" className="hidden md:block hero-section w-full lg:h-[800px] h-[700px] mt-[120px] relative z-10 mb-[100px]">
-        <Slider {...sliderSettings}>
-          {heroMedia.map((media, index) => (
-            <HeroSlide key={index} media={media} />
-          ))}
-        </Slider>
+      <section id="home" className="hero-section w-full lg:h-[800px] h-[700px] mt-[120px] relative z-10 lg:-mb-[200px] flex flex-col md:flex-row">
+        {/* Left Column: Slider */}
+        <div className="w-full md:w-1/2 h-full flex items-center">
+          <Slider {...sliderSettings} className="w-full">
+            {heroMedia.map((media, index) => (
+              <HeroSlide key={index} media={media} />
+            ))}
+          </Slider>
+        </div>
+
+        {/* Right Column: Information about the Entrepreneurship Class Exhibition */}
+        <div className="w-full md:w-1/2 h-full flex bg-gray-100 dark:bg-gray-800 p-8 md:p-12 lg:h-[500px]">
+          <div className="text-center md:text-left">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4">
+              Entrepreneurship Class Exhibition 2024 - 2025
+            </h2>
+            <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300">
+              Join us to explore innovative business ideas and projects created by students, showcasing creativity and entrepreneurial skills. This exhibition highlights the journey of future entrepreneurs and offers insights into their transformative projects.
+            </p>
+          </div>
+        </div>
       </section>
 
       <div className="block md:hidden container px-4 mt-[120px] mb-[50px] w-full h-full">

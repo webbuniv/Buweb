@@ -11,10 +11,10 @@ const StudentLifePage = () => {
   return (
     <>
       <ExhHero />
-      <Breadcrumb
+      {/* <Breadcrumb
         pageName="Entreprenuership Class Exhibition 2024 - 2025"
         description="Welcome to the Bugema University Entreprenuership Exhibition"
-      />
+      /> */}
       <HomePage />
       <Exhibition />
     </>
