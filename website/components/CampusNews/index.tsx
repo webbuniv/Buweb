@@ -5,6 +5,13 @@ import Link from "next/link";
 
 const newsData = [
   {
+    category: "Entreprenuership Class Exhibition",
+    title: "Showcasing Innovative Business Ideas by Students",
+    link: "/",
+    imageSrc: "/images/club/two.jpg",
+    altText: "Image related to Exams",
+  },
+  {
     category: "Are You Ready for Exams?",
     title: "The countdown has begun! As the exam days draw closer, students are encouraged to... ",
     link: "/",
