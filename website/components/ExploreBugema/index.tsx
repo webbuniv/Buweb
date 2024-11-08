@@ -128,7 +128,7 @@ const Video = () => {
           {/* Discover Your Path at Bugema University!  */}
           Happening Now
           </h1>
-          We commence our 30th Graduatoion The Consecration Ceremony 
+          Today, November 8, 2024, Bugema University proudly commences its 30th graduation with the consecration service celebrating the achievements of its graduates with a vibrant and heartfelt event. Family, friends, and faculty gather to honor the hard work, resilience, and dedication of the students who have reached this significant milestone in their academic journey. The atmosphere is filled with joy and pride as inspiring speeches echo through the venue, highlighting the graduates remarkable accomplishments and the challenges they have overcome. As each graduate walks across the stage to receive their diploma, they are met with cheers and applause, symbolizing not just the end of their studies but the beginning of new opportunities. Congratulations to the 30th graduating class of Bugema University!
           {/* <p className="text-base !leading-relaxed text-body-color md:text-lg">
           
                   At Bugema, it is not just about academics; it is about nurturing your mind, heart, and hands. Bugema fosters holistic excellence – where character development meets intellectual growth.
