@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 export const heroMedia = [
   // { type: 'video', src: "https://res.cloudinary.com/do5ubr3sa/video/upload/v1719685852/ayxyrcvleddu33lelk69.mp4" },
-  // { type: 'no-overlay', src: "/images/graduation/one.jpeg"},
+  { type: 'no-overlay', src: "/images/graduation/now.jpeg"},
   { type: 'no-overlay', src: "/images/graduation/three.jpeg"},
   { type: 'no-overlay', src: "/images/hero/slider.jpg" },
   { type: 'image', src: "/images/hero/ambu.jpg" },
