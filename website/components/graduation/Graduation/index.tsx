@@ -9,9 +9,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export const heroMedia = [
-  { type: 'image', src: "/images/graduation/b.jpg" },
-  { type: 'image', src: "/images/graduation/gra.jpeg" },
-  { type: 'image', src: "/images/graduation/graduation.jpeg" }
+  { type: 'image', src: "/images/graduation/gradsb.jpg" },
+  { type: 'image', src: "/images/graduation/gradsb1.jpg" },
+  { type: 'image', src: "/images/graduation/b.jpg"},
+  { type: 'image', src: "/images/graduation/gradsb2.jpg"},
+  { type: 'image', src: "/images/graduation/gradsb3.jpg"},
 ];
 
 const textVariants = {
