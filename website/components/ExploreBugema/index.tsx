@@ -98,7 +98,7 @@ const Video = () => {
 
 
 <section id="features" className="bg-primary/[.03] pt-8 -mt-5">
-<div className="container">
+<div id="live" className="container">
   <div className="grid grid-cols-1 md:grid-cols-2 md:gap-20 ">
 
       <div
