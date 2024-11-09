@@ -36,10 +36,10 @@ const AboveHeader = () => {
     const statements = [
       "Greetings from Bugema University",
       "Step Into Excellence at Bugema University!",
-      "Unleash the Power of Knowledge",
-      "Stay Tuned for Exciting Upcoming Events!",
       "Celebrate Success!",
-      "Graduation from 8th to 10th Nov 2024"
+      "Graduation from 8th to 10th Nov 2024",
+      "Are You Ready for Exams?",
+      "The countdown has begun!"
     ];
 
     if (letterIndex < statements[currentStatement].length) {
