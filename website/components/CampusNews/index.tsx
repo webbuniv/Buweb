@@ -44,7 +44,7 @@ const newsData = [
     category: "30th Graduation Ceremony",
     title: "Commencement Countdown", // Placeholder for commencement countdown
     link: "/graduation/graduation",
-    imageSrc: "/images/graduation/four.jpeg",
+    imageSrc: "/images/graduation/a.jpg",
     altText: "Graduation 2024 - 2025 highlights",
   },
 ];
