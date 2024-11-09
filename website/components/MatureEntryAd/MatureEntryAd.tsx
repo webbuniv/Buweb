@@ -27,7 +27,7 @@ export default function MatureEntryAd() {
             aria-label="go to calendar"
             className="flex px-1 h-10 w-[240px] cursor-pointer items-center justify-center rounded-md bg-primary text-black shadow-md transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
           >
-            <span className="text-white">Graduation List 2024<br /> check out</span>
+            <span className="text-white">Graduation List 2024!!!</span>
           </div>
         </Link>
       )}
