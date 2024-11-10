@@ -61,7 +61,7 @@ const secondData = [
     category: "",
     title: "",
     link: "#",
-    imageSrc: "/images/gala/newa.jpeg",
+    imageSrc: "/images/exhibition/exa.jpeg",
     altText: "",
   },
 ];
@@ -71,28 +71,28 @@ const thirdData = [
     title:
       "",
     link: "#",
-    imageSrc: "/images/gala/new.jpg",
+    imageSrc: "/images/exhibition/ex.jpeg",
     altText: "",
   },
   {
     category: "",
     title: "",
     link: "#",
-    imageSrc: "/images/gala/ne.jpeg",
+    imageSrc: "/images/exhibition/exb.jpeg",
     altText: "",
   },
   {
     category: "",
     title: "",
     link: "#",
-    imageSrc: "/images/gala/ga.jpg",
+    imageSrc: "/images/exhibition/exc.jpeg",
     altText: "",
   },
   {
     category: "",
     title: "",
     link: "#",
-    imageSrc: "/images/gala/gaga.jpg",
+    imageSrc: "/images/exhibition/exd.jpeg",
     altText: "",
   },
 ];
