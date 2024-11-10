@@ -42,7 +42,7 @@ const newsData = [
   },
   {
     category: "30th Graduation Ceremony",
-    title: "Commencement Countdown", // Placeholder for commencement countdown
+    title: "Celebrating excellence and achievements at the 30th graduation ceremony 2024-2025", 
     link: "/graduation/graduation",
     imageSrc: "/images/graduation/a.jpg",
     altText: "Graduation 2024 - 2025 highlights",
@@ -170,7 +170,7 @@ const CampusNews: React.FC = () => {
                         {galaTimeLeft.days} days : {galaTimeLeft.hours} hours : {galaTimeLeft.minutes} minutes :{" "}
                         {galaTimeLeft.seconds} seconds
                       </span>
-                    ) : news.category === "30th Graduation Ceremony" ? (
+                    ) : news.category === "Graduation Ceremony" ? (
                       <span className="text-blue-500">
                         {commencementTimeLeft.days} days : {commencementTimeLeft.hours} hours : {commencementTimeLeft.minutes} minutes :{" "}
                         {commencementTimeLeft.seconds} seconds
