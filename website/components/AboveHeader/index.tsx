@@ -322,7 +322,7 @@ const AboveHeader = () => {
                     <li>
                     <Link
                       href=""
-                      className={`nav flex py-3 px-8 text-white text-sm font-bold bg-blue-700 rounded-lg group-hover:opacity-80 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} 
+                      className={`nav flex py-3 px-2 text-white text-sm font-bold bg-blue-700 rounded-lg group-hover:opacity-80 lg:mr-5 lg:inline-flex lg:py-4 lg:px-3`} 
                       onClick={() =>
                         window.open("https://erms.bugemauniv.ac.ug/application/", "_blank")
                       }
