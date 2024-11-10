@@ -115,7 +115,7 @@ const Video = () => {
             className="w-full h-full">
           </iframe> */}
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4F5d8w6Yins?si=pW88JBvSfyo0d7Ln" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>        
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_DnK96mdrQs?si=zm2U08NqlfpALkP5" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>      
       </div>
 
     <div className="flex flex-col ">
@@ -133,7 +133,7 @@ const Video = () => {
                   {/* At Bugema, it is not just about academics; it is about nurturing your mind, heart, and hands. Bugema fosters holistic excellence – where character development meets intellectual growth.
                   With Flexible Intakes, whether you are a fresh high school graduate or a working professional seeking advancement, Bugema offers multiple intakes throughout the year. No need to wait – start your journey now.
                   Bugema University, where dreams take root, friendships flourish, and purpose unfolds. Join us today – your adventure awaits!  */}
-            Today, November 9, 2024, Bugema University proudly hosts its Baccalaureate ceremony for the 30th graduation , celebrating the achievements of its graduates with a vibrant and heartfelt event. 
+            Today, November 10 2024, Bugema University proudly hosts its 30th graduation ceremony , celebrating the achievements of its graduates with a vibrant and heartfelt event. 
             Family, friends, and faculty gather to honor the hard work, resilience, and dedication of the students who have reached this significant milestone in their academic journey.
             The atmosphere is filled with joy and pride as inspiring speeches echo through the venue, highlighting the graduates remarkable accomplishments and the challenges they have overcome.
             Congratulations to the 30th graduating class of Bugema University!
@@ -175,7 +175,7 @@ const Video = () => {
                     advancement, Bugema offers multiple intakes throughout the
                     year. No need to wait, start your journey now. Bugema
                     University, where dreams take root, friendships flourish,
-                    and purpose unfolds. Join us today, your adventure awaits! */} Today, November 9, 2024, Bugema University proudly hosts its Baccalaureate ceremony for the 30th graduation , celebrating the achievements of its graduates with a vibrant and heartfelt event. 
+                    and purpose unfolds. Join us today, your adventure awaits! */} Today, November 10, 2024, Bugema University proudly hosts its 30th graduation Ceremony , celebrating the achievements of its graduates with a vibrant and heartfelt event. 
             Family, friends, and faculty gather to honor the hard work, resilience, and dedication of the students who have reached this significant milestone in their academic journey.
             The atmosphere is filled with joy and pride as inspiring speeches echo through the venue, highlighting the graduates remarkable accomplishments and the challenges they have overcome.
             Congratulations to the 30th graduating class of Bugema University!
