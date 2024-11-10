@@ -21,7 +21,7 @@ export default function Religion() {
     <>
     <Religious />
     <div className="w-full border-t border-black lg:mt-20 mb-5" />
-    <ReligiousBelowHero />
+    {/* <ReligiousBelowHero /> */}
     <ReligiousBelow />
     </>
     
