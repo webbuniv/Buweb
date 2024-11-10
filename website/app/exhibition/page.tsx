@@ -15,7 +15,7 @@ const StudentLifePage = () => {
         pageName="Entreprenuership Class Exhibition 2024 - 2025"
         description="Welcome to the Bugema University Entreprenuership Exhibition"
       /> */}
-      <HomePage />
+      {/* <HomePage /> */}
       <Exhibition />
     </>
   );
