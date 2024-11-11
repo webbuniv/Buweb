@@ -10,11 +10,12 @@ import "slick-carousel/slick/slick-theme.css";
 
 export const heroMedia = [
   // { type: 'video', src: "https://res.cloudinary.com/do5ubr3sa/video/upload/v1719685852/ayxyrcvleddu33lelk69.mp4" },
-  { type: 'no-overlay', src: "/images/graduation/bukedde.png"},
-  { type: 'no-overlay', src: "/images/graduation/three.jpeg"},
+  { type: 'video', src: "https://res.cloudinary.com/djlx5iqhe/video/upload/v1731087035/WhatsApp_Video_2024-11-08_at_17.28.31_f2ee4132_gcgn3h.mp4" },
+  { type: 'no-overlay', src: "/images/graduation/now.jpeg"},
+//   { type: 'no-overlay', src: "/images/graduation/three.jpeg"},
   { type: 'no-overlay', src: "/images/hero/slider.jpg" },
-  { type: 'image', src: "/images/hero/ambu.jpg" },
-  // { type: 'image', src: "/images/gala/newa.jpeg" },
+  // { type: 'image', src: "/images/hero/ambu.jpg" },
+//   { type: 'image', src: "/images/gala/newa.jpeg" },
 ];
 
 const textVariants = {
