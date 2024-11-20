@@ -130,13 +130,10 @@ const Video = () => {
           </h1>
           <p className="text-base !leading-relaxed text-body-color md:text-lg">
           
-                  {/* At Bugema, it is not just about academics; it is about nurturing your mind, heart, and hands. Bugema fosters holistic excellence – where character development meets intellectual growth.
+                  At Bugema, it is not just about academics; it is about nurturing your mind, heart, and hands. Bugema fosters holistic excellence – where character development meets intellectual growth.
                   With Flexible Intakes, whether you are a fresh high school graduate or a working professional seeking advancement, Bugema offers multiple intakes throughout the year. No need to wait – start your journey now.
-                  Bugema University, where dreams take root, friendships flourish, and purpose unfolds. Join us today – your adventure awaits!  */}
-            On November 10 2024, Bugema University proudly hosted its 30th graduation ceremony , celebrating the achievements of its graduates with a vibrant and heartfelt event. 
-            Family, friends, and faculty gather to honor the hard work, resilience, and dedication of the students who have reached this significant milestone in their academic journey.
-            The atmosphere is filled with joy and pride as inspiring speeches echo through the venue, highlighting the graduates remarkable accomplishments and the challenges they have overcome.
-            Congratulations to the 30th graduating class of Bugema University!
+                  Bugema University, where dreams take root, friendships flourish, and purpose unfolds. Join us today – your adventure awaits! 
+            
           </p>
         </div>
       </div>
@@ -164,10 +161,10 @@ const Video = () => {
               <div className="mb-8 block md:hidden text-sm">
                 <div className="wow fadeInUp w-full" data-wow-delay=".1s">
                   <h1 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl">
-                  {/* Discover Your Path! */} HAPPENING NOW
+                  Discover Your Path!
                   </h1>
                   <p className="text-base !leading-relaxed text-body-color md:text-lg">
-                  {/* At Bugema, it is not just about academics; it is about
+                    At Bugema, it is not just about academics; it is about
                     nurturing your mind, heart, and hands. Bugema fosters
                     holistic excellence, where character development meets
                     intellectual growth. With Flexible Intakes, whether you are a
@@ -175,10 +172,7 @@ const Video = () => {
                     advancement, Bugema offers multiple intakes throughout the
                     year. No need to wait, start your journey now. Bugema
                     University, where dreams take root, friendships flourish,
-                    and purpose unfolds. Join us today, your adventure awaits! */} Today, November 10, 2024, Bugema University proudly hosts its 30th graduation Ceremony , celebrating the achievements of its graduates with a vibrant and heartfelt event. 
-            Family, friends, and faculty gather to honor the hard work, resilience, and dedication of the students who have reached this significant milestone in their academic journey.
-            The atmosphere is filled with joy and pride as inspiring speeches echo through the venue, highlighting the graduates remarkable accomplishments and the challenges they have overcome.
-            Congratulations to the 30th graduating class of Bugema University!
+                    and purpose unfolds. Join us today, your adventure awaits! 
 
                   </p>
                 </div>
