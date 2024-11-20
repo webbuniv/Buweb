@@ -10,10 +10,10 @@ import "slick-carousel/slick/slick-theme.css";
 
 export const heroMedia = [
   // { type: 'video', src: "https://res.cloudinary.com/duaqiajka/video/upload/v1719686933/WELCOME_VIDEO_og2jma.mp4" },
+  { type: 'image', src: "/images/exhibition/ex.jpeg" },
+  { type: 'image', src: "/images/exhibition/exa.jpeg" },
   { type: 'image', src: "/images/exhibition/i.jpeg" },
-
-  { type: 'image', src: "/images/exhibition/h.jpeg" },
-  { type: 'image', src: "/images/exhibition/h.jpeg" },
+  // { type: 'image', src: "/images/exhibition/h.jpeg" },
   // { type: 'image', src: "/images/nav/palm-girls.jpg" },
   // { type: 'image', src: "/images/nav/grad.jpg" }
 ];
