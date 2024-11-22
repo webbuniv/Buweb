@@ -58,7 +58,7 @@ const Footer = () => {
             backgroundImage: `url(${imgfooter})`,
             backgroundSize: 'cover',  // Ensures the image covers the entire area
             backgroundPosition: 'center',  // Positions the image in the center
-            height: '40vh',  // Sets the height to 100% of the viewport height
+            height: '60vh',  // Sets the height to 100% of the viewport height
             // Sets the height to 100% of the viewport height
             textAlign: 'center',  // Aligns text content in the center
             padding: 0,  // Removes any default padding
