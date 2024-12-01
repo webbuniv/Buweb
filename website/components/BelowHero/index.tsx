@@ -42,7 +42,7 @@ const AboutSectionLife2 = () => {
                                           Admissions
                                           </h3>
                                           <p className="mb-4 text-base text-white ">
-                                          Embark on your journey towards exellence.
+                                          Embark on your journey towards excellence.
                                           </p>
 
                                           <Link href="http://erms.bugemauniv.ac.ug/application">
