@@ -46,13 +46,13 @@ const HeroSlide = ({ media }) => {
               // buttonText="Apply Now"
               // buttonLink="http://erms.bugemauniv.ac.ug/application"
             />
-            {/* <HeroOverlay
+            <HeroOverlay
               title2="Service."
               title3="Where Head, Heart and Hands unite in"
               subtitle2="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity"
               subtitle3="to offer you Quality education with a hands-on experience. . ."
               title={undefined} subtitle={undefined} buttonText={undefined} buttonLink={undefined}
-            /> */}
+            />
           </div>
         </>
       ) : (
