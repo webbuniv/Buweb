@@ -51,23 +51,7 @@ const Footer = () => {
         data-wow-delay=".1s"
         
       >
-        <div className="container-fluid" style={{  
-            // backgroundColor: ,  
-            
-            backgroundColor: 'rgba(0, 0, 10, 0.4)',
-            backgroundImage: `url(${imgfooter})`,
-            backgroundSize: 'cover',  // Ensures the image covers the entire area
-            backgroundPosition: 'center',  // Positions the image in the center
-            height: '60vh',  // Sets the height to 100% of the viewport height
-            // Sets the height to 100% of the viewport height
-            textAlign: 'center',  // Aligns text content in the center
-            padding: 0,  // Removes any default padding
-            margin: 0,  // Removes any default margin
-            // justifyContent:'center',
-            // display: 'flex',  // Enables flexbox for vertical centering (optional)
-            // alignItems: 'center',  // Centers content vertically within the flexbox (optional)
-            backgroundBlendMode: 'multiply',
-             }}>
+        <div className="container-fluid bkgd_img" >
 
           <div className="-mx-4 flex flex-wrap justify-center">
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-5/12">
