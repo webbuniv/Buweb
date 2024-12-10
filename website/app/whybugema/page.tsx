@@ -9,14 +9,16 @@ import AboutSectionWbu from "@/components/About/AboutSectionWbu";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import WhyHero from "@/components/WhyHero";
 import AboutSectionBu from "@/components/BelowBugema";
-import backgroundImage from "@/public/images/footer/aerial1.png";
+import { Hero } from "@/components/About/hero";
 
 const WhyBugemaPage = () => {
   return (
     <>
-      <div className="container mt-[100px] md:mt-0">
+      <div className=" md:mt-0 lg:mt-[130px]">
         {/* <WhyHero /> */}
-        <div className="relative w-full mt-[130px] h-[300px] md:h-[500px]">
+         <Hero />
+        {/* <div className="relative w-full mt-[130px] h-[300px] md:h-[500px]">
+      
           <Image 
             src={backgroundImage}
             alt="Background"
@@ -32,7 +34,7 @@ const WhyBugemaPage = () => {
               "
             />
           </div>
-        </div>
+        </div> */}
         <AboutSectionBu />
         <AboutSectionWbu />
         <AboutSectionSeven />
