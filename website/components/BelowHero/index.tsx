@@ -30,7 +30,7 @@ const AboutSectionLife2 = () => {
 
   return (
     <section className="top-0">
-            <div className="container  -my-4">
+            <div className="container  -my-5">
                   <div className="container mx-auto">
                         <div className="flex flex-col md:flex-row -mx-4 gap-2 md:gap-4">
                               <div className={`w-full px-4 lg:w-1/2 xl:w-1/4 transition-transform duration-300 lg:hover:scale-105 cursor-pointer  bg-[#234297] ${animate ?"slider-up slide-up-faster":"" }`}>
