@@ -15,7 +15,7 @@ const HeroOverlay = ({
   return (
     <>
       <div className="hidden hero-overlay lg:flex flex-col space-y-4 justify-center mx-auto items-center mt-4">
-        <h1 className="text-6xl mb-4">{title}</h1>
+        <h1 className="text-6xl mb-5">{title}</h1>
 
         <p className="text-2xl mt-5">{subtitle}</p>
 
@@ -30,8 +30,8 @@ const HeroOverlay = ({
         </Link> */}
       </div>
 
-      <div className="hero-overlay2  hidden lg:flex lg:flex-col">
-        <div className="flex-1 mt-[200px]">
+      <div className="hero-overlay2   hidden lg:flex lg:flex-col">
+        <div className="flex-1 mt-[140px]">
           <h1 className="text-start sm:text-6xl text-4xl md:font-bold mb-0 ">
             {title3}
           </h1>
@@ -45,7 +45,7 @@ const HeroOverlay = ({
         <div className="flex-1 hidden sm:block">
           {" "}
           {/* Hide on small screens, show on medium and above */}
-          <h2 className="text-start text-2xl mt-5">
+          <h2 className="text-start text-2xl mb-[5%]">
             {subtitle2},<br />
             {subtitle3}
           </h2>
