@@ -35,9 +35,9 @@ const AboveHeader = () => {
   useEffect(() => {
     const statements = [
       "Greetings from Bugema University",
+      "Get Your Admission Now",
+      "January Intake is Ongoing",
       "Step Into Excellence",
-      "Are You Ready for Exams?",
-      "The countdown has begun!"
     ];
 
     if (letterIndex < statements[currentStatement].length) {
