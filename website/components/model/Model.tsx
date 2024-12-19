@@ -190,7 +190,7 @@ const why_bugema = () =>{
                                      
                                     <Link href={"/schools/school-of-graduate"} >
 
-                                          <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Graduate studies, Reseacrch <br/>&  Publications</h1> 
+                                          <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Graduate studies, Research <br/>&  Publications</h1> 
                                     </Link> 
                               </div>
                               </li>
