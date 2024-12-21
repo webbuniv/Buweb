@@ -64,7 +64,7 @@ const Header = () => {
   }, [showModel]);
 
   const first_modal = () => {
-    setShowModel(true);
+    setShowModel((prevState)=>!prevState);
     setShowModel1(false);
     setShowModel2(false);
     setShowModel3(false);
@@ -76,7 +76,7 @@ const Header = () => {
   }, [showModel1]);
 
   const second_modal = () => {
-    setShowModel1(true);
+    setShowModel1((prevState)=>!prevState);
     document.body.style.overflow = showModel1 ? "hidden" : "auto";
     setShowModel(false);
     setShowModel2(false);
@@ -89,7 +89,7 @@ const Header = () => {
   }, [showModel2]);
 
   const third_modal = () => {
-    setShowModel2(true);
+    setShowModel2((prevState)=>!prevState);
     setShowModel(false);
     setShowModel1(false);
     setShowModel3(false);
@@ -101,7 +101,7 @@ const Header = () => {
   }, [showModel3]);
 
   const forth_modal = () => {
-    setShowModel3(true);
+    setShowModel3((prevState)=>!prevState);
     setShowModel(false);
     setShowModel1(false);
     setShowModel2(false);
@@ -113,7 +113,7 @@ const Header = () => {
   }, [showModel4]);
 
   const fifth_modal = () => {
-    setShowModel4(true);
+    setShowModel4((prevState)=>!prevState);
     setShowModel3(false);
     setShowModel(false);
     setShowModel1(false);
@@ -206,10 +206,10 @@ const Header = () => {
                       <Link
                         href="/"
                         className={`nav hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-
+                        onClick={close }
                         >
 
-                        <span className={""}>
+                        <span className={"hover:navlinks"}>
                           Home
                         </span>
                         
@@ -221,13 +221,13 @@ const Header = () => {
                         href=""
                         className={`nav hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
-                        onClick={first_modal}>
+                        onClick={first_modal }>
 
                         <span className={showModel ? "active" : ""}>
                           Programs
                         </span>
                         <span className="my-1 ml-2 dark:text-dark  text-bold">
-                          <FaChevronDown className={showModel ? "drop" : ""} />
+                          <FaChevronDown className={showModel ? "drop" : "revert"} />
                         </span>
                       </Link>
                     </li>
@@ -239,12 +239,12 @@ const Header = () => {
                         className={`nav hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
                         onClick={second_modal}
-                      >
+                      > 
                         <span className={showModel1 ? "active" : ""}>
                           Student life
                         </span>
                         <span className="my-1 ml-2 dark:text-dark ">
-                          <FaChevronDown className={showModel1 ? "drop" : ""} />
+                          <FaChevronDown className={showModel1 ? "drop" : "revert"} />
                         </span>
                       </Link>
                     </li>
@@ -260,7 +260,7 @@ const Header = () => {
                           Research
                         </span>
                         <span className={"my-1 ml-2 dark:text-dark "}>
-                          <FaChevronDown className={showModel2 ? "drop" : ""} />
+                          <FaChevronDown className={showModel2 ? "drop" : "revert"} />
                         </span>
                       </Link>
                     </li>
@@ -277,7 +277,7 @@ const Header = () => {
                           Campuses
                         </span>
                         <span className="my-1 ml-2 dark:text-dark ">
-                          <FaChevronDown className={showModel3 ? "drop" : ""} />
+                          <FaChevronDown className={showModel3 ? "drop" : "revert"} />
                         </span>
                       </Link>
                     </li>
@@ -293,7 +293,7 @@ const Header = () => {
                           Contact Us
                         </span>
                         <span className="my-1 ml-2 text-dark ">
-                          <FaChevronDown className={showModel4 ? "drop" : ""} />
+                          <FaChevronDown className={showModel4 ? "drop" : "revert"} />
                         </span>
                       </Link>
                     </li>
