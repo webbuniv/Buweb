@@ -86,7 +86,7 @@ const AboutSectionSeven = () => {
                 </div>
                 <div className="mr-2 my-5 slider slide--fast ">
                 <Link href={"/courses/school-of-health"} >
-                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Heath and Alied Sciences</h1> 
+                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Health and Allied Sciences</h1> 
               </Link> 
               </div>
               <div className="mr-2 my-5 slider slide--fast ">
@@ -155,7 +155,7 @@ const AboutSectionSeven = () => {
                 </div>
                 <div className="mr-2 my-5 slider slide--fast ">
                 <Link href={"/schools/school-of-health"} >
-                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Heath and Alied Sciences</h1> 
+                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Health and Allied Sciences</h1> 
               </Link> 
               </div>
               <div className="mr-2 my-5 slider slide--fast ">
