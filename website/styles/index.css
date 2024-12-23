@@ -63,11 +63,11 @@
   .hero-overlay2 {
       position: absolute;
       top: 70%; 
-      left: 10%; 
+      left: 6%; 
       transform: translate(-5%, -60%); 
       color: white; 
       text-align: center;
-      background-color: rgba(0, 0, 0, 0.1); 
+      /* background-color: rgba(3, 9, 185, 0.3);  */
     }
     
     .hero-overlay2 h1,

@@ -30,9 +30,9 @@ const HeroOverlay = ({
         </Link> */}
       </div>
 
-      <div className="hero-overlay2   hidden lg:flex lg:flex-col">
+      <div className="hero-overlay2  hidden lg:flex lg:flex-col bg-gradient-to-t from-blue-600 bg-opacity-75 ">
         <div className="flex-1 mt-[140px]">
-          <h1 className="text-start sm:text-6xl text-4xl md:font-bold mb-0 ">
+          <h1 className="text-start sm:text-6xl text-4xl md:font-bold mb-0 slider slide--fast">
             {title3}
           </h1>
         </div>
@@ -45,8 +45,8 @@ const HeroOverlay = ({
         <div className="flex-1 hidden sm:block">
           {" "}
           {/* Hide on small screens, show on medium and above */}
-          <h2 className="text-start text-2xl mb-[5%]">
-            {subtitle2},<br />
+          <h2 className="text-start text-2xl mb-[5%]   slider-right slide--slow ">
+            {subtitle2}<br />
             {subtitle3}
           </h2>
         </div>
