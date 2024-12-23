@@ -78,7 +78,7 @@ const News = () => {
   const fetchNews = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("https://buweb.onrender.com/news", {
+      const response = await axios.get("http://localhost:3001/new", {
         headers: {
           Authorization: `Bearer ${token}`,
         }
@@ -105,7 +105,7 @@ const News = () => {
       formData.append("tags", createFormFields.tags.join(","));
       formData.append("summary", createFormFields.summary);
 
-      const response = await axios.post("https://buweb.onrender.com/news/create", formData, {
+      const response = await axios.post("http://localhost:3001/new/create", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
