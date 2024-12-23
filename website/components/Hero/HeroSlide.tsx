@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import HeroOverlay from "../HeroOverlay/HeroOverlay";
+import { string } from "zod";
 
 const HeroSlide = ({ media }) => {
   return (
@@ -46,12 +47,13 @@ const HeroSlide = ({ media }) => {
               // buttonText="Apply Now"
               // buttonLink="http://erms.bugemauniv.ac.ug/application"
             />
-            <HeroOverlay
+            <HeroOverlay 
               // title2="Service."
-              title3="Admissions for our January 2025 intake are now open! "
+            //   title3=" Admissions for our January 2025 intake are now open!"
+            
               // subtitle2="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity"
               // subtitle3="to offer you Quality education with a hands-on experience. . ."
-              title={undefined} title2={undefined} subtitle2={undefined} subtitle3={undefined} subtitle={undefined} buttonText={undefined} buttonLink={undefined}
+              title={undefined} title2={undefined} title3={undefined} subtitle2={undefined} subtitle3={undefined} subtitle={undefined} buttonText={undefined} buttonLink={undefined} 
             />
           </div>
         </>
