@@ -67,7 +67,7 @@
       transform: translate(-5%, -60%); 
       color: white; 
       text-align: center;
-      background-color: rgba(3, 9, 185, 0.3); 
+      /* background-color: rgba(3, 9, 185, 0.3);  */
     }
     
     .hero-overlay2 h1,
