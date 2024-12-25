@@ -3,7 +3,6 @@ import { createAdminClient } from "../libs/appwrite/settings.js";
 import { InputFile } from "node-appwrite/file";
 import { appwriteConfig } from "../libs/appwrite/config.js";
 
-/* UPLOAD PHOTO */
 const uploadPhoto = async (file) => {
     const { storage } = await createAdminClient();
   try {
@@ -21,14 +20,12 @@ const uploadPhoto = async (file) => {
   }
 };
 
-/* CREATE NEWS */
 export const createNews = async (req, res) => {
 
     const { database } = await createAdminClient()
   try {
     const { title, category, content, date, author, tags, summary } = req.body;
 
-    // Upload photo to Appwrite bucket
     const photoUrl = req.file ? await uploadPhoto(req.file) : null;
 
     const newNews = {
@@ -56,7 +53,6 @@ export const createNews = async (req, res) => {
   }
 };
 
-/* GET ALL NEWS */
 export const getAllNews = async (req, res) => {
     const { database } = await createAdminClient();
   try {
@@ -72,7 +68,6 @@ export const getAllNews = async (req, res) => {
   }
 };
 
-/* GET NEWS BY ID */
 export const getNewsById = async (req, res) => {
     const { database } = await createAdminClient();
   try {
@@ -129,7 +124,6 @@ export const updateNewsById = async (req, res) => {
   }
 };
 
-/* DELETE NEWS BY ID */
 export const deleteNewsById = async (req, res) => {
   try {
     const deletedNews = await createAdminClient()
