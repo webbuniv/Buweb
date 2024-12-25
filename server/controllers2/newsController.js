@@ -93,7 +93,6 @@ export const getNewsById = async (req, res) => {
   }
 };
 
-/* UPDATE NEWS BY ID */
 export const updateNewsById = async (req, res) => {
   try {
     const data = {
@@ -106,7 +105,6 @@ export const updateNewsById = async (req, res) => {
       summary: req.body.summary,
     };
 
-    // Upload new photo if provided
     if (req.file) {
       const photoUrl = await uploadPhoto(req.file);
       data.photo = photoUrl;
