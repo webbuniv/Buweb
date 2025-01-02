@@ -10,7 +10,7 @@ const Footer = () => {
   const files = [
     {
       name: "Fees Structure",
-      url: "https://res.cloudinary.com/duaqiajka/raw/upload/FEE_STRUCT_2022-2023_bnyls8.xlsx",
+      url: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/67766a4000002ce65dcb/view?project=674dcf7b003d57db960a&project=674dcf7b003d57db960a&mode=admin",
     },
     {
       name: "Nursing Fees Structure",
