@@ -63,10 +63,11 @@
   .hero-overlay2 {
       position: absolute;
       top: 70%; 
-      left: 10%; 
+      left: 6%; 
       transform: translate(-5%, -60%); 
       color: white; 
       text-align: center;
+      /* background-color: rgba(3, 9, 185, 0.3);  */
     }
     
     .hero-overlay2 h1,
@@ -134,13 +135,15 @@
 
 .hover:hover {
   color: gold;
-  text-decoration: underline;
 }
 
 .drop {
   transform: rotate(180deg);
   transition: 0.7s ease-in-out;
 }
+.revert {
+      transition: 0.7s ease-in-out;
+    }
 
 /* INSIDE THE NAV BAR */
 
@@ -321,4 +324,18 @@
     
 .color:hover{
       color: rgb(47, 0, 255);
+      }
+
+@media (min-width: 1024px) { /* Targets screens larger than or equal to 1024px */
+      .bkgd_img {
+            background-color: rgba(0, 0, 10, 0.4);
+            background-image: url('/images/graduation/ca.jpeg'); /* Replace with your image path */
+            background-size: cover; /* Ensures the image covers the entire area */
+            background-position: center; /* Positions the image in the center */
+            background-blend-mode: multiply; /* Blend mode for the background */
+            height: 50vh; /* Sets the height to 50% of the viewport height */
+            text-align: center; /* Aligns text content in the center */
+            padding: 0; /* Removes any default padding */
+            margin: 0; /* Removes any default margin */
+      }
       }

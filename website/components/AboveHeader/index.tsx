@@ -34,11 +34,10 @@ const AboveHeader = () => {
 
   useEffect(() => {
     const statements = [
-      "Welcome To Bugema University",
-      "Discover the Power of Knowledge",
-      "Join the Future of Innovation",
-      "Upcoming Events",
-      "Graduation from 8th to 19th Nov 2024"
+      "Greetings from Bugema University",
+      "Get Your Admission Now",
+      "January Intake is Ongoing",
+      "Step Into Excellence",
     ];
 
     if (letterIndex < statements[currentStatement].length) {
@@ -170,7 +169,7 @@ const AboveHeader = () => {
         className={`hidden md:flex header top-0 left-0 z-20 w-full items-center bg-white  mt-[-20px] ] ${
           sticky
             ? "hidden bg-white ! bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100"
-            : "absolute fixed"
+            : "absolute"
         }`}
       >
         <div className="container ">
@@ -205,9 +204,9 @@ const AboveHeader = () => {
 
                 <nav
                   id="navbarCollapse"
-                  className={`navbar hidden lg:block absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-dark lg:p-0 lg:opacity-100`}
+                  className={`navbar hidden lg:block absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-2 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-dark lg:p-0 lg:opacity-100`}
                 >
-                  <ul className="block lg:flex bg-white lg:space-x-8 top-0 left-0 h-full  text-black" >
+                  <ul className="block lg:flex bg-white lg:space-x-8 top-0 left-0 h-full text-black items-center" >
 
                   <li className="group relative">
                       <Link
@@ -242,7 +241,7 @@ const AboveHeader = () => {
                       </Link>
                     </li>
 
-                    <li>
+                    <li className="relative group">
                       <Link
                         href=""
                         className={`nav hover flex py-2  text-black text-sm font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
@@ -321,7 +320,7 @@ const AboveHeader = () => {
                     <li>
                     <Link
                       href=""
-                      className={`nav flex py-3 px-8 text-white text-sm font-bold bg-blue-700 rounded-lg group-hover:opacity-80 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} 
+                      className={`nav flex py-2 px-2 text-white text-sm font-bold bg-blue-700 rounded-lg hover:opacity-90 hover:scale-105 lg:mr-5 transition-all duration-300 lg:inline-flex lg:py-2 lg:px-3`} 
                       onClick={() =>
                         window.open("https://erms.bugemauniv.ac.ug/application/", "_blank")
                       }

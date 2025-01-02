@@ -4,7 +4,7 @@ import { subscribeToNewsletter } from "@/lib/requests";
 import { toast } from "sonner";
 import Brands from "../Brands";
 import Image from "next/image";
-import life from '@/public/images/nav/culturee.jpg';
+import life from '@/public/images/graduation/ca.jpeg';
 
 const NewsLatterBox: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -45,7 +45,7 @@ const NewsLatterBox: React.FC = () => {
         <div>
           <div>
             <h3 className="mb-2 text-2xl font-bold leading-tight text-black dark:text-white">
-              Subscribe to receive the latest from us.
+              Subscribe to receive latest news and updates from us.
             </h3>
             <p className="mb-4 border-b border-body-color border-opacity-25 pb-4 text-base font-medium leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
               Please subscribe to our newsletter
@@ -91,7 +91,7 @@ const NewsLatterBox: React.FC = () => {
         data-wow-delay=".2s"
       >
         <h3 className="mb-4 text-2xl font-bold leading-tight text-black dark:text-white">
-          Subscribe to receive the latest from us.
+          Subscribe to receive latest news and updates from us.
         </h3>
         <p className="mb-11 border-b border-body-color border-opacity-25 pb-11 text-base font-medium leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
           Please subscribe to our newsletter

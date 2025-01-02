@@ -9,12 +9,18 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export const heroMedia = [
-  { type: 'image', src: "/images/church/lad.jpeg" },
+  // { type: 'image', src: "/images/church/lad.jpeg" },
 
-  { type: 'image', src: "/images/church/choi.jpeg" },
-  { type: 'image', src: "/images/church/cchoi.jpeg" },
-  { type: 'image', src: "/images/church/chhc.jpeg" },
-  { type: 'image', src: "/images/church/prree.jpeg" }
+  // { type: 'image', src: "/images/church/choi.jpeg" },
+  // { type: 'image', src: "/images/church/cchoi.jpeg" },
+  // { type: 'image', src: "/images/church/chhc.jpeg" },
+  // { type: 'image', src: "/images/church/prree.jpeg" },
+  
+  { type: 'image', src: "/images/graduation/gradsb.jpg" },
+  { type: 'image', src: "/images/graduation/ca.jpeg" },
+  { type: 'image', src: "/images/graduation/cc.jpeg"},
+  // { type: 'image', src: "/images/graduation/gradsb2.jpeg"},
+  // { type: 'image', src: "/images/graduation/gradsb3.jpeg"},
 ];
 
 const textVariants = {
