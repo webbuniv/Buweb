@@ -6,4 +6,5 @@ export const appwriteConfig = {
     eventsCollectionId: process.env.NEXT_PUBLIC_APPWRITE_EVENTS_COLLECTION!,
     newsCollectionId: process.env.NEXT_PUBLIC_APPWRITE_NEWS_COLLECTION!,
     secretKey: process.env.NEXT_PUBLIC_APPWRITE_SECRETKEY!,
+    bucketId: process.env.NEXT_PUBLIC_APPWRITE_BUCKET!,
   };
