@@ -33,12 +33,12 @@ const TablesPage = () => {
   return (
     <>
         <Breadcrumb pageName="Tables" />
-        <div className="items-end flex justify-between">
+        <div className="items-end p-4 justify-items-end">
             <Link
-              href="#"
+              href="/news/create"
               className="inline-flex items-center justify-center rounded-full bg-primary px-10 py-4 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
             >
-              Button
+              Create News
             </Link>
         </div>
       <div className="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
