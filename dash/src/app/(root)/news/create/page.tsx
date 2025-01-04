@@ -4,7 +4,78 @@ import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import flatpickr from "flatpickr";
 
 const FormLayout = () => {
+  const [formData, setFormData] = useState({
+    title: "",
+    summary: "",
+    author: "",
+    date: "",
+    category: "",
+    content: "",
+    file: null,
+  });
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setFormData((prev) => ({ ...prev, photo: file }));
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    const { title, summary, author, date, category, content, file } = formData;
+
+    if (!title || !summary || !author || !date || !category || !content || !file) {
+      setError("Please fill in all required fields.");
+      setLoading(false);
+      return;
+    }
+
+    const payload = new FormData();
+    payload.append("file", file as Blob);
+    payload.append("title", title);
+    payload.append("summary", summary);
+    payload.append("author", author);
+    payload.append("date", date);
+    payload.append("category", category);
+    payload.append("content", content);
+
+    try {
+      const response = await fetch("/api/news/create", {
+        method: "POST",
+        body: payload,
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to create news. Please try again.");
+      }
+
+      alert("News created successfully!");
+      setFormData({
+        title: "",
+        summary: "",
+        author: "",
+        date: "",
+        category: "",
+        content: "",
+        file: null,
+      });
+    } catch (err) {
+      setError((err as Error).message);
+    } finally {
+      setLoading(false);
+    }
+  };
   useEffect(() => {
       flatpickr(".form-datepicker", {
         mode: "single",
