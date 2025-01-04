@@ -1,7 +1,7 @@
 declare type FileType = "document" | "image" | "video" | "audio" | "other";
 
 declare type CreateNewsProps = {
-    file: File;
+    photo: File;
     path: string;
     title: string;
     category: string;

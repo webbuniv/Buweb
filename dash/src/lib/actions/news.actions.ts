@@ -14,39 +14,39 @@ const handleError = (error: unknown, message: string) => {
 };
 
 export const CreateNews = async ({
-    file,
+    photo,
     title,
-    
+    category,
+    author,
+    date,
+    summary,
+    content,
     path,
   }: CreateNewsProps) => {
     const { storage, databases } = await createAdminClient();
   
     try {
-      const inputFile = InputFile.fromBuffer(file, file.name);
+      const inputFile = InputFile.fromBuffer(photo, photo.name);
   
       const bucketFile = await storage.createFile(
         appwriteConfig.bucketId,
         ID.unique(),
         inputFile
       );
-  
-    //   const newsDocument = {
-    //     title
-    //     url: constructFileUrl(bucketFile.$id),
-    //     bucketFileId: bucketFile.$id,
-    //     publication: null,
-    //   };
-  
-      const newFile = await databases
+
+      const news = await databases
         .createDocument(
           appwriteConfig.databaseId,
           appwriteConfig.newsCollectionId,
           ID.unique(),
           {
             title,
-            url: constructFileUrl(bucketFile.$id),
-            bucketFileId: bucketFile.$id,
-            
+            photo: constructFileUrl(bucketFile.$id),
+            category,
+            author,
+            date,
+            summary,
+            content,
           }
         )
         .catch(async (error: unknown) => {
@@ -55,7 +55,7 @@ export const CreateNews = async ({
         });
   
       revalidatePath(path);
-      return parseStringify(newFile);
+      return parseStringify(news);
     } catch (error) {
       handleError(error, 'Failed to upload file');
     }
