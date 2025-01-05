@@ -1,38 +1,35 @@
+'use client';
+import React, {useEffect, useState} from "react";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import { Package } from "@/types/package";
 import Link from "next/link";
-
-const packageData: Package[] = [
-  {
-    name: "Free package",
-    price: 0.0,
-    invoiceDate: `Jan 13,2023`,
-    status: "Paid",
-  },
-  {
-    name: "Standard Package",
-    price: 59.0,
-    invoiceDate: `Jan 13,2023`,
-    status: "Paid",
-  },
-  {
-    name: "Business Package",
-    price: 99.0,
-    invoiceDate: `Jan 13,2023`,
-    status: "Unpaid",
-  },
-  {
-    name: "Standard Package",
-    price: 59.0,
-    invoiceDate: `Jan 13,2023`,
-    status: "Pending",
-  },
-];
+import Image from "next/image";
+import { getNews } from "@/lib/actions/news.actions";
 
 const TablesPage = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [query, setQuery] = useState("");
+  const [ news, setNews ] = useState<News[]>([]); 
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      setIsLoading(true);
+      const newsData = await getNews({
+        searchText: query,
+        sort: "$createdAt-desc",
+        limit: 10,
+      });
+      setNews(newsData);
+      setIsLoading(false);
+    };
+    fetchNews();
+
+  }, [query]);
+
+  
+
   return (
     <>
-        <Breadcrumb pageName="Tables" />
+        <Breadcrumb pageName="News List" />
         <div className="items-end p-4 justify-items-end">
             <Link
               href="/news/create"
@@ -47,13 +44,13 @@ const TablesPage = () => {
           <thead>
             <tr className="bg-gray-2 text-left dark:bg-meta-4">
               <th className="min-w-[220px] px-4 py-4 font-medium text-black dark:text-white xl:pl-11">
-                Package
+                Title
               </th>
               <th className="min-w-[150px] px-4 py-4 font-medium text-black dark:text-white">
-                Invoice date
+                Category
               </th>
               <th className="min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
-                Status
+                Author
               </th>
               <th className="px-4 py-4 font-medium text-black dark:text-white">
                 Actions
@@ -61,30 +58,33 @@ const TablesPage = () => {
             </tr>
           </thead>
           <tbody>
-            {packageData.map((packageItem, key) => (
+            {news.map((news, key) => (
               <tr key={key}>
                 <td className="border-b border-[#eee] px-4 py-5 pl-9 dark:border-strokedark xl:pl-11">
-                  <h5 className="font-medium text-black dark:text-white">
-                    {packageItem.name}
-                  </h5>
-                  <p className="text-sm">${packageItem.price}</p>
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                    <div className="h-12.5 w-15 rounded-md">
+                      <Image
+                        src={`${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${news.file}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`}
+                        width={60}
+                        height={50}
+                        alt="Product"
+                      />
+                    </div>
+                    <p className="text-sm text-black dark:text-white">
+                      {news.title}
+                    </p>
+                  </div>
                 </td>
                 <td className="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
                   <p className="text-black dark:text-white">
-                    {packageItem.invoiceDate}
+                    {news.category}
                   </p>
                 </td>
                 <td className="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
                   <p
-                    className={`inline-flex rounded-full bg-opacity-10 px-3 py-1 text-sm font-medium ${
-                      packageItem.status === "Paid"
-                        ? "bg-success text-success"
-                        : packageItem.status === "Unpaid"
-                          ? "bg-danger text-danger"
-                          : "bg-warning text-warning"
-                    }`}
+                    className='inline-flex rounded-full bg-opacity-10 px-3 py-1 text-sm font-medium '
                   >
-                    {packageItem.status}
+                    {news.author}
                   </p>
                 </td>
                 <td className="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
@@ -167,3 +167,5 @@ const TablesPage = () => {
 };
 
 export default TablesPage;
+
+

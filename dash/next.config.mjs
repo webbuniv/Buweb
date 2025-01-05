@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    
-};
-
-export default nextConfig;
+    images: {
+      domains: ['cloud.appwrite.io'], // Add your image hostnames here
+    },
+  };
+  
+  export default nextConfig;

@@ -1,16 +1,18 @@
 'use server';
 
 import { createAdminClient } from '@/lib/appwrite';
-import { InputFile } from 'node-appwrite/file';
 import { appwriteConfig } from '@/lib/appwrite/config';
-import { ID } from 'node-appwrite';
+import { ID, Query} from 'node-appwrite';
 import { constructFileUrl, parseStringify } from '@/lib/utils';
 import { revalidatePath } from 'next/cache';
+import { getCurrentUser } from '@/lib/actions/user.action';
+import { redirect } from 'next/navigation';
 
 const handleError = (error: unknown, message: string) => {
   console.error(message, error);
   throw new Error(message);
 };
+
 
 interface FormDataType {
   get: (key: string) => string | File | null;
@@ -61,15 +63,15 @@ export async function CreateNews(previousState: any, formData: FormDataType): Pr
   if (file && file.size > 0 && file.name !== 'undefined') {
     try {
       const response = await storage.createFile(appwriteConfig.bucketId, ID.unique(), file);
-      fileID = response.$id;
-    } catch (error) {
-      return {
-        error: 'Error uploading file',
-      };
+        fileID = response.$id;
+      } catch (error) {
+        return {
+          error: 'Error uploading file',
+        };
+      }
+    } else {
+      console.log('No file provided or file is invalid');
     }
-  } else {
-    console.log('No file provided or file is invalid');
-  }
 
   const news = await databases.createDocument(
     appwriteConfig.databaseId,
@@ -87,10 +89,67 @@ export async function CreateNews(previousState: any, formData: FormDataType): Pr
 
   );
 
-  revalidatePath('/news');
-  return { success: true };
-} catch (error: any) {
-  const errorMessage = error.response?.message || "Failed to create news document";
-  return { error: errorMessage };
+    revalidatePath('/news');
+    return { success: true };
+  } catch (error: any) {
+    const errorMessage = error.response?.message || "Failed to create news document";
+    return { error: errorMessage };
+  }
 }
+
+export const getNews = async  ({ 
+  searchText = '',
+  sort = "$createdAt-desc", 
+  limit,
+ }: GetNewsProps): Promise<News[]> => {
+  const { databases } = await createAdminClient();
+  try {
+    const queries = [
+      ...(searchText ? [Query.search("name", searchText)] : []),
+      ...(limit ? [Query.limit(limit)] : []),
+      Query.orderDesc(sort.split("-")[0]),
+    ];
+    const currentUser = await getCurrentUser();
+  
+    if (!currentUser) {
+      redirect('/signin');
+    }
+
+    const news = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.newsCollectionId,
+      queries
+    );
+
+    return news.documents.map((news) => ({
+      $id: news.$id,
+      title: news.title || 'undefined',
+      file: news.file || 'undefined',
+      category: news.category || 'undefined',
+      date: news.date || 'undefined',
+      content: news.content || 'undefined',
+      summary: news.summary || 'undefined',
+      author: news.author || 'undefined',
+    }))
+    
+  } catch (error) {
+    handleError(error, "Failed to fetch News");
+    return [];
+  }
 }
+
+export const getNewsById = async (id:string) => {
+  const { databases } = await createAdminClient();
+  try {
+    const news = await databases.getDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.newsCollectionId,
+      id
+    );
+
+    return news;
+  } catch (error) {
+    handleError(error, "Failed to fetch News");
+    
+  }
+};
