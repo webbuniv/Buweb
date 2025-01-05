@@ -22,6 +22,7 @@ interface NewsItem {
     date: string;
     category: string;
     content: string;
+    file: File;
 }
 
 interface UpdateNewsFormProps {
