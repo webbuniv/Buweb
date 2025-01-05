@@ -3,8 +3,9 @@ import React, {useEffect, useState} from "react";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import Link from "next/link";
 import Image from "next/image";
-import { getNews, getNewsById, deleteNews } from "@/lib/actions/news.actions";
+import { getNews, getNewsById, deleteNews, updateNews } from "@/lib/actions/news.actions";
 import Modal from "@/components/Modal";
+import { useRouter } from "next/navigation";
 
 const TablesPage = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -12,6 +13,8 @@ const TablesPage = () => {
   const [query, setQuery] = useState("");
   const [ news, setNews ] = useState<News[]>([]); 
   const [selectedNews, setSelectedNews] = useState<News | null>(null);
+  const router = useRouter();
+  const [ update, setUpdate ] = useState<News | null>(null);
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -27,6 +30,38 @@ const TablesPage = () => {
     fetchNews();
 
   }, [query]);
+
+  const handleUpdate = async (newsItem: News) => {
+    try {
+      const id = newsItem.$id; // Replace with the actual ID
+      const formData = new FormData();
+  
+      // Append necessary fields to formData
+      formData.append("title", newsItem.title);
+      formData.append("summary", newsItem.summary);
+      formData.append("category", newsItem.category);
+      formData.append("author", newsItem.author);
+      formData.append("date", newsItem.date);
+      formData.append("content", newsItem.content);
+      // Append file if applicable
+      if (newsItem.file) {
+        formData.append("file", newsItem.file);
+      }
+  
+      const response = await updateNews(id, formData);
+  
+      if (response.success) {
+        alert("News updated successfully!");
+        // Optionally redirect or refresh
+      } else {
+        alert(response.error || "Failed to update news");
+      }
+    } catch (error) {
+      console.error("Error updating news:", error);
+      alert("An unexpected error occurred.");
+    }
+  };
+  
 
   const handleDeleteNews = async (id: string) => {
     setIsLoading(true);
@@ -49,6 +84,19 @@ const TablesPage = () => {
       const newsItem = await getNewsById(id);
       setSelectedNews(newsItem);
       setModalOpen(true);
+    } catch (error) {
+      console.error("Error fetching news details:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleUpdateNews = async (id: string) => {
+    setIsLoading(true);
+    try {
+      const newsItem = await getNewsById(id);
+      setUpdate(newsItem);
+      router.push(`/news/${id}`);
     } catch (error) {
       console.error("Error fetching news details:", error);
     } finally {
@@ -168,7 +216,9 @@ const TablesPage = () => {
                         />
                       </svg>
                     </button>
-                    <button className="hover:text-primary">
+                    <button className="hover:text-primary"
+                      onClick={() => handleUpdateNews(newsItem.$id)}
+                    >
                       <svg
                         className="fill-current"
                         width="18"

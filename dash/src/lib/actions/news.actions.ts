@@ -23,35 +23,6 @@ interface CreateNewsResponse {
   error?: string;
 }
 
-
-// export const CreateNews = async (formdata) => {
-//   const { storage, databases } = await createAdminClient();
-//   try {
-//     // Convert fileBuffer into InputFile for Appwrite
-//     const inputFile = InputFile.fromBuffer(Buffer.from(fileBuffer), fileName);
-//     const bucketFile = await storage.createFile(appwriteConfig.bucketId, ID.unique(), inputFile);
-
-//     // Create the news document in Appwrite
-//     const news = await databases.createDocument(
-//       appwriteConfig.databaseId,
-//       appwriteConfig.newsCollectionId,
-//       ID.unique(),
-//       {
-//         title,
-//         file: constructFileUrl(bucketFile.$id),
-//         category,
-//         author,
-//         date,
-//         summary,
-//         content,
-//       }
-//     );
-//     return parseStringify(news);
-//   } catch (error) {
-//     handleError(error, 'Failed to create news document');
-//   }
-// };
-
 export async function CreateNews(previousState: any, formData: FormDataType): Promise<CreateNewsResponse> {
   const { storage, databases } = await createAdminClient();
 
@@ -182,3 +153,56 @@ export const deleteNews = async (id: string) => {
     return { error: 'Failed to delete news' };
   }
 };
+
+export async function updateNews(
+  id: string,
+  formData: FormDataType
+): Promise<CreateNewsResponse> {
+  const { storage, databases } = await createAdminClient();
+
+  let fileID: string | undefined;
+  const file = formData.get('file') as File | null;
+
+  try {
+    if (file && file.size > 0 && file.name !== 'undefined') {
+      try {
+        const response = await storage.createFile(appwriteConfig.bucketId, ID.unique(), file);
+        fileID = response.$id;
+      } catch (error) {
+        return {
+          error: 'Error uploading file',
+        };
+      }
+    } else {
+      console.log('No new file provided or file is invalid. Retaining the existing file.');
+    }
+
+    // Build the updated data object
+    const updatedData: Record<string, any> = {
+      title: formData.get('title') as string,
+      category: formData.get('category') as string,
+      author: formData.get('author') as string,
+      date: formData.get('date') as string,
+      summary: formData.get('summary') as string,
+      content: formData.get('content') as string,
+    };
+
+    if (fileID) {
+      updatedData.file = fileID;
+    }
+
+    await databases.updateDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.newsCollectionId,
+      id,
+      updatedData
+    );
+
+    // Revalidate the path to ensure the latest data is reflected
+    revalidatePath('/news');
+    return { success: true };
+  } catch (error: any) {
+    const errorMessage = error.response?.message || 'Failed to update news document';
+    return { error: errorMessage };
+  }
+}
