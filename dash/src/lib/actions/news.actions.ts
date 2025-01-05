@@ -1,62 +1,58 @@
 'use server';
 
-import { createAdminClient, createSessionClient } from '@/lib/appwrite';
+import { createAdminClient } from '@/lib/appwrite';
 import { InputFile } from 'node-appwrite/file';
 import { appwriteConfig } from '@/lib/appwrite/config';
-import { ID, Models, Query } from 'node-appwrite';
+import { ID } from 'node-appwrite';
 import { constructFileUrl, parseStringify } from '@/lib/utils';
-import { revalidatePath } from 'next/cache';
-import { getCurrentUser } from '@/lib/actions/user.action';
 
 const handleError = (error: unknown, message: string) => {
-    console.log(error, message);
-    throw error;
+  console.error(message, error);
+  throw new Error(message);
 };
 
 export const CreateNews = async ({
-    file,
-    title,
-    category,
-    author,
-    date,
-    summary,
-    content,
-    path,
-  }: CreateNewsProps) => {
-    const { storage, databases } = await createAdminClient();
-  
-    try {
-      const inputFile = InputFile.fromBuffer(file, file.name);
-  
-      const bucketFile = await storage.createFile(
-        appwriteConfig.bucketId,
-        ID.unique(),
-        inputFile
-      );
+  fileBuffer,
+  fileName,
+  title,
+  category,
+  author,
+  date,
+  summary,
+  content,
+}: {
+  fileBuffer: ArrayBuffer;
+  fileName: string;
+  title: string;
+  category: string;
+  author: string;
+  date: string;
+  summary: string;
+  content: string;
+}) => {
+  const { storage, databases } = await createAdminClient();
+  try {
+    // Convert fileBuffer into InputFile for Appwrite
+    const inputFile = InputFile.fromBuffer(Buffer.from(fileBuffer), fileName);
+    const bucketFile = await storage.createFile(appwriteConfig.bucketId, ID.unique(), inputFile);
 
-      const news = await databases
-        .createDocument(
-          appwriteConfig.databaseId,
-          appwriteConfig.newsCollectionId,
-          ID.unique(),
-          {
-            title,
-            file: constructFileUrl(bucketFile.$id),
-            category,
-            author,
-            date,
-            summary,
-            content,
-          }
-        )
-        .catch(async (error: unknown) => {
-          await storage.deleteFile(appwriteConfig.bucketId, bucketFile.$id);
-          handleError(error, 'Failed to create file document');
-        });
-  
-      revalidatePath(path);
-      return parseStringify(news);
-    } catch (error) {
-      handleError(error, 'Failed to upload file');
-    }
-  };
+    // Create the news document in Appwrite
+    const news = await databases.createDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.newsCollectionId,
+      ID.unique(),
+      {
+        title,
+        file: constructFileUrl(bucketFile.$id),
+        category,
+        author,
+        date,
+        summary,
+        content,
+      }
+    );
+    return parseStringify(news);
+  } catch (error) {
+    handleError(error, 'Failed to create news document');
+  }
+};

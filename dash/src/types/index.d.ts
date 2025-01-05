@@ -2,11 +2,10 @@ declare type FileType = "document" | "image" | "video" | "audio" | "other";
 
 declare type CreateNewsProps = {
     file: File;
-    path: string;
     title: string;
     category: string;
     author: string;
-    date: Date;
+    date: string;
     summary: string;
     content: string;
 }
