@@ -150,6 +150,35 @@ export const getNewsById = async (id:string) => {
     return news;
   } catch (error) {
     handleError(error, "Failed to fetch News");
-    
+
+  }
+};
+
+export const deleteNews = async (id: string) => {
+  const currentUser = await getCurrentUser();
+  
+  if (!currentUser) {
+    redirect('/signin');
+  }
+
+  const { databases } = await createAdminClient();
+
+  const newsToDelete = getNewsById(id);
+
+  if (!newsToDelete) {
+    return { error: 'News not found' };
+  }
+
+  try {
+    await databases.deleteDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.newsCollectionId,
+      id
+    );
+    revalidatePath('/news');
+    return { success: true };
+  } catch (error) {
+    handleError(error, 'Failed to delete news');
+    return { error: 'Failed to delete news' };
   }
 };

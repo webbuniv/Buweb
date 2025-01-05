@@ -3,12 +3,15 @@ import React, {useEffect, useState} from "react";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import Link from "next/link";
 import Image from "next/image";
-import { getNews } from "@/lib/actions/news.actions";
+import { getNews, getNewsById, deleteNews } from "@/lib/actions/news.actions";
+import Modal from "@/components/Modal";
 
 const TablesPage = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [query, setQuery] = useState("");
   const [ news, setNews ] = useState<News[]>([]); 
+  const [selectedNews, setSelectedNews] = useState<News | null>(null);
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -25,7 +28,33 @@ const TablesPage = () => {
 
   }, [query]);
 
-  
+  const handleDeleteNews = async (id: string) => {
+    setIsLoading(true);
+    const confirmed = window.confirm("Are you sure you want to delete this news?");
+
+    if (confirmed) {
+      try {
+          await deleteNews(id);
+        } catch (error) {
+          console.error("Error deleting news:", error);
+        } finally {
+          setIsLoading(false);
+      }
+    }
+  }
+
+  const handleViewNews = async (id: string) => {
+    setIsLoading(true);
+    try {
+      const newsItem = await getNewsById(id);
+      setSelectedNews(newsItem);
+      setModalOpen(true);
+    } catch (error) {
+      console.error("Error fetching news details:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <>
@@ -58,38 +87,40 @@ const TablesPage = () => {
             </tr>
           </thead>
           <tbody>
-            {news.map((news, key) => (
+            {news.map((newsItem, key) => (
               <tr key={key}>
                 <td className="border-b border-[#eee] px-4 py-5 pl-9 dark:border-strokedark xl:pl-11">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                     <div className="h-12.5 w-15 rounded-md">
                       <Image
-                        src={`${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${news.file}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`}
+                        src={`${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${newsItem.file}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`}
                         width={60}
                         height={50}
                         alt="Product"
                       />
                     </div>
                     <p className="text-sm text-black dark:text-white">
-                      {news.title}
+                      {newsItem.title}
                     </p>
                   </div>
                 </td>
                 <td className="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
                   <p className="text-black dark:text-white">
-                    {news.category}
+                    {newsItem.category}
                   </p>
                 </td>
                 <td className="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
                   <p
                     className='inline-flex rounded-full bg-opacity-10 px-3 py-1 text-sm font-medium '
                   >
-                    {news.author}
+                    {newsItem.author}
                   </p>
                 </td>
                 <td className="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
                   <div className="flex items-center space-x-3.5">
-                    <button className="hover:text-primary">
+                    <button className="hover:text-primary"
+                    onClick={() => handleViewNews(newsItem.$id)}
+                    >
                       <svg
                         className="fill-current"
                         width="18"
@@ -108,7 +139,9 @@ const TablesPage = () => {
                         />
                       </svg>
                     </button>
-                    <button className="hover:text-primary">
+                    <button className="hover:text-primary"
+                      onClick={() => handleDeleteNews(newsItem.$id)}
+                    >
                       <svg
                         className="fill-current"
                         width="18"
@@ -162,7 +195,55 @@ const TablesPage = () => {
         </table>
       </div>
     </div>
-      </>
+
+    <Modal
+      isOpen={isModalOpen}
+      onClose={() => setModalOpen(false)}
+      title={selectedNews ? selectedNews.title : "News Details"}
+    >
+      {selectedNews ? (
+        <div className="text-gray-700 dark:text-gray-300">
+          {/* News Image */}
+          <div className="mb-4">
+            <Image
+              src={`${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${selectedNews.file}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`}
+              alt={selectedNews.title}
+              className="w-full h-auto object-cover rounded-lg shadow-md"
+              width={800}
+              height={300}
+            />
+          </div>
+
+          {/* Category, Author, and Date */}
+          <div className="mb-4 text-sm text-gray-500 dark:text-gray-400">
+            <p className="mb-1">
+              <strong>Category:</strong> {selectedNews.category}
+            </p>
+            <p className="mb-1">
+              <strong>Author:</strong> {selectedNews.author}
+            </p>
+            <p className="mb-1">
+              <strong>Date:</strong> {selectedNews.date}
+            </p>
+          </div>
+
+          {/* News Summary */}
+          <p className="mb-4 text-base text-gray-800 dark:text-gray-200">
+            <strong>Summary:</strong> {selectedNews.summary}
+          </p>
+
+          {/* News Content */}
+          <p className="leading-relaxed text-gray-700 dark:text-gray-300">
+            {selectedNews.content}
+          </p>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </Modal>
+
+
+    </>
   );
 };
 

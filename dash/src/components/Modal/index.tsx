@@ -12,10 +12,11 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg w-full max-w-2xl p-5">
+    <div className="fixed inset-0  flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto" style={{ zIndex: 1050 }}>
+      <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg w-full max-h-screen max-w-3xl p-5 mt-10 mb-10 overflow-y-auto">
         {/* Modal Header */}
         <div className="flex justify-between items-center border-b pb-3">
+
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
             {title}
           </h3>
