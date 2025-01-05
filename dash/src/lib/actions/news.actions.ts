@@ -5,54 +5,92 @@ import { InputFile } from 'node-appwrite/file';
 import { appwriteConfig } from '@/lib/appwrite/config';
 import { ID } from 'node-appwrite';
 import { constructFileUrl, parseStringify } from '@/lib/utils';
+import { revalidatePath } from 'next/cache';
 
 const handleError = (error: unknown, message: string) => {
   console.error(message, error);
   throw new Error(message);
 };
 
-export const CreateNews = async ({
-  fileBuffer,
-  fileName,
-  title,
-  category,
-  author,
-  date,
-  summary,
-  content,
-}: {
-  fileBuffer: ArrayBuffer;
-  fileName: string;
-  title: string;
-  category: string;
-  author: string;
-  date: string;
-  summary: string;
-  content: string;
-}) => {
-  const { storage, databases } = await createAdminClient();
-  try {
-    // Convert fileBuffer into InputFile for Appwrite
-    const inputFile = InputFile.fromBuffer(Buffer.from(fileBuffer), fileName);
-    const bucketFile = await storage.createFile(appwriteConfig.bucketId, ID.unique(), inputFile);
+interface FormDataType {
+  get: (key: string) => string | File | null;
+}
 
-    // Create the news document in Appwrite
-    const news = await databases.createDocument(
-      appwriteConfig.databaseId,
-      appwriteConfig.newsCollectionId,
-      ID.unique(),
-      {
-        title,
-        file: constructFileUrl(bucketFile.$id),
-        category,
-        author,
-        date,
-        summary,
-        content,
-      }
-    );
-    return parseStringify(news);
-  } catch (error) {
-    handleError(error, 'Failed to create news document');
+interface CreateNewsResponse {
+  success?: boolean;
+  error?: string;
+}
+
+
+// export const CreateNews = async (formdata) => {
+//   const { storage, databases } = await createAdminClient();
+//   try {
+//     // Convert fileBuffer into InputFile for Appwrite
+//     const inputFile = InputFile.fromBuffer(Buffer.from(fileBuffer), fileName);
+//     const bucketFile = await storage.createFile(appwriteConfig.bucketId, ID.unique(), inputFile);
+
+//     // Create the news document in Appwrite
+//     const news = await databases.createDocument(
+//       appwriteConfig.databaseId,
+//       appwriteConfig.newsCollectionId,
+//       ID.unique(),
+//       {
+//         title,
+//         file: constructFileUrl(bucketFile.$id),
+//         category,
+//         author,
+//         date,
+//         summary,
+//         content,
+//       }
+//     );
+//     return parseStringify(news);
+//   } catch (error) {
+//     handleError(error, 'Failed to create news document');
+//   }
+// };
+
+export async function CreateNews(previousState: any, formData: FormDataType): Promise<CreateNewsResponse> {
+  const { storage, databases } = await createAdminClient();
+
+  let fileID: string | undefined;
+  const file = formData.get('file') as File | null;
+
+  try{
+
+  if (file && file.size > 0 && file.name !== 'undefined') {
+    try {
+      const response = await storage.createFile(appwriteConfig.bucketId, ID.unique(), file);
+      fileID = response.$id;
+    } catch (error) {
+      return {
+        error: 'Error uploading file',
+      };
+    }
+  } else {
+    console.log('No file provided or file is invalid');
   }
-};
+
+  const news = await databases.createDocument(
+    appwriteConfig.databaseId,
+    appwriteConfig.newsCollectionId,
+    ID.unique(),
+    {
+      title: formData.get('title') as string,
+      file: fileID,
+      category: formData.get('category') as string,
+      author: formData.get('author') as string,
+      date: formData.get('date') as string,
+      summary: formData.get('summary') as string,
+      content: formData.get('content') as string,
+    }
+
+  );
+
+  revalidatePath('/news');
+  return { success: true };
+} catch (error: any) {
+  const errorMessage = error.response?.message || "Failed to create news document";
+  return { error: errorMessage };
+}
+}

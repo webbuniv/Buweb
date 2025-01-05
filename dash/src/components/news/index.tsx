@@ -1,21 +1,29 @@
 'use client';
 import React, { useState, useEffect } from "react";
+import { useFormState } from "react-dom";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import flatpickr from "flatpickr";
 import { CreateNews } from "@/lib/actions/news.actions";
+import { useRouter } from "next/navigation";
 
 const FormLayout = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [formData, setFormData] = useState({
-    file: null as File | null,
-    title: '',
-    category: '',
-    author: '',
-    date: "",
-    summary: '',
-    content: '',
-  });
+
+  const router = useRouter();
+  const [state, formAction] = useFormState(CreateNews, {});
+
+  useEffect(() => {
+    setIsSubmitting(true);
+    if (state.error) {
+      setErrorMessage(state.error);
+    }
+    if (state.success) {
+      setIsSubmitting(false);
+      alert('News created successfully!');
+      router.push('/news');
+    }
+  }, [state, router]);
 
   useEffect(() => {
     flatpickr(".form-datepicker", {
@@ -27,66 +35,6 @@ const FormLayout = () => {
     });
   }, []);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
-      setFormData((prevData) => ({ ...prevData, file }));
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setErrorMessage('');
-
-    try {
-      const { file, title, category, author, date, summary, content } = formData;
-
-      if (!file || !title || !category || !author || !summary || !content) {
-        setErrorMessage('All fields are required.');
-        return;
-      }
-
-      const fileBuffer = await file.arrayBuffer();
-
-      await CreateNews({
-        fileBuffer,
-        fileName: file.name,
-        title: formData.title,
-        category: formData.category,
-        author: formData.author,
-        date: formData.date,
-        summary: formData.summary,
-        content: formData.content,
-      });
-
-      alert('News created successfully!');
-      setFormData({
-        file: null,
-        title: '',
-        category: '',
-        author: '',
-        date: "",
-        summary: '',
-        content: '',
-      });
-    } catch (error) {
-      console.error('Error creating news:', error);
-      setErrorMessage('Failed to create news. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
   return (
     <>
       <Breadcrumb pageName="Create News" />
@@ -97,7 +45,7 @@ const FormLayout = () => {
               Contact Form
             </h3>
           </div>
-          <form onSubmit={handleSubmit}>
+          <form action={formAction}>
             <div className="p-6.5">
             {errorMessage && (
               <div className="mb-4 text-red-500">{errorMessage}</div>
@@ -109,8 +57,7 @@ const FormLayout = () => {
                 <input
                   type="text"
                   name="title"
-                  value={formData.title}
-                  onChange={handleInputChange}
+                  id="title"
                   placeholder="Enter your title"
                   required
                   className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
@@ -123,8 +70,7 @@ const FormLayout = () => {
                 <textarea
                   rows={4}
                   name="summary"
-                  value={formData.summary}
-                  onChange={handleInputChange}
+                  id="summary"
                   required
                   placeholder="Type your message"
                   className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
@@ -136,9 +82,8 @@ const FormLayout = () => {
                 </label>
                 <input
                   type="file"
-                  id="uploader"
+                  id="file"
                   name="file"
-                  onChange={handleFileInputChange}
                   required
                   className="w-full cursor-pointer rounded-lg border-[1.5px] border-stroke bg-transparent outline-none transition file:mr-5 file:border-collapse file:cursor-pointer file:border-0 file:border-r file:border-solid file:border-stroke file:bg-whiter file:px-5 file:py-3 file:hover:bg-primary file:hover:bg-opacity-10 focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:file:border-form-strokedark dark:file:bg-white/30 dark:file:text-white dark:focus:border-primary"
                 />
@@ -151,8 +96,7 @@ const FormLayout = () => {
                   <input
                     type="text"
                     name="author"
-                    value={formData.author}
-                    onChange={handleInputChange}
+                    id="author"
                     required
                     placeholder="Enter your first name"
                     className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
@@ -168,11 +112,7 @@ const FormLayout = () => {
                       <input
                       type="date"
                       name="date"
-                      value={formData.date.toString().split('T')[0]}
-                      onChange={(e) => setFormData((prevFields) => ({
-                        ...prevFields,
-                        date: e.target.value,
-                      }))}
+                      id="date"
                       required
                         className="form-datepicker w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                         placeholder="Select a date"
@@ -206,8 +146,7 @@ const FormLayout = () => {
 
                 <div className="relative z-20 bg-transparent dark:bg-form-input">
                   <select
-                    value={formData.category}
-                    onChange={handleSelectChange}
+                    id="category"
                     name="category"
                     required
                     className="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent px-5 py-3 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
@@ -256,8 +195,7 @@ const FormLayout = () => {
                 <textarea
                   rows={10}
                   name="content"
-                  value={formData.content}
-                  onChange={handleInputChange}
+                  id="content"
                   required
                   placeholder="Type your message"
                   className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
