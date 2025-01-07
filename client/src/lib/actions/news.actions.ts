@@ -109,19 +109,27 @@ export const getNews = async  ({
   }
 }
 
-export const getNewsById = async (id:string) => {
+export const getNewsById = async (id: string): Promise<NewsItem | null> => {
   const { databases } = await createAdminClient();
   try {
     const news = await databases.getDocument(
       appwriteConfig.databaseId,
       appwriteConfig.newsCollectionId,
       id
-    );
+    )
 
-    return news;
+    return {
+      id: news.$id,
+      title: news.title || 'undefined',
+      file: news.file || 'undefined',
+      category: news.category || 'undefined',
+      date: news.date || 'undefined',
+      content: news.content || 'undefined',
+      summary: news.summary || 'undefined',
+    } as NewsItem;
   } catch (error) {
     handleError(error, "Failed to fetch News");
-
+    return null; // Explicitly return null if an error occurs
   }
 };
 
