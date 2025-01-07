@@ -1,9 +1,11 @@
 {
   "dependencies": {
+    "clsx": "^2.1.1",
     "flowbite": "^2.4.1",
     "flowbite-react": "^0.10.1",
     "formik": "^2.4.6",
     "next": "^14.2.4",
+    "node-appwrite": "^14.1.0",
     "react-dropzone": "^14.2.3",
     "styled-components": "^6.1.11"
   }
