@@ -17,7 +17,7 @@ type Props = {
 interface EventItem {
     id: string;
     title: string;
-    orgnizer: string;
+    organizer: string;
     location: string;
     description: string;
     file: File;
@@ -124,9 +124,9 @@ const UpdateNewsForm = ({ params }: Props ) => {
                 </label>
                 <input
                   type="text"
-                  name="author"
-                  id="author"
-                  defaultValue={event.orgnizer}
+                  name="organizer"
+                  id="organizer"
+                  defaultValue={event.organizer}
                   required
                   className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 />
@@ -142,6 +142,7 @@ const UpdateNewsForm = ({ params }: Props ) => {
                       type="date"
                       name="date"
                       id="date"
+                        defaultValue={event.date}
                       required
                         className="form-datepicker w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                         placeholder="Select a date"

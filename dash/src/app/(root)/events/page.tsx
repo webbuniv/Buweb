@@ -94,7 +94,7 @@ const TablesPage = () => {
     try {
       const eventItem = await getEventsById(id);
       setUpdate(eventItem);
-      router.push(`/news/${id}`);
+      router.push(`/events/${id}`);
     } catch (error) {
       console.error("Error fetching news details:", error);
     } finally {

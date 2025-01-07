@@ -5,8 +5,7 @@ import "@/css/satoshi.css";
 import "@/css/style.css";
 import React, { useEffect, useState } from "react";
 import Loader from "@/components/common/Loader";
-import { Metadata } from "next";
-
+import Head from "@/app/head";
 
 
 export default function Layout({
@@ -25,6 +24,7 @@ export default function Layout({
 
   return (
     <html lang="en">
+      <Head />
       <body suppressHydrationWarning={true}>
         <div className="dark:bg-boxdark-2 dark:text-bodydark">
           {loading ? <Loader /> : children}

@@ -21,7 +21,7 @@ const FormLayout = () => {
     if (state.success) {
       setIsSubmitting(false);
       alert('News created successfully!');
-      router.push('/news');
+      router.push('/events');
     }
   }, [state, router]);
 
@@ -155,7 +155,7 @@ const FormLayout = () => {
               </div>
 
               <button type="submit" className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
-              {isSubmitting ? 'Creating...' : 'Create Event'}
+                Create Event
               </button>
             </div>
           </form>

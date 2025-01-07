@@ -45,7 +45,7 @@ export async function CreateEvent(previousState: any, formData: FormDataType): P
 
   const news = await databases.createDocument(
     appwriteConfig.databaseId,
-    appwriteConfig.newsCollectionId,
+    appwriteConfig.eventsCollectionId,
     ID.unique(),
     {
       title: formData.get('title') as string,
@@ -111,7 +111,7 @@ export const getEventsById = async (id:string) => {
   try {
     const event = await databases.getDocument(
       appwriteConfig.databaseId,
-      appwriteConfig.newsCollectionId,
+      appwriteConfig.eventsCollectionId,
       id
     );
 
@@ -189,7 +189,7 @@ export async function updateEvents(
 
     await databases.updateDocument(
       appwriteConfig.databaseId,
-      appwriteConfig.newsCollectionId,
+      appwriteConfig.eventsCollectionId,
       id,
       updatedData
     );
