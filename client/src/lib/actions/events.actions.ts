@@ -106,7 +106,7 @@ export const getEvents = async  ({
   }
 }
 
-export const getEventsById = async (id:string) => {
+export const getEventsById = async (id: string): Promise<EventItem | null> => {
   const { databases } = await createAdminClient();
   try {
     const event = await databases.getDocument(
@@ -115,12 +115,22 @@ export const getEventsById = async (id:string) => {
       id
     );
 
-    return event;
+    // Map the response to EventItem if needed
+    return {
+      id: event.$id,
+      title: event.title,
+      organizer: event.organizer,
+      location: event.location,
+      description: event.description,
+      file: event.file,
+      date: event.date,
+    } as EventItem; // Ensure it matches the `EventItem` interface
   } catch (error) {
     handleError(error, "Failed to fetch News");
-
+    return null; // Return `null` in case of an error
   }
 };
+
 
 export const deleteEvents = async (id: string) => {
   const currentUser = await getCurrentUser();

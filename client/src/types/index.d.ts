@@ -10,6 +10,16 @@ declare type CreateNewsProps = {
     content: string;
 }
 
+declare interface EventItem {
+    id: string;
+    title: string;
+    organizer: string;
+    location: string;
+    description: string;
+    file: File;
+    date: string;
+}
+
 declare interface GetNewsProps {
     searchText?: string;
     sort?: string;
