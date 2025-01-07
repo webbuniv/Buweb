@@ -53,6 +53,7 @@ export async function CreateEvent(previousState: any, formData: FormDataType): P
       organizer: formData.get('organizer') as string,
       location: formData.get('location') as string,
       description: formData.get('description') as string,
+      date: formData.get('date') as string,
     }
 
   );
@@ -96,6 +97,7 @@ export const getEvents = async  ({
       location: event.location || 'undefined',
       description: event.content || 'undefined',
       organizer: event.organizer || 'undefined',
+      date: event.date || 'undefined',
     }))
     
   } catch (error) {
@@ -178,6 +180,7 @@ export async function updateEvents(
       location: formData.get('location') as string,
       organizer: formData.get('organizer') as string,
       description: formData.get('description') as string,
+      date: formData.get('date') as string,
     };
 
     if (fileID) {

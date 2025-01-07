@@ -270,6 +270,9 @@ const TablesPage = () => {
             <p className="mb-1">
               <strong>Author:</strong> {selectedEvent.organizer}
             </p>
+            <p className="mb-1">
+              <strong>Date:</strong> {selectedEvent.date}
+            </p>
           </div>
 
           {/* News Summary */}

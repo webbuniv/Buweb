@@ -40,4 +40,5 @@ declare interface Events {
     organizer: string;
     location: string;
     description: string;
+    date: string;
 }
