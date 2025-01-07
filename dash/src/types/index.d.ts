@@ -16,6 +16,12 @@ declare interface GetNewsProps {
     limit?: number;
 }
 
+declare interface GetEventsProps {
+    searchText?: string;
+    sort?: string;
+    limit?: number;
+}
+
 declare interface News {
     $id: string;
     title: string;
@@ -25,4 +31,13 @@ declare interface News {
     content: string;
     summary: string;
     author: string;
+}
+
+declare interface Events {
+    $id: string;
+    title: string;
+    file: string;
+    organizer: string;
+    location: string;
+    description: string;
 }

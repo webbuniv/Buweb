@@ -3,7 +3,6 @@
 import { createAdminClient } from '@/lib/appwrite';
 import { appwriteConfig } from '@/lib/appwrite/config';
 import { ID, Query} from 'node-appwrite';
-import { constructFileUrl, parseStringify } from '@/lib/utils';
 import { revalidatePath } from 'next/cache';
 import { getCurrentUser } from '@/lib/actions/user.action';
 import { redirect } from 'next/navigation';
@@ -18,12 +17,12 @@ interface FormDataType {
   get: (key: string) => string | File | null;
 }
 
-interface CreateNewsResponse {
+interface CreateEventResponse {
   success?: boolean;
   error?: string;
 }
 
-export async function CreateNews(previousState: any, formData: FormDataType): Promise<CreateNewsResponse> {
+export async function CreateEvent(previousState: any, formData: FormDataType): Promise<CreateEventResponse> {
   const { storage, databases } = await createAdminClient();
 
   let fileID: string | undefined;
@@ -51,16 +50,14 @@ export async function CreateNews(previousState: any, formData: FormDataType): Pr
     {
       title: formData.get('title') as string,
       file: fileID,
-      category: formData.get('category') as string,
-      author: formData.get('author') as string,
-      date: formData.get('date') as string,
-      summary: formData.get('summary') as string,
-      content: formData.get('content') as string,
+      organizer: formData.get('organizer') as string,
+      location: formData.get('location') as string,
+      description: formData.get('description') as string,
     }
 
   );
 
-    revalidatePath('/news');
+    revalidatePath('/events');
     return { success: true };
   } catch (error: any) {
     const errorMessage = error.response?.message || "Failed to create news document";
@@ -68,11 +65,11 @@ export async function CreateNews(previousState: any, formData: FormDataType): Pr
   }
 }
 
-export const getNews = async  ({ 
+export const getEvents = async  ({ 
   searchText = '',
   sort = "$createdAt-desc", 
   limit,
- }: GetNewsProps): Promise<News[]> => {
+ }: GetEventsProps): Promise<Events[]> => {
   const { databases } = await createAdminClient();
   try {
     const queries = [
@@ -86,21 +83,19 @@ export const getNews = async  ({
       redirect('/signin');
     }
 
-    const news = await databases.listDocuments(
+    const event = await databases.listDocuments(
       appwriteConfig.databaseId,
-      appwriteConfig.newsCollectionId,
+      appwriteConfig.eventsCollectionId,
       queries
     );
 
-    return news.documents.map((news) => ({
-      $id: news.$id,
-      title: news.title || 'undefined',
-      file: news.file || 'undefined',
-      category: news.category || 'undefined',
-      date: news.date || 'undefined',
-      content: news.content || 'undefined',
-      summary: news.summary || 'undefined',
-      author: news.author || 'undefined',
+    return event.documents.map((event) => ({
+      $id: event.$id,
+      title: event.title || 'undefined',
+      file: event.file || 'undefined',
+      location: event.location || 'undefined',
+      description: event.content || 'undefined',
+      organizer: event.organizer || 'undefined',
     }))
     
   } catch (error) {
@@ -109,23 +104,23 @@ export const getNews = async  ({
   }
 }
 
-export const getNewsById = async (id:string) => {
+export const getEventsById = async (id:string) => {
   const { databases } = await createAdminClient();
   try {
-    const news = await databases.getDocument(
+    const event = await databases.getDocument(
       appwriteConfig.databaseId,
       appwriteConfig.newsCollectionId,
       id
     );
 
-    return news;
+    return event;
   } catch (error) {
     handleError(error, "Failed to fetch News");
 
   }
 };
 
-export const deleteNews = async (id: string) => {
+export const deleteEvents = async (id: string) => {
   const currentUser = await getCurrentUser();
   
   if (!currentUser) {
@@ -134,19 +129,19 @@ export const deleteNews = async (id: string) => {
 
   const { databases } = await createAdminClient();
 
-  const newsToDelete = getNewsById(id);
+  const eventToDelete = getEventsById(id);
 
-  if (!newsToDelete) {
+  if (!eventToDelete) {
     return { error: 'News not found' };
   }
 
   try {
     await databases.deleteDocument(
       appwriteConfig.databaseId,
-      appwriteConfig.newsCollectionId,
+      appwriteConfig.eventsCollectionId,
       id
     );
-    revalidatePath('/news');
+    revalidatePath('/events');
     return { success: true };
   } catch (error) {
     handleError(error, 'Failed to delete news');
@@ -154,10 +149,10 @@ export const deleteNews = async (id: string) => {
   }
 };
 
-export async function updateNews(
+export async function updateEvents(
   id: string,
   formData: FormDataType
-): Promise<CreateNewsResponse> {
+): Promise<CreateEventResponse> {
   const { storage, databases } = await createAdminClient();
 
   let fileID: string | undefined;
@@ -180,11 +175,9 @@ export async function updateNews(
     // Build the updated data object
     const updatedData: Record<string, any> = {
       title: formData.get('title') as string,
-      category: formData.get('category') as string,
-      author: formData.get('author') as string,
-      date: formData.get('date') as string,
-      summary: formData.get('summary') as string,
-      content: formData.get('content') as string,
+      location: formData.get('location') as string,
+      organizer: formData.get('organizer') as string,
+      description: formData.get('description') as string,
     };
 
     if (fileID) {
@@ -198,7 +191,7 @@ export async function updateNews(
       updatedData
     );
 
-    revalidatePath('/news');
+    revalidatePath('/events');
     return { success: true };
   } catch (error: any) {
     const errorMessage = error.response?.message || 'Failed to update news document';
