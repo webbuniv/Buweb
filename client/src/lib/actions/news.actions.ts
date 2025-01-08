@@ -2,7 +2,7 @@
 
 import { createAdminClient } from '@/lib/appwrite';
 import { appwriteConfig } from '@/lib/appwrite/config';
-import { ID, Query} from 'node-appwrite';
+import { ID, Query, Models} from 'node-appwrite';
 import { constructFileUrl, parseStringify } from '@/lib/utils';
 import { revalidatePath } from 'next/cache';
 import { getCurrentUser } from '@/lib/actions/user.action';
@@ -12,6 +12,24 @@ const handleError = (error: unknown, message: string) => {
   console.error(message, error);
   throw new Error(message);
 };
+
+interface MyDocument {
+  $id: string;
+  $createdAt: string;         // Creation timestamp (ISO 8601 format)
+  $updatedAt: string;         // Last updated timestamp (ISO 8601 format)
+  $permissions: string[];     // List of permissions for the document
+  $collectionId: string;      // Collection ID the document belongs to
+  $databaseId: string;        // Database ID the document belongs to
+  name: string;               // Name of the document
+  description: string;        // Short description of the document
+  title: string;              // Title of the news article
+  author: string;             // Author of the document
+  date: string;               // Date the document was created or relevant (ISO 8601 format)
+  file: string;               // File associated with the document (URL or ID)
+  category: string;           // Category the document belongs to
+  content: string;            // Full content of the document
+  summary: string;            // Short summary or excerpt of the document        // Optional custom metadata (for additional info)
+}
 
 
 interface FormDataType {
@@ -91,7 +109,6 @@ export const getNews = async  ({
       appwriteConfig.newsCollectionId,
       queries
     );
-
     return news.documents.map((news) => ({
       $id: news.$id,
       title: news.title || 'undefined',
@@ -101,6 +118,7 @@ export const getNews = async  ({
       content: news.content || 'undefined',
       summary: news.summary || 'undefined',
       author: news.author || 'undefined',
+      $createdAt: new Date(news.$createdAt).getTime(),
     }))
     
   } catch (error) {
@@ -211,5 +229,21 @@ export async function updateNews(
   } catch (error: any) {
     const errorMessage = error.response?.message || 'Failed to update news document';
     return { error: errorMessage };
+  }
+}
+
+
+export const getNewsByCreation = async () => {
+  const { databases } = await createAdminClient();
+  try {
+    const news: Models.DocumentList<MyDocument> = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.newsCollectionId
+    );
+
+    return news;
+  } catch (error) {
+    console.error("Error fetching document:", error);
+    throw error; 
   }
 }

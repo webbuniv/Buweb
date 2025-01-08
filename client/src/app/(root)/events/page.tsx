@@ -23,7 +23,7 @@ const TablesPage = () => {
         searchText: query,
         sort: "$createdAt-desc",
         limit: 10,
-      });
+      });;
       setEvent(eventsData);
       setIsLoading(false);
     };
@@ -31,34 +31,34 @@ const TablesPage = () => {
 
   }, [query]);
 
-  const handleUpdate = async (eventItem: Events) => {
-    try {
-      const id = eventItem.$id; // Replace with the actual ID
-      const formData = new FormData();
+  // const handleUpdate = async (eventItem: Events) => {
+  //   try {
+  //     const id = eventItem.$id; // Replace with the actual ID
+  //     const formData = new FormData();
   
-      // Append necessary fields to formData
-      formData.append("title", eventItem.title);
-      formData.append("location", eventItem.location);
-      formData.append("organizer", eventItem.organizer);
-      formData.append("description", eventItem.description);
-      // Append file if applicable
-      if (eventItem.file) {
-        formData.append("file", eventItem.file);
-      }
+  //     // Append necessary fields to formData
+  //     formData.append("title", eventItem.title);
+  //     formData.append("location", eventItem.location);
+  //     formData.append("organizer", eventItem.organizer);
+  //     formData.append("description", eventItem.description);
+  //     // Append file if applicable
+  //     if (eventItem.file) {
+  //       formData.append("file", eventItem.file);
+  //     }
   
-      const response = await updateEvents(id, formData);
+  //     const response = await updateEvents(id, formData);
   
-      if (response.success) {
-        alert("News updated successfully!");
-        // Optionally redirect or refresh
-      } else {
-        alert(response.error || "Failed to update news");
-      }
-    } catch (error) {
-      console.error("Error updating news:", error);
-      alert("An unexpected error occurred.");
-    }
-  };
+  //     if (response.success) {
+  //       alert("News updated successfully!");
+  //       // Optionally redirect or refresh
+  //     } else {
+  //       alert(response.error || "Failed to update news");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error updating news:", error);
+  //     alert("An unexpected error occurred.");
+  //   }
+  // };
   
   const mapEventItemToEvents = (eventItem: EventItem): Events => ({
     $id: eventItem.id, 
@@ -68,6 +68,7 @@ const TablesPage = () => {
     description: eventItem.description,
     file: eventItem.file ? eventItem.file.name : '', // If file exists, convert to string
     date: eventItem.date,
+    $createdAt: eventItem.$createdAt,
   });
 
   const handleDeleteEvent = async (id: string) => {

@@ -25,6 +25,7 @@ const TablesPage = () => {
     category: newsItem.category,
     file: newsItem.file ? newsItem.file.name : '', 
     date: newsItem.date,
+    $createdAt: newsItem.$createdAt,
   });
 
   useEffect(() => {
@@ -35,6 +36,7 @@ const TablesPage = () => {
         sort: "$createdAt-desc",
         limit: 10,
       });
+      console.log(newsData);
       setNews(newsData);
       setIsLoading(false);
     };

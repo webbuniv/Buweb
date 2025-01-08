@@ -98,6 +98,7 @@ export const getEvents = async  ({
       description: event.content || 'undefined',
       organizer: event.organizer || 'undefined',
       date: event.date || 'undefined',
+      $createdAt: new Date(event.$createdAt).getTime(),
     }))
     
   } catch (error) {
