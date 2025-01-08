@@ -28,8 +28,6 @@ const SignIn = () => {
         setLoading(true);
         setError(null);
         setSuccess(null);
-    
-        // Validate form fields
         if (!formData.email) {
           setError("All fields are required.");
           setLoading(false);
@@ -42,11 +40,9 @@ const SignIn = () => {
           });
           setAccountId(result.accountId);
           setSuccess("Account created successfully! Please check your email for verification.");
-          console.log("Account created:", result);
         } catch (err: any) {
           const errorMessage = err.message || "An error occurred during sign up.";
           setError(errorMessage);
-          console.error("Signup error:", errorMessage);
         } finally {
           setLoading(false);
         }
