@@ -25,7 +25,7 @@ interface EventItem {
 }
 
 interface UpdateEventsFormProps {
-    newsItem: EventItem | null; // Ensure it's either NewsItem or null
+    newsItem: EventItem | null; 
 }
 
 const UpdateNewsForm = ({ params }: Props ) => {
@@ -35,6 +35,14 @@ const UpdateNewsForm = ({ params }: Props ) => {
   const router = useRouter();
 
   const { id } = params;
+
+  const wrappedUpdateEvents = async (
+    state: CreateEventResponse,
+    payload: FormData
+  ): Promise<CreateEventResponse> => {
+    const id = payload.get('id') as string;
+    return await updateEvents(id, payload);
+  };
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -49,7 +57,7 @@ const UpdateNewsForm = ({ params }: Props ) => {
     fetchEvents();
   }, [id]);
 
-  const [state, formAction] = useFormState(updateEvents, {});
+  const [state, formAction] = useFormState(wrappedUpdateEvents, {});
 
   useEffect(() => {
     if (state.error) {
@@ -71,7 +79,7 @@ const UpdateNewsForm = ({ params }: Props ) => {
     const formData = new FormData(event.currentTarget);
 
     try {
-      await formAction();
+      await formAction(formData);
     } catch (error) {
       setIsSubmitting(false);
       setErrorMessage("An unexpected error occurred.");
@@ -79,7 +87,7 @@ const UpdateNewsForm = ({ params }: Props ) => {
   };
 
   if (!event) {
-    return <div>Loading...</div>; // Loading state while fetching
+    return <div>Loading...</div>; 
   }
 
   return (

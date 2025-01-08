@@ -37,6 +37,14 @@ const UpdateNewsForm = ({ params }: Props ) => {
 
   const { id } = params;
 
+  const wrappedUpdateEvents = async (
+    state: CreateEventResponse,
+    payload: FormData
+  ): Promise<CreateEventResponse> => {
+    const id = payload.get('id') as string;
+    return await updateNews(id, payload);
+  };
+
   useEffect(() => {
     const fetchNews = async () => {
       try {
@@ -50,7 +58,7 @@ const UpdateNewsForm = ({ params }: Props ) => {
     fetchNews();
   }, [id]);
 
-  const [state, formAction] = useFormState(updateNews, {});
+  const [state, formAction] = useFormState(wrappedUpdateEvents, {});
 
   useEffect(() => {
     // Handle success and error states from the form action
@@ -73,7 +81,7 @@ const UpdateNewsForm = ({ params }: Props ) => {
     const formData = new FormData(event.currentTarget);
 
     try {
-      await formAction();
+      await formAction(formData);
     } catch (error) {
       setIsSubmitting(false);
       setErrorMessage("An unexpected error occurred.");

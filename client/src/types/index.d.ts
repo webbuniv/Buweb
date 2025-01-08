@@ -21,6 +21,16 @@ declare interface NewsItem {
     file: File;
 }
 
+declare interface CreateEventResponse {
+    success?: boolean;
+    error?: string;
+}
+
+declare interface CreateNewsResponse {
+    success?: boolean;
+    error?: string;
+}
+
 declare interface EventItem {
     id: string;
     title: string;
