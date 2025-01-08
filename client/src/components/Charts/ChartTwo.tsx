@@ -1,8 +1,11 @@
 "use client";
 
 import { ApexOptions } from "apexcharts";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
+import { getNews } from "@/lib/actions/news.actions";
+import { getEvents } from "@/lib/actions/events.actions";
+import { get } from "http";
 
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
@@ -50,7 +53,7 @@ const options: ApexOptions = {
   },
 
   xaxis: {
-    categories: ["M", "T", "W", "T", "F", "S", "S"],
+    categories: [],
   },
   legend: {
     position: "top",
@@ -75,17 +78,96 @@ interface ChartTwoState {
   }[];
 }
 
-const ChartTwo: React.FC = () => {
-  const series = [
-    {
-      name: "Sales",
-      data: [44, 55, 41, 67, 22, 43, 65],
-    },
-    {
-      name: "Revenue",
-      data: [13, 23, 20, 8, 13, 27, 15],
-    },
-  ];
+const ChartTwo = () => {
+  const [series, setSeries] = useState<ChartTwoState["series"]>([
+    { name: "News", data: [] },
+    { name: "Events", data: [] },
+  ]);
+
+  const [categories, setCategories] = useState<string[]>([]);
+  const [filter, setFilter] = useState<"daily" | "hourly" | "thisWeek" | "lastWeek">("daily");
+
+  const newsData = async () => {
+    const news: News[] = await getNews({});
+    return news;
+  }
+
+  const eventsData = async () => {
+    const events: Events[] = await getEvents({});
+    return events;
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const getAllNews = await newsData() || [];
+        const getAllEvents = await eventsData() || [];
+
+        const processedData = processData(getAllNews, getAllEvents);
+        setCategories(processedData.categories);
+        setSeries(processedData.series);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, [newsData, eventsData, filter]);
+
+  const processData = (getAllNews: any[], getAllEvents: any[]) => {
+    const weeklyData = processDataByInterval(getAllEvents, filter);
+    const newsByInterval = processDataByInterval(getAllNews, filter);
+    const eventsByInterval = processDataByInterval(getAllEvents, filter);
+
+    const categories = Object.keys(weeklyData);
+
+    const series = [
+      { name: "Events", data: categories.map(week => weeklyData[week] || 0) },
+      { name: "News", data: categories.map(week => newsByInterval[week] || 0) },
+      { name: "Events", data: categories.map(week => eventsByInterval[week] || 0) },
+    ];
+
+    return { categories, series };
+  };
+
+  const processDataByInterval = (data: any[], filterType: "daily" | "hourly" | "thisWeek" | "lastWeek") => {
+    const intervalData: Record<string, number> = {};
+    const now = new Date();
+
+    data.forEach((item) => {
+      const date = new Date(item._creationTime);
+      let key = '';
+
+      if (filterType === "daily") {
+        key = date.toISOString().split('T')[0]; // YYYY-MM-DD format
+      } else if (filterType === "hourly") {
+        key = date.toISOString().split('T')[0] + ' ' + date.getHours(); // YYYY-MM-DD HH format
+      } else if (filterType === "thisWeek") {
+        const week = getWeekNumber(date);
+        key = `Week ${week} - ${date.getFullYear()}`;
+      } else if (filterType === "lastWeek") {
+        const week = getWeekNumber(date);
+        key = `Week ${week} - ${date.getFullYear()}`;
+      }
+
+      // Update interval data
+      if (filterType === "thisWeek" && key === `Week ${getWeekNumber(now)} - ${now.getFullYear()}`) {
+        intervalData[key] = (intervalData[key] || 0) + 1;
+      } else if (filterType === "lastWeek" && key === `Week ${getWeekNumber(new Date(now.getFullYear(), now.getMonth(), now.getDate() - 7))} - ${now.getFullYear()}`) {
+        intervalData[key] = (intervalData[key] || 0) + 1;
+      } else if (filterType !== "thisWeek" && filterType !== "lastWeek") {
+        intervalData[key] = (intervalData[key] || 0) + 1;
+      }
+    });
+
+    return intervalData;
+  };
+
+  const getWeekNumber = (date: Date) => {
+    const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
+    const pastDaysOfYear = (date.getTime() - firstDayOfYear.getTime()) / 86400000;
+    return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+  };
 
   return (
     <div className="col-span-12 rounded-sm border border-stroke bg-white p-7.5 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-4">
@@ -98,16 +180,14 @@ const ChartTwo: React.FC = () => {
         <div>
           <div className="relative z-20 inline-block">
             <select
-              name="#"
-              id="#"
+              value={filter}
+              onChange={(e) => setFilter(e.target.value as "daily" | "hourly" | "thisWeek" | "lastWeek")}
               className="relative z-20 inline-flex appearance-none bg-transparent py-1 pl-3 pr-8 text-sm font-medium outline-none"
             >
-              <option value="" className="dark:bg-boxdark">
-                This Week
-              </option>
-              <option value="" className="dark:bg-boxdark">
-                Last Week
-              </option>
+              <option value="hourly" className="dark:bg-boxdark">Hourly</option>
+              <option value="daily" className="dark:bg-boxdark">Daily</option>
+              <option value="thisWeek" className="dark:bg-boxdark">This Week</option>
+              <option value="lastWeek" className="dark:bg-boxdark">Last Week</option>
             </select>
             <span className="absolute right-3 top-1/2 z-10 -translate-y-1/2">
               <svg
@@ -135,8 +215,8 @@ const ChartTwo: React.FC = () => {
 
       <div>
         <div id="chartTwo" className="-mb-9 -ml-5">
-          <ReactApexChart
-            options={options}
+        <ReactApexChart
+            options={{ ...options, xaxis: { categories } }} 
             series={series}
             type="bar"
             height={350}
