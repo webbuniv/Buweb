@@ -16,6 +16,17 @@ const TablesPage = () => {
   const router = useRouter();
   const [ update, setUpdate ] = useState<News | null>(null);
 
+  const mapEventItemToNews = (newsItem: NewsItem): News => ({
+    $id: newsItem.id, 
+    title: newsItem.title,
+    summary: newsItem.summary,
+    author: newsItem.author,
+    content: newsItem.content,
+    category: newsItem.category,
+    file: newsItem.file ? newsItem.file.name : '', 
+    date: newsItem.date,
+  });
+
   useEffect(() => {
     const fetchNews = async () => {
       setIsLoading(true);
@@ -82,7 +93,9 @@ const TablesPage = () => {
     setIsLoading(true);
     try {
       const newsItem = await getNewsById(id);
-      setSelectedNews(newsItem);
+      if (newsItem) {
+        setSelectedNews(mapEventItemToNews(newsItem));
+      }
       setModalOpen(true);
     } catch (error) {
       console.error("Error fetching news details:", error);
@@ -95,7 +108,10 @@ const TablesPage = () => {
     setIsLoading(true);
     try {
       const newsItem = await getNewsById(id);
-      setUpdate(newsItem);
+      if (newsItem) {
+        setSelectedNews(mapEventItemToNews(newsItem));
+      }
+      setModalOpen(true);
       router.push(`/news/${id}`);
     } catch (error) {
       console.error("Error fetching news details:", error);

@@ -14,17 +14,6 @@ type Props = {
 };
 
 
-interface NewsItem {
-    id: string;
-    title: string;
-    summary: string;
-    author: string;
-    date: string;
-    category: string;
-    content: string;
-    file: File;
-}
-
 interface UpdateNewsFormProps {
     newsItem: NewsItem | null; // Ensure it's either NewsItem or null
 }

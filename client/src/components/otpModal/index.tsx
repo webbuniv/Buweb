@@ -35,13 +35,8 @@ const OtpModal = ({
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setIsLoading(true);
-
-    console.log({ accountId, password });
-
     try {
       const sessionId = await verifySecret({ accountId, password });
-
-      console.log({ sessionId });
 
       if (sessionId) router.push("/");
     } catch (error) {
@@ -91,7 +86,7 @@ const OtpModal = ({
           <div className="flex w-full flex-col gap-4">
             <AlertDialogAction
               onClick={handleSubmit}
-              className="border-primary bg-primary button hover:bg-blue-500 transition-all rounded-full h-12"
+              className="border-primary bg-primary button hover:bg-blue-500 transition-all rounded-full h-12 text-white"
               type="button"
             >
               Submit

@@ -12,13 +12,14 @@ declare type CreateNewsProps = {
 
 declare interface NewsItem {
     id: string;
+    $id: string;
     title: string;
     summary: string;
     author: string;
     date: string;
     category: string;
     content: string;
-    file: File;
+    file?: File;
 }
 
 declare interface CreateEventResponse {
@@ -33,11 +34,12 @@ declare interface CreateNewsResponse {
 
 declare interface EventItem {
     id: string;
+    $id: string;
     title: string;
     organizer: string;
     location: string;
     description: string;
-    file: File;
+    file?: File;
     date: string;
 }
 

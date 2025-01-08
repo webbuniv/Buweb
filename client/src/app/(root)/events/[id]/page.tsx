@@ -14,15 +14,15 @@ type Props = {
 };
 
 
-interface EventItem {
-    id: string;
-    title: string;
-    organizer: string;
-    location: string;
-    description: string;
-    file: File;
-    date: string;
-}
+// interface EventItem {
+//     id: string;
+//     title: string;
+//     organizer: string;
+//     location: string;
+//     description: string;
+//     file: File;
+//     date: string;
+// }
 
 interface UpdateEventsFormProps {
     newsItem: EventItem | null; 

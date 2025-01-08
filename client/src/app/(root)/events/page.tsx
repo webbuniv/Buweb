@@ -60,6 +60,15 @@ const TablesPage = () => {
     }
   };
   
+  const mapEventItemToEvents = (eventItem: EventItem): Events => ({
+    $id: eventItem.id, 
+    title: eventItem.title,
+    organizer: eventItem.organizer,
+    location: eventItem.location,
+    description: eventItem.description,
+    file: eventItem.file ? eventItem.file.name : '', // If file exists, convert to string
+    date: eventItem.date,
+  });
 
   const handleDeleteEvent = async (id: string) => {
     setIsLoading(true);
@@ -76,11 +85,13 @@ const TablesPage = () => {
     }
   }
 
-  const handleViewNews = async (id: string) => {
+  const handleViewEvents = async (id: string) => {
     setIsLoading(true);
     try {
       const eventItem = await getEventsById(id);
-      setSelectedEvent(eventItem);
+      if (eventItem) {
+        setSelectedEvent(mapEventItemToEvents(eventItem));
+      }
       setModalOpen(true);
     } catch (error) {
       console.error("Error fetching news details:", error);
@@ -93,7 +104,9 @@ const TablesPage = () => {
     setIsLoading(true);
     try {
       const eventItem = await getEventsById(id);
-      setUpdate(eventItem);
+      if (eventItem) {
+        setUpdate(mapEventItemToEvents(eventItem));
+      }
       router.push(`/events/${id}`);
     } catch (error) {
       console.error("Error fetching news details:", error);
@@ -165,7 +178,7 @@ const TablesPage = () => {
                 <td className="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
                   <div className="flex items-center space-x-3.5">
                     <button className="hover:text-primary"
-                    onClick={() => handleViewNews(eventItem.$id)}
+                    onClick={() => handleViewEvents(eventItem.$id)}
                     >
                       <svg
                         className="fill-current"
