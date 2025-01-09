@@ -1,212 +1,134 @@
-# [Soft UI Dashboard React](http://demos.creative-tim.com/soft-ui-dashboard-react/#/dashboard?ref=readme-sudr) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?url=https://www.creative-tim.com/product/soft-ui-dashboard-react&text=Check%20Soft%20UI%20Dashboard%20react%20made%20by%20@CreativeTim%20#webdesign%20#dashboard%20#softdesign%20#react%20https://www.creative-tim.com/product/soft-ui-dashboard-react)
+# TailAdmin Next.js - Free Next.js Tailwind Admin Dashboard Template
 
-![version](https://img.shields.io/badge/version-4.0.1-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/soft-ui-dashboard-react.svg)](https://github.com/creativetimofficial/soft-ui-dashboard-react/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/soft-ui-dashboard-react.svg)](https://github.com/creativetimofficial/soft-ui-dashboard-react/issues?q=is%3Aissue+is%3Aclosed)
+TailAdmin is a free and open-source admin dashboard template built on **Next.js and Tailwind CSS** providing developers with everything they need to create a feature-rich and data-driven: back-end, dashboard, or admin panel solution for any sort of web project.
 
-![Image](https://s3.amazonaws.com/creativetim_bucket/products/500/original/soft-ui-dashboard-material-ui.jpg)
+[![tailwind nextjs admin template](https://github.com/TailAdmin/free-nextjs-admin-dashboard/blob/main/tailadmin-nextjs.jpg)](https://nextjs-demo.tailadmin.com/)
 
-Start your Development with an Innovative Admin Template for MUI and React. If you like the look & feel of the hottest design trend right now, Soft UI, you will fall in love with this dashboard! It features a huge number of components built to fit together and look amazing.
+With TailAdmin Next.js, you get access to all the necessary dashboard UI components, elements, and pages required to build a high-quality and complete dashboard or admin panel. Whether you're building a dashboard or admin panel for a complex web application or a simple website. 
 
-**Fully Coded Elements**
-Soft UI Dashboard React is built with over 70 frontend individual elements, like buttons, inputs, navbars, nav tabs, cards, or alerts, giving you the freedom of choosing and combining. All components can take variations in color, which you can easily modify using MUI styled api and sx prop. You will save a lot of time going from prototyping to full-functional code because all elements are implemented. This Premium MUI Dashboard is coming with prebuilt design blocks, so the development process is seamless, switching from our pages to the real website is very easy to be done.
+TailAdmin utilizes the powerful features of **Next.js 14** and common features of Next.js such as server-side rendering (SSR), static site generation (SSG), and seamless API route integration. Combined with the advancements of **React 18** and the robustness of **TypeScript**, TailAdmin is the perfect solution to help get your project up and running quickly.
 
-View [all components here](https://www.creative-tim.com/learning-lab/react/alerts/soft-ui-dashboard/).
+### [✨ Visit Website](https://tailadmin.com/)
+### [🚀 PRO Demo](https://nextjs-demo.tailadmin.com/)
+### [🚀 FREE Demo](https://nextjs-free-demo.tailadmin.com/)
 
-**Documentation built by Developers**
+### TailAdmin Next.js PRO vs TailAdmin Next.js FREE Comparison 📊
 
-Each element is well presented in very complex documentation.
+#### [TailAdmin Next.js PRO](https://nextjs-demo.tailadmin.com/)
+- 5 Unique Dashboards: Analytics, Ecommerce, Marketing, and CRM (More will be added)
+- 150+ Dashboard UI Components
+- 200+ Total UI Elements
+- 45+ HTML Files
+- All Essential Elements and Files
+- Full Figma Design Source - As Shown on Demo
+___
 
-You can read more about the [documentation here](https://www.creative-tim.com/learning-lab/react/overview/soft-ui-dashboard/).
+#### [TailAdmin Next.js FREE](https://free-nextjs-demo.tailadmin.com/)
+- 1 Unique Dashboard
+- 30+ Dashboard UI Components
+- 50+ Total UI Elements 
+- 10+ HTML Files
+- TypeScript Support
+- Basic UI Kit Elements and Files
+- Figma Design Source - Free Sample
+___
 
-**Example Pages**
+### [⬇️ Download Now](https://tailadmin.com/download)
 
-If you want to get inspiration or just show something directly to your clients, you can jump-start your development with our pre-built example pages. Every page is spaced well, with attractive layouts and pleasing shapes. Soft UI Dashboard React has everything you need to quickly set up an amazing project.
+### [⚡ Get PRO Version](https://tailadmin.com/pricing)
 
-View [example pages here](https://demos.creative-tim.com/soft-ui-dashboard-react/#/dashboard).
+### [📄 Documentation/Installation](https://tailadmin.com/docs)
 
-**HELPFUL LINKS**
+### [🖌️ TailAdmin Figma Free Sample](https://www.figma.com/community/file/1214477970819985778)
 
-- View [Github Repository](https://github.com/creativetimofficial/soft-ui-dashboard-react)
-- Check [FAQ Page](https://www.creative-tim.com/faq)
+### [👉 TailAdmin HTML Version](https://github.com/TailAdmin/tailadmin-free-tailwind-dashboard-template)
 
-#### Special thanks
 
-During the development of this dashboard, we have used many existing resources from awesome developers. We want to thank them for providing their tools open source:
+## Installation
+Here are the steps you need to follow to install the dependencies.
 
-- [MUI](https://mui.com/) - The React UI library for faster and easier web development.
-- [React Countup](https://github.com/glennreyes/react-countup) - A lightweight React component that can be used to quickly create animations that display numerical data in a more interesting way.
-- [React ChartJS 2](http://reactchartjs.github.io/react-chartjs-2/#/) - Simple yet flexible React charting for designers & developers.
-- [ChromaJS](https://gka.github.io/chroma.js/) - A small-ish zero-dependency JavaScript library for all kinds of color conversions and color scales.
-- [UUID](https://github.com/uuidjs/uuid) - JavaScript library for generating random id numbers.
-- [Nepcha Analytics](https://nepcha.com?ref=readme) for the analytics tool. Nepcha is already integrated with Soft UI Dashboard React. You can use it to gain insights into your sources of traffic.
+1. Download and extract the template from Next.js Templates.
 
-Let us know your thoughts below. And good luck with development!
-
-## Table of Contents
-
-- [Versions](#versions)
-- [Demo](#demo)
-- [Quick Start](#quick-start)
-- [Documentation](#documentation)
-- [File Structure](#file-structure)
-- [Browser Support](#browser-support)
-- [Resources](#resources)
-- [Reporting Issues](#reporting-issues)
-- [Technical Support or Questions](#technical-support-or-questions)
-- [Licensing](#licensing)
-- [Useful Links](#useful-links)
-
-## Versions
-
-[<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/react-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/soft-ui-dashboard-pro-react?ref=readme-sudr)
-
-| React |
-| ----- |
-
-| [![Soft UI Dashboard React](https://s3.amazonaws.com/creativetim_bucket/products/500/thumb/soft-ui-dashboard-material-ui.jpg?1632195046)](http://demos.creative-tim.com/soft-ui-dashboard-pro-react/#/dashboard?ref=readme-sudr)
-
-## Demo
-
-- [Dashboard](http://demos.creative-tim.com/soft-ui-dashboard-react/#/dashboard?ref=readme-sudr)
-- [Profile](https://demos.creative-tim.com/soft-ui-dashboard-react/#/profile?ref=readme-sudr)
-- [RTL](https://demos.creative-tim.com/soft-ui-dashboard-react/#/rtl?ref=readme-sudr)
-- [Sign In](https://demos.creative-tim.com/soft-ui-dashboard-react/#/authentication/sign-in?ref=readme-sudr)
-- [Sign Up](https://demos.creative-tim.com/soft-ui-dashboard-react/#/authentication/sign-up?ref=readme-sudr)
-
-[View More](https://demos.creative-tim.com/soft-ui-dashboard-react/#/dashboard?ref=readme-sudr).
-
-## Quick start
-
-Quick start options:
-
-- Buy from [Creative Tim](https://www.creative-tim.com/product/soft-ui-dashboard-react?ref=readme-sudr).
-
-## Terminal Commands
-
-1. Download and Install NodeJs LTS version from [NodeJs Official Page](https://nodejs.org/en/download/).
-2. Navigate to the root ./ directory of the product and run `yarn install` or `npm install` to install our local dependencies.
-
-## Documentation
-
-The documentation for the Soft UI Dashboard is hosted at our [website](https://www.creative-tim.com/learning-lab/react/overview/soft-ui-dashboard/?ref=readme-sudr).
-
-### What's included
-
-Within the download you'll find the following directories and files:
+2. After that **cd** into the template directory then run this command to install all the dependencies
 
 ```
-soft-ui-dashboard-react
-    ├── public
-    │   ├── apple-icon.png
-    │   ├── favicon.png
-    │   ├── index.html
-    │   ├── manifest.json
-    │   └── robots.txt
-    ├── src
-    │   ├── assets
-    │   │   ├── images
-    │   │   └── theme
-    │   │       ├── base
-    │   │       ├── components
-    │   │       ├── functions
-    │   │       ├── index.js
-    │   │       └── theme-rtl.js
-    │   ├── components
-    │   │   ├── SoftAlert
-    │   │   ├── SoftAvatar
-    │   │   ├── SoftBadge
-    │   │   ├── SoftBox
-    │   │   ├── SoftButton
-    │   │   ├── SoftInput
-    │   │   ├── SoftPagination
-    │   │   ├── SoftProgress
-    │   │   └── SoftTypography
-    │   ├── context
-    │   ├── examples
-    │   │   ├── Breadcrumbs
-    │   │   ├── Cards
-    │   │   ├── Charts
-    │   │   ├── Configurator
-    │   │   ├── Footer
-    │   │   ├── Icons
-    │   │   ├── Items
-    │   │   ├── LayoutContainers
-    │   │   ├── Lists
-    │   │   ├── Navbars
-    │   │   ├── Sidenav
-    │   │   ├── Tables
-    │   │   └── Timeline
-    │   ├── layouts
-    │   │   ├── authentication
-    │   │   ├── billing
-    │   │   ├── dashboard
-    │   │   ├── profile
-    │   │   ├── rtl
-    │   │   ├── tables
-    │   │   └── virtual-reality
-    │   ├── App.js
-    │   ├── index.js
-    │   └── routes.js
-    ├── .eslintrc.json
-    ├── .prettierrc.json
-    ├── CHANGELOG.md
-    ├── ISSUE_TEMPLATE.md
-    ├── jsconfig.json
-    ├── LICENSE.md
-    ├── package.json
-    └── README.md
+npm install
+```
+or
+
+```
+yarn install
 ```
 
-## Browser Support
+3. Now run this command to start the developement server
 
-At present, we officially aim to support the last two versions of the following browsers:
+```
+npm run dev
+```
 
-<img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/chrome.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/firefox.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/edge.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/safari.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/opera.png" width="64" height="64">
+or 
 
-## Resources
+```
+yarn dev
+```
 
-- [Live Preview](https://demos.creative-tim.com/soft-ui-dashboard-react/#/dashboard?ref=readme-sudr)
-- [Buy Page](https://www.creative-tim.com/product/soft-ui-dashboard-react?ref=readme-sudr)
-- Documentation is [here](https://www.creative-tim.com/learning-lab/react/overview/soft-ui-dashboard/?ref=readme-sudr)
-- [License Agreement](https://www.creative-tim.com/license?ref=readme-sudr)
-- [Support](https://www.creative-tim.com/contact-us?ref=readme-sudr)
-- Issues: [Github Issues Page](https://github.com/creativetimofficial/soft-ui-dashboard-react/issues)
-- [Nepcha Analytics](https://nepcha.com?ref=readme) - Analytics tool for your website
 
-## Reporting Issues
+## Free Admin Dashboard Template for Next.js Built-with Tailwind CSS, React 18 and TypeScript
+TailAdmin Next.js is a free dashboard template, which uses Tailwind CSS, is a great starting point for dashboard UI. This template uses the Next.js JavaScript framework and the easy-to-use Tailwind CSS framework. The Tailwind CSS and Next.js Dashboard Template comes with ready-made components like navigation menus, charts, tables, and forms. These components can be easily adjusted and added to any Next.js web application.
 
-We use GitHub Issues as the official bug tracker for the Soft UI Dashboard React. Here are some advices for our users that want to report an issue:
+TailAdmin for Next.js provides all essential Next.js + Tailwind CSS UI components that can be copied and pasted directly into your dashboard projects. The range of components includes charts, graphs, navbars, tabs, buttons, cards, tables, profiles, forms, modals, app pages, calendars, web app example templates, and more, all coded for Next.js React and styled using Tailwind CSS.
 
-1. Make sure that you are using the latest version of the Soft UI Dashboard React. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/product/soft-ui-dashboard-react?ref=readme-sudr).
-2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
-3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
+If you're on the hunt for a top-quality Next.js-Tailwind Dashboard, Admin Panel Template, or UI Kit, TailAdmin is the perfect choice for you!
 
-## Technical Support or Questions
+### 📄 License
+TailAdmin Next.js Free is 100% free and open-source; feel free to use it with your personal and commercial projects.
 
-If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us?ref=readme-sudr) instead of opening an issue.
+### 💜 Support
+If you like the template, please star this repository to inspire the team to create more stuff like this and reach more users like you!
 
-## Licensing
 
-- Copyright 2021 [Creative Tim](https://www.creative-tim.com?ref=readme-sudr)
-- Creative Tim [license](https://www.creative-tim.com/license?ref=readme-sudr)
+## Update Logs
 
-## Useful Links
+### Version 1.3.4 - [July 01, 2024]
 
-- [More products](https://www.creative-tim.com/templates?ref=readme-sudr) from Creative Tim
+#### Issues
 
-- [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w)
+- **Issues 01:** JSvectormap rendering issue resolved.
 
-- [Freebies](https://www.creative-tim.com/bootstrap-themes/free?ref=readme-sudr) from Creative Tim
+### Version 1.3.3 - [June 20, 2024]
 
-- [Affiliate Program](https://www.creative-tim.com/affiliates/new?ref=readme-sudr) (earn money)
+#### Issues
 
-##### Social Media
+- **Issues 01:** Fixed Not building when Loader component removed
 
-Twitter: <https://twitter.com/CreativeTim>
+### Version 1.3.2 - [June 19, 2024]
 
-Facebook: <https://www.facebook.com/CreativeTim>
+#### Enhancements
 
-Dribbble: <https://dribbble.com/creativetim>
+- **Enhancement 01:** Add ClickOutside Component for reduce repeated functionality in Header Message, Notification and User Dropdowns
+- **Enhancement 02:** Remove Repeated code from Sidebar Menu and Refactor Sidebar Components
+- **Enhancement 03:** Update Jsvectormap Package and it's imports for latest changes
 
-Google+: <https://plus.google.com/+CreativetimPage>
+### Version 1.3.1 - [Feb 12, 2024]
 
-Instagram: <https://instagram.com/creativetimofficial>
+#### Issues
+
+- **Issues 01:** Fix Misspelling issue [Default Layout/Layouts].
+
+#### Enhancements
+- **Enhancement 01:** Update style.css
+
+### Version 1.3.0 - [Feb 05, 2024]
+
+#### Enhancements
+
+- **Enhancement 01:** Update Next.js into version 14
+- **Enhancement 02:** Integrate flatpickr in [Date Picker/Form Elements]
+- **Enhancement 03:** Change color after select an option [Select Element/Form Elements].
+- **Enhancement 04:** Make it functional [Multiselect Dropdown/Form Elements].
+- **Enhancement 05:** Make best value editable [Pricing Table One/Pricing Table].
+- **Enhancement 06:** Add Default Layout Component and make App/Layout more clean and use it in every pages.
+
+### Version 0.1.0 - Initial Release - [Aug 3, 2023]
+
+- Initial release of TailAdmin Next.
