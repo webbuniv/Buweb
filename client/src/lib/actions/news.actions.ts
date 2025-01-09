@@ -142,6 +142,7 @@ export const getNewsById = async (id: string): Promise<NewsItem | null> => {
       file: news.file || 'undefined',
       category: news.category || 'undefined',
       date: news.date || 'undefined',
+      author: news.author || 'undefined',
       content: news.content || 'undefined',
       summary: news.summary || 'undefined',
     } as NewsItem;

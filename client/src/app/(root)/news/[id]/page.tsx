@@ -61,12 +61,12 @@ const UpdateNewsForm = ({ params }: Props ) => {
       router.push("/news");
     }
   }, [state, router]);
-  
+
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitting(true);
-    setErrorMessage(""); // Clear any previous error messages
+    setErrorMessage("");
 
     const formData = new FormData(event.currentTarget);
 
@@ -79,7 +79,7 @@ const UpdateNewsForm = ({ params }: Props ) => {
   };
 
   if (!news) {
-    return <div>Loading...</div>; // Loading state while fetching
+    return <div>Loading...</div>; 
   }
 
   return (
