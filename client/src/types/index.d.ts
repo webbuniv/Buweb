@@ -19,7 +19,7 @@ declare interface NewsItem {
     date: string;
     category: string;
     content: string;
-    file?: File;
+    file: string;
     $createdAt: number;
 }
 
@@ -40,7 +40,7 @@ declare interface EventItem {
     organizer: string;
     location: string;
     description: string;
-    file?: File;
+    file: string;
     date: string;
     $createdAt: number;
 }

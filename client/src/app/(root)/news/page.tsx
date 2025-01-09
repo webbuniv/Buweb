@@ -23,7 +23,7 @@ const TablesPage = () => {
     author: newsItem.author,
     content: newsItem.content,
     category: newsItem.category,
-    file: newsItem.file ? newsItem.file.name : '', 
+    file: newsItem.file , 
     date: newsItem.date,
     $createdAt: newsItem.$createdAt,
   });

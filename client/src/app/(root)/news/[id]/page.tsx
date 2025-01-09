@@ -61,6 +61,7 @@ const UpdateNewsForm = ({ params }: Props ) => {
       router.push("/news");
     }
   }, [state, router]);
+  
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

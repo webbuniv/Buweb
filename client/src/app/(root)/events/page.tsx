@@ -31,42 +31,14 @@ const TablesPage = () => {
 
   }, [query]);
 
-  // const handleUpdate = async (eventItem: Events) => {
-  //   try {
-  //     const id = eventItem.$id; // Replace with the actual ID
-  //     const formData = new FormData();
-  
-  //     // Append necessary fields to formData
-  //     formData.append("title", eventItem.title);
-  //     formData.append("location", eventItem.location);
-  //     formData.append("organizer", eventItem.organizer);
-  //     formData.append("description", eventItem.description);
-  //     // Append file if applicable
-  //     if (eventItem.file) {
-  //       formData.append("file", eventItem.file);
-  //     }
-  
-  //     const response = await updateEvents(id, formData);
-  
-  //     if (response.success) {
-  //       alert("News updated successfully!");
-  //       // Optionally redirect or refresh
-  //     } else {
-  //       alert(response.error || "Failed to update news");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error updating news:", error);
-  //     alert("An unexpected error occurred.");
-  //   }
-  // };
-  
+
   const mapEventItemToEvents = (eventItem: EventItem): Events => ({
     $id: eventItem.id, 
     title: eventItem.title,
     organizer: eventItem.organizer,
     location: eventItem.location,
     description: eventItem.description,
-    file: eventItem.file ? eventItem.file.name : '', // If file exists, convert to string
+    file: eventItem.file,
     date: eventItem.date,
     $createdAt: eventItem.$createdAt,
   });
@@ -84,7 +56,7 @@ const TablesPage = () => {
           setIsLoading(false);
       }
     }
-  }
+  };
 
   const handleViewEvents = async (id: string) => {
     setIsLoading(true);
