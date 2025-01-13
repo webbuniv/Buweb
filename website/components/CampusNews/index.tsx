@@ -1,7 +1,10 @@
+'use client'
+
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import SectionTitle from "../Common/SectionTitle";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronRight } from 'lucide-react';
 
 const newsData = [
   {
@@ -11,13 +14,13 @@ const newsData = [
     imageSrc: "/images/exhibition/e.jpeg",
     altText: "Image related to Exams",
   },
-  {
-    category: "Are You Ready for Exams?",
-    title: "The countdown has begun! As the exam days draw closer, students are encouraged to... ",
-    link: "/",
-    imageSrc: "/images/club/two.jpg",
-    altText: "Image related to Exams",
-  },
+  // {
+  //   category: "Are You Ready for Exams?",
+  //   title: "The countdown has begun! As the exam days draw closer, students are encouraged to... ",
+  //   link: "/",
+  //   imageSrc: "/images/club/two.jpg",
+  //   altText: "Image related to Exams",
+  // },
   {
     category: "Sports",
     title: "Bugema University sports play a vital role in student life.",
@@ -32,7 +35,6 @@ const newsData = [
     imageSrc: "/images/club/r.jpg",
     altText: "Student Club",
   },
-
   {
     category: "Cultural Gala 2024 - 2025",
     title: "A Spectacular Cultural Gala 2024-2025: Bridging Traditions and Cultures", 
@@ -50,149 +52,202 @@ const newsData = [
 ];
 
 const CampusNews: React.FC = () => {
-  const [currentStartIndex, setCurrentStartIndex] = useState(0);
-  const visibleNewsCount = 4;
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentStartIndex((prevIndex) => (prevIndex + 1) % newsData.length);
-    }, 5000); 
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 768);
+    };
 
-    return () => clearInterval(intervalId);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  // Calculate the visible items based on the current start index
-  const visibleNews = [
-    ...newsData.slice(currentStartIndex, currentStartIndex + visibleNewsCount),
-    ...newsData.slice(0, Math.max(0, (currentStartIndex + visibleNewsCount) - newsData.length)),
-  ].slice(0, visibleNewsCount); 
-
-  const [galaTimeLeft, setGalaTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
-  const [commencementTimeLeft, setCommencementTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
 
   useEffect(() => {
-    // Cultural Gala Countdown
-    const targetGalaDate = new Date("2024-10-17T00:00:00");
+    if (isLargeScreen) {
+      const intervalId = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 2) % newsData.length);
+      }, 5000);
 
-    const updateGalaTime = () => {
-      const now = new Date();
-      const difference = targetGalaDate.getTime() - now.getTime();
+      return () => clearInterval(intervalId);
+    }
+  }, [isLargeScreen]);
 
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+  const getVisibleNews = () => {
+    if (!isLargeScreen) {
+      return newsData;
+    }
 
-        setGalaTimeLeft({ days, hours, minutes, seconds });
-      }
-    };
+    const centerIndex = currentIndex;
+    const leftIndex = (centerIndex - 2 + newsData.length) % newsData.length;
+    const rightIndex = (centerIndex + 2) % newsData.length;
 
-    // Commencement Countdown
-    const targetCommencementDate = new Date("2024-11-10T00:00:00");
+    return [
+      newsData[leftIndex],
+      newsData[centerIndex],
+      newsData[rightIndex],
+      newsData[(rightIndex + 2) % newsData.length],
+    ];
+  };
 
-    const updateCommencementTime = () => {
-      const now = new Date();
-      const difference = targetCommencementDate.getTime() - now.getTime();
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
 
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+  const titleVariants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+      },
+    },
+  };
 
-        setCommencementTimeLeft({ days, hours, minutes, seconds });
-      }
-    };
+  const descriptionVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+      },
+    },
+  };
 
-    
-
-    const galaTimerId = setInterval(updateGalaTime, 1000);
-    const commencementTimerId = setInterval(updateCommencementTime, 1000);
-
-    return () => {
-      clearInterval(galaTimerId);
-      clearInterval(commencementTimerId);
-    };
-  }, []);
+  const cardVariants = {
+    hidden: (i: number) => ({
+      opacity: 0,
+      x: i % 2 === 0 ? -50 : 50,
+      y: -20,
+    }),
+    visible: (i: number) => ({
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+        delay: Math.floor(i / 2) * 0.2,
+      },
+    }),
+    exit: (i: number) => ({
+      opacity: 0,
+      x: i % 2 === 0 ? -50 : 50,
+      y: 20,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+      },
+    }),
+  };
 
   return (
-    <section className="px-8">
-      <div className="container">
-        <div className="hidden md:block">
-          <SectionTitle
-            title="Students Life"
-            paragraph="At Bugema University, student life goes beyond the classroom. 
-            Our vibrant campus community offers a diverse range of activities, organizations, 
-            and resources designed to support your personal growth, leadership development, and overall well-being."
-            center
-            mb="50px"
-          />
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
+      <motion.div
+        className="container mx-auto"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="text-center mb-12">
+          <motion.h2
+            variants={titleVariants}
+            className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4"
+          >
+            Student Life at Bugema University
+          </motion.h2>
+          <motion.p
+            variants={descriptionVariants}
+            className="max-w-2xl mx-auto text-xl text-gray-600 dark:text-gray-300"
+          >
+            Discover a vibrant campus community that goes beyond the classroom, offering diverse activities and resources for your personal growth and leadership development.
+          </motion.p>
         </div>
 
-        {/* Section Title for small screens */}
-        <div className="md:hidden block">
-          <div className="wow fadeInUp w-full mx-auto text-start" data-wow-delay=".1s">
-            <h2 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px]">
-              Students Life
-            </h2>
-            <p className="text-base !leading-relaxed text-body-color md:text-lg">
-              At Bugema University, student life goes beyond the classroom.
-            </p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <AnimatePresence>
+            {getVisibleNews().map((news, index) => (
+              <motion.article
+                key={`${news.title}-${index}`}
+                custom={index}
+                variants={cardVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={news.imageSrc}
+                    alt={news.altText}
+                    layout="fill"
+                    objectFit="cover"
+                    className="transition-transform duration-300 hover:scale-110"
+                  />
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center"
+                  >
+                    <Link href={news.link} className="text-white text-lg font-semibold hover:underline">
+                      Read More
+                    </Link>
+                  </motion.div>
+                </div>
+                <motion.div
+                  className="p-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 + 0.5 }}
+                >
+                  <div className="text-sm font-medium text-indigo-600 dark:text-indigo-400 mb-2">{news.category}</div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2">
+                    <Link href={news.link} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300">
+                      {news.title}
+                    </Link>
+                  </h3>
+                </motion.div>
+              </motion.article>
+            ))}
+          </AnimatePresence>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {visibleNews.map((news, index) => (
-            <article key={index} className="bg-white shadow-md rounded-lg overflow-hidden">
-              <div className="h-48 overflow-hidden ">
-                <a href={news.link} aria-hidden="true" tabIndex={-1}>
-                  <Image src={news.imageSrc} alt={news.altText} height={350} width={350} />
-                </a>
-              </div>
-              <div className="p-4">
-                <div className="text-sm text-gray-500 mb-2">{news.category}</div>
-                <h3 className="text-lg text-black font-semibold">
-                  <a href={news.link}>
-                    {news.category === "Cultural Gala" ? (
-                      <span className="text-blue-500">
-                        {galaTimeLeft.days} days : {galaTimeLeft.hours} hours : {galaTimeLeft.minutes} minutes :{" "}
-                        {galaTimeLeft.seconds} seconds
-                      </span>
-                    ) : news.category === "Graduation Ceremony" ? (
-                      <span className="text-blue-500">
-                        {commencementTimeLeft.days} days : {commencementTimeLeft.hours} hours : {commencementTimeLeft.minutes} minutes :{" "}
-                        {commencementTimeLeft.seconds} seconds
-                      </span>
-                    ) : (
-                      news.title
-                    )}
-                  </a>
-                </h3>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <div className="text-center mt-8">
-          <Link href="/studentlife" className="text-blue-500 font-bold">
-            More About Students Life
+        <motion.div
+          className="text-center mt-12"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.5, type: "spring", stiffness: 100, damping: 15 }}
+        >
+          <Link
+            href="/studentlife"
+            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-300"
+          >
+            Explore Student Life
+            <ChevronRight className="ml-2 -mr-1 h-5 w-5" aria-hidden="true" />
           </Link>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
 
 export default CampusNews;
+
