@@ -1,9 +1,6 @@
 import Image from "next/image";
-import { HiAcademicCap } from "react-icons/hi";
 import { FaScroll } from "react-icons/fa6";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
-import { IoCameraSharp } from "react-icons/io5";
-import {IoClipboardOutline} from "react-icons/io5";
 import {FaWpforms} from "react-icons/fa";
 import {IoBookOutline} from "react-icons/io5";
 import { useState,useEffect } from "react";
