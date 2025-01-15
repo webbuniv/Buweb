@@ -34,7 +34,7 @@ export function GuidedTourSection() {
           className="space-y-8"
         >
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-red-600 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-6">
               University Guided Tour
             </h2>
             <p className="text-lg text-gray-700">
@@ -67,7 +67,7 @@ export function GuidedTourSection() {
 
           <div className="text-center">
             <Link href="/guided-tour-2013" passHref>
-              <Button size="lg" className="bg-red-600 hover:bg-red-700">
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
                 Book a Guided Tour
               </Button>
             </Link>

@@ -38,7 +38,7 @@ export function CampusMapSection() {
           className="space-y-8"
         >
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-red-600 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-red-blue mb-6">
               The Campus Map
             </h2>
             <p className="text-lg text-gray-700">
@@ -69,11 +69,11 @@ export function CampusMapSection() {
           <div className="text-center">
             <Link 
               href="https://www.bugemauniv.ac.ug" 
-              className="inline-flex items-center text-green-600 hover:text-green-700 font-medium"
+              className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Discover more on our interactive map
+              Discover more on our map
               <MapPin className="ml-2 w-4 h-4" />
             </Link>
           </div>

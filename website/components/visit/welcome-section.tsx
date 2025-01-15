@@ -15,34 +15,39 @@ export function WelcomeSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-red-600 mb-6">
-              Welcome to Bugema University, a beacon of academic excellence & heritage in Africa.
+            <h1 className="text-4xl md:text-5xl font-bold  mb-6">
+              Welcome to Bugema University
             </h1>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-              {[1, 2, 3, 4].map((index) => (
-                <motion.div
-                  key={index}
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-4 mb-6">
+              <motion.div
                   whileHover={{ scale: 1.05 }}
                   className="aspect-square relative overflow-hidden rounded-lg"
                 >
                   <Image
-                    src="/images/club/r.jpg"
-                    alt={`Campus life ${index}`}
+                    src="/images/vc/vc-1.jpeg"
+                    alt={`Bugema University`}
                     fill
                     className="object-cover transition-transform hover:scale-110"
                   />
                 </motion.div>
-              ))}
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="aspect-square relative overflow-hidden rounded-lg"
+                >
+                  <Image
+                    src="/images/features/banner.png"
+                    alt={`Bugema University`}
+                    fill
+                    className="object-cover transition-transform hover:scale-110"
+                  />
+                </motion.div>
             </div>
 
             <div className="bg-white/95 backdrop-blur">
               <div className="p-6">
                 <p className="text-lg text-gray-700">
-                  Founded in 1922, our university has been at the forefront of education and research on
-                  the continent, shaping leaders and innovators across various fields. As one of
-                  Africas most prestigious and historic universities, Bugema University invites you
-                  to explore our vibrant campus, rich in history and innovation.
+                In year 2000, the university had student population of 800. There was a need to expand the offerings in various departments especially in the Department of Education. As a result, the following teaching courses were introduced in education: Geography, Mathematics, Chemistry, Biology, Physics, English Language and Literature in English. The school of Social Sciences also expanded to include Development Studies. During the AAA evaluation of 2004 the student population was 1,236. Students come from 15 countries of Africa.
                 </p>
               </div>
             </div>
@@ -54,7 +59,7 @@ export function WelcomeSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="bg-white p-6 rounded-lg shadow-lg"
           >
-            <h2 className="text-2xl font-bold text-red-600 mb-6">
+            <h2 className="text-2xl font-bold text-blue-900 mb-6">
               Learn more about Bugema University
             </h2>
             <nav className="space-y-3">
@@ -65,7 +70,7 @@ export function WelcomeSection() {
                 "Social Networks",
                 "How to Apply",
                 "Institutes",
-                "Visit Makerere"
+                "Visit Bugema"
               ].map((item) => (
                 <motion.div
                   key={item}
@@ -74,7 +79,7 @@ export function WelcomeSection() {
                 >
                   <Link 
                     href="#" 
-                    className="block py-2 text-green-600 hover:text-green-700 transition-colors"
+                    className="block py-2 text-blue-600 hover:text-blue-700 transition-colors"
                   >
                     {item}
                   </Link>
