@@ -1,10 +1,11 @@
 'use client'
 
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { motion, AnimatePresence } from "framer-motion"
+import { ChevronRight, Pause, Play, ArrowLeftRight } from 'lucide-react'
+import { cn } from "@/lib/utils"
 
 const newsData = [
   {
@@ -12,242 +13,237 @@ const newsData = [
     title: "Showcasing Innovative Business Ideas by Students",
     link: "/exhibition",
     imageSrc: "/images/exhibition/e.jpeg",
-    altText: "Image related to Exams",
+    altText: "Exhibition showcase",
   },
-  // {
-  //   category: "Are You Ready for Exams?",
-  //   title: "The countdown has begun! As the exam days draw closer, students are encouraged to... ",
-  //   link: "/",
-  //   imageSrc: "/images/club/two.jpg",
-  //   altText: "Image related to Exams",
-  // },
   {
     category: "Sports",
     title: "Bugema University sports play a vital role in student life.",
     link: "/sports/sports",
     imageSrc: "/images/life/football/footf.jpg",
-    altText: "Image related to football",
+    altText: "Sports activities",
   },
   {
     category: "Students Clubs",
-    title: "Unleashing Potential: Discovering the Diverse Clubs at Bugema University",
+    title: "Unleashing Potential: Discovering the Diverse Clubs",
     link: "/clubs/clubs",
     imageSrc: "/images/club/r.jpg",
-    altText: "Student Club",
+    altText: "Student clubs activities",
   },
   {
-    category: "Cultural Gala 2024 - 2025",
-    title: "A Spectacular Cultural Gala 2024-2025: Bridging Traditions and Cultures", 
-    link: "/studentlife",
-    imageSrc: "/images/gala/neww.jpeg",
-    altText: "Image related to cultural gala",
-  },
-  {
-    category: "30th Graduation Ceremony",
-    title: "Celebrating excellence and achievements at the 30th graduation ceremony 2024-2025", 
-    link: "/graduation/graduation",
-    imageSrc: "/images/graduation/a.jpg",
-    altText: "Graduation 2024 - 2025 highlights",
-  },
-];
+    category: "Quick Links",
+    items: [
+      {
+        title: "Join",
+        description: "Become part of our community",
+        color: "bg-yellow-400/80",
+        imageSrc: "/images/club/r.jpg",
+        link: "https://erms.bugemauniv.ac.ug/application/"
+      },
+      {
+        title: "Visit",
+        description: "Tour our campus",
+        color: "bg-green-600/80",
+        imageSrc: "/images/club/r.jpg",
+        link: "/visit"
+      },
+      {
+        title: "Give",
+        description: "Support our mission",
+        color: "bg-red-600/80",
+        imageSrc: "/images/club/r.jpg",
+        link: "/give"
+      }
+    ]
+  }
+]
 
-const CampusNews: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isLargeScreen, setIsLargeScreen] = useState(false);
+const CampusNews = () => {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isPlaying, setIsPlaying] = useState(true)
+  const [isHovering, setIsHovering] = useState(false)
+  const [direction, setDirection] = useState(1)
+
+  // Create a circular array for continuous looping
+  const getCircularNews = () => {
+    const firstThree = newsData.slice(0, 3)
+    return [...firstThree, ...firstThree, ...firstThree]
+  }
+
+  const rotateNews = useCallback(() => {
+    if (isPlaying && !isHovering) {
+      setCurrentIndex((prev) => {
+        const next = prev + direction
+        // Reset to middle set when reaching edges
+        if (next >= 6) return 3
+        if (next < 0) return 2
+        return next
+      })
+    }
+  }, [isPlaying, isHovering, direction])
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsLargeScreen(window.innerWidth >= 768);
-    };
+    const interval = setInterval(rotateNews, 3000)
+    return () => clearInterval(interval)
+  }, [rotateNews])
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    if (isLargeScreen) {
-      const intervalId = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 2) % newsData.length);
-      }, 5000);
-
-      return () => clearInterval(intervalId);
-    }
-  }, [isLargeScreen]);
-
-  const getVisibleNews = () => {
-    if (!isLargeScreen) {
-      return newsData;
-    }
-
-    const centerIndex = currentIndex;
-    const leftIndex = (centerIndex - 2 + newsData.length) % newsData.length;
-    const rightIndex = (centerIndex + 2) % newsData.length;
-
-    return [
-      newsData[leftIndex],
-      newsData[centerIndex],
-      newsData[rightIndex],
-      newsData[(rightIndex + 2) % newsData.length],
-    ];
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const titleVariants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-      },
-    },
-  };
-
-  const descriptionVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-      },
-    },
-  };
+  const handleManualRotation = () => {
+    setDirection((prev) => prev * -1) // Toggle direction
+    setCurrentIndex((prev) => {
+      const next = prev + direction
+      if (next >= 6) return 3
+      if (next < 0) return 2
+      return next
+    })
+  }
 
   const cardVariants = {
-    hidden: (i: number) => ({
+    enter: (custom: { direction: number; index: number }) => ({
+      x: custom.direction > 0 ? 1000 : -1000,
       opacity: 0,
-      x: i % 2 === 0 ? -50 : 50,
-      y: -20,
+      scale: 0.8,
+      zIndex: custom.index,
     }),
-    visible: (i: number) => ({
-      opacity: 1,
+    center: (custom: { index: number }) => ({
       x: 0,
-      y: 0,
+      opacity: 1,
+      scale: 1,
+      zIndex: custom.index,
       transition: {
+        duration: 0.8,
         type: "spring",
         stiffness: 100,
-        damping: 15,
-        delay: Math.floor(i / 2) * 0.2,
-      },
+        damping: 15
+      }
     }),
-    exit: (i: number) => ({
+    exit: (custom: { direction: number; index: number }) => ({
+      x: custom.direction > 0 ? -1000 : 1000,
       opacity: 0,
-      x: i % 2 === 0 ? -50 : 50,
-      y: 20,
+      scale: 0.8,
+      zIndex: custom.index,
       transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-      },
-    }),
-  };
+        duration: 0.5
+      }
+    })
+  }
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
-      <motion.div
-        className="container mx-auto"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
+    <section className="py-16 px-4 min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+      <div className="container mx-auto">
         <div className="text-center mb-12">
-          <motion.h2
-            variants={titleVariants}
-            className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4"
+          <motion.h2 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl font-bold text-gray-900 dark:text-white mb-4"
           >
-            Student Life at Bugema University
+            Campus Life
           </motion.h2>
-          <motion.p
-            variants={descriptionVariants}
-            className="max-w-2xl mx-auto text-xl text-gray-600 dark:text-gray-300"
-          >
-            Discover a vibrant campus community that goes beyond the classroom, offering diverse activities and resources for your personal growth and leadership development.
-          </motion.p>
+          <div className="flex justify-center gap-4 mb-8">
+            <button
+              onClick={() => setIsPlaying(!isPlaying)}
+              className="p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all"
+              aria-label={isPlaying ? "Pause rotation" : "Play rotation"}
+            >
+              {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
+            </button>
+            <button
+              onClick={handleManualRotation}
+              className="p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all"
+              aria-label="Change rotation direction"
+            >
+              <ArrowLeftRight className="w-6 h-6" />
+            </button>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <AnimatePresence>
-            {getVisibleNews().map((news, index) => (
-              <motion.article
-                key={`${news.title}-${index}`}
-                custom={index}
-                variants={cardVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={news.imageSrc}
-                    alt={news.altText}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transition-transform duration-300 hover:scale-110"
-                  />
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center"
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          <div className="lg:col-span-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 h-full relative">
+              <AnimatePresence mode="popLayout" initial={false}>
+                {getCircularNews().slice(currentIndex, currentIndex + 3).map((news, idx) => (
+                  <motion.article
+                    key={`${news.category}-${currentIndex + idx}`}
+                    custom={{ direction, index: idx }}
+                    variants={cardVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    onHoverStart={() => setIsHovering(true)}
+                    onHoverEnd={() => setIsHovering(false)}
+                    className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all perspective-1000"
+                    style={{
+                      position: 'relative',
+                      zIndex: idx
+                    }}
                   >
-                    <Link href={news.link} className="text-white text-lg font-semibold hover:underline">
-                      Read More
-                    </Link>
-                  </motion.div>
+                    <div className="relative h-48">
+                      <Image
+                        src={news.imageSrc || "/placeholder.svg"}
+                        alt={news.altText}
+                        fill
+                        className="object-cover transition-transform duration-300 hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    </div>
+                    <div className="p-6">
+                      <div className="text-sm font-medium text-indigo-600 dark:text-indigo-400 mb-2">
+                        {news.category}
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 line-clamp-2">
+                        {news.title}
+                      </h3>
+                      <Link
+                        href={news.link}
+                        className="inline-flex items-center text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300"
+                      >
+                        Learn More <ChevronRight className="ml-1 w-4 h-4" />
+                      </Link>
+                    </div>
+                  </motion.article>
+                ))}
+              </AnimatePresence>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            {newsData[3].items.map((item, idx) => (
+              <Link
+                key={item.title}
+                href={item.link}
+                className="group block relative h-24 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              >
+                <div className="absolute inset-0 w-full h-full">
+                  <Image
+                    src={item.imageSrc || "/placeholder.svg"}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-                <motion.div
-                  className="p-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 + 0.5 }}
+                <div 
+                  className={cn(
+                    "absolute inset-0 flex items-center justify-between p-6 transition-all duration-300",
+                    item.color,
+                    "group-hover:bg-opacity-90"
+                  )}
                 >
-                  <div className="text-sm font-medium text-indigo-600 dark:text-indigo-400 mb-2">{news.category}</div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2">
-                    <Link href={news.link} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300">
-                      {news.title}
-                    </Link>
-                  </h3>
-                </motion.div>
-              </motion.article>
+                  <div className="text-white">
+                    <h3 className="text-2xl font-bold group-hover:scale-105 transition-transform duration-300">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm opacity-90 group-hover:opacity-100">
+                      {item.description}
+                    </p>
+                  </div>
+                  <ChevronRight className="w-6 h-6 text-white transform group-hover:translate-x-1 transition-transform duration-300" />
+                </div>
+              </Link>
             ))}
-          </AnimatePresence>
+          </div>
         </div>
-
-        <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, type: "spring", stiffness: 100, damping: 15 }}
-        >
-          <Link
-            href="/studentlife"
-            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-300"
-          >
-            Explore Student Life
-            <ChevronRight className="ml-2 -mr-1 h-5 w-5" aria-hidden="true" />
-          </Link>
-        </motion.div>
-      </motion.div>
+      </div>
     </section>
-  );
-};
+  )
+}
 
-export default CampusNews;
+export default CampusNews
 
