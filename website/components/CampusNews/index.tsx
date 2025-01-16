@@ -35,23 +35,23 @@ const newsData = [
       {
         title: "Join",
         description: "Become part of our community",
-        color: "bg-yellow-400/80",
+        color: "bg-blue-400/90",
         imageSrc: "/images/club/r.jpg",
         link: "https://erms.bugemauniv.ac.ug/application/"
       },
       {
         title: "Visit",
         description: "Tour our campus",
-        color: "bg-green-600/80",
+        color: "",
         imageSrc: "/images/club/r.jpg",
         link: "/visit"
       },
       {
-        title: "Give",
+        title: "Donate",
         description: "Support our mission",
-        color: "bg-red-600/80",
+        color: "bg-blue-600/80",
         imageSrc: "/images/club/r.jpg",
-        link: "/give"
+        link: "/donate"
       }
     ]
   }
