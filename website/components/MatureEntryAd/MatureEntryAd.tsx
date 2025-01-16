@@ -30,6 +30,7 @@ export default function MatureEntryAd() {
             <span className="text-white">Mature Entry results</span>
           </div>
         </Link>
+        
       )}
     </div>
   );
