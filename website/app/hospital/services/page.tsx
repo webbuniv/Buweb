@@ -5,7 +5,7 @@ const services = [
   {
     icon: <HeartIcon className="h-12 w-12 text-blue-500" />,
     title: 'Emergency Care',
-    description: '24/7 emergency services with state-of-the-art facilities and expert staff.',
+    description: '24/7 emergency services with state-of-the-art facilities and expert staff',
   },
   {
     icon: <BeakerIcon className="h-12 w-12 text-green-500" />,
