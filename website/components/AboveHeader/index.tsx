@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
-import { FaChevronDown, FaCalendarAlt, FaGraduationCap, FaUserCircle, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa"
+import { FaChevronDown, FaCalendarAlt, FaGraduationCap, FaUserCircle, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube, FaTwitch } from "react-icons/fa"
 import { RiComputerLine } from "react-icons/ri"
 import { LinearText } from "./LinearText"
 import { Search } from "./Search"
@@ -185,10 +185,11 @@ const MobileMenu: React.FC<{ closeMenu: () => void }> = ({ closeMenu }) => (
         Apply Online
       </a>
       <div className="flex items-center space-x-4 pt-2">
-        <SocialIcon href="https://facebook.com" icon={<FaFacebookF size={14} />} />
-        <SocialIcon href="https://twitter.com" icon={<FaTwitter size={14} />} />
-        <SocialIcon href="https://instagram.com" icon={<FaInstagram size={14} />} />
-        <SocialIcon href="https://linkedin.com" icon={<FaLinkedinIn size={14} />} />
+        <SocialIcon href="https://www.facebook.com" icon={<FaFacebookF size={14} />} />
+        <SocialIcon href="https://twitter.com/UnivBugema" icon={<FaTwitch size={14} />} />
+        <SocialIcon href="https://www.tiktok.com/@BugemaUniv" icon={<FaTiktok size={14} />} />
+        <SocialIcon href="https://www.linkedin.com" icon={<FaLinkedinIn size={14} />} />
+        <SocialIcon href="https://youtube.com/@bugemauniversity3502" icon={<FaYoutube size={14} />} />
       </div>
     </nav>
   </motion.div>

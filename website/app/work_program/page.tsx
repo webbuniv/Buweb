@@ -61,7 +61,7 @@ const Workp = () => {
 
 
   return (
-      <div className='flex flex-col'>
+      <div className='flex flex-col md:mt-[90px]'>
             <div className=" overflow-hidden -ml-28 flex flex-col relative min-h-screen" style={{ backgroundImage:`url('/images/workp/DSC_0267.jpg')`,transform:'revert' ,backgroundRepeat:'no-repeat',backgroundSize:'cover',backgroundPosition:'center', backgroundBlendMode:'multiply'}}  >
             
                   <div className='flex '>
@@ -120,9 +120,7 @@ const Workp = () => {
                         //  style={{ backgroundImage:`url('/images/features/bu.jpg')` ,backgroundRepeat:'no-repeat',backgroundSize:'cover',backgroundPosition:'center', backgroundBlendMode:'multiply,'}}
                         >
                         {/* <Image src={image} alt='code' layout='object-fit' width={700} height={600} className='   backdrop-blur-md -ml-5 mt-52 px-0  transform -skew-x-12 rounded-lg' style={{backgroundBlendMode:'multiply'}}/> */}
-                        <h1>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore asperiores similique neque 
-                        </h1>
+                        
                         </div>
 
                   </div>
@@ -153,12 +151,7 @@ const Workp = () => {
 
                               <div className="  flex flex-col text-center md:text-start -mt-10 md:w-[90%] md:px-6">
                                     <p className="text-base !leading-relaxed md:text-lg">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis deserunt quasi, ullam distinctio explicabo pariatur minus ipsam at in itaque, expedita, soluta dolores modi veritatis nisi. Sapiente numquam voluptas modi.
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, officia possimus fuga delectus laboriosam minima porro.
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur inventore et nemo quas optio tempore autem officiis ducimus? Sed nobis dolor quisquam sapiente minima, optio aspernatur eius laborum molestiae deleniti.
-                                         Dolores ullam odio aut praesentium officia voluptatibus, eius mollitia animi nemo quaerat assumenda suscipit?
-                                         Odit ea quia libero atque consequuntur modi fuga quis accusantium veritatis quam, eveniet molestiae aliquam. Ut provident fugit quidem, minima sint quibusdam.
+                                    
                                     </p>
                               </div>
 
@@ -178,11 +171,6 @@ const Workp = () => {
                               Empowering Innovative Minds
                         </h2>
                         <p className=" text-base !leading-relaxed text-black md:text-lg ">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis deserunt quasi, ullam distinctio explicabo pariatur minus ipsam at in itaque, expedita, soluta dolores modi veritatis nisi. Sapiente numquam voluptas modi.
-                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, officia possimus fuga delectus laboriosam minima porro.
-                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur inventore et nemo quas optio tempore autem officiis ducimus? Sed nobis dolor quisquam sapiente minima, optio aspernatur eius laborum molestiae deleniti.
-                              Dolores ullam odio aut praesentium officia voluptatibus, eius mollitia animi nemo quaerat assumenda suscipit? Ut provident fugit quidem, minima sint quibusdam. 
                         </p>
                   </div>
 
@@ -214,50 +202,17 @@ const Workp = () => {
 
                   <div className="-my-10 text-start flex-col ml-[10%] items-center  md:text-start -mt-12 md:w-[90%] md:px-6">
                         <h2 className="mb-4 text-2xl font-bold  !leading-tight text-[#0000FF]/70 dark:text-white sm:text-4xl md:text-[45px]">
-                              Empowering Innovative Minds
+                              
                         </h2>
                         <p className=" text-base !leading-relaxed text-black md:text-lg ">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis deserunt quasi, ullam distinctio explicabo pariatur minus ipsam at in itaque, expedita, soluta dolores modi veritatis nisi. Sapiente numquam voluptas modi.
-                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, officia possimus fuga delectus laboriosam minima porro.
-                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur inventore et nemo quas optio tempore autem officiis ducimus? Sed nobis dolor quisquam sapiente minima, optio aspernatur eius laborum molestiae deleniti.
-                              Dolores ullam odio aut praesentium officia voluptatibus, eius mollitia animi nemo quaerat assumenda suscipit? Ut provident fugit quidem, minima sint quibusdam. 
-                        </p>
+                       
+                       </p>
                   </div>
 
             </div>
 
 
             {/* W O R K   P R O G R A M   T H R E E  */}
-            <div className={`wow mt-20 fadeInUp w-full gap-16 max-w-full justify-center items-center  md:flex md:mb-20 ${animate2?"slider-up slide-up-faster":""}` } data-wow-delay=".1s">
-
-                  <div className="-my-10 text-start flex-col ml-[10%] items-center  md:text-start -mt-12 md:w-[90%] md:px-6">
-                        <h2 className="mb-4 text-2xl font-bold  !leading-tight text-[#0000FF]/70 dark:text-white sm:text-4xl md:text-[45px]">
-                              Empowering Innovative Minds
-                        </h2>
-                        <p className=" text-base !leading-relaxed text-black md:text-lg ">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis deserunt quasi, ullam distinctio explicabo pariatur minus ipsam at in itaque, expedita, soluta dolores modi veritatis nisi. Sapiente numquam voluptas modi.
-                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, officia possimus fuga delectus laboriosam minima porro.
-                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur inventore et nemo quas optio tempore autem officiis ducimus? Sed nobis dolor quisquam sapiente minima, optio aspernatur eius laborum molestiae deleniti.
-                              Dolores ullam odio aut praesentium officia voluptatibus, eius mollitia animi nemo quaerat assumenda suscipit? Ut provident fugit quidem, minima sint quibusdam. 
-                        </p>
-                  </div>
-
-                  
-
-                  <div className=" hidden md:block bg-dark flex ml-[4%] mr-[2%]" >
-                        <div className="absolute right-1 z-40  mr-34 -mt-8">
-                              <Image src={image} alt="dean" layout="intrisic" width={400} height={700} className="mr-5" />
-                              
-                        </div>
-
-                        <Image src={image} alt="dean" layout="intrisic" width={1000} height={500} className="" />
-                        
-                  </div>
-
-            </div>
-
       </div>
 
   )
