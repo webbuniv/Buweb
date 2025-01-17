@@ -52,9 +52,9 @@ const  NewsPage = ({ params }: Props) => {
           <span>{news.title}</span>
         </div>
         <div
-  className="blog-content text-xl leading-loose flex flex-col gap-5 mt-5"
-  dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(news.content) }}
-/>
+          className="blog-content text-xl leading-loose flex flex-col gap-5 mt-5"
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(news.content) }}
+        />
 
       </div>
     </div>

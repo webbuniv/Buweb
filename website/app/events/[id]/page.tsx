@@ -1,8 +1,10 @@
+'use client';
+import React, { useEffect, useState } from "react";
 import { Events } from "@/types/types";
 import Image from "next/image";
-import { notFound } from "next/navigation";
-import React from 'react';
 import { format } from 'date-fns/format';
+import { getEventsById } from "@/lib/actions/events.actions";
+import DOMPurify from 'dompurify';
 
 type Props = {
   params: {
@@ -10,37 +12,37 @@ type Props = {
   };
 };
 
-export default async function EventPage({ params }: Props) {
+const EventPage = ({ params }: Props) => {
   const { id } = params;
+  const [event, setEvent] = useState<Events | null>(null);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
-  let event: Events | null = null;
-
-  try {
-    const response = await fetch(`https://buweb.onrender.com/events/${id}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-
-    event = await response.json();
-  } catch (error) {
-    console.error("Error fetching event:", error);
-  }
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const response = await getEventsById(id);
+        setEvent(response);
+        console.log(response);
+      } catch (error) {
+        console.error("Error fetching news:", error);
+        setErrorMessage("Failed to load news details.");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchNews();
+  }, [id]);
 
   if (!event) {
-    return notFound();
+    return <div>Loading...</div>; 
   }
-
+  
   return (
     <div className="pt-[120px] pb-[120px]">
       <div className="container md:p-20">
         <div className="flex items-center justify-center ">
-          <Image src={event.coverPhotoUrl} alt={event.title} width={1200} height={100} className="custom-image" />
+          <Image src={`${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${event.file}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`} alt={event.title} width={1200} height={100} className="custom-image" />
         </div> 
         <h1 className="text-3xl lg:text-6xl md:text-center md:leading-relaxed font-bold mt-5">
           {event.title}
@@ -51,9 +53,11 @@ export default async function EventPage({ params }: Props) {
         </div>
         <div
           className="blog-content text-xl leading-loose flex flex-col gap-5 mt-5"
-          dangerouslySetInnerHTML={{ __html: event.description }}
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(event.description) }}
         />
       </div>
     </div>
   );
 }
+
+export default EventPage;
