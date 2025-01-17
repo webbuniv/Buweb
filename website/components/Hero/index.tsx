@@ -54,7 +54,7 @@ const Hero = () => {
       }
   return (
     <>
-      <section id="home" className="hidden md:block hero-section w-full lg:h-[800px] h-[700px] relative z-10 mt-[120px] mb-[100px]">
+      <section id="home" className="hidden md:block hero-section w-full lg:h-[800px] h-[700px] relative z-10 mt-[83px] mb-[70px]">
         <Slider {...settings}>
           {heroMedia.map((media, index) => (
             <HeroSlide key={index} media={media} />
