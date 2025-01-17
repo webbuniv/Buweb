@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import SingleNews from "./SingleNews";
 import Link from "next/link";
 import Image from "next/image";
+import { getEvents } from "../../lib/actions/events.actions";
+import { getNews } from "../../lib/actions/news.actions";
 
 const News = () => {
   const [news, setNews] = useState([]);
@@ -11,19 +13,18 @@ const News = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch("https://buweb.onrender.com/news", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-
-        if (!response.ok) {
+        const response = await getNews(
+          {
+            searchText: "",
+            sort: "$createdAt-desc",
+            limit: 2,
+          }
+        );
+        console.log(response);
+        if (!response) {
           throw new Error("Network response was not ok");
         }
-
-        const data = await response.json();
-        const reversedData = data.reverse().slice(0, 2);
+        const reversedData = response.slice(0, 2);
         const latestNews = reversedData.slice(0, 1);
         setNews(reversedData);
         setLatestNews(latestNews);

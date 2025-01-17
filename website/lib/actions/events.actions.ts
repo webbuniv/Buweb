@@ -34,11 +34,6 @@ export const getEvents = async  ({
       ...(limit ? [Query.limit(limit)] : []),
       Query.orderDesc(sort.split("-")[0]),
     ];
-    const currentUser = await getCurrentUser();
-  
-    if (!currentUser) {
-      redirect('/signin');
-    }
 
     const event = await databases.listDocuments(
       appwriteConfig.databaseId,

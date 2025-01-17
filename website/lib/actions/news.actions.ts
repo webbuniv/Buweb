@@ -79,11 +79,6 @@ export const getNews = async  ({
       ...(limit ? [Query.limit(limit)] : []),
       Query.orderDesc(sort.split("-")[0]),
     ];
-    const currentUser = await getCurrentUser();
-  
-    if (!currentUser) {
-      redirect('/signin');
-    }
 
     const news = await databases.listDocuments(
       appwriteConfig.databaseId,
