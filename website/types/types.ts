@@ -23,3 +23,28 @@ export interface Event {
     tags: string[];
     status: string;
 }
+
+export interface NewsItem {
+    id: string;
+    $id: string;
+    title: string;
+    summary: string;
+    author: string;
+    date: string;
+    category: string;
+    content: string;
+    file: string;
+    $createdAt: number;
+}
+
+export interface EventItem {
+    id: string;
+    $id: string;
+    title: string;
+    organizer: string;
+    location: string;
+    description: string;
+    file: string;
+    date: string;
+    $createdAt: number;
+}

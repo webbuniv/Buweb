@@ -1,6 +1,11 @@
-import { News } from "@/types/types";
+'use client';
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { getNewsById } from "@/lib/actions/news.actions";
+import { NewsItem } from "@/types/types";
+import DOMPurify from 'dompurify';
+
 
 type Props = {
   params: {
@@ -8,36 +13,37 @@ type Props = {
   };
 };
 
-export default async function NewsPage({ params }: Props) {
+const  NewsPage = ({ params }: Props) => {
   const { id } = params;
+  const [news, setNews] = useState<NewsItem | null>(null);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
-  let news: News | null = null;
-
-  try {
-    const response = await fetch(`https://buweb.onrender.com/news/${id}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-
-    news = await response.json();
-  } catch (error) {
-    console.error("Error fetching news:", error);
-  }
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const response = await getNewsById(id);
+        setNews(response);
+        console.log(response);
+      } catch (error) {
+        console.error("Error fetching news:", error);
+        setErrorMessage("Failed to load news details.");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchNews();
+  }, [id]);
 
   if (!news) {
-    return notFound();
+    return <div>Loading...</div>; 
   }
+  
   return (
     <div className="pt-[120px] pb-[120px]">
       <div className="container md:p-20">
         <div className="flex items-center justify-center ">
-          <Image src={news.photo} alt={news.title} width={1200} height={100} className="custom-image" />
+          <Image src={`${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${news.file}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`} alt={news.title} width={1200} height={100} className="custom-image" />
         </div> 
         <h1 className="text-3xl lg:text-6xl md:text-center md:leading-relaxed font-bold mt-5">
           {news.title}
@@ -47,11 +53,13 @@ export default async function NewsPage({ params }: Props) {
           <span>{news.title}</span>
         </div>
         <div
-          className="blog-content text-xl leading-loose flex flex-col gap-5 mt-5"
-          dangerouslySetInnerHTML={{ __html: news.content }}
-        />
+  className="blog-content text-xl leading-loose flex flex-col gap-5 mt-5"
+  dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(news.content) }}
+/>
+
       </div>
     </div>
   );
 }
 
+export default NewsPage;

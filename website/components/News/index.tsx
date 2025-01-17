@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import SingleNews from "./SingleNews";
 import Link from "next/link";
 import Image from "next/image";
-import { getEvents } from "../../lib/actions/events.actions";
 import { getNews } from "../../lib/actions/news.actions";
 
 const News = () => {
@@ -48,7 +47,7 @@ const News = () => {
             <div key={post.id} className="w-full">
               <div className="wow fadeInUp relative overflow-hidden rounded-md h-fit bg-white shadow-one dark:bg-dark w-[220] mt-5">
                 <Link
-                  href={`/news/${post._id}`}
+                  href={`/news/${post.$id}`}
                   passHref
                   className="relative lg:block hidden h-[220px] w-full"
                 >
@@ -56,7 +55,7 @@ const News = () => {
                     {post.category}
                   </span>
                   <Image
-                    src={post.photo}
+                    src={`${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${post.file}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`}
                     alt="blog"
                     layout="fill"
                     className="hover:scale-105 transition-all duration-500"
@@ -65,7 +64,7 @@ const News = () => {
                 <div className="p-6 sm:p-4 md:py-4 md:px-4 lg:p-4 xl:py-4 xl:px-4">
                   <h3>
                     <Link
-                      href={`/news/${post._id}`}
+                      href={`/news/${post.$id}`}
                       passHref
                       className="mb-1 block text-xl font-bold text-black hover:text-primary dark:text-white dark:hover:text-primary"
                     >

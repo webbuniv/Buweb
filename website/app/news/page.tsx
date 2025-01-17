@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import SingleNews from "@/components/News/SingleNews";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import Contact from "@/components/Contact";
+import { getNews } from "@/lib/actions/news.actions";
 
 export default function Blog() {
   const [news, setNews] = useState([]);
@@ -11,19 +12,15 @@ export default function Blog() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch("https://buweb.onrender.com/news", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await getNews(
+          {
+            searchText: "",
+            sort: "$createdAt-desc",
+            limit: 2,
+          }
+        );
 
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-
-        const data = await response.json();
-        const reversedData = data.slice(0).reverse();
+        const reversedData = response.slice(0).reverse();
         setNews(reversedData);
       } catch (err) {
         setError(err.message);
