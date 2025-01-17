@@ -1,7 +1,6 @@
 'use client';
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import { getNewsById } from "@/lib/actions/news.actions";
 import { NewsItem } from "@/types/types";
 import DOMPurify from 'dompurify';

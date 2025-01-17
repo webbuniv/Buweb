@@ -12,16 +12,15 @@ export interface News {
 }
 
 
-export interface Event {
-    _id: string;
+export interface Events {
+    $id: string;
     title: string;
+    file: string;
+    organizer: string;
+    location: string;
     description: string;
     date: string;
-    location: string;
-    coverPhotoUrl: string;
-    organizer: string;
-    tags: string[];
-    status: string;
+    $createdAt: number;
 }
 
 export interface NewsItem {

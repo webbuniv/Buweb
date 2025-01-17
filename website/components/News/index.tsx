@@ -19,7 +19,7 @@ const News = () => {
             limit: 2,
           }
         );
-        console.log(response);
+
         if (!response) {
           throw new Error("Network response was not ok");
         }

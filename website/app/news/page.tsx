@@ -20,7 +20,7 @@ export default function Blog() {
           }
         );
 
-        const reversedData = response.slice(0).reverse();
+        const reversedData = response.slice(0)
         setNews(reversedData);
       } catch (err) {
         setError(err.message);

@@ -2,25 +2,14 @@
 
 import { createAdminClient } from '@/lib/appwrite';
 import { appwriteConfig } from '@/lib/appwrite/config';
-import { ID, Query} from 'node-appwrite';
-import { revalidatePath } from 'next/cache';
-import { getCurrentUser } from '@/lib/actions/user.action';
-import { redirect } from 'next/navigation';
+import { Query} from 'node-appwrite';
+import { EventItem } from '@/types/types';
 
 const handleError = (error: unknown, message: string) => {
   console.error(message, error);
   throw new Error(message);
 };
 
-
-interface FormDataType {
-  get: (key: string) => string | File | null;
-}
-
-interface CreateEventResponse {
-  success?: boolean;
-  error?: string;
-}
 
 export const getEvents = async  ({ 
   searchText = '',
@@ -49,6 +38,7 @@ export const getEvents = async  ({
       description: event.content || 'undefined',
       organizer: event.organizer || 'undefined',
       date: event.date || 'undefined',
+      $createdAt: new Date(event.$createdAt).getTime(),
     }))
     
   } catch (error) {
@@ -57,7 +47,7 @@ export const getEvents = async  ({
   }
 }
 
-export const getEventsById = async (id:string) => {
+export const getEventsById = async (id: string): Promise<EventItem | null> => {
   const { databases } = await createAdminClient();
   try {
     const event = await databases.getDocument(
@@ -66,10 +56,20 @@ export const getEventsById = async (id:string) => {
       id
     );
 
-    return event;
+    return {
+      id: event.$id,
+      $id: event.$id,
+      title: event.title,
+      organizer: event.organizer,
+      location: event.location,
+      description: event.description,
+      file: event.file,
+      date: event.date,
+    } as EventItem;
+
   } catch (error) {
     handleError(error, "Failed to fetch News");
-
+    return null;
   }
 };
 

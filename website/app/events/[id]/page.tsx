@@ -1,4 +1,4 @@
-import { Event } from "@/types/types";
+import { Events } from "@/types/types";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import React from 'react';
@@ -13,7 +13,7 @@ type Props = {
 export default async function EventPage({ params }: Props) {
   const { id } = params;
 
-  let event: Event | null = null;
+  let event: Events | null = null;
 
   try {
     const response = await fetch(`https://buweb.onrender.com/events/${id}`, {
