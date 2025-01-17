@@ -28,7 +28,7 @@ export function Hero() {
           </h1>
           
           <p className="text-2xl font-light">
-            Start your journey at a top 40 university.
+            Start your journey at Bugema university.
           </p>
 
           <div className="flex flex-col md:flex-row gap-4 pt-4">

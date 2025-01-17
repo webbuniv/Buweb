@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import image from "@/public/images/logo/bugema.png";
-export const imgfooter = "/images/graduation/ca.jpeg";
 const Footer = () => {
   const files = [
     {
@@ -51,7 +50,7 @@ const Footer = () => {
         data-wow-delay=".1s"
         
       >
-        <div className="container-fluid bkgd_img" >
+        <div className="container-fluid " >
 
           <div className="-mx-4 flex flex-wrap justify-center">
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-5/12">
