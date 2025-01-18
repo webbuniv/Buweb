@@ -326,7 +326,21 @@
       color: rgb(47, 0, 255);
       }
 
-@media (min-width: 1024px) { /* Targets screens larger than or equal to 1024px */
+.blog-content p {
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.blog-content ul {
+  margin-left: 2rem;
+}
+
+.blog-content li {
+  margin-bottom: 0.5rem;
+}
+
+
+@media (min-width: 1024px) {
       .bkgd_img {
             background-color: rgba(0, 0, 10, 0.4);
             background-image: url('/images/graduation/ca.jpeg'); /* Replace with your image path */

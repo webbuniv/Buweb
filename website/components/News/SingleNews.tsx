@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { News } from "@/types/types";
 
 type Props = {
   post: News;
@@ -12,24 +11,24 @@ const SingleEvent = ({ post }: Props) => {
 
     <div className="wow fadeInUp relative rounded-md bg-white shadow-one dark:bg-dark w-[220] mt-5">
       <Link
-        href={`/news/${post._id}`}
+        href={`/news/${post.$id}`}
         passHref
         className="relative lg:hidden block w-full"
       >
         <span className="absolute top-6 right-6 z-20 inline-flex items-center justify-center rounded-full bg-primary py-2 px-4 text-sm font-semibold capitalize text-white">
           {post.category}
         </span>
-        <Image src={post.photo} alt="blog" layout="fill" />
+        <Image src={`${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${post.file}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`} alt="blog" layout="fill" />
       </Link>
       <div className="p-6 sm:p-8 md:px-4 lg:p-8 xl:py-4 xl:px-4">
         <div className="flex gap-5">
           <Link
-            href={`/news/${post._id}`}
+            href={`/news/${post.$id}`}
             passHref
             className="relative hidden lg:block"
           >
             <Image
-              src={post.photo}
+              src={`${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${post.file}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`}
               alt="blog"
               width={100}
               height={100}
@@ -37,7 +36,7 @@ const SingleEvent = ({ post }: Props) => {
             />
           </Link>
           <Link
-            href={`/news/${post._id}`}
+            href={`/news/${post.$id}`}
             passHref
             className="mb-2 block text-base font-bold text-black hover:text-primary dark:text-white dark:hover:text-primary sm:text-lg"
           >
