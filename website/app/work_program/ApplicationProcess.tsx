@@ -25,7 +25,7 @@ const ApplicationProcess = () => {
                 <div className="bg-white p-6 rounded-full mb-4 shadow-md">
                   {step.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                <h3 className="text-blue-600 text-xl font-semibold mb-2">{step.title}</h3>
                 <p className="text-gray-600">{step.description}</p>
               </motion.div>
           ))}
