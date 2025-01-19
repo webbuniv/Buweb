@@ -18,7 +18,7 @@ const AgriProgramTwoPage: React.FC = () => {
   return (
     <>
       <div 
-        className="relative h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        className="relative h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat lg:mt-[80px]"
         style={{ backgroundImage: 'url(/images/agric/a.jpeg)' }}
       >
         <div 

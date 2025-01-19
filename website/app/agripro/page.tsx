@@ -18,7 +18,7 @@ const AgriProPage: React.FC = () => {
   }, [])
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50 lg:mt-[80px]">
       <div 
         className="relative h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: 'url(/images/agric/crop.jpeg)' }}
