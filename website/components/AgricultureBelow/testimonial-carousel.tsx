@@ -48,11 +48,11 @@ const TestimonialCarousel: React.FC = () => {
             className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"
           >
             <div className="text-center">
-              <img
+              {/* <img
                 src={testimonials[currentIndex].avatar || "/placeholder.svg"}
                 alt={testimonials[currentIndex].name}
                 className="w-20 h-20 rounded-full mx-auto mb-4"
-              />
+              /> */}
               <p className="text-gray-600 dark:text-gray-300 mb-4">{testimonials[currentIndex].content}</p>
               <h3 className="font-semibold text-gray-800 dark:text-gray-200">{testimonials[currentIndex].name}</h3>
               <p className="text-sm text-gray-500 dark:text-gray-400">{testimonials[currentIndex].role}</p>
