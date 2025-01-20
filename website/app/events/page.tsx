@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import SingleEvent from "@/components/Events/SingleEvent";
 import Breadcrumb from "@/components/Common/Breadcrumb";
-import { getPosts } from "@/lib/requests";
+import { getEvents } from "@/lib/actions/events.actions";
 import Contact from "@/components/Contact";
 
 export default function EventsPage() {
@@ -12,19 +12,15 @@ export default function EventsPage() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch("https://buweb.onrender.com/events", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await getEvents(
+          {
+            searchText: "",
+            sort: "$createdAt-desc",
+            limit: 2,
+          }
+        );
 
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-
-        const data = await response.json();
-        const reversedData = data.slice(0).reverse();
+        const reversedData = response.slice(0)
         setEvents(reversedData);
       } catch (err) {
         setError(err.message);

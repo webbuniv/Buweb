@@ -16,11 +16,9 @@ const WhyBugemaPage = () => {
   return (
     <>
       <div className=" md:mt-0 lg:mt-[130px]">
-        {/* <WhyHero /> */}
          <Hero />
         <AboutSectionBu />
         <AboutSectionWbu />
-        {/* <HeroSectionWhy /> */}
         <AboutSectionSeven />
       </div>
     </>
