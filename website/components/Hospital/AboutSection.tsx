@@ -8,13 +8,24 @@ const AboutSection = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-8 md:mb-0">
-            <Image
+          <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/KJd3UzRb_Hs?si=8tVYFO25mDXV0Iy6&autoplay=1&loop=1&playlist=KJd3UzRb_Hs"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
+
+            {/* <Image
               src="/images/hospital/two.jpg"
               alt="About Bugema University Hospital"
               width={600}
               height={400}
               className="rounded-lg shadow-lg"
-            />
+            /> */}
           </div>
           <div className="md:w-1/2 md:pl-12">
             <h2 className="text-4xl font-bold text-gray-800 mb-6">About Our Hospital</h2>
