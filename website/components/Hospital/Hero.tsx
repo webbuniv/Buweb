@@ -8,6 +8,7 @@ const images = [
   '/images/hospital/five.jpg',
   '/images/hospital/four.jpg',
   '/images/hospital/one.jpg',
+ 
 ];
 
 const Hero = () => {
@@ -58,13 +59,13 @@ const Hero = () => {
           >
             Compassionate Care, Advanced Medicine
           </motion.p>
-          <motion.button
+          {/* <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full text-lg transition duration-300"
           >
             Book an Appointment
-          </motion.button>
+          </motion.button> */}
         </div>
       </div>
     </div>

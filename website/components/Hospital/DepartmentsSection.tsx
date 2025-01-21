@@ -4,9 +4,9 @@ import Link from 'next/link'
 
 const departments = [
   { name: 'Cardiology', image: '/images/hospital/five.jpg' },
-  { name: 'Pediatrics', image: '/images/hospital/one.jpg' },
+  { name: 'Pediatrics', image: '/images/hospital/ep6.jpg' },
   { name: 'Neurology', image: '/images/hospital/three.jpg' },
-  { name: 'Orthopedics', image: '/images/hospital/two.jpg' },
+  { name: 'Orthopedics', image: '/images/hospital/ep.jpg' },
 ]
 
 const DepartmentsSection = () => {
@@ -25,7 +25,7 @@ const DepartmentsSection = () => {
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
-                <h3 className="text-xl font-semibold text-center mb-2">{dept.name}</h3>
+                <h3 className="text-xl font-semibold text-center mb-2 text-blue-500">{dept.name}</h3>
                 <div className="text-center">
                   <Link href={`/hospital/departments/${dept.name.toLowerCase()}`} className="text-blue-500 hover:text-blue-600 font-semibold">
                     View Department

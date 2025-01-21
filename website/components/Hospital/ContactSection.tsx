@@ -10,7 +10,7 @@ const ContactSection = () => {
           <div className="flex flex-col items-center">
             <PhoneIcon className="h-12 w-12 text-blue-500 mb-4" />
             <h3 className="text-xl font-semibold mb-2">Phone</h3>
-            <p className="text-gray-600">+256 123 456 789</p>
+            <p className="text-gray-600">+256 123 456 78</p>
           </div>
           <div className="flex flex-col items-center">
             <MailIcon className="h-12 w-12 text-blue-500 mb-4" />
