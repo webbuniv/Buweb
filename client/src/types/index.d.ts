@@ -117,7 +117,7 @@ declare interface Team {
     $id: string;
     name: string;
     file: string;
-    positon: string;
+    position: string;
     bio: string;
     quote: string;
     $createdAt: number;

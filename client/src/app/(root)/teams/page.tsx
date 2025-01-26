@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import Link from "next/link";
 import Image from "next/image";
-import { getTeams, getEventsById, deleteEvents, updateEvents } from "@/lib/actions/team.actions";
+import { getTeams, getTeamById, deleteTeam, updateTeam } from "@/lib/actions/team.actions";
 import Modal from "@/components/Modal";
 import { useRouter } from "next/navigation";
 
@@ -11,20 +11,20 @@ const TablesPage = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [query, setQuery] = useState("");
-  const [ event, setEvent ] = useState<Team[]>([]); 
-  const [selectedEvent, setSelectedEvent] = useState<Team | null>(null);
+  const [ team, setTeam ] = useState<Team[]>([]); 
+  const [selectedTeam, setSelectedTeam] = useState<Team | null>(null);
   const router = useRouter();
   const [ update, setUpdate ] = useState<Team | null>(null);
 
   useEffect(() => {
     const fetchEvents = async () => {
       setIsLoading(true);
-      const eventsData = await get({
+      const teamData = await getTeams({
         searchText: query,
         sort: "$createdAt-desc",
         limit: 10,
       });;
-      setEvent(eventsData);
+      setTeam(teamData);
       setIsLoading(false);
     };
     fetchEvents();
@@ -35,7 +35,7 @@ const TablesPage = () => {
   const mapteamItemToEvents = (teamItem: TeamItem): Team => ({
     $id: teamItem.id, 
     name: teamItem.name,
-    positon: teamItem.position,
+    position: teamItem.position,
     bio: teamItem.bio,
     quote: teamItem.qoute,
     file: teamItem.file,
@@ -48,7 +48,7 @@ const TablesPage = () => {
 
     if (confirmed) {
       try {
-          await deleteEvents(id);
+          await deleteTeam(id);
         } catch (error) {
           console.error("Error deleting news:", error);
         } finally {
@@ -60,9 +60,9 @@ const TablesPage = () => {
   const handleViewEvents = async (id: string) => {
     setIsLoading(true);
     try {
-      const teamItem = await getEventsById(id);
+      const teamItem = await getTeamById(id);
       if (teamItem) {
-        setSelectedEvent(mapteamItemToEvents(teamItem));
+        setSelectedTeam(mapteamItemToEvents(teamItem));
       }
       setModalOpen(true);
     } catch (error) {
@@ -75,11 +75,11 @@ const TablesPage = () => {
   const handleUpdateEvent = async (id: string) => {
     setIsLoading(true);
     try {
-      const teamItem = await getEventsById(id);
+      const teamItem = await getTeamById(id);
       if (teamItem) {
         setUpdate(mapteamItemToEvents(teamItem));
       }
-      router.push(`/events/${id}`);
+      router.push(`/teams/${id}`);
     } catch (error) {
       console.error("Error fetching news details:", error);
     } finally {
@@ -89,10 +89,10 @@ const TablesPage = () => {
 
   return (
     <>
-        <Breadcrumb pageName="Events List" />
+        <Breadcrumb pageName="Board List" />
         <div className="items-end p-4 justify-items-end">
             <Link
-              href="/events/create"
+              href="/teams/create"
               className="inline-flex items-center justify-center rounded-full bg-primary px-10 py-4 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
             >
               Create Member
@@ -115,7 +115,7 @@ const TablesPage = () => {
             </tr>
           </thead>
           <tbody>
-            {event.map((teamItem, key) => (
+            {team.map((teamItem, key) => (
               <tr key={key}>
                 <td className="border-b border-[#eee] px-4 py-5 pl-9 dark:border-strokedark xl:pl-11">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -140,7 +140,7 @@ const TablesPage = () => {
                 <td className="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
                   <div className="flex items-center space-x-3.5">
                     <button className="hover:text-primary"
-                    onClick={() => handleViewEvents(teamItem$id)}
+                    onClick={() => handleViewEvents(teamItem.$id)}
                     >
                       <svg
                         className="fill-current"
@@ -222,15 +222,15 @@ const TablesPage = () => {
     <Modal
       isOpen={isModalOpen}
       onClose={() => setModalOpen(false)}
-      title={selectedEvent ? selectedEvent.title : "Event Details"}
+      title={selectedTeam ? selectedTeam.name : "Board Details"}
     >
-      {selectedEvent ? (
+      {selectedTeam ? (
         <div className="text-gray-700 dark:text-gray-300">
           {/* News Image */}
           <div className="mb-4">
             <Image
-              src={`${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${selectedEvent.file}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`}
-              alt={selectedEvent.title}
+              src={`${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${selectedTeam.file}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`}
+              alt={selectedTeam.name}
               className="w-full h-auto object-cover rounded-lg shadow-md"
               width={800}
               height={300}
@@ -240,19 +240,16 @@ const TablesPage = () => {
           {/* Category, Author, and Date */}
           <div className="mb-4 text-sm text-gray-500 dark:text-gray-400">
             <p className="mb-1">
-              <strong>Location:</strong> {selectedEvent.location}
+              <strong>Location:</strong> {selectedTeam.position}
             </p>
             <p className="mb-1">
-              <strong>Author:</strong> {selectedEvent.organizer}
-            </p>
-            <p className="mb-1">
-              <strong>Date:</strong> {selectedEvent.date}
+              <strong>Bio:</strong> {selectedTeam.bio}
             </p>
           </div>
 
           {/* News Summary */}
           <p className="mb-4 text-base text-gray-800 dark:text-gray-200">
-            <strong>Description:</strong> {selectedEvent.description}
+            <strong>Quote:</strong> {selectedTeam.quote}
           </p>
 
         </div>

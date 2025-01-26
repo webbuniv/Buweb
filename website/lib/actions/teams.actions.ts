@@ -163,7 +163,7 @@ export const deleteTeam = async (id: string) => {
 export async function updateTeam(
   id: string,
   formData: FormDataType
-): Promise<CreateEventResponse> {
+): Promise<CreateTeamResponse> {
   const { storage, databases } = await createAdminClient();
 
   let fileID: string | undefined;
