@@ -1,218 +1,93 @@
-import React from "react";
-import Image from "next/image";
-import SectionTitle from "../Common/SectionTitle";
-import Link from "next/link";
-const newsData = [
-  {
-    category: ".....",
-    title:
-      "Bugema University sports play a vital role in student life ............",
-    link: "#",
-    imageSrc: "/images/agric/ag.jpeg",
-    altText: "Image related to depression biotypes",
-  },
-  {
-    category: "......",
-    title: "Why advertisers pay more to reach viewers who watch less",
-    link: "#",
-    imageSrc: "/images/agric/agrr.jpeg",
-    altText: "Image related to advertising study",
-  },
-  {
-    category: "...................",
-    title: "Study finds high blood pressure drug may prevent epilepsy",
-    link: "#",
-    imageSrc: "/images/agric/agrri.jpeg",
-    altText: "Image related to epilepsy study",
-  },
-  {
-    category: "..................",
-    title: "Congratulations, graduates!",
-    link: "#",
-    imageSrc: "/images/agric/rice.jpeg",
-    altText: "Commencement 2024 highlights",
-  },
-];
+"use client"
 
-const secondData = [
-  {
-    category: ".....",
-    title:
-      "Bugema University sports play a vital role in student life ............",
-    link: "#",
-    imageSrc: "/images/agric/a.jpeg",
-    altText: "Image related to depression biotypes",
-  },
-  {
-    category: "......",
-    title: "Why advertisers pay more to reach viewers who watch less",
-    link: "#",
-    imageSrc: "/images/agric/b.jpeg",
-    altText: "Image related to advertising study",
-  },
-  {
-    category: "...............",
-    title: "Study finds high blood pressure drug may prevent epilepsy",
-    link: "#",
-    imageSrc: "/images/agric/aa.jpeg",
-    altText: "Image related to epilepsy study",
-  },
-  {
-    category: "................",
-    title: "Congratulations, graduates!",
-    link: "#",
-    imageSrc: "/images/agric/bb.jpeg",
-    altText: "Commencement 2024 highlights",
-  },
-];
-const thirdData = [
-  {
-    category: ".....",
-    title:
-      "Bugema University sports play a vital role in student life ............",
-    link: "#",
-    imageSrc: "/images/agric/aaa.jpeg",
-    altText: "Image related to depression biotypes",
-  },
-  {
-    category: "......",
-    title: "Why advertisers pay more to reach viewers who watch less",
-    link: "#",
-    imageSrc: "/images/agric/bbb.jpeg",
-    altText: "Image related to advertising study",
-  },
-  {
-    category: "...............",
-    title: "Study finds high blood pressure drug may prevent epilepsy",
-    link: "#",
-    imageSrc: "/images/agric/ccc.jpeg",
-    altText: "Image related to epilepsy study",
-  },
-  {
-    category: "................",
-    title: "Congratulations, graduates!",
-    link: "#",
-    imageSrc: "/images/agric/ddd.jpeg",
-    altText: "Commencement 2024 highlights",
-  },
-];
+import React, { useState } from "react"
+import { ArrowRight, Leaf, Users, Book } from 'lucide-react'
+import HeroSection from "./HeroSection"
+import StatisticsSection from "./StatisticsSection"
+import FeaturedProgram from "./FeaturedProgram"
+import NewsGrid from "./NewsGrid"
 
 const AgriculturePrograms: React.FC = () => {
-  return (
-    <section className="px-8">
-      <div className="">
-        <div className="hidden md:block lg:mt-10">
-          <SectionTitle
-            title="Featured research collaborations"
-            paragraph="Microsoft collaborates with the global research community through programs, events, learning opportunities, and joint research endeavors."
-            center
-            mb="50px"
-          />
-        </div>
+  const [activeTab, setActiveTab] = useState("undergraduate")
 
-        {/* Section Title on small screens */}
-        <div className="md:hidden block">
-          <div
-            className="wow fadeInUp w-full mx-auto text-start"
-            data-wow-delay=".1s"
-          >
-            <h2 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px] mt-10">
-              Agriculture
-            </h2>
-            <p className="text-base !leading-relaxed text-body-color md:text-lg">
-              At Bugema University, Agriculture goes beyond the classroom.
-            </p>
+  const tabContent = {
+    undergraduate: {
+      title: "Undergraduate Programs",
+      items: [
+        { icon: <Leaf />, text: "Bachelor of Science in Agriculture" },
+        { icon: <Leaf />, text: "Bachelor of Science in Horticulture" },
+        { icon: <Leaf />, text: "Bachelor of Science in Agricultural Economics" },
+      ],
+    },
+    graduate: {
+      title: "Graduate Programs",
+      items: [
+        { icon: <Book />, text: "Master of Science in Sustainable Agriculture" },
+        { icon: <Book />, text: "Master of Science in Agricultural Biotechnology" },
+        { icon: <Book />, text: "PhD in Agricultural Sciences" },
+      ],
+    },
+    research: {
+      title: "Research Opportunities",
+      items: [
+        { icon: <Users />, text: "Sustainable Farming Practices" },
+        { icon: <Users />, text: "Climate-Resilient Crop Development" },
+        { icon: <Users />, text: "Precision Agriculture Technologies" },
+      ],
+    },
+  }
+
+  return (
+    <div className="bg-gray-100 text-gray-800 lg:mt-[80px]">
+      <HeroSection />
+      <StatisticsSection />
+      <FeaturedProgram />
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold mb-8 text-center">Our Programs</h2>
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="flex border-b">
+              {Object.keys(tabContent).map((tab) => (
+                <button
+                  key={tab}
+                  className={`flex-1 py-4 px-6 text-center font-semibold ${
+                    activeTab === tab
+                      ? "bg-blue-500 text-white"
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  }`}
+                  onClick={() => setActiveTab(tab)}
+                >
+                  {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                </button>
+              ))}
+            </div>
+            <div className="p-6">
+              <h3 className="text-2xl font-semibold mb-4">{tabContent[activeTab].title}</h3>
+              <ul className="space-y-4">
+                {tabContent[activeTab].items.map((item, index) => (
+                  <li key={index} className="flex items-center">
+                    <span className="mr-2 text-blue-500">{item.icon}</span>
+                    <span>{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
-        <div className="grid lg:mt-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ">
-          {newsData.map((news, index) => (
-            <article
-              key={index}
-              className="bg-white shadow-md rounded-lg overflow-hidden hover:bg-blue-50 hover:text-blue-900 hover:shadow-lg transition duration-500 cursor-pointer"
-            >
-              <div className="h-48 overflow-hidden ">
-                <a href={news.link} aria-hidden="true" tabIndex={-1}>
-                  <Image
-                    src={news.imageSrc}
-                    alt={news.altText}
-                    height={350}
-                    width={350}
-                  />
-                </a>
-              </div>
-              <div className="p-4">
-                <div className="text-sm text-gray-500 mb-2">
-                  {news.category}
-                </div>
-                <h3 className="text-lg text-black font-semibold">
-                  <a href={news.link}>{news.title}</a>
-                </h3>
-              </div>
-            </article>
-          ))}
+      </section>
+      <NewsGrid />
+      <section className="bg-blue-600 text-white py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">Ready to Grow Your Future?</h2>
+          <p className="mb-8">Join our agriculture programs and cultivate a sustainable tomorrow.</p>
+          <button className="bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-blue-100 transition duration-300">
+            Apply Now <ArrowRight className="inline-block ml-2" />
+          </button>
         </div>
-        <div className="grid lg:mt-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {secondData.map((news, index) => (
-            <article
-              key={index}
-              className="bg-white shadow-md rounded-lg overflow-hidden hover:bg-blue-50 hover:text-blue-900 hover:shadow-lg transition duration-500 cursor-pointer"
-            >
-              <div className="h-48 overflow-hidden">
-                <a href={news.link} aria-hidden="true" tabIndex={-1}>
-                  <Image
-                    src={news.imageSrc}
-                    alt={news.altText}
-                    height={350}
-                    width={350}
-                  />
-                </a>
-              </div>
-              <div className="p-4">
-                <div className="text-sm text-gray-500 mb-2">
-                  {news.category}
-                </div>
-                <h3 className="text-lg text-black font-semibold">
-                  <a href={news.link}>{news.title}</a>
-                </h3>
-              </div>
-            </article>
-          ))}
-        </div>
-        <div className="grid lg:mt-10 lg:mb-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {thirdData.map((news, index) => (
-            <article
-              key={index}
-              className="bg-white shadow-md rounded-lg overflow-hidden hover:bg-blue-50 hover:text-blue-900 hover:shadow-lg transition duration-500 cursor-pointer"
-            >
-              <div className="h-48 overflow-hidden">
-                <a href={news.link} aria-hidden="true" tabIndex={-1}>
-                  <Image
-                    src={news.imageSrc}
-                    alt={news.altText}
-                    height={350}
-                    width={350}
-                  />
-                </a>
-              </div>
-              <div className="p-4">
-                <div className="text-sm text-gray-500 mb-2">
-                  {news.category}
-                </div>
-                <h3 className="text-lg text-black font-semibold">
-                  <a href={news.link}>{news.title}</a>
-                </h3>
-              </div>
-            </article>
-          ))}
-        </div>
-        {/* <div className="text-center mt-8">
-          <Link href="/studentlife" className="text-blue-500 font-bold">
-            More About Students Life
-          </Link>
-        </div> */}
-      </div>
-    </section>
-  );
-};
+      </section>
+    </div>
+  )
+}
 
-export default AgriculturePrograms;
+export default AgriculturePrograms
+
