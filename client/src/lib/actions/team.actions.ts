@@ -17,12 +17,12 @@ interface FormDataType {
   get: (key: string) => string | File | null;
 }
 
-interface CreateEventResponse {
+interface CreateTeamResponse {
   success?: boolean;
   error?: string;
 }
 
-export async function CreateTeam(previousState: any, formData: FormDataType): Promise<CreateEventResponse> {
+export async function CreateTeam(previousState: any, formData: FormDataType): Promise<CreateTeamResponse> {
   const { storage, databases } = await createAdminClient();
 
   let fileID: string | undefined;
@@ -69,7 +69,7 @@ export const getTeams = async  ({
   searchText = '',
   sort = "$createdAt-desc", 
   limit,
- }: GetEventsProps): Promise<Events[]> => {
+ }: GetTeamProps): Promise<Team[]> => {
   const { databases } = await createAdminClient();
   try {
     const queries = [
@@ -83,21 +83,20 @@ export const getTeams = async  ({
       redirect('/signin');
     }
 
-    const event = await databases.listDocuments(
+    const team = await databases.listDocuments(
       appwriteConfig.databaseId,
-      appwriteConfig.eventsCollectionId,
+      appwriteConfig.teamsCollectionId,
       queries
     );
 
-    return event.documents.map((event) => ({
-      $id: event.$id,
-      title: event.title || 'undefined',
-      file: event.file || 'undefined',
-      location: event.location || 'undefined',
-      description: event.content || 'undefined',
-      organizer: event.organizer || 'undefined',
-      date: event.date || 'undefined',
-      $createdAt: new Date(event.$createdAt).getTime(),
+    return team.documents.map((team) => ({
+      $id: team.$id,
+      name: team.name || 'undefined',
+      file: team.file || 'undefined',
+      positon: team.position || 'undefined',
+      bio: team.bio || 'undefined',
+      quote: team.qoute || 'undefined',
+      $createdAt: new Date(team.$createdAt).getTime(),
     }))
     
   } catch (error) {
@@ -106,26 +105,25 @@ export const getTeams = async  ({
   }
 }
 
-export const getEventsById = async (id: string): Promise<EventItem | null> => {
+export const getTeamById = async (id: string): Promise<TeamItem | null> => {
   const { databases } = await createAdminClient();
   try {
-    const event = await databases.getDocument(
+    const team = await databases.getDocument(
       appwriteConfig.databaseId,
-      appwriteConfig.eventsCollectionId,
+      appwriteConfig.teamsCollectionId,
       id
     );
 
     // Map the response to EventItem if needed
     return {
-      id: event.$id,
-      $id: event.$id,
-      title: event.title,
-      organizer: event.organizer,
-      location: event.location,
-      description: event.description,
-      file: event.file,
-      date: event.date,
-    } as EventItem; 
+      id: team.$id,
+      $id: team.$id,
+      name: team.name,
+      position: team.position,
+      bio: team.bio,
+      qoute: team.qoute,
+      file: team.file,
+    } as TeamItem;
   } catch (error) {
     handleError(error, "Failed to fetch News");
     return null; // Return `null` in case of an error
@@ -133,7 +131,7 @@ export const getEventsById = async (id: string): Promise<EventItem | null> => {
 };
 
 
-export const deleteEvents = async (id: string) => {
+export const deleteTeam = async (id: string) => {
   const currentUser = await getCurrentUser();
   
   if (!currentUser) {
@@ -142,7 +140,7 @@ export const deleteEvents = async (id: string) => {
 
   const { databases } = await createAdminClient();
 
-  const eventToDelete = getEventsById(id);
+  const eventToDelete = getTeamById(id);
 
   if (!eventToDelete) {
     return { error: 'News not found' };
@@ -151,10 +149,10 @@ export const deleteEvents = async (id: string) => {
   try {
     await databases.deleteDocument(
       appwriteConfig.databaseId,
-      appwriteConfig.eventsCollectionId,
+      appwriteConfig.teamsCollectionId,
       id
     );
-    revalidatePath('/events');
+    revalidatePath('/teams');
     return { success: true };
   } catch (error) {
     handleError(error, 'Failed to delete news');
