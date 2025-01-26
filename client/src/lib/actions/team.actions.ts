@@ -160,7 +160,7 @@ export const deleteTeam = async (id: string) => {
   }
 };
 
-export async function updateEvents(
+export async function updateTeam(
   id: string,
   formData: FormDataType
 ): Promise<CreateEventResponse> {
@@ -185,11 +185,10 @@ export async function updateEvents(
 
     // Build the updated data object
     const updatedData: Record<string, any> = {
-      title: formData.get('title') as string,
-      location: formData.get('location') as string,
-      organizer: formData.get('organizer') as string,
-      description: formData.get('description') as string,
-      date: formData.get('date') as string,
+      name: formData.get('name') as string,
+      position: formData.get('position') as string,
+      bio: formData.get('bio') as string,
+      quote: formData.get('quote') as string,
     };
 
     if (fileID) {
@@ -203,7 +202,7 @@ export async function updateEvents(
       updatedData
     );
 
-    revalidatePath('/events');
+    revalidatePath('/teams');
     return { success: true };
   } catch (error: any) {
     const errorMessage = error.response?.message || 'Failed to update news document';
