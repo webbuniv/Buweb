@@ -33,8 +33,8 @@ const Welcome = () => {
                   </p>
                 </div>
 
-                <div className="bg-primary hover:bg-primary/90 duration-300 rounded-md py-1 px-3 md:py-2 md:px-4 ml-12 mt-4 w-[170px] transition-all hover:scale-105">
-                  <Link
+                <div className="duration-300 md:text-lg rounded-md py-1 px-3 md:py-2 md:px-4 ml-12 mt-4 w-[170px] transition-all hover:scale-105">
+                  {/* <Link
                     href="/whybugema"
                     className="text-base font-semibold text-white"
                   >
@@ -42,6 +42,14 @@ const Welcome = () => {
                       Explore More
                       <FaArrowRight />
                     </span>
+                  </Link> */}
+                  <Link 
+                    href="/whybugema"
+                    className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-semibold mt-2"
+                    // whileHover={{ scale: 1.05 }}
+                    // whileTap={{ scale: 0.95 }}
+                  >
+                    Read more...
                   </Link>
                 </div>
               </div>

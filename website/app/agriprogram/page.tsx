@@ -5,7 +5,7 @@ const AgriProgramPage = () => {
   return (
       // <section className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row">
       <>
-      <div 
+      {/* <div 
         className="max-container lg:h-[600px] h-[300px] -my-4 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: 'url(/images/agric/agri.jpg)' }}
       >
@@ -17,7 +17,7 @@ const AgriProgramPage = () => {
           <div className="flex justify-between items-center w-full mt-20 "> 
           </div>
         </div>
-      </div>
+      </div> */}
         <AgricPrograms/>
 </>
 
