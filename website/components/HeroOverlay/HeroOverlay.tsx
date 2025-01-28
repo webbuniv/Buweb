@@ -30,7 +30,7 @@ const HeroOverlay = ({
         </Link> */}
       </div>
 
-      <div className="hero-overlay2  hidden lg:flex lg:flex-col bg-gradient-to-t from-blue-600 bg-opacity-75 ">
+      <div className="hero-overlay2  hidden lg:flex lg:flex-col bg-gradient-to-t from-blue-900 w-[100%] bg-opacity-75 ">
         <div className="flex-1 mt-[140px]">
           <h1 className="text-start sm:text-6xl text-4xl md:font-bold mb-0 slider slide--fast">
             {title3}
