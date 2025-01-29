@@ -5,7 +5,7 @@ import { string } from "zod";
 
 const HeroSlide = ({ media }) => {
   return (
-    <div className="relative w-full h-[800px] -mb-4 z-10">
+    <div className="relative w-full h-[70%] bg-black  -mb-4 z-10">
       {media.type === "video" ? (
         // Render video with overlay
         <div>
@@ -34,8 +34,9 @@ const HeroSlide = ({ media }) => {
             className="w-fit h-[700px] object-fill lg:w-full"
             width={1000}
             height={800}
+            
           />
-          <div className="absolute top-0 left-0 w-full h-full opacity-100">
+          <div className="absolute top-0 left-0 w-full h-full opacity-100 ">
           <HeroOverlay
               // title="BUGEMA UNIVERSITY"
               title2=""

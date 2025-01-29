@@ -1,5 +1,7 @@
 import Image from 'next/image'
-import BasketBallPrograms from '@/components/Sports/BasketBallPrograms';
+// import BasketBallPrograms from '@/components/Sports/BasketBallPrograms';
+import { BasketballGallery } from '@/components/Sports/BasketBallPrograms/BasketballGallery';
+import { BasketballPrograms } from '@/components/Sports/BasketBallPrograms/BasketballPrograms';
 
 const BasketPage = () => {
   return (
@@ -18,7 +20,8 @@ const BasketPage = () => {
           </div>
         </div>
       </div>
-        <BasketBallPrograms />
+        <BasketballPrograms />
+        <BasketballGallery />
 </>
 
   )
