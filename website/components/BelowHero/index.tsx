@@ -26,7 +26,7 @@ const AboutSectionLife2 = () => {
           }, []);
 
   return (
-    <section className="top-0">
+    <section className="-mt-[10%] ">
             <div className="container  -my-5">
                   <div className="container mx-auto">
                         <div className="flex flex-col md:flex-row -mx-4 gap-2 md:gap-4">

@@ -14,7 +14,7 @@ const HeroOverlay = ({
 }) => {
   return (
     <>
-      <div className="hidden hero-overlay lg:flex flex-col space-y-4 justify-center mx-auto items-center mt-4">
+      <div className="hidden hero-overlay lg:flex flex-col space-y-4  justify-center mx-auto items-center mt-4">
         <h1 className="text-6xl mb-5">{title}</h1>
 
         <p className="text-2xl mt-5">{subtitle}</p>
@@ -30,11 +30,13 @@ const HeroOverlay = ({
         </Link> */}
       </div>
 
-      <div className="hero-overlay2  hidden lg:flex lg:flex-col bg-gradient-to-t from-blue-600 bg-opacity-75 ">
-        <div className="flex-1 mt-[140px]">
-          <h1 className="text-start sm:text-6xl text-4xl md:font-bold mb-0 slider slide--fast">
+      <div className="hero-overlay2 w-[60%] hidden lg:flex lg:flex-col  bg-opacity-75 ">
+        <div className="flex-1 mt-[16px]  ">
+        <Link href={`${subtitle2}`}>
+          <h1 className="text-start sm:text-6xl  text-3xl md:font-bold mb-0 slider slide--fast text-wrap">
             {title3}
           </h1>
+          </Link><br />
         </div>
         <div className="flex-1">
           <h1 className=" text-start text-6xl md:font-bold mb-0">
@@ -45,10 +47,11 @@ const HeroOverlay = ({
         <div className="flex-1 hidden sm:block">
           {" "}
           {/* Hide on small screens, show on medium and above */}
+         
           <h2 className="text-start text-2xl mb-[5%]   slider-right slide--slow ">
-            {subtitle2}<br />
-            {subtitle3}
+
           </h2>
+         
         </div>
       </div>
     </>
