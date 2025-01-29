@@ -1,221 +1,126 @@
-"use client";
-import SectionTitle from "@/components/Common/SectionTitle";
-import School from "@/components/school/School";
-import React from "react";
-import Image from "next/image";
-import { useState } from "react";
-import { useAmp } from "next/amp";
-import image from "@/public/images/nav/labs.jpg";
-import Link from "next/link";
+"use client"
+
+import { useState } from "react"
+import Image from "next/image"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import SectionTitle from "@/components/Common/SectionTitle"
+import School from "@/components/school/School"
+
+const lecturers = [
+  {
+    name: "Dr. John Doe",
+    image: "/images/lecturers/john-doe.jpg",
+    qualification: "Ph.D. in Computer Science",
+  },
+  {
+    name: "Prof. Jane Smith",
+    image: "/images/lecturers/jane-smith.jpg",
+    qualification: "Ph.D. in Biochemistry",
+  },
+  {
+    name: "Dr. Michael Johnson",
+    image: "/images/lecturers/michael-johnson.jpg",
+    qualification: "Ph.D. in Statistics",
+  },
+  {
+    name: "Dr. Emily Brown",
+    image: "/images/lecturers/emily-brown.jpg",
+    qualification: "Ph.D. in Information Technology",
+  },
+  // Add more lecturers as needed
+]
 
 export default function SchoolOfScience() {
-
-      const [computing, setComputing] = useState(true)
-      const [physical, setphysical] = useState(false)
-
-      const handlecomputing = ()=>{
-            setComputing(true)
-            setphysical(false)
-            document.getElementById('computing').classList.remove('hidden')
-            document.getElementById('comphandler').classList.add('active2')
-            document.getElementById('physical').classList.add('hidden')
-            document.getElementById('phyhandler').classList.remove('active2')
-            
-      };
-      const handlephysical =()=>{
-            setComputing(false)
-            setphysical(true)
-            document.getElementById('computing').classList.add('hidden')
-            document.getElementById('physical').classList.remove('hidden')
-            document.getElementById('comphandler').classList.remove('active2')
-            document.getElementById('phyhandler').classList.add('active2')
-      };
-      
   return (
-    <div className="overflow-hidden">
-      <section className="my-20 mt-56 mx-10">
-        <School
-          tittle="School of Science and Technology"
-          subtittle="Our Aim is to train and encourage our Learners to cope up with the continuosly changing and emerging technologies by giving them a hands on experience to make them problem solvers..."
-          topImg={"/images/schools/lab1.jpg"}
-          dean="DR. LOWU FRANCIS"
-          deanImage={"/images/schools/commando.jpg"}
-          message="As technology evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems."
-          preamble="The School of Science and Technology prepares professionals that can harness the potentials of computer and information sciences to provide relevant solutions. The School faculty and students are engaged in ongoing research projects and development of computer solutions in the areas of education, health, public administration, information management, ecommerce, and agriculture. The undergraduate and graduate programs offered in both Blended and Online Learning environments focus on Information Systems, Computer Networks Security and Systems Engineering."
-          goal="Empowering Innovative Minds"
-        />
-      </section>
+    <div className="container mx-auto px-4 py-8">
+      <School
+        title="School of Science and Technology"
+        subtitle="Empowering Innovative Minds for Tomorrow's Challenges"
+        topImg={["/images/schools/lab1.jpg", "/images/nav/labs.jpg"]}
+        dean="DR. LOWU FRANCIS"
+        deanImage="/images/schools/commando.jpg"
+        message="As technology evolves, so are our teaching approaches. We prepare you for current and future industrial revolutions, making you ready to solve tomorrow's challenges."
+        preamble="The School of Science and Technology prepares professionals to harness the potential of computer and information sciences to provide relevant solutions. Our faculty and students are engaged in ongoing research projects and development of computer solutions in areas of education, health, public administration, information management, e-commerce, and agriculture."
+        goal="Empowering Innovative Minds"
+        lecturers={lecturers}
+      />
 
-      <div className=" flex flex-col gap-2 justify-center mx-auto ">
-            <div className="  md:pl-2">
-            <SectionTitle title="Departments In The Faculty" paragraph="" />
-            </div>
+      <SectionTitle
+        title="Our Departments"
+        paragraph="Explore our diverse range of departments and cutting-edge programs"
+      />
 
-            <div className=' flex flex-col gap-2 md:flex-row md:justify-center md:gap-[35%]'>
-
-                  <div className=" ">
-                        <h1 className=" active2 text-xs font-bold text-body-color md:text-xl  " id="comphandler" style={{cursor:"pointer"}} onClick={handlecomputing}> Department Of Computing And Informatics</h1>
-                  </div>
-
-                  <div className=" ">
-                        <h1 className="text-body-color text-xs font-bold md:text-xl " id="phyhandler" style={{cursor:"pointer"}} onClick={handlephysical}> Department Of Life And Physical Sciences</h1>
-                  </div>
-            
-            </div>
-            {/* C O M P U T I N G    A N D   I N F O R M A T I C S   I N F O R M A T I O N */}
-            <div className="my-5 px-1 flex flex-col md:flex-row justify-center gap-[5%]" id="computing">
-                  <div className="bg-blue-100">
-                        <h1 className="px-2 py-5">
-                        As technology evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
-                        </h1>
-                        <h3 className="mb-5 text-xl font-bold text-body-color dark:text-white sm:text-2xl lg:text-xl xl:text-2xl" style={{ color: 'blue' }}>
-                        Programmes
-                        </h3>
-                        <div className='md:pl-2 mx-auto md:mx-0'>
-                  <ul className='flex flex-col space-y-5'>
-
-                  <Link href="http://erms.bugemauniv.ac.ug/application">
-                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
-                        Bachelor of Business Computing
-                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
-                        Apply Now
-                        </span>
-                  </li>
-                  </Link>
-
-                  <Link href="http://erms.bugemauniv.ac.ug/application">
-                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
-                        Bachelor of Information Technology
-                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
-                        Apply Now
-                        </span>
-                  </li>
-                  </Link>
-
-                  <Link href="http://erms.bugemauniv.ac.ug/application">
-                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
-                        Bachelor of Library and Information Science
-                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
-                        Apply Now
-                        </span>
-                  </li>
-                  </Link>
-
-                  <Link href="http://erms.bugemauniv.ac.ug/application">
-                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
-                        Bachelor of Science in Software Engineering
-                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
-                        Apply Now
-                        </span>
-                  </li>
-                  </Link>
-
-                  <Link href="http://erms.bugemauniv.ac.ug/application">
-                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
-                        Bachelor of Science in Network Systems Administration
-                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
-                        Apply Now
-                        </span>
-                  </li>
-                  </Link>
-                  
-                  </ul>
-                  </div>
-
-                  </div>
-
-                  <div>
-                        <ul className='md:pl-2 mx-auto md:mx-0'>
-
-                        <Link href="http://erms.bugemauniv.ac.ug/application">
-                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
-                        Diploma in Information Technology
-                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
-                        Apply Now
-                        </span>
-                  </li>
-                  </Link>
-
-                  <Link href="http://erms.bugemauniv.ac.ug/application">
-                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
-                        Diploma in Computer Forensics
-                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
-                        Apply Now
-                        </span>
-                  </li>
-                  </Link>
-
-                  <Link href="http://erms.bugemauniv.ac.ug/application">
-                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
-                        Certificate in Information Technology (UBTEB)
-                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
-                        Apply Now
-                        </span>
-                  </li>
-                  </Link>
-                        </ul>
-                        <Image src={image} alt='img' objectFit="contain" width={1920} height={500} />
-                  </div>
-                        
-            </div>
-
-            {/*L I F E   A N D    P H Y S I C A L    S C I E N C E S*/}
-            <div className=" hidden my-5 px-1 flex flex-col md:flex-row justify-center gap-[5%]" id="physical">
-                  <div className="bg-blue-100">
-                        <h1 className="px-2 py-5">
-                        As Physical evolves, so are the teaching approaches. I take the opportunity to welcome you to the school of Science and Technology Bugema University. We shall make you ready for the current and next industrial revolutions to make the planet a better place to live in. Be ready to take on the current challenges to solve the future problems.
-                        </h1>
-                        <h3 className="mb-5 text-xl font-bold text-body-color dark:text-white sm:text-2xl lg:text-xl xl:text-2xl" style={{ color: 'blue' }}>
-                        Programmes
-                        </h3>
-                        <div className='md:pl-2 mx-auto md:mx-0'>
-                        <ul className='flex flex-col space-y-5'>
-
-                        <Link href="http://erms.bugemauniv.ac.ug/application">
-                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
-                  Bachelor of Science in Biochemistry
-                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
-                        Apply Now
-                        </span>
-                  </li>
-                  </Link>
-
-                  <Link href="http://erms.bugemauniv.ac.ug/application">
-                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
-                     Bachelor of Science in Statistics
-                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
-                        Apply Now
-                        </span>
-                  </li>
-                  </Link>
-
-                  <Link href="http://erms.bugemauniv.ac.ug/application">
-                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
-                  Diploma in Science Laboratory Technology
-                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
-                        Apply Now
-                        </span>
-                  </li>
-                  </Link>
-
-                  <Link href="http://erms.bugemauniv.ac.ug/application">
-                  <li className='relative group hover:bg-blue-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer p-2'>
-                     Diploma in Biomedical Engineering and Technology
-                        <span className='absolute left-0 top-full mt-2 hidden group-hover:block bg-blue-600 text-white text-sm px-3 py-1 rounded'>
-                        Apply Now
-                        </span>
-                  </li>
-                  </Link>
-                        </ul>
-                        </div>
-                  </div>
-
-                  <div>
-                        <Image src={image} alt='img' objectFit="contain" width={1920} height={500} />
-                  </div>
-                        
-            </div>
-      </div>
+      <Tabs defaultValue="computing" className="mt-8">
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="computing">Computing and Informatics</TabsTrigger>
+          <TabsTrigger value="physical">Life and Physical Sciences</TabsTrigger>
+        </TabsList>
+        <TabsContent value="computing">
+          <DepartmentContent
+            description="We prepare you for current and future industrial revolutions, making you ready to solve tomorrow's challenges in the world of computing and informatics."
+            programs={[
+              "Bachelor of Business Computing",
+              "Bachelor of Information Technology",
+              "Bachelor of Library and Information Science",
+              "Bachelor of Science in Software Engineering",
+              "Bachelor of Science in Network Systems Administration",
+              "Diploma in Information Technology",
+              "Diploma in Computer Forensics",
+              "Certificate in Information Technology (UBTEB)",
+            ]}
+            image="/images/nav/labs.jpg"
+          />
+        </TabsContent>
+        <TabsContent value="physical">
+          <DepartmentContent
+            description="Our Life and Physical Sciences department focuses on cutting-edge research and practical applications in biochemistry, statistics, and laboratory technology."
+            programs={[
+              "Bachelor of Science in Biochemistry",
+              "Bachelor of Science in Statistics",
+              "Diploma in Science Laboratory Technology",
+              "Diploma in Biomedical Engineering and Technology",
+            ]}
+            image="/images/nav/labs.jpg"
+          />
+        </TabsContent>
+      </Tabs>
     </div>
-  );
+  )
 }
+
+function DepartmentContent({ description, programs, image }) {
+  return (
+    <div className="grid md:grid-cols-2 gap-6">
+      <Card>
+        <CardContent className="p-6">
+          <p className="mb-4 text-muted-foreground">{description}</p>
+          <h3 className="text-lg font-semibold mb-2">Programs</h3>
+          <ul className="space-y-2">
+            {programs.map((program, index) => (
+              <li key={index}>
+                <Button variant="link" className="p-0 h-auto text-primary hover:underline">
+                  {program}
+                </Button>
+              </li>
+            ))}
+          </ul>
+        </CardContent>
+      </Card>
+      <Card>
+        <CardContent className="p-0">
+          <Image
+            src={image || "/placeholder.svg"}
+            alt="Department facilities"
+            width={600}
+            height={400}
+            className="w-full h-auto object-cover rounded-md"
+          />
+        </CardContent>
+      </Card>
+    </div>
+  )
+}
+
