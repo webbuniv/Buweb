@@ -22,49 +22,6 @@ interface CreateTeamResponse {
   error?: string;
 }
 
-export async function CreateTeam(previousState: any, formData: FormDataType): Promise<CreateTeamResponse> {
-  const { storage, databases } = await createAdminClient();
-
-  let fileID: string | undefined;
-  const file = formData.get('file') as File | null;
-
-  try{
-
-  if (file && file.size > 0 && file.name !== 'undefined') {
-    try {
-      const response = await storage.createFile(appwriteConfig.bucketId, ID.unique(), file);
-        fileID = response.$id;
-      } catch (error) {
-        return {
-          error: 'Error uploading file',
-        };
-      }
-    } else {
-      console.log('No file provided or file is invalid');
-    }
-
-  const team = await databases.createDocument(
-    appwriteConfig.databaseId,
-    appwriteConfig.teamsCollectionId,
-    ID.unique(),
-    {
-      name: formData.get('name') as string,
-      file: fileID,
-      position: formData.get('position') as string,
-      bio: formData.get('bio') as string,
-      quote: formData.get('qoute') as string,
-    }
-
-  );
-
-    revalidatePath('/teams');
-    return { success: true };
-  } catch (error: any) {
-    const errorMessage = error.response?.message || "Failed to create news document";
-    return { error: errorMessage };
-  }
-}
-
 export const getTeams = async  ({ 
   searchText = '',
   sort = "$createdAt-desc", 

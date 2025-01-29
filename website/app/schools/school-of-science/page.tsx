@@ -5,7 +5,6 @@ import Image from "next/image"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import SectionTitle from "@/components/Common/SectionTitle"
 import School from "@/components/school/School"
 
@@ -39,7 +38,12 @@ export default function SchoolOfScience() {
       <School
         title="School of Science and Technology"
         subtitle="Empowering Innovative Minds for Tomorrow's Challenges"
-        topImg={["/images/schools/lab1.jpg", "/images/nav/labs.jpg"]}
+        topImg={[
+          "/images/schools/lab1.jpg",
+          "/images/nav/labs.jpg",
+          "/images/schools/computer-lab.jpg",
+          "/images/schools/science-experiment.jpg",
+        ]}
         dean="DR. LOWU FRANCIS"
         deanImage="/images/schools/commando.jpg"
         message="As technology evolves, so are our teaching approaches. We prepare you for current and future industrial revolutions, making you ready to solve tomorrow's challenges."
