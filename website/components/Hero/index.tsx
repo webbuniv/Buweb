@@ -17,7 +17,7 @@ export const heroMedia = [
   { type: 'image', src: "/images/graduation/now.jpeg"},
 //   { type: 'no-overlay', src: "/images/graduation/three.jpeg"},
   { type: 'image', src: "/images/hero/jan-intake.png"},
-  { type: 'image', src: "/images/gala/newa.jpeg" },
+//   { type: 'image', src: "/images/gala/newa.jpeg" },
 ];
 
 const textVariants = {
@@ -69,7 +69,7 @@ const Hero = () => {
             />}
             {CurrentSlide ===1 && <HeroOverlay 
               // title2="Service."
-              title3="Admissions for our January 2025 intake are now open! "
+              title3="Applications for January Intake are Available"
               subtitle2=""
               subtitle3=""
               title={undefined} title2={undefined}  subtitle={undefined} buttonText={undefined} buttonLink={undefined} 
@@ -77,8 +77,8 @@ const Hero = () => {
 
 {CurrentSlide ===2 && <HeroOverlay 
               // title2="Service."
-              title3="Admissions for our January 2025 intake are now open! "
-              subtitle2=""
+              title3="Applications for January Intake are Available"
+              subtitle2="https://erms.bugemauniv.ac.ug/application/"
               subtitle3=""
               title={undefined} title2={undefined}  subtitle={undefined} buttonText={undefined} buttonLink={undefined} 
             />}

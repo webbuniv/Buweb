@@ -34,6 +34,7 @@ const HeroSlide = ({ media }) => {
             className="w-fit h-[700px] object-fill lg:w-full"
             width={1000}
             height={800}
+            
           />
           <div className="absolute top-0 left-0 w-full h-full opacity-100">
           <HeroOverlay

@@ -15,7 +15,6 @@ import "../../styles/index.css";
 import { FaChevronDown } from "react-icons/fa";
 import MobileNav from "../MobileNav/MobileNav";
 import menuData from "./menuData";
-import { Search } from "../AboveHeader/Search";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
