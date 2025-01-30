@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useState } from 'react';
 import HeroOverlay from '../HeroOverlay/HeroOverlay';
+import Header from '../Header';
 
 export const heroMedia = [
   // { type: 'video', src: "https://res.cloudinary.com/do5ubr3sa/video/upload/v1719685852/ayxyrcvleddu33lelk69.mp4" },
@@ -16,7 +17,7 @@ export const heroMedia = [
 { type: 'no-overlay', src: "/images/hero/phioo.jpg" },
   { type: 'image', src: "/images/graduation/now.jpeg"},
 //   { type: 'no-overlay', src: "/images/graduation/three.jpeg"},
-  { type: 'image', src: "/images/hero/jan-intake.png"},
+  { type: 'image', src: "/images/hero/land1.jpg"},
 //   { type: 'image', src: "/images/gala/newa.jpeg" },
 ];
 
@@ -54,7 +55,8 @@ const Hero = () => {
       }
   return (
     <>
-      <section id="home" className="hidden md:block hero-section w-full lg:h-[800px] h-[700px] relative z-10 mt-[83px] mb-[70px]">
+      <section id="home" className="hidden md:block hero-section w-full lg:h-[800px]  h-[700px] relative z-10 mt-[1] mb-[70px]">
+      <Header />
         <Slider {...settings}>
           {heroMedia.map((media, index) => (
             <HeroSlide key={index} media={media} />

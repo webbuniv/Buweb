@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className="dark:bg-black overflow-x-hidden" >
         <Providers>
           <AboveHeader />
-          <Header />
+          
           {children}
           <Footer />
         </Providers>
