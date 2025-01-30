@@ -34,7 +34,7 @@ const lecturers = [
 
 export default function SchoolOfScience() {
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 mt-14">
       <School
         title="School of Science and Technology"
         subtitle="Empowering Innovative Minds for Tomorrow's Challenges"
@@ -55,6 +55,7 @@ export default function SchoolOfScience() {
       <SectionTitle
         title="Our Departments"
         paragraph="Explore our diverse range of departments and cutting-edge programs"
+        
       />
 
       <Tabs defaultValue="computing" className="mt-8">

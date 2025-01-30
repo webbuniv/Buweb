@@ -16,7 +16,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
   mb = "10px",
 }) => {
   return (
-    <div className={`w-full ${center ? "text-center" : ""} mb-8`} style={{ maxWidth: width, marginBottom: mb }}>
+    <div className={`w-full ${center ? "text-center" : ""} mb-8 mt-8`} style={{ maxWidth: width, marginBottom: mb }}>
       <h2 className="mb-4 text-3xl font-bold leading-tight text-primary sm:text-4xl md:text-[45px]">{title}</h2>
       <p className="text-base leading-relaxed text-muted-foreground md:text-lg max-w-[800px] mx-auto">{paragraph}</p>
     </div>

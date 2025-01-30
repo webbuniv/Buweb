@@ -2,7 +2,7 @@
 
 import { createAdminClient } from '@/lib/appwrite';
 import { appwriteConfig } from '@/lib/appwrite/config';
-import { Query} from 'node-appwrite';
+import { Query } from 'node-appwrite';
 import { EventItem } from '@/types/types';
 
 const handleError = (error: unknown, message: string) => {
