@@ -45,6 +45,17 @@ declare interface EventItem {
     $createdAt: number;
 }
 
+declare interface TeamItem {
+    id: string;
+    $id: string;
+    name: string;
+    position: string;
+    bio: string;
+    qoute: string;
+    file: string;
+    $createdAt: number;
+}
+
 declare interface GetNewsProps {
     searchText?: string;
     sort?: string;
@@ -57,6 +68,11 @@ declare interface GetEventsProps {
     limit?: number;
 }
 
+declare interface GetTeamProps {
+    searchText?: string;
+    sort?: string;
+    limit?: number;
+}
 declare interface News {
     $id: string;
     title: string;
@@ -94,5 +110,15 @@ declare interface Events {
     location: string;
     description: string;
     date: string;
+    $createdAt: number;
+}
+
+declare interface Team {
+    $id: string;
+    name: string;
+    file: string;
+    position: string;
+    bio: string;
+    quote: string;
     $createdAt: number;
 }
