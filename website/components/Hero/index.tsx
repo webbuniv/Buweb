@@ -14,11 +14,11 @@ import Header from '../Header';
 export const heroMedia = [
   // { type: 'video', src: "https://res.cloudinary.com/do5ubr3sa/video/upload/v1719685852/ayxyrcvleddu33lelk69.mp4" },
 //   { type: 'video', src: "https://res.cloudinary.com/djlx5iqhe/video/upload/v1731087035/WhatsApp_Video_2024-11-08_at_17.28.31_f2ee4132_gcgn3h.mp4" },
-{ type: 'no-overlay', src: "/images/hero/phioo.jpg" },
-  { type: 'image', src: "/images/graduation/now.jpeg"},
+{ type: 'image', src: "/images/hero/land1.jpg" },
+  { type: 'image', src: "/images/hero/env3.jpg"},
 //   { type: 'no-overlay', src: "/images/graduation/three.jpeg"},
-  { type: 'image', src: "/images/hero/land1.jpg"},
-//   { type: 'image', src: "/images/gala/newa.jpeg" },
+  { type: 'image', src: "/images/hero/env1.jpg"},
+//   { type: 'image', src: "/images/hero/env2.jpg" },
 ];
 
 const textVariants = {
@@ -55,23 +55,24 @@ const Hero = () => {
       }
   return (
     <>
-      <section id="home" className="hidden md:block hero-section w-full lg:h-[800px]  h-[700px] relative z-10 mt-[1] mb-[70px]">
+      <section id="home" className="  hidden md:block  hero-section bg w-full lg:h-[50%]  h-[50%] relative z-10 mt-[1] mb-[14%] ">
       <Header />
-        <Slider {...settings}>
+        <Slider {...settings} className="">
           {heroMedia.map((media, index) => (
             <HeroSlide key={index} media={media} />
           ))}
         </Slider>
 {/*=================== CUSTOMIZING THE SLIDER TO HAVE DIFFERENT OVERLAY WORDS FOR DIFFERENT SLIDES ===================*/ }
         {CurrentSlide ===0 && <HeroOverlay 
-              // title2="Service."
-              // subtitle2="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity"
+              title3="Welcome to Bugema University"
+              subtitle3="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity"
+               subtitle2=""
               // subtitle3="to offer you Quality education with a hands-on experience. . ."
-              title={undefined} title2={undefined}  title3={undefined} subtitle2={undefined} subtitle3={undefined} subtitle={undefined} buttonText={undefined} buttonLink={undefined}
+              title={undefined} title2={undefined}  subtitle={undefined}   buttonText={undefined} buttonLink={undefined}
             />}
             {CurrentSlide ===1 && <HeroOverlay 
               // title2="Service."
-              title3="Applications for January Intake are Available"
+              title3="Kick start your Higher Eduction at Bugema University for January Intake are Available"
               subtitle2=""
               subtitle3=""
               title={undefined} title2={undefined}  subtitle={undefined} buttonText={undefined} buttonLink={undefined} 
@@ -79,9 +80,9 @@ const Hero = () => {
 
 {CurrentSlide ===2 && <HeroOverlay 
               // title2="Service."
-              title3="Applications for January Intake are Available"
+              title3="Kick start your Higher Eduction at Bugema University "
               subtitle2="https://erms.bugemauniv.ac.ug/application/"
-              subtitle3=""
+              subtitle3="January Intake is Ongoing Apply Here"
               title={undefined} title2={undefined}  subtitle={undefined} buttonText={undefined} buttonLink={undefined} 
             />}
 

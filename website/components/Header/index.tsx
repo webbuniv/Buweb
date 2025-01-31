@@ -206,7 +206,7 @@ const Header = () => {
                       <Link
                         href="/"
                         className={`nav hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onClick={close }
+                        onClick={close } onMouseEnter={close}
                         >
 
                         <span className={"hover:navlinks"}>
@@ -217,7 +217,7 @@ const Header = () => {
                     </li>
 
                     <li className="group relative">
-                      <div   className={`nav cursor-pointer hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={first_modal }>
+                      <div   className={`nav cursor-pointer hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick={first_modal }>
 
                         <span className={showModel ? "active" : ""}>
                           Programs

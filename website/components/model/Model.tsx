@@ -92,7 +92,7 @@ const why_bugema = () =>{
         
         
 
-        <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex ml-[5%] mt-[10%] w-[90%] h-[70%] border border-black overflow-auto overflow-x-hidden bg-white" id="wrapper" onMouseLeave={onClose}  >                  
+        <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex ml-[5%] mt-[9%] w-[90%] h-[70%]  rounded-lg overflow-auto overflow-x-hidden bg-white" id="wrapper" onMouseLeave={onClose}  >                  
                         <div className='flex ml-10 justify-center items-center'>
                         <div className='flex '>
                               <button 
