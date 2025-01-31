@@ -36,10 +36,6 @@ const main = ()=>{
       document.getElementById('courses-more').classList.remove('hidden');
       document.getElementById('touch-more').classList.add('hidden');
       document.getElementById('why-bugema-more').classList.add('hidden');
-      document.getElementById('attachment-get-in-toch').classList.add('hidden');
-      document.getElementById('attachment-courses').classList.remove('hidden');
-      document.getElementById('attachment-fees').classList.add('hidden');
-      document.getElementById('attachment-why-bugema').classList.add('hidden');
       document.getElementById('why_bugema').classList.remove('current');
       
 }
@@ -55,10 +51,6 @@ const payments=()=>{
       document.getElementById('courses-more').classList.add('hidden');
       document.getElementById('touch-more').classList.add('hidden');
       document.getElementById('why-bugema-more').classList.add('hidden');
-      document.getElementById('attachment-get-in-toch').classList.add('hidden');
-      document.getElementById('attachment-courses').classList.add('hidden');
-      document.getElementById('attachment-fees').classList.remove('hidden');
-      document.getElementById('attachment-why-bugema').classList.add('hidden');
       document.getElementById('why_bugema').classList.remove('current');
       
 }
@@ -74,10 +66,6 @@ const touch = ()=>{
       document.getElementById('courses-more').classList.add('hidden');
       document.getElementById('fees-more').classList.add('hidden');
       document.getElementById('why-bugema-more').classList.add('hidden');
-      document.getElementById('attachment-get-in-toch').classList.remove('hidden');
-      document.getElementById('attachment-courses').classList.add('hidden');
-      document.getElementById('attachment-fees').classList.add('hidden');
-      document.getElementById('attachment-why-bugema').classList.add('hidden');
       document.getElementById('why_bugema').classList.remove('current');
 }
 const why_bugema = () =>{
@@ -93,17 +81,13 @@ const why_bugema = () =>{
       document.getElementById('courses-more').classList.add('hidden');
       document.getElementById('fees-more').classList.add('hidden');
       document.getElementById('why-bugema-more').classList.remove('hidden');
-      document.getElementById('attachment-get-in-toch').classList.add('hidden');
-      document.getElementById('attachment-courses').classList.add('hidden');
-      document.getElementById('attachment-fees').classList.add('hidden');
-      document.getElementById('attachment-why-bugema').classList.remove('hidden');
 
 }
   return (
       <>
         
 
-            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex w-full h-4/5 my-16 mt-[110px] border border-black overflow-auto overflow-x-hidden bg-white" id="wrapper" >
+            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex ml-[5%]  w-[90%] h-[60%] mt-[10%] border border-black overflow-auto overflow-x-hidden bg-white" id="wrapper" onMouseLeave={onClose}  >
                   
                     
                   <div id="programs">
@@ -130,7 +114,7 @@ const why_bugema = () =>{
 
                         </div> 
 
-                        <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'25%'}}> 
+                        <div className="vertical-line ml-24 my-12 fade-in " > 
                               <div className="mr-2 my-5 slider slide--fast">
                                     
                                     <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '   onClick={main}> <span id='main' className='animated href=""'>Research</span></h1> 
@@ -144,39 +128,6 @@ const why_bugema = () =>{
                               <div className="mr-2 my-5 slider slide--slowest ">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={touch}> <span className='animated' id='contact'> Get in Touch </span></h1> 
                               </div>
-                              {/*###===============================================================================
-                               A T T A C H M E N T   P I C T U R E S    U N D E R    T H E   F I R S T   C O L U M N 
-                               ==================================================================================###*/}
-                              <div id='attachment-get-in-toch' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
-                                    <div className='fade-in'>
-                                          
-                                    <Image src={burundi} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
-                                    </div>
-                                    
-                              </div> 
-                              <div id='attachment-fees' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
-                                    <div className='fade-in'>
-                                          
-                                    <Image src={palm_girls1} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
-                                    </div>
-                                    
-                              </div> 
-
-                              <div id='attachment-courses' className="slant-div-right bg-black text-white grid-rows-2"style={{marginTop:'20%',width:'111%',height:'40%'}}>
-                                    <div className='fade-in'>
-                                          
-                                    <Image src={burundi} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
-                                    </div>
-                                    
-                              </div> 
-
-                              <div id='attachment-why-bugema' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
-                                    <div className='fade-in'>
-                                          
-                                    <Image src={nurses1} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
-                                    </div>
-                                    
-                              </div> 
                         
                         </div>
                   
@@ -241,7 +192,7 @@ const why_bugema = () =>{
 
                               {/*###=============== FEES AND PAYMENTS ================###*/}
 
-                  <div className=" fade-in ml-24 my-24 hidden " style={{marginTop:'12%'}} id='fees'> 
+                  <div className=" fade-in ml-24 my-12 hidden "  id='fees'> 
                         <ul className='ml-10 my-20'>
                               <li>
                               <div className="mr-2 my-5 ">
@@ -289,7 +240,7 @@ const why_bugema = () =>{
 
 
                   {/*###============== W  H  Y    B U G E M A ==============###*/}
-                  <div className=" fade-in ml-24 my-24 hidden " style={{marginTop:'12%'}} id='why_bugema-data'> 
+                  <div className=" fade-in ml-24 my-12 hidden "  id='why_bugema-data'> 
                         <ul className='ml-10 my-20'>
                               <li>
                               <div className="mr-2 my-5 ">
@@ -339,7 +290,7 @@ const why_bugema = () =>{
 
                               
                   {/*###============== G  E  T    I N    T  O  U  C  H ==============###*/}
-                  <div className=" fade-in ml-24 my-24 hidden " style={{marginTop:'12%'}} id='get-in-touch'> 
+                  <div className=" fade-in ml-24 my-12 hidden "  id='get-in-touch'> 
                         <ul className='ml-10 my-20'>
                               <li>
                               <div className="mr-2 my-5 ">
@@ -382,53 +333,23 @@ const why_bugema = () =>{
                         
                   </div>
 
-                  <div className=' ml-20 vertical-line  transform -skew-x-12 'style={{marginTop:'12%'}}>
+                  <div className=' ml-20 vertical-line  my-12 '>
                   </div>
 
                   {/* SCIENCE AND TECHNOLOGY COURSES */}
-                  <div className='ml-10  my-24 transform -skew-x-12'  id='IT'>
-                        {/* <div className="mr-2 my-5  ">
-                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Certificate in Information Technology</h1> 
-                        </div>
-                        <div className="mr-2 my-5  ">
-                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Bachelor of Science in Software Engineering</h1> 
-                        </div>
-                        <div className="mr-2 my-5  ">
-                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Bachelor of Science in Network Systems<br/> Administration</h1> 
-                        </div>
-                        <div className="mr-2 my-5  ">
-                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Bachelor of Science in Computer Engineering</h1> 
-                        </div>
-                        <div className="mr-2 my-5  ">
-                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Diploma in Computer Forensics</h1> 
-                        </div>
-                        <div className="mr-2 my-5  ">
-                              <h1  style={{color:'black',fontSize: '19px',cursor:"pointer",}}> Diploma in Information technology</h1> 
-                        </div>*/}
-
-
-
+                  <div className='ml-10  my-24 '  id='IT'>
+                        
                               {/* ###============= C O U R S E S    M O R E =================### */}
                         <div className='' id='courses-more'>
                               <div className=' ml-24 fade-in '>
-                                          <Image src={image} alt='img' width={350} height={450} className="-ml-5 my-10 slider slide--fast"/>
+                                          <Image src={image} alt='img' width={350} height={450} className="-ml-5 my-5 slider slide--fast"/>
                               </div>
-                              <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
+                              <div className="ml-19  text-white grid-rows-2 fade-in " >
                                     <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
                                     <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Why Study at Bugema University <FaArrowRight className='arrow1'/></h1>
                                     </div>
                               </div> 
-                              
-                              <div className="ml-12 my-1 transform -skew-x-11 text-white grid-rows-2 " >
-                                    <div className='columns-1 bg-black change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Masters of Science in Information <FaArrowRight className='arrow2'/></h1>
-                                    </div>
-                              </div>  
-                              <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
-                                    <div className='columns-1 bg-black slider slide--slow change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Masters of Science in Information <FaArrowRight className='arrow3'/></h1>
-                                    </div>
-                              </div>
+                        
                         </div>
 
 
@@ -437,24 +358,19 @@ const why_bugema = () =>{
                         {/* ###=============F E E S       M O R E =================### */}
                         <div className=' hidden fade-in' id='fees-more'>
                               <div className=' ml-24 fade-in '>
-                                          <Image src={imagenew} alt='img' width={350} height={450} className="-ml-5 my-10 slider slide--fast"/>
+                                          <Image src={imagenew} alt='img' width={350} height={450} className="-ml-5  slider slide--fast"/>
                               </div>
-                              <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
-                                    <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
+                              <div className="ml-19  text-white  fade-in " >
+                                    <div className=' bg-black slider-right slide--slow change-on-hover '>
                                     <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> How to Pay  <FaArrowRight className='arrow1'/></h1>
                                     </div>
                               </div> 
                               
-                              <div className="ml-12 my-1 transform -skew-x-11 text-white grid-rows-2 " >
-                                    <div className='columns-1 bg-black change-on-hover'>
+                              <div className="ml-12 my-1  text-white " >
+                                    <div className=' bg-black change-on-hover'>
                                     <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Fees Structure <FaArrowRight className='arrow2'/></h1>
                                     </div>
                               </div>  
-                              <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
-                                    <div className='columns-1 bg-black slider slide--slow change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Donate <FaArrowRight className='arrow3'/></h1>
-                                    </div>
-                              </div>
                         </div>
                         
                         
@@ -464,22 +380,12 @@ const why_bugema = () =>{
                               <div className=' ml-24 fade-in '>
                                           <Image src={bucosa} alt='img' width={350} height={450} className="-ml-5 my-10 slider slide--fast"/>
                               </div>
-                              <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
+                              <div className="ml-19  text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
                                     <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
                                     <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Why Study at Bugema University <FaArrowRight className='arrow1'/></h1>
                                     </div>
                               </div> 
                               
-                              <div className="ml-12 my-1 transform -skew-x-11 text-white grid-rows-2 " >
-                                    <div className='columns-1 bg-black change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Why Study at Bugema University <FaArrowRight className='arrow2'/></h1>
-                                    </div>
-                              </div>  
-                              <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
-                                    <div className='columns-1 bg-black slider slide--slow change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Why Study at Bugema University <FaArrowRight className='arrow3'/></h1>
-                                    </div>
-                              </div>
                         </div>
                         
                         
@@ -489,22 +395,13 @@ const why_bugema = () =>{
                               <div className=' ml-24 fade-in '>
                                           <Image src={palm_girls} alt='img' width={350} height={450} className="ml-19 -mr-10 my-10 slider slide--fast"/>
                               </div>
-                              <div className="ml-19 -mr-5 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
+                              <div className="ml-19 -mr-5  text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
                                     <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> How to Apply  <FaArrowRight className='arrow1'/></h1>
+                                        <Link href={"https://erms.bugemauniv.ac.ug/application"}>
+                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Apply  <FaArrowRight className='arrow1'/></h1>
+                                    </Link>
                                     </div>
                               </div> 
-                              
-                              <div className="ml-12 -mr-4 my-1 transform -skew-x-11 text-white grid-rows-2 " >
-                                    <div className='columns-1 bg-black change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Other Campuses <FaArrowRight className='arrow2'/></h1>
-                                    </div>
-                              </div>  
-                              <div className="ml-24 -mr-3 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px',}} >
-                                    <div className='columns-1 bg-black slider slide--slow change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Talk to Us <FaArrowRight className='arrow3'/></h1>
-                                    </div>
-                              </div>
                               
                         </div>
                           

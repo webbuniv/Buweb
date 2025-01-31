@@ -38,10 +38,6 @@ const main = ()=>{
       document.getElementById('courses-more').classList.remove('hidden');
       document.getElementById('touch-more').classList.add('hidden');
       document.getElementById('why-bugema-more').classList.add('hidden');
-      document.getElementById('attachment-get-in-toch').classList.add('hidden');
-      document.getElementById('attachment-courses').classList.remove('hidden');
-      document.getElementById('attachment-fees').classList.add('hidden');
-      document.getElementById('attachment-why-bugema').classList.add('hidden');
       document.getElementById('why_bugema').classList.remove('current');
       
 }
@@ -57,10 +53,6 @@ const payments=()=>{
       document.getElementById('courses-more').classList.add('hidden');
       document.getElementById('touch-more').classList.add('hidden');
       document.getElementById('why-bugema-more').classList.add('hidden');
-      document.getElementById('attachment-get-in-toch').classList.add('hidden');
-      document.getElementById('attachment-courses').classList.add('hidden');
-      document.getElementById('attachment-fees').classList.remove('hidden');
-      document.getElementById('attachment-why-bugema').classList.add('hidden');
       document.getElementById('why_bugema').classList.remove('current');
       
 }
@@ -76,10 +68,6 @@ const touch = ()=>{
       document.getElementById('courses-more').classList.add('hidden');
       document.getElementById('fees-more').classList.add('hidden');
       document.getElementById('why-bugema-more').classList.add('hidden');
-      document.getElementById('attachment-get-in-toch').classList.remove('hidden');
-      document.getElementById('attachment-courses').classList.add('hidden');
-      document.getElementById('attachment-fees').classList.add('hidden');
-      document.getElementById('attachment-why-bugema').classList.add('hidden');
       document.getElementById('why_bugema').classList.remove('current');
 }
 const why_bugema = () =>{
@@ -95,15 +83,11 @@ const why_bugema = () =>{
       document.getElementById('courses-more').classList.add('hidden');
       document.getElementById('fees-more').classList.add('hidden');
       document.getElementById('why-bugema-more').classList.remove('hidden');
-      document.getElementById('attachment-get-in-toch').classList.add('hidden');
-      document.getElementById('attachment-courses').classList.add('hidden');
-      document.getElementById('attachment-fees').classList.add('hidden');
-      document.getElementById('attachment-why-bugema').classList.remove('hidden');
 
 }
   return (
       <>
-            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex w-full h-4/5 my-16 mt-[110px] border border-black overflow-auto overflow-x-hidden bg-white" id="wrapper" >
+            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex  h-4/5 my-16 mt-[110px] border border-black overflow-auto overflow-x-hidden bg-white" id="wrapper" >
                   
                      
                   <div id="programs">
@@ -130,7 +114,7 @@ const why_bugema = () =>{
 
                         </div> 
 
-                        <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'25%'}}> 
+                        <div className="vertical-line ml-12 my-24 fade-in "  > 
                              
                                {/* M  A  P */}
                                <div className="mr-2 my-5 slider slide--fast">
@@ -148,7 +132,7 @@ const why_bugema = () =>{
                                     <div className='fade-in'>
                                           
                                     {/* <h1  style={{fontSize: '19px',cursor:"pointer",height:"150px"}}> Masters of Science in Information</h1> */}
-                                    <Image src={burundi} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
+                                    <Image src={burundi} alt='img' width={550} height={450} className="fade-in-slow '"/>
                                     </div>
                                     
                               </div> 
@@ -159,7 +143,7 @@ const why_bugema = () =>{
                   
                   </div>
 
-                  <div className=" fade-in ml-24 my-24 " style={{marginTop:'12%'}} id='fees'> 
+                  <div className=" fade-in ml-24 my-20 "  id='fees'> 
                         <h1 className='font-bold text-black text-center'>
                               Send Us a Direct Email
                         </h1>
@@ -260,18 +244,18 @@ const why_bugema = () =>{
                   
 
 
-                  <div className=' ml-20 vertical-line  transform -skew-x-12 'style={{marginTop:'12%'}}>
+                  <div className=' ml-20 vertical-line my-12  '>
                   </div>
 
                   {/* SCIENCE AND TECHNOLOGY COURSES */}
-                  <div className='ml-10  my-20 transform'  id='IT'>                     
+                  <div className='ml-10  my-12 transform'  id='IT'>                    
 
                         {/* ###=============G E T   IN  T O U C H       M O R E =================### */}
                         <div className='fade-in' id='touch-more'>
                               <div className=' ml-24 fade-in '>
                                           <Image src={palm_girls} alt='img' width={350} height={450} className="ml-19 -mr-10 my-10 slider slide--fast"/>
                               </div>
-                              <div className="ml-19 mr-5 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
+                              <div className="ml-19 mr-5  text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
                                     <div className='columns-1 bg-black  change-on-hover '>
                                           <Link href='https://apply.bugemauniv.ac.ug'>
                                     
