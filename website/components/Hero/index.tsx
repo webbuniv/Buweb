@@ -10,6 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { useState } from 'react';
 import HeroOverlay from '../HeroOverlay/HeroOverlay';
 import Header from '../Header';
+import "slick-carousel/slick/slick-theme.css"; 
 
 export const heroMedia = [
   // { type: 'video', src: "https://res.cloudinary.com/do5ubr3sa/video/upload/v1719685852/ayxyrcvleddu33lelk69.mp4" },
@@ -38,7 +39,8 @@ const sliderSettings = {
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 6000,
-  fade:true
+  fade:true,
+  arrows: false,
   
 };
 
@@ -55,8 +57,8 @@ const Hero = () => {
       }
   return (
     <>
-      <section id="home" className="  hidden md:block  hero-section bg w-full lg:h-[50%]  h-[50%] relative z-10 mt-[1] mb-[14%] ">
-      <Header />
+      <section id="home" className="  hidden md:block   bg w-full lg:h-[50%]  h-[50%] relative z-10 mt-[1] mb-[14%] ">
+      {/* <Header /> */}
         <Slider {...settings} className="">
           {heroMedia.map((media, index) => (
             <HeroSlide key={index} media={media} />
