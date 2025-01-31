@@ -15,7 +15,7 @@ export const heroMedia = [
   // { type: 'video', src: "https://res.cloudinary.com/do5ubr3sa/video/upload/v1719685852/ayxyrcvleddu33lelk69.mp4" },
 //   { type: 'video', src: "https://res.cloudinary.com/djlx5iqhe/video/upload/v1731087035/WhatsApp_Video_2024-11-08_at_17.28.31_f2ee4132_gcgn3h.mp4" },
 { type: 'image', src: "/images/hero/land1.jpg" },
-  { type: 'image', src: "/images/hero/env3.jpg"},
+  { type: 'image', src: "/images/hero/Lymphdema.jpg"},
 //   { type: 'no-overlay', src: "/images/graduation/three.jpeg"},
   { type: 'image', src: "/images/hero/env1.jpg"},
 //   { type: 'image', src: "/images/hero/env2.jpg" },
@@ -72,9 +72,9 @@ const Hero = () => {
             />}
             {CurrentSlide ===1 && <HeroOverlay 
               // title2="Service."
-              title3="Kick start your Higher Eduction at Bugema University for January Intake are Available"
-              subtitle2=""
-              subtitle3=""
+              title3="Bugema University Hosts a Free Medical Camp Focused on treating patients Lymphdema"
+              subtitle2="https://www.bugemauniv.ac.ug/hospital"
+              subtitle3="Read More"
               title={undefined} title2={undefined}  subtitle={undefined} buttonText={undefined} buttonLink={undefined} 
             />}
 

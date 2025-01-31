@@ -38,7 +38,7 @@ const HeroOverlay = ({
           </h1>
           <br />
           <Link href={`${subtitle2}`}>
-          <h1 className="flex text-start text-3xl md:font-bold mb-0">
+          <h1 className="flex  text-start text-3xl md:font-bold mb-0">
           {subtitle3}
           </h1>
           </Link>
