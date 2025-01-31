@@ -15,6 +15,9 @@
   html, main {
     overflow-x: hidden;
   }
+  :root {
+    --radius: 0.5rem;
+  }
 }
 
 @layer components {
