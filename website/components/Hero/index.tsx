@@ -10,14 +10,15 @@ import "slick-carousel/slick/slick-theme.css";
 import { useState } from 'react';
 import HeroOverlay from '../HeroOverlay/HeroOverlay';
 import Header from '../Header';
+import "slick-carousel/slick/slick-theme.css"; 
 
 export const heroMedia = [
   // { type: 'video', src: "https://res.cloudinary.com/do5ubr3sa/video/upload/v1719685852/ayxyrcvleddu33lelk69.mp4" },
 //   { type: 'video', src: "https://res.cloudinary.com/djlx5iqhe/video/upload/v1731087035/WhatsApp_Video_2024-11-08_at_17.28.31_f2ee4132_gcgn3h.mp4" },
-{ type: 'image', src: "/images/hero/land1.jpg" },
-  { type: 'image', src: "/images/hero/Lymphdema.jpg"},
+{ type: 'image', src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/679ca181003bf8b3a85c/view?project=674dcf7b003d57db960a&mode=admin" },
+  { type: 'image', src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/679ca11b002f83ac3f36/view?project=674dcf7b003d57db960a&mode=admin"},
 //   { type: 'no-overlay', src: "/images/graduation/three.jpeg"},
-  { type: 'image', src: "/images/hero/env1.jpg"},
+  { type: 'image', src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/679ca0640005017b97d8/view?project=674dcf7b003d57db960a&mode=admin"},
 //   { type: 'image', src: "/images/hero/env2.jpg" },
 ];
 
@@ -38,7 +39,8 @@ const sliderSettings = {
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 6000,
-  fade:true
+  fade:true,
+  arrows: false,
   
 };
 
@@ -55,8 +57,8 @@ const Hero = () => {
       }
   return (
     <>
-      <section id="home" className="  hidden md:block  hero-section bg w-full lg:h-[50%]  h-[50%] relative z-10 mt-[1] mb-[14%] ">
-      <Header />
+      <section id="home" className="  hidden md:block   bg w-full lg:h-[50%]  h-[50%] relative z-10 mt-[1] mb-[14%] ">
+      {/* <Header /> */}
         <Slider {...settings} className="">
           {heroMedia.map((media, index) => (
             <HeroSlide key={index} media={media} />
