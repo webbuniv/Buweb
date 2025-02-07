@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const departments = [
   { name: 'Cardiology', image: '/images/hospital/five.jpg' },
-  { name: 'Pediatrics', image: '/images/hospital/ep6.jpg' },
+  { name: 'Pediatrics', image: '/images/hospital/five.jpg' },
   { name: 'Neurology', image: '/images/hospital/three.jpg' },
   { name: 'Orthopedics', image: '/images/hospital/ep.jpg' },
 ]
