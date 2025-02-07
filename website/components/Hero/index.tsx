@@ -74,7 +74,7 @@ const Hero = () => {
             />}
             {CurrentSlide ===1 && <HeroOverlay 
               // title2="Service."
-              title3="Bugema University Hosts a Free Medical Camp Focused on treating patients Lymphdema"
+              title3="Bugema University Hosts a Free Medical Camp Focused on treating patients Lymphedema"
               subtitle2="https://www.bugemauniv.ac.ug/hospital"
               subtitle3="Read More"
               title={undefined} title2={undefined}  subtitle={undefined} buttonText={undefined} buttonLink={undefined} 
@@ -82,7 +82,7 @@ const Hero = () => {
 
 {CurrentSlide ===2 && <HeroOverlay 
               // title2="Service."
-              title3="Kick start your Higher Eduction at Bugema University "
+              title3="Kick start your Higher Education at Bugema University "
               subtitle2="https://erms.bugemauniv.ac.ug/application/"
               subtitle3="January Intake is Ongoing Apply Here"
               title={undefined} title2={undefined}  subtitle={undefined} buttonText={undefined} buttonLink={undefined} 
