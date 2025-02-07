@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <div className="relative min-h-screen">
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 ">
         <Image
           src={backgroundImage}
           alt="Student in library"

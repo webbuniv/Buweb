@@ -202,7 +202,7 @@ const Foot = () =>{
                         <li>
                               <div className="mr-2 my-5  ">
                               <Link href={'/studentlife'}>
-                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Students Life </h1> 
+                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} onClick={onClose} className='schools text-black font-bold' > Students Life </h1> 
                               </Link>
                               </div>
                               </li>
