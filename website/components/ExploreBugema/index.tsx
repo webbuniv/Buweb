@@ -102,7 +102,7 @@ const Video = () => {
   <div className="grid grid-cols-1 md:grid-cols-2 md:gap-20 ">
 
       <div
-        className={`wow fadeInUp overflow-hidden rounded-md h-[400px]  ${animate ?"slider slide--slower":"" }`} 
+        className={`wow fadeInUp overflow-x-hidden rounded-md h-[400px]  ${animate ?"":"" }`} 
         data-wow-delay=".15s">
           {/* <iframe
             width="500"
@@ -115,14 +115,15 @@ const Video = () => {
             className="w-full h-full">
           </iframe> */}
 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/VpN2Jljw3HU?si=pL5nUPq6TjiQsqix" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            <iframe className="overflow-x-hidden" width="500" height="315" src="https://www.youtube.com/embed/VQKqcE3HBX0?si=Oen4jblV21RISN28" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>     
       </div>
+      
 
     <div className="flex flex-col ">
       {/* Section title on big screens */}
       
-      <div className={`  mb-8 hidden md:flex md:flex-col  ${animate ?"slider-right slide--slower":"" }`}>
+      <div className={`  mb-8 hidden md:flex md:flex-col  ${animate ?"":"" }`}>
         <div className="wow fadeInUp w-full" data-wow-delay=".1s">
           
           <h1 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px]">

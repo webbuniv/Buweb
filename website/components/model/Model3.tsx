@@ -36,10 +36,6 @@ const main = ()=>{
       document.getElementById('courses-more').classList.remove('hidden');
       document.getElementById('touch-more').classList.add('hidden');
       document.getElementById('why-bugema-more').classList.add('hidden');
-      document.getElementById('attachment-get-in-toch').classList.add('hidden');
-      document.getElementById('attachment-courses').classList.remove('hidden');
-      document.getElementById('attachment-fees').classList.add('hidden');
-      document.getElementById('attachment-why-bugema').classList.add('hidden');
       document.getElementById('why_bugema').classList.remove('current');
       
 }
@@ -55,10 +51,6 @@ const payments=()=>{
       document.getElementById('courses-more').classList.add('hidden');
       document.getElementById('touch-more').classList.add('hidden');
       document.getElementById('why-bugema-more').classList.add('hidden');
-      document.getElementById('attachment-get-in-toch').classList.add('hidden');
-      document.getElementById('attachment-courses').classList.add('hidden');
-      document.getElementById('attachment-fees').classList.remove('hidden');
-      document.getElementById('attachment-why-bugema').classList.add('hidden');
       document.getElementById('why_bugema').classList.remove('current');
       
 }
@@ -74,10 +66,6 @@ const touch = ()=>{
       document.getElementById('courses-more').classList.add('hidden');
       document.getElementById('fees-more').classList.add('hidden');
       document.getElementById('why-bugema-more').classList.add('hidden');
-      document.getElementById('attachment-get-in-toch').classList.remove('hidden');
-      document.getElementById('attachment-courses').classList.add('hidden');
-      document.getElementById('attachment-fees').classList.add('hidden');
-      document.getElementById('attachment-why-bugema').classList.add('hidden');
       document.getElementById('why_bugema').classList.remove('current');
 }
 const why_bugema = () =>{
@@ -93,10 +81,7 @@ const why_bugema = () =>{
       document.getElementById('courses-more').classList.add('hidden');
       document.getElementById('fees-more').classList.add('hidden');
       document.getElementById('why-bugema-more').classList.remove('hidden');
-      document.getElementById('attachment-get-in-toch').classList.add('hidden');
-      document.getElementById('attachment-courses').classList.add('hidden');
-      document.getElementById('attachment-fees').classList.add('hidden');
-      document.getElementById('attachment-why-bugema').classList.remove('hidden');
+
 
 }
 
@@ -111,7 +96,7 @@ const handelScroll = () =>{
 
   return (
       <>
-        <div className=" fade-in fixed z-40 inset-0 bg-white flex w-full h-4/5 my-16 mt-[110px] border border-black overflow-auto overflow-x-hidden" id="wrapper" onScroll={handelScroll}>
+        <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex ml-[5%] mt-[10%] w-[90%] h-[60%] mt-[10%] border border-black overflow-auto overflow-x-hidden bg-white" id="wrapper" onMouseLeave={onClose} >
                   
                      
                   <div id="programs">
@@ -138,7 +123,7 @@ const handelScroll = () =>{
 
                         </div> 
 
-                        <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'25%'}}> 
+                        <div className="vertical-line ml-12 my-12 fade-in "  > 
                               <div className="mr-2 my-5 slider slide--fast">
                               <Link href={"/"}>
                                     <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main ' > <span id='Main' className='animated href=""'> Main Campus</span></h1> 
@@ -149,69 +134,33 @@ const handelScroll = () =>{
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' ><span id='Kampala' className='animated'>Kampala Campus</span></h1> 
                                     </Link>
                               </div>
-                              <div className="mr-2 my-5  slider slide--slower">
-                                    {/* <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '>  <span id='Mbale' className='animated'> Mbale Campus</span></h1>  */}
-                              </div>
-                              <div className="mr-2 my-5 slider slide--slowest ">
-                                    {/* <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' > <span className='animated' id='Kasese'> Kasese Campus</span></h1>  */}
-                              </div>
 
                               <div className="mr-2 my-5 slider slide--slowest ">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '> <span className='animated' id='Arua'> Arua Campus</span></h1> 
                               </div>
 
-                              {/*###===============================================================================
-                               A T T A C H M E N T   P I C T U R E S    U N D E R    T H E   F I R S T   C O L U M N 
-                               ==================================================================================###*/}
-                              <div id='attachment-get-in-toch' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
-                                    <div className='fade-in'>
-                                          
-                                    <Image src={burundi} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
-                                    </div>
-                                    
-                              </div> 
-                              <div id='attachment-fees' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
-                                    <div className='fade-in'>
-                                          
-                                    <Image src={palm_girls1} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
-                                    </div>
-                                    
-                              </div> 
-
-                              <div id='attachment-courses' className="slant-div-right bg-black text-white grid-rows-2"style={{marginTop:'20%',width:'111%',height:'40%'}}>
-                                    <div className='fade-in'>
-                                    <Image src={burundi} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
-                                    </div>
-                                    
-                              </div> 
-
-                              <div id='attachment-why-bugema' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
-                                    <div className='fade-in'>
-                                    <Image src={nurses1} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
-                                    </div>
-                                    
-                              </div> 
+                             
                         
                         </div>
                   
                   </div>
-                  <div className=" ml-12 my-24 fade-in " id='courses' style={{marginTop:'19%'}}> 
+                  <div className=" ml-12 my-[12%] fade-in " id='courses' > 
 
                          <h1  style={{marginRight:'5px'}} className='text-black text-center' >One institution, many worlds. <br/> Explore our Different Campuses and <br/> find your perfect fit ... </h1> 
                         
                   </div>
 
 
-                  <div className=' ml-20 vertical-line  transform -skew-x-12 'style={{marginTop:'12%'}}>
+                  <div className=' ml-20 my-12 vertical-line  '>
                   </div>
 
                   {/* SCIENCE AND TECHNOLOGY COURSES */}
-                  <div className='ml-10  my-24 transform '  id='IT'>
+                  <div className='ml-10  my-12 transform '  id='IT'>
                        
                         {/* ###============= C A M P U S E S   M O R E =================### */}
                         <div className='' id='courses-more'>
                               <div className=' ml-24 fade-in-slow '>
-                                          <Image src={gate} alt='img' width={350} height={450} className="-ml-5 my-10 "/>
+                                          <Image src={gate} alt='img' width={350} height={450} className="-ml-5  "/>
                               </div>
                               
                               <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='new-arr change-on-hover2 text-black'> Study  <FaArrowRight className='new-arr'/></h1>

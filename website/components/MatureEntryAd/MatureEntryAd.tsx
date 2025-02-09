@@ -28,8 +28,8 @@ export default function MatureEntryAd() {
             className="flex px-1 h-10 w-[240px] cursor-pointer items-center justify-center rounded-md bg-primary text-black shadow-md transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp"
           >
           <Link href="/docs/mature-entry-r.pdf" target="_blank" rel="noopener noreferrer">
-  <span className="text-white">Mature Entry results</span>
-</Link>
+                <span className="text-white">Mature Entry results</span>
+                </Link>
             
           </div>
         

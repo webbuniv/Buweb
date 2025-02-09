@@ -15,7 +15,6 @@ import "../../styles/index.css";
 import { FaChevronDown } from "react-icons/fa";
 import MobileNav from "../MobileNav/MobileNav";
 import menuData from "./menuData";
-import { Search } from "../AboveHeader/Search";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -33,7 +32,7 @@ const Header = () => {
   };
 
   const handleStickyNavbar = () => {
-    if (window.scrollY >= 700) {
+    if (window.scrollY >= 200) {
       setSticky(true);
     } else {
       setSticky(false);
@@ -140,15 +139,15 @@ const Header = () => {
         //     ? " bg-dark !fixed !z-[9999] ! bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100"
         //     : "absolute"
         // }`}
-        className={`hidden md:flex header left-0 w-full items-center ${
+        className={`hidden md:flex header left-0 z-40 w-full items-center ${
           sticky
             ? "bg-dark text-white top-0 !fixed !z-[9999] bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition"
-            : "absolute top-10 bg-dark text-white"
+            : "absolute top-12 bg-gradient-to-b from-black  text-white"
         }`}
       >
         <div className="container">
           <div className="relative flex items-center justify-between">
-            <div className="w-60 relative z-10">
+            <div className="w-60 relative z-10 ">
               <Link
                 href="/"
                 className={`header-logo block w-full ${
@@ -172,7 +171,7 @@ const Header = () => {
                 /> 
               </Link>
             </div> 
-            <div className="flex space-x-20 justify-between transform bg-white">
+            <div className="flex space-x-20 justify-between transform bg-transparent">
               <div>
                 <button
                   onClick={() => setNavbarOpen(!navbarOpen)}
@@ -199,15 +198,15 @@ const Header = () => {
 
                 <nav
                   id="navbarCollapse"
-                  className={`navbar hidden lg:block absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-dark lg:p-0 lg:opacity-100`}
+                  className={`navbar hidden lg:block absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100`}
                 >
-                  <ul className="block lg:flex bg-dark lg:space-x-8 top-0 left-0 h-full  text-black" >
+                  <ul className="block lg:flex bg-transparent lg:space-x-8 top-0 left-0 h-full  text-black" >
 
                   <li className="group relative">
                       <Link
                         href="/"
                         className={`nav hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onClick={close }
+                        onClick={close } onMouseEnter={close}
                         >
 
                         <span className={"hover:navlinks"}>
@@ -218,7 +217,7 @@ const Header = () => {
                     </li>
 
                     <li className="group relative">
-                      <div   className={`nav cursor-pointer hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`} onClick={first_modal }>
+                      <div   className={`nav cursor-pointer hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick={first_modal }>
 
                         <span className={showModel ? "active" : ""}>
                           Programs
