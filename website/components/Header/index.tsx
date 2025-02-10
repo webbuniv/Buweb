@@ -13,7 +13,6 @@ import image from "../../public/images/logo/bu_logo_nav.png";
 import "../../styles/nav.css";
 import "../../styles/index.css";
 import { FaChevronDown } from "react-icons/fa";
-import MobileNav from "../MobileNav/MobileNav";
 import menuData from "./menuData";
 
 const Header = () => {
