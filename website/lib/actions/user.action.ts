@@ -3,11 +3,9 @@
 import { createAdminClient, createSessionClient } from "@/lib/appwrite";
 import { appwriteConfig } from "@/lib/appwrite/config";
 import { Query, ID } from "node-appwrite";
-import { constructFileUrl, parseStringify } from "@/lib/utils";
+import { parseStringify } from "@/lib/utils";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { InputFile } from "node-appwrite/file";
-import { BinaryLike } from "crypto";
 
 export const getUserByEmail = async (email: string) => {
   const { databases } = await createAdminClient();

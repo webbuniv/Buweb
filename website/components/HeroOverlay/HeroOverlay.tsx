@@ -4,13 +4,10 @@ import { FaArrowDown } from "react-icons/fa6";
 
 const HeroOverlay = ({
   title,
-  title2,
   title3,
   subtitle,
   subtitle2,
   subtitle3,
-  buttonText,
-  buttonLink,
 }) => {
   return (
     <div className="overlayGeneral " >
@@ -18,16 +15,6 @@ const HeroOverlay = ({
         <h1 className="text-6xl mb-5">{title}</h1>
 
         <p className="text-2xl mt-5">{subtitle}</p>
-
-        {/* <Link
-          href={buttonLink}
-          className="button w-fit border-white animate-bounce bg-dark border-2 px-4 py-1 border-r-2 rounded hover:scale-105 transition-all duration-500"
-        >
-          <span className="flex flex-row gap-2 justify-center items-center">
-            {buttonText}
-            <FaArrowDown />
-          </span>
-        </Link> */}
       </div>
 
       <div className="hero-overlay2 flex flex-col  h-[30%] w-[100%] hidden lg:flex lg:flex-col   ">
@@ -49,12 +36,9 @@ const HeroOverlay = ({
 
         <div className="flex-1 hidden sm:block">
           {" "}
-          {/* Hide on small screens, show on medium and above */}
-         
           <h2 className="text-start text-2xl mb-[5%]   slider-right slide--slow ">
 
           </h2>
-         
         </div>
       </div>
     </div>

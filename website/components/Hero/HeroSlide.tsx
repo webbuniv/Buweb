@@ -15,12 +15,11 @@ const HeroSlide = ({ media }) => {
           </video>
           <HeroOverlay
             // title="BUGEMA UNIVERSITY"
-            title2="Service."
             title3="Where Head, Heart and Hands unite in"
             // subtitle="Excellence In Service"
             subtitle2="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity"
             subtitle3="to offer you Quality education with a hands-on experience. . ."
-            title={undefined} subtitle={undefined} buttonText={undefined} buttonLink={undefined}
+            title={undefined} subtitle={undefined} 
             // buttonText="Apply Now"
             // buttonLink="http://erms.bugemauniv.ac.ug/application"
           />
@@ -39,12 +38,11 @@ const HeroSlide = ({ media }) => {
           <div className=" absolute top-0 left-0 w-full h-full opacity-100 ">
           <HeroOverlay
               // title="BUGEMA UNIVERSITY"
-              title2=""
               title3=""
               // subtitle="Excellence In Service"
               subtitle2=""
               subtitle3=""
-              title={undefined} subtitle={undefined} buttonText={undefined} buttonLink={undefined}
+              title={undefined} subtitle={undefined} 
               // buttonText="Apply Now"
               // buttonLink="http://erms.bugemauniv.ac.ug/application"
             />
@@ -54,7 +52,7 @@ const HeroSlide = ({ media }) => {
             
               // subtitle2="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity"
               // subtitle3="to offer you Quality education with a hands-on experience. . ."
-              title={undefined} title2={undefined} title3={undefined} subtitle2={undefined} subtitle3={undefined} subtitle={undefined} buttonText={undefined} buttonLink={undefined} 
+              title={undefined}  title3={undefined} subtitle2={undefined} subtitle3={undefined} subtitle={undefined} 
             />
           </div>
         </>
