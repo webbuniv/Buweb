@@ -2,15 +2,9 @@
 
 import { createAdminClient } from '@/lib/appwrite';
 import { appwriteConfig } from '@/lib/appwrite/config';
-import { ID } from 'node-appwrite';
+import { ID, Query } from 'node-appwrite';
 import nodemailer from 'nodemailer';
-import { parseStringify } from '../utils';
-import { getUserByEmail } from './user.action';
 
-const handleError = (error: unknown, message: string) => {
-  console.error(message, error);
-  throw new Error(message);
-};
 
 const sendEmailNotification = async (email: string, content: string, subject: string) => {
   try {
@@ -19,25 +13,38 @@ const sendEmailNotification = async (email: string, content: string, subject: st
       port: 587,
       secure: false,
       auth: {
-        user: "your-email@gmail.com",
-        pass: "your-app-password",
+        user: "data@bugemauniv.ac.ug",
+        pass: "datateam@bu",
+      },
+      tls: {
+        rejectUnauthorized: false,
       },
     });
 
     const mailOptions = {
-      from: 'Your Company <your-email@gmail.com>',
+      from: 'data@bugemauniv.ac.ug',
       to: email,
       subject: subject,
       html: content,
     };
 
     const info = await transporter.sendMail(mailOptions);
-    console.log("Email sent:", info.messageId);
     return { success: true, messageId: info.messageId };
   } catch (error) {
-    console.error("Error sending email:", error);
     throw new Error("Failed to send email.");
   }
+};
+
+export const getUserByEmail = async (email: string) => {
+  const { databases } = await createAdminClient();
+
+  const result = await databases.listDocuments(
+    appwriteConfig.databaseId,
+    appwriteConfig.newsLetterCollectionId,
+    [Query.equal("email", [email])],
+  );
+
+  return result.total > 0 ? result.documents[0] : null;
 };
 
 export const CreateNewsLetter = async ({  
@@ -93,7 +100,7 @@ export const CreateNewsLetter = async ({
                             </tr>
                             <tr>
                                 <td style="padding: 0 30px 30px 30px;">
-                                    <a href="#" style="background-color: #4CAF50; color: #ffffff; text-decoration: none; padding: 12px 20px; border-radius: 5px; font-weight: bold; display: inline-block;">Explore Our Website</a>
+                                    <a href="https://www.bugemauniv.ac.ug/" style="background-color: #4CAF50; color: #ffffff; text-decoration: none; padding: 12px 20px; border-radius: 5px; font-weight: bold; display: inline-block;">Explore Our Website</a>
                                 </td>
                             </tr>
                         </table>
@@ -104,9 +111,6 @@ export const CreateNewsLetter = async ({
         </html>
         `;
 
-        await sendEmailNotification(email, content, "Welcome to Our Newsletter!");
-
-        return parseStringify({ accountId: response.$id });
+        await sendEmailNotification(email, content, "Welcome to Bugema University Newsletter!");
     }
-    return parseStringify({ accountId: existingUser.accountId });
 }

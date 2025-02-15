@@ -8,6 +8,7 @@ import { CreateNewsLetter } from "@/lib/actions/newletter.actions"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Mail } from "lucide-react"
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -41,26 +42,27 @@ const Contact: React.FC = () => {
   }
 
   return (
-    <section className="py-16 bg-gradient-to-b from-primary/5 to-background">
+    <section className="py-24 bg-gradient-to-b from-primary/5 to-background overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          <div className="lg:w-1/2">
+        <div className="flex flex-col lg:flex-row items-center gap-16">
+          <div className="lg:w-1/2 relative">
+            <div className="absolute inset-0 bg-primary/10 rounded-3xl transform -rotate-6"></div>
             <Image
               src="/images/graduation/ca.jpeg"
               width={600}
               height={400}
               alt="Subscribe to our Newsletter"
-              className="rounded-lg shadow-lg"
+              className="rounded-3xl shadow-2xl relative z-10 transform transition-transform duration-300 hover:scale-105"
             />
           </div>
           <div className="lg:w-1/2">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-2xl font-bold">Subscribe to our Newsletter</CardTitle>
-                <CardDescription>Stay updated with our latest news and updates.</CardDescription>
+            <Card className="backdrop-blur-sm bg-white/30 dark:bg-gray-800/30 border-none shadow-xl">
+              <CardHeader className="text-center">
+                <CardTitle className="text-3xl font-bold text-primary mb-2">Stay Connected</CardTitle>
+                <CardDescription className="text-lg">Join our newsletter and never miss an update!</CardDescription>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <Input
                       type="text"
@@ -68,6 +70,7 @@ const Contact: React.FC = () => {
                       placeholder="First Name"
                       value={formData.firstName}
                       onChange={handleChange}
+                      className="bg-white/50 dark:bg-gray-700/50 border-primary/20 focus:border-primary"
                     />
                     <Input
                       type="text"
@@ -75,6 +78,7 @@ const Contact: React.FC = () => {
                       placeholder="Last Name"
                       value={formData.lastName}
                       onChange={handleChange}
+                      className="bg-white/50 dark:bg-gray-700/50 border-primary/20 focus:border-primary"
                     />
                   </div>
                   <Input
@@ -83,12 +87,20 @@ const Contact: React.FC = () => {
                     placeholder="Email Address"
                     value={formData.email}
                     onChange={handleChange}
+                    className="bg-white/50 dark:bg-gray-700/50 border-primary/20 focus:border-primary"
                   />
-                  <Button type="submit" className="w-full">
-                    Subscribe
+                  <Button
+                    type="submit"
+                    className="w-full text-lg font-semibold py-6 bg-primary hover:bg-primary/90 transition-colors duration-300"
+                  >
+                    <Mail className="mr-2 h-5 w-5" /> Subscribe Now
                   </Button>
                 </form>
-                {status && <p className="mt-4 text-center text-sm font-medium text-primary">{status}</p>}
+                {status && (
+                  <p className="mt-6 text-center text-sm font-medium text-primary bg-primary/10 py-2 px-4 rounded-full">
+                    {status}
+                  </p>
+                )}
               </CardContent>
             </Card>
           </div>
@@ -98,4 +110,5 @@ const Contact: React.FC = () => {
   )
 }
 
-export default Contact;
+export default Contact
+
