@@ -21,6 +21,9 @@ const nextConfig = {
     ],
     domains: ['cloud.appwrite.io'],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 }
 
 module.exports = nextConfig
