@@ -7,6 +7,8 @@ import { constructFileUrl, parseStringify } from '@/lib/utils';
 import { revalidatePath } from 'next/cache';
 import { getCurrentUser } from '@/lib/actions/user.action';
 import { redirect } from 'next/navigation';
+import { getNewsletterSubscribers } from "./newsletter"
+import nodemailer from "nodemailer"
 
 const handleError = (error: unknown, message: string) => {
   console.error(message, error);
@@ -41,50 +43,87 @@ interface CreateNewsResponse {
   error?: string;
 }
 
-export async function CreateNews(previousState: any, formData: FormDataType): Promise<CreateNewsResponse> {
-  const { storage, databases } = await createAdminClient();
 
-  let fileID: string | undefined;
-  const file = formData.get('file') as File | null;
+const sendEmailNotification = async (email: string, content: string, subject: string) => {
+  try {
+    const transporter = nodemailer.createTransport({
+      host: "smtp-relay.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: "data@bugemauniv.ac.ug",
+        pass: "datateam@bu",
+      },
+      tls: {
+        rejectUnauthorized: false,
+      },
+    })
 
-  try{
-
-  if (file && file.size > 0 && file.name !== 'undefined') {
-    try {
-      const response = await storage.createFile(appwriteConfig.bucketId, ID.unique(), file);
-        fileID = response.$id;
-      } catch (error) {
-        return {
-          error: 'Error uploading file',
-        };
-      }
-    } else {
-      console.log('No file provided or file is invalid');
+    const mailOptions = {
+      from: '"Bugema University Data Team" <data@bugemauniv.ac.ug>',
+      to: email,
+      subject: subject,
+      html: content,
     }
 
-  const news = await databases.createDocument(
-    appwriteConfig.databaseId,
-    appwriteConfig.newsCollectionId,
-    ID.unique(),
-    {
-      title: formData.get('title') as string,
-      file: fileID,
-      category: formData.get('category') as string,
-      author: formData.get('author') as string,
-      date: formData.get('date') as string,
-      summary: formData.get('summary') as string,
-      content: formData.get('content') as string,
-    }
-
-  );
-
-    revalidatePath('/news');
-    return { success: true };
-  } catch (error: any) {
-    const errorMessage = error.response?.message || "Failed to create news document";
-    return { error: errorMessage };
+    const info = await transporter.sendMail(mailOptions)
+    return { success: true, messageId: info.messageId }
+  } catch (error) {
+    console.error("Failed to send email:", error)
+    return { success: false, error: "Failed to send email." }
   }
 }
+
+export async function CreateNews(previousState: any, formData: FormDataType): Promise<CreateNewsResponse> {
+  const { storage, databases } = await createAdminClient()
+
+  let fileID: string | undefined
+  const file = formData.get("file") as File | null
+
+  try {
+    if (file) {
+      const fileResponse = await storage.createFile(appwriteConfig.bucketId, ID.unique(), file)
+      fileID = fileResponse.$id
+    }
+
+    const news = await databases.createDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.newsCollectionId,
+      ID.unique(),
+      {
+        title: formData.get("title") as string,
+        file: fileID,
+        category: formData.get("category") as string,
+        author: formData.get("author") as string,
+        date: formData.get("date") as string,
+        summary: formData.get("summary") as string,
+        content: formData.get("content") as string,
+      },
+    )
+
+    // Send email notifications
+    const subscribers = await getNewsletterSubscribers()
+    const emailSubject = `New Article: ${news.title}`
+    const emailContent = `
+      <h1>New Article Published</h1>
+      <h2>${news.title}</h2>
+      <p>${news.summary}</p>
+      <p>Read more: <a href="${process.env.NEXT_PUBLIC_APP_URL}/news/${news.$id}">Click here</a></p>
+    `
+
+    for (const email of subscribers) {
+      await sendEmailNotification(email, emailContent, emailSubject)
+    }
+
+    revalidatePath("/news")
+    return { success: true }
+  } catch (error: any) {
+    const errorMessage = error.response?.message || "Failed to create news document"
+    return { error: errorMessage }
+  }
+}
+
+
 
 export const getNews = async  ({ 
   searchText = '',
