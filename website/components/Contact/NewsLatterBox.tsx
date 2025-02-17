@@ -1,131 +1,102 @@
-"use client";
-import React, { useState } from "react";
-import { subscribeToNewsletter } from "@/lib/requests";
-import { toast } from "sonner";
-import Brands from "../Brands";
-import Image from "next/image";
-import life from '@/public/images/graduation/ca.jpeg';
+"use client"
 
-const NewsLatterBox: React.FC = () => {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState("");
+import type React from "react"
+import { useState } from "react"
+import { toast } from "sonner"
+import Image from "next/image"
+import { CreateNewsLetter } from "@/lib/actions/newletter.actions"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+
+const NewsletterSubscription: React.FC = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+  })
+  const [status, setStatus] = useState("")
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus("");
+    e.preventDefault()
+    setStatus("")
 
-    if (!email) {
-      setStatus("Email is required");
-      return;
+    if (!formData.email || !formData.firstName || !formData.lastName) {
+      setStatus("All fields are required")
+      return
     }
 
     try {
-      await subscribeToNewsletter(email);
-      localStorage.setItem("newsletter", email);
-      toast.success(
-        "Subscribed to newsletter! Check your email to confirm your subscription."
-      );
-      setStatus(
-        "Subscribed to newsletter! Check your email to confirm your subscription."
-      );
+      await CreateNewsLetter({ email: formData.email, fname: formData.firstName, lname: formData.lastName })
+      toast.success("Subscribed to newsletter! Check your email to confirm your subscription.")
+      setStatus("Subscribed! Check your email to confirm.")
+      setFormData({ firstName: "", lastName: "", email: "" })
     } catch (error) {
-      setStatus("Failed to subscribe. Please try again.");
+      setStatus("Failed to subscribe. Please try again.")
     }
-  };
+  }
 
   return (
-    <div>
-      {/* On big devices */}
-      <div
-        className="hidden md:flex flex-row w-[1200px] mx-auto justify-start items-center gap-28 wow fadeInUp relative z-10 rounded-md bg-primary/[3%] p-8 dark:bg-primary/10"
-        data-wow-delay=".2s"
-      >
-        <div>
-          <Image src={life} width={400} height={400} alt="life" className="rounded" />
-        </div>
-        <div>
-          <div>
-            <h3 className="mb-2 text-2xl font-bold leading-tight text-black dark:text-white">
-              Subscribe to receive latest news and updates from us.
-            </h3>
-            <p className="mb-4 border-b border-body-color border-opacity-25 pb-4 text-base font-medium leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
-              Please subscribe to our newsletter
-            </p>
+    <section className="py-16 bg-gradient-to-b from-primary/5 to-background">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          <div className="lg:w-1/2">
+            <Image
+              src="/images/graduation/ca.jpeg"
+              width={600}
+              height={400}
+              alt="Subscribe to our Newsletter"
+              className="rounded-lg shadow-lg"
+            />
           </div>
-
-          <div>
-            <form onSubmit={handleSubmit}>
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
-              />
-              <button
-                type="submit"
-                className="duration-80 mb-4 w-full cursor-pointer rounded-md border border-transparent bg-primary py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
-              >
-                Subscribe
-              </button>
-              <p className="text-center text-base font-medium leading-relaxed text-body-color">
-                No spam guaranteed, so please don’t send any spam mail.
-              </p>
-              {status && (
-                <p
-                  className="mt-4 text-center text-base font-medium leading-relaxed "
-                  style={{ color: "green" }}
-                >
-                  {status}
-                </p>
-              )}
-            </form>
+          <div className="lg:w-1/2">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold">Subscribe to our Newsletter</CardTitle>
+                <CardDescription>Stay updated with our latest news and updates.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <Input
+                      type="text"
+                      name="firstName"
+                      placeholder="First Name"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                    />
+                    <Input
+                      type="text"
+                      name="lastName"
+                      placeholder="Last Name"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <Input
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                  <Button type="submit" className="w-full">
+                    Subscribe
+                  </Button>
+                </form>
+                {status && <p className="mt-4 text-center text-sm font-medium text-primary">{status}</p>}
+              </CardContent>
+            </Card>
           </div>
         </div>
-
       </div>
+    </section>
+  )
+}
 
-      {/* On small devices */}
-      <div
-        className="block md:hidden wow fadeInUp relative z-10 rounded-md bg-primary/[3%] p-8 dark:bg-primary/10 sm:p-11 lg:p-8 xl:p-11"
-        data-wow-delay=".2s"
-      >
-        <h3 className="mb-4 text-2xl font-bold leading-tight text-black dark:text-white">
-          Subscribe to receive latest news and updates from us.
-        </h3>
-        <p className="mb-11 border-b border-body-color border-opacity-25 pb-11 text-base font-medium leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
-          Please subscribe to our newsletter
-        </p>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
-          />
-          <button
-            type="submit"
-            className="duration-80 mb-4 w-full cursor-pointer rounded-md border border-transparent bg-primary py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
-          >
-            Subscribe
-          </button>
-          <p className="text-center text-base font-medium leading-relaxed text-body-color">
-            No spam guaranteed, so please don’t send any spam mail.
-          </p>
-          {status && (
-            <p
-              className="mt-4 text-center text-base font-medium leading-relaxed "
-              style={{ color: "green" }}
-            >
-              {status}
-            </p>
-          )}
-        </form>
-      </div>
-    </div>
-  );
-};
+export default NewsletterSubscription
 
-export default NewsLatterBox;
