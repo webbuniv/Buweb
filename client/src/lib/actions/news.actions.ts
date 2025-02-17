@@ -47,32 +47,30 @@ interface CreateNewsResponse {
 const sendEmailNotification = async (email: string, content: string, subject: string) => {
   try {
     const transporter = nodemailer.createTransport({
-      host: "smtp-relay.gmail.com",
-      port: 587,
-      secure: false,
+      service: "gmail",
       auth: {
-        user: "data@bugemauniv.ac.ug",
-        pass: "datateam@bu",
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
-      tls: {
-        rejectUnauthorized: false,
-      },
-    })
+
+    });
 
     const mailOptions = {
       from: '"Bugema University Data Team" <data@bugemauniv.ac.ug>',
       to: email,
       subject: subject,
       html: content,
-    }
+    };
 
-    const info = await transporter.sendMail(mailOptions)
-    return { success: true, messageId: info.messageId }
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Email sent successfully to:", email, "Message ID:", info.messageId);
+    return { success: true, messageId: info.messageId };
   } catch (error) {
-    console.error("Failed to send email:", error)
-    return { success: false, error: "Failed to send email." }
+    console.error("Failed to send email to:", email, "Error:", error);
+    return { success: false, error: "Failed to send email." };
   }
-}
+};
+
 
 export async function CreateNews(previousState: any, formData: FormDataType): Promise<CreateNewsResponse> {
   const { storage, databases } = await createAdminClient()
@@ -102,17 +100,78 @@ export async function CreateNews(previousState: any, formData: FormDataType): Pr
     )
 
     // Send email notifications
-    const subscribers = await getNewsletterSubscribers()
+    const subscribers = await getNewsletterSubscribers();
     const emailSubject = `New Article: ${news.title}`
     const emailContent = `
-      <h1>New Article Published</h1>
-      <h2>${news.title}</h2>
-      <p>${news.summary}</p>
-      <p>Read more: <a href="${process.env.NEXT_PUBLIC_APP_URL}/news/${news.$id}">Click here</a></p>
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>New Article from Bugema University</title>
+      </head>
+      <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+          <table role="presentation" style="width: 100%; border-collapse: collapse;">
+              <tr>
+                  <td align="center" style="padding: 0;">
+                      <table role="presentation" style="width: 600px; border-collapse: collapse; text-align: left; background-color: #ffffff;">
+                          <tr>
+                              <td style="padding: 20px 30px;">
+                                  <img src="https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/67a9b42b0011188988a3/view?project=674dcf7b003d57db960a&mode=admin" alt="Bugema University Logo" style="width: 150px; height: auto;">
+                              </td>
+                          </tr>
+                          <tr>
+                              <td style="padding: 30px 30px 20px 30px;">
+                                  <h1 style="margin: 0; color: #003366; font-size: 28px;">New Article: ${news.title}</h1>
+                                  <p style="margin: 20px 0; color: #666666; font-size: 16px; line-height: 1.5;">
+                                      ${news.summary}
+                                  </p>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td style="padding: 0 30px 30px 30px;">
+                                  <h2 style="color: #003366; font-size: 22px;">Article Details:</h2>
+                                  <ul style="color: #666666; font-size: 16px; line-height: 1.5;">
+                                      <li>Category: ${news.category}</li>
+                                      <li>Author: ${news.author}</li>
+                                      <li>Date: ${news.date}</li>
+                                  </ul>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td style="padding: 0 30px 30px 30px;">
+                                  <a href="https://www.bugemauniv.ac.ug/news/${news.$id}" style="background-color: #003366; color: #ffffff; text-decoration: none; padding: 12px 20px; border-radius: 5px; font-weight: bold; display: inline-block;">Read Full Article</a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td style="padding: 30px; background-color: #003366;">
+                                  <p style="margin: 0; color: #ffffff; font-size: 14px; line-height: 1.5; text-align: center;">
+                                      Stay connected with Bugema University:
+                                      <br><br>
+                                      <a href="#" style="color: #ffffff; text-decoration: none; margin: 0 10px;">Facebook</a> |
+                                      <a href="https://x.com/UnivBugema" style="color: #ffffff; text-decoration: none; margin: 0 10px;">Twitter</a> |
+                                      <a href="https://www.instagram.com/bugemauniv/" style="color: #ffffff; text-decoration: none; margin: 0 10px;">Instagram</a> |
+                                      <a href="https://www.linkedin.com/school/bugema-university/" style="color: #ffffff; text-decoration: none; margin: 0 10px;">LinkedIn</a>
+                                  </p>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td style="padding: 30px; text-align: center; font-size: 12px; color: #666666;">
+                                  <p>You're receiving this email because you subscribed to the Bugema University newsletter.</p>
+                                  <p>© ${new Date().getFullYear()} Bugema University. All rights reserved.</p>
+                                  <p>Bugema, Luweero, Uganda • <a href="mailto:info@bugemauniv.ac.ug" style="color: #003366;">info@bugemauniv.ac.ug</a></p>
+                              </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+          </table>
+      </body>
+      </html>
     `
 
     for (const email of subscribers) {
-      await sendEmailNotification(email, emailContent, emailSubject)
+      const emailResult = await sendEmailNotification(email, emailContent, emailSubject);
     }
 
     revalidatePath("/news")
@@ -122,7 +181,6 @@ export async function CreateNews(previousState: any, formData: FormDataType): Pr
     return { error: errorMessage }
   }
 }
-
 
 
 export const getNews = async  ({ 
