@@ -150,8 +150,9 @@ const why_bugema = () =>{
                               </li>
                               <li>
                               <div className="mr-2 my-5 fade-in-slow ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Blogs </h1> 
-                                    
+                                    <Link href="https://blog.bugemauniv.ac.ug">
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Blogs </h1> 
+                                    </Link>
                               </div>
                               </li>
                               
