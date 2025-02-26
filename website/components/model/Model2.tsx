@@ -136,9 +136,9 @@ const why_bugema = () =>{
                         <ul>
                               <li>
                               <div className="mr-2 my-5 fade-in-slow  ">
-                              
-                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Publications </h1> 
-                              
+                                    <Link href={'https://publications.bugemauniv.ac.ug'}>
+                                          <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Publications </h1> 
+                                    </Link>
                               </div>
                               </li>
                               
@@ -150,7 +150,9 @@ const why_bugema = () =>{
                               </li>
                               <li>
                               <div className="mr-2 my-5 fade-in-slow ">
+                              <Link href={'https://blog.bugemauniv.ac.ug/'}>
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Blogs </h1> 
+                              </Link>
                                     
                               </div>
                               </li>
@@ -187,10 +189,6 @@ const why_bugema = () =>{
                         </ul>
                         
                   </div>
-                  
-
-
-                              {/*###=============== FEES AND PAYMENTS ================###*/}
 
                   <div className=" fade-in ml-24 my-12 hidden "  id='fees'> 
                         <ul className='ml-10 my-20'>
