@@ -8,25 +8,37 @@ export type PublicationName = {
   };
 };
 
-export type PostMetadata = {
+interface User {
+  _id: string;
+  name: string;
+  image: string;
+}
+
+interface Comment {
+  _id: string;
+  user: string | User;
+  post: string | Post;
+  desc: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface Post {
+  _id: string;
   title: string;
-  subtitle?: string;
   slug: string;
-  brief: string; 
-  content: {
-    text: string;
-  };
-  coverImage: {
-    url: string;
-  };
-  author: {
-    name: string;
-    profilePicture: string;
-    tagline: string;
-  };
-  publishedAt
-  reactionCount
-};
+  desc: string;
+  img: string;
+  cat: string;
+  views: string[];
+  user: User;
+  comments: Comment[];
+  status: boolean;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
+
 
 type GetPostsResponse = {
   publication: {
