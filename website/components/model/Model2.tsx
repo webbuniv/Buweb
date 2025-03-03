@@ -1,16 +1,12 @@
-import React, { Children } from 'react';
+import React from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
 import imagenew from "../../public/images/nav/IMG_9313.jpg";
 import image from "../../public/images/nav/labs.jpg";
-import nurses from "../../public/images/nav/nurses.jpg";
-import nurses1 from "../../public/images/nav/nurses1.jpg";
-import burundi from "../../public/images/nav/burundi.jpg";
 import bucosa from "../../public/images/nav/bucosa.jpg";
 import palm_girls from "../../public/images/nav/palm-girls.jpg";
-import palm_girls1 from "../../public/images/nav/palm-girls1.jpg";
+
 import Image from "next/image";
 import { BiX } from 'react-icons/bi';
-import { useEffect, useState } from "react";
 import Link from 'next/link';
 
 
@@ -150,10 +146,9 @@ const why_bugema = () =>{
                               </li>
                               <li>
                               <div className="mr-2 my-5 fade-in-slow ">
-                              <Link href={'https://blog.bugemauniv.ac.ug/'}>
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Blogs </h1> 
-                              </Link>
-                                    
+                                    <Link href="https://blog.bugemauniv.ac.ug">
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Blogs </h1> 
+                                    </Link>
                               </div>
                               </li>
                               
