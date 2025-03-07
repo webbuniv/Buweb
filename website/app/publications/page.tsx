@@ -33,7 +33,7 @@ export default function PublicationFeed() {
   }
 
   return (
-    <div className="container w-full max-w-7xl mx-auto px-4 py-8">
+    <div className="container w-full max-w-7xl mx-auto pt-20 px-4 py-8">
       <div className="mb-8 text-center">
         <h2 className="text-3xl font-bold tracking-tight mb-2">Bugema University Publications</h2>
         <p className="text-muted-foreground">Explore our latest research and academic publications</p>
