@@ -13,8 +13,7 @@ import EventsAndNews from "@/components/EventsandNews/EventsAndNews";
 import CampusNews from "@/components/CampusNews";
 import Welcome from "@/components/Welcome/Welcome";
 import MatureEntryAd from "@/components/MatureEntryAd/MatureEntryAd";
-
-
+import PublicationFeed from "@/components/PublicationFeed/publication-feed"
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -29,6 +28,7 @@ export default function Home() {
       <ExploreBugema />
       <EventsAndNews />
       <CampusNews />
+      <PublicationFeed />
       <Blog />
       <Brands />
       <Contact />
