@@ -81,7 +81,7 @@ const Hero = () => {
 
 {CurrentSlide ===2 && <HeroOverlay 
               // title2="Service."
-              title3="Kick start your Higher Eduction at Bugema University "
+              title3="Kick start your Higher Education at Bugema University "
               subtitle2="https://erms.bugemauniv.ac.ug/application/"
               subtitle3="January Intake is Ongoing Apply Here"
               title={undefined}   subtitle={undefined} 
