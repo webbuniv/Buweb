@@ -13,7 +13,7 @@ import { Providers } from "./providers"
 export const metadata: Metadata = {
   title: {
     template: "%s | Bugema University",
-    default: "Bugema University - Excellence in Education",
+    default: "Bugema University - Excellence in Service",
   },
   description:
     "Bugema University is a premier institution of higher learning in Uganda, offering quality education with a focus on academic excellence, research, and holistic development.",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bugema University - Excellence in Education",
+    title: "Bugema University - Excellence in Service",
     description:
       "Discover academic excellence at Bugema University, a leading institution of higher learning in Uganda.",
     images: ["/bu_logo.png"],

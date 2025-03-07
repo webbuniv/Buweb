@@ -48,8 +48,11 @@ export function usePublications(itemsPerPage = 5): UsePublicationsResult {
 
         const data = response.data
 
-        const validPublications = data.filter(
-          (pub: Publication) => pub.title && !pub.title.includes("kdsfnvkefmkvfs") && pub.authors,
+        const validPublications = data
+            .filter(
+                (pub: Publication) => pub.title && !pub.title.includes("kdsfnvkefmkvfs") && pub.authors,
+            )
+            .sort((a, b) => (b.date && a.date ? new Date(b.date).getTime() - new Date(a.date).getTime() : 0)
         )
 
         setPublications(validPublications)

@@ -24,7 +24,7 @@ export default function PublicationFeed() {
     totalPages,
     currentItems,
     filteredPublications,
-  } = usePublications(3)
+  } = usePublications(6)
 
   // Function to truncate text
   const truncateText = (text: string | null, maxLength: number) => {
