@@ -83,7 +83,7 @@ const Hero = () => {
               // title2="Service."
               title3="Kick start your Higher Education at Bugema University "
               subtitle2="https://erms.bugemauniv.ac.ug/application/"
-              subtitle3="January Intake is Ongoing Apply Here"
+              subtitle3="January Intake is Ongoing.  Apply Here"
               title={undefined}   subtitle={undefined} 
             />}
 
