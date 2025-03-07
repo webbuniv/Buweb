@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import axios from "axios"
 import { ArrowLeft, Calendar, Download, ExternalLink, FileText, Share, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Badge } from "@/components/ui/badge"
+import { usePublications } from "@/lib/actions/publications.actions"
 
 interface Publication {
   item_uuid: string
@@ -19,58 +19,26 @@ interface Publication {
 }
 
 export function PublicationDetails({ id }: { id: string }) {
+  const { loading, error, getPublicationById, getRelatedPublications } = usePublications()
+
   const [publication, setPublication] = useState<Publication | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<Error | null>(null)
   const [relatedPublications, setRelatedPublications] = useState<Publication[]>([])
 
   useEffect(() => {
-    const fetchPublicationDetails = async () => {
-      try {
-        setLoading(true)
-        const response = await axios.get("https://api.bugemauniv.ac.ug/api/items")
-        const data = response.data
-
-        // Find the specific publication by ID
-        const foundPublication = data.find((pub: Publication) => pub.item_uuid === id)
-
-        if (foundPublication) {
-          setPublication(foundPublication)
-
-          // Find related publications (same author or similar date)
-          const related = data
-            .filter(
-              (pub: Publication) =>
-                pub.item_uuid !== id &&
-                ((pub.authors &&
-                  foundPublication.authors &&
-                  pub.authors.toLowerCase().includes(foundPublication.authors.split(",")[0].toLowerCase())) ||
-                  (pub.date &&
-                    foundPublication.date &&
-                    pub.date.split("-")[0] === foundPublication.date.split("-")[0])),
-            )
-            .slice(0, 3)
-
-          setRelatedPublications(related)
-        } else {
-          setError(new Error("Publication not found"))
-        }
-      } catch (err) {
-        console.error("Error fetching publication details:", err)
-        setError(err instanceof Error ? err : new Error("An unknown error occurred"))
-      } finally {
-        setLoading(false)
+    if (!loading) {
+      const foundPublication = getPublicationById(id)
+      if (foundPublication) {
+        setPublication(foundPublication)
+        setRelatedPublications(getRelatedPublications(foundPublication))
       }
     }
-
-    fetchPublicationDetails()
-  }, [id])
+  }, [id, loading, getPublicationById, getRelatedPublications])
 
   if (loading) {
     return (
-      <div className="container max-w-4xl mx-auto px-4 py-8">
+      <div className="container max-w-4xl pt-20 mx-auto px-4 py-8">
         <Button variant="ghost" className="mb-6" asChild>
-          <Link href="/">
+          <Link href="/#publications">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Publications
           </Link>
@@ -92,9 +60,9 @@ export function PublicationDetails({ id }: { id: string }) {
 
   if (error || !publication) {
     return (
-      <div className="container max-w-4xl mx-auto px-4 py-8">
+      <div className="container pt-20 max-w-4xl mx-auto px-4 py-8">
         <Button variant="ghost" className="mb-6" asChild>
-          <Link href="/">
+          <Link href="/#publications">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Publications
           </Link>
@@ -108,7 +76,7 @@ export function PublicationDetails({ id }: { id: string }) {
           </CardHeader>
           <CardContent>
             <Button asChild>
-              <Link href="/">Return to Publications</Link>
+              <Link href="/#publications">Return to Publications</Link>
             </Button>
           </CardContent>
         </Card>
@@ -117,7 +85,7 @@ export function PublicationDetails({ id }: { id: string }) {
   }
 
   return (
-    <div className="container max-w-4xl mx-auto px-4 py-8">
+    <div className="container pt-20 max-w-4xl mx-auto px-4 py-8">
       <Button variant="ghost" className="mb-6" asChild>
         <Link href="/">
           <ArrowLeft className="mr-2 h-4 w-4" />
@@ -141,13 +109,11 @@ export function PublicationDetails({ id }: { id: string }) {
               <Button variant="outline" size="icon">
                 <Share className="h-4 w-4" />
               </Button>
-              {publication.uri && (
                 <Button variant="outline" size="icon" asChild>
-                  <a href={publication.uri} target="_blank" rel="noopener noreferrer">
+                  <a href='https://buir.bugemauniv.ac.ug' target="_blank" rel="noopener noreferrer">
                     <Download className="h-4 w-4" />
                   </a>
                 </Button>
-              )}
             </div>
           </div>
         </CardHeader>

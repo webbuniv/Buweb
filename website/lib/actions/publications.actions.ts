@@ -27,6 +27,8 @@ interface UsePublicationsResult {
   totalPages: number
   currentItems: Publication[]
   itemsPerPage: number
+  getPublicationById: (id: string) => Publication | undefined
+  getRelatedPublications: (publication: Publication) => Publication[]
 }
 
 export function usePublications(itemsPerPage = 5): UsePublicationsResult {
@@ -49,11 +51,8 @@ export function usePublications(itemsPerPage = 5): UsePublicationsResult {
         const data = response.data
 
         const validPublications = data
-            .filter(
-                (pub: Publication) => pub.title && !pub.title.includes("kdsfnvkefmkvfs") && pub.authors,
-            )
-            .sort((a, b) => (b.date && a.date ? new Date(b.date).getTime() - new Date(a.date).getTime() : 0)
-        )
+          .filter((pub: Publication) => pub.title && !pub.title.includes("kdsfnvkefmkvfs") && pub.authors)
+          .sort((a, b) => (b.date && a.date ? new Date(b.date).getTime() - new Date(a.date).getTime() : 0))
 
         setPublications(validPublications)
         setFilteredPublications(validPublications)
@@ -107,6 +106,27 @@ export function usePublications(itemsPerPage = 5): UsePublicationsResult {
   const totalPages = Math.ceil(filteredPublications.length / itemsPerPage)
   const currentItems = filteredPublications.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
 
+  // Get a specific publication by ID
+  const getPublicationById = (id: string): Publication | undefined => {
+    return publications.find((pub) => pub.item_uuid === id)
+  }
+
+  // Get related publications for a given publication
+  const getRelatedPublications = (publication: Publication): Publication[] => {
+    if (!publication) return []
+
+    return publications
+      .filter(
+        (pub) =>
+          pub.item_uuid !== publication.item_uuid &&
+          ((pub.authors &&
+            publication.authors &&
+            pub.authors.toLowerCase().includes(publication.authors.split(",")[0].toLowerCase())) ||
+            (pub.date && publication.date && pub.date.split("-")[0] === publication.date.split("-")[0])),
+      )
+      .slice(0, 3)
+  }
+
   return {
     publications,
     filteredPublications,
@@ -122,5 +142,8 @@ export function usePublications(itemsPerPage = 5): UsePublicationsResult {
     totalPages,
     currentItems,
     itemsPerPage,
+    getPublicationById,
+    getRelatedPublications,
   }
 }
+

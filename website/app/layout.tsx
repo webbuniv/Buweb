@@ -58,14 +58,6 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#000000" },
-  ],
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
   icons: {
     icon: "/bu_logo.png",
     shortcut: "/bu_logo.png",
