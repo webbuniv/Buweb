@@ -132,7 +132,7 @@ const why_bugema = () =>{
                         <ul>
                               <li>
                               <div className="mr-2 my-5 fade-in-slow  ">
-                                    <Link href={'https://publications.bugemauniv.ac.ug'}>
+                                    <Link href={'/publications'}>
                                           <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Publications </h1> 
                                     </Link>
                               </div>
