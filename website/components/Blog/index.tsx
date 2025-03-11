@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import SectionTitle from "../Common/SectionTitle";
 import SingleBlog from "./SingleBlog";
-import { getPosts } from "@/lib/requests";
+// import { getPosts } from "@/lib/requests";
+import { getBlogs } from "@/lib/actions/blogs.actions";
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
@@ -10,8 +11,8 @@ const Blog = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const posts = await getPosts(9); 
-        setPosts(posts);
+        const posts = await getBlogs(); 
+        setPosts(posts.data);
       } catch (err) {
         setError(err);
       }
@@ -31,8 +32,8 @@ const Blog = () => {
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 md:gap-x-6 lg:gap-x-8 xl:grid-cols-3 mt-2">
           {posts.map((post) => (
-            <div key={post.node.id} className="w-full">
-              <SingleBlog key={post.node.id} post={post.node} />
+            <div key={post._id} className="w-full">
+              <SingleBlog key={post._id} post={post} />
               </div>
             ))}
         </div>
