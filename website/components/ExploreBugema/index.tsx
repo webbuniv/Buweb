@@ -115,7 +115,7 @@ const Video = () => {
             className="w-full h-full">
           </iframe> */}
 
-            <iframe className="overflow-x-hidden" width="500" height="315" src="https://www.youtube.com/embed/VQKqcE3HBX0?si=Oen4jblV21RISN28" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            <iframe className="overflow-x-hidden" width="500" height="315" src="https://www.youtube.com/embed/JXhx8grHl-M?si=v6pONihls9EULtGa" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>     
       </div>
       
