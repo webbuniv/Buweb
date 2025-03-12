@@ -15,6 +15,7 @@ import "slick-carousel/slick/slick-theme.css";
 export const heroMedia = [
   // { type: 'video', src: "https://res.cloudinary.com/do5ubr3sa/video/upload/v1719685852/ayxyrcvleddu33lelk69.mp4" },
 //   { type: 'video', src: "https://res.cloudinary.com/djlx5iqhe/video/upload/v1731087035/WhatsApp_Video_2024-11-08_at_17.28.31_f2ee4132_gcgn3h.mp4" },
+{ type: 'image', src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/67d1473b0039984aef2f/view?project=674dcf7b003d57db960a&mode=admin" },
 { type: 'image', src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/679ca181003bf8b3a85c/view?project=674dcf7b003d57db960a&mode=admin" },
   { type: 'image', src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/679ca11b002f83ac3f36/view?project=674dcf7b003d57db960a&mode=admin"},
 //   { type: 'no-overlay', src: "/images/graduation/three.jpeg"},
@@ -70,22 +71,21 @@ const Hero = () => {
               subtitle3="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity"
                subtitle2=""
               // subtitle3="to offer you Quality education with a hands-on experience. . ."
-              title={undefined} title2={undefined}  subtitle={undefined}   buttonText={undefined} buttonLink={undefined}
+              title={undefined}subtitle={undefined} 
             />}
             {CurrentSlide ===1 && <HeroOverlay 
               // title2="Service."
-              title3="Bugema University Hosts a Free Medical Camp Focused on treating patients Lymphedema"
+              title3="Bugema University Hosts a Free Medical Camp Focused on treating patients Lymphdema"
               subtitle2="https://www.bugemauniv.ac.ug/hospital"
               subtitle3="Read More"
-              title={undefined} title2={undefined}  subtitle={undefined} buttonText={undefined} buttonLink={undefined} 
-            />}
+              title={undefined}subtitle={undefined}             />}
 
 {CurrentSlide ===2 && <HeroOverlay 
               // title2="Service."
               title3="Kick start your Higher Education at Bugema University "
               subtitle2="https://erms.bugemauniv.ac.ug/application/"
-              subtitle3="January Intake is Ongoing Apply Here"
-              title={undefined} title2={undefined}  subtitle={undefined} buttonText={undefined} buttonLink={undefined} 
+              subtitle3="January Intake is Ongoing.  Apply Here"
+              title={undefined}   subtitle={undefined} 
             />}
 
       </section>
