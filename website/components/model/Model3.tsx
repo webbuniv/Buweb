@@ -96,7 +96,7 @@ const handelScroll = () =>{
 
   return (
       <>
-        <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex ml-[5%] mt-[10%] w-[90%] h-[60%] mt-[10%] border border-black overflow-auto overflow-x-hidden bg-white" id="wrapper" onMouseLeave={onClose} >
+        <div className=" fade-in fixed z-40 inset-0 backdrop-blur-lg   flex ml-[5%] mt-[10%] w-[90%] h-[60%] mt-[10%] rounded-3xl border border-black bg-gradient-to-b from-white  to-transparent overflow-auto overflow-x-hidden " id="wrapper" onMouseLeave={onClose} >
                   
                      
                   <div id="programs">
