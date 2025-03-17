@@ -216,7 +216,7 @@ const Header = () => {
                     </li>
 
                     <li className="group relative">
-                      <div   className={`nav cursor-pointer hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick={first_modal }>
+                      <div   className={`nav cursor-pointer hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onMouseEnter={first_modal }>
 
                         <span className={showModel ? "active" : ""}>
                           Programs
@@ -232,7 +232,7 @@ const Header = () => {
                       <div
                         className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
-                        onClick={second_modal}
+                        onMouseEnter={second_modal}
                       > 
                         <span className={showModel1 ? "active" : ""}>
                           Student life
@@ -247,7 +247,7 @@ const Header = () => {
                       <div
                         className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
-                        onClick={third_modal}
+                        onMouseEnter={third_modal}
                       >
                         <span className={showModel2 ? "active" : ""}>
                           Research
@@ -261,7 +261,7 @@ const Header = () => {
                       <div
                         className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
-                        onClick={forth_modal}
+                        onMouseEnter={forth_modal}
 
 
                       >
@@ -278,7 +278,7 @@ const Header = () => {
                       <div
                         className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
-                        onClick={fifth_modal}
+                        onMouseEnter={fifth_modal}
                       >
                         <span className={showModel4 ? "active" : ""}>
                           Contact Us
