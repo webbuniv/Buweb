@@ -1,296 +1,288 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import Model from "@/components/model/Model";
-import Model1 from "@/components/model/Model1";
-import Model2 from "@/components/model/Model2";
-import Model3 from "@/components/model/Model3";
-import Model4 from "@/components/model/Model4";
+"use client"
 
-import image from "../../public/images/logo/bu_logo_nav.png";
-
-import "../../styles/nav.css";
-import "../../styles/index.css";
-import { FaChevronDown } from "react-icons/fa";
-import menuData from "./menuData";
+import Image from "next/image"
+import Link from "next/link"
+import { useEffect, useState } from "react"
+import Model from "@/components/model/Model"
+import Model1 from "@/components/model/Model1"
+import Model2 from "@/components/model/Model2"
+import Model3 from "@/components/model/Model3"
+import Model4 from "@/components/model/Model4"
+import { FaChevronDown } from "react-icons/fa"
+import menuData from "./menuData"
+import { useTranslation } from "@/context/translation-context"
+import LanguageSwitcher from "@/components/language-switcher"
 
 const Header = () => {
-  const [navbarOpen, setNavbarOpen] = useState(false);
-  const [showModel4, setShowModel4] = useState(false);
-  const [showModel3, setShowModel3] = useState(false);
-  const [showModel, setShowModel] = useState(false);
-  const [showModel1, setShowModel1] = useState(false);
-  const [sticky, setSticky] = useState(false);
-  const [openIndex, setOpenIndex] = useState(-1);
-  const [showModel2, setShowModel2] = useState(false);
-  const [hideMobileNav, setHideMobileNav] = useState(false);
+  const [navbarOpen, setNavbarOpen] = useState(false)
+  const [showModel4, setShowModel4] = useState(false)
+  const [showModel3, setShowModel3] = useState(false)
+  const [showModel, setShowModel] = useState(false)
+  const [showModel1, setShowModel1] = useState(false)
+  const [sticky, setSticky] = useState(false)
+  const [openIndex, setOpenIndex] = useState(-1)
+  const [showModel2, setShowModel2] = useState(false)
+  const [hideMobileNav, setHideMobileNav] = useState(false)
+  const { t } = useTranslation()
 
   const navbarToggleHandler = () => {
-    setNavbarOpen(!navbarOpen);
-  };
+    setNavbarOpen(!navbarOpen)
+  }
 
   const handleStickyNavbar = () => {
     if (window.scrollY >= 200) {
-      setSticky(true);
+      setSticky(true)
     } else {
-      setSticky(false);
+      setSticky(false)
     }
     if (window.scrollY > 50) {
-      setHideMobileNav(true);
+      setHideMobileNav(true)
     } else {
-      setHideMobileNav(false);
+      setHideMobileNav(false)
     }
-  };
+  }
 
   useEffect(() => {
-    window.addEventListener("scroll", handleStickyNavbar);
+    window.addEventListener("scroll", handleStickyNavbar)
     return () => {
-      window.removeEventListener("scroll", handleStickyNavbar);
-    };
-  }, []);
+      window.removeEventListener("scroll", handleStickyNavbar)
+    }
+  }, [])
 
   const handleSubmenu = (index) => {
     if (openIndex === index) {
-      setOpenIndex(-1);
+      setOpenIndex(-1)
     } else {
-      setOpenIndex(index);
+      setOpenIndex(index)
     }
-  };
+  }
 
   useEffect(() => {
-    document.body.style.overflow = showModel ? "hidden" : "auto";
-  }, [showModel]);
+    document.body.style.overflow = showModel ? "hidden" : "auto"
+  }, [showModel])
 
   const first_modal = () => {
-    setShowModel((prevState)=>!prevState);
-    setShowModel1(false);
-    setShowModel2(false);
-    setShowModel3(false);
-    setShowModel4(false);
-  };
+    setShowModel((prevState) => !prevState)
+    setShowModel1(false)
+    setShowModel2(false)
+    setShowModel3(false)
+    setShowModel4(false)
+  }
 
   useEffect(() => {
-    document.body.style.overflow = showModel1 ? "hidden" : "auto";
-  }, [showModel1]);
+    document.body.style.overflow = showModel1 ? "hidden" : "auto"
+  }, [showModel1])
 
   const second_modal = () => {
-    setShowModel1((prevState)=>!prevState);
-    document.body.style.overflow = showModel1 ? "hidden" : "auto";
-    setShowModel(false);
-    setShowModel2(false);
-    setShowModel3(false);
-    setShowModel4(false);
-  };
+    setShowModel1((prevState) => !prevState)
+    document.body.style.overflow = showModel1 ? "hidden" : "auto"
+    setShowModel(false)
+    setShowModel2(false)
+    setShowModel3(false)
+    setShowModel4(false)
+  }
 
   useEffect(() => {
-    document.body.style.overflow = showModel2 ? "hidden" : "auto";
-  }, [showModel2]);
+    document.body.style.overflow = showModel2 ? "hidden" : "auto"
+  }, [showModel2])
 
   const third_modal = () => {
-    setShowModel2((prevState)=>!prevState);
-    setShowModel(false);
-    setShowModel1(false);
-    setShowModel3(false);
-    setShowModel4(false);
-  };
+    setShowModel2((prevState) => !prevState)
+    setShowModel(false)
+    setShowModel1(false)
+    setShowModel3(false)
+    setShowModel4(false)
+  }
 
   useEffect(() => {
-    document.body.style.overflow = showModel3 ? "hidden" : "auto";
-  }, [showModel3]);
+    document.body.style.overflow = showModel3 ? "hidden" : "auto"
+  }, [showModel3])
 
   const forth_modal = () => {
-    setShowModel3((prevState)=>!prevState);
-    setShowModel(false);
-    setShowModel1(false);
-    setShowModel2(false);
-    setShowModel4(false);
-  };
+    setShowModel3((prevState) => !prevState)
+    setShowModel(false)
+    setShowModel1(false)
+    setShowModel2(false)
+    setShowModel4(false)
+  }
 
   useEffect(() => {
-    document.body.style.overflow = showModel4 ? "hidden" : "auto";
-  }, [showModel4]);
+    document.body.style.overflow = showModel4 ? "hidden" : "auto"
+  }, [showModel4])
 
   const fifth_modal = () => {
-    setShowModel4((prevState)=>!prevState);
-    setShowModel3(false);
-    setShowModel(false);
-    setShowModel1(false);
-    setShowModel2(false);
-  };
+    setShowModel4((prevState) => !prevState)
+    setShowModel3(false)
+    setShowModel(false)
+    setShowModel1(false)
+    setShowModel2(false)
+  }
 
   const close = () => {
-    setShowModel4(false);
-    setShowModel3(false);
-    setShowModel(false);
-    setShowModel1(false);
-    setShowModel2(false);
-  };
-
-  
+    setShowModel4(false)
+    setShowModel3(false)
+    setShowModel(false)
+    setShowModel1(false)
+    setShowModel2(false)
+  }
 
   return (
     <>
-    {/* Header on big screens */}
+      {/* Header on big screens */}
       <header
-        // className={`hidden md:flex header top-0 left-0 z-40 w-full items-center  mt-[-8px] ${
-        //   sticky
-        //     ? " bg-dark !fixed !z-[9999] ! bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100"
-        //     : "absolute"
-        // }`}
         className={`hidden md:flex header left-0 z-40 w-full items-center ${
           sticky
             ? "bg-dark text-white top-0 !fixed !z-[9999] bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition"
-            : "absolute top-12 bg-gradient-to-b from-black  text-white"
+            : "absolute top-12 bg-gradient-to-b from-black text-white"
         }`}
       >
-        <div className="container">
-          <div className="relative flex items-center justify-between">
-            <div className="w-60 relative z-10 ">
-              <Link
-                href="/"
-                className={`header-logo block w-full ${
-
-                  sticky ? "py-2 lg:py-2" : " py-3"
-                }`}
-              > 
+        <div className="">
+          <div className="relative flex items-center justify-between w-full">
+            <div className="relative z-10 mr-20">
+              <Link href="/" className={`header-logo block ${sticky ? "py-2 lg:py-2" : "py-3"}`}>
                 <Image
-                  src={image}
+                  src={"/images/logo/bu_logo_nav.png"}
                   alt="logo"
                   width={4572}
                   height={1296}
-                  className="w-full dark:hidden"
+                  className="w-full max-w-[240px] dark:hidden"
                 />
                 <Image
-                  src={image}
+                  src={"/images/logo/bu_logo_nav.png"}
                   alt="logo"
                   width={100}
                   height={20}
-                  className="hidden w-full dark:block"
-                /> 
+                  className="hidden w-full max-w-[240px] dark:block"
+                />
               </Link>
-            </div> 
-            <div className="flex space-x-20 justify-between transform bg-transparent">
-              <div>
-                <button
-                  onClick={() => setNavbarOpen(!navbarOpen)}
-                  id="navbarToggler"
-                  aria-label="Mobile Menu"
-                  className="absolute right-4 top-1/2 block translate-y-[-50%] rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
-                >
-                  <span
-                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
-                      navbarOpen ? " top-[7px] rotate-45" : " "
-                    }`}
-                  />
-                  <span
-                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
-                      navbarOpen ? "opacity-0 " : " "
-                    }`}
-                  />
-                  <span
-                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
-                      navbarOpen ? " top-[-8px] -rotate-45" : " "
-                    }`}
-                  />
-                </button>
+            </div>
 
-                <nav
-                  id="navbarCollapse"
-                  className={`navbar hidden lg:block absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100`}
-                >
-                  <ul className="block lg:flex bg-transparent lg:space-x-8 top-0 left-0 h-full  text-black" >
+            <div className="flex justify-end">
+              <nav
+                id="navbarCollapse"
+                className={`navbar hidden lg:block z-30 rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100`}
+              >
+                <ul className="block lg:flex bg-transparent lg:space-x-8 top-0 left-0 h-full text-black">
+                  <li className="group relative">
+                    <Link
+                      href="/"
+                      className={`nav hover flex py-2 text-white text-md font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                      onClick={close}
+                      onMouseEnter={close}
+                    >
+                      <span className={"hover:navlinks"}>{t("common.home")}</span>
+                    </Link>
+                  </li>
 
                   <li className="group relative">
-                      <Link
-                        href="/"
-                        className={`nav hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onClick={close } onMouseEnter={close}
-                        >
-
-                        <span className={"hover:navlinks"}>
-                          Home
-                        </span>
-                        
-                      </Link>
-                    </li>
-
-                    <li className="group relative">
-                      <div   className={`nav cursor-pointer hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick={first_modal }>
-
-                        <span className={showModel ? "active" : ""}>
-                          Programs
-                        </span>
-                        <span className="my-1 ml-2 dark:text-dark  text-bold">
-                          <FaChevronDown className={showModel ? "drop" : "revert"} />
-                        </span>
-                      </div>
-                    </li>
-                    
-
-                    <li>
-                      <div
-                        className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-
-                        onClick={second_modal}
-                      > 
-                        <span className={showModel1 ? "active" : ""}>
-                          Student life
-                        </span>
-                        <span className="my-1 ml-2 dark:text-dark ">
-                          <FaChevronDown className={showModel1 ? "drop" : "revert"} />
-                        </span>
-                      </div>
-                    </li>
-
-                    <li>
-                      <div
-                        className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-
-                        onClick={third_modal}
+                    <div
+                      className={`nav cursor-pointer hover flex py-2 text-white text-md font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                      onClick={first_modal}
+                    >
+                      <span
+                        className={`${showModel ? "active" : ""} whitespace-nowrap text-[length:clamp(0.75rem,1.5vw,1rem)]`}
                       >
-                        <span className={showModel2 ? "active" : ""}>
-                          Research
-                        </span>
-                        <span className={"my-1 ml-2 dark:text-dark "}>
-                          <FaChevronDown className={showModel2 ? "drop" : "revert"} />
-                        </span>
-                      </div>
-                    </li>
-                    <li>
-                      <div
-                        className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        {t("common.programs")}
+                      </span>
+                      <span className="my-1 ml-2 dark:text-dark text-bold">
+                        <FaChevronDown className={showModel ? "drop" : "revert"} />
+                      </span>
+                    </div>
+                  </li>
 
-                        onClick={forth_modal}
-
-
+                  <li>
+                    <div
+                      className={`nav cursor-pointer hover flex py-2 text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                      onClick={second_modal}
+                    >
+                      <span
+                        className={`${showModel1 ? "active" : ""} whitespace-nowrap text-[length:clamp(0.75rem,1.5vw,1rem)]`}
                       >
-                        <span className={showModel3 ? "active" : ""}>
-                          Campuses
-                        </span>
-                        <span className="my-1 ml-2 dark:text-dark ">
-                          <FaChevronDown className={showModel3 ? "drop" : "revert"} />
-                        </span>
-                      </div>
-                    </li>
+                        {t("common.studentLife")}
+                      </span>
+                      <span className="my-1 ml-2 dark:text-dark">
+                        <FaChevronDown className={showModel1 ? "drop" : "revert"} />
+                      </span>
+                    </div>
+                  </li>
 
-                    <li>
-                      <div
-                        className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-
-                        onClick={fifth_modal}
+                  <li>
+                    <div
+                      className={`nav cursor-pointer hover flex py-2 text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                      onClick={third_modal}
+                    >
+                      <span
+                        className={`${showModel2 ? "active" : ""} whitespace-nowrap text-[length:clamp(0.75rem,1.5vw,1rem)]`}
                       >
-                        <span className={showModel4 ? "active" : ""}>
-                          Contact Us
-                        </span>
-                        <span className="my-1 ml-2 text-dark ">
-                          <FaChevronDown className={showModel4 ? "drop" : "revert"} />
-                        </span>
-                      </div>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
+                        {t("common.research")}
+                      </span>
+                      <span className={"my-1 ml-2 dark:text-dark"}>
+                        <FaChevronDown className={showModel2 ? "drop" : "revert"} />
+                      </span>
+                    </div>
+                  </li>
+                  <li>
+                    <div
+                      className={`nav cursor-pointer hover flex py-2 text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                      onClick={forth_modal}
+                    >
+                      <span
+                        className={`${showModel3 ? "active" : ""} whitespace-nowrap text-[length:clamp(0.75rem,1.5vw,1rem)]`}
+                      >
+                        {t("common.campuses")}
+                      </span>
+                      <span className="my-1 ml-2 dark:text-dark">
+                        <FaChevronDown className={showModel3 ? "drop" : "revert"} />
+                      </span>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div
+                      className={`nav cursor-pointer hover flex py-2 text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                      onClick={fifth_modal}
+                    >
+                      <span
+                        className={`${showModel4 ? "active" : ""} whitespace-nowrap text-[length:clamp(0.75rem,1.5vw,1rem)]`}
+                      >
+                        {t("common.contactUs")}
+                      </span>
+                      <span className="my-1 ml-2 text-dark">
+                        <FaChevronDown className={showModel4 ? "drop" : "revert"} />
+                      </span>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div className="nav cursor-pointer hover flex py-2 text-white font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0">
+                      <LanguageSwitcher />
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+
+              <button
+                onClick={() => setNavbarOpen(!navbarOpen)}
+                id="navbarToggler"
+                aria-label="Mobile Menu"
+                className="absolute right-4 top-1/2 block translate-y-[-50%] rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
+              >
+                <span
+                  className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
+                    navbarOpen ? " top-[7px] rotate-45" : " "
+                  }`}
+                />
+                <span
+                  className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
+                    navbarOpen ? "opacity-0 " : " "
+                  }`}
+                />
+                <span
+                  className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
+                    navbarOpen ? " top-[-8px] -rotate-45" : " "
+                  }`}
+                />
+              </button>
             </div>
           </div>
         </div>
@@ -306,23 +298,17 @@ const Header = () => {
       >
         <div className="container">
           <div className="relative -mx-4 flex items-center justify-between">
-
             <div className="w-full max-w-full px-4 xl:mr-12">
-              <Link
-                href="/"
-                className={`header-logo block w-full ${
-                  sticky ? "py-5 lg:py-2" : "py-8"
-                } `}
-              >
+              <Link href="/" className={`header-logo block w-full ${sticky ? "py-5 lg:py-2" : "py-8"} `}>
                 <Image
-                  src={image}
+                  src={"/images/logo/bu_logo_nav.png"}
                   alt="logo"
                   width={300}
                   height={30}
                   className="w-full dark:hidden"
-                  />
+                />
                 <Image
-                  src={image}
+                  src={"/images/logo/bu_logo_nav.png"}
                   alt="logo"
                   width={300}
                   height={30}
@@ -358,9 +344,7 @@ const Header = () => {
                 <nav
                   id="navbarCollapse"
                   className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-blue-700 py-4 px-6 duration-300 dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${
-                    navbarOpen
-                      ? "visibility top-full opacity-100"
-                      : "invisible top-[120%] opacity-0"
+                    navbarOpen ? "visibility top-full opacity-100" : "invisible top-[120%] opacity-0"
                   }`}
                 >
                   <ul className="block lg:flex lg:space-x-12">
@@ -371,7 +355,7 @@ const Header = () => {
                             href={menuItem.path}
                             className={`flex py-2 text-lg text-white group-hover:opacity-70 dark:text-white border-b border-body-color border-opacity-40 lg:mr-0 lg:inline-flex lg:py-6 lg:px-0`}
                           >
-                            {menuItem.title}
+                            {t(`common.${menuItem.translationKey}`)}
                           </Link>
                         ) : (
                           <>
@@ -379,7 +363,7 @@ const Header = () => {
                               onClick={() => handleSubmenu(index)}
                               className="flex cursor-pointer items-center justify-between py-2 text-lg border-b border-body-color border-opacity-40 text-white group-hover:opacity-70 dark:text-white lg:mr-0 lg:inline-flex lg:py-6 lg:px-0"
                             >
-                              {menuItem.title}
+                              {t(`common.${menuItem.translationKey}`)}
                               <span className="pl-3">
                                 <svg width="15" height="14" viewBox="0 0 15 14">
                                   <path
@@ -400,7 +384,7 @@ const Header = () => {
                                   key={submenuItem.id}
                                   className="block rounded py-2.5 text-base text-white hover:opacity-70 dark:text-white lg:px-3"
                                 >
-                                  {submenuItem.title}
+                                  {t(`${menuItem.translationSection}.${submenuItem.translationKey}`)}
                                 </Link>
                               ))}
                             </div>
@@ -408,6 +392,11 @@ const Header = () => {
                         )}
                       </li>
                     ))}
+                    <li className="group relative">
+                      <div className="flex py-2 text-lg text-white group-hover:opacity-70 dark:text-white border-b border-body-color border-opacity-40 lg:mr-0 lg:inline-flex lg:py-6 lg:px-0">
+                        <LanguageSwitcher />
+                      </div>
+                    </li>
                   </ul>
                 </nav>
               </div>
@@ -416,25 +405,21 @@ const Header = () => {
                   href="/signin"
                   className="hidden py-3 px-7 text-base font-bold text-dark hover:opacity-70 dark:text-white md:block"
                 >
-                  Sign In
+                  {t("common.login")}
                 </Link>
                 <Link
                   href="/signup"
                   className="ease-in-up hidden rounded-md bg-primary py-3 px-8 text-base font-bold text-white transition duration-300 hover:bg-opacity-90 hover:shadow-signUp md:block md:px-9 lg:px-6 xl:px-9"
                 >
-                  Sign Up
+                  {t("common.register")}
                 </Link>
               </div>
             </div>
           </div>
         </div>
       </header>
-      
-      {/* {navbarOpen && !hideMobileNav && (
-        <MobileNav setNavbarOpen={setNavbarOpen} navbarOpen={navbarOpen} />
-      )} */}
 
-<Model isvisible={showModel} onClose={() => setShowModel(false)}>
+      <Model isvisible={showModel} onClose={() => setShowModel(false)}>
         <></>
       </Model>
 
@@ -450,9 +435,9 @@ const Header = () => {
       <Model4 is4visible={showModel4} onClose={() => setShowModel4(false)}>
         <></>
       </Model4>
-      
     </>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
+

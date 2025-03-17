@@ -1,11 +1,15 @@
-"use client";
+"use client"
 
-import { ThemeProvider } from "next-themes";
+import type React from "react"
+
+import { ThemeProvider } from "next-themes"
+import { TranslationProvider } from "@/context/translation-context"
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider attribute="class" enableSystem={false} defaultTheme="light">
-      {children}
+      <TranslationProvider>{children}</TranslationProvider>
     </ThemeProvider>
-  );
+  )
 }
+

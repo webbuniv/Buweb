@@ -8,6 +8,8 @@ import { RiComputerLine } from "react-icons/ri"
 import { LinearText } from "./LinearText"
 import { Search } from "./Search"
 import { useTypingEffect } from "@/utils/hooks"
+import { useTranslation } from "@/context/translation-context"
+import LanguageSwitcher from "@/components/language-switcher"
 
 const statements = [
   "Greetings from Bugema University",
@@ -19,6 +21,7 @@ const statements = [
 const EnhancedNavbar: React.FC = () => {
   const [navbarOpen, setNavbarOpen] = useState(false)
   const displayedText = useTypingEffect(statements)
+  const { t } = useTranslation()
 
   return (
     <header className="bg-white shadow-md">
@@ -32,13 +35,13 @@ const EnhancedNavbar: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6">
             <AnimatedNavLink href="/calendar" icon={<FaCalendarAlt size={14} />}>
-              Calendar
+            {t("common.calendar")}
             </AnimatedNavLink>
             <AnimatedNavLink href="https://elearning.bugemauniv.ac.ug/" icon={<RiComputerLine size={14} />}>
-              eLearning
+            {t("common.eLearning")}
             </AnimatedNavLink>
             <AnimatedNavLink href="https://erms.bugemauniv.ac.ug/buerms/default.aspx/" icon={<FaUserCircle size={14} />}>
-              StaffPortal
+            {t("common.staffPortal")}
             </AnimatedNavLink>
             <DropdownNavLink
               items={[
@@ -47,6 +50,7 @@ const EnhancedNavbar: React.FC = () => {
               ]}
             >
               StudentsPortal
+              {/* {t("common.StudentsPortal")} */}
             </DropdownNavLink>
             <motion.a
               href="https://erms.bugemauniv.ac.ug/application/"
@@ -56,7 +60,7 @@ const EnhancedNavbar: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              ApplyNow
+              {t("common.applyNow")}
             </motion.a>
           </nav>
 
