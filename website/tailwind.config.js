@@ -38,7 +38,9 @@ module.exports = {
   		},
   		animation: {
   			'shrink-out': 'shrinkOut 1s forwards',
-  			'grow-in': 'growIn 1s forwards'
+  			'grow-in': 'growIn 1s forwards',
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
   		},
   		keyframes: {
   			shrinkOut: {
@@ -59,6 +61,22 @@ module.exports = {
   				'100%': {
   					transform: 'scale(1)',
   					opacity: '1'
+  				}
+  			},
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
   				}
   			}
   		},
