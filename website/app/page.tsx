@@ -13,8 +13,8 @@ import EventsAndNews from "@/components/EventsandNews/EventsAndNews";
 import CampusNews from "@/components/CampusNews";
 import Welcome from "@/components/Welcome/Welcome";
 import MatureEntryAd from "@/components/MatureEntryAd/MatureEntryAd";
-import PublicationFeed from "@/components/PublicationFeed/publication-feed"
 import PublicationSection from "@/components/PublicationFeed/publication-section"
+import { BugemaChatWidget } from "@/components/bugema-chat-widget"
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -35,6 +35,10 @@ export default function Home() {
       <Contact />
       <ScrollToTop />
       <MatureEntryAd />
+      <BugemaChatWidget
+        title="Bugema University Assistant"
+        initialMessage="Hello! Welcome to Bugema University. How can I help you with information about our programs, admissions, campus life, or other inquiries?"
+      />
     </>
   );
 }
