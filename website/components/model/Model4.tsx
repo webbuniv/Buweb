@@ -87,7 +87,7 @@ const why_bugema = () =>{
 }
   return (
       <>
-            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex  h-4/5 my-16 mt-[110px] border border-black overflow-auto overflow-x-hidden bg-white" id="wrapper" >
+            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-lg flex  h-4/5 my-16 mt-[110px] rounded-lg border border-black overflow-auto overflow-x-hidden bg-gradient-to-b from-white  to-transparent" id="wrapper" >
                   
                      
                   <div id="programs">
