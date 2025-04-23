@@ -13,6 +13,7 @@ import palm_girls from "../../public/images/nav/palm-girls.jpg";
 import palm_girls1 from "../../public/images/nav/palm-girls1.jpg";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { Phone } from 'lucide-react';
 
 
 const Model4 = ({is4visible, onClose, children}) => {
@@ -174,7 +175,7 @@ const why_bugema = () =>{
 
                                {/*###=============== S O C I A L   L I N K S ================###*/}
                               <Link
-                              href="/https://www.facebook.com"
+                              href="https://www.facebook.com/share/199ddE9pPn/"
                               aria-label="social-link"
                               className="mr-6 text-[#CED3F6] hover:text-primary"
                         
@@ -185,7 +186,7 @@ const why_bugema = () =>{
                               </svg>
                               </Link>
                               <Link
-                              href="/https://www.x.com"
+                              href="https://x.com/UnivBugema?t=speHfbZCjfGmRGbZDkczQA&s=09"
                               aria-label="social-link"
                               className="mr-6 text-[#CED3F6] hover:text-primary"
                               >
@@ -197,7 +198,7 @@ const why_bugema = () =>{
                               
 
                               <Link
-                              href="/https://www.youtube.com"
+                              href="https://www.linkedin.com/school/bugema-university/"
                               aria-label="social-link"
                               className="mr-6 text-[#CED3F6] hover:text-primary"
                               >
@@ -208,7 +209,7 @@ const why_bugema = () =>{
                               </Link>
                               
                               <Link
-                              href="/https://www.linkedin.com"
+                              href="https://www.tiktok.com/@bugemauniv?is_from_webapp=1&sender_device=pc"
                               aria-label="social-link"
                               className="mr-6 text-[#CED3F6] hover:text-primary"
                               >
@@ -218,7 +219,7 @@ const why_bugema = () =>{
                               </svg>
                               </Link>
                               <Link
-                              href="/https://www.instagram.com"
+                              href="https://www.instagram.com/bugemauniv?igsh=MWYwdzE0d3VrZ2YzNw=="
                               aria-label="social-link"
                               className="mr-6 text-[#CED3F6] hover:text-primary"
                               >
@@ -228,17 +229,8 @@ const why_bugema = () =>{
                               </svg>
                               </Link>
 
-                              <Link
-                              href="/"
-                              aria-label="social-link"
-                              className="mr-6 text-[#CED3F6] hover:text-primary"
-                              >
-                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
-                              <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clip-rule="evenodd" />
-                              </svg>
-
-
-                              </Link>
+                              
+                                <span className="text-gray-600"><a href="tel:+256 702 940003" ><Phone className="h-8 w-8 text-dark mr-2 " /></a></span>
                         </div>
                   </div>
                   
@@ -266,7 +258,7 @@ const why_bugema = () =>{
                         
                               <div className="ml-24 -mr-3 my-2 transform text-white grid-rows-2 " style={{borderRadius:'9px',}} >
                                     <div className='columns-1 bg-black  change-on-hover'>
-                                    <a href="tel:+256-312-351-400" className="nav-link p-0 text-body-secondary">
+                                    <a href="tel:+256 702 940003" className="nav-link p-0 text-body-secondary">
                                     <h1  style={{fontSize: '19px',cursor:"pointer",height:"50px"}} className='new-arr change-on-hover2'> Talk to Us <BiPhoneCall className='new-arr'/></h1>
                                     </a>
                                     </div>
