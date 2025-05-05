@@ -40,13 +40,11 @@ export async function sendEmail(formData: FormData): Promise<{
   try {
     // Create a transporter using Google Workspace SMTP settings
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 587,
-      secure: false, // Use TLS
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD,
-      },
+        service: "gmail",
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
+        },
     })
 
     // Format the current date
@@ -153,7 +151,7 @@ export async function sendEmail(formData: FormData): Promise<{
 
     // Define email content
     const mailOptions = {
-      from: `"Bugema University Contact" <${process.env.EMAIL_USER}>`,
+      from: `"Bugema University Data Team" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_TO || process.env.EMAIL_USER,
       replyTo: email, // Set reply-to as the submitter's email
       subject: "New Contact Form Submission - Bugema University",
