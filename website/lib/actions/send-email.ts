@@ -12,7 +12,11 @@ const EmailFormSchema = z.object({
 
 type EmailFormData = z.infer<typeof EmailFormSchema>
 
-export async function sendEmail(formData: FormData) {
+export async function sendEmail(formData: FormData): Promise<{
+  success: boolean
+  message: string
+  errors?: { email?: string[]; contact?: string[]; message?: string[] }
+}> {
   // Extract form data
   const email = formData.get("email") as string
   const contact = formData.get("contact") as string
