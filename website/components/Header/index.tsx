@@ -447,7 +447,7 @@ const Header = () => {
       <Model3 is3visible={showModel3} onClose={() => setShowModel3(false)}>
         <></>
       </Model3>
-      <Model4 is4visible={showModel4} onClose={() => setShowModel4(false)}>
+      <Model4 is4visible={showModel4} onClose={() => setShowModel4(false)} palmGirlsImage="/placeholder.svg?height=450&width=350">
         <></>
       </Model4>
       
