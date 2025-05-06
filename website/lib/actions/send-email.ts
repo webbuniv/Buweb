@@ -172,9 +172,7 @@ To reply to this message, simply respond to this email.
       html: htmlTemplate,
     }
 
-    // Send email
     const info = await transporter.sendMail(mailOptions)
-    console.log("Message sent: %s", info.messageId)
 
     return {
       success: true,
