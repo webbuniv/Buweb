@@ -15,25 +15,21 @@ import School from "@/components/school/School"
 import { Calendar, GraduationCap, HeartPulse, Stethoscope, Users, Award, BookOpen } from "lucide-react"
 
 const lecturers = [
+  
   {
-    name: "Prof. Sarah Nakimera",
-    image: "/images/lecturers/sarah-nakimera.jpg",
-    qualification: "Ph.D. in Public Health",
-  },
-  {
-    name: "Dr. Robert Mukasa",
+    name: "Mrs.Jackline Nakimuli",
     image: "/images/lecturers/robert-mukasa.jpg",
-    qualification: "Ph.D. in Nursing Science",
+    qualification: "Head of Department Nursing and Midwifery",
   },
   {
-    name: "Dr. Jane Nambi",
+    name: "Mrs.Agnes Katusabe",
     image: "/images/lecturers/jane-nambi.jpg",
-    qualification: "Ph.D. in Epidemiology",
+    qualification: "Principal (Certificate and Diploma)",
   },
   {
-    name: "Dr. Michael Ssekandi",
+    name: "Mr.Awio Alex",
     image: "/images/lecturers/michael-ssekandi.jpg",
-    qualification: "Ph.D. in Health Informatics",
+    qualification: "Lecturer (Diploma in Nursing)",
   },
 ]
 
@@ -128,7 +124,7 @@ export default function SchoolOfHealth() {
         title="School of Health"
         subtitle="Developing compassionate healthcare professionals through excellence in education, research, and service"
         topImg={["https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/67d1473b0039984aef2f/view?project=674dcf7b003d57db960a&mode=admin"]}
-        dean="PROF. SARAH NAKIMERA"
+        dean="MR.MICHEAL W. KHAYEMBA"
         deanImage="/images/deans/sarah-nakimera.jpg"
         message="The School of Health at Bugema University is dedicated to preparing healthcare professionals who combine clinical excellence with compassionate care. Our innovative curriculum integrates theoretical knowledge with practical skills, ensuring our graduates are ready to address the complex health challenges of our communities and beyond. We are committed to advancing health equity through education, research, and service."
         preamble=""
