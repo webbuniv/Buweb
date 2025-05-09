@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
-import { FaChevronDown, FaCalendarAlt, FaGraduationCap, FaUserCircle, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube, FaTwitch } from "react-icons/fa"
+import { FaChevronDown, FaCalendarAlt, FaGraduationCap, FaUserCircle, FaFacebookF, FaTwitter, FaLinkedinIn, FaTiktok, FaYoutube, FaTwitch } from "react-icons/fa"
 import { RiComputerLine } from "react-icons/ri"
 import { LinearText } from "./LinearText"
 import { Search } from "./Search"
@@ -12,7 +12,7 @@ import { useTypingEffect } from "@/utils/hooks"
 const statements = [
   "Greetings from Bugema University",
   "Get Your Admission Now",
-  "January Intake is Ongoing",
+  // "January Intake is Ongoing",
   "Step Into Excellence",
 ]
 
@@ -62,10 +62,10 @@ const EnhancedNavbar: React.FC = () => {
 
           {/* Social Media Icons */}
           <div className="hidden lg:flex items-center space-x-2">
-            <SocialIcon href="https://facebook.com" icon={<FaFacebookF size={14} />} />
-            <SocialIcon href="https://twitter.com" icon={<FaTwitter size={14} />} />
-            <SocialIcon href="https://instagram.com" icon={<FaInstagram size={14} />} />
-            <SocialIcon href="https://linkedin.com" icon={<FaLinkedinIn size={14} />} />
+            <SocialIcon href="https://www.facebook.com/share/199ddE9pPn" icon={<FaFacebookF size={14} />} />
+            <SocialIcon href="https://twitter.com/UnivBugema" icon={<FaTwitter size={14} />} />
+            <SocialIcon href="https://youtube.com/@bugemauniversity3502" icon={<FaYoutube size={14} />} />
+            <SocialIcon href="https://www.tiktok.com/@BugemaUniv" icon={<FaTiktok size={14} />} />
           </div>
 
           {/* Mobile Navigation */}
