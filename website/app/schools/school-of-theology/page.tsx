@@ -8,10 +8,21 @@ import School from "@/components/school/School"
 
 const lecturers = [
   {
-    name: "DR ANTHONY ACHIGA",
+    name: "Mr. ANTHONY ACHIGA",
     image: "/images/schools/Achiga.jpg",
-    qualification: "Ph.D. in Theology",
+    qualification: "Dean Of Theology",
   },
+  {
+    name: "DR Javan K. Halerimana",
+    image: "/blank/blank.jpg",
+    qualification: "HOD Department of Theology",
+  },
+  {
+    name: "Mr. Kaahwa Bright Amos",
+    image: "/blank/blank.jpg",
+    qualification: "HOD Department of Religious Stidies",
+  },
+
   // Add more lecturers as needed
 ]
 
