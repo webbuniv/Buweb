@@ -15,17 +15,12 @@ const lecturers = [
   {
     name: "DR Javan K. Halerimana",
     image: "/blank/blank.jpg",
-    qualification: "Ph.D. in Theology",
+    qualification: "HOD Department of Theology",
   },
   {
-    name: "DR ANTHONY ACHIGA",
-    image: "/images/schools/Achiga.jpg",
-    qualification: "Ph.D. in Theology",
-  },
-  {
-    name: "DR ANTHONY ACHIGA",
-    image: "/images/schools/Achiga.jpg",
-    qualification: "Ph.D. in Theology",
+    name: "Mr. Kaahwa Bright Amos",
+    image: "/blank/blank.jpg",
+    qualification: "HOD Department of Religious Stidies",
   },
 
   // Add more lecturers as needed
