@@ -10,24 +10,24 @@ import School from "@/components/school/School"
 
 const lecturers = [
   {
-    name: "Dr. John Doe",
-    image: "/images/lecturers/john-doe.jpg",
-    qualification: "Ph.D. in Computer Science",
+    name: "Mr. Muwanga Kosea Erasto",
+    image: "/blank/blank.jpg",
+    qualification: "HOD. Computing and Informatics ",
   },
   {
-    name: "Prof. Jane Smith",
-    image: "/images/lecturers/jane-smith.jpg",
-    qualification: "Ph.D. in Biochemistry",
+    name: "Mr. Kasibe Isima Isaiah",
+    image: "/blank/blank.jpg",
+    qualification: "HOD. Life and Physical Sciences",
   },
   {
-    name: "Dr. Michael Johnson",
-    image: "/images/lecturers/michael-johnson.jpg",
-    qualification: "Ph.D. in Statistics",
+    name: "Dr. Opio Peter",
+    image: "/blank/blank.jpg",
+    qualification: "Lecturer (Life and Physical)",
   },
   {
-    name: "Dr. Emily Brown",
-    image: "/images/lecturers/emily-brown.jpg",
-    qualification: "Ph.D. in Information Technology",
+    name: "Mrs. Nantege Hellen",
+    image: "/blank/blank_girl.jpg",
+    qualification: "Lecturer (Computing and Informatics)",
   },
   // Add more lecturers as needed
 ]
@@ -44,8 +44,8 @@ export default function SchoolOfScience() {
           "/images/schools/computer-lab.jpg",
           "/images/schools/science-experiment.jpg",
         ]}
-        dean="DR. LOWU FRANCIS"
-        deanImage="/images/schools/commando.jpg"
+        dean="DR. NAGWOVUMA MARGARET"
+        deanImage="/blank/blank_girl.jpg"
         message="As technology evolves, so are our teaching approaches. We prepare you for current and future industrial revolutions, making you ready to solve tomorrow's challenges."
         preamble="The School of Science and Technology prepares professionals to harness the potential of computer and information sciences to provide relevant solutions. Our faculty and students are engaged in ongoing research projects and development of computer solutions in areas of education, health, public administration, information management, e-commerce, and agriculture."
         goal="Empowering Innovative Minds"
