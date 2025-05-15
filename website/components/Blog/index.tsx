@@ -31,11 +31,11 @@ const Blog = () => {
         />
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 md:gap-x-6 lg:gap-x-8 xl:grid-cols-3 mt-2">
-          {posts.map((post) => (
+          {posts.slice(0, 3).map((post) => (
             <div key={post._id} className="w-full">
               <SingleBlog key={post._id} post={post} />
-              </div>
-            ))}
+            </div>
+          ))}
         </div>
       </div>
     </section>
