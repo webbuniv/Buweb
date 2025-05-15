@@ -14,6 +14,7 @@ import "../../styles/nav.css";
 import "../../styles/index.css";
 import { FaChevronDown } from "react-icons/fa";
 import menuData from "./menuData";
+import Router from "next/router";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -25,7 +26,7 @@ const Header = () => {
   const [openIndex, setOpenIndex] = useState(-1);
   const [showModel2, setShowModel2] = useState(false);
   const [hideMobileNav, setHideMobileNav] = useState(false);
-
+ const router = Router
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
   };
@@ -275,9 +276,9 @@ const Header = () => {
                     </li>
 
                     <li>
+                      <Link href="/contact" >
                       <div
                         className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-
                         onMouseEnter={fifth_modal}
                       >
                         <span className={showModel4 ? "active" : ""}>
@@ -287,6 +288,7 @@ const Header = () => {
                           <FaChevronDown className={showModel4 ? "drop" : "revert"} />
                         </span>
                       </div>
+                      </Link>
                     </li>
                   </ul>
                 </nav>
