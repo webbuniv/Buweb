@@ -8,9 +8,24 @@ import School from "@/components/school/School"
 
 const lecturers = [
   {
-    name: "DR. SSERUNJOGI CHARLES",
+    name: "Ms. Nakato Victo",
+    image: "/blank/blank_girl.jpg",
+    qualification: "Masters in Counselling and Psychology",
+  },
+  {
+    name: "Mr. Agaba Hudson",
     image: "/blank/blank.jpg",
-    qualification: "Ph.D. in Social Sciences",
+    qualification: "Masters of Social Work",
+  },
+  {
+    name: "Mr. Enock Katamba",
+    image: "/blank/blank.jpg",
+    qualification: "Masters in Development Studies",
+  },
+  {
+    name: "Mrs. Priscille Harelimana",
+    image: "/blank/blank_girl.jpg",
+    qualification: "Masters in Development Studies",
   },
   // Add more lecturers as needed
 ]
@@ -33,7 +48,7 @@ export default function SchoolOfSocialSciences() {
         title="School of Social Sciences"
         subtitle="Impart in student-teachers knowledge and skills that will make them effective and efficient teachers in various levels of education."
         topImg={["/images/schools/ss-hero.jpg"]}
-        dean="DR. SSERUNJOGI CHARLES"
+        dean="DR. OLOO STEVEN NYANJWA"
         deanImage="/blank/blank.jpg"
         message="Having made a choice to join the school of education Bugema University, I take this opportunity to welcome you and assure you that you have made the best decision. As school of education, we look forward to serving you with a complete package."
         preamble="The School of Education believes that a true teacher is one that is mentally, physically and spiritually sound to impart the same virtues in his/her learners making them best suited for service to God and mankind in this world and in the world to come."
