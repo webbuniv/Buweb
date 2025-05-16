@@ -7,6 +7,7 @@ import Model1 from "@/components/model/Model1";
 import Model2 from "@/components/model/Model2";
 import Model3 from "@/components/model/Model3";
 import Model4 from "@/components/model/Model4";
+import Advert from "../model/advertmodel";
 
 import image from "../../public/images/logo/bu_logo_nav.png";
 
@@ -25,6 +26,7 @@ const Header = () => {
   const [sticky, setSticky] = useState(false);
   const [openIndex, setOpenIndex] = useState(-1);
   const [showModel2, setShowModel2] = useState(false);
+  const [advertvisible, setadvertvisible] = useState(true);
   const [hideMobileNav, setHideMobileNav] = useState(false);
  const router = Router
   const navbarToggleHandler = () => {
@@ -45,6 +47,9 @@ const Header = () => {
   };
 
   useEffect(() => {
+        setTimeout(()=>{
+                setadvertvisible(false)
+        },5000)
     window.addEventListener("scroll", handleStickyNavbar);
     return () => {
       window.removeEventListener("scroll", handleStickyNavbar);
@@ -452,7 +457,10 @@ const Header = () => {
       <Model4 is4visible={showModel4} onClose={() => setShowModel4(false)} palmGirlsImage="/placeholder.svg?height=450&width=350">
         <></>
       </Model4>
-      
+
+      <Advert isadvertvisible={advertvisible} onClose={() => setadvertvisible(false)} >
+        <></>
+      </Advert>
     </>
   );
 };
