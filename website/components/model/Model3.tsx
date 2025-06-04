@@ -1,16 +1,8 @@
 import React, { Children } from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
-import imagenew from "../../public/images/nav/IMG_9313.jpg";
-import image from "../../public/images/nav/labs.jpg";
 import gate from "../../public/images/nav/gate.jpg";
-import nurses1 from "../../public/images/nav/nurses1.jpg";
-import burundi from "../../public/images/nav/burundi.jpg";
-import bucosa from "../../public/images/nav/bucosa.jpg";
-import palm_girls from "../../public/images/nav/palm-girls.jpg";
-import palm_girls1 from "../../public/images/nav/palm-girls1.jpg";
 import { BiX } from 'react-icons/bi';
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import Link from 'next/link';
 
 
@@ -96,7 +88,7 @@ const handelScroll = () =>{
 
   return (
       <>
-        <div className=" fade-in fixed z-40 inset-0 backdrop-blur-lg   flex ml-[5%] mt-[10%] w-[90%] h-[60%] mt-[10%] rounded-3xl border border-black bg-gradient-to-b from-white  to-transparent overflow-auto overflow-x-hidden " id="wrapper" onMouseLeave={onClose} >
+        <div className=" fade-in fixed z-40 inset-0   flex mx-auto mt-[8%] w-[97%] h-3/4 shadow-lg bg-white overflow-auto overflow-x-hidden " id="wrapper" onMouseLeave={onClose} >
                   
                      
                   <div id="programs">
@@ -160,12 +152,28 @@ const handelScroll = () =>{
                         {/* ###============= C A M P U S E S   M O R E =================### */}
                         <div className='' id='courses-more'>
                               <div className=' ml-24 fade-in-slow '>
-                                          <Image src={gate} alt='img' width={350} height={450} className="-ml-5  "/>
+                                          <Image src={gate} alt='img' width={350} height={450} className="-ml-5 rounded-tr-3xl rounded-bl-3xl  "/>
                               </div>
                               
-                              <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='new-arr change-on-hover2 text-black'> Study  <FaArrowRight className='new-arr'/></h1>
-                                    
-                              <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='new-arr change-on-hover2 text-black'> Study  <FaArrowRight className='new-arr'/></h1>      
+                              <div className="ml-5 mt-5 text-black grid grid-cols-2 gap-3 fade-in " >
+                                        <div className=' p-3 border border-black hover:bg-dark hover:text-white  change-on-hover rounded-full'>
+                                                <Link href='https://apply.bugemauniv.ac.ug'>
+                                                <h1  className='new-arr'> Apply now <FaArrowRight className='arrow1'/></h1>
+                                                </Link> 
+                                        </div>
+
+                                        <div className=' p-3 border border-black hover:bg-dark hover:text-white  change-on-hover rounded-full'>
+                                                <Link href='https://erms.bugemauniv.ac.ug/student/login/'>
+                                                <h1   className='new-arr'>Students&apos; portal <FaArrowRight className='arrow1'/></h1>
+                                                </Link> 
+                                        </div>
+
+                                        <div className=' p-3 border border-black hover:bg-dark hover:text-white  change-on-hover rounded-full'>
+                                        <Link href='https://elearning.bugemauniv.ac.ug/'>
+                                                <h1   className='new-arr'>E-Learnig <FaArrowRight className='arrow1'/></h1>
+                                        </Link> 
+                                        </div>
+                              </div>       
 
                         </div>
                           

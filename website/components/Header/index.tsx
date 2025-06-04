@@ -222,7 +222,7 @@ const Header = () => {
                     </li>
 
                     <li className="group relative">
-                      <div   className={`nav cursor-pointer hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onMouseEnter={first_modal }>
+                      <div   className={`nav cursor-pointer hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick={first_modal }>
 
                         <span className={showModel ? "active" : ""}>
                           Programs
@@ -238,7 +238,7 @@ const Header = () => {
                       <div
                         className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
-                        onMouseEnter={second_modal}
+                        onClick={second_modal}
                       > 
                         <span className={showModel1 ? "active" : ""}>
                           Student life
@@ -253,7 +253,7 @@ const Header = () => {
                       <div
                         className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
-                        onMouseEnter={third_modal}
+                        onClick={third_modal}
                       >
                         <span className={showModel2 ? "active" : ""}>
                           Research
@@ -267,7 +267,7 @@ const Header = () => {
                       <div
                         className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
-                        onMouseEnter={forth_modal}
+                        onClick={forth_modal}
 
 
                       >
@@ -281,10 +281,9 @@ const Header = () => {
                     </li>
 
                     <li>
-                      <Link href="/contact" >
                       <div
                         className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onMouseEnter={fifth_modal}
+                        onClick={fifth_modal}
                       >
                         <span className={showModel4 ? "active" : ""}>
                           Contact Us
@@ -293,7 +292,6 @@ const Header = () => {
                           <FaChevronDown className={showModel4 ? "drop" : "revert"} />
                         </span>
                       </div>
-                      </Link>
                     </li>
                   </ul>
                 </nav>

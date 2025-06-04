@@ -1,13 +1,7 @@
-import React, { Children } from 'react';
-import { FaArrowRight } from 'react-icons/fa6';
-import imagenew from "../../public/images/nav/IMG_9313.jpg";
-import image from "../../public/images/nav/labs.jpg";
-import bucosa from "../../public/images/nav/bucosa.jpg";
-import palm_girls from "../../public/images/nav/palm-girls.jpg";
+import React from 'react';
 import Image from "next/image";
 import { BiX } from 'react-icons/bi';
 import Link from "next/link"
-import { useEffect, useState } from "react";
 import first_modal from "../Header/index";
 
 

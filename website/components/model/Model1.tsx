@@ -2,20 +2,14 @@ import React, { Children } from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
 import football from "../../public/images/nav/sports/football.jpg";
 import image from "../../public/images/nav/culturee.jpg";
-import nurses from "../../public/images/nav/nurses.jpg";
-import nurses1 from "../../public/images/nav/nurses1.jpg";
-import burundi from "../../public/images/nav/burundi.jpg";
 import bucosa from "../../public/images/nav/bucosa.jpg";
-import bucosa1 from "../../public/images/nav/bucosa1.jpg";
 import palm_girls from "../../public/images/nav/palm-girls.jpg";
-import volley1 from "../../public/images/nav/sports/volley1.jpg";
 import volley2c from "../../public/images/nav/sports/volley2c.jpg";
 import basket from "../../public/images/nav/sports/basket.jpg";
 import netball from "../../public/images/nav/sports/netball.jpg";
 import woodball from "../../public/images/nav/sports/woodball.jpg";
 import Image from "next/image";
 import { BiX } from 'react-icons/bi';
-import { useEffect, useState } from "react";
 import Link from "next/link";
 
 
@@ -149,7 +143,7 @@ const Foot = () =>{
       <>
         
 
-            <div className="  fade-in fixed z-40 inset-0 backdrop-blur-lg flex ml-[5%] mt-[10%] w-[90%] h-[60%] mt-[10%] rounded-3xl border border-black overflow-auto overflow-x-hidden bg-gradient-to-b from-white  to-transparent" id="wrapper" onMouseLeave={onClose} >                  
+            <div className="  fade-in fixed z-40 inset-0 shadow-lg flex mt-[8%] mx-auto w-[97%] h-3/4   overflow-auto overflow-x-hidden bg-white" id="wrapper" onMouseLeave={onClose} >                  
                      
                   <div id="programs">
 
@@ -175,7 +169,7 @@ const Foot = () =>{
 
                         </div> 
 
-                        <div className="vertical-line ml-24  fade-in "  > 
+                        <div className="vertical-line ml-24 mt-24  fade-in "  > 
                               <div className="mr-2 my-5 slider slide--fast">
                                     
                                     <Link href="">
@@ -190,14 +184,14 @@ const Foot = () =>{
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold 'onClick={why_bugema} >  <span id='why_bugema' className='animated'>Clubs & Associations</span></h1> 
                               </div>
                               <div className="mr-2 my-5 slider slide--slowest ">
-                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={touch}> <span className='animated' id='contact'>Student Leadership</span></h1> 
+                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' > <span className='animated' id='contact'>Student Leadership</span></h1> 
                               </div>                
                               
                         </div>
                   
                   </div>
                   {/*###=============== A  C  C  O  M  M  O  D  A  T  I  O  N ================###*/}
-                  <div className=" ml-[5%] my-12 items-center  fade-in-slow h-[60%] w-[20%] " id='courses' > 
+                  <div className=" ml-[5%] mt-24 items-center  fade-in-slow h-[60%] w-[20%] " id='courses' > 
                         <ul>
                         <li>
                               <div className="mr-2 my-5  ">
@@ -207,13 +201,13 @@ const Foot = () =>{
                               </div>
                               </li>
 
-                              <li>
+                              {/* <li>
                               <div className="mr-2 my-5  ">
                               
                               <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Culture </h1> 
                               
                               </div>
-                              </li>
+                              </li> */}
                               
                               <li>
                               <div className="mr-2 my-5 fade-in-slow  ">
@@ -347,13 +341,13 @@ const Foot = () =>{
                   {/*###============== G  E  T    I N    T  O  U  C  H ==============###*/}
                   <div className=" fade-in ml-24 my-24 hidden "  id='get-in-touch'> 
                         <ul className='ml-10 my-20'>
-                              <li>
+                              {/* <li>
                               <div className="mr-2 my-5 ">
                               
                               <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Open Days </h1> 
                               
                               </div>
-                              </li>
+                              </li> */}
                               
                               <li>
                               <div className="mr-2 my-5  ">
@@ -388,7 +382,7 @@ const Foot = () =>{
                         
                   </div>
 
-                  <div className=' ml-20 vertical-line my-6 '>
+                  <div className=' ml-20 vertical-line mt-24 '>
                   </div>
 
                   {/* SCIENCE AND TECHNOLOGY COURSES */}
@@ -397,8 +391,28 @@ const Foot = () =>{
                               {/* ###============= A C C O M M O D D A T I O N     M O R E =================### */}
                         <div className='' id='courses-more' >
                               <div className=' ml-24 my-12 fade-in '>
-                                          <Image src={image} alt='img' width={350} height={450} className="-ml-5 slider slide--fast"/>
+                                          <Image src={image} alt='img' width={350} height={450} className="-ml-5 fade-in rounded-tr-3xl rounded-bl-3xl"/>
                               </div>
+
+                              <div className="ml-5  text-black grid grid-cols-2 gap-3 fade-in " >
+                                        <div className=' p-3 border border-black hover:bg-dark hover:text-white  change-on-hover rounded-full'>
+                                                <Link href='https://apply.bugemauniv.ac.ug'>
+                                                <h1  className='new-arr'> Apply now <FaArrowRight className='arrow1'/></h1>
+                                                </Link> 
+                                        </div>
+
+                                        <div className=' p-3 border border-black hover:bg-dark hover:text-white  change-on-hover rounded-full'>
+                                                <Link href='https://erms.bugemauniv.ac.ug/student/login/'>
+                                                <h1   className='new-arr'>Students&apos; portal <FaArrowRight className='arrow1'/></h1>
+                                                </Link> 
+                                        </div>
+
+                                        <div className=' p-3 border border-black hover:bg-dark hover:text-white  change-on-hover rounded-full'>
+                                        <Link href='https://elearning.bugemauniv.ac.ug/'>
+                                                <h1   className='new-arr'>E-Learnig <FaArrowRight className='arrow1'/></h1>
+                                        </Link> 
+                                        </div>
+                              </div> 
                               
                         </div>
 
@@ -408,31 +422,34 @@ const Foot = () =>{
                         {/* ###=============S P O R T S       M O R E =================### */}
                         <div className=' hidden  fade-in' id='fees-more'>
                               <div id='foot' className=' ml-24 my-12 fade-in '>
-                                          <Image src={football} alt='img' width={350} height={450} className="-ml-5  "/>
+                                          <Image src={football} alt='img' width={350} height={450} className="-ml-5 rounded-tr-3xl rounded-bl-3xl "/>
                               </div>
 
                               <div id='basket' className='hidden ml-24 my-12 fade-in '>
-                                          <Image src={basket} alt='img' width={350} height={450} className="-ml-5  "/>
+                                          <Image src={basket} alt='img' width={350} height={450} className="-ml-5 rounded-tr-3xl rounded-bl-3xl "/>
                               </div>
 
                               <div id='volley' className='hidden ml-24 my-12  fade-in '>
-                                          <Image src={volley2c} alt='img' width={350} height={450} className="-ml-5  "/>
+                                          <Image src={volley2c} alt='img' width={350} height={450} className="-ml-5  rounded-tr-3xl rounded-bl-3xl"/>
                               </div>
 
                               <div id='net' className='hidden ml-24 my-12  fade-in '>
-                                          <Image src={netball} alt='img' width={350} height={450} className="-ml-5  "/>
+                                          <Image src={netball} alt='img' width={350} height={450} className="-ml-5 rounded-tr-3xl rounded-bl-3xl "/>
                               </div>
 
                               <div id='wood' className='hidden ml-24 my-12  fade-in '>
-                                          <Image src={woodball} alt='img' width={350} height={450} className="-ml-5  "/>
+                                          <Image src={woodball} alt='img' width={350} height={450} className="-ml-5 rounded-tr-3xl rounded-bl-3xl "/>
                               </div>
 
                               <div id='table' className='hidden ml-24 my-12  fade-in '>
-                                          <Image src={volley2c} alt='img' width={350} height={450} className="-ml-5  "/>
+                                          <Image src={volley2c} alt='img' width={350} height={450} className="-ml-5 rounded-tr-3xl rounded-bl-3xl "/>
                               </div>
 
-                              <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='new-arr change-on-hover2 text-black'> More on sports  <FaArrowRight className='new-arr'/></h1>
-                              <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='new-arr change-on-hover2 text-black'> how to join  <FaArrowRight className='new-arr'/></h1>
+                              <div className='grid grid-cols-2 gap-3 ml-5 my-12 fade-in ' >
+                                <Link href='/sports/sports'> 
+                                <h1   className='  p-3 border border-black hover:bg-dark hover:text-white rounded-full new-arr change-on-hover2 text-black'> More on sports  <FaArrowRight className='new-arr'/></h1>
+                                </Link>
+                              </div>
 
 
                               
@@ -443,8 +460,27 @@ const Foot = () =>{
                         {/* ###============= C L U B S    AND   A S S O C I A T  I O N S    M O R E =================### */}
                         <div className='hidden' id='why-bugema-more' >
                               <div className=' ml-24 my-12 fade-in '>
-                                          <Image src={bucosa} alt='img' width={350} height={450} className="-ml-5 "/>
+                                          <Image src={bucosa} alt='img' width={350} height={450} className="-ml-5  rounded-tr-3xl rounded-bl-3xl"/>
                               </div>
+                              <div className="ml-5  text-black grid grid-cols-2 gap-3 fade-in " >
+                                        <div className=' p-3 border border-black hover:bg-dark hover:text-white  change-on-hover rounded-full'>
+                                                <Link href='https://apply.bugemauniv.ac.ug'>
+                                                <h1  className='new-arr'> Apply now <FaArrowRight className='arrow1'/></h1>
+                                                </Link> 
+                                        </div>
+
+                                        <div className=' p-3 border border-black hover:bg-dark hover:text-white  change-on-hover rounded-full'>
+                                                <Link href='https://erms.bugemauniv.ac.ug/student/login/'>
+                                                <h1   className='new-arr'>Students&apos; portal <FaArrowRight className='arrow1'/></h1>
+                                                </Link> 
+                                        </div>
+
+                                        <div className=' p-3 border border-black hover:bg-dark hover:text-white  change-on-hover rounded-full'>
+                                        <Link href='https://elearning.bugemauniv.ac.ug/'>
+                                                <h1   className='new-arr'>E-Learnig <FaArrowRight className='arrow1'/></h1>
+                                        </Link> 
+                                        </div>
+                              </div> 
                               
                         </div>
                         
@@ -453,13 +489,27 @@ const Foot = () =>{
                         {/* ###=============STUDENT LEADERSHIP      M O R E =================### */}
                         <div className=' hidden flex flex-col my-12  gap-2 fade-in' id='touch-more'>
                               <div className=' ml-24 fade-in flex'>
-                                          <Image src={palm_girls} alt='img' width={350} height={450} className="ml-19 -mr-10  "/>
+                                          <Image src={palm_girls} alt='img' width={350} height={450} className="ml-19 -mr-10 rounded-tr-3xl rounded-bl-3xl  "/>
                               </div>
-                              <div className="ml-24 flex  text-white  " >
-                                    <div className='w-full bg-black slider slide--slow change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Talk to Us <FaArrowRight className='arrow3'/></h1>
-                                    </div>
-                              </div>
+                              <div className="ml-5  text-black grid grid-cols-2 gap-3 fade-in " >
+                                        <div className=' p-3 border border-black hover:bg-dark hover:text-white  change-on-hover rounded-full'>
+                                                <Link href='https://apply.bugemauniv.ac.ug'>
+                                                <h1  className='new-arr'> Apply now <FaArrowRight className='arrow1'/></h1>
+                                                </Link> 
+                                        </div>
+
+                                        <div className=' p-3 border border-black hover:bg-dark hover:text-white  change-on-hover rounded-full'>
+                                                <Link href='https://erms.bugemauniv.ac.ug/student/login/'>
+                                                <h1   className='new-arr'>Students&apos; portal <FaArrowRight className='arrow1'/></h1>
+                                                </Link> 
+                                        </div>
+
+                                        <div className=' p-3 border border-black hover:bg-dark hover:text-white  change-on-hover rounded-full'>
+                                        <Link href='https://elearning.bugemauniv.ac.ug/'>
+                                                <h1   className='new-arr'>E-Learnig <FaArrowRight className='arrow1'/></h1>
+                                        </Link> 
+                                        </div>
+                              </div> 
                               
                         </div>
                           
