@@ -53,7 +53,7 @@ export default function ContactForm({
 
   return (
     <div
-      className="fade-in fixed z-40 inset-0 backdrop-blur-lg flex h-4/5 my-16 mt-[110px] rounded-lg border border-black overflow-auto overflow-x-hidden bg-gradient-to-b from-white to-transparent"
+      className="fade-in fixed z-40 inset-0  flex h-3/4  mt-[8%]  shadow-md overflow-auto overflow-x-hidden bg-white"
       id="wrapper"
     >
       <div id="programs">
@@ -261,66 +261,69 @@ export default function ContactForm({
 
       <div className="ml-20 vertical-line my-12"></div>
 
-      <div className="ml-10 my-12 transform" id="IT">
-        <div className="fade-in" id="touch-more">
-          <div className="ml-24 fade-in">
+      <div className="ml-4 w-[30%]  my-12 transform " id="IT">
+        <div className="fade-in w-[90%]  mt-10 mx-auto " id="touch-more">
+
+          <div className="  mx-auto fade-in">
             <Image
-              src={palmGirlsImage || "/placeholder.svg?height=450&width=350"}
+              src={"/images/logo/bugema.png"}
               alt="Students"
               width={350}
               height={450}
-              className="ml-19 -mr-10 my-10 slider slide--fast"
+              className=" mx-auto slider slide--fast"
             />
           </div>
-          <div className="ml-19 mr-5 text-white grid-rows-2 fade-in" style={{ marginTop: "-7%" }}>
-            <div className="columns-1 bg-black change-on-hover">
+
+          <div className=" p-2 mt-4 gap-4  text-black grid grid-cols-2 fade-in" >
+
+            <div className="border border-black rounded-full p-2 hover:bg-dark hover:text-white change-on-hover">
               <Link href="https://apply.bugemauniv.ac.ug">
-                <h1
-                  style={{ fontSize: "19px", cursor: "pointer", height: "50px" }}
-                  className="new-arr change-on-hover2"
+                <h1 className="new-arr change-on-hover2"
                 >
                   Apply here <FaArrowRight className="new-arr" />
                 </h1>
               </Link>
             </div>
-          </div>
 
-          <div className="ml-24 -mr-3 my-2 transform text-white grid-rows-2" style={{ borderRadius: "9px" }}>
-            <div className="columns-1 bg-black change-on-hover">
+            <div className=" border border-black rounded-full p-2 hover:bg-dark hover:text-white change-on-hover">
               <a href="tel:+256 702 940003" className="nav-link p-0 text-body-secondary">
                 <h1
-                  style={{ fontSize: "19px", cursor: "pointer", height: "50px" }}
                   className="new-arr change-on-hover2"
                 >
                   Talk to Us <BiPhoneCall className="new-arr" />
                 </h1>
               </a>
             </div>
+
           </div>
-          <Link href="https://erms.bugemauniv.ac.ug/student/">
+
+
+          <div className="grid grid-cols-2 gap-4 mt-5  fade-in">
+                <Link href="https://erms.bugemauniv.ac.ug/student/">
             <h1
-              style={{ fontSize: "19px", cursor: "pointer", height: "50px" }}
-              className="new-arr change-on-hover2 text-black"
+              className="new-arr change-on-hover2 border border-black rounded-full p-2 hover:bg-dark hover:text-white text-black"
             >
               ERMS-students <FaArrowRight className="new-arr" />
             </h1>
           </Link>
+
           <Link href="https://erms.bugemauniv.ac.ug/buerms/">
-            <h1
-              style={{ fontSize: "19px", cursor: "pointer", height: "50px" }}
-              className="new-arr change-on-hover2 text-black"
+            <h1 
+              className="new-arr change-on-hover2 border border-black rounded-full p-2 hover:bg-dark hover:text-white text-black"
             >
               ERMS-staff <FaArrowRight className="new-arr" />
             </h1>
           </Link>
+
           <Link href="https://e-library.bugemauniv.ac.ug/">
-            <h1
-              style={{ fontSize: "19px", cursor: "pointer", height: "50px" }}
-              className="new-arr change-on-hover2 text-black"
+            <h1 
+              className="new-arr change-on-hover2 border border-black rounded-full p-2 hover:bg-dark hover:text-white text-black"
             >
               E-Library <FaArrowRight className="new-arr" />
             </h1>
           </Link>
+          </div>
+
         </div>
       </div>
     </div>

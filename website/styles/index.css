@@ -274,10 +274,6 @@
   overflow-x: hidden;
 }
 
-.change-on-hover:hover {
-  background-color: rgb(41, 31, 84);
-}
-
 .change-on-hover:hover .arrow1 {
   transform: translateX(125px);
 }
