@@ -7,12 +7,12 @@ import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Search, Plus, Calendar, MapPin, User, LayoutGrid, LayoutList } from "lucide-react"
 import Link from "next/link"
-import { getEvents, type Event } from "@/lib/actions/events.actions"
+import { getEvents, type Events } from "@/lib/actions/events.actions"
 import { getFileUrl, formatDate } from "@/lib/utils"
 import { DataTable } from "@/components/ui/data-table"
 
 export function EventsList() {
-  const [events, setEvents] = useState<Event[]>([])
+  const [events, setEvents] = useState<Events[]>([])
   const [loading, setLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState("")
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid")
@@ -32,7 +32,7 @@ export function EventsList() {
     fetchEvents()
   }, [])
 
-  const filteredEvents = events.filter((item) => item.title.toLowerCase().includes(searchQuery.toLowerCase()))
+  const filteredEvents = events.filter((item: Events) => item.title.toLowerCase().includes(searchQuery.toLowerCase()))
 
   const getEventStatus = (eventDate: string) => {
     const today = new Date()
@@ -44,27 +44,27 @@ export function EventsList() {
     {
       key: "title",
       header: "Title",
-      cell: (item: Event) => <div className="font-medium">{item.title}</div>,
+      cell: (item: Events) => <div className="font-medium">{item.title}</div>,
     },
     {
       key: "date",
       header: "Date",
-      cell: (item: Event) => formatDate(item.date),
+      cell: (item: Events) => formatDate(item.date),
     },
     {
       key: "location",
       header: "Location",
-      cell: (item: Event) => item.location,
+      cell: (item: Events) => item.location,
     },
     {
       key: "organizer",
       header: "Organizer",
-      cell: (item: Event) => item.organizer,
+      cell: (item: Events) => item.organizer,
     },
     {
       key: "status",
       header: "Status",
-      cell: (item: Event) => (
+      cell: (item: Events) => (
         <Badge variant={getEventStatus(item.date) === "upcoming" ? "default" : "secondary"}>
           {getEventStatus(item.date)}
         </Badge>
