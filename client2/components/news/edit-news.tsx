@@ -10,13 +10,12 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { ArrowLeft, Loader2, Upload } from "lucide-react"
+import { ArrowLeft, Loader2 } from 'lucide-react'
 import Link from "next/link"
 import { getNewsById, updateNews, type NewsItem } from "@/lib/actions/news.actions"
 import { toast } from "@/hooks/use-toast"
 import { RichTextEditor } from "@/components/ui/rich-text-editor"
-import { uploadFile } from "@/lib/actions/upload.actions"
-import { getFileUrl } from "@/lib/utils"
+import { ImageUpload } from "@/components/ui/image-upload"
 
 interface EditNewsProps {
   newsId: string
@@ -27,7 +26,7 @@ export function EditNews({ newsId }: EditNewsProps) {
   const [loading, setLoading] = useState(false)
   const [initialLoading, setInitialLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [selectedFile, setSelectedFile] = useState<File | null>(null)
+  const [featuredImage, setFeaturedImage] = useState<string>("")
   const [content, setContent] = useState("")
   const [article, setArticle] = useState<NewsItem | null>(null)
 
@@ -38,6 +37,10 @@ export function EditNews({ newsId }: EditNewsProps) {
         setArticle(data)
         if (data?.content) {
           setContent(data.content)
+        }
+        if (data?.file) {
+          const fileUrl = `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${data.file}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`;
+          setFeaturedImage(fileUrl)
         }
       } catch (error) {
         console.error("Failed to fetch article:", error)
@@ -57,9 +60,9 @@ export function EditNews({ newsId }: EditNewsProps) {
 
     const formData = new FormData(e.currentTarget)
     formData.set("content", content) // Add rich text content
-
-    if (selectedFile) {
-      formData.append("file", selectedFile)
+    
+    if (featuredImage) {
+      formData.set("imageUrl", featuredImage)
     }
 
     try {
@@ -78,26 +81,6 @@ export function EditNews({ newsId }: EditNewsProps) {
       setError(err.message || "An error occurred while updating the article.")
     } finally {
       setLoading(false)
-    }
-  }
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (file) {
-      setSelectedFile(file)
-    }
-  }
-
-  const handleImageUpload = async (file: File): Promise<string> => {
-    try {
-      const result = await uploadFile(file)
-      if (result.success && result.fileId) {
-        return result.fileId
-      }
-      throw new Error("Failed to upload image")
-    } catch (error) {
-      console.error("Image upload error:", error)
-      throw error
     }
   }
 
@@ -165,12 +148,22 @@ export function EditNews({ newsId }: EditNewsProps) {
             </div>
 
             <div className="space-y-2">
-              <RichTextEditor
-                label="Content"
-                initialValue={article.content}
-                onChange={setContent}
-                onImageUpload={handleImageUpload}
-                height={400}
+              <Label>Featured Image</Label>
+              <ImageUpload 
+                value={featuredImage} 
+                onChange={setFeaturedImage}
+                onError={(error) => {
+                  setError(error.message);
+                }}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <RichTextEditor 
+                label="Content" 
+                initialValue={article.content} 
+                onChange={setContent} 
+                placeholder="Write your article content here..." 
               />
             </div>
 
@@ -200,28 +193,6 @@ export function EditNews({ newsId }: EditNewsProps) {
             <div className="space-y-2">
               <Label htmlFor="date">Publication Date</Label>
               <Input id="date" name="date" type="date" defaultValue={article.date} required />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="file">Featured Image</Label>
-              {article.file && !selectedFile && (
-                <div className="mb-2">
-                  <img
-                    src={getFileUrl(article.file) || "/placeholder.svg"}
-                    alt="Current featured image"
-                    className="h-32 object-cover rounded-md"
-                  />
-                  <p className="text-sm text-muted-foreground mt-1">Current image</p>
-                </div>
-              )}
-              <div className="flex items-center space-x-2">
-                <Input id="file" type="file" accept="image/*" onChange={handleFileChange} className="hidden" />
-                <Button type="button" variant="outline" onClick={() => document.getElementById("file")?.click()}>
-                  <Upload className="mr-2 h-4 w-4" />
-                  {article.file ? "Change Image" : "Add Image"}
-                </Button>
-                {selectedFile && <span className="text-sm text-muted-foreground">{selectedFile.name}</span>}
-              </div>
             </div>
 
             {error && (

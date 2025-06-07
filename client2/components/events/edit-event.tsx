@@ -9,13 +9,12 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { ArrowLeft, Loader2, Upload } from "lucide-react"
+import { ArrowLeft, Loader2 } from 'lucide-react'
 import Link from "next/link"
 import { getEventById, updateEvent, type EventItem } from "@/lib/actions/events.actions"
 import { toast } from "@/hooks/use-toast"
 import { RichTextEditor } from "@/components/ui/rich-text-editor"
-import { uploadFile } from "@/lib/actions/upload.actions"
-import { getFileUrl } from "@/lib/utils"
+import { ImageUpload } from "@/components/ui/image-upload"
 
 interface EditEventProps {
   eventId: string
@@ -26,7 +25,7 @@ export function EditEvent({ eventId }: EditEventProps) {
   const [loading, setLoading] = useState(false)
   const [initialLoading, setInitialLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [selectedFile, setSelectedFile] = useState<File | null>(null)
+  const [featuredImage, setFeaturedImage] = useState<string>("")
   const [description, setDescription] = useState("")
   const [event, setEvent] = useState<EventItem | null>(null)
 
@@ -37,6 +36,10 @@ export function EditEvent({ eventId }: EditEventProps) {
         setEvent(data)
         if (data?.description) {
           setDescription(data.description)
+        }
+        if (data?.file) {
+          const fileUrl = `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${data.file}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`;
+          setFeaturedImage(fileUrl)
         }
       } catch (error) {
         console.error("Failed to fetch event:", error)
@@ -56,9 +59,9 @@ export function EditEvent({ eventId }: EditEventProps) {
 
     const formData = new FormData(e.currentTarget)
     formData.set("description", description) // Add rich text description
-
-    if (selectedFile) {
-      formData.append("file", selectedFile)
+    
+    if (featuredImage) {
+      formData.set("imageUrl", featuredImage)
     }
 
     try {
@@ -77,26 +80,6 @@ export function EditEvent({ eventId }: EditEventProps) {
       setError(err.message || "An error occurred while updating the event.")
     } finally {
       setLoading(false)
-    }
-  }
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (file) {
-      setSelectedFile(file)
-    }
-  }
-
-  const handleImageUpload = async (file: File): Promise<string> => {
-    try {
-      const result = await uploadFile(file)
-      if (result.success && result.fileId) {
-        return result.fileId
-      }
-      throw new Error("Failed to upload image")
-    } catch (error) {
-      console.error("Image upload error:", error)
-      throw error
     }
   }
 
@@ -153,12 +136,22 @@ export function EditEvent({ eventId }: EditEventProps) {
             </div>
 
             <div className="space-y-2">
-              <RichTextEditor
-                label="Description"
-                initialValue={event.description}
-                onChange={setDescription}
-                onImageUpload={handleImageUpload}
-                height={300}
+              <Label>Event Image</Label>
+              <ImageUpload 
+                value={featuredImage} 
+                onChange={setFeaturedImage}
+                onError={(error) => {
+                  setError(error.message);
+                }}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <RichTextEditor 
+                label="Description" 
+                initialValue={event.description} 
+                onChange={setDescription} 
+                placeholder="Write your event description here..." 
               />
             </div>
 
@@ -187,28 +180,6 @@ export function EditEvent({ eventId }: EditEventProps) {
                 placeholder="Enter organizer name"
                 required
               />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="file">Event Image</Label>
-              {event.file && !selectedFile && (
-                <div className="mb-2">
-                  <img
-                    src={getFileUrl(event.file) || "/placeholder.svg"}
-                    alt="Current event image"
-                    className="h-32 object-cover rounded-md"
-                  />
-                  <p className="text-sm text-muted-foreground mt-1">Current image</p>
-                </div>
-              )}
-              <div className="flex items-center space-x-2">
-                <Input id="file" type="file" accept="image/*" onChange={handleFileChange} className="hidden" />
-                <Button type="button" variant="outline" onClick={() => document.getElementById("file")?.click()}>
-                  <Upload className="mr-2 h-4 w-4" />
-                  {event.file ? "Change Image" : "Add Image"}
-                </Button>
-                {selectedFile && <span className="text-sm text-muted-foreground">{selectedFile.name}</span>}
-              </div>
             </div>
 
             {error && (
