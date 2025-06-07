@@ -4,18 +4,33 @@ import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Calendar, MapPin, User, Edit } from "lucide-react"
+import { ArrowLeft, Calendar, MapPin, User, Edit, Trash2 } from "lucide-react"
 import Link from "next/link"
-import { getEventById, type EventItem } from "@/lib/actions/events.actions"
+import { getEventById, deleteEvent, type EventItem } from "@/lib/actions/events.actions"
 import { getFileUrl } from "@/lib/utils"
+import { toast } from "@/hooks/use-toast"
+import { useRouter } from "next/navigation"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 
 interface EventDetailsProps {
   eventId: string
 }
 
 export function EventDetails({ eventId }: EventDetailsProps) {
+  const router = useRouter()
   const [event, setEvent] = useState<EventItem | null>(null)
   const [loading, setLoading] = useState(true)
+  const [deleting, setDeleting] = useState(false)
 
   useEffect(() => {
     const fetchEvent = async () => {
@@ -31,6 +46,42 @@ export function EventDetails({ eventId }: EventDetailsProps) {
 
     fetchEvent()
   }, [eventId])
+
+  const handleDelete = async () => {
+    try {
+      setDeleting(true)
+      const result = await deleteEvent(eventId)
+
+      if (result.success) {
+        toast({
+          title: "Success",
+          description: "Event deleted successfully",
+        })
+        router.push("/events")
+      } else {
+        toast({
+          title: "Error",
+          description: result.error || "Failed to delete event",
+          variant: "destructive",
+        })
+      }
+    } catch (error) {
+      console.error("Delete error:", error)
+      toast({
+        title: "Error",
+        description: "An unexpected error occurred",
+        variant: "destructive",
+      })
+    } finally {
+      setDeleting(false)
+    }
+  }
+
+  const getEventStatus = (eventDate: string) => {
+    const today = new Date()
+    const eventDateObj = new Date(eventDate)
+    return eventDateObj > today ? "upcoming" : "completed"
+  }
 
   if (loading) {
     return (
@@ -58,12 +109,6 @@ export function EventDetails({ eventId }: EventDetailsProps) {
     )
   }
 
-  const getEventStatus = (eventDate: string) => {
-    const today = new Date()
-    const eventDateObj = new Date(eventDate)
-    return eventDateObj > today ? "upcoming" : "completed"
-  }
-
   return (
     <div className="space-y-6">
       <div className="flex items-center space-x-4">
@@ -76,12 +121,37 @@ export function EventDetails({ eventId }: EventDetailsProps) {
           <h1 className="text-3xl font-bold tracking-tight">{event.title}</h1>
           <p className="text-muted-foreground">Event Details</p>
         </div>
-        <Button asChild>
-          <Link href={`/events/${eventId}/edit`}>
-            <Edit className="mr-2 h-4 w-4" />
-            Edit Event
-          </Link>
-        </Button>
+        <div className="flex space-x-2">
+          <Button asChild>
+            <Link href={`/events/${eventId}/edit`}>
+              <Edit className="mr-2 h-4 w-4" />
+              Edit
+            </Link>
+          </Button>
+
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button variant="destructive" disabled={deleting}>
+                <Trash2 className="mr-2 h-4 w-4" />
+                {deleting ? "Deleting..." : "Delete"}
+              </Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                <AlertDialogDescription>
+                  This action cannot be undone. This will permanently delete the event and remove it from our servers.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogAction onClick={handleDelete} className="bg-destructive text-destructive-foreground">
+                  Delete
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
+        </div>
       </div>
 
       <div className="grid gap-6 md:grid-cols-3">
@@ -106,7 +176,9 @@ export function EventDetails({ eventId }: EventDetailsProps) {
             )}
             <div>
               <h3 className="font-semibold mb-2">Description</h3>
-              <p className="text-muted-foreground">{event.description}</p>
+              <div className="prose prose-gray dark:prose-invert max-w-none">
+                <div dangerouslySetInnerHTML={{ __html: event.description }} />
+              </div>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
