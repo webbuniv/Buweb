@@ -61,7 +61,7 @@ export function RichTextEditor({
       {label && <Label>{label}</Label>}
       <div className="border rounded-md">
         <Editor
-          apiKey="your-tinymce-api-key" // Replace with your TinyMCE API key
+          apiKey={process.env.TINYMCE_API_KEY}
           onInit={(evt, editor) => (editorRef.current = editor)}
           initialValue={initialValue}
           value={editorContent}

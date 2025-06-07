@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
@@ -15,12 +14,15 @@ import { ArrowLeft, Loader2, Upload } from "lucide-react"
 import Link from "next/link"
 import { createNews } from "@/lib/actions/news.actions"
 import { toast } from "@/hooks/use-toast"
+import { RichTextEditor } from "@/components/ui/rich-text-editor"
+import { uploadFile } from "@/lib/actions/upload.actions"
 
 export function CreateNews() {
   const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
+  const [content, setContent] = useState("")
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -28,6 +30,7 @@ export function CreateNews() {
     setError(null)
 
     const formData = new FormData(e.currentTarget)
+    formData.set("content", content) // Add rich text content
 
     if (selectedFile) {
       formData.append("file", selectedFile)
@@ -59,6 +62,19 @@ export function CreateNews() {
     }
   }
 
+  const handleImageUpload = async (file: File): Promise<string> => {
+    try {
+      const result = await uploadFile(file)
+      if (result.success && result.fileId) {
+        return result.fileId
+      }
+      throw new Error("Failed to upload image")
+    } catch (error) {
+      console.error("Image upload error:", error)
+      throw error
+    }
+  }
+
   return (
     <div className="space-y-6">
       <div className="flex items-center space-x-4">
@@ -73,7 +89,7 @@ export function CreateNews() {
         </div>
       </div>
 
-      <Card className="max-w-4xl">
+      <Card className="max-w-5xl">
         <CardHeader>
           <CardTitle>Article Details</CardTitle>
           <CardDescription>Fill in the information for your news article</CardDescription>
@@ -87,18 +103,11 @@ export function CreateNews() {
 
             <div className="space-y-2">
               <Label htmlFor="summary">Summary</Label>
-              <Textarea id="summary" name="summary" placeholder="Brief summary of the article" rows={2} required />
+              <Input id="summary" name="summary" placeholder="Brief summary of the article" required />
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="content">Content</Label>
-              <Textarea
-                id="content"
-                name="content"
-                placeholder="Write your article content here..."
-                rows={12}
-                required
-              />
+              <RichTextEditor label="Content" onChange={setContent} onImageUpload={handleImageUpload} height={400} />
             </div>
 
             <div className="grid grid-cols-2 gap-4">
