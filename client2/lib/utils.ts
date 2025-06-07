@@ -1,6 +1,5 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { appwriteConfig } from "./appwrite/config"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -11,7 +10,12 @@ export function parseStringify<T>(obj: T): T {
 }
 
 export function constructFileUrl(fileId: string): string {
-  return `https://cloud.appwrite.io/v1/storage/buckets/${appwriteConfig.bucketId}/files/${fileId}/view?project=${appwriteConfig.projectId}`
+  return `https://cloud.appwrite.io/v1/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${fileId}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`
+}
+
+export function getFileUrl(fileId: string): string {
+  if (!fileId) return ""
+  return `https://cloud.appwrite.io/v1/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${fileId}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`
 }
 
 export function formatDate(dateString: string): string {
@@ -21,4 +25,28 @@ export function formatDate(dateString: string): string {
     month: "long",
     day: "numeric",
   }).format(date)
+}
+
+export function formatDateTime(dateString: string): string {
+  const date = new Date(dateString)
+  return new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(date)
+}
+
+export function convertFileToUrl(file: File): string {
+  return URL.createObjectURL(file)
+}
+
+export function getInitials(name: string): string {
+  return name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .toUpperCase()
+    .slice(0, 2)
 }
