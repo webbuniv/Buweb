@@ -1,34 +1,41 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Calendar, Newspaper, Users, TrendingUp } from "lucide-react"
 
-const stats = [
-  {
-    title: "Total Events",
-    value: "24",
-    description: "+2 from last month",
-    icon: Calendar,
-  },
-  {
-    title: "News Articles",
-    value: "156",
-    description: "+12 from last month",
-    icon: Newspaper,
-  },
-  {
-    title: "Team Members",
-    value: "89",
-    description: "+5 from last month",
-    icon: Users,
-  },
-  {
-    title: "Page Views",
-    value: "12,543",
-    description: "+15% from last month",
-    icon: TrendingUp,
-  },
-]
+interface StatsCardsProps {
+  totalEvents: number
+  totalNews: number
+  totalUsers: number
+  loading: boolean
+}
 
-export function StatsCards() {
+export function StatsCards({ totalEvents, totalNews, totalUsers, loading }: StatsCardsProps) {
+  const stats = [
+    {
+      title: "Total Events",
+      value: loading ? "..." : totalEvents.toString(),
+      description: "Active events",
+      icon: Calendar,
+    },
+    {
+      title: "News Articles",
+      value: loading ? "..." : totalNews.toString(),
+      description: "Published articles",
+      icon: Newspaper,
+    },
+    {
+      title: "Users",
+      value: loading ? "..." : totalUsers.toString(),
+      description: "Registered users",
+      icon: Users,
+    },
+    {
+      title: "Total Content",
+      value: loading ? "..." : (totalEvents + totalNews).toString(),
+      description: "Combined content",
+      icon: TrendingUp,
+    },
+  ]
+
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       {stats.map((stat) => {

@@ -10,39 +10,51 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { ArrowLeft, Loader2 } from "lucide-react"
+import { ArrowLeft, Loader2, Upload } from "lucide-react"
 import Link from "next/link"
+import { createEvent } from "@/lib/actions/events.actions"
+import { toast } from "@/hooks/use-toast"
 
 export function CreateEvent() {
   const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [formData, setFormData] = useState({
-    title: "",
-    description: "",
-    date: "",
-    time: "",
-    location: "",
-  })
+  const [selectedFile, setSelectedFile] = useState<File | null>(null)
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData({ ...formData, [name]: value })
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setLoading(true)
     setError(null)
 
+    const formData = new FormData(e.currentTarget)
+
+    if (selectedFile) {
+      formData.append("file", selectedFile)
+    }
+
     try {
-      // Add your create event logic here
-      console.log("Creating event:", formData)
-      router.push("/events")
+      const result = await createEvent(formData)
+
+      if (result.success) {
+        toast({
+          title: "Success",
+          description: "Event created successfully",
+        })
+        router.push("/events")
+      } else {
+        setError(result.error || "Failed to create event")
+      }
     } catch (err: any) {
       setError(err.message || "An error occurred while creating the event.")
     } finally {
       setLoading(false)
+    }
+  }
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (file) {
+      setSelectedFile(file)
     }
   }
 
@@ -69,50 +81,39 @@ export function CreateEvent() {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="title">Event Title</Label>
-              <Input
-                id="title"
-                name="title"
-                value={formData.title}
-                onChange={handleChange}
-                placeholder="Enter event title"
-                required
-              />
+              <Input id="title" name="title" placeholder="Enter event title" required />
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="description">Description</Label>
-              <Textarea
-                id="description"
-                name="description"
-                value={formData.description}
-                onChange={handleChange}
-                placeholder="Enter event description"
-                rows={4}
-                required
-              />
+              <Textarea id="description" name="description" placeholder="Enter event description" rows={4} required />
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="date">Date</Label>
-                <Input id="date" name="date" type="date" value={formData.date} onChange={handleChange} required />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="time">Time</Label>
-                <Input id="time" name="time" type="time" value={formData.time} onChange={handleChange} required />
-              </div>
+            <div className="space-y-2">
+              <Label htmlFor="date">Date</Label>
+              <Input id="date" name="date" type="date" required />
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="location">Location</Label>
-              <Input
-                id="location"
-                name="location"
-                value={formData.location}
-                onChange={handleChange}
-                placeholder="Enter event location"
-                required
-              />
+              <Input id="location" name="location" placeholder="Enter event location" required />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="organizer">Organizer</Label>
+              <Input id="organizer" name="organizer" placeholder="Enter organizer name" required />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="file">Event Image (Optional)</Label>
+              <div className="flex items-center space-x-2">
+                <Input id="file" type="file" accept="image/*" onChange={handleFileChange} className="hidden" />
+                <Button type="button" variant="outline" onClick={() => document.getElementById("file")?.click()}>
+                  <Upload className="mr-2 h-4 w-4" />
+                  Choose Image
+                </Button>
+                {selectedFile && <span className="text-sm text-muted-foreground">{selectedFile.name}</span>}
+              </div>
             </div>
 
             {error && (

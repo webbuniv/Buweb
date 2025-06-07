@@ -11,43 +11,51 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { ArrowLeft, Loader2 } from "lucide-react"
+import { ArrowLeft, Loader2, Upload } from "lucide-react"
 import Link from "next/link"
+import { createNews } from "@/lib/actions/news.actions"
+import { toast } from "@/hooks/use-toast"
 
 export function CreateNews() {
   const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [formData, setFormData] = useState({
-    title: "",
-    excerpt: "",
-    content: "",
-    category: "",
-    status: "draft",
-  })
+  const [selectedFile, setSelectedFile] = useState<File | null>(null)
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData({ ...formData, [name]: value })
-  }
-
-  const handleSelectChange = (name: string, value: string) => {
-    setFormData({ ...formData, [name]: value })
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setLoading(true)
     setError(null)
 
+    const formData = new FormData(e.currentTarget)
+
+    if (selectedFile) {
+      formData.append("file", selectedFile)
+    }
+
     try {
-      // Add your create news logic here
-      console.log("Creating news article:", formData)
-      router.push("/news")
+      const result = await createNews(formData)
+
+      if (result.success) {
+        toast({
+          title: "Success",
+          description: "News article created successfully",
+        })
+        router.push("/news")
+      } else {
+        setError(result.error || "Failed to create news article")
+      }
     } catch (err: any) {
       setError(err.message || "An error occurred while creating the article.")
     } finally {
       setLoading(false)
+    }
+  }
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (file) {
+      setSelectedFile(file)
     }
   }
 
@@ -74,27 +82,12 @@ export function CreateNews() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="title">Title</Label>
-              <Input
-                id="title"
-                name="title"
-                value={formData.title}
-                onChange={handleChange}
-                placeholder="Enter article title"
-                required
-              />
+              <Input id="title" name="title" placeholder="Enter article title" required />
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="excerpt">Excerpt</Label>
-              <Textarea
-                id="excerpt"
-                name="excerpt"
-                value={formData.excerpt}
-                onChange={handleChange}
-                placeholder="Brief summary of the article"
-                rows={2}
-                required
-              />
+              <Label htmlFor="summary">Summary</Label>
+              <Textarea id="summary" name="summary" placeholder="Brief summary of the article" rows={2} required />
             </div>
 
             <div className="space-y-2">
@@ -102,8 +95,6 @@ export function CreateNews() {
               <Textarea
                 id="content"
                 name="content"
-                value={formData.content}
-                onChange={handleChange}
                 placeholder="Write your article content here..."
                 rows={12}
                 required
@@ -113,31 +104,40 @@ export function CreateNews() {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="category">Category</Label>
-                <Select onValueChange={(value) => handleSelectChange("category", value)}>
+                <Select name="category" required>
                   <SelectTrigger>
                     <SelectValue placeholder="Select category" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="academic">Academic</SelectItem>
-                    <SelectItem value="research">Research</SelectItem>
-                    <SelectItem value="campus">Campus</SelectItem>
-                    <SelectItem value="events">Events</SelectItem>
-                    <SelectItem value="announcements">Announcements</SelectItem>
+                    <SelectItem value="Academic">Academic</SelectItem>
+                    <SelectItem value="Research">Research</SelectItem>
+                    <SelectItem value="Campus">Campus</SelectItem>
+                    <SelectItem value="Events">Events</SelectItem>
+                    <SelectItem value="Announcements">Announcements</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="status">Status</Label>
-                <Select value={formData.status} onValueChange={(value) => handleSelectChange("status", value)}>
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="draft">Draft</SelectItem>
-                    <SelectItem value="published">Published</SelectItem>
-                  </SelectContent>
-                </Select>
+                <Label htmlFor="author">Author</Label>
+                <Input id="author" name="author" placeholder="Author name" required />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="date">Publication Date</Label>
+              <Input id="date" name="date" type="date" required />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="file">Featured Image (Optional)</Label>
+              <div className="flex items-center space-x-2">
+                <Input id="file" type="file" accept="image/*" onChange={handleFileChange} className="hidden" />
+                <Button type="button" variant="outline" onClick={() => document.getElementById("file")?.click()}>
+                  <Upload className="mr-2 h-4 w-4" />
+                  Choose Image
+                </Button>
+                {selectedFile && <span className="text-sm text-muted-foreground">{selectedFile.name}</span>}
               </div>
             </div>
 

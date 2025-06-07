@@ -1,39 +1,61 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, Calendar, User, Edit } from "lucide-react"
 import Link from "next/link"
+import { getNewsById, type NewsItem } from "@/lib/actions/news.actions"
+import { getFileUrl } from "@/lib/utils"
 
 interface NewsDetailsProps {
   newsId: string
 }
 
 export function NewsDetails({ newsId }: NewsDetailsProps) {
-  // Mock news data - replace with actual data fetching
-  const article = {
-    id: newsId,
-    title: "New Academic Programs Launched",
-    excerpt: "Bugema University introduces three new undergraduate programs for the 2024 academic year.",
-    content: `Bugema University is excited to announce the launch of three new undergraduate programs starting in the 2024 academic year. These programs have been carefully designed to meet the evolving needs of students and the job market.
+  const [article, setArticle] = useState<NewsItem | null>(null)
+  const [loading, setLoading] = useState(true)
 
-The new programs include:
+  useEffect(() => {
+    const fetchArticle = async () => {
+      try {
+        const data = await getNewsById(newsId)
+        setArticle(data)
+      } catch (error) {
+        console.error("Failed to fetch article:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
 
-1. **Bachelor of Science in Data Science** - A comprehensive program that combines statistics, computer science, and domain expertise to extract insights from data.
+    fetchArticle()
+  }, [newsId])
 
-2. **Bachelor of Arts in Digital Marketing** - Focused on modern marketing strategies, social media management, and digital advertising techniques.
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-32">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+      </div>
+    )
+  }
 
-3. **Bachelor of Science in Environmental Engineering** - Addressing the growing need for sustainable solutions to environmental challenges.
-
-Each program has been developed in consultation with industry experts and will feature state-of-the-art facilities and experienced faculty members. Applications for these programs will open on February 1st, 2024.
-
-For more information about admission requirements and application procedures, please contact our admissions office.`,
-    author: "Dr. Sarah Johnson",
-    publishedAt: "2024-01-15",
-    status: "published",
-    category: "Academic",
-    views: 1234,
+  if (!article) {
+    return (
+      <div className="space-y-6">
+        <div className="flex items-center space-x-4">
+          <Button variant="ghost" size="icon" asChild>
+            <Link href="/news">
+              <ArrowLeft className="h-4 w-4" />
+            </Link>
+          </Button>
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight">Article Not Found</h1>
+            <p className="text-muted-foreground">The requested article could not be found.</p>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -61,14 +83,20 @@ For more information about admission requirements and application procedures, pl
           <CardHeader>
             <div className="flex items-center justify-between">
               <CardTitle className="text-2xl">{article.title}</CardTitle>
-              <div className="flex space-x-2">
-                <Badge variant="outline">{article.category}</Badge>
-                <Badge variant={article.status === "published" ? "default" : "secondary"}>{article.status}</Badge>
-              </div>
+              <Badge variant="outline">{article.category}</Badge>
             </div>
-            <p className="text-lg text-muted-foreground">{article.excerpt}</p>
+            <p className="text-lg text-muted-foreground">{article.summary}</p>
           </CardHeader>
-          <CardContent>
+          <CardContent className="space-y-4">
+            {article.file && (
+              <div className="mb-6">
+                <img
+                  src={getFileUrl(article.file) || "/placeholder.svg"}
+                  alt={article.title}
+                  className="w-full h-64 object-cover rounded-lg"
+                />
+              </div>
+            )}
             <div className="prose prose-gray dark:prose-invert max-w-none">
               {article.content.split("\n\n").map((paragraph, index) => (
                 <p key={index} className="mb-4">
@@ -91,11 +119,7 @@ For more information about admission requirements and application procedures, pl
               </div>
               <div className="flex items-center space-x-2">
                 <Calendar className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm">{new Date(article.publishedAt).toLocaleDateString()}</span>
-              </div>
-              <div className="text-sm">
-                <span className="text-muted-foreground">Views: </span>
-                <span>{article.views.toLocaleString()}</span>
+                <span className="text-sm">{new Date(article.date).toLocaleDateString()}</span>
               </div>
             </CardContent>
           </Card>
