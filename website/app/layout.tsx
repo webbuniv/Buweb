@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     siteName: "Bugema University",
     images: [
       {
-        url: "/bu_logo.png",
+        url: "/logo.svg",
         width: 1200,
         height: 630,
         alt: "Bugema University Campus",
@@ -52,16 +52,16 @@ export const metadata: Metadata = {
     title: "Bugema University - Excellence in Service",
     description:
       "Discover academic excellence at Bugema University, a leading institution of higher learning in Uganda.",
-    images: ["/bu_logo.png"],
+    images: ["/logo.svg"],
   },
   robots: {
     index: true,
     follow: true,
   },
   icons: {
-    icon: "/bu_logo.png",
-    shortcut: "/bu_logo.png",
-    apple: "/bu_logo.png",
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
   },
   category: "Education",
 }
