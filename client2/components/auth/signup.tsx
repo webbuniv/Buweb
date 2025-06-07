@@ -12,7 +12,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Loader2, Mail, User } from "lucide-react"
 import { createAccount, verifySecret } from "@/lib/actions/user.actions"
-import { OtpInput } from "@/components/ui/input-otp"
+import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp"
 
 export default function SignUp() {
   const router = useRouter()
@@ -168,7 +168,16 @@ export default function SignUp() {
             <form onSubmit={handleOtpSubmit} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="otp">One-Time Password</Label>
-                <OtpInput value={otp} onChange={setOtp} maxLength={6} containerClassName="flex justify-center gap-2" />
+                <InputOTP maxLength={6} value={otp} onChange={(value) => setOtp(value)}>
+                  <InputOTPGroup>
+                    <InputOTPSlot index={0} />
+                    <InputOTPSlot index={1} />
+                    <InputOTPSlot index={2} />
+                    <InputOTPSlot index={3} />
+                    <InputOTPSlot index={4} />
+                    <InputOTPSlot index={5} />
+                  </InputOTPGroup>
+                </InputOTP>
               </div>
 
               {error && (
