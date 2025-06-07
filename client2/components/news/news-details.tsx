@@ -4,18 +4,33 @@ import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Calendar, User, Edit } from "lucide-react"
+import { ArrowLeft, Calendar, User, Edit, Trash2 } from "lucide-react"
 import Link from "next/link"
-import { getNewsById, type NewsItem } from "@/lib/actions/news.actions"
+import { getNewsById, deleteNews, type NewsItem } from "@/lib/actions/news.actions"
 import { getFileUrl } from "@/lib/utils"
+import { toast } from "@/hooks/use-toast"
+import { useRouter } from "next/navigation"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 
 interface NewsDetailsProps {
   newsId: string
 }
 
 export function NewsDetails({ newsId }: NewsDetailsProps) {
+  const router = useRouter()
   const [article, setArticle] = useState<NewsItem | null>(null)
   const [loading, setLoading] = useState(true)
+  const [deleting, setDeleting] = useState(false)
 
   useEffect(() => {
     const fetchArticle = async () => {
@@ -31,6 +46,36 @@ export function NewsDetails({ newsId }: NewsDetailsProps) {
 
     fetchArticle()
   }, [newsId])
+
+  const handleDelete = async () => {
+    try {
+      setDeleting(true)
+      const result = await deleteNews(newsId)
+
+      if (result.success) {
+        toast({
+          title: "Success",
+          description: "Article deleted successfully",
+        })
+        router.push("/news")
+      } else {
+        toast({
+          title: "Error",
+          description: result.error || "Failed to delete article",
+          variant: "destructive",
+        })
+      }
+    } catch (error) {
+      console.error("Delete error:", error)
+      toast({
+        title: "Error",
+        description: "An unexpected error occurred",
+        variant: "destructive",
+      })
+    } finally {
+      setDeleting(false)
+    }
+  }
 
   if (loading) {
     return (
@@ -70,12 +115,37 @@ export function NewsDetails({ newsId }: NewsDetailsProps) {
           <h1 className="text-3xl font-bold tracking-tight">{article.title}</h1>
           <p className="text-muted-foreground">Article Details</p>
         </div>
-        <Button asChild>
-          <Link href={`/news/${newsId}/edit`}>
-            <Edit className="mr-2 h-4 w-4" />
-            Edit Article
-          </Link>
-        </Button>
+        <div className="flex space-x-2">
+          <Button asChild>
+            <Link href={`/news/${newsId}/edit`}>
+              <Edit className="mr-2 h-4 w-4" />
+              Edit
+            </Link>
+          </Button>
+
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button variant="destructive" disabled={deleting}>
+                <Trash2 className="mr-2 h-4 w-4" />
+                {deleting ? "Deleting..." : "Delete"}
+              </Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                <AlertDialogDescription>
+                  This action cannot be undone. This will permanently delete the article and remove it from our servers.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogAction onClick={handleDelete} className="bg-destructive text-destructive-foreground">
+                  Delete
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
+        </div>
       </div>
 
       <div className="grid gap-6 md:grid-cols-4">
@@ -98,11 +168,7 @@ export function NewsDetails({ newsId }: NewsDetailsProps) {
               </div>
             )}
             <div className="prose prose-gray dark:prose-invert max-w-none">
-              {article.content.split("\n\n").map((paragraph, index) => (
-                <p key={index} className="mb-4">
-                  {paragraph}
-                </p>
-              ))}
+              <div dangerouslySetInnerHTML={{ __html: article.content }} />
             </div>
           </CardContent>
         </Card>
