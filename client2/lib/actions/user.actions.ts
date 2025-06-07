@@ -2,6 +2,7 @@
 
 import { createAdminClient, createSessionClient } from "@/lib/appwrite"
 import { appwriteConfig } from "@/lib/appwrite/config"
+import { Query, ID } from "node-appwrite";
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 
@@ -11,7 +12,7 @@ export const parseStringify = <T>(obj: T): T => {
 };
 
 export const getUserByEmail = async (email: string) => {
-  const { databases } = createAdminClient();
+  const { databases } = await createAdminClient();
 
   const result = await databases.listDocuments(
     appwriteConfig.databaseId,
