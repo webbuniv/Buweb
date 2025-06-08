@@ -133,6 +133,7 @@ export function Editor({ value, onChange, placeholder = "Write something..." }: 
     if (editor && value) {
       // Only update if the content is different to avoid cursor jumping
       if (editor.getHTML() !== value) {
+        // @ts-expect-error setContent exists at runtime
         editor.commands.setContent(value)
       }
     }
