@@ -23,7 +23,13 @@ export function UsersList() {
     const fetchUsers = async () => {
       try {
         const usersData = await getUsers()
-        setUsers(usersData)
+        const mappedUsers: User[] = usersData.map((doc: any) => ({
+          $id: doc.$id,
+          fullName: doc.fullName,
+          email: doc.email,
+          $createdAt: doc.$createdAt,
+        }))
+        setUsers(mappedUsers)
       } catch (error) {
         console.error("Failed to fetch users:", error)
       } finally {
