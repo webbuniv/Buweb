@@ -11,7 +11,7 @@ import School from "@/components/school/School"
 const lecturers = [
   {
     name: "Prof. Israel Kibirige",
-    image: "/images/lecturers/israel-kibirige.jpg",
+    image: "/blank/blank.jpg",
     qualification: "Ph.D. in Education",
   },
   {
