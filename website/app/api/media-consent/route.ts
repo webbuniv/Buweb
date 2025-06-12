@@ -264,7 +264,7 @@ export async function POST(request: NextRequest) {
     try {
       await transporter.sendMail({
         from: `"Bugema University System" <${process.env.EMAIL_SERVER_USER}>`,
-        to: process.env.EMAIL_SERVER_USER,
+        to: process.env.EMAIL_ADMIN_USER,
         subject: `📄 Media Consent Form - ${fullName} (${submissionDate})`,
         html: adminEmailHtml,
       })
