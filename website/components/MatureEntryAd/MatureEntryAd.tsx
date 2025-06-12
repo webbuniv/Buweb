@@ -27,8 +27,8 @@ export default function MatureEntryAd() {
             aria-label="go to calendar"
             className=" animate-pulse   flex px-1 h-10 w-[240px] cursor-pointer items-center justify-center rounded-md bg-primary text-black shadow-md transition duration-800 ease-in-out hover:bg-opacity-80 hover:shadow-signUp "
           >
-          <Link href="/docs/ADVERT-FOR-WEBSITE-MAY.pdf" target="_blank" rel="noopener noreferrer">
-                <span className="text-white">We are Hiring</span>
+          <Link href="https://erms.bugemauniv.ac.ug/application" target="_blank" rel="noopener noreferrer">
+                <span className="text-white">August Intake</span>
                 </Link>
             
           </div>
