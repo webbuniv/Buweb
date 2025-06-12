@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
 
     const submissionDate = new Date().toLocaleString()
     const formId = `BU-${Date.now()}`
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || ""
     const printUrl = `${baseUrl}/print-consent/${formId}?name=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&regNo=${encodeURIComponent(registrationNumber || "")}&date=${encodeURIComponent(date)}&consent=${encodeURIComponent(consentDetails)}&submitted=${encodeURIComponent(submissionDate)}`
 
     // Create transporter
