@@ -16,10 +16,6 @@ const Footer = () => {
       url: "/docs/NUR.pdf",
     },
     {
-      name: "Current Programs",
-      url: "/docs/CURRENT.pdf",
-    },
-    {
       name: "Official Bulletin",
       url: "/docs/Bulletin.pdf",
     },

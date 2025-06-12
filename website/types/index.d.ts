@@ -42,3 +42,9 @@ declare interface Events {
     description: string;
     date: string;
 }
+
+declare interface NewsLetter {
+    email: string;
+    fname: string;
+    lname: string;
+}

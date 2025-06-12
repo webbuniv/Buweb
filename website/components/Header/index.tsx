@@ -7,14 +7,15 @@ import Model1 from "@/components/model/Model1";
 import Model2 from "@/components/model/Model2";
 import Model3 from "@/components/model/Model3";
 import Model4 from "@/components/model/Model4";
+import Advert from "../model/advertmodel";
 
 import image from "../../public/images/logo/bu_logo_nav.png";
 
 import "../../styles/nav.css";
 import "../../styles/index.css";
 import { FaChevronDown } from "react-icons/fa";
-import MobileNav from "../MobileNav/MobileNav";
 import menuData from "./menuData";
+import Router from "next/router";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -25,8 +26,9 @@ const Header = () => {
   const [sticky, setSticky] = useState(false);
   const [openIndex, setOpenIndex] = useState(-1);
   const [showModel2, setShowModel2] = useState(false);
+  const [advertvisible, setadvertvisible] = useState(true);
   const [hideMobileNav, setHideMobileNav] = useState(false);
-
+ const router = Router
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
   };
@@ -45,6 +47,9 @@ const Header = () => {
   };
 
   useEffect(() => {
+        setTimeout(()=>{
+                setadvertvisible(false)
+        },5000)
     window.addEventListener("scroll", handleStickyNavbar);
     return () => {
       window.removeEventListener("scroll", handleStickyNavbar);
@@ -278,7 +283,6 @@ const Header = () => {
                     <li>
                       <div
                         className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-
                         onClick={fifth_modal}
                       >
                         <span className={showModel4 ? "active" : ""}>
@@ -448,10 +452,13 @@ const Header = () => {
       <Model3 is3visible={showModel3} onClose={() => setShowModel3(false)}>
         <></>
       </Model3>
-      <Model4 is4visible={showModel4} onClose={() => setShowModel4(false)}>
+      <Model4 is4visible={showModel4} onClose={() => setShowModel4(false)} palmGirlsImage="/placeholder.svg?height=450&width=350">
         <></>
       </Model4>
-      
+
+      <Advert isadvertvisible={advertvisible} onClose={() => setadvertvisible(false)} >
+        <></>
+      </Advert>
     </>
   );
 };

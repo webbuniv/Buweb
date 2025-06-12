@@ -16,7 +16,7 @@ const Profile = () => {
             className="h-full w-full rounded-tl-sm rounded-tr-sm object-cover object-center"
             width={970}
             height={260}
-            style={{
+            style={{z
               width: "auto",
               height: "auto",
             }}
