@@ -11,12 +11,12 @@ import School from "@/components/school/School"
 const lecturers = [
   {
     name: "Mr. Muwanga Kosea Erasto",
-    image: "/blank/blank.jpg",
+    image: "/images/lecturers/kasibe.JPG",
     qualification: "HOD. Computing and Informatics ",
   },
   {
     name: "Mr. Kasibe Isima Isaiah",
-    image: "/blank/blank.jpg",
+    image: "/images/lecturers/kosea.JPG",
     qualification: "HOD. Life and Physical Sciences",
   },
   {
