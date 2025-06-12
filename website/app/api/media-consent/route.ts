@@ -90,7 +90,7 @@ export async function POST(request: NextRequest) {
             
             <p style="color: #475569; font-size: 14px; margin-top: 30px;">
               If you have any questions, please contact our media team at 
-              <a href="mailto:${process.env.EMAIL_SERVER_USER}" style="color: #2563eb;">${process.env.EMAIL_SERVER_USER}</a>
+              <a href="mailto:${process.env.EMAIL_ADMIN_USER}" style="color: #2563eb;">${process.env.EMAIL_ADMIN_USER}</a>
             </p>
           </div>
           
@@ -251,7 +251,7 @@ export async function POST(request: NextRequest) {
             <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #e2e8f0; text-align: center;">
               <p style="color: #64748b; font-size: 12px; margin: 0;">
                 This form was digitally submitted and processed by Bugema University Media Department<br>
-                For inquiries, contact: ${process.env.EMAIL_SERVER_USER} | Generated: ${submissionDate}
+                For inquiries, contact: ${process.env.EMAIL_ADMIN_USER} | Generated: ${submissionDate}
               </p>
             </div>
           </div>
