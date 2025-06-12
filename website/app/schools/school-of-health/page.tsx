@@ -18,17 +18,17 @@ const lecturers = [
   
   {
     name: "Mrs.Jackline Nakimuli",
-    image: "/images/lecturers/robert-mukasa.jpg",
+    image: "/blank/blank_girl.jpg",
     qualification: "Head of Department Nursing and Midwifery",
   },
   {
     name: "Mrs.Agnes Katusabe",
-    image: "/images/lecturers/jane-nambi.jpg",
+    image: "/blank/blank_girl.jpg",
     qualification: "Principal (Certificate and Diploma)",
   },
   {
     name: "Mr.Awio Alex",
-    image: "/images/lecturers/michael-ssekandi.jpg",
+    image: "/blank/blank.jpg",
     qualification: "Lecturer (Diploma in Nursing)",
   },
 ]
@@ -125,7 +125,7 @@ export default function SchoolOfHealth() {
         subtitle="Developing compassionate healthcare professionals through excellence in education, research, and service"
         topImg={["https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/67d1473b0039984aef2f/view?project=674dcf7b003d57db960a&mode=admin"]}
         dean="MR.MICHEAL W. KHAYEMBA"
-        deanImage="/images/deans/sarah-nakimera.jpg"
+        deanImage="/blank/blank.jpg"
         message="The School of Health at Bugema University is dedicated to preparing healthcare professionals who combine clinical excellence with compassionate care. Our innovative curriculum integrates theoretical knowledge with practical skills, ensuring our graduates are ready to address the complex health challenges of our communities and beyond. We are committed to advancing health equity through education, research, and service."
         preamble=""
         goal=""
@@ -185,10 +185,10 @@ export default function SchoolOfHealth() {
 
       {/* Facilities Carousel */}
       <div className="my-16">
-        <SectionTitle
+        {/* <SectionTitle
           title="Our Facilities"
           paragraph="State-of-the-art facilities designed to provide optimal learning experiences"
-        />
+        /> */}
 
         <Carousel className="mt-8">
           <CarouselContent>
