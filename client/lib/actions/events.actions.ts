@@ -47,7 +47,7 @@ const handleError = (error: unknown, message: string) => {
 }
 
 export async function createEvent(formData: FormData): Promise<CreateEventResponse> {
-  const { storage, databases } = await createAdminClient()
+  const { databases } = await createAdminClient()
 
 
   try {
