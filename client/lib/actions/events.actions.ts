@@ -49,24 +49,12 @@ const handleError = (error: unknown, message: string) => {
 export async function createEvent(formData: FormData): Promise<CreateEventResponse> {
   const { storage, databases } = await createAdminClient()
 
-  let fileID: string | undefined
-  const file = formData.get("file") as File | null
 
   try {
-    if (file && file.size > 0 && file.name !== "undefined") {
-      try {
-        const response = await storage.createFile(appwriteConfig.bucketId, ID.unique(), file)
-        fileID = response.$id
-      } catch (error) {
-        return {
-          error: "Error uploading file",
-        }
-      }
-    }
 
     await databases.createDocument(appwriteConfig.databaseId, appwriteConfig.eventsCollectionId, ID.unique(), {
       title: formData.get("title") as string,
-      file: fileID,
+      file: formData.get("file") as string,
       organizer: formData.get("organizer") as string,
       location: formData.get("location") as string,
       description: formData.get("description") as string,
