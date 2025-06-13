@@ -53,8 +53,11 @@ export function ImageUpload({ value, onChange, onError, className, ...props }: I
 
         const result = await uploadFile(formData)
         if (result.success && result.fileId) {
+          // Here we only need the file ID for database storage
+          onChange?.(result.fileId)
+
+          // For preview purposes, we need to construct the URL
           const fileUrl = `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${result.fileId}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`
-          onChange?.(fileUrl)
           setPreview(fileUrl)
         } else {
           throw new Error(result.error || "Failed to upload image")
