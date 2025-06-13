@@ -83,20 +83,8 @@ const sendEmailNotification = async (email: string, content: string, subject: st
 export async function createNews(formData: FormData): Promise<CreateNewsResponse> {
   const { storage, databases } = await createAdminClient()
 
-  let fileID: string | undefined
-  const file = formData.get("file") as File | null
 
   try {
-    if (file && file.size > 0 && file.name !== "undefined") {
-      try {
-        const response = await storage.createFile(appwriteConfig.bucketId, ID.unique(), file)
-        fileID = response.$id
-      } catch (error) {
-        return {
-          error: "Error uploading file",
-        }
-      }
-    }
 
     const news = await databases.createDocument(
       appwriteConfig.databaseId,
@@ -104,7 +92,7 @@ export async function createNews(formData: FormData): Promise<CreateNewsResponse
       ID.unique(),
       {
         title: formData.get("title") as string,
-        file: fileID,
+        file: formData.get("file") as string,
         category: formData.get("category") as string,
         author: formData.get("author") as string,
         date: formData.get("date") as string,
