@@ -16,7 +16,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { uploadImageForEditor } from "@/lib/actions/upload.actions"
+import { uploadFile } from "@/lib/actions/upload.actions"
 import { cn } from "@/lib/utils"
 
 // Define max file size: 10MB in bytes
@@ -56,11 +56,10 @@ export function ImageUploadDialog({ onImageUploaded }: ImageUploadDialogProps) {
         const formData = new FormData()
         formData.append("file", file)
 
-        // Use uploadImageForEditor which returns the complete URL
-        const result = await uploadImageForEditor(formData)
-        if (result.success && result.fileUrl) {
-          // Use the complete URL for the editor
-          onImageUploaded(result.fileUrl)
+        const result = await uploadFile(formData)
+        if (result.success && result.fileId) {
+          const fileUrl = `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${result.fileId}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`
+          onImageUploaded(fileUrl)
           setIsOpen(false)
 
           toast({

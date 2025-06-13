@@ -8,6 +8,7 @@ import { toast } from "@/hooks/use-toast"
 
 import { cn } from "@/lib/utils"
 import { uploadFile } from "@/lib/actions/upload.actions"
+import { getFilePreviewUrl } from "@/lib/utils/file-utils"
 
 // Define max file size: 10MB in bytes
 const MAX_FILE_SIZE = 10 * 1024 * 1024 // 10MB
@@ -25,7 +26,12 @@ export function ImageUpload({ value, onChange, onError, className, ...props }: I
 
   // Update preview when value changes
   React.useEffect(() => {
-    setPreview(value)
+    // If value is a file ID, convert it to a URL for preview
+    if (value && !value.startsWith("http")) {
+      setPreview(getFilePreviewUrl(value))
+    } else {
+      setPreview(value)
+    }
   }, [value])
 
   const onDrop = React.useCallback(
@@ -53,12 +59,12 @@ export function ImageUpload({ value, onChange, onError, className, ...props }: I
 
         const result = await uploadFile(formData)
         if (result.success && result.fileId) {
-          // Here we only need the file ID for database storage
+          // IMPORTANT: We only pass the file ID to the parent component
+          // This ensures only the ID is stored in the database
           onChange?.(result.fileId)
 
-          // For preview purposes, we need to construct the URL
-          const fileUrl = `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${result.fileId}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`
-          setPreview(fileUrl)
+          // For preview purposes only, we generate a URL
+          setPreview(getFilePreviewUrl(result.fileId))
         } else {
           throw new Error(result.error || "Failed to upload image")
         }
