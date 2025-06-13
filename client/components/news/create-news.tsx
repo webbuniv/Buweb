@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { ArrowLeft, Loader2 } from 'lucide-react'
+import { ArrowLeft, Loader2 } from "lucide-react"
 import Link from "next/link"
 import { createNews } from "@/lib/actions/news.actions"
 import { toast } from "@/hooks/use-toast"
@@ -31,9 +31,10 @@ export function CreateNews() {
 
     const formData = new FormData(e.currentTarget)
     formData.set("content", content) // Add rich text content
-    
+
     if (featuredImage) {
-      formData.set("imageUrl", featuredImage)
+      // Use "file" instead of "imageUrl" to match what the server action expects
+      formData.set("file", featuredImage)
     }
 
     try {
@@ -47,9 +48,20 @@ export function CreateNews() {
         router.push("/news")
       } else {
         setError(result.error || "Failed to create news article")
+        toast({
+          title: "Error",
+          description: result.error || "Failed to create news article",
+          variant: "destructive",
+        })
       }
     } catch (err: any) {
+      console.error("Error creating news:", err)
       setError(err.message || "An error occurred while creating the article.")
+      toast({
+        title: "Error",
+        description: err.message || "An error occurred while creating the article.",
+        variant: "destructive",
+      })
     } finally {
       setLoading(false)
     }
@@ -88,13 +100,18 @@ export function CreateNews() {
 
             <div className="space-y-2">
               <Label>Featured Image</Label>
-              <ImageUpload 
-                value={featuredImage} 
+              <ImageUpload
+                value={featuredImage}
                 onChange={setFeaturedImage}
                 onError={(error) => {
-                  setError(error.message);
+                  setError(error.message)
                 }}
               />
+              {featuredImage && (
+                <p className="text-xs text-muted-foreground">
+                  Image ID: {featuredImage.length > 20 ? `${featuredImage.substring(0, 20)}...` : featuredImage}
+                </p>
+              )}
             </div>
 
             <div className="space-y-2">

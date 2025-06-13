@@ -32,7 +32,7 @@ export function CreateEvent() {
     formData.set("description", description) // Add rich text description
     
     if (featuredImage) {
-      formData.set("imageUrl", featuredImage)
+      formData.set("file", featuredImage)
     }
 
     try {

@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { useDropzone } from "react-dropzone"
-import { ImageIcon, Loader2, Upload } from 'lucide-react'
+import { ImageIcon, Loader2, Upload } from "lucide-react"
 import { toast } from "@/hooks/use-toast"
 
 import {
@@ -20,7 +20,7 @@ import { uploadFile } from "@/lib/actions/upload.actions"
 import { cn } from "@/lib/utils"
 
 // Define max file size: 10MB in bytes
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+const MAX_FILE_SIZE = 10 * 1024 * 1024 // 10MB
 
 interface ImageUploadDialogProps {
   onImageUploaded: (url: string) => void
@@ -35,42 +35,46 @@ export function ImageUploadDialog({ onImageUploaded }: ImageUploadDialogProps) {
     async (acceptedFiles: File[]) => {
       try {
         const file = acceptedFiles[0]
-        
+
         // Check file size before uploading
         if (file.size > MAX_FILE_SIZE) {
           toast({
             title: "Error",
             description: "File is too large. Maximum size is 10MB.",
-            variant: "destructive"
-          });
-          return;
+            variant: "destructive",
+          })
+          return
         }
-        
+
         setIsUploading(true)
         toast({
           title: "Uploading",
           description: "Uploading image...",
-        });
+        })
 
-        const result = await uploadFile(file)
+        // Create FormData and append the file
+        const formData = new FormData()
+        formData.append("file", file)
+
+        const result = await uploadFile(formData)
         if (result.success && result.fileId) {
-          const fileUrl = `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${result.fileId}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`;
+          const fileUrl = `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${result.fileId}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`
           onImageUploaded(fileUrl)
           setIsOpen(false)
 
           toast({
             title: "Success",
             description: "Image uploaded successfully!",
-          });
+          })
         } else {
-          throw new Error(result.error || "Failed to upload image");
+          throw new Error(result.error || "Failed to upload image")
         }
       } catch (error) {
         toast({
           title: "Error",
           description: "Failed to upload image. Please try again.",
-          variant: "destructive"
-        });
+          variant: "destructive",
+        })
       } finally {
         setIsUploading(false)
       }
@@ -87,24 +91,24 @@ export function ImageUploadDialog({ onImageUploaded }: ImageUploadDialogProps) {
     multiple: false,
     maxSize: MAX_FILE_SIZE,
     onDropRejected: (fileRejections) => {
-      const isSizeError = fileRejections.some(
-        rejection => rejection.errors.some(error => error.code === 'file-too-large')
-      );
-      
+      const isSizeError = fileRejections.some((rejection) =>
+        rejection.errors.some((error) => error.code === "file-too-large"),
+      )
+
       if (isSizeError) {
         toast({
           title: "Error",
           description: "File is too large. Maximum size is 10MB.",
-          variant: "destructive"
-        });
+          variant: "destructive",
+        })
       } else {
         toast({
           title: "Error",
           description: "Invalid file type. Please upload a PNG, JPG, or GIF.",
-          variant: "destructive"
-        });
+          variant: "destructive",
+        })
       }
-    }
+    },
   })
 
   const handleUrlSubmit = (e: React.FormEvent) => {
@@ -112,7 +116,7 @@ export function ImageUploadDialog({ onImageUploaded }: ImageUploadDialogProps) {
     if (imageUrl) {
       // Validate URL before submitting
       try {
-        new URL(imageUrl);
+        new URL(imageUrl)
         onImageUploaded(imageUrl)
         setIsOpen(false)
         setImageUrl("")
@@ -120,8 +124,8 @@ export function ImageUploadDialog({ onImageUploaded }: ImageUploadDialogProps) {
         toast({
           title: "Error",
           description: "Please enter a valid URL",
-          variant: "destructive"
-        });
+          variant: "destructive",
+        })
       }
     }
   }
