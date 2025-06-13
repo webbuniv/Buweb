@@ -10,9 +10,11 @@ interface UploadResult {
   error?: string
 }
 
-export async function uploadFile(file: File): Promise<UploadResult> {
+export async function uploadFile(formData: FormData): Promise<UploadResult> {
   try {
     const { storage } = await createAdminClient()
+
+    const file = formData.get("file") as File
 
     if (!file || file.size === 0) {
       return {

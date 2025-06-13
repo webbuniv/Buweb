@@ -3,14 +3,14 @@
 import * as React from "react"
 import Image from "next/image"
 import { useDropzone } from "react-dropzone"
-import { ImageIcon, Loader2 } from 'lucide-react'
+import { ImageIcon, Loader2 } from "lucide-react"
 import { toast } from "@/hooks/use-toast"
 
 import { cn } from "@/lib/utils"
 import { uploadFile } from "@/lib/actions/upload.actions"
 
 // Define max file size: 10MB in bytes
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+const MAX_FILE_SIZE = 10 * 1024 * 1024 // 10MB
 
 interface ImageUploadProps {
   value?: string
@@ -32,35 +32,40 @@ export function ImageUpload({ value, onChange, onError, className, ...props }: I
     async (acceptedFiles: File[]) => {
       try {
         const file = acceptedFiles[0]
-        
+
         // Check file size before uploading
         if (file.size > MAX_FILE_SIZE) {
-          const error = new Error("File is too large. Maximum size is 10MB.");
-          onError?.(error);
+          const error = new Error("File is too large. Maximum size is 10MB.")
+          onError?.(error)
           toast({
             title: "Error",
             description: "File is too large. Maximum size is 10MB.",
-            variant: "destructive"
-          });
-          return;
+            variant: "destructive",
+          })
+          return
         }
-        
+
         setIsUploading(true)
-        const result = await uploadFile(file)
+
+        // Create FormData and append the file
+        const formData = new FormData()
+        formData.append("file", file)
+
+        const result = await uploadFile(formData)
         if (result.success && result.fileId) {
-          const fileUrl = `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${result.fileId}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`;
+          const fileUrl = `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${result.fileId}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`
           onChange?.(fileUrl)
           setPreview(fileUrl)
         } else {
-          throw new Error(result.error || "Failed to upload image");
+          throw new Error(result.error || "Failed to upload image")
         }
       } catch (error) {
         onError?.(error as Error)
         toast({
           title: "Error",
           description: "Failed to upload image. Please try again.",
-          variant: "destructive"
-        });
+          variant: "destructive",
+        })
       } finally {
         setIsUploading(false)
       }
@@ -77,28 +82,28 @@ export function ImageUpload({ value, onChange, onError, className, ...props }: I
     multiple: false,
     maxSize: MAX_FILE_SIZE,
     onDropRejected: (fileRejections) => {
-      const isSizeError = fileRejections.some(
-        rejection => rejection.errors.some(error => error.code === 'file-too-large')
-      );
-      
+      const isSizeError = fileRejections.some((rejection) =>
+        rejection.errors.some((error) => error.code === "file-too-large"),
+      )
+
       if (isSizeError) {
-        const error = new Error("File is too large. Maximum size is 10MB.");
-        onError?.(error);
+        const error = new Error("File is too large. Maximum size is 10MB.")
+        onError?.(error)
         toast({
           title: "Error",
           description: "File is too large. Maximum size is 10MB.",
-          variant: "destructive"
-        });
+          variant: "destructive",
+        })
       } else {
-        const error = new Error("Invalid file type. Please upload a PNG, JPG, or GIF.");
-        onError?.(error);
+        const error = new Error("Invalid file type. Please upload a PNG, JPG, or GIF.")
+        onError?.(error)
         toast({
           title: "Error",
           description: "Invalid file type. Please upload a PNG, JPG, or GIF.",
-          variant: "destructive"
-        });
+          variant: "destructive",
+        })
       }
-    }
+    },
   })
 
   return (
@@ -127,7 +132,7 @@ export function ImageUpload({ value, onChange, onError, className, ...props }: I
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             // Add error handling for image loading
             onError={(e) => {
-              console.error("Image failed to load:", e);
+              console.error("Image failed to load:", e)
               // Optionally set a fallback image
               // e.currentTarget.src = "/placeholder.svg";
             }}
