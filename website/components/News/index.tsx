@@ -73,11 +73,14 @@ const News = () => {
                         : post.title}
                     </Link>
                   </h3>
-                  <p className=" pb-2 text-base font-medium text-body-color dark:border-white dark:border-opacity-10">
-                    {post.content.length > 20
-                      ? `${post.content.slice(0, 150)}...`
-                      : post.content}
-                  </p>
+                  <div className=" pb-2 text-base font-medium text-body-color dark:border-white dark:border-opacity-10"
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        post.content.length > 20
+                          ? `${post.content.slice(0, 150)}...`
+                          : post.content,
+                    }}
+                  />
                 </div>
               </div>
             </div>
