@@ -46,11 +46,15 @@ const SingleEvent = ({ post }: Props) => {
           </Link>
 
         </div>
-        <p className="mb-4 text-base font-medium text-body-color dark:border-white dark:border-opacity-10">
-          {post.content.length > 20
-            ? `${post.content.slice(0, 100)}...`
-            : post.content}
-        </p>
+        <div
+          className="mb-4 text-base font-medium text-body-color dark:border-white dark:border-opacity-10"
+          dangerouslySetInnerHTML={{
+            __html:
+              post.content.length > 20
+                ? `${post.content.slice(0, 100)}...`
+                : post.content,
+          }}
+        />
       </div>
     </div>
   );
