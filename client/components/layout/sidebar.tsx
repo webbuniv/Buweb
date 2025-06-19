@@ -29,15 +29,11 @@ const menuItems = [
     icon: Newspaper,
   },
   {
-    title: "Users",
-    href: "/users",
+    title: "Teams",
+    href: "/teams",
     icon: Users,
   },
-  {
-    title: "Gallery",
-    href: "/gallery",
-    icon: Images,
-  },
+
   {
     title: "Settings",
     href: "/settings",
