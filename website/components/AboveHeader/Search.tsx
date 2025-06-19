@@ -80,10 +80,10 @@ export const Search: React.FC = () => {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="text-gray-600 hover:text-blue-600 focus:outline-none"
+        className="text-white hover:text-blue-600 focus:outline-none"
         aria-label="Open search"
       >
-        <FaSearch size={16} />
+        <FaSearch className='text-white font-bold ' size={16} />
       </button>
       <AnimatePresence>
         {isOpen && (

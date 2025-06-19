@@ -34,7 +34,7 @@ const Header = () => {
   };
 
   const handleStickyNavbar = () => {
-    if (window.scrollY >= 200) {
+    if (window.scrollY >= 3) {
       setSticky(true);
     } else {
       setSticky(false);
@@ -146,8 +146,8 @@ const Header = () => {
         // }`}
         className={`hidden md:flex header left-0 z-40 w-full items-center ${
           sticky
-            ? "bg-dark text-white top-0 !fixed !z-[9999] bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition"
-            : "absolute top-12 bg-gradient-to-b from-black  text-white"
+            ? "bg-dark text-white top-0 !fixed !z-[9999] bg-opacity-100 shadow-sticky backdrop-blur-sm fade-up transition"
+            : "absolute top-8  fades-out  text-white"
         }`}
       >
         <div className="container">
