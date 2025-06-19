@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Sheet, SheetContent } from "@/components/ui/sheet"
-import { LayoutDashboard, Calendar, Newspaper, Users,Images , Settings } from "lucide-react"
+import { LayoutDashboard, Calendar, Newspaper, Users, Settings } from "lucide-react"
 
 interface SidebarProps {
   sidebarOpen: boolean
