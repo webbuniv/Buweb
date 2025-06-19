@@ -4,7 +4,6 @@ import type React from "react"
 import { useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { ImageUpload } from "@/components/ui/image-upload"
 import { Label } from "@/components/ui/label"
 import { uploadFile } from "@/lib/actions/upload.actions"
 
@@ -20,12 +19,13 @@ const AddImagesForm = ()=> {
          const [selectedImage, setSelectedImage] = useState<File[] | []>([]);
 
                 const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+                        
                   if (e.target.files) {
                       const filesArray = Array.from(e.target.files)
                       const maxFileSize = 3 * 1024 * 1024; // 1MB in bytes
                       const validFiles: File[] = [];
                       for (const file of filesArray) {
-
+                         console.log("Uploading file:", file)
                         if (!file.type.startsWith("image/")) {
                                 alert(`"${file.name}" is not a valid image file.`);
                                 return; 
@@ -37,7 +37,7 @@ const AddImagesForm = ()=> {
                                 validFiles.push(file);
                               }
                             }
-                   
+
                     // Check if adding these files would exceed the 5 image limit
                     if (validFiles.length > 5) {
                       alert("You can only upload up to 5 images")
@@ -50,8 +50,9 @@ const AddImagesForm = ()=> {
                   }
                 }
   const handleSubmit = () => {
-        selectedImage.forEach((file) => {
-                uploadFile(file)
+        selectedImage.forEach(async (file) => {
+               
+                await uploadFile(file)
         })}
   
 
@@ -70,20 +71,22 @@ const AddImagesForm = ()=> {
           </div>
 
           <div>
-                <Label className="text-sm font-medium">Images</Label>
-                <input
-                        type="file"
-                        id="imageUrl"
-                        name="imageUrl"
-                        ref={fileInputRef}
-                        accept="image/*"
-                        multiple
-                        onChange={handleImageChange}
-                        required
-                        className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                />
-
-          </div>
+          <label htmlFor="imageUrl" className="block text-sm font-medium text-gray-700 dark:text-white">
+            Attach an Image (Upto 5 images)
+          </label>
+          <input
+            type="file"
+            id="imageUrl"
+            name="imageUrl"
+            ref={fileInputRef}
+            accept="image/*"
+            multiple
+            onChange={handleImageChange}
+            required
+            className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 dark:text-gray  focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          />
+          
+        </div>
 
       
           <div className="flex justify-end gap-3">
