@@ -33,7 +33,6 @@ const menuItems = [
     href: "/teams",
     icon: Users,
   },
-
   {
     title: "Settings",
     href: "/settings",
