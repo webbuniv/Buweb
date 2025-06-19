@@ -11,24 +11,19 @@ import School from "@/components/school/School"
 
 const lecturers = [
   {
-    name: "Dr. John Doe",
-    image: "/images/lecturers/john-doe.jpg",
-    qualification: "Ph.D. in Business Administration",
+    name: "Dr. LUBOWA MARTIN",
+    image: "/images/lecturers/lubowa-martin.JPG",
+    qualification: "Ph.D. in Entrepreneurship",
   },
   {
-    name: "Prof. Jane Smith",
-    image: "/images/lecturers/jane-smith.jpg",
-    qualification: "Ph.D. in Finance",
+    name: "Mrs. Birungi Grace",
+    image: "/blank/blank_girl.jpg",
+    qualification: "MMs in Financial Management, CPA",
   },
   {
-    name: "Dr. Michael Johnson",
-    image: "/images/lecturers/michael-johnson.jpg",
-    qualification: "Ph.D. in Management",
-  },
-  {
-    name: "Dr. Emily Brown",
-    image: "/images/lecturers/emily-brown.jpg",
-    qualification: "Ph.D. in Economics",
+    name: "Dr. Jeremiah Nyende",
+    image: "/blank/blank.jpg",
+    qualification: "Ph.D. ",
   },
 ]
 
@@ -40,7 +35,7 @@ export default function SchoolOfBusiness() {
         subtitle="A leading business school dedicated to excellence and integrity"
         topImg={["/images/features/business.jpeg"]}
         dean="DR. LUBOWA MARTIN"
-        deanImage="/blank/blank.jpg"
+        deanImage="/images/lecturers/lubowa-martin.JPG"
         message="As business times evolve, so are the skills needed to run such environments. The school of business Bugema University is always evolving to meet the current business trends. We shall equip you with the necessary skills in the areas of accounting, procurement, and management. Your decision to join us is a perfect one. Looking forward to serving and preparing you for a better future."
         preamble="The School of Business believes in integrity and excellence in business dealings. It is dedicated to the education and development of individuals in the region and beyond. These will become business leaders of both private and public organizations through outstanding business-oriented research, instruction, and service. The school endeavors to train and produce human resources that are not only professionals but also morally upright."
         goal="To train efficient and effective future professionals who integrate integrity and sound business and organizational functions, combining knowledge with analytical and practical skills to accurately define problems, find viable solutions, and implement desirable decisions."
