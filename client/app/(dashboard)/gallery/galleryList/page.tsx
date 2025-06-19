@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Search, Plus, Calendar, Trash2, User, LayoutGrid, LayoutList } from "lucide-react"
 import Link from "next/link"
-import { getAllImages, type ImageItem } from "@/lib/actions/gallery.actions"
+import { deleteImage, getAllImages, type ImageItem } from "@/lib/actions/gallery.actions"
 import Image from "next/image"
 import { DataTable } from "@/components/ui/data-table"
 import {  formatDate } from "@/lib/utils"
@@ -17,6 +17,7 @@ export function GalleryList() {
   const [loading, setLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState("")
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid")
+  const [deleted, setDeleted] = useState(false)
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -32,6 +33,23 @@ export function GalleryList() {
 
     fetchEvents()
   }, [])
+
+  const Delete = async (id:string)=>{
+        return deleteImage(id).then((response) => {
+          if (response.success) {
+            setDeleted(true)
+            setTimeout(() => {
+                setDeleted(false)
+                window.location.reload()
+        },3000)
+          } else {
+            setDeleted(false)
+          }
+        }).catch((error) => {
+          console.error("Error deleting image:", error)
+        })
+        
+  }
 
   const filteredEvents = images.filter((item: ImageItem) => item.category.toLowerCase().includes(searchQuery.toLowerCase()))
 
@@ -96,7 +114,7 @@ export function GalleryList() {
         <div className="relative w-full sm:w-auto">
           <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
           <Input
-            placeholder="Search events..."
+            placeholder="Search image categories..."
             className="pl-8 w-full sm:w-[300px]"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -117,16 +135,19 @@ export function GalleryList() {
         </div>
       </div>
 
+      {deleted && (
+        <div className="p-4 mb-4 bg-red-100 border border-red-600 rounded">
+          <p className="text-sm text-green-500">Image deleted successfully.</p></div>)}
+
       {viewMode === "grid" ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredEvents.length === 0 ? (
             <div className="col-span-full text-center py-10">
-              <p className="text-muted-foreground">No events found.</p>
+              <p className="text-muted-foreground">No Images found.</p>
             </div>
           ) : (
             filteredEvents.map((item) => (
-              <Link key={item.category} href={`/gallery/${item.category}`} className="block">
-                <Card className="h-full overflow-hidden hover:shadow-md transition-shadow">
+              <Card className="h-full overflow-hidden hover:shadow-md transition-shadow">
                   {item.imageUrl && (
                     <div className="aspect-video w-full overflow-hidden">
                       <Image
@@ -157,13 +178,12 @@ export function GalleryList() {
                         Uploaded By {item.UploadedBy}
                       </div>
 
-                      <div className=" hover:cursor-pointer z-40 flex items-center text-sm text-muted-foreground">
-                        <Trash2 className="mr-1 mb-3 h-8 w-8" />
+                      <div className=" hover:cursor-pointer hover:scale-105  z-40 flex items-center text-sm text-muted-foreground" onClick={()=> Delete(item.id)}>
+                        <Trash2 className="mr-1 mb-3 h-8 w-8 hover:text-red-500" />
                       </div>
                     </div>
                   </CardContent>
                 </Card>
-              </Link>
             ))
           )}
         </div>

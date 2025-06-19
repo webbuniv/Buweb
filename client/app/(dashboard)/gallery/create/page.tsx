@@ -17,7 +17,7 @@ interface ReviewFormProps {
 }
 const AddImagesForm = ()=> {
          const [error, setError] = useState<string | null>(null)
-        const [success, setSuccess] = useState<string | null>(null)
+        const [success, setSuccess] = useState(false)
         const [category, setcategory] = useState("")
         const [featuredImage, setFeaturedImage] = useState<string>("")
          const [imageUrl, setImageUrl] = useState("");
@@ -27,15 +27,18 @@ const AddImagesForm = ()=> {
         const formData = new FormData();
         formData.append("category", category);
         formData.append("imageUrl", imageUrl);
-        await saveImageWithCategory(formData).then((response) => {
-                !response.success ?
-                setError(response.error || "Failed to save image") :
-                setSuccess("Image saved successfully")
+        const save = await saveImageWithCategory(formData)
+        setSuccess(true)
+        if(!save.success){
+                setError(save.error || "Failed to save image")
+        }
+        
+                setTimeout(() => {
+                        setSuccess(false)}, 3000)
                 setFeaturedImage("")
-                setError(null)
                 setcategory("") 
                 setImageUrl("")
-        })
+       
 }
         useEffect(() => {
                 setImageUrl(getFilePreviewUrl(featuredImage))
@@ -75,9 +78,9 @@ const AddImagesForm = ()=> {
             >Submit 
             </Button>
           </div>
-          {success && success.length>0 && (
+          {success &&  (
               <Alert variant="default">
-                <AlertDescription>{success}</AlertDescription>
+                <AlertDescription>Image Uploaded Successfully</AlertDescription>
               </Alert>
             )}
           {error && (
