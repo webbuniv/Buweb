@@ -1,4 +1,4 @@
-import { GalleryList } from "./galleryList/page"
+import { GalleryList } from "@/components/gallery/GalleryList"
 
 export default function EventsPage() {
   return <GalleryList />
