@@ -9,4 +9,5 @@ export const appwriteConfig = {
   newsletterCollectionId: process.env.NEXT_PUBLIC_APPWRITE_NEWSLETTER_COLLECTION!,
   secretKey: process.env.NEXT_APPWRITE_SECRETKEY!,
   bucketId: process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID!,
+  galleryCollectionId: process.env.NEXT_PUBLIC_APPWRITE_GALLERY_COLLECTION!,
 }
