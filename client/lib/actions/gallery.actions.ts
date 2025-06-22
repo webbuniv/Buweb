@@ -33,7 +33,7 @@ export interface Events {
   $createdAt: number
 }
 
-interface CreateEventResponse {
+interface CreateGalleryResponse {
   success?: boolean
   error?: string
 }
@@ -43,7 +43,7 @@ const handleError = (error: unknown, message: string) => {
   throw new Error(message)
 }
 
-export async function saveImageWithCategory(formData: FormData): Promise<CreateEventResponse> {
+export async function saveImageWithCategory(formData: FormData): Promise<CreateGalleryResponse> {
   const { databases } = await createAdminClient()
   const currentUser = await getCurrentUser()
 
@@ -51,7 +51,7 @@ export async function saveImageWithCategory(formData: FormData): Promise<CreateE
 
     await databases.createDocument(appwriteConfig.databaseId, appwriteConfig.galleryCollectionId, ID.unique(), {
       category: formData.get("category") as string,
-        imageUrl: formData.get("imageUrl") as string, // Ensure this is a string
+        imageUrl: formData.get("imageUrl") as string, 
         UploadedBy: currentUser?.fullName || "Anonymous", 
     })
     revalidatePath("/gallery/create")
@@ -82,6 +82,28 @@ export const getAllImages = async () => {
 
   } catch (error) {
     handleError(error, "Failed to fetch Images")
+    return []
+  }
+}
+
+export const getImageCategories = async () => {
+  const { databases } = await createAdminClient()
+  try {
+    const currentUser = await getCurrentUser()
+
+    if (!currentUser) {
+      redirect("/signin")
+    }
+
+    const cartegories = await databases.listDocuments(appwriteConfig.databaseId, appwriteConfig.galleryCategoriesId)
+//     console.log("Fetched categories:", cartegories.documents)
+    return cartegories.documents.map((cart) => ({
+        category: cart.category || "", 
+    }))
+    
+
+  } catch (error) {
+    handleError(error, "Failed to fetch Categories")
     return []
   }
 }

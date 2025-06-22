@@ -35,12 +35,16 @@ export function GalleryList() {
   }, [])
 
   const Delete = async (id:string)=>{
+        images.map((item) => {
+                if (item.id === id) {
+                setImages((prevImages) => prevImages.filter((image) => image.id !== id))
+                }
+        })
         return deleteImage(id).then((response) => {
           if (response.success) {
             setDeleted(true)
             setTimeout(() => {
                 setDeleted(false)
-                window.location.reload()
         },3000)
           } else {
             setDeleted(false)
@@ -50,6 +54,9 @@ export function GalleryList() {
         })
         
   }
+  useEffect(() => {
+        
+  })
 
   const filteredEvents = images.filter((item: ImageItem) => item.category.toLowerCase().includes(searchQuery.toLowerCase()))
 
