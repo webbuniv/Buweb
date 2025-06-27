@@ -109,12 +109,13 @@ type ChartTooltipContentProps = React.ComponentProps<typeof RechartsPrimitive.To
     indicator?: "line" | "dot" | "dashed"
     nameKey?: string
     labelKey?: string
-    payload?: any[] // <-- Add this line
+    payload?: any[]
+    label?: string
   }
 
 const ChartTooltipContent = React.forwardRef<
   HTMLDivElement,
-  ChartTooltipContentProps // <-- Use the new type here
+  ChartTooltipContentProps
 >(
   (
     {
