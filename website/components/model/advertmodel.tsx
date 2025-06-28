@@ -53,7 +53,7 @@ const handleclose = ()=>{
                                                         </h1> 
                                                         <div className='  mt-5 flex p-2 h-60 w-full  ' >
                                                                 <div  className='hidden w-[50%] h-full md:flex'>
-                                                                        <Image src={"/images/banners/august25.jpeg"} alt='image.png' width={300} height={300} />
+                                                                        <Image src={"/images/banners/julyNurses.jpeg"} alt='image.png' width={300} height={300} />
                                                                 </div>
                                                               <div className='flex flex-col gap-6 my-[3%] w-[50%] ' >
                                                                 <h1 className='flex text-black font-semibold ' >
