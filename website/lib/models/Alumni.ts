@@ -51,7 +51,7 @@ export interface Metadata {
 export interface Alumni {
   _id?: ObjectId
   studentId: string
-  verificationCode: string // System generated unique code
+  verificationCode: string
   personalInfo: PersonalInfo
   academicInfo: AcademicInfo
   professionalInfo: ProfessionalInfo
