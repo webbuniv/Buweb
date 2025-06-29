@@ -13,12 +13,12 @@ const AlumniPage = () => {
         pageName="Alumni"
         description="Connect with fellow graduates, advance your career, and give back to your alma mater."
       />
-      <AlumniHero />
-      <AlumniStats />
+      {/* <AlumniHero /> */}
+      {/* <AlumniStats /> */}
       <AlumniDirectory />
-      <AlumniEvents />
-      <AlumniNews />
-      <AlumniDonation />
+      {/* <AlumniEvents /> */}
+      {/* <AlumniNews /> */}
+      {/* <AlumniDonation /> */}
     </>
   )
 }
