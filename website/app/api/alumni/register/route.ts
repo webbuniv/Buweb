@@ -1,6 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { connectToDatabase } from "@/lib/mongodb"
-import { generateAlumniId } from "@/lib/utils/alumniIdGenerator"
+import { generateVerificationCode, validateStudentId } from "@/lib/utils/verificationCodeGenerator"
+import { sendAlumniRegistrationConfirmation } from "@/lib/email/emailService"
 import type { Alumni, AlumniRegistrationData } from "@/lib/models/Alumni"
 
 export async function POST(request: NextRequest) {
@@ -8,27 +9,55 @@ export async function POST(request: NextRequest) {
     const body: AlumniRegistrationData = await request.json()
 
     // Validate required fields
-    if (!body.firstName || !body.lastName || !body.email || !body.graduationYear || !body.school || !body.degree) {
+    if (
+      !body.firstName ||
+      !body.lastName ||
+      !body.email ||
+      !body.graduationYear ||
+      !body.school ||
+      !body.degree ||
+      !body.studentId
+    ) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
+    }
+
+    // Validate student ID format
+    if (!validateStudentId(body.studentId)) {
+      return NextResponse.json(
+        {
+          error: "Invalid student ID format. Expected format: YY/XXX/BU/R/NNNN (e.g., 21/BCC/BU/R/0019)",
+        },
+        { status: 400 },
+      )
     }
 
     const { db } = await connectToDatabase()
 
     // Check if alumni already exists with this email
-    const existingAlumni = await db.collection("alumni").findOne({
+    const existingAlumniByEmail = await db.collection("alumni").findOne({
       "personalInfo.email": body.email,
     })
 
-    if (existingAlumni) {
+    if (existingAlumniByEmail) {
       return NextResponse.json({ error: "Alumni with this email already exists" }, { status: 409 })
     }
 
-    // Generate unique alumni ID
-    const alumniId = await generateAlumniId(body.graduationYear, body.school)
+    // Check if alumni already exists with this student ID
+    const existingAlumniByStudentId = await db.collection("alumni").findOne({
+      studentId: body.studentId,
+    })
+
+    if (existingAlumniByStudentId) {
+      return NextResponse.json({ error: "Alumni with this student ID already exists" }, { status: 409 })
+    }
+
+    // Generate unique verification code
+    const verificationCode = await generateVerificationCode()
 
     // Create alumni document
-    const alumniData: Alumni = {
-      alumniId,
+    const alumniData: Omit<Alumni, "_id"> = {
+      studentId: body.studentId,
+      verificationCode,
       personalInfo: {
         firstName: body.firstName,
         lastName: body.lastName,
@@ -42,7 +71,6 @@ export async function POST(request: NextRequest) {
         graduationYear: body.graduationYear,
         school: body.school,
         degree: body.degree,
-        studentId: body.studentId,
         gpa: body.gpa,
         honors: body.honors,
       },
@@ -81,13 +109,33 @@ export async function POST(request: NextRequest) {
       throw new Error("Failed to insert alumni data")
     }
 
-    // Return success response with alumni ID
+    // Send confirmation email
+    try {
+      await sendAlumniRegistrationConfirmation({
+        firstName: body.firstName,
+        lastName: body.lastName,
+        email: body.email,
+        studentId: body.studentId,
+        verificationCode,
+        graduationYear: body.graduationYear,
+        school: body.school,
+        degree: body.degree,
+      })
+      console.log("Registration confirmation email sent successfully")
+    } catch (emailError) {
+      console.error("Failed to send confirmation email:", emailError)
+      // Don't fail the registration if email fails, but log the error
+    }
+
+    // Return success response
     return NextResponse.json(
       {
         success: true,
-        message: "Alumni registration submitted successfully. Your application is pending approval.",
+        message:
+          "Alumni registration submitted successfully. A confirmation email has been sent to your email address.",
         data: {
-          alumniId,
+          studentId: body.studentId,
+          verificationCode,
           registrationDate: alumniData.metadata.registrationDate,
           _id: result.insertedId,
         },
@@ -111,10 +159,11 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
     const email = searchParams.get("email")
-    const alumniId = searchParams.get("alumniId")
+    const studentId = searchParams.get("studentId")
+    const verificationCode = searchParams.get("verificationCode")
 
-    if (!email && !alumniId) {
-      return NextResponse.json({ error: "Email or Alumni ID is required" }, { status: 400 })
+    if (!email && !studentId && !verificationCode) {
+      return NextResponse.json({ error: "Email, Student ID, or Verification Code is required" }, { status: 400 })
     }
 
     const { db } = await connectToDatabase()
@@ -122,8 +171,10 @@ export async function GET(request: NextRequest) {
     let query = {}
     if (email) {
       query = { "personalInfo.email": email }
-    } else if (alumniId) {
-      query = { alumniId }
+    } else if (studentId) {
+      query = { studentId }
+    } else if (verificationCode) {
+      query = { verificationCode }
     }
 
     const alumni = await db.collection("alumni").findOne(query)
@@ -134,7 +185,8 @@ export async function GET(request: NextRequest) {
 
     // Only return public information
     const publicAlumniData = {
-      alumniId: alumni.alumniId,
+      studentId: alumni.studentId,
+      verificationCode: alumni.verificationCode,
       name: `${alumni.personalInfo.firstName} ${alumni.personalInfo.lastName}`,
       graduationYear: alumni.academicInfo.graduationYear,
       school: alumni.academicInfo.school,

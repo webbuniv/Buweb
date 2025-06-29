@@ -4,18 +4,18 @@ import { connectToDatabase } from "@/lib/mongodb"
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
+    const page = Number.parseInt(searchParams.get("page") || "1")
+    const limit = Number.parseInt(searchParams.get("limit") || "20")
     const search = searchParams.get("search") || ""
     const school = searchParams.get("school") || ""
-    const year = searchParams.get("year") || ""
-    const page = Number.parseInt(searchParams.get("page") || "1")
-    const limit = Number.parseInt(searchParams.get("limit") || "12")
+    const graduationYear = searchParams.get("graduationYear") || ""
+    const location = searchParams.get("location") || ""
 
     const { db } = await connectToDatabase()
 
-    // Build query for verified alumni with public profiles
+    // Build query for approved and public profiles only
     const query: any = {
-      "metadata.status": "active",
-      "metadata.verificationStatus": "verified",
+      "metadata.status": "approved",
       "preferences.publicProfile": true,
     }
 
@@ -24,8 +24,9 @@ export async function GET(request: NextRequest) {
       query.$or = [
         { "personalInfo.firstName": { $regex: search, $options: "i" } },
         { "personalInfo.lastName": { $regex: search, $options: "i" } },
-        { "professionalInfo.company": { $regex: search, $options: "i" } },
+        { "academicInfo.degree": { $regex: search, $options: "i" } },
         { "professionalInfo.currentPosition": { $regex: search, $options: "i" } },
+        { "professionalInfo.company": { $regex: search, $options: "i" } },
       ]
     }
 
@@ -33,25 +34,29 @@ export async function GET(request: NextRequest) {
       query["academicInfo.school"] = school
     }
 
-    if (year) {
-      query["academicInfo.graduationYear"] = Number.parseInt(year)
+    if (graduationYear) {
+      query["academicInfo.graduationYear"] = Number.parseInt(graduationYear)
+    }
+
+    if (location) {
+      query["professionalInfo.location"] = { $regex: location, $options: "i" }
     }
 
     // Get total count
     const total = await db.collection("alumni").countDocuments(query)
 
-    // Get alumni with pagination
+    // Get paginated results
     const alumni = await db
       .collection("alumni")
       .find(query)
-      .sort({ "academicInfo.graduationYear": -1, "personalInfo.lastName": 1 })
+      .sort({ "metadata.registrationDate": -1 })
       .skip((page - 1) * limit)
       .limit(limit)
       .toArray()
 
-    // Format response data (only public information)
+    // Format response data
     const formattedAlumni = alumni.map((alumnus) => ({
-      id: alumnus.alumniId,
+      id: alumnus._id,
       name: `${alumnus.personalInfo.firstName} ${alumnus.personalInfo.lastName}`,
       graduationYear: alumnus.academicInfo.graduationYear,
       school: alumnus.academicInfo.school,
@@ -59,9 +64,10 @@ export async function GET(request: NextRequest) {
       currentPosition: alumnus.professionalInfo.currentPosition,
       company: alumnus.professionalInfo.company,
       location: alumnus.professionalInfo.location,
-      industry: alumnus.professionalInfo.industry,
-      allowContact: alumnus.preferences.allowContact,
+      interests: alumnus.preferences.interests,
       willingToMentor: alumnus.preferences.willingToMentor,
+      linkedIn: alumnus.professionalInfo.linkedIn,
+      allowContact: alumnus.preferences.allowContact,
     }))
 
     return NextResponse.json({

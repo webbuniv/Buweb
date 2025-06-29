@@ -6,23 +6,21 @@ export default function AlumniRegisterPage() {
     <>
       <Breadcrumb
         pageName="Alumni Registration"
-        description="Join the Bugema University Alumni Network and stay connected with your fellow graduates"
+        description="Join the Bugema University Alumni Association and reconnect with your alma mater"
       />
       <section className="pb-[120px] pt-[120px]">
         <div className="container">
           <div className="mx-auto max-w-4xl">
-            <div className="wow fadeInUp" data-wow-delay=".1s">
-              <div className="mb-12 text-center">
-                <h2 className="mb-4 text-3xl font-bold !leading-tight text-black dark:text-white sm:text-4xl md:text-[45px]">
-                  Join the Alumni Network
-                </h2>
-                <p className="text-base !leading-relaxed text-body-color md:text-lg">
-                  Register to connect with fellow graduates, access exclusive events, and stay updated with university
-                  news.
-                </p>
-              </div>
-              <AlumniRegistrationForm />
+            <div className="mb-12 text-center">
+              <h1 className="mb-4 text-3xl font-bold text-black dark:text-white sm:text-4xl">
+                Join Our Alumni Community
+              </h1>
+              <p className="text-base text-body-color">
+                Register to connect with fellow graduates, access exclusive resources, and stay updated with university
+                news and events.
+              </p>
             </div>
+            <AlumniRegistrationForm />
           </div>
         </div>
       </section>

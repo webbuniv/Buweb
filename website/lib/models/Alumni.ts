@@ -1,72 +1,73 @@
 import type { ObjectId } from "mongodb"
 
+export interface PersonalInfo {
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string
+  dateOfBirth?: Date
+  gender?: "male" | "female" | "other"
+  nationality?: string
+}
+
+export interface AcademicInfo {
+  graduationYear: number
+  school: string
+  degree: string
+  gpa?: number
+  honors?: string
+}
+
+export interface ProfessionalInfo {
+  currentPosition?: string
+  company?: string
+  industry?: string
+  workExperience?: number
+  salary?: string
+  location?: string
+  linkedIn?: string
+}
+
+export interface ContactInfo {
+  currentAddress?: string
+  emergencyContact?: string
+}
+
+export interface Preferences {
+  interests: string[]
+  willingToMentor: boolean
+  newsletter: boolean
+  publicProfile: boolean
+  allowContact: boolean
+}
+
+export interface Metadata {
+  registrationDate: Date
+  lastUpdated: Date
+  status: "pending" | "approved" | "rejected"
+  verificationStatus: "pending" | "verified" | "unverified"
+}
+
 export interface Alumni {
   _id?: ObjectId
-  studentId: string // Input field like 21/BCC/BU/R/0019 (their existing student ID)
-  verificationCode: string // System generated unique code for verification/voting
-  personalInfo: {
-    firstName: string
-    lastName: string
-    email: string
-    phone?: string
-    dateOfBirth?: Date
-    gender?: string
-    nationality?: string
-  }
-  academicInfo: {
-    graduationYear: number
-    school: string
-    degree: string
-    gpa?: number
-    honors?: string
-  }
-  professionalInfo: {
-    currentPosition?: string
-    company?: string
-    industry?: string
-    workExperience?: number
-    salary?: string
-    location?: string
-    linkedIn?: string
-  }
-  contactInfo: {
-    currentAddress?: {
-      street?: string
-      city?: string
-      state?: string
-      country?: string
-      postalCode?: string
-    }
-    emergencyContact?: {
-      name?: string
-      relationship?: string
-      phone?: string
-      email?: string
-    }
-  }
-  preferences: {
-    interests: string[]
-    willingToMentor: boolean
-    newsletter: boolean
-    publicProfile: boolean
-    allowContact: boolean
-  }
-  metadata: {
-    registrationDate: Date
-    lastUpdated: Date
-    status: "active" | "inactive" | "pending"
-    verificationStatus: "verified" | "unverified" | "pending"
-  }
+  studentId: string // Input field like 21/BCC/BU/R/0019
+  verificationCode: string // System generated unique code
+  personalInfo: PersonalInfo
+  academicInfo: AcademicInfo
+  professionalInfo: ProfessionalInfo
+  contactInfo: ContactInfo
+  preferences: Preferences
+  metadata: Metadata
 }
 
 export interface AlumniRegistrationData {
-  studentId: string // Input field like 21/BCC/BU/R/0019
+  studentId: string
   firstName: string
   lastName: string
   email: string
   phone?: string
   dateOfBirth?: string
-  gender?: string
+  gender?: "male" | "female" | "other"
   nationality?: string
   graduationYear: number
   school: string
@@ -80,22 +81,11 @@ export interface AlumniRegistrationData {
   salary?: string
   location?: string
   linkedIn?: string
-  currentAddress?: {
-    street?: string
-    city?: string
-    state?: string
-    country?: string
-    postalCode?: string
-  }
-  emergencyContact?: {
-    name?: string
-    relationship?: string
-    phone?: string
-    email?: string
-  }
-  interests: string[]
-  willingToMentor: boolean
-  newsletter: boolean
-  publicProfile: boolean
-  allowContact: boolean
+  currentAddress?: string
+  emergencyContact?: string
+  interests?: string[]
+  willingToMentor?: boolean
+  newsletter?: boolean
+  publicProfile?: boolean
+  allowContact?: boolean
 }
