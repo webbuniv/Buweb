@@ -66,7 +66,7 @@ const AlumniDirectory = () => {
   return (
     <section className="py-16 md:py-20 lg:py-28 bg-gray-light dark:bg-bg-color-dark">
       <div className="container">
-        <div className="mx-auto mb-12 max-w-[510px] text-center lg:mb-16">
+        <div className="mx-auto mb-6 max-w-[510px] text-center lg:mb-16">
           <h2 className="mb-4 text-3xl font-bold !leading-tight text-black dark:text-white sm:text-4xl md:text-[45px]">
             Alumni Directory
           </h2>
