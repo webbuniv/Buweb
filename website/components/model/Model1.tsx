@@ -232,6 +232,14 @@ const Foot = () =>{
                                     </Link>
 
                               </div>
+
+                              <div className="mr-2 my-5 slider slide--fast ">
+                                     
+                                    <Link href={'/gallery'}>
+                                          <h1  onClick={onClose}  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Gallery</h1>
+                                    </Link>
+
+                              </div>
                               </li>
                               
                         </ul>

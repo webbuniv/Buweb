@@ -80,7 +80,7 @@ useEffect(() => {
         }
 
   useEffect(() => {
-    let filtered = images
+    let filtered = [...images]
 
     // Filter by category
     if (selectedCategory !== "All") {
@@ -144,7 +144,7 @@ useEffect(() => {
   }
 
   const downloadImage = (image: ImageItem) => {
-    // In a real app, this would trigger an actual download
+//  Download Here
     console.log("Downloading image:", image.category)
   }
 
@@ -215,8 +215,7 @@ useEffect(() => {
                   <SelectContent>
                     <SelectItem value="date">Date (Newest)</SelectItem>
                     <SelectItem value="likes">Most Liked</SelectItem>
-                    <SelectItem value="views">Most Viewed</SelectItem>
-                    <SelectItem value="title">Title (A-Z)</SelectItem>
+                    <SelectItem value="category">Category (A-Z)</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
