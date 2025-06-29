@@ -1,9 +1,17 @@
 "use client"
+
 import { useState, useEffect } from "react"
-import Image from "next/image"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Search, MapPin, Briefcase, Calendar, ExternalLink, Filter } from "lucide-react"
 
 interface AlumniMember {
   id: string
+  studentId: string
   name: string
   graduationYear: number
   school: string
@@ -11,65 +19,66 @@ interface AlumniMember {
   currentPosition?: string
   company?: string
   location?: string
-  industry?: string
-  allowContact: boolean
+  linkedIn?: string
+  interests: string[]
   willingToMentor: boolean
 }
 
-interface PaginationData {
-  page: number
-  limit: number
-  total: number
-  pages: number
+interface Pagination {
+  currentPage: number
+  totalPages: number
+  totalCount: number
+  hasNext: boolean
+  hasPrev: boolean
 }
+
+const schools = [
+  "School of Agriculture",
+  "School of Business",
+  "School of Education",
+  "School of Health Sciences",
+  "School of Science and Technology",
+  "School of Social Sciences",
+  "School of Theology",
+  "School of Graduate Studies",
+]
 
 const AlumniDirectoryFull = () => {
   const [alumni, setAlumni] = useState<AlumniMember[]>([])
   const [loading, setLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState("")
-  const [filterSchool, setFilterSchool] = useState("")
-  const [filterYear, setFilterYear] = useState("")
-  const [currentPage, setCurrentPage] = useState(1)
-  const [pagination, setPagination] = useState<PaginationData>({
-    page: 1,
-    limit: 12,
-    total: 0,
-    pages: 0,
+  const [selectedSchool, setSelectedSchool] = useState("all")
+  const [selectedYear, setSelectedYear] = useState("all")
+  const [pagination, setPagination] = useState<Pagination>({
+    currentPage: 1,
+    totalPages: 1,
+    totalCount: 0,
+    hasNext: false,
+    hasPrev: false,
   })
-
-  const schools = [
-    "School of Business",
-    "School of Science and Technology",
-    "School of Education",
-    "School of Social Sciences",
-    "School of Natural Sciences",
-    "School of Graduate Studies",
-    "School of Agriculture",
-    "School of Health Sciences",
-    "School of Theology",
-  ]
 
   useEffect(() => {
     fetchAlumni()
-  }, [searchTerm, filterSchool, filterYear, currentPage])
+  }, [pagination.currentPage, selectedSchool, selectedYear, searchTerm])
 
   const fetchAlumni = async () => {
+    setLoading(true)
     try {
-      setLoading(true)
       const params = new URLSearchParams({
-        page: currentPage.toString(),
+        page: pagination.currentPage.toString(),
         limit: "12",
-        ...(searchTerm && { search: searchTerm }),
-        ...(filterSchool && { school: filterSchool }),
-        ...(filterYear && { year: filterYear }),
       })
 
-      const response = await fetch(`/api/alumni/directory?${params}`)
-      const result = await response.json()
+      if (searchTerm) params.append("search", searchTerm)
+      if (selectedSchool !== "all") params.append("school", selectedSchool)
+      if (selectedYear !== "all") params.append("graduationYear", selectedYear)
 
-      if (result.success) {
-        setAlumni(result.data.alumni)
-        setPagination(result.data.pagination)
+      const response = await fetch(`/api/alumni/directory?${params}`)
+      const data = await response.json()
+
+      if (data.success) {
+        setAlumni(data.data.alumni)
+        setPagination(data.data.pagination)
       }
     } catch (error) {
       console.error("Error fetching alumni:", error)
@@ -78,222 +87,196 @@ const AlumniDirectoryFull = () => {
     }
   }
 
-  const handleSearch = () => {
-    setCurrentPage(1)
-    fetchAlumni()
+  const handlePageChange = (newPage: number) => {
+    setPagination((prev) => ({ ...prev, currentPage: newPage }))
   }
 
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page)
+  const clearFilters = () => {
+    setSearchTerm("")
+    setSelectedSchool("all")
+    setSelectedYear("all")
+    setPagination((prev) => ({ ...prev, currentPage: 1 }))
   }
 
   return (
     <section className="py-16 md:py-20 lg:py-28">
       <div className="container">
-        {/* Search and Filter Section */}
-        <div className="mb-12 rounded-md bg-white p-8 shadow-one dark:bg-[#1D2144]">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
-            <div className="md:col-span-2">
-              <label className="mb-3 block text-sm font-medium text-dark dark:text-white">Search Alumni</label>
-              <input
+        <div className="mx-auto mb-12 max-w-[510px] text-center">
+          <h1 className="mb-4 text-3xl font-bold !leading-tight text-black dark:text-white sm:text-4xl md:text-[45px]">
+            Alumni Directory
+          </h1>
+          <p className="text-base !leading-relaxed text-body-color md:text-lg">
+            Connect with {pagination.totalCount.toLocaleString()} Bugema University graduates worldwide
+          </p>
+        </div>
+
+        {/* Search and Filters */}
+        <div className="mb-8 space-y-4">
+          <div className="flex flex-col gap-4 md:flex-row">
+            <div className="relative flex-1">
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+              <Input
                 type="text"
                 placeholder="Search by name, company, or position..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
+                className="pl-10"
               />
             </div>
-            <div>
-              <label className="mb-3 block text-sm font-medium text-dark dark:text-white">School/Faculty</label>
-              <select
-                value={filterSchool}
-                onChange={(e) => setFilterSchool(e.target.value)}
-                className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
-              >
-                <option value="">All Schools</option>
+            <Select value={selectedSchool} onValueChange={setSelectedSchool}>
+              <SelectTrigger className="w-full md:w-[200px]">
+                <SelectValue placeholder="All Schools" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Schools</SelectItem>
                 {schools.map((school) => (
-                  <option key={school} value={school}>
-                    {school}
-                  </option>
+                  <SelectItem key={school} value={school}>
+                    {school.replace("School of ", "")}
+                  </SelectItem>
                 ))}
-              </select>
-            </div>
-            <div>
-              <label className="mb-3 block text-sm font-medium text-dark dark:text-white">Graduation Year</label>
-              <select
-                value={filterYear}
-                onChange={(e) => setFilterYear(e.target.value)}
-                className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
-              >
-                <option value="">All Years</option>
-                {Array.from({ length: 20 }, (_, i) => new Date().getFullYear() - i).map((year) => (
-                  <option key={year} value={year}>
+              </SelectContent>
+            </Select>
+            <Select value={selectedYear} onValueChange={setSelectedYear}>
+              <SelectTrigger className="w-full md:w-[150px]">
+                <SelectValue placeholder="All Years" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Years</SelectItem>
+                {Array.from({ length: 30 }, (_, i) => 2024 - i).map((year) => (
+                  <SelectItem key={year} value={year.toString()}>
                     {year}
-                  </option>
+                  </SelectItem>
                 ))}
-              </select>
-            </div>
+              </SelectContent>
+            </Select>
+            <Button variant="outline" onClick={clearFilters}>
+              <Filter className="mr-2 h-4 w-4" />
+              Clear
+            </Button>
           </div>
-          <div className="mt-6">
-            <button
-              onClick={handleSearch}
-              className="rounded-md bg-primary py-3 px-8 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-80"
-            >
-              Search Alumni
-            </button>
-          </div>
-        </div>
-
-        {/* Results Summary */}
-        <div className="mb-8">
-          <p className="text-body-color">
-            Showing {alumni.length} of {pagination.total} alumni
-            {(searchTerm || filterSchool || filterYear) && " matching your criteria"}
-          </p>
         </div>
 
         {/* Alumni Grid */}
         {loading ? (
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {Array.from({ length: 12 }).map((_, index) => (
-              <div key={index} className="animate-pulse rounded-md bg-white p-6 shadow-one dark:bg-[#1D2144]">
-                <div className="flex items-center mb-4">
-                  <div className="h-16 w-16 bg-gray-300 rounded-full dark:bg-gray-600"></div>
-                  <div className="ml-4 space-y-2">
-                    <div className="h-4 bg-gray-300 rounded w-32 dark:bg-gray-600"></div>
-                    <div className="h-3 bg-gray-300 rounded w-24 dark:bg-gray-600"></div>
+            {[...Array(12)].map((_, index) => (
+              <Card key={index} className="animate-pulse">
+                <CardContent className="p-6">
+                  <div className="h-4 bg-gray-200 rounded mb-4"></div>
+                  <div className="h-3 bg-gray-200 rounded mb-2"></div>
+                  <div className="h-3 bg-gray-200 rounded mb-4"></div>
+                  <div className="flex gap-2">
+                    <div className="h-6 w-16 bg-gray-200 rounded"></div>
+                    <div className="h-6 w-20 bg-gray-200 rounded"></div>
                   </div>
-                </div>
-                <div className="space-y-2">
-                  <div className="h-3 bg-gray-300 rounded dark:bg-gray-600"></div>
-                  <div className="h-3 bg-gray-300 rounded dark:bg-gray-600"></div>
-                  <div className="h-3 bg-gray-300 rounded w-3/4 dark:bg-gray-600"></div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        ) : alumni.length > 0 ? (
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {alumni.map((member) => (
+              <Card key={member.id} className="group hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <div className="mb-4">
+                    <h3 className="text-lg font-semibold text-black dark:text-white mb-1">{member.name}</h3>
+                    <p className="text-xs text-gray-600 dark:text-gray-400">ID: {member.studentId}</p>
+                  </div>
+
+                  <div className="space-y-2 mb-4 text-sm">
+                    <div className="flex items-center text-body-color">
+                      <Calendar className="mr-2 h-3 w-3 flex-shrink-0" />
+                      <span className="truncate">Class of {member.graduationYear}</span>
+                    </div>
+                    <div className="flex items-start text-body-color">
+                      <Briefcase className="mr-2 h-3 w-3 flex-shrink-0 mt-0.5" />
+                      <span className="truncate">
+                        {member.currentPosition || "Position not specified"}
+                        {member.company && ` at ${member.company}`}
+                      </span>
+                    </div>
+                    {member.location && (
+                      <div className="flex items-center text-body-color">
+                        <MapPin className="mr-2 h-3 w-3 flex-shrink-0" />
+                        <span className="truncate">{member.location}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    {member.willingToMentor && (
+                      <Badge variant="secondary" className="text-xs">
+                        Mentor
+                      </Badge>
+                    )}
+                    {member.interests.slice(0, 2).map((interest) => (
+                      <Badge key={interest} variant="outline" className="text-xs">
+                        {interest}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  {member.linkedIn && (
+                    <div className="flex justify-end">
+                      <Link href={member.linkedIn} target="_blank" rel="noopener noreferrer">
+                        <Button variant="ghost" size="sm" className="text-xs">
+                          <ExternalLink className="mr-1 h-3 w-3" />
+                          LinkedIn
+                        </Button>
+                      </Link>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {alumni.map((alumnus) => (
-              <div key={alumnus.id} className="rounded-md bg-white p-6 shadow-one dark:bg-[#1D2144]">
-                <div className="flex items-center mb-4">
-                  <div className="relative h-16 w-16 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600">
-                    <Image src="/placeholder.svg?height=64&width=64" alt={alumnus.name} fill className="object-cover" />
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-black dark:text-white">{alumnus.name}</h3>
-                    <p className="text-xs text-body-color">ID: {alumnus.id}</p>
-                  </div>
-                </div>
-
-                <div className="space-y-2 text-sm">
-                  <p>
-                    <span className="font-medium text-black dark:text-white">Class of:</span> {alumnus.graduationYear}
-                  </p>
-                  <p>
-                    <span className="font-medium text-black dark:text-white">School:</span> {alumnus.school}
-                  </p>
-                  <p>
-                    <span className="font-medium text-black dark:text-white">Degree:</span> {alumnus.degree}
-                  </p>
-                  {alumnus.currentPosition && (
-                    <p>
-                      <span className="font-medium text-black dark:text-white">Position:</span>{" "}
-                      {alumnus.currentPosition}
-                    </p>
-                  )}
-                  {alumnus.company && (
-                    <p>
-                      <span className="font-medium text-black dark:text-white">Company:</span> {alumnus.company}
-                    </p>
-                  )}
-                  {alumnus.location && (
-                    <p>
-                      <span className="font-medium text-black dark:text-white">Location:</span> {alumnus.location}
-                    </p>
-                  )}
-                  {alumnus.industry && (
-                    <p>
-                      <span className="font-medium text-black dark:text-white">Industry:</span> {alumnus.industry}
-                    </p>
-                  )}
-                </div>
-
-                <div className="mt-4 space-y-2">
-                  {alumnus.willingToMentor && (
-                    <p className="text-xs text-green-600 dark:text-green-400">✓ Available for mentoring</p>
-                  )}
-                  <div className="flex space-x-2">
-                    {alumnus.allowContact && (
-                      <button className="flex-1 rounded bg-primary px-3 py-2 text-xs text-white hover:bg-opacity-90">
-                        Connect
-                      </button>
-                    )}
-                    <button className="flex-1 rounded border border-primary px-3 py-2 text-xs text-primary hover:bg-primary hover:text-white">
-                      Profile
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {!loading && alumni.length === 0 && (
           <div className="text-center py-12">
-            <div className="mx-auto mb-4 h-24 w-24 text-gray-400">
-              <svg fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  fillRule="evenodd"
-                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
-            <h3 className="mb-2 text-xl font-semibold text-black dark:text-white">No Alumni Found</h3>
-            <p className="text-body-color">
-              No alumni found matching your search criteria. Try adjusting your filters or search terms.
-            </p>
+            <p className="text-lg text-body-color">No alumni found matching your criteria.</p>
+            <Button variant="outline" onClick={clearFilters} className="mt-4 bg-transparent">
+              Clear Filters
+            </Button>
           </div>
         )}
 
         {/* Pagination */}
-        {pagination.pages > 1 && (
+        {pagination.totalPages > 1 && (
           <div className="mt-12 flex justify-center">
-            <nav className="flex space-x-2">
-              <button
-                onClick={() => handlePageChange(currentPage - 1)}
-                disabled={currentPage === 1}
-                className="rounded-md border border-gray-300 px-3 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-700"
+            <div className="flex items-center space-x-2">
+              <Button
+                variant="outline"
+                onClick={() => handlePageChange(pagination.currentPage - 1)}
+                disabled={!pagination.hasPrev}
               >
                 Previous
-              </button>
+              </Button>
 
-              {Array.from({ length: Math.min(5, pagination.pages) }, (_, i) => {
-                const page = i + 1
-                return (
-                  <button
-                    key={page}
-                    onClick={() => handlePageChange(page)}
-                    className={`rounded-md px-3 py-2 text-sm font-medium ${
-                      currentPage === page
-                        ? "bg-primary text-white"
-                        : "border border-gray-300 text-gray-500 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-700"
-                    }`}
-                  >
-                    {page}
-                  </button>
-                )
-              })}
+              <div className="flex items-center space-x-1">
+                {Array.from({ length: Math.min(5, pagination.totalPages) }, (_, i) => {
+                  const pageNum = Math.max(1, pagination.currentPage - 2) + i
+                  if (pageNum > pagination.totalPages) return null
 
-              <button
-                onClick={() => handlePageChange(currentPage + 1)}
-                disabled={currentPage === pagination.pages}
-                className="rounded-md border border-gray-300 px-3 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-700"
+                  return (
+                    <Button
+                      key={pageNum}
+                      variant={pageNum === pagination.currentPage ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => handlePageChange(pageNum)}
+                    >
+                      {pageNum}
+                    </Button>
+                  )
+                })}
+              </div>
+
+              <Button
+                variant="outline"
+                onClick={() => handlePageChange(pagination.currentPage + 1)}
+                disabled={!pagination.hasNext}
               >
                 Next
-              </button>
-            </nav>
+              </Button>
+            </div>
           </div>
         )}
       </div>

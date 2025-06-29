@@ -1,565 +1,475 @@
 "use client"
-import { useState } from "react"
-import type React from "react"
 
-interface RegistrationResponse {
-  success: boolean
-  message: string
-  data?: {
-    alumniId: string
-    registrationDate: string
-    _id: string
-  }
-  error?: string
-}
+import type React from "react"
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Alert, AlertDescription } from "@/components/ui/alert"
+import { CheckCircle, AlertCircle, Loader2, Info } from "lucide-react"
+import type { AlumniRegistrationData } from "@/lib/models/Alumni"
+
+const schools = [
+  "School of Agriculture",
+  "School of Business",
+  "School of Education",
+  "School of Health Sciences",
+  "School of Science and Technology",
+  "School of Social Sciences",
+  "School of Theology",
+  "School of Graduate Studies",
+]
+
+const interests = [
+  "Mentoring",
+  "Networking",
+  "Career Development",
+  "Entrepreneurship",
+  "Research",
+  "Community Service",
+  "Technology",
+  "Healthcare",
+  "Education",
+  "Agriculture",
+  "Business",
+  "Social Work",
+]
 
 const AlumniRegistrationForm = () => {
-  const [formData, setFormData] = useState({
-    // Personal Information
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    dateOfBirth: "",
-    gender: "",
-    nationality: "",
-
-    // Academic Information
-    graduationYear: "",
-    degree: "",
-    school: "",
-    studentId: "",
-    gpa: "",
-    honors: "",
-
-    // Professional Information
-    currentPosition: "",
-    company: "",
-    industry: "",
-    workExperience: "",
-    salary: "",
-    location: "",
-    linkedIn: "",
-
-    // Contact Information
-    currentAddress: {
-      street: "",
-      city: "",
-      state: "",
-      country: "",
-      postalCode: "",
-    },
-    emergencyContact: {
-      name: "",
-      relationship: "",
-      phone: "",
-      email: "",
-    },
-
-    // Preferences
-    interests: [] as string[],
+  const [formData, setFormData] = useState<Partial<AlumniRegistrationData>>({
+    interests: [],
     willingToMentor: false,
     newsletter: true,
     publicProfile: false,
     allowContact: true,
   })
+  const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [error, setError] = useState("")
+  const [studentId, setStudentId] = useState("")
+  const [verificationCode, setVerificationCode] = useState("")
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitResult, setSubmitResult] = useState<RegistrationResponse | null>(null)
-
-  const schools = [
-    "School of Business",
-    "School of Science and Technology",
-    "School of Education",
-    "School of Social Sciences",
-    "School of Natural Sciences",
-    "School of Graduate Studies",
-    "School of Agriculture",
-    "School of Health Sciences",
-    "School of Theology",
-  ]
-
-  const industries = [
-    "Healthcare",
-    "Technology",
-    "Education",
-    "Agriculture",
-    "Business & Finance",
-    "Government",
-    "Non-profit",
-    "Engineering",
-    "Manufacturing",
-    "Consulting",
-    "Other",
-  ]
-
-  const interestOptions = [
-    "Networking",
-    "Mentoring",
-    "Career Development",
-    "Alumni Events",
-    "University Updates",
-    "Volunteering",
-    "Donations",
-    "Research Collaboration",
-  ]
-
-  const genderOptions = ["Male", "Female", "Other", "Prefer not to say"]
-  const salaryRanges = [
-    "Below $30,000",
-    "$30,000 - $50,000",
-    "$50,000 - $75,000",
-    "$75,000 - $100,000",
-    "$100,000 - $150,000",
-    "Above $150,000",
-    "Prefer not to say",
-  ]
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value, type } = e.target
-
-    if (type === "checkbox") {
-      const checked = (e.target as HTMLInputElement).checked
-      setFormData((prev) => ({
-        ...prev,
-        [name]: checked,
-      }))
-    } else if (name.includes(".")) {
-      // Handle nested objects
-      const [parent, child] = name.split(".")
-      setFormData((prev) => ({
-        ...prev,
-        [parent]: {
-          ...(prev[parent as keyof typeof prev] as object),
-          [child]: value,
-        },
-      }))
-    } else {
-      setFormData((prev) => ({
-        ...prev,
-        [name]: value,
-      }))
-    }
+  const handleInputChange = (field: keyof AlumniRegistrationData, value: any) => {
+    setFormData((prev) => ({ ...prev, [field]: value }))
   }
 
-  const handleInterestChange = (interest: string) => {
+  const handleInterestChange = (interest: string, checked: boolean) => {
     setFormData((prev) => ({
       ...prev,
-      interests: prev.interests.includes(interest)
-        ? prev.interests.filter((i) => i !== interest)
-        : [...prev.interests, interest],
+      interests: checked ? [...(prev.interests || []), interest] : (prev.interests || []).filter((i) => i !== interest),
     }))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitResult(null)
+    setLoading(true)
+    setError("")
 
     try {
-      // Prepare data for submission
-      const submissionData = {
-        ...formData,
-        graduationYear: Number.parseInt(formData.graduationYear),
-        gpa: formData.gpa ? Number.parseFloat(formData.gpa) : undefined,
-        workExperience: formData.workExperience ? Number.parseInt(formData.workExperience) : undefined,
-      }
-
       const response = await fetch("/api/alumni/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(submissionData),
+        body: JSON.stringify(formData),
       })
 
-      const result: RegistrationResponse = await response.json()
-      setSubmitResult(result)
+      const data = await response.json()
 
-      if (result.success) {
-        // Reset form on success
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          dateOfBirth: "",
-          gender: "",
-          nationality: "",
-          graduationYear: "",
-          degree: "",
-          school: "",
-          studentId: "",
-          gpa: "",
-          honors: "",
-          currentPosition: "",
-          company: "",
-          industry: "",
-          workExperience: "",
-          salary: "",
-          location: "",
-          linkedIn: "",
-          currentAddress: {
-            street: "",
-            city: "",
-            state: "",
-            country: "",
-            postalCode: "",
-          },
-          emergencyContact: {
-            name: "",
-            relationship: "",
-            phone: "",
-            email: "",
-          },
-          interests: [],
-          willingToMentor: false,
-          newsletter: true,
-          publicProfile: false,
-          allowContact: true,
-        })
+      if (data.success) {
+        setSuccess(true)
+        setStudentId(data.data.studentId)
+        setVerificationCode(data.data.verificationCode)
+      } else {
+        setError(data.error || "Registration failed")
       }
-    } catch (error) {
-      console.error("Registration error:", error)
-      setSubmitResult({
-        success: false,
-        message: "Network error occurred. Please try again.",
-        error: "Network error",
-      })
+    } catch (err) {
+      setError("Network error. Please try again.")
     } finally {
-      setIsSubmitting(false)
+      setLoading(false)
     }
   }
 
-  return (
-    <section className="py-16 md:py-20 lg:py-28">
-      <div className="container">
-        <div className="mx-auto max-w-4xl">
-          <div className="rounded-md bg-white p-8 shadow-one dark:bg-[#1D2144] sm:p-11 lg:p-8 xl:p-11">
-            <h2 className="mb-8 text-3xl font-bold text-black dark:text-white">Join the Alumni Network</h2>
+  if (success) {
+    return (
+      <Card className="mx-auto max-w-2xl">
+        <CardContent className="pt-6">
+          <div className="text-center">
+            <CheckCircle className="mx-auto mb-4 h-16 w-16 text-green-500" />
+            <h3 className="mb-2 text-2xl font-bold text-black dark:text-white">Registration Successful!</h3>
+            <p className="mb-4 text-body-color">Your alumni registration has been submitted successfully.</p>
 
-            {/* Success/Error Messages */}
-            {submitResult && (
-              <div
-                className={`mb-6 rounded-md p-4 ${
-                  submitResult.success
-                    ? "bg-green-50 border border-green-200 text-green-800 dark:bg-green-900/20 dark:border-green-800 dark:text-green-200"
-                    : "bg-red-50 border border-red-200 text-red-800 dark:bg-red-900/20 dark:border-red-800 dark:text-red-200"
-                }`}
-              >
-                <h3 className="font-semibold mb-2">
-                  {submitResult.success ? "Registration Submitted!" : "Registration Failed"}
-                </h3>
-                <p>{submitResult.message}</p>
-                {submitResult.success && submitResult.data && (
-                  <div className="mt-3 p-3 bg-white dark:bg-gray-800 rounded border">
-                    <p>
-                      <strong>Your Alumni ID:</strong>{" "}
-                      <span className="font-mono text-lg text-primary">{submitResult.data.alumniId}</span>
-                    </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                      Please save this ID for future reference. Your application is pending approval by our alumni
-                      office.
-                    </p>
-                  </div>
-                )}
-              </div>
-            )}
-
-            <form onSubmit={handleSubmit} className="space-y-8">
-              {/* Personal Information */}
-              <div>
-                <h3 className="mb-6 text-xl font-semibold text-black dark:text-white">Personal Information</h3>
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                  <div>
-                    <label className="mb-3 block text-sm font-medium text-dark dark:text-white">First Name *</label>
-                    <input
-                      type="text"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-3 block text-sm font-medium text-dark dark:text-white">Last Name *</label>
-                    <input
-                      type="text"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-3 block text-sm font-medium text-dark dark:text-white">Email Address *</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-3 block text-sm font-medium text-dark dark:text-white">Phone Number</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-3 block text-sm font-medium text-dark dark:text-white">Date of Birth</label>
-                    <input
-                      type="date"
-                      name="dateOfBirth"
-                      value={formData.dateOfBirth}
-                      onChange={handleInputChange}
-                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-3 block text-sm font-medium text-dark dark:text-white">Gender</label>
-                    <select
-                      name="gender"
-                      value={formData.gender}
-                      onChange={handleInputChange}
-                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
-                    >
-                      <option value="">Select Gender</option>
-                      {genderOptions.map((gender) => (
-                        <option key={gender} value={gender}>
-                          {gender}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              {/* Academic Information */}
-              <div>
-                <h3 className="mb-6 text-xl font-semibold text-black dark:text-white">Academic Information</h3>
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                  <div>
-                    <label className="mb-3 block text-sm font-medium text-dark dark:text-white">
-                      Graduation Year *
-                    </label>
-                    <input
-                      type="number"
-                      name="graduationYear"
-                      value={formData.graduationYear}
-                      onChange={handleInputChange}
-                      required
-                      min="1950"
-                      max="2024"
-                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-3 block text-sm font-medium text-dark dark:text-white">School/Faculty *</label>
-                    <select
-                      name="school"
-                      value={formData.school}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
-                    >
-                      <option value="">Select School</option>
-                      {schools.map((school) => (
-                        <option key={school} value={school}>
-                          {school}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div className="md:col-span-2">
-                    <label className="mb-3 block text-sm font-medium text-dark dark:text-white">Degree/Program *</label>
-                    <input
-                      type="text"
-                      name="degree"
-                      value={formData.degree}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="e.g., Bachelor of Business Administration"
-                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-3 block text-sm font-medium text-dark dark:text-white">Student ID</label>
-                    <input
-                      type="text"
-                      name="studentId"
-                      value={formData.studentId}
-                      onChange={handleInputChange}
-                      placeholder="Your former student ID"
-                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-3 block text-sm font-medium text-dark dark:text-white">GPA</label>
-                    <input
-                      type="number"
-                      name="gpa"
-                      value={formData.gpa}
-                      onChange={handleInputChange}
-                      step="0.01"
-                      min="0"
-                      max="4"
-                      placeholder="e.g., 3.75"
-                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Professional Information */}
-              <div>
-                <h3 className="mb-6 text-xl font-semibold text-black dark:text-white">Professional Information</h3>
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                  <div>
-                    <label className="mb-3 block text-sm font-medium text-dark dark:text-white">Current Position</label>
-                    <input
-                      type="text"
-                      name="currentPosition"
-                      value={formData.currentPosition}
-                      onChange={handleInputChange}
-                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-3 block text-sm font-medium text-dark dark:text-white">
-                      Company/Organization
-                    </label>
-                    <input
-                      type="text"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleInputChange}
-                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-3 block text-sm font-medium text-dark dark:text-white">Industry</label>
-                    <select
-                      name="industry"
-                      value={formData.industry}
-                      onChange={handleInputChange}
-                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
-                    >
-                      <option value="">Select Industry</option>
-                      {industries.map((industry) => (
-                        <option key={industry} value={industry}>
-                          {industry}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="mb-3 block text-sm font-medium text-dark dark:text-white">Current Location</label>
-                    <input
-                      type="text"
-                      name="location"
-                      value={formData.location}
-                      onChange={handleInputChange}
-                      placeholder="City, Country"
-                      className="w-full rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Interests */}
-              <div>
-                <h3 className="mb-6 text-xl font-semibold text-black dark:text-white">Areas of Interest</h3>
-                <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-                  {interestOptions.map((interest) => (
-                    <label key={interest} className="flex items-center">
-                      <input
-                        type="checkbox"
-                        checked={formData.interests.includes(interest)}
-                        onChange={() => handleInterestChange(interest)}
-                        className="mr-2"
-                      />
-                      <span className="text-sm text-body-color">{interest}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              {/* Preferences */}
-              <div>
-                <h3 className="mb-6 text-xl font-semibold text-black dark:text-white">Preferences</h3>
-                <div className="space-y-4">
-                  <label className="flex items-center">
-                    <input
-                      type="checkbox"
-                      name="willingToMentor"
-                      checked={formData.willingToMentor}
-                      onChange={handleInputChange}
-                      className="mr-3"
-                    />
-                    <span className="text-base text-body-color">
-                      I am willing to mentor current students or recent graduates
-                    </span>
-                  </label>
-                  <label className="flex items-center">
-                    <input
-                      type="checkbox"
-                      name="newsletter"
-                      checked={formData.newsletter}
-                      onChange={handleInputChange}
-                      className="mr-3"
-                    />
-                    <span className="text-base text-body-color">Subscribe to alumni newsletter and updates</span>
-                  </label>
-                  <label className="flex items-center">
-                    <input
-                      type="checkbox"
-                      name="publicProfile"
-                      checked={formData.publicProfile}
-                      onChange={handleInputChange}
-                      className="mr-3"
-                    />
-                    <span className="text-base text-body-color">Make my profile visible in the alumni directory</span>
-                  </label>
-                  <label className="flex items-center">
-                    <input
-                      type="checkbox"
-                      name="allowContact"
-                      checked={formData.allowContact}
-                      onChange={handleInputChange}
-                      className="mr-3"
-                    />
-                    <span className="text-base text-body-color">Allow other alumni to contact me</span>
-                  </label>
-                </div>
-              </div>
-
-              <div className="pt-6">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full rounded-md bg-primary py-4 px-6 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? "Submitting Registration..." : "Register as Alumni"}
-                </button>
-                <p className="mt-4 text-center text-sm text-body-color">
-                  Your registration will be reviewed by our alumni office. You will receive a confirmation email once
-                  approved.
+            <div className="space-y-4">
+              <div className="rounded-lg bg-blue-50 p-4 dark:bg-blue-900/20">
+                <p className="text-sm font-medium text-blue-800 dark:text-blue-200">
+                  Student ID: <span className="font-mono text-lg">{studentId}</span>
                 </p>
               </div>
-            </form>
+
+              <div className="rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
+                <p className="text-sm font-medium text-green-800 dark:text-green-200">
+                  Verification Code: <span className="font-mono text-lg">{verificationCode}</span>
+                </p>
+                <p className="mt-2 text-sm text-green-700 dark:text-green-300">
+                  This unique code can be used for verification in university systems, voting, and other official
+                  purposes.
+                </p>
+              </div>
+            </div>
+
+            <Alert className="mt-4">
+              <Info className="h-4 w-4" />
+              <AlertDescription>
+                Please save both codes for your records. Your application is pending approval by our alumni office. You
+                will receive a confirmation email once approved.
+              </AlertDescription>
+            </Alert>
           </div>
-        </div>
+        </CardContent>
+      </Card>
+    )
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-8">
+      {error && (
+        <Alert variant="destructive">
+          <AlertCircle className="h-4 w-4" />
+          <AlertDescription>{error}</AlertDescription>
+        </Alert>
+      )}
+
+      {/* Student ID Information */}
+      <Alert>
+        <Info className="h-4 w-4" />
+        <AlertDescription>
+          Please enter your original Bugema University Student ID in the format: YY/XXX/BU/R/NNNN (e.g.,
+          21/BCC/BU/R/0019)
+        </AlertDescription>
+      </Alert>
+
+      {/* Personal Information */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Personal Information</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div>
+            <Label htmlFor="studentId">Student ID *</Label>
+            <Input
+              id="studentId"
+              required
+              placeholder="e.g., 21/BCC/BU/R/0019"
+              value={formData.studentId || ""}
+              onChange={(e) => handleInputChange("studentId", e.target.value)}
+            />
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+              Enter your original student ID from when you studied at Bugema University
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            <div>
+              <Label htmlFor="firstName">First Name *</Label>
+              <Input
+                id="firstName"
+                required
+                value={formData.firstName || ""}
+                onChange={(e) => handleInputChange("firstName", e.target.value)}
+              />
+            </div>
+            <div>
+              <Label htmlFor="lastName">Last Name *</Label>
+              <Input
+                id="lastName"
+                required
+                value={formData.lastName || ""}
+                onChange={(e) => handleInputChange("lastName", e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            <div>
+              <Label htmlFor="email">Email Address *</Label>
+              <Input
+                id="email"
+                type="email"
+                required
+                value={formData.email || ""}
+                onChange={(e) => handleInputChange("email", e.target.value)}
+              />
+            </div>
+            <div>
+              <Label htmlFor="phone">Phone Number</Label>
+              <Input
+                id="phone"
+                value={formData.phone || ""}
+                onChange={(e) => handleInputChange("phone", e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            <div>
+              <Label htmlFor="dateOfBirth">Date of Birth</Label>
+              <Input
+                id="dateOfBirth"
+                type="date"
+                value={formData.dateOfBirth || ""}
+                onChange={(e) => handleInputChange("dateOfBirth", e.target.value)}
+              />
+            </div>
+            <div>
+              <Label htmlFor="gender">Gender</Label>
+              <Select value={formData.gender || ""} onValueChange={(value) => handleInputChange("gender", value)}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select gender" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="male">Male</SelectItem>
+                  <SelectItem value="female">Female</SelectItem>
+                  <SelectItem value="other">Other</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <Label htmlFor="nationality">Nationality</Label>
+              <Input
+                id="nationality"
+                value={formData.nationality || ""}
+                onChange={(e) => handleInputChange("nationality", e.target.value)}
+              />
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Academic Information */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Academic Information</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="grid gap-4 md:grid-cols-2">
+            <div>
+              <Label htmlFor="graduationYear">Graduation Year *</Label>
+              <Input
+                id="graduationYear"
+                type="number"
+                min="1960"
+                max={new Date().getFullYear()}
+                required
+                value={formData.graduationYear || ""}
+                onChange={(e) => handleInputChange("graduationYear", Number.parseInt(e.target.value))}
+              />
+            </div>
+            <div>
+              <Label htmlFor="school">School *</Label>
+              <Select value={formData.school || ""} onValueChange={(value) => handleInputChange("school", value)}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select school" />
+                </SelectTrigger>
+                <SelectContent>
+                  {schools.map((school) => (
+                    <SelectItem key={school} value={school}>
+                      {school}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            <div>
+              <Label htmlFor="degree">Degree *</Label>
+              <Input
+                id="degree"
+                required
+                placeholder="e.g., Bachelor of Business Administration"
+                value={formData.degree || ""}
+                onChange={(e) => handleInputChange("degree", e.target.value)}
+              />
+            </div>
+            <div>
+              <Label htmlFor="gpa">GPA (Optional)</Label>
+              <Input
+                id="gpa"
+                type="number"
+                step="0.01"
+                min="0"
+                max="4"
+                placeholder="e.g., 3.75"
+                value={formData.gpa || ""}
+                onChange={(e) =>
+                  handleInputChange("gpa", e.target.value ? Number.parseFloat(e.target.value) : undefined)
+                }
+              />
+            </div>
+          </div>
+
+          <div>
+            <Label htmlFor="honors">Honors/Awards</Label>
+            <Input
+              id="honors"
+              placeholder="e.g., Magna Cum Laude, Dean's List"
+              value={formData.honors || ""}
+              onChange={(e) => handleInputChange("honors", e.target.value)}
+            />
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Professional Information */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Professional Information</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="grid gap-4 md:grid-cols-2">
+            <div>
+              <Label htmlFor="currentPosition">Current Position</Label>
+              <Input
+                id="currentPosition"
+                value={formData.currentPosition || ""}
+                onChange={(e) => handleInputChange("currentPosition", e.target.value)}
+              />
+            </div>
+            <div>
+              <Label htmlFor="company">Company/Organization</Label>
+              <Input
+                id="company"
+                value={formData.company || ""}
+                onChange={(e) => handleInputChange("company", e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            <div>
+              <Label htmlFor="industry">Industry</Label>
+              <Input
+                id="industry"
+                value={formData.industry || ""}
+                onChange={(e) => handleInputChange("industry", e.target.value)}
+              />
+            </div>
+            <div>
+              <Label htmlFor="workExperience">Years of Experience</Label>
+              <Input
+                id="workExperience"
+                type="number"
+                min="0"
+                max="50"
+                value={formData.workExperience || ""}
+                onChange={(e) =>
+                  handleInputChange("workExperience", e.target.value ? Number.parseInt(e.target.value) : undefined)
+                }
+              />
+            </div>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            <div>
+              <Label htmlFor="location">Current Location</Label>
+              <Input
+                id="location"
+                placeholder="City, Country"
+                value={formData.location || ""}
+                onChange={(e) => handleInputChange("location", e.target.value)}
+              />
+            </div>
+            <div>
+              <Label htmlFor="linkedIn">LinkedIn Profile</Label>
+              <Input
+                id="linkedIn"
+                placeholder="https://linkedin.com/in/yourprofile"
+                value={formData.linkedIn || ""}
+                onChange={(e) => handleInputChange("linkedIn", e.target.value)}
+              />
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Interests and Preferences */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Interests & Preferences</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          <div>
+            <Label className="text-base font-medium">Areas of Interest</Label>
+            <div className="mt-2 grid gap-2 md:grid-cols-3">
+              {interests.map((interest) => (
+                <div key={interest} className="flex items-center space-x-2">
+                  <Checkbox
+                    id={interest}
+                    checked={(formData.interests || []).includes(interest)}
+                    onCheckedChange={(checked) => handleInterestChange(interest, checked as boolean)}
+                  />
+                  <Label htmlFor={interest} className="text-sm font-normal">
+                    {interest}
+                  </Label>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2">
+              <Checkbox
+                id="willingToMentor"
+                checked={formData.willingToMentor}
+                onCheckedChange={(checked) => handleInputChange("willingToMentor", checked)}
+              />
+              <Label htmlFor="willingToMentor">I am willing to mentor current students and recent graduates</Label>
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <Checkbox
+                id="publicProfile"
+                checked={formData.publicProfile}
+                onCheckedChange={(checked) => handleInputChange("publicProfile", checked)}
+              />
+              <Label htmlFor="publicProfile">Make my profile visible in the public alumni directory</Label>
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <Checkbox
+                id="allowContact"
+                checked={formData.allowContact}
+                onCheckedChange={(checked) => handleInputChange("allowContact", checked)}
+              />
+              <Label htmlFor="allowContact">Allow other alumni to contact me</Label>
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <Checkbox
+                id="newsletter"
+                checked={formData.newsletter}
+                onCheckedChange={(checked) => handleInputChange("newsletter", checked)}
+              />
+              <Label htmlFor="newsletter">Subscribe to alumni newsletter and updates</Label>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      <div className="text-center">
+        <Button type="submit" size="lg" disabled={loading}>
+          {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+          {loading ? "Submitting..." : "Submit Registration"}
+        </Button>
+        <p className="mt-4 text-sm text-body-color">
+          Your registration will be reviewed by our alumni office. You will receive a confirmation email once approved.
+        </p>
       </div>
-    </section>
+    </form>
   )
 }
 

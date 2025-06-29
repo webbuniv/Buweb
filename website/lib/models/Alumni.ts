@@ -2,7 +2,8 @@ import type { ObjectId } from "mongodb"
 
 export interface Alumni {
   _id?: ObjectId
-  alumniId: string // Unique identifier like 21/BCC/BU/R/0019
+  studentId: string // Input field like 21/BCC/BU/R/0019 (their existing student ID)
+  verificationCode: string // System generated unique code for verification/voting
   personalInfo: {
     firstName: string
     lastName: string
@@ -16,7 +17,6 @@ export interface Alumni {
     graduationYear: number
     school: string
     degree: string
-    studentId?: string
     gpa?: number
     honors?: string
   }
@@ -60,6 +60,7 @@ export interface Alumni {
 }
 
 export interface AlumniRegistrationData {
+  studentId: string // Input field like 21/BCC/BU/R/0019
   firstName: string
   lastName: string
   email: string
@@ -70,7 +71,6 @@ export interface AlumniRegistrationData {
   graduationYear: number
   school: string
   degree: string
-  studentId?: string
   gpa?: number
   honors?: string
   currentPosition?: string
