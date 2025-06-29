@@ -144,7 +144,7 @@ useEffect(() => {
   }
 
   const downloadImage = (image: ImageItem) => {
-    // In a real app, this would trigger an actual download
+//  Download Here
     console.log("Downloading image:", image.category)
   }
 
