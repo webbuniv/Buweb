@@ -4,14 +4,14 @@ const createTransporter = () => {
   return nodemailer.createTransport({
     host: process.env.EMAIL_SERVER_HOST,
     port: Number.parseInt(process.env.EMAIL_SERVER_PORT!),
-    secure: true, // Use SSL for port 465
+    secure: true,
     auth: {
       user: process.env.EMAIL_SERVER_USER,
       pass: process.env.EMAIL_SERVER_PASSWORD,
     },
-    connectionTimeout: 60000, // 60 seconds
-    greetingTimeout: 30000, // 30 seconds
-    socketTimeout: 60000, // 60 seconds
+    connectionTimeout: 60000,
+    greetingTimeout: 30000,
+    socketTimeout: 60000,
   })
 }
 
@@ -168,9 +168,9 @@ export async function sendAlumniRegistrationConfirmation(data: AlumniRegistratio
         
         <p>If you have any questions or need assistance, please don't hesitate to contact our Alumni Office:</p>
         <p>
-          📧 Email: alumni@bugema.ac.ug<br>
+          📧 Email: alumni@bugemauniv.ac.ug<br>
           📞 Phone: +256-414-540-822<br>
-          🌐 Website: https://bugema.ac.ug/alumni
+          🌐 Website: https://bugemauniv.ac.ug/alumni
         </p>
         
         <p>Welcome back to the Bugema family!</p>
@@ -219,9 +219,9 @@ export async function sendAlumniRegistrationConfirmation(data: AlumniRegistratio
     This process typically takes 2-3 business days.
     
     If you have any questions, contact us:
-    Email: alumni@bugema.ac.ug
+    Email: alumni@bugemauniv.ac.ug
     Phone: +256-414-540-822
-    Website: https://bugema.ac.ug/alumni
+    Website: https://bugemauniv.ac.ug/alumni
     
     Welcome back to the Bugema family!
     
@@ -322,7 +322,7 @@ export async function sendAlumniApprovalNotification(data: AlumniRegistrationEma
         
         <p>We're thrilled to officially welcome you to the Bugema University Alumni Association. Your profile is now active and you have full access to all alumni benefits and services.</p>
         
-        <a href="https://bugema.ac.ug/alumni/dashboard" class="cta-button">Access Your Alumni Dashboard</a>
+        <a href="https://bugemauviv.ac.ug/alumni/dashboard" class="cta-button">Access Your Alumni Dashboard</a>
         
         <p>Your verification code <strong>${data.verificationCode}</strong> is now active for all university services.</p>
         
