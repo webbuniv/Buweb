@@ -52,7 +52,8 @@ export async function saveImageWithCategory(formData: FormData): Promise<CreateG
     await databases.createDocument(appwriteConfig.databaseId, appwriteConfig.galleryCollectionId, ID.unique(), {
       category: formData.get("category") as string,
         imageUrl: formData.get("imageUrl") as string, 
-        UploadedBy: currentUser?.fullName || "Anonymous", 
+        UploadedBy: currentUser?.fullName || "Anonymous",
+        description: formData.get("description") as string,
     })
     revalidatePath("/gallery/create")
     return { success: true }

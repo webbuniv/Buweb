@@ -288,7 +288,7 @@ const Header = () => {
                         <span className={showModel4 ? "active" : ""}>
                           Contact Us
                         </span>
-                        <span className="my-1 ml-2 text-dark ">
+                        <span className="my-1 ml-2 dark:text-dark ">
                           <FaChevronDown className={showModel4 ? "drop" : "revert"} />
                         </span>
                       </div>
