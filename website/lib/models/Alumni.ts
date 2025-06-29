@@ -1,6 +1,8 @@
+import type { ObjectId } from "mongodb"
+
 export interface Alumni {
-  _id?: string
-  alumniId: string
+  _id?: ObjectId
+  alumniId: string // Unique identifier like 21/BCC/BU/R/0019
   personalInfo: {
     firstName: string
     lastName: string
