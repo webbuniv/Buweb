@@ -20,6 +20,7 @@ const AddImagesForm = ()=> {
          const [error, setError] = useState<string | null>(null)
         const [success, setSuccess] = useState(false)
         const [category, setcategory] = useState("")
+        const [description, setDescription] = useState("")
         const [categories, setCategories] = useState<{category: string}[]>([])
         const [featuredImage, setFeaturedImage] = useState<string>("")
          const [imageUrl, setImageUrl] = useState("");
@@ -29,6 +30,7 @@ const AddImagesForm = ()=> {
         const formData = new FormData();
         formData.append("category", category);
         formData.append("imageUrl", imageUrl);
+        formData.append("description", description);
         const save = await saveImageWithCategory(formData)
         setSuccess(true)
         if(!save.success){
@@ -40,6 +42,7 @@ const AddImagesForm = ()=> {
                 setFeaturedImage("")
                 setcategory("") 
                 setImageUrl("")
+                setDescription("")
        
 }
 
@@ -84,6 +87,17 @@ const AddImagesForm = ()=> {
               </select>
                 
           </div>
+
+                <div>
+                        <Label className="text-sm font-medium">Description</Label>
+                        <Input
+                        type="text"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        placeholder="A Brief description of the image you are uploading e.g 'Bugema University Main Campus'"
+                        className="bg-transparent rounded-lg relative block w-full px-3 py-2 border border-double border-gray-300 placeholder-gray-500 dark:bg-gray-800 text-gray-900 rounded-b-md focus:outline-none focus:border-4  focus:border-gray-500 focus:z-10 sm:text-sm dark:text-white dark:bg-dark"
+                        />
+                </div>
 
           <div>
                 <Label className="text-sm font-medium">Images</Label>
