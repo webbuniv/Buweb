@@ -302,7 +302,7 @@ const AlumniRegistrationForm = () => {
                 type="number"
                 step="0.01"
                 min="0"
-                max="4"
+                max="5"
                 placeholder="e.g., 3.75"
                 value={formData.gpa || ""}
                 onChange={(e) =>
