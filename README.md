@@ -5,6 +5,7 @@ Welcome to the official repository of the **Bugema University** website. This pr
 ---
 
 ## Table of Contents
+
 - [Project Overview](#project-overview)
 - [Features](#features)
 - [Installation](#installation)
@@ -36,21 +37,25 @@ The **Bugema University Website** serves as the official digital gateway for the
 To set up this project locally, follow these steps:
 
 1. **Clone the repository**:
+
     ```bash
     git clone https://github.com/webbuniv/Buweb.git
     ```
 
 2. **Navigate to the project directory**:
+
     ```bash
     cd Buweb/website
     ```
 
 3. **Install the dependencies**:
+
     ```bash
     npm install
     ```
 
 4. **Run the development server**:
+
     ```bash
     npm start
     ```
@@ -71,6 +76,7 @@ To set up this project locally, follow these steps:
 ---
 
 ## Contributing
+
 We welcome contributions to the Bugema University website. To contribute:
 
 1. Fork the repository.
@@ -80,6 +86,7 @@ We welcome contributions to the Bugema University website. To contribute:
 5. Open a pull request detailing the changes you've made.
 
 ## Contact
+
 For any inquiries or support, please contact:
 
 Bugema University Web Development Team
