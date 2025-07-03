@@ -18,8 +18,8 @@ export const heroMedia = [
 //   { type: 'video', src: "https://res.cloudinary.com/djlx5iqhe/video/upload/v1731087035/WhatsApp_Video_2024-11-08_at_17.28.31_f2ee4132_gcgn3h.mp4" },
 
 // { type: 'no-overlay', src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/67fd14f700265aae6dd3/view?project=674dcf7b003d57db960a&mode=admin" },
-  { type: 'image', src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/679ca181003bf8b3a85c/view?project=674dcf7b003d57db960a&mode=admin" },
-  { type: 'image', src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/679ca11b002f83ac3f36/view?project=674dcf7b003d57db960a&mode=admin"},
+{ type: 'image', src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68665ad3001d039d7b52/view?project=674dcf7b003d57db960a&mode=admin"},  
+{ type: 'image', src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686658bc0026975fda0f/view?project=674dcf7b003d57db960a&mode=admin" },
 { type: 'no-overlay', src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/67d1473b0039984aef2f/view?project=674dcf7b003d57db960a&mode=admin" },
 //   { type: 'no-overlay', src: "/images/graduation/three.jpeg"},
   // { type: 'image', src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/679ca0640005017b97d8/view?project=674dcf7b003d57db960a&mode=admin"},
@@ -71,17 +71,17 @@ const Hero = () => {
         </Slider>
 {/*=================== CUSTOMIZING THE SLIDER TO HAVE DIFFERENT OVERLAY WORDS FOR DIFFERENT SLIDES ===================*/ }
         {CurrentSlide ===0 && <HeroOverlay 
-              title3="Welcome to Bugema University"
-              subtitle3="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity"
+              title3=""
+              subtitle3=""
                subtitle2=""
               // subtitle3="to offer you Quality education with a hands-on experience. . ."
               title={undefined}subtitle={undefined} 
             />}
             {CurrentSlide ===1 && <HeroOverlay 
               // title2="Service."
-              title3="Bugema University Hosts a Free Medical Camp Focused on treating patients Lymphdema"
+              title3="Welcome to Bugema University"
               subtitle2="https://www.bugemauniv.ac.ug/hospital"
-              subtitle3="Read More"
+              subtitle3="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity"
               title={undefined}subtitle={undefined}             />}
 
             {/* {CurrentSlide ===2 && <HeroOverlay 
