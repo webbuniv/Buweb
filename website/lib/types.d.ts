@@ -88,3 +88,13 @@ export type GetPostBySlugResponse = {
     post: Post;
   };
 };
+export interface ImageItem {
+  category: string
+  imageUrl: string
+  id: string
+  date: string
+  UploadedBy?: string
+  likes?:number
+  description?:string
+  isLiked?: boolean
+}

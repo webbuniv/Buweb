@@ -1,7 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server"
 import nodemailer from "nodemailer"
 
-// Create transporter with better error handling
 const createTransporter = () => {
   return nodemailer.createTransport({
     host: process.env.EMAIL_SERVER_HOST,
