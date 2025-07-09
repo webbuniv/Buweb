@@ -38,9 +38,9 @@ const StudentLifePage: React.FC = () => {
       <HomePage />
       {/* <VideoGallery /> */}
       <EventCalendar />
-      <TestimonialSlider />
+      {/*<TestimonialSlider />*/}
     </div>
-  )
+  );
 }
 
 export default StudentLifePage
