@@ -20,7 +20,7 @@ export const getAllImages = async () => {
         date: image.$createdAt || "undefined",
         UploadedBy: image.UploadedBy ||"Anonymous",
         likes:image.likes||0,
-        description:image.description||"No desacription Available"
+        description:image.description||""
     })) as ImageItem[]
 
   } catch (error) {
