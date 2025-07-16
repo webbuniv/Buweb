@@ -49,19 +49,19 @@ const handleclose = ()=>{
 
                                         <div className="mx-[7%] w-full my-2 fade-in  " id='courses' > 
                                                     <h1 className='text-black md:font-bold md:text-2xl text-center ' >
-                                                     Admissions for Our August Intake are ongoing!
+                                                     Mature Entry Results Are Out
                                                         </h1> 
                                                         <div className='  mt-5 flex p-2 h-60 w-full  ' >
-                                                                <div  className='hidden w-[50%] h-full md:flex'>
-                                                                        <Image src={"/images/banners/julyNurses.jpeg"} alt='image.png' width={300} height={300} />
+                                                                <div  className='hidden w-[50%] h-full md:flex rounded-md'>
+                                                                        <Image src={"/images/mature.png"} alt='image.png' width={300} height={300} />
                                                                 </div>
                                                               <div className='flex flex-col gap-6 my-[3%] w-[50%] ' >
                                                                 <h1 className='flex text-black font-semibold ' >
-                                                                        Explore top-tier programs in Computing & Technology, Education, 
+                                                                        Explore top-tier programs in Computing & Technology, Education,
                                                                         Business, Journalism, and more. Learn from expert faculty, gain real-world experience, and grow in a vibrant, inclusive community.
                                                                 </h1>
-                                                                  <Link href="https://erms.bugemauniv.ac.ug/application"  target="_blank" rel="noopener noreferrer">
-                                                                <span className="text-black border  hover:bg-primary hover:border-white hover:text-white transition duration-500  border-black rounded-full p-2 ">Click Here to Apply</span>
+                                                                  <Link href="/docs/mature_entry.pdf"  target="_blank" rel="noopener noreferrer">
+                                                                <span className="text-black border  hover:bg-primary hover:border-white hover:text-white transition duration-500  border-black rounded-full p-2 ">Check Out Yours</span>
                                                                 </Link>
                                                               </div>
                                                              
