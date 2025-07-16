@@ -144,7 +144,7 @@ const Header = () => {
         //     ? " bg-dark !fixed !z-[9999] ! bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100"
         //     : "absolute"
         // }`}
-        className={`hidden md:flex header left-0 z-40 w-full items-center ${
+        className={`hidden md:flex  header left-0 z-40 w-full items-center ${
           sticky
             ? "bg-dark text-white top-0 !fixed !z-[9999] bg-opacity-100 shadow-sticky backdrop-blur-sm fade-up transition"
             : "absolute top-8  fades-out  text-white"
@@ -205,7 +205,7 @@ const Header = () => {
                   id="navbarCollapse"
                   className={`navbar hidden lg:block absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100`}
                 >
-                  <ul className="block lg:flex bg-transparent lg:space-x-8 top-0 left-0 h-full  text-black" >
+                  <ul className="block lg:flex bg-blue-800/60 lg:space-x-8 top-0 left-0 h-full  text-black" >
 
                   <li className="group relative">
                       <Link

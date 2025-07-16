@@ -46,7 +46,6 @@ const handleclose = ()=>{
 
                                         </div> 
 
-
                                         <div className="mx-[7%] w-full my-2 fade-in  " id='courses' > 
                                                     <h1 className='text-black md:font-bold md:text-2xl text-center ' >
                                                      Mature Entry Results Are Out
