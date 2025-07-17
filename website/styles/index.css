@@ -275,11 +275,11 @@
 }
 
 .change-on-hover:hover .arrow1 {
-  transform: translateX(125px);
+  transform: translateX(40px);
 }
 
 .change-on-hover:hover .arrow2 {
-  transform: translateX(125px);
+  transform: translateX(50px);
 }
 
 .change-on-hover:hover .arrow3 {
