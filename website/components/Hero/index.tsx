@@ -19,16 +19,30 @@ export const heroMedia = [
   // { type: 'no-overlay', src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/67fd14f700265aae6dd3/view?project=674dcf7b003d57db960a&mode=admin" },
   {
     type: "image",
-    src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686e00ff002d08b29921/view?project=674dcf7b003d57db960a&mode=admin",
-  },
+    src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686e8a2e0035bf8439de/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "GRADUATION CLEARANCE",
+    description: `Your graduation is not just a ceremony – it is a doorway to new opportunities. Clear today, walk proudly tomorrow, and let your achievements pave the way for your dreams...`, 
+        link: "http://erms.bugemauniv.ac.ug/application",
+        linkText: "Clear Now",  
+},
   {
     type: "image",
     src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686658bc0026975fda0f/view?project=674dcf7b003d57db960a&mode=admin",
-  },
+    title: "BUGEMA UNIVERSITY",
+    description: `With a diverse culture of over 17 countries and beyond,
+     Bugema University is where Knowledge meets Opportunity to offer you
+      Quality education with a hands-on experience. . .`, 
+        link: "http://erms.bugemauniv.ac.ug/application",
+        linkText: "Apply Now",
+},
   {
-    type: "no-overlay",
-    src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/67d1473b0039984aef2f/view?project=674dcf7b003d57db960a&mode=admin",
-  },
+    type: "image",
+    src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68641dd3003cdff2242d/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "Official Visit from NCHE",
+    description: `The institution recently hosted an official visit from the National Council for Higher Education (NCHE). The purpose of the visit was to assess academic standards...`, 
+        link: "http://erms.bugemauniv.ac.ug/news/68641e0d0012974a663d",
+        linkText: "Read More",  
+},
   //   { type: 'no-overlay', src: "/images/graduation/three.jpeg"},
   // { type: 'image', src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/679ca0640005017b97d8/view?project=674dcf7b003d57db960a&mode=admin"},
   //   { type: 'image', src: "/images/hero/env2.jpg" },
@@ -79,7 +93,7 @@ const Hero = () => {
     <>
       <section
         id="home"
-        className="  hidden md:block   bg w-full lg:h-[50%]  h-[50%] relative z-10 mt-[1] mb-[14%] "
+        className="  block  bg w-full lg:h-[50%]  h-[50%] relative z-10 mt-[1] mb-[14%] "
       >
         {/* <Header /> */}
         <Slider {...settings} className="">
@@ -87,49 +101,10 @@ const Hero = () => {
             <HeroSlide key={index} media={media} />
           ))}
         </Slider>
-        {/*=================== CUSTOMIZING THE SLIDER TO HAVE DIFFERENT OVERLAY WORDS FOR DIFFERENT SLIDES ===================*/}
-        {CurrentSlide === 0 && (
-          <HeroOverlay
-            title3=""
-            subtitle3=""
-            subtitle2=""
-            // subtitle3="to offer you Quality education with a hands-on experience. . ."
-            title={undefined}
-            subtitle={undefined}
-          />
-        )}
-        {CurrentSlide === 1 && (
-          <HeroOverlay
-            // title2="Service."
-            title3="Welcome to Bugema University"
-            subtitle2="https://www.bugemauniv.ac.ug/hospital"
-            subtitle3="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity"
-            title={undefined}
-            subtitle={undefined}
-          />
-        )}
 
-        {/* {CurrentSlide ===2 && <HeroOverlay 
-              title2="Service."
-              title3="Kick start your Higher Education at Bugema University "
-
-              subtitle2="https://erms.bugemauniv.ac.ug/application/"
-              subtitle3=""
-              title={undefined}   subtitle={undefined} 
-            />}*/}
-        {CurrentSlide === 2 && (
-          <HeroOverlay
-            // title2="Service."
-            title3=" School of Nursing and MidWifery "
-            subtitle2="https://erms.bugemauniv.ac.ug/application/"
-            subtitle3=""
-            title={undefined}
-            subtitle={undefined}
-          />
-        )}
       </section>
 
-      <div className="block md:hidden container px-4 mt-[120px] mb-[50px] w-full h-full">
+      {/* <div className="block md:hidden container px-4 mt-[120px] mb-[50px] w-full h-full">
         <div className="flex flex-wrap justify-center md:justify-between">
           <div className="w-full px-4 md:w-2/3">
             <motion.div
@@ -190,7 +165,7 @@ const Hero = () => {
             </motion.div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

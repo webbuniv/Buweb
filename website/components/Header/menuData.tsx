@@ -95,8 +95,8 @@ const menuData: Menu[] = [
   },
   {
     id: 6,
-    title: "Contact Us",
-    path: "/contact",
+    title: "Gallery",
+    path: "/gallery",
     newTab: false,
   },
 ];
