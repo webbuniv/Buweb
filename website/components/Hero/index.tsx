@@ -17,14 +17,14 @@ export const heroMedia = [
   //   { type: 'video', src: "https://res.cloudinary.com/djlx5iqhe/video/upload/v1731087035/WhatsApp_Video_2024-11-08_at_17.28.31_f2ee4132_gcgn3h.mp4" },
 
   // { type: 'no-overlay', src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/67fd14f700265aae6dd3/view?project=674dcf7b003d57db960a&mode=admin" },
-//   {
-//     type: "image",
-//     src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686e8a2e0035bf8439de/view?project=674dcf7b003d57db960a&mode=admin",
-//     title: "GRADUATION CLEARANCE",
-//     description: `Your graduation is not just a ceremony – it is a doorway to new opportunities. Clear today, walk proudly tomorrow, and let your achievements pave the way for your dreams...`, 
-//         link: "http://erms.bugemauniv.ac.ug/application",
-//         linkText: "Clear Now",  
-// },
+  {
+    type: "image",
+    src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686e8a2e0035bf8439de/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "The 31ST GRADUATION CEREMONY",
+    description: `Caps. Gowns. Dreams. Counting down to a day of honour, joy, and new beginnings. Graduation is on the horizon ... Your moment to shine is coming soon. Graduation awaits – are you ready?`, 
+        // link: "http://erms.bugemauniv.ac.ug/application",
+        // linkText: "Clear Now",  
+},
   {
     type: "image",
     src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686658bc0026975fda0f/view?project=674dcf7b003d57db960a&mode=admin",
@@ -40,8 +40,8 @@ export const heroMedia = [
     src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68641dd3003cdff2242d/view?project=674dcf7b003d57db960a&mode=admin",
     title: "Visit from NCHE",
     description: `The institution recently hosted an official visit from the National Council for Higher Education (NCHE). The purpose of the visit was to assess academic standards...`, 
-        link: "http://erms.bugemauniv.ac.ug/news/68641e0d0012974a663d",
-        linkText: "Read More",  
+        link: "https://www.bugemauniv.ac.ug/news/68641e0d0012974a663d",
+        linkText: "Read More", 
 },
   //   { type: 'no-overlay', src: "/images/graduation/three.jpeg"},
   // { type: 'image', src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/679ca0640005017b97d8/view?project=674dcf7b003d57db960a&mode=admin"},
