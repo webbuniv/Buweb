@@ -8,6 +8,7 @@ import Model2 from "@/components/model/Model2";
 import Model3 from "@/components/model/Model3";
 import Model4 from "@/components/model/Model4";
 import Advert from "../model/advertmodel";
+import { usePathname } from "next/navigation";
 
 import image from "../../public/images/logo/bu_logo_nav.png";
 
@@ -28,6 +29,8 @@ const Header = () => {
   const [showModel2, setShowModel2] = useState(false);
   const [advertvisible, setadvertvisible] = useState(true);
   const [hideMobileNav, setHideMobileNav] = useState(false);
+        const pathname = usePathname();
+        
  const router = Router
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
@@ -205,12 +208,12 @@ const Header = () => {
                   id="navbarCollapse"
                   className={`navbar hidden lg:block absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100`}
                 >
-                  <ul className={`block lg:flex  ${sticky?"":"bg-black/60"} lg:space-x-8 top-0 left-0 h-full  text-black` }>
+                  <ul className={`block lg:flex   lg:space-x-8 top-0 left-0 h-full ${ pathname.includes("schools")? `${sticky?"":"text-black"}` :"text-white"} ` }>
 
                   <li className="group relative ">
                       <Link
                         href="/"
-                        className={`nav hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav hover ml-3 flex py-2  text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onClick={close } onMouseEnter={close}
                         >
 
@@ -222,7 +225,7 @@ const Header = () => {
                     </li>
 
                     <li className="group relative">
-                      <div   className={`nav cursor-pointer hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick={first_modal }>
+                      <div   className={`nav cursor-pointer hover ml-3 flex py-2  text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick={first_modal }>
 
                         <span className={showModel ? "active" : ""}>
                           Programs
@@ -236,7 +239,7 @@ const Header = () => {
 
                     <li>
                       <div
-                        className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav cursor-pointer hover flex py-2    font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
                         onClick={second_modal}
                       > 
@@ -251,7 +254,7 @@ const Header = () => {
 
                     <li>
                       <div
-                        className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav cursor-pointer hover flex py-2    font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
                         onClick={third_modal}
                       >
@@ -265,7 +268,7 @@ const Header = () => {
                     </li>
                     <li>
                       <div
-                        className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav cursor-pointer hover flex py-2    font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
                         onClick={forth_modal}
 
@@ -282,7 +285,7 @@ const Header = () => {
 
                     <li>
                       <div
-                        className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav cursor-pointer hover flex py-2    font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onClick={fifth_modal}
                       >
                         <span className={showModel4 ? "active" : ""}>
