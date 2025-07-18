@@ -1,7 +1,12 @@
 import Link from "next/link";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
-
+interface HeroOverlayProps {
+  title: string;
+  description: string;
+  link?: string;
+  linkText?: string;
+}
 const HeroOverlay = ({
   title,
   description,
@@ -32,12 +37,12 @@ const HeroOverlay = ({
           </h1>
         </div>
 
-        <div className=" 2xl:w-[15%] w-full border border-black hover:bg-dark text-white  change-on-hover  flex rounded-full p-2  ">
+        {link?(<div className=" 2xl:w-[15%] w-full border border-black hover:bg-dark text-white  change-on-hover  flex rounded-full p-2  ">
          <Link href={`${link}`} className="flex gap-2 items-center " >
                 <h1   className='new-arr'>{linkText } </h1>
                 <FaArrowRight className='arrow1'/>
                 </Link> 
-        </div>
+        </div>): null}
         
 
       </div>
