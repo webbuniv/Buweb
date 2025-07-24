@@ -1,7 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server"
 import nodemailer from "nodemailer"
 
-// Create transporter with better error handling
 const createTransporter = () => {
   return nodemailer.createTransport({
     host: process.env.EMAIL_SERVER_HOST,
@@ -28,7 +27,7 @@ export async function POST(request: NextRequest) {
 
     const submissionDate = new Date().toLocaleString()
     const formId = `BU-${Date.now()}`
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || ""
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://www.bugemauniv.ac.ug"
     const printUrl = `${baseUrl}/print-consent/${formId}?name=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&regNo=${encodeURIComponent(registrationNumber || "")}&date=${encodeURIComponent(date)}&consent=${encodeURIComponent(consentDetails)}&submitted=${encodeURIComponent(submissionDate)}`
 
     // Create transporter
@@ -90,7 +89,7 @@ export async function POST(request: NextRequest) {
             
             <p style="color: #475569; font-size: 14px; margin-top: 30px;">
               If you have any questions, please contact our media team at 
-              <a href="mailto:${process.env.EMAIL_SERVER_USER}" style="color: #2563eb;">${process.env.EMAIL_SERVER_USER}</a>
+              <a href="mailto:${process.env.EMAIL_ADMIN_USER}" style="color: #2563eb;">${process.env.EMAIL_ADMIN_USER}</a>
             </p>
           </div>
           
@@ -251,7 +250,7 @@ export async function POST(request: NextRequest) {
             <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #e2e8f0; text-align: center;">
               <p style="color: #64748b; font-size: 12px; margin: 0;">
                 This form was digitally submitted and processed by Bugema University Media Department<br>
-                For inquiries, contact: ${process.env.EMAIL_SERVER_USER} | Generated: ${submissionDate}
+                For inquiries, contact: ${process.env.EMAIL_ADMIN_USER} | Generated: ${submissionDate}
               </p>
             </div>
           </div>
@@ -264,7 +263,7 @@ export async function POST(request: NextRequest) {
     try {
       await transporter.sendMail({
         from: `"Bugema University System" <${process.env.EMAIL_SERVER_USER}>`,
-        to: process.env.EMAIL_SERVER_USER,
+        to: process.env.EMAIL_ADMIN_USER,
         subject: `📄 Media Consent Form - ${fullName} (${submissionDate})`,
         html: adminEmailHtml,
       })

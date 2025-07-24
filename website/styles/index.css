@@ -72,6 +72,24 @@
       text-align: center;
       /* background-color: rgba(3, 9, 185, 0.3);  */
     }
+.zoom-fade-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.zoom-fade-image {
+  width: 100%;
+  height: auto;
+  transform: scale(1);
+  opacity: 1;
+  transition: transform 15s ease-in-out, ;
+}
+
+/* When slide is active, zoom in */
+.slick-active .zoom-fade-image {
+  transform: scale(1.1); /* Adjust zoom level as needed */
+  opacity: 1; /* Fade out to transparent */
+}
     .overlayGeneral{
         position: absolute;
         top: 0;
@@ -275,11 +293,11 @@
 }
 
 .change-on-hover:hover .arrow1 {
-  transform: translateX(125px);
+  transform: translateX(40px);
 }
 
 .change-on-hover:hover .arrow2 {
-  transform: translateX(125px);
+  transform: translateX(50px);
 }
 
 .change-on-hover:hover .arrow3 {
