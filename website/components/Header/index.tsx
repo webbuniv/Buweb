@@ -7,6 +7,8 @@ import Model1 from "@/components/model/Model1";
 import Model2 from "@/components/model/Model2";
 import Model3 from "@/components/model/Model3";
 import Model4 from "@/components/model/Model4";
+import Advert from "../model/advertmodel";
+import { usePathname } from "next/navigation";
 
 import image from "../../public/images/logo/bu_logo_nav.png";
 
@@ -14,6 +16,7 @@ import "../../styles/nav.css";
 import "../../styles/index.css";
 import { FaChevronDown } from "react-icons/fa";
 import menuData from "./menuData";
+import Router from "next/router";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -24,14 +27,17 @@ const Header = () => {
   const [sticky, setSticky] = useState(false);
   const [openIndex, setOpenIndex] = useState(-1);
   const [showModel2, setShowModel2] = useState(false);
+  const [advertvisible, setadvertvisible] = useState(true);
   const [hideMobileNav, setHideMobileNav] = useState(false);
-
+        const pathname = usePathname();
+        
+ const router = Router
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
   };
 
   const handleStickyNavbar = () => {
-    if (window.scrollY >= 200) {
+    if (window.scrollY >= 3) {
       setSticky(true);
     } else {
       setSticky(false);
@@ -44,6 +50,9 @@ const Header = () => {
   };
 
   useEffect(() => {
+        setTimeout(()=>{
+                setadvertvisible(false)
+        },5000)
     window.addEventListener("scroll", handleStickyNavbar);
     return () => {
       window.removeEventListener("scroll", handleStickyNavbar);
@@ -138,10 +147,10 @@ const Header = () => {
         //     ? " bg-dark !fixed !z-[9999] ! bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100"
         //     : "absolute"
         // }`}
-        className={`hidden md:flex header left-0 z-40 w-full items-center ${
+        className={`hidden md:flex  header left-0 z-40 w-full items-center ${
           sticky
-            ? "bg-dark text-white top-0 !fixed !z-[9999] bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition"
-            : "absolute top-12 bg-gradient-to-b from-black  text-white"
+            ? "bg-dark text-white top-0 !fixed !z-[9999] bg-opacity-100 shadow-sticky backdrop-blur-sm fade-up transition"
+            : "absolute top-8  fades-out  text-white"
         }`}
       >
         <div className="container">
@@ -199,12 +208,12 @@ const Header = () => {
                   id="navbarCollapse"
                   className={`navbar hidden lg:block absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100`}
                 >
-                  <ul className="block lg:flex bg-transparent lg:space-x-8 top-0 left-0 h-full  text-black" >
+                  <ul className={`block lg:flex   lg:space-x-8 top-0 left-0 h-full ${ pathname.includes("schools")? `${sticky?"":"text-black"}` :"text-white"} ` }>
 
-                  <li className="group relative">
+                  <li className="group relative ">
                       <Link
                         href="/"
-                        className={`nav hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav hover ml-3 flex py-2  text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onClick={close } onMouseEnter={close}
                         >
 
@@ -216,7 +225,7 @@ const Header = () => {
                     </li>
 
                     <li className="group relative">
-                      <div   className={`nav cursor-pointer hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick={first_modal }>
+                      <div   className={`nav cursor-pointer hover ml-3 flex py-2  text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick={first_modal }>
 
                         <span className={showModel ? "active" : ""}>
                           Programs
@@ -230,7 +239,7 @@ const Header = () => {
 
                     <li>
                       <div
-                        className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav cursor-pointer hover flex py-2    font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
                         onClick={second_modal}
                       > 
@@ -245,7 +254,7 @@ const Header = () => {
 
                     <li>
                       <div
-                        className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav cursor-pointer hover flex py-2    font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
                         onClick={third_modal}
                       >
@@ -259,7 +268,7 @@ const Header = () => {
                     </li>
                     <li>
                       <div
-                        className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav cursor-pointer hover flex py-2    font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
                         onClick={forth_modal}
 
@@ -276,14 +285,13 @@ const Header = () => {
 
                     <li>
                       <div
-                        className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-
+                        className={`nav cursor-pointer hover flex py-2    font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onClick={fifth_modal}
                       >
                         <span className={showModel4 ? "active" : ""}>
                           Contact Us
                         </span>
-                        <span className="my-1 ml-2 text-dark ">
+                        <span className="my-1 ml-2 dark:text-dark ">
                           <FaChevronDown className={showModel4 ? "drop" : "revert"} />
                         </span>
                       </div>
@@ -447,10 +455,13 @@ const Header = () => {
       <Model3 is3visible={showModel3} onClose={() => setShowModel3(false)}>
         <></>
       </Model3>
-      <Model4 is4visible={showModel4} onClose={() => setShowModel4(false)}>
+      <Model4 is4visible={showModel4} onClose={() => setShowModel4(false)} palmGirlsImage="/placeholder.svg?height=450&width=350">
         <></>
       </Model4>
-      
+
+      <Advert isadvertvisible={advertvisible} onClose={() => setadvertvisible(false)} >
+        <></>
+      </Advert>
     </>
   );
 };

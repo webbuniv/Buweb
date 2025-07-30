@@ -53,7 +53,7 @@ const  NewsPage = ({ params }: Props) => {
         </div>
         <div
           className="blog-content text-xl leading-loose flex flex-col gap-5 mt-5"
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(news.content) }}
+          dangerouslySetInnerHTML={{ __html: news.content }}
         />
 
       </div>

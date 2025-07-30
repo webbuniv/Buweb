@@ -10,24 +10,24 @@ import School from "@/components/school/School"
 
 const lecturers = [
   {
-    name: "Dr. John Doe",
-    image: "/images/lecturers/john-doe.jpg",
-    qualification: "Ph.D. in Educational Psychology",
+    name: "Mr.Samuel Hafashimana",
+    image: "/blank/blank.jpg",
+    qualification: "Head of Department Arts Education",
   },
   {
-    name: "Prof. Jane Smith",
-    image: "/images/lecturers/jane-smith.jpg",
-    qualification: "Ph.D. in Curriculum Development",
+    name: "Mr.Abel Magoola",
+    image: "/blank/blank.jpg",
+    qualification: "Head of Department Science Education",
   },
   {
-    name: "Dr. Michael Johnson",
-    image: "/images/lecturers/michael-johnson.jpg",
-    qualification: "Ph.D. in Educational Leadership",
+    name: "Mr.Busiku Joseph",
+    image: "/blank/blank.jpg",
+    qualification: "Lecturer (Science Education)",
   },
   {
-    name: "Dr. Emily Brown",
-    image: "/images/lecturers/emily-brown.jpg",
-    qualification: "Ph.D. in Special Education",
+    name: "Mrs.Womeli Annet Mutaawe",
+    image: "/blank/blank_girl.jpg",
+    qualification: "Lecturer (Arts Education)",
   },
 ]
 
@@ -38,7 +38,7 @@ export default function SchoolOfEducation() {
         title="School of Education"
         subtitle="Because We Are, The World Is..."
         topImg={["/images/schools/lab1.jpg"]}
-        dean="DR. SSERUNJOGI CHARLES"
+        dean="DR. SSERUNJOGI CHARLES DICKENS"
         deanImage="/blank/blank.jpg"
         message="Having made a choice to join the school of education Bugema University, I take this opportunity to welcome you and assure you that you have made the best decision. As school of education, we look forward to serving you with a complete package."
         preamble="The School of Education believes that a true teacher is one that is mentally, physically and spiritually sound to impart the same virtues in his/her learners making them best suited for service to God and mankind in this world and in the world to come."

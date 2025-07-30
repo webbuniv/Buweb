@@ -2,16 +2,11 @@ import React, { Children } from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
 import imagenew from "../../public/images/nav/IMG_9313.jpg";
 import image from "../../public/images/nav/labs.jpg";
-import nurses from "../../public/images/nav/nurses.jpg";
-import nurses1 from "../../public/images/nav/nurses1.jpg";
-import burundi from "../../public/images/nav/burundi.jpg";
 import bucosa from "../../public/images/nav/bucosa.jpg";
 import palm_girls from "../../public/images/nav/palm-girls.jpg";
-import palm_girls1 from "../../public/images/nav/palm-girls1.jpg";
 import Image from "next/image";
 import { BiX } from 'react-icons/bi';
 import Link from "next/link"
-import { useEffect, useState } from "react";
 import first_modal from "../Header/index";
 
 
@@ -92,7 +87,7 @@ const why_bugema = () =>{
         
         
 
-        <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex ml-[5%] mt-[9%] w-[90%] h-[70%]  rounded-lg overflow-auto overflow-x-hidden bg-white" id="wrapper" onMouseLeave={onClose}  >                  
+        <div className=" fade-in fixed z-40 inset-0  flex  mt-[9%] mx-auto w-[97%] h-[70%]    overflow-auto overflow-x-hidden bg-white" id="wrapper" onMouseLeave={onClose}  >                  
                         <div className='flex ml-10 justify-center items-center'>
                         <div className='flex '>
                               <button 
@@ -268,12 +263,12 @@ const why_bugema = () =>{
                               </div>
                               </li>
                               
-                              <li>
+                              {/* <li>
                               <div className="mr-2 my-5  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Accommodation</h1> 
                                     
                               </div>
-                              </li>
+                              </li> */}
                               <li>
                               <div className="mr-2 my-5  ">
                               <Link href={'/religious/religious'}>
@@ -290,12 +285,12 @@ const why_bugema = () =>{
                               </div>
                               </li>
                               
-                              <li>
+                              {/* <li>
                               <div className="mr-2 my-5  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Feeding</h1> 
                                     
                               </div>
-                              </li>
+                              </li> */}
   
                         </ul>
                 </div>
@@ -376,66 +371,60 @@ const why_bugema = () =>{
                 <div className=' ml-20 vertical-line   mt-24'>
                 </div>
 
-                {/* SCIENCE AND TECHNOLOGY COURSES */}
-                <div className='ml-10  my-24'  id='IT'>
+              
+                <div className='ml-10 p-2 bg-gray-300 rounded-br-3xl rounded-tl-3xl  my-24'  id='IT'>
 
                         {/* ###============= C O U R S E S    M O R E =================### */}
-                        <div className=' ml-24' id='courses-more'>
-                              <div className=' ml-24 fade-in '>
-                                          <Image src={image} alt='img' width={350} height={450} className="-ml-5 my-10 slider slide--fast"/>
+                        <div className='flex flex-col gap-3 ' id='courses-more'>
+                              <div className=' mt-10  fade-in '>
+                                          <Image src={image} alt='img' width={350} height={450} className=" rounded-tr-3xl rounded-bl-3xl "/>
                               </div>
-                              <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
 
-                                    <div className='columns-1 bg-black slider-right slide--slow change-on-hover rounded-3xl'>
+                              <div className="ml-5  text-black grid grid-cols-2 gap-3 fade-in " >
+                                        <div className=' p-3 border border-black hover:bg-dark hover:text-white  change-on-hover rounded-full'>
+                                                <Link href='https://apply.bugemauniv.ac.ug'>
+                                                <h1  className='new-arr'> Apply now <FaArrowRight className='arrow1'/></h1>
+                                                </Link> 
+                                        </div>
 
-                                         <Link href='https://apply.bugemauniv.ac.ug'>
-                                         <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Apply now <FaArrowRight className='arrow1'/></h1>
-                                         </Link> 
-                                     
-                                    </div>
+                                        <div className=' p-3 border border-black hover:bg-dark hover:text-white  change-on-hover rounded-full'>
+                                                <Link href='https://erms.bugemauniv.ac.ug/student/login/'>
+                                                <h1   className='new-arr'>Students&apos; portal <FaArrowRight className='arrow1'/></h1>
+                                                </Link> 
+                                        </div>
+
+                                        <div className=' p-3 border border-black hover:bg-dark hover:text-white  change-on-hover rounded-full'>
+                                        <Link href='https://elearning.bugemauniv.ac.ug/'>
+                                                <h1   className='new-arr'>E-Learnig <FaArrowRight className='arrow1'/></h1>
+                                        </Link> 
+                                        </div>
                               </div> 
                               
-                              <div className="ml-12 my-1 transform -skew-x-11 text-white grid-rows-2 " >
-                                    <div className='columns-1 bg-black change-on-hover rounded-3xl'>
-
-                                          <Link href='https://erms.bugemauniv.ac.ug/student/login/'>
-                                         <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'>Students&apos; portal <FaArrowRight className='arrow1'/></h1>
-                                         </Link> 
-
-                                    </div>
-                              </div>  
-                              <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
-                                    <div className='columns-1 bg-black slider slide--slow change-on-hover rounded-3xl'>
-                                    <Link href='https://elearning.bugemauniv.ac.ug/'>
-                                         <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'>E-Learnig <FaArrowRight className='arrow1'/></h1>
-                                    </Link> 
-                                    </div>
-                              </div>
+                        
                         </div>
 
                         {/* ###=============F E E S       M O R E =================### */}
                         <div className=' hidden fade-in' id='fees-more'>
-                              <div className=' ml-24 fade-in '>
-                                          <Image src={imagenew} alt='img' width={350} height={450} className="-ml-5 my-10 slider slide--fast"/>
+                              <div className='  fade-in '>
+                                          <Image src={imagenew} alt='img' width={350} height={450} className="rounded-tr-3xl rounded-bl-3xl"/>
                               </div>
                          
                               
-                              <div className="ml-12 my-1 transform -skew-x-11 text-white grid-rows-2 " >
-                                    <div className='columns-1 bg-black change-on-hover rounded-3xl'>
+                              <div className="ml-12 my-1 grid grid-cols-2 gap-3  text-white " >
+                                    <div className=' p-3 border border-black hover:bg-dark hover:text-white change-on-hover rounded-full'>
                                           <Link href="https://res.cloudinary.com/duaqiajka/raw/upload/FEE_STRUCT_2022-2023_bnyls8.xlsx">
-                                          <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Fees Structure <FaArrowRight className='arrow2'/></h1>
+                                          <h1   className='new-arr'> Fees Structure <FaArrowRight className='arrow2'/></h1>
                                           </Link>
-                                    
                                     </div>
-                              </div>  
-                              <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
-                                    <div className='columns-1 bg-black slider slide--slow change-on-hover rounded-3xl'>
+
+                                    <div className=' p-3 border border-black hover:bg-dark hover:text-white  change-on-hover rounded-full'>
                                           <Link href="https://www.youtube.com/watch?embeds_referring_euri=http%3A%2F%2Flocalhost%3A3000%2F&source_ve_path=MTY0NTA2LDE2NDUwMw&v=GeIp_hgwlZc&feature=youtu.be" target="_blank">
-                                          <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> How to apply <FaArrowRight className='arrow3'/></h1>
+                                          <h1  className='new-arr'> How to apply <FaArrowRight className='arrow3'/></h1>
                                           </Link>
-                                    
                                     </div>
-                              </div>
+
+                              </div>  
+                            
                         </div>
 
                         {/* ###============= W  H  Y    B U G E M A      M O R E =================### */}

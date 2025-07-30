@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
-import { FaChevronDown, FaCalendarAlt, FaGraduationCap, FaUserCircle, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube, FaTwitch } from "react-icons/fa"
+import { FaChevronDown, FaCalendarAlt, FaGraduationCap, FaUserCircle, FaFacebookF, FaTwitter, FaLinkedinIn, FaTiktok, FaYoutube, FaTwitch } from "react-icons/fa"
 import { RiComputerLine } from "react-icons/ri"
 import { LinearText } from "./LinearText"
 import { Search } from "./Search"
@@ -12,7 +12,7 @@ import { useTypingEffect } from "@/utils/hooks"
 const statements = [
   "Greetings from Bugema University",
   "Get Your Admission Now",
-  "January Intake is Ongoing",
+  // "January Intake is Ongoing",
   "Step Into Excellence",
 ]
 
@@ -21,17 +21,17 @@ const EnhancedNavbar: React.FC = () => {
   const displayedText = useTypingEffect(statements)
 
   return (
-    <header className="bg-white shadow-md">
+    <header className="w-full hidden md:flex absolute z-50  bg-gradient-to-b from-black">
       <div className="container mx-auto px-4 -mt-[10px]">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center space-x-4">
-            <LinearText text={displayedText} />
+          <div className="flex items-center space-x-4 ">
+            <LinearText  text={displayedText} />
             <Search />
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6">
-            <AnimatedNavLink href="/calendar" icon={<FaCalendarAlt size={14} />}>
+          <nav className="hidden lg:flex  items-center space-x-6">
+            <AnimatedNavLink  href="/calendar" icon={<FaCalendarAlt size={14} />}>
               Calendar
             </AnimatedNavLink>
             <AnimatedNavLink href="https://elearning.bugemauniv.ac.ug/" icon={<RiComputerLine size={14} />}>
@@ -62,15 +62,15 @@ const EnhancedNavbar: React.FC = () => {
 
           {/* Social Media Icons */}
           <div className="hidden lg:flex items-center space-x-2">
-            <SocialIcon href="https://facebook.com" icon={<FaFacebookF size={14} />} />
-            <SocialIcon href="https://twitter.com" icon={<FaTwitter size={14} />} />
-            <SocialIcon href="https://instagram.com" icon={<FaInstagram size={14} />} />
-            <SocialIcon href="https://linkedin.com" icon={<FaLinkedinIn size={14} />} />
+            <SocialIcon href="https://www.facebook.com/share/199ddE9pPn" icon={<FaFacebookF size={14} />} />
+            <SocialIcon href="https://twitter.com/UnivBugema" icon={<FaTwitter size={14} />} />
+            <SocialIcon href="https://youtube.com/@bugemauniversity3502" icon={<FaYoutube size={14} />} />
+            <SocialIcon href="https://www.tiktok.com/@BugemaUniv" icon={<FaTiktok size={14} />} />
           </div>
 
           {/* Mobile Navigation */}
           <div className="flex lg:hidden items-center space-x-2">
-            <Search />
+            <Search  />
             <button
               onClick={() => setNavbarOpen(!navbarOpen)}
               className="text-gray-600 hover:text-blue-600 focus:outline-none"
@@ -99,7 +99,7 @@ const EnhancedNavbar: React.FC = () => {
 const AnimatedNavLink: React.FC<{ href: string; icon: React.ReactNode; children: React.ReactNode }> = ({ href, icon, children }) => (
   <motion.a
     href={href}
-    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-300 text-sm font-medium"
+    className="flex items-center space-x-1 text-white hover:text-blue-600 transition-colors duration-300 text-sm font-medium"
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
   >
@@ -115,7 +115,7 @@ const DropdownNavLink: React.FC<{ children: React.ReactNode; items: { label: str
     <div className="relative group">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-300 text-sm font-medium"
+        className="flex items-center space-x-1 text-white hover:text-blue-600 transition-colors duration-300 text-sm font-medium"
       >
         <FaGraduationCap size={14} />
         <span>{children}</span>
@@ -151,7 +151,7 @@ const SocialIcon: React.FC<{ href: string; icon: React.ReactNode }> = ({ href, i
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="text-gray-600 hover:text-blue-600 transition-colors duration-300"
+    className="text-white hover:text-blue-600 transition-colors duration-300"
     whileHover={{ scale: 1.2 }}
     whileTap={{ scale: 0.9 }}
   >

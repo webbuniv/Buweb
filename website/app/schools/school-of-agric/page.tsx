@@ -9,24 +9,24 @@ import School from "@/components/school/School"
 
 const lecturers = [
   {
-    name: "Dr. John Doe",
-    image: "/images/lecturers/john-doe.jpg",
-    qualification: "Ph.D. in Agricultural Economics",
+    name: "Dr. Ben Belden Mugula",
+    image: "/blank/blank.jpg",
+    qualification: "Head of Department Agricultural and Environmental Sciences",
   },
   {
-    name: "Prof. Jane Smith",
-    image: "/images/lecturers/jane-smith.jpg",
-    qualification: "Ph.D. in Crop Science",
+    name: "Mr. Amos Asiimwe",
+    image: "/blank/blank.jpg",
+    qualification: "Master of Science in Applied Human Nutrition",
   },
   {
-    name: "Dr. Michael Johnson",
-    image: "/images/lecturers/michael-johnson.jpg",
-    qualification: "Ph.D. in Environmental Science",
+    name: "Ms. Namwanje Mary",
+    image: "/blank/blank_girl.jpg",
+    qualification: "Master of Science in Applied Human Nutrition",
   },
   {
-    name: "Dr. Emily Brown",
-    image: "/images/lecturers/emily-brown.jpg",
-    qualification: "Ph.D. in Food Technology",
+    name: "Ms. Christinah Nuwahereza",
+    image: "/blank/blank_girl.jpg",
+    qualification: "Masters in Public Health Nutrition",
   },
 ]
 
@@ -37,8 +37,8 @@ export default function SchoolOfAgric() {
         title="School of Agriculture and Applied Sciences"
         subtitle="Training scientists and technicians for varying global environments"
         topImg={["/images/schools/agric.jpg"]}
-        dean="ASSOC. PROF. DAVID R. MUTEKANGA"
-        deanImage="/blank/blank.jpg"
+        dean="ASSOC. PROF. PAUL NAMPALA"
+        deanImage="/images/lecturers/nampala.JPG"
         message="Welcome to the School of Agricultural and Applied Sciences, the niche of Bugema University. We continue to make astronomical steps in working with local rural communities to positively change their livelihoods with minimal impact on the environment. We welcome both students and faculty who wish to learn, exchange knowledge, and collaborate with other faculties around the world to meet global sustainable development goals and ensure the future of humanity."
         preamble="Agriculture contributes over 25% directly and 29% indirectly to Uganda's GDP and provides income to over 75% of Ugandans. Modern agriculture is complex, requiring specialized professionals who can be producers and provide skills for research, innovation, and management of crises in agriculture. Our programs are designed to address specific setbacks to sustainable agricultural productivity and national development through training and producing graduates with specialized skills in various agricultural fields."
         goal="The Land a Resource"

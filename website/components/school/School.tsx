@@ -33,7 +33,7 @@ const School: React.FC<SchoolProps> = ({
   lecturers,
 }) => {
   return (
-    <div className="space-y-12 mt-10">
+    <div className="space-y-12 mt-28">
       <Carousel className="w-full">
         <CarouselContent>
           {topImg.map((img, index) => (
