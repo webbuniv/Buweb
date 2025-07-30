@@ -1,225 +1,284 @@
 "use client"
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react"
+
+import { useState, useEffect } from "react"
+import { ChevronLeft, ChevronRight, Star, Quote, GraduationCap, Briefcase } from "lucide-react"
 
 const testimonials = [
   {
     id: 1,
     name: "Sarah Nakamya",
     program: "Bachelor of Business Administration",
-    year: "Class of 2023",
-    image: "/placeholder.svg?height=80&width=80",
+    graduationYear: "2022",
+    currentRole: "Marketing Manager at MTN Uganda",
+    image: "/placeholder.svg?height=400&width=400",
     rating: 5,
     quote:
-      "Bugema University provided me with not just academic knowledge, but also the practical skills and confidence I needed to excel in the business world. The faculty's dedication and the diverse student community made my experience truly transformative.",
-    country: "Uganda",
+      "Bugema University transformed my life completely. The practical approach to learning and the supportive faculty helped me develop both professionally and personally. Today, I'm leading marketing campaigns for one of Uganda's biggest companies.",
+    achievements: ["Dean's List Graduate", "Student Leadership Award", "Marketing Excellence Award"],
   },
   {
     id: 2,
-    name: "James Mwangi",
-    program: "Master of Public Health",
-    year: "Class of 2022",
-    image: "/placeholder.svg?height=80&width=80",
+    name: "David Mukasa",
+    program: "Bachelor of Computer Science",
+    graduationYear: "2021",
+    currentRole: "Software Engineer at Google",
+    image: "/placeholder.svg?height=400&width=400",
     rating: 5,
     quote:
-      "The research opportunities and hands-on experience I gained at Bugema University were invaluable. The program prepared me to address real-world health challenges and make a meaningful impact in my community.",
-    country: "Kenya",
+      "The computer science program at Bugema gave me a solid foundation in both theoretical concepts and practical skills. The modern labs and industry partnerships prepared me for the global tech industry. I'm now working at Google, living my dream!",
+    achievements: ["Summa Cum Laude", "Best Final Year Project", "Tech Innovation Award"],
   },
   {
     id: 3,
-    name: "Grace Uwimana",
-    program: "Bachelor of Computer Science",
-    year: "Class of 2023",
-    image: "/placeholder.svg?height=80&width=80",
+    name: "Grace Achieng",
+    program: "Bachelor of Nursing",
+    graduationYear: "2020",
+    currentRole: "Senior Nurse at Mulago Hospital",
+    image: "/placeholder.svg?height=400&width=400",
     rating: 5,
     quote:
-      "The technology programs at Bugema University are cutting-edge and industry-relevant. The professors are not just teachers but mentors who guided me through every step of my journey. I'm now working as a software developer at a leading tech company.",
-    country: "Rwanda",
+      "The nursing program at Bugema is exceptional. The clinical rotations and hands-on training prepared me to handle real-world healthcare challenges. I'm proud to be serving my community and making a difference in people's lives every day.",
+    achievements: ["Clinical Excellence Award", "Community Service Recognition", "Nursing Leadership Certificate"],
   },
   {
     id: 4,
-    name: "Michael Ochieng",
-    program: "Bachelor of Agriculture",
-    year: "Class of 2021",
-    image: "/placeholder.svg?height=80&width=80",
+    name: "James Okello",
+    program: "Master of Business Administration",
+    graduationYear: "2023",
+    currentRole: "CEO of Okello Enterprises",
+    image: "/placeholder.svg?height=400&width=400",
     rating: 5,
     quote:
-      "Bugema University's agriculture program combines traditional knowledge with modern techniques. The practical training and research opportunities helped me develop sustainable farming solutions that are now benefiting farmers in my region.",
-    country: "Uganda",
+      "The MBA program challenged me to think strategically and develop leadership skills. The case studies and group projects were invaluable. I've since started my own company and we're already expanding across East Africa.",
+    achievements: ["MBA Excellence Award", "Entrepreneurship Recognition", "Business Plan Competition Winner"],
   },
   {
     id: 5,
-    name: "Fatima Al-Zahra",
-    program: "Bachelor of Nursing",
-    year: "Class of 2022",
-    image: "/placeholder.svg?height=80&width=80",
+    name: "Mary Nabirye",
+    program: "Bachelor of Education",
+    graduationYear: "2019",
+    currentRole: "Head Teacher at Kampala International School",
+    image: "/placeholder.svg?height=400&width=400",
     rating: 5,
     quote:
-      "The nursing program at Bugema University provided excellent clinical training and theoretical foundation. The supportive environment and quality education prepared me to serve patients with compassion and competence.",
-    country: "Sudan",
+      "Bugema's education program equipped me with modern teaching methodologies and leadership skills. The teaching practice sessions were incredibly valuable. I'm now leading a team of 50+ teachers and impacting hundreds of students.",
+    achievements: [
+      "Outstanding Teacher Award",
+      "Educational Leadership Certificate",
+      "Curriculum Development Recognition",
+    ],
+  },
+  {
+    id: 6,
+    name: "Peter Ssemakula",
+    program: "Bachelor of Agriculture",
+    graduationYear: "2021",
+    currentRole: "Agricultural Consultant & Farm Owner",
+    image: "/placeholder.svg?height=400&width=400",
+    rating: 5,
+    quote:
+      "The agriculture program at Bugema combines traditional knowledge with modern farming techniques. The practical sessions on the university farm were eye-opening. I now run a successful agribusiness and consult for other farmers.",
+    achievements: ["Best Agriculture Student", "Sustainable Farming Award", "Young Farmer of the Year"],
   },
 ]
 
-const TestimonialsSection = () => {
+export default function TestimonialsSection() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+
+  useEffect(() => {
+    if (!isAutoPlaying) return
+
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
+    }, 8000)
+
+    return () => clearInterval(interval)
+  }, [isAutoPlaying])
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
+    setIsAutoPlaying(false)
   }
 
   const prevTestimonial = () => {
     setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+    setIsAutoPlaying(false)
   }
 
-  const currentData = testimonials[currentTestimonial]
+  const goToTestimonial = (index: number) => {
+    setCurrentTestimonial(index)
+    setIsAutoPlaying(false)
+  }
+
+  const currentTestimonialData = testimonials[currentTestimonial]
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
-      {/* Background Elements */}
+    <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 relative overflow-hidden">
+      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23ffffff' fillOpacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23000000' fillOpacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2v-4h4v-2h-4zM12 12v-2h-2v2H6v2h4v2h2v-2h2v-2h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}
         />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            What Our
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-              Students Say
-            </span>
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Hear from our graduates about their transformative experiences at Bugema University
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-600 text-sm font-medium mb-4">
+            <Quote className="w-4 h-4 mr-2" />
+            Student Success Stories
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Hear From Our Graduates</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Discover how Bugema University has transformed the lives of thousands of students, preparing them for
+            successful careers and meaningful contributions to society.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Testimonial Carousel */}
-        <div className="max-w-4xl mx-auto">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentTestimonial}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -50 }}
-              transition={{ duration: 0.6 }}
-              className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white/20 relative"
-            >
-              {/* Quote Icon */}
-              <div className="absolute top-6 left-6 w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-                <Quote className="w-6 h-6 text-white" />
+        {/* Main Testimonial */}
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
+            <div className="grid lg:grid-cols-2">
+              {/* Image Side */}
+              <div className="relative h-96 lg:h-auto">
+                <img
+                  src={currentTestimonialData.image || "/placeholder.svg"}
+                  alt={currentTestimonialData.name}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+
+                {/* Floating Quote Icon */}
+                <div className="absolute top-6 left-6 p-3 bg-white/20 backdrop-blur-sm rounded-full">
+                  <Quote className="w-8 h-8 text-white" />
+                </div>
+
+                {/* Rating */}
+                <div className="absolute bottom-6 left-6 flex items-center gap-1">
+                  {[...Array(currentTestimonialData.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-8 items-center">
-                {/* Student Info */}
-                <div className="text-center md:text-left">
-                  <motion.div
-                    initial={{ scale: 0.8 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    className="w-20 h-20 mx-auto md:mx-0 mb-4 rounded-full overflow-hidden border-4 border-white/20"
-                  >
-                    <img
-                      src={currentData.image || "/placeholder.svg"}
-                      alt={currentData.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </motion.div>
+              {/* Content Side */}
+              <div className="p-8 lg:p-12 flex flex-col justify-center">
+                {/* Quote */}
+                <blockquote className="text-xl lg:text-2xl text-gray-700 leading-relaxed mb-8 italic">
+                  "{currentTestimonialData.quote}"
+                </blockquote>
 
-                  <h3 className="text-xl font-bold text-white mb-2">{currentData.name}</h3>
-                  <p className="text-blue-300 text-sm mb-2">{currentData.program}</p>
-                  <p className="text-gray-400 text-sm mb-3">{currentData.year}</p>
-                  <div className="flex items-center justify-center md:justify-start space-x-1 mb-2">
-                    {[...Array(currentData.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                {/* Student Info */}
+                <div className="mb-6">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{currentTestimonialData.name}</h3>
+                  <div className="flex items-center gap-2 text-blue-600 mb-1">
+                    <GraduationCap className="w-4 h-4" />
+                    <span className="font-medium">{currentTestimonialData.program}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-600 mb-2">
+                    <Briefcase className="w-4 h-4" />
+                    <span>{currentTestimonialData.currentRole}</span>
+                  </div>
+                  <span className="text-sm text-gray-500">Class of {currentTestimonialData.graduationYear}</span>
+                </div>
+
+                {/* Achievements */}
+                <div className="mb-8">
+                  <h4 className="font-semibold text-gray-900 mb-3">Key Achievements:</h4>
+                  <div className="space-y-2">
+                    {currentTestimonialData.achievements.map((achievement, index) => (
+                      <div key={index} className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-blue-500" />
+                        <span className="text-gray-700 text-sm">{achievement}</span>
+                      </div>
                     ))}
                   </div>
-                  <span className="inline-block px-3 py-1 bg-blue-600/20 text-blue-300 text-xs rounded-full">
-                    {currentData.country}
-                  </span>
-                </div>
-
-                {/* Testimonial Quote */}
-                <div className="md:col-span-2">
-                  <motion.blockquote
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                    className="text-lg md:text-xl text-gray-200 leading-relaxed italic"
-                  >
-                    "{currentData.quote}"
-                  </motion.blockquote>
                 </div>
               </div>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Navigation */}
-          <div className="flex items-center justify-center mt-8 space-x-4">
-            <button
-              onClick={prevTestimonial}
-              className="p-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white hover:bg-white/20 transition-colors"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-
-            <div className="flex space-x-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentTestimonial ? "bg-white scale-125" : "bg-white/40 hover:bg-white/60"
-                  }`}
-                />
-              ))}
             </div>
-
-            <button
-              onClick={nextTestimonial}
-              className="p-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white hover:bg-white/20 transition-colors"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
           </div>
         </div>
 
-        {/* Bottom Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16"
-        >
-          <div className="text-center">
-            <div className="text-3xl font-bold text-white mb-2">98%</div>
-            <div className="text-gray-300">Graduate Satisfaction</div>
+        {/* Navigation */}
+        <div className="flex items-center justify-center gap-8 mt-12">
+          <button
+            onClick={prevTestimonial}
+            className="p-3 rounded-full bg-white shadow-lg border border-gray-200 text-gray-600 hover:text-blue-600 hover:border-blue-200 transition-all"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+
+          {/* Dots */}
+          <div className="flex gap-2">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToTestimonial(index)}
+                className={`w-3 h-3 rounded-full transition-all ${
+                  index === currentTestimonial ? "bg-blue-600 scale-125" : "bg-gray-300 hover:bg-gray-400"
+                }`}
+              />
+            ))}
           </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-white mb-2">95%</div>
-            <div className="text-gray-300">Employment Rate</div>
+
+          <button
+            onClick={nextTestimonial}
+            className="p-3 rounded-full bg-white shadow-lg border border-gray-200 text-gray-600 hover:text-blue-600 hover:border-blue-200 transition-all"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+        </div>
+
+        {/* Testimonial Cards Preview */}
+        <div className="mt-16 grid md:grid-cols-3 gap-6">
+          {testimonials.slice(0, 3).map((testimonial, index) => (
+            <div
+              key={testimonial.id}
+              className={`p-6 bg-white rounded-xl shadow-lg border-2 cursor-pointer transition-all duration-300 ${
+                index === currentTestimonial
+                  ? "border-blue-200 shadow-xl"
+                  : "border-gray-100 hover:border-gray-200 hover:shadow-xl"
+              }`}
+              onClick={() => goToTestimonial(index)}
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <img
+                  src={testimonial.image || "/placeholder.svg"}
+                  alt={testimonial.name}
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                  <p className="text-sm text-gray-600">{testimonial.currentRole}</p>
+                </div>
+              </div>
+              <p className="text-gray-700 text-sm leading-relaxed line-clamp-3">"{testimonial.quote}"</p>
+              <div className="flex items-center gap-1 mt-3">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-16">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl text-white">
+            <div className="text-center sm:text-left">
+              <h3 className="text-xl font-bold mb-1">Ready to Write Your Success Story?</h3>
+              <p className="opacity-90">Join our community of successful graduates</p>
+            </div>
+            <button className="px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
+              Apply Today
+            </button>
           </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-white mb-2">4.8/5</div>
-            <div className="text-gray-300">Average Rating</div>
-          </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
 }
-
-export default TestimonialsSection

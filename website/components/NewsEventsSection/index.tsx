@@ -1,76 +1,107 @@
 "use client"
-import { useState } from "react"
+
 import type React from "react"
 
-import { motion } from "framer-motion"
-import Link from "next/link"
-import { Calendar, Clock, ArrowRight, Mail, User, MapPin } from "lucide-react"
+import { useState } from "react"
+import { Calendar, Clock, ArrowRight, Users, MapPin, Mail, Bell } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 
-const newsData = [
+const newsItems = [
   {
     id: 1,
     title: "Bugema University Launches New AI Research Center",
     excerpt:
-      "The university unveils state-of-the-art facilities for artificial intelligence and machine learning research.",
+      "The university unveils a state-of-the-art artificial intelligence research facility to advance technology education and innovation in East Africa.",
     date: "2024-01-15",
     category: "Research",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/placeholder.svg?height=300&width=400",
     readTime: "3 min read",
   },
   {
     id: 2,
-    title: "International Partnership with European Universities",
-    excerpt: "New collaboration opens doors for student exchange programs and joint research initiatives.",
+    title: "International Partnership with Oxford University Announced",
+    excerpt:
+      "Students will now have access to exchange programs and joint research opportunities with one of the world's leading universities.",
     date: "2024-01-10",
-    category: "Partnership",
-    image: "/placeholder.svg?height=200&width=300",
+    category: "Partnerships",
+    image: "/placeholder.svg?height=300&width=400",
     readTime: "4 min read",
   },
   {
     id: 3,
-    title: "Outstanding Performance in National University Rankings",
-    excerpt: "Bugema University climbs to top 5 in latest national university rankings for academic excellence.",
-    date: "2024-01-05",
-    category: "Achievement",
-    image: "/placeholder.svg?height=200&width=300",
+    title: "Bugema Students Win National Innovation Competition",
+    excerpt:
+      "A team of computer science students took first place in the Uganda National Innovation Challenge with their healthcare app solution.",
+    date: "2024-01-08",
+    category: "Student Success",
+    image: "/placeholder.svg?height=300&width=400",
     readTime: "2 min read",
+  },
+  {
+    id: 4,
+    title: "New Sustainable Agriculture Program Launched",
+    excerpt:
+      "The university introduces cutting-edge sustainable farming techniques and climate-smart agriculture practices in its curriculum.",
+    date: "2024-01-05",
+    category: "Programs",
+    image: "/placeholder.svg?height=300&width=400",
+    readTime: "5 min read",
   },
 ]
 
-const eventsData = [
+const events = [
   {
     id: 1,
-    title: "31st Graduation Ceremony",
+    title: "Annual Graduation Ceremony 2024",
     date: "2024-02-15",
-    time: "10:00 AM",
+    time: "09:00 AM",
     location: "Main Campus Auditorium",
-    description: "Join us as we celebrate the achievements of our graduating class of 2024.",
+    description:
+      "Join us as we celebrate the achievements of our graduating class of 2024. Over 3,000 students will receive their degrees.",
+    attendees: "5,000+ expected",
     category: "Graduation",
-    featured: true,
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
     id: 2,
-    title: "International Students Orientation",
-    date: "2024-02-01",
-    time: "9:00 AM",
+    title: "International Education Fair",
+    date: "2024-02-20",
+    time: "10:00 AM",
     location: "Student Center",
-    description: "Welcome session for new international students joining our diverse community.",
-    category: "Orientation",
-    featured: false,
+    description:
+      "Explore study abroad opportunities, meet international university representatives, and learn about exchange programs.",
+    attendees: "2,000+ expected",
+    category: "Education",
+    image: "/placeholder.svg?height=300&width=400",
   },
   {
     id: 3,
-    title: "Research Symposium 2024",
-    date: "2024-02-20",
-    time: "2:00 PM",
-    location: "Conference Hall",
-    description: "Annual research symposium showcasing innovative projects and findings.",
-    category: "Research",
-    featured: false,
+    title: "Tech Innovation Summit 2024",
+    date: "2024-02-25",
+    time: "08:30 AM",
+    location: "Innovation Hub",
+    description:
+      "Industry leaders, students, and faculty come together to discuss the latest trends in technology and innovation.",
+    attendees: "1,500+ expected",
+    category: "Technology",
+    image: "/placeholder.svg?height=300&width=400",
+  },
+  {
+    id: 4,
+    title: "Career Development Workshop Series",
+    date: "2024-03-01",
+    time: "02:00 PM",
+    location: "Business School",
+    description:
+      "Professional development workshops covering resume writing, interview skills, and career planning strategies.",
+    attendees: "500+ expected",
+    category: "Career",
+    image: "/placeholder.svg?height=300&width=400",
   },
 ]
 
-const NewsEventsSection = () => {
+export default function NewsEventsSection() {
   const [activeTab, setActiveTab] = useState<"news" | "events">("news")
   const [email, setEmail] = useState("")
 
@@ -82,252 +113,248 @@ const NewsEventsSection = () => {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23000000' fillOpacity='0.05'%3E%3Cpath d='M9 0h2v20H9V0zm25.426.402l.571 1.93-19.252 5.68-.57-1.93L34.426.402zM53.12 4.094a5 5 0 0 1 7.08 7.08l-13.077 13.077a5 5 0 0 1-7.08-7.08L53.12 4.094zm32.32 0a5 5 0 0 1 0 7.08L72.361 24.253a5 5 0 0 1-7.08-7.08L78.36 4.094a5 5 0 0 1 7.08 0zm7.08 32.32a5 5 0 0 1-7.08 0L72.361 23.333a5 5 0 0 1 7.08-7.08l13.078 13.077a5 5 0 0 1 0 7.08zM60.254 24.253a5 5 0 0 1-7.08 7.08L40.097 18.256a5 5 0 0 1 7.08-7.08l13.077 13.077z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fillOpacity='1' fillRule='evenodd'%3E%3Cpath d='M20 20c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8 8 3.582 8 8zm0-20c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8 8 3.582 8 8z'/%3E%3C/g%3E%3C/svg%3E")`,
           }}
         />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Latest
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              News & Events
-            </span>
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Stay updated with the latest happenings, achievements, and upcoming events at Bugema University
-          </p>
-        </motion.div>
-
-        {/* Tab Navigation */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="flex justify-center mb-12"
-        >
-          <div className="bg-white dark:bg-slate-800 rounded-2xl p-2 shadow-lg border border-gray-100 dark:border-slate-700">
-            <button
-              onClick={() => setActiveTab("news")}
-              className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                activeTab === "news"
-                  ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
-                  : "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-              }`}
-            >
-              Latest News
-            </button>
-            <button
-              onClick={() => setActiveTab("events")}
-              className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                activeTab === "events"
-                  ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
-                  : "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-              }`}
-            >
-              Upcoming Events
-            </button>
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-600 text-sm font-medium mb-4">
+            <Bell className="w-4 h-4 mr-2" />
+            Latest Updates
           </div>
-        </motion.div>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">News & Events</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Stay updated with the latest happenings at Bugema University. From groundbreaking research to exciting
+            events, discover what's making headlines in our community.
+          </p>
+        </div>
 
-        {/* Content */}
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* News/Events Content */}
+        <div className="grid lg:grid-cols-3 gap-12">
+          {/* Main Content */}
           <div className="lg:col-span-2">
-            {activeTab === "news" ? (
+            {/* Tab Navigation */}
+            <div className="flex items-center gap-1 p-1 bg-gray-100 rounded-lg mb-8 w-fit">
+              <button
+                onClick={() => setActiveTab("news")}
+                className={`px-6 py-3 rounded-md font-medium transition-all ${
+                  activeTab === "news" ? "bg-white text-blue-600 shadow-sm" : "text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                Latest News
+              </button>
+              <button
+                onClick={() => setActiveTab("events")}
+                className={`px-6 py-3 rounded-md font-medium transition-all ${
+                  activeTab === "events" ? "bg-white text-blue-600 shadow-sm" : "text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                Upcoming Events
+              </button>
+            </div>
+
+            {/* News Content */}
+            {activeTab === "news" && (
               <div className="space-y-8">
-                {newsData.map((article, index) => (
-                  <motion.article
-                    key={article.id}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-slate-700"
-                  >
-                    <div className="md:flex">
-                      <div className="md:w-1/3">
-                        <img
-                          src={article.image || "/placeholder.svg"}
-                          alt={article.title}
-                          className="w-full h-48 md:h-full object-cover"
-                        />
-                      </div>
-                      <div className="md:w-2/3 p-6">
-                        <div className="flex items-center space-x-4 mb-3">
-                          <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-medium rounded-full">
-                            {article.category}
-                          </span>
-                          <div className="flex items-center text-gray-500 dark:text-gray-400 text-sm">
-                            <Calendar className="w-4 h-4 mr-1" />
-                            {new Date(article.date).toLocaleDateString()}
-                          </div>
-                          <div className="flex items-center text-gray-500 dark:text-gray-400 text-sm">
-                            <Clock className="w-4 h-4 mr-1" />
-                            {article.readTime}
-                          </div>
-                        </div>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                          <Link href={`/news/${article.id}`}>{article.title}</Link>
-                        </h3>
-                        <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">{article.excerpt}</p>
-                        <Link
-                          href={`/news/${article.id}`}
-                          className="inline-flex items-center text-blue-600 dark:text-blue-400 font-semibold hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-                        >
-                          Read More
-                          <ArrowRight className="ml-1 w-4 h-4" />
-                        </Link>
-                      </div>
-                    </div>
-                  </motion.article>
-                ))}
-              </div>
-            ) : (
-              <div className="space-y-6">
-                {eventsData.map((event, index) => (
-                  <motion.div
-                    key={event.id}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className={`bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border ${
-                      event.featured
-                        ? "border-blue-500 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20"
-                        : "border-gray-100 dark:border-slate-700"
+                {newsItems.map((item, index) => (
+                  <article
+                    key={item.id}
+                    className={`group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 ${
+                      index === 0 ? "lg:flex" : ""
                     }`}
                   >
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex-1">
-                        <div className="flex items-center space-x-3 mb-2">
-                          <span
-                            className={`px-3 py-1 text-xs font-medium rounded-full ${
-                              event.featured
-                                ? "bg-blue-600 text-white"
-                                : "bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300"
-                            }`}
-                          >
-                            {event.category}
-                          </span>
-                          {event.featured && (
-                            <span className="px-2 py-1 bg-yellow-100 text-yellow-600 text-xs font-medium rounded-full">
-                              Featured
-                            </span>
-                          )}
+                    <div className={`${index === 0 ? "lg:w-1/2" : ""} relative`}>
+                      <img
+                        src={item.image || "/placeholder.svg"}
+                        alt={item.title}
+                        className={`w-full object-cover group-hover:scale-105 transition-transform duration-300 ${
+                          index === 0 ? "h-64 lg:h-full" : "h-48"
+                        }`}
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className="px-3 py-1 bg-blue-600 text-white text-xs font-medium rounded-full">
+                          {item.category}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className={`p-6 ${index === 0 ? "lg:w-1/2 lg:flex lg:flex-col lg:justify-center" : ""}`}>
+                      <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="w-4 h-4" />
+                          <span>{new Date(item.date).toLocaleDateString()}</span>
                         </div>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{event.title}</h3>
-                        <p className="text-gray-600 dark:text-gray-300 mb-4">{event.description}</p>
+                        <div className="flex items-center gap-1">
+                          <Clock className="w-4 h-4" />
+                          <span>{item.readTime}</span>
+                        </div>
                       </div>
+
+                      <h3
+                        className={`font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors ${
+                          index === 0 ? "text-2xl" : "text-xl"
+                        }`}
+                      >
+                        {item.title}
+                      </h3>
+
+                      <p className="text-gray-600 leading-relaxed mb-4">{item.excerpt}</p>
+
+                      <button className="inline-flex items-center gap-2 text-blue-600 font-medium hover:gap-3 transition-all">
+                        Read More
+                        <ArrowRight className="w-4 h-4" />
+                      </button>
                     </div>
-                    <div className="grid md:grid-cols-3 gap-4 text-sm">
-                      <div className="flex items-center text-gray-600 dark:text-gray-300">
-                        <Calendar className="w-4 h-4 mr-2 text-blue-600" />
-                        {new Date(event.date).toLocaleDateString()}
-                      </div>
-                      <div className="flex items-center text-gray-600 dark:text-gray-300">
-                        <Clock className="w-4 h-4 mr-2 text-blue-600" />
-                        {event.time}
-                      </div>
-                      <div className="flex items-center text-gray-600 dark:text-gray-300">
-                        <MapPin className="w-4 h-4 mr-2 text-blue-600" />
-                        {event.location}
-                      </div>
-                    </div>
-                  </motion.div>
+                  </article>
                 ))}
               </div>
             )}
 
-            {/* View All Link */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="text-center mt-8"
-            >
-              <Link
-                href={activeTab === "news" ? "/news" : "/events"}
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-              >
-                View All {activeTab === "news" ? "News" : "Events"}
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-            </motion.div>
+            {/* Events Content */}
+            {activeTab === "events" && (
+              <div className="space-y-6">
+                {events.map((event) => (
+                  <div
+                    key={event.id}
+                    className="group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300"
+                  >
+                    <div className="md:flex">
+                      <div className="md:w-1/3 relative">
+                        <img
+                          src={event.image || "/placeholder.svg"}
+                          alt={event.title}
+                          className="w-full h-48 md:h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute top-4 left-4">
+                          <span className="px-3 py-1 bg-green-600 text-white text-xs font-medium rounded-full">
+                            {event.category}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="md:w-2/3 p-6">
+                        <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-3">
+                          <div className="flex items-center gap-1">
+                            <Calendar className="w-4 h-4" />
+                            <span>{new Date(event.date).toLocaleDateString()}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Clock className="w-4 h-4" />
+                            <span>{event.time}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <MapPin className="w-4 h-4" />
+                            <span>{event.location}</span>
+                          </div>
+                        </div>
+
+                        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                          {event.title}
+                        </h3>
+
+                        <p className="text-gray-600 leading-relaxed mb-4">{event.description}</p>
+
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-1 text-sm text-gray-500">
+                            <Users className="w-4 h-4" />
+                            <span>{event.attendees}</span>
+                          </div>
+                          <button className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                            Register Now
+                            <ArrowRight className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Newsletter Sidebar */}
-          <div className="lg:col-span-1">
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl p-8 text-white sticky top-8"
-            >
+          {/* Sidebar */}
+          <div className="space-y-8">
+            {/* Newsletter Signup */}
+            <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
               <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Mail className="w-8 h-8 text-white" />
-                </div>
+                <Mail className="w-12 h-12 mx-auto mb-4 opacity-90" />
                 <h3 className="text-2xl font-bold mb-2">Stay Updated</h3>
-                <p className="text-blue-100">
-                  Subscribe to our newsletter and never miss important updates, events, and announcements.
-                </p>
+                <p className="opacity-90">Get the latest news and events delivered to your inbox</p>
               </div>
 
               <form onSubmit={handleNewsletterSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-blue-100 mb-2">
-                    Email Address
-                  </label>
-                  <div className="relative">
-                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-blue-200" />
-                    <input
-                      type="email"
-                      id="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Enter your email"
-                      className="w-full pl-10 pr-4 py-3 bg-white/20 border border-white/30 rounded-xl text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent"
-                      required
-                    />
-                  </div>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-white text-blue-600 font-semibold py-3 rounded-xl hover:bg-blue-50 transition-colors duration-300"
-                >
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/70"
+                  required
+                />
+                <Button type="submit" className="w-full bg-white text-blue-600 hover:bg-gray-100">
                   Subscribe Now
-                </button>
+                </Button>
               </form>
+            </div>
 
-              <div className="mt-6 pt-6 border-t border-white/20">
-                <p className="text-blue-100 text-sm text-center">
-                  Join 5,000+ students and alumni who stay connected with Bugema University
-                </p>
+            {/* Quick Links */}
+            <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Quick Links</h3>
+              <div className="space-y-3">
+                {[
+                  "Academic Calendar",
+                  "Admission Requirements",
+                  "Student Portal",
+                  "Library Resources",
+                  "Campus Map",
+                  "Contact Information",
+                ].map((link, index) => (
+                  <button
+                    key={index}
+                    className="w-full text-left p-3 rounded-lg hover:bg-gray-50 transition-colors group"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-700 group-hover:text-blue-600 transition-colors">{link}</span>
+                      <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+                    </div>
+                  </button>
+                ))}
               </div>
-            </motion.div>
+            </div>
+
+            {/* Social Media */}
+            <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Follow Us</h3>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { name: "Facebook", followers: "25K+", color: "bg-blue-600" },
+                  { name: "Twitter", followers: "15K+", color: "bg-sky-500" },
+                  { name: "Instagram", followers: "20K+", color: "bg-pink-600" },
+                  { name: "LinkedIn", followers: "10K+", color: "bg-blue-700" },
+                ].map((social, index) => (
+                  <button
+                    key={index}
+                    className={`p-4 ${social.color} text-white rounded-lg hover:opacity-90 transition-opacity`}
+                  >
+                    <div className="text-center">
+                      <div className="font-bold">{social.followers}</div>
+                      <div className="text-sm opacity-90">{social.name}</div>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   )
 }
-
-export default NewsEventsSection

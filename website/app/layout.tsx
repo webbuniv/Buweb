@@ -6,8 +6,7 @@ import Header from "@/components/Header"
 import AboveHeader from "@/components/AboveHeader"
 import Script from "next/script"
 import ScrollToTop from "@/components/ScrollToTop"
-import "react-modal-video/css/modal-video.css"
-import "../styles/index.css"
+import "./globals.css"
 import { Providers } from "./providers"
 
 export const metadata: Metadata = {

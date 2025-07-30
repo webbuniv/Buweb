@@ -1,58 +1,47 @@
 "use client"
+
 import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, ChevronRight, Play, ArrowRight, Users, BookOpen, Award } from "lucide-react"
+import { ChevronLeft, ChevronRight, Play, Users, BookOpen, Award } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 const heroSlides = [
   {
     id: 1,
-    title: "Excellence in Higher Education",
-    subtitle: "Shaping Tomorrow's Leaders Today",
+    title: "Excellence in Education",
+    subtitle: "Shaping Tomorrow's Leaders",
     description:
-      "Join over 10,000 students from 17+ countries in our world-class academic programs designed to prepare you for global success.",
-    image:
-      "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686658bc0026975fda0f/view?project=674dcf7b003d57db960a&mode=admin",
-    cta: {
-      primary: { text: "Apply Now", link: "http://erms.bugemauniv.ac.ug/application" },
-      secondary: { text: "Explore Programs", link: "/programs" },
-    },
-    stats: [
-      { icon: Users, value: "10,000+", label: "Students" },
-      { icon: BookOpen, value: "50+", label: "Programs" },
-      { icon: Award, value: "25+", label: "Years of Excellence" },
-    ],
+      "Join thousands of students who have transformed their lives through quality education at Bugema University.",
+    image: "/placeholder.svg?height=800&width=1200",
+    cta: "Apply Now",
+    stats: { students: "15,000+", programs: "50+", years: "30+" },
   },
   {
     id: 2,
-    title: "31st Graduation Ceremony",
-    subtitle: "Celebrating Academic Achievement",
-    description:
-      "Witness the culmination of academic excellence as our graduates prepare to make their mark on the world.",
-    image:
-      "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686e8a2e0035bf8439de/view?project=674dcf7b003d57db960a&mode=admin",
-    cta: {
-      primary: { text: "Learn More", link: "/graduation" },
-      secondary: { text: "Watch Live", link: "/live" },
-    },
+    title: "Innovation & Research",
+    subtitle: "Pioneering the Future",
+    description: "Discover cutting-edge research opportunities and innovative programs designed for the modern world.",
+    image: "/placeholder.svg?height=800&width=1200",
+    cta: "Explore Programs",
+    stats: { research: "200+", labs: "25+", patents: "15+" },
   },
   {
     id: 3,
-    title: "Innovation & Research",
-    subtitle: "Advancing Knowledge, Transforming Lives",
-    description:
-      "Discover groundbreaking research and innovation that addresses real-world challenges and creates sustainable solutions.",
-    image:
-      "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68641dd3003cdff2242d/view?project=674dcf7b003d57db960a&mode=admin",
-    cta: {
-      primary: { text: "Research Centers", link: "/research" },
-      secondary: { text: "Publications", link: "/publications" },
-    },
+    title: "Global Community",
+    subtitle: "Connect. Learn. Grow.",
+    description: "Be part of a diverse, international community that prepares you for success in a globalized world.",
+    image: "/placeholder.svg?height=800&width=1200",
+    cta: "Join Us",
+    stats: { countries: "40+", alumni: "25,000+", partnerships: "100+" },
   },
 ]
 
-const ModernHero = () => {
+const floatingElements = [
+  { icon: Users, position: "top-20 left-20", delay: 0 },
+  { icon: BookOpen, position: "top-40 right-32", delay: 1 },
+  { icon: Award, position: "bottom-32 left-32", delay: 2 },
+]
+
+export default function ModernHero() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
 
@@ -68,252 +57,122 @@ const ModernHero = () => {
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
+    setIsAutoPlaying(false)
   }
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)
+    setIsAutoPlaying(false)
   }
 
-  const currentSlideData = heroSlides[currentSlide]
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index)
+    setIsAutoPlaying(false)
+  }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentSlide}
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 1 }}
-            className="absolute inset-0"
+    <section className="relative h-screen overflow-hidden bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900">
+      {/* Background Slides */}
+      <div className="absolute inset-0">
+        {heroSlides.map((slide, index) => (
+          <div
+            key={slide.id}
+            className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+              index === currentSlide ? "opacity-100 scale-100" : "opacity-0 scale-110"
+            }`}
           >
-            <Image
-              src={currentSlideData.image || "/placeholder.svg"}
-              alt={currentSlideData.title}
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
-          </motion.div>
-        </AnimatePresence>
+            <img src={slide.image || "/placeholder.svg"} alt={slide.title} className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
+          </div>
+        ))}
       </div>
 
-      {/* 3D Floating Elements */}
-      <div className="absolute inset-0 z-10 pointer-events-none">
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 5, 0],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-          className="absolute top-20 right-20 w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-600 rounded-xl opacity-20 blur-sm"
-        />
-        <motion.div
-          animate={{
-            y: [0, 30, 0],
-            rotate: [0, -10, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-          className="absolute bottom-32 left-16 w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full opacity-15 blur-sm"
-        />
-        <motion.div
-          animate={{
-            y: [0, -15, 0],
-            x: [0, 10, 0],
-          }}
-          transition={{
-            duration: 7,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-            delay: 4,
-          }}
-          className="absolute top-1/2 right-32 w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg opacity-20 blur-sm"
-        />
-      </div>
+      {/* Floating Elements */}
+      {floatingElements.map((element, index) => {
+        const Icon = element.icon
+        return (
+          <div
+            key={index}
+            className={`absolute ${element.position} hidden lg:block`}
+            style={{
+              animation: `float 6s ease-in-out infinite ${element.delay}s`,
+            }}
+          >
+            <div className="bg-white/10 backdrop-blur-sm rounded-full p-4 border border-white/20">
+              <Icon className="w-8 h-8 text-white" />
+            </div>
+          </div>
+        )
+      })}
 
       {/* Main Content */}
-      <div className="relative z-20 container mx-auto px-4 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <motion.div
-            key={currentSlide}
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-white space-y-8"
-          >
-            <div className="space-y-4">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="inline-block px-4 py-2 bg-blue-600/20 backdrop-blur-sm rounded-full border border-blue-400/30"
+      <div className="relative z-10 h-full flex items-center">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl">
+            {heroSlides.map((slide, index) => (
+              <div
+                key={slide.id}
+                className={`transition-all duration-1000 ${
+                  index === currentSlide ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 absolute"
+                }`}
               >
-                <span className="text-blue-300 text-sm font-medium">{currentSlideData.subtitle}</span>
-              </motion.div>
-
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="text-5xl lg:text-7xl font-bold leading-tight bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent"
-              >
-                {currentSlideData.title}
-              </motion.h1>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="text-xl text-gray-300 leading-relaxed max-w-2xl"
-              >
-                {currentSlideData.description}
-              </motion.p>
-            </div>
-
-            {/* Stats (if available) */}
-            {currentSlideData.stats && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                className="flex flex-wrap gap-8"
-              >
-                {currentSlideData.stats.map((stat, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <div className="p-2 bg-blue-600/20 rounded-lg backdrop-blur-sm">
-                      <stat.icon className="w-6 h-6 text-blue-400" />
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-white">{stat.value}</div>
-                      <div className="text-sm text-gray-400">{stat.label}</div>
-                    </div>
-                  </div>
-                ))}
-              </motion.div>
-            )}
-
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <Link
-                href={currentSlideData.cta.primary.link}
-                className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
-              >
-                {currentSlideData.cta.primary.text}
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-
-              <Link
-                href={currentSlideData.cta.secondary.link}
-                className="group inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-300"
-              >
-                <Play className="mr-2 w-5 h-5" />
-                {currentSlideData.cta.secondary.text}
-              </Link>
-            </motion.div>
-          </motion.div>
-
-          {/* Right Content - 3D Card */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative"
-          >
-            <div className="relative group">
-              <motion.div
-                whileHover={{ rotateY: 5, rotateX: 5 }}
-                transition={{ duration: 0.3 }}
-                className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-2xl"
-                style={{ perspective: "1000px" }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-3xl blur-xl opacity-50" />
-                <div className="relative z-10">
-                  <h3 className="text-2xl font-bold text-white mb-4">Quick Access</h3>
-                  <div className="space-y-4">
-                    <Link
-                      href="/admissions"
-                      className="flex items-center p-4 bg-white/10 rounded-xl hover:bg-white/20 transition-colors group"
-                    >
-                      <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
-                        <BookOpen className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <div className="text-white font-semibold">Admissions</div>
-                        <div className="text-gray-300 text-sm">Apply for 2024/2025</div>
-                      </div>
-                      <ArrowRight className="w-5 h-5 text-white ml-auto group-hover:translate-x-1 transition-transform" />
-                    </Link>
-
-                    <Link
-                      href="/student-portal"
-                      className="flex items-center p-4 bg-white/10 rounded-xl hover:bg-white/20 transition-colors group"
-                    >
-                      <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
-                        <Users className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <div className="text-white font-semibold">Student Portal</div>
-                        <div className="text-gray-300 text-sm">Access your account</div>
-                      </div>
-                      <ArrowRight className="w-5 h-5 text-white ml-auto group-hover:translate-x-1 transition-transform" />
-                    </Link>
-
-                    <Link
-                      href="/virtual-tour"
-                      className="flex items-center p-4 bg-white/10 rounded-xl hover:bg-white/20 transition-colors group"
-                    >
-                      <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mr-4">
-                        <Award className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <div className="text-white font-semibold">Virtual Tour</div>
-                        <div className="text-gray-300 text-sm">Explore our campus</div>
-                      </div>
-                      <ArrowRight className="w-5 h-5 text-white ml-auto group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
+                <div className="mb-6">
+                  <span className="inline-block px-4 py-2 bg-blue-600/80 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-4">
+                    {slide.subtitle}
+                  </span>
+                  <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">{slide.title}</h1>
+                  <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl leading-relaxed">
+                    {slide.description}
+                  </p>
                 </div>
-              </motion.div>
-            </div>
-          </motion.div>
+
+                {/* Stats */}
+                <div className="flex flex-wrap gap-8 mb-8">
+                  {Object.entries(slide.stats).map(([key, value]) => (
+                    <div key={key} className="text-center">
+                      <div className="text-3xl md:text-4xl font-bold text-white mb-1">{value}</div>
+                      <div className="text-gray-300 capitalize text-sm">{key}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg">
+                    {slide.cta}
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg bg-transparent"
+                  >
+                    <Play className="w-5 h-5 mr-2" />
+                    Watch Video
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Navigation Controls */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
-        <div className="flex items-center space-x-4">
+      {/* Navigation */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="flex items-center gap-4">
           <button
             onClick={prevSlide}
-            className="p-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white hover:bg-white/20 transition-colors"
+            className="p-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 transition-all"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
 
-          <div className="flex space-x-2">
+          <div className="flex gap-2">
             {heroSlides.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentSlide ? "bg-white scale-125" : "bg-white/40 hover:bg-white/60"
+                onClick={() => goToSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all ${
+                  index === currentSlide ? "bg-white scale-125" : "bg-white/50 hover:bg-white/70"
                 }`}
               />
             ))}
@@ -321,31 +180,33 @@ const ModernHero = () => {
 
           <button
             onClick={nextSlide}
-            className="p-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white hover:bg-white/20 transition-colors"
+            className="p-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 transition-all"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
         </div>
       </div>
 
-      {/* Auto-play Toggle */}
-      <button
-        onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-        className="absolute top-8 right-8 z-30 p-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white hover:bg-white/20 transition-colors"
-      >
-        {isAutoPlaying ? (
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-          >
-            <Play className="w-6 h-6" />
-          </motion.div>
-        ) : (
-          <Play className="w-6 h-6" />
-        )}
-      </button>
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 right-8 z-20">
+        <div className="flex flex-col items-center text-white">
+          <span className="text-sm mb-2 rotate-90 origin-center">Scroll</span>
+          <div className="w-px h-12 bg-white/50">
+            <div
+              className="w-px bg-white transition-all duration-300"
+              style={{ height: `${((currentSlide + 1) / heroSlides.length) * 100}%` }}
+            />
+          </div>
+        </div>
+      </div>
+
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          33% { transform: translateY(-10px) rotate(1deg); }
+          66% { transform: translateY(5px) rotate(-1deg); }
+        }
+      `}</style>
     </section>
   )
 }
-
-export default ModernHero
