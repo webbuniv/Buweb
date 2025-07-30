@@ -92,7 +92,7 @@ const programs = [
 
 const ProgramsShowcase = () => {
   const [selectedProgram, setSelectedProgram] = useState(programs[0])
-  const [hoveredCard, setHoveredCard] = useState(null)
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
 
   return (
     <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 relative overflow-hidden">
@@ -154,7 +154,7 @@ const ProgramsShowcase = () => {
                     }}
                     transition={{ duration: 0.3 }}
                     className={`w-12 h-12 rounded-xl bg-gradient-to-br ${program.color} flex items-center justify-center shadow-lg`}
-                    style={{ transformStyle: "preserve-3d" }}
+                    style={{ perspective: "1000px" }}
                   >
                     <program.icon className="w-6 h-6 text-white" />
                   </motion.div>
@@ -202,7 +202,7 @@ const ProgramsShowcase = () => {
                         }}
                         transition={{ duration: 0.3 }}
                         className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${selectedProgram.color} flex items-center justify-center shadow-lg`}
-                        style={{ transformStyle: "preserve-3d" }}
+                        style={{ perspective: "1000px" }}
                       >
                         <selectedProgram.icon className="w-8 h-8 text-white" />
                       </motion.div>

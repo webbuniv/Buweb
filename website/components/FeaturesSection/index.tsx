@@ -160,6 +160,7 @@ const FeaturesSection = () => {
                   }}
                   transition={{ duration: 0.3 }}
                   className={`inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br ${feature.color} mb-6 shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
+                  style={{ perspective: "1000px" }}
                 >
                   <feature.icon className="w-8 h-8 text-white" />
                 </motion.div>

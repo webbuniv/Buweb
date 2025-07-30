@@ -1,9 +1,34 @@
 "use client"
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { ArrowRight, Users, Award, Globe, BookOpen } from "lucide-react"
+import { ArrowRight, Users, Award, Globe, BookOpen, Target, Heart } from "lucide-react"
 
 const AboutSection = () => {
+  const stats = [
+    { icon: Users, value: "10,000+", label: "Students" },
+    { icon: Award, value: "25+", label: "Years" },
+    { icon: Globe, value: "17+", label: "Countries" },
+    { icon: BookOpen, value: "50+", label: "Programs" },
+  ]
+
+  const values = [
+    {
+      icon: Target,
+      title: "Excellence",
+      description: "Committed to the highest standards in education and research",
+    },
+    {
+      icon: Heart,
+      title: "Integrity",
+      description: "Building character and ethical leadership in all we do",
+    },
+    {
+      icon: Globe,
+      title: "Diversity",
+      description: "Embracing multicultural perspectives and global citizenship",
+    },
+  ]
+
   return (
     <section className="py-20 bg-white dark:bg-slate-900 relative overflow-hidden">
       {/* Background Pattern */}
@@ -11,7 +36,7 @@ const AboutSection = () => {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23000000' fillOpacity='0.1'%3E%3Cpath d='M50 50c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fillOpacity='0.05'%3E%3Cpolygon points='50 0 60 40 100 50 60 60 50 100 40 60 0 50 40 40'/%3E%3C/g%3E%3C/svg%3E")`,
           }}
         />
       </div>
@@ -26,23 +51,23 @@ const AboutSection = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <div className="space-y-6">
+            <div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full"
+                className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium mb-4"
               >
-                <span className="text-blue-600 dark:text-blue-400 text-sm font-medium">About Bugema University</span>
+                About Bugema University
               </motion.div>
 
               <motion.h2
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
                 viewport={{ once: true }}
-                className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight"
+                className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6"
               >
                 Transforming Lives Through
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
@@ -53,83 +78,56 @@ const AboutSection = () => {
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed"
+                className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8"
               >
                 Since 1999, Bugema University has been at the forefront of higher education in Uganda, providing
                 world-class academic programs that prepare students for global success. Our commitment to excellence,
-                innovation, and holistic development has made us a preferred choice for students from across Africa and
-                beyond.
+                innovation, and holistic development has made us a preferred destination for students from across Africa
+                and beyond.
               </motion.p>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
                 viewport={{ once: true }}
-                className="text-gray-600 dark:text-gray-300 leading-relaxed"
+                className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8"
               >
-                We offer a diverse range of undergraduate and postgraduate programs across eight schools, combining
-                academic rigor with practical experience to ensure our graduates are well-prepared for the challenges of
-                the modern world.
+                We believe in nurturing not just academic excellence, but also character development, critical thinking,
+                and leadership skills that enable our graduates to make meaningful contributions to society.
               </motion.p>
             </div>
 
-            {/* Key Highlights */}
+            {/* Stats */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
               viewport={{ once: true }}
-              className="grid grid-cols-2 gap-6"
+              className="grid grid-cols-2 md:grid-cols-4 gap-6"
             >
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
-                  <Users className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-gray-900 dark:text-white">10,000+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Students</div>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
-                  <Award className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-gray-900 dark:text-white">25+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Years</div>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-500 rounded-lg flex items-center justify-center">
-                  <Globe className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-gray-900 dark:text-white">17+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Countries</div>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
-                  <BookOpen className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-gray-900 dark:text-white">50+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Programs</div>
-                </div>
-              </div>
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.05 }}
+                  className="text-center p-4 bg-gray-50 dark:bg-slate-800 rounded-xl"
+                >
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <stat.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="text-2xl font-bold text-gray-900 dark:text-white">{stat.value}</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
+                </motion.div>
+              ))}
             </motion.div>
 
             {/* CTA Button */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
               viewport={{ once: true }}
             >
               <Link
@@ -142,59 +140,54 @@ const AboutSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - Image */}
+          {/* Right Content - Values */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="relative"
+            className="space-y-8"
           >
-            <div className="relative group">
-              {/* Main Image */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-                className="relative rounded-3xl overflow-hidden shadow-2xl"
-              >
-                <img
-                  src="https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686658bc0026975fda0f/view?project=674dcf7b003d57db960a&mode=admin"
-                  alt="Bugema University Campus"
-                  className="w-full h-96 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-              </motion.div>
+            <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-slate-800 dark:to-slate-700 rounded-3xl p-8">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">Our Core Values</h3>
 
-              {/* Floating Stats Cards */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
-                viewport={{ once: true }}
-                className="absolute -top-6 -left-6 bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-xl border border-gray-100 dark:border-slate-700"
-              >
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 mb-1">25,000+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Alumni Worldwide</div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.9 }}
-                viewport={{ once: true }}
-                className="absolute -bottom-6 -right-6 bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-xl border border-gray-100 dark:border-slate-700"
-              >
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-green-600 mb-1">95%</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Graduate Employment</div>
-                </div>
-              </motion.div>
-
-              {/* Decorative Elements */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-full blur-3xl -z-10" />
+              <div className="space-y-6">
+                {values.map((value, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ x: 10 }}
+                    className="flex items-start space-x-4 p-4 bg-white dark:bg-slate-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                  >
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <value.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{value.title}</h4>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{value.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
+
+            {/* Mission Statement */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-8 text-white"
+            >
+              <h3 className="text-xl font-bold mb-4">Our Mission</h3>
+              <p className="leading-relaxed">
+                To provide quality, accessible, and affordable higher education that transforms lives and communities
+                through innovative teaching, research, and service, while upholding Christian values and principles.
+              </p>
+            </motion.div>
           </motion.div>
         </div>
       </div>

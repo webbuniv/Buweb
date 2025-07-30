@@ -242,7 +242,7 @@ const ModernHero = () => {
                 whileHover={{ rotateY: 5, rotateX: 5 }}
                 transition={{ duration: 0.3 }}
                 className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-2xl"
-                style={{ transformStyle: "preserve-3d" }}
+                style={{ perspective: "1000px" }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-3xl blur-xl opacity-50" />
                 <div className="relative z-10">

@@ -108,7 +108,7 @@ const StatsSection = () => {
                   }}
                   transition={{ duration: 0.3 }}
                   className={`inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br ${stat.color} mb-6 shadow-lg`}
-                  style={{ transformStyle: "preserve-3d" }}
+                  style={{ perspective: "1000px" }}
                 >
                   <stat.icon className="w-8 h-8 text-white" />
                 </motion.div>
