@@ -2,267 +2,315 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
-  GraduationCap,
-  MapPin,
-  Phone,
-  Mail,
   Facebook,
   Twitter,
   Instagram,
   Youtube,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
   ArrowRight,
-  Send,
-  Heart,
+  GraduationCap,
+  BookOpen,
+  Users,
+  Award,
 } from "lucide-react"
 
-const footerSections = [
-  {
-    title: "Quick Links",
-    links: [
-      { name: "About Us", href: "/about" },
-      { name: "Academic Programs", href: "/academics" },
-      { name: "Admissions", href: "/admissions" },
-      { name: "Campus Life", href: "/campus-life" },
-      { name: "Research", href: "/research" },
-      { name: "Alumni", href: "/alumni" },
-    ],
-  },
-  {
-    title: "Schools & Faculties",
-    links: [
-      { name: "School of Business", href: "/schools/business" },
-      { name: "School of Health Sciences", href: "/schools/health" },
-      { name: "School of Education", href: "/schools/education" },
-      { name: "School of Technology", href: "/schools/technology" },
-      { name: "School of Agriculture", href: "/schools/agriculture" },
-      { name: "Graduate Studies", href: "/schools/graduate" },
-    ],
-  },
-  {
-    title: "Student Resources",
-    links: [
-      { name: "Student Portal", href: "/portal" },
-      { name: "Library Services", href: "/library" },
-      { name: "Academic Calendar", href: "/calendar" },
-      { name: "Career Services", href: "/careers" },
-      { name: "Health Services", href: "/health" },
-      { name: "Counseling", href: "/counseling" },
-    ],
-  },
-]
+const footerLinks = {
+  academics: [
+    { title: "Schools & Faculties", href: "/schools" },
+    { title: "Undergraduate Programs", href: "/programs/undergraduate" },
+    { title: "Graduate Programs", href: "/programs/graduate" },
+    { title: "Online Learning", href: "/online" },
+    { title: "Academic Calendar", href: "/calendar" },
+    { title: "Course Catalog", href: "/catalog" },
+  ],
+  admissions: [
+    { title: "Apply Now", href: "/apply" },
+    { title: "Admission Requirements", href: "/requirements" },
+    { title: "Tuition & Fees", href: "/tuition" },
+    { title: "Financial Aid", href: "/financial-aid" },
+    { title: "Scholarships", href: "/scholarships" },
+    { title: "Campus Tours", href: "/tours" },
+  ],
+  studentLife: [
+    { title: "Campus Life", href: "/campus-life" },
+    { title: "Housing & Dining", href: "/housing" },
+    { title: "Student Organizations", href: "/organizations" },
+    { title: "Athletics & Sports", href: "/athletics" },
+    { title: "Health Services", href: "/health" },
+    { title: "Career Services", href: "/career" },
+  ],
+  resources: [
+    { title: "Library", href: "/library" },
+    { title: "Research", href: "/research" },
+    { title: "Alumni Network", href: "/alumni" },
+    { title: "News & Events", href: "/news" },
+    { title: "Publications", href: "/publications" },
+    { title: "Contact Us", href: "/contact" },
+  ],
+}
 
 const socialLinks = [
-  { name: "Facebook", href: "https://facebook.com/bugemauniversity", icon: Facebook, color: "hover:text-blue-500" },
-  { name: "Twitter", href: "https://twitter.com/bugemauniv", icon: Twitter, color: "hover:text-sky-500" },
-  { name: "Instagram", href: "https://instagram.com/bugemauniversity", icon: Instagram, color: "hover:text-pink-500" },
-  { name: "YouTube", href: "https://youtube.com/bugemauniversity", icon: Youtube, color: "hover:text-red-500" },
+  { icon: Facebook, href: "https://facebook.com/bugemauniversity", label: "Facebook" },
+  { icon: Twitter, href: "https://twitter.com/bugemauniv", label: "Twitter" },
+  { icon: Instagram, href: "https://instagram.com/bugemauniversity", label: "Instagram" },
+  { icon: Youtube, href: "https://youtube.com/bugemauniversity", label: "YouTube" },
+  { icon: Linkedin, href: "https://linkedin.com/school/bugema-university", label: "LinkedIn" },
+]
+
+const quickStats = [
+  { icon: Users, value: "15,000+", label: "Students" },
+  { icon: BookOpen, value: "120+", label: "Programs" },
+  { icon: Award, value: "75+", label: "Years" },
+  { icon: GraduationCap, value: "50,000+", label: "Alumni" },
 ]
 
 export function ThreeDFooter() {
-  const currentYear = new Date().getFullYear()
-
   return (
-    <footer className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 text-white overflow-hidden">
-      {/* Background Elements */}
+    <footer className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white relative overflow-hidden">
+      {/* Background Pattern */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-float" />
         <div
-          className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl animate-float"
-          style={{ animationDelay: "4s" }}
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23ffffff' fillOpacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
         />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/3 to-purple-500/3 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-48 h-48 sm:w-96 sm:h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-40 h-40 sm:w-80 sm:h-80 bg-emerald-500/10 rounded-full blur-3xl" />
       </div>
 
-      {/* Main Footer Content */}
-      <div className="relative z-10 py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+      <div className="relative z-10">
+        {/* Newsletter Section */}
+        <div className="border-b border-white/10">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="max-w-4xl mx-auto text-center"
+            >
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4">Stay Connected with Bugema</h3>
+              <p className="text-lg sm:text-xl text-white/80 mb-6 sm:mb-8 px-4">
+                Get the latest news, events, and updates from our university community
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <Input
+                  type="email"
+                  placeholder="Enter your email address"
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:border-blue-400 flex-1"
+                />
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white group">
+                  Subscribe
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Main Footer Content */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12">
             {/* University Info */}
             <motion.div
-              initial={{ opacity: 0, y: 50, rotateX: -30 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="lg:col-span-1 perspective-1000"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-2 space-y-6"
             >
-              <motion.div
-                whileHover={{ scale: 1.05, rotateY: 5 }}
-                transition={{ duration: 0.3 }}
-                className="flex items-center space-x-4 mb-8"
-              >
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-2xl">
-                  <GraduationCap className="h-8 w-8 text-white" />
-                </div>
+              <Link href="/" className="flex items-center space-x-3">
+                <Image
+                  src="/placeholder.svg?height=50&width=50&text=BU"
+                  alt="Bugema University"
+                  width={50}
+                  height={50}
+                  className="rounded-lg"
+                />
                 <div>
-                  <div className="font-bold text-2xl">Bugema University</div>
-                  <div className="text-sm text-blue-200">Excellence in Service</div>
+                  <div className="text-xl font-bold">Bugema University</div>
+                  <div className="text-sm text-white/70">Excellence in Service</div>
                 </div>
-              </motion.div>
+              </Link>
 
-              <p className="text-gray-300 mb-8 leading-relaxed text-lg">
-                Providing quality holistic Christian education for over 75 years, preparing students for productive
-                lives of service to God and humanity.
+              <p className="text-white/80 leading-relaxed">
+                For over 75 years, Bugema University has been providing quality holistic Christian education that
+                prepares students for productive lives of service to God and humanity.
               </p>
 
               {/* Contact Info */}
-              <div className="space-y-4">
-                {[
-                  { icon: MapPin, text: "P.O. Box 6529, Kampala, Uganda" },
-                  { icon: Phone, text: "+256 414 540 163" },
-                  { icon: Mail, text: "info@bugemauniv.ac.ug" },
-                ].map((contact, index) => (
-                  <motion.div
+              <div className="space-y-3">
+                <div className="flex items-start space-x-3">
+                  <MapPin className="h-5 w-5 text-blue-400 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm">Seeta-Mukono, Uganda, East Africa</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Phone className="h-5 w-5 text-blue-400 flex-shrink-0" />
+                  <span className="text-sm">+256 414 540 524</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Mail className="h-5 w-5 text-blue-400 flex-shrink-0" />
+                  <span className="text-sm">info@bugemauniv.ac.ug</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Clock className="h-5 w-5 text-blue-400 flex-shrink-0" />
+                  <span className="text-sm">Mon-Fri: 8:00 AM - 5:00 PM</span>
+                </div>
+              </div>
+
+              {/* Social Links */}
+              <div className="flex flex-wrap gap-4">
+                {socialLinks.map((social, index) => (
+                  <motion.a
                     key={index}
-                    className="flex items-center space-x-3 text-sm group cursor-pointer"
-                    whileHover={{ x: 5, scale: 1.02 }}
-                    transition={{ type: "spring", stiffness: 300 }}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-white/10 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 group"
+                    whileHover={{ scale: 1.1, rotateY: 180 }}
+                    transition={{ duration: 0.3 }}
+                    aria-label={social.label}
                   >
-                    <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                      <contact.icon className="h-4 w-4 text-blue-400" />
-                    </div>
-                    <span className="text-gray-300 group-hover:text-white transition-colors">{contact.text}</span>
-                  </motion.div>
+                    <social.icon className="h-5 w-5 group-hover:text-white" />
+                  </motion.a>
                 ))}
               </div>
             </motion.div>
 
-            {/* Footer Sections */}
-            {footerSections.map((section, sectionIndex) => (
-              <motion.div
-                key={section.title}
-                initial={{ opacity: 0, y: 50, rotateX: -20 }}
-                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                transition={{ duration: 0.8, delay: sectionIndex * 0.1 }}
-                viewport={{ once: true }}
-                className="perspective-1000"
-              >
-                <h3 className="font-bold text-xl mb-8 text-white">{section.title}</h3>
-                <ul className="space-y-4">
-                  {section.links.map((link, linkIndex) => (
-                    <motion.li
-                      key={link.name}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: sectionIndex * 0.1 + linkIndex * 0.05 }}
-                      viewport={{ once: true }}
+            {/* Academics */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="space-y-6"
+            >
+              <h4 className="text-lg font-semibold text-blue-400">Academics</h4>
+              <ul className="space-y-3">
+                {footerLinks.academics.map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      href={link.href}
+                      className="text-white/70 hover:text-white transition-colors duration-200 text-sm block"
                     >
-                      <motion.div whileHover={{ x: 5, scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }}>
-                        <Link
-                          href={link.href}
-                          className="text-gray-300 hover:text-white transition-colors duration-300 text-sm group flex items-center"
-                        >
-                          <span>{link.name}</span>
-                          <ArrowRight className="h-3 w-3 ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                        </Link>
-                      </motion.div>
-                    </motion.li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+                      {link.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Admissions */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-6"
+            >
+              <h4 className="text-lg font-semibold text-emerald-400">Admissions</h4>
+              <ul className="space-y-3">
+                {footerLinks.admissions.map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      href={link.href}
+                      className="text-white/70 hover:text-white transition-colors duration-200 text-sm block"
+                    >
+                      {link.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Student Life */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="space-y-6"
+            >
+              <h4 className="text-lg font-semibold text-amber-400">Student Life</h4>
+              <ul className="space-y-3">
+                {footerLinks.studentLife.map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      href={link.href}
+                      className="text-white/70 hover:text-white transition-colors duration-200 text-sm block"
+                    >
+                      {link.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Resources */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="space-y-6"
+            >
+              <h4 className="text-lg font-semibold text-purple-400">Resources</h4>
+              <ul className="space-y-3">
+                {footerLinks.resources.map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      href={link.href}
+                      className="text-white/70 hover:text-white transition-colors duration-200 text-sm block"
+                    >
+                      {link.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
           </div>
 
-          {/* Newsletter Section */}
+          {/* Quick Stats */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="mt-16 pt-12 border-t border-white/20"
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 mt-12 sm:mt-16 pt-8 sm:pt-12 border-t border-white/10"
           >
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 className="font-bold text-2xl mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  Stay Connected
-                </h3>
-                <p className="text-gray-300 text-lg">
-                  Subscribe to our newsletter for the latest news, events, and updates from Bugema University.
-                </p>
+            {quickStats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <stat.icon className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-2 sm:mb-3 text-blue-400" />
+                <div className="text-xl sm:text-2xl font-bold">{stat.value}</div>
+                <div className="text-xs sm:text-sm text-white/70">{stat.label}</div>
               </div>
-              <motion.div
-                className="flex space-x-3"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <Input
-                  placeholder="Enter your email address"
-                  className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-blue-400 rounded-xl backdrop-blur-sm"
-                />
-                <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl px-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                  <Send className="h-4 w-4" />
-                </Button>
-              </motion.div>
-            </div>
+            ))}
           </motion.div>
+        </div>
 
-          {/* Social Links & Bottom */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-            className="mt-16 pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0"
-          >
-            <div className="flex items-center space-x-4">
-              {socialLinks.map((social, index) => (
-                <motion.div
-                  key={social.name}
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{
-                    scale: 1.2,
-                    rotateY: 180,
-                    z: 20,
-                  }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <Link
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center hover:bg-white/20 transition-all duration-300 group ${social.color} backdrop-blur-sm`}
-                  >
-                    <social.icon className="h-5 w-5 text-gray-400 group-hover:text-current transition-colors" />
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 text-sm text-gray-400">
-              <motion.p whileHover={{ scale: 1.05 }} className="flex items-center">
-                &copy; {currentYear} Bugema University. Made with{" "}
-                <motion.span
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}
-                  className="mx-1"
-                >
-                  <Heart className="h-4 w-4 text-red-500" />
-                </motion.span>
-                for education
-              </motion.p>
-              <div className="flex space-x-6">
-                {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((link, index) => (
-                  <motion.div
-                    key={link}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <Link
-                      href={`/${link.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="hover:text-blue-400 transition-colors"
-                    >
-                      {link}
-                    </Link>
-                  </motion.div>
-                ))}
+        {/* Bottom Bar */}
+        <div className="border-t border-white/10">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-center md:text-left">
+              <div className="text-sm text-white/70">© 2024 Bugema University. All rights reserved.</div>
+              <div className="flex flex-wrap justify-center md:justify-end gap-4 sm:gap-6 text-sm">
+                <Link href="/privacy" className="text-white/70 hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
+                <Link href="/terms" className="text-white/70 hover:text-white transition-colors">
+                  Terms of Service
+                </Link>
+                <Link href="/accessibility" className="text-white/70 hover:text-white transition-colors">
+                  Accessibility
+                </Link>
+                <Link href="/sitemap" className="text-white/70 hover:text-white transition-colors">
+                  Sitemap
+                </Link>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </footer>

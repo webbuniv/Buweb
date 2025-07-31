@@ -1,13 +1,13 @@
-import { ThreeDHeroSection } from "@/components/3d-hero-section"
-import { ThreeDStatsSection } from "@/components/3d-stats-section"
+import { HeroSlider } from "@/components/hero-slider"
 import { ThreeDAboutSection } from "@/components/3d-about-section"
+import { NewsEventsSection } from "@/components/news-events-section"
 
-export default function HomePage() {
+export default function Home() {
   return (
     <>
-      <ThreeDHeroSection />
-      <ThreeDStatsSection />
+      <HeroSlider />
       <ThreeDAboutSection />
+      <NewsEventsSection />
     </>
   )
 }
