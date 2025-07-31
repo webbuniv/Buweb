@@ -77,67 +77,31 @@ const config: Config = {
           to: { height: "0" },
         },
         float: {
-          "0%, 100%": {
-            transform: "translateY(0px) rotate(0deg)",
-          },
-          "25%": {
-            transform: "translateY(-20px) rotate(1deg)",
-          },
-          "50%": {
-            transform: "translateY(-10px) rotate(-1deg)",
-          },
-          "75%": {
-            transform: "translateY(-15px) rotate(0.5deg)",
-          },
-        },
-        fadeIn: {
-          from: {
-            opacity: "0",
-            transform: "translateY(20px)",
-          },
-          to: {
-            opacity: "1",
-            transform: "translateY(0px)",
-          },
-        },
-        slideIn: {
-          from: { transform: "translateX(-100%)" },
-          to: { transform: "translateX(0%)" },
+          "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
+          "25%": { transform: "translateY(-20px) rotate(1deg)" },
+          "50%": { transform: "translateY(-10px) rotate(-1deg)" },
+          "75%": { transform: "translateY(-15px) rotate(0.5deg)" },
         },
         gradient: {
-          "0%, 100%": {
-            "background-position": "0% 50%",
-          },
-          "50%": {
-            "background-position": "100% 50%",
-          },
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
         },
         glow: {
-          "0%, 100%": {
-            opacity: "0",
-          },
-          "50%": {
-            opacity: "0.8",
-          },
+          "0%, 100%": { opacity: "0" },
+          "50%": { opacity: "0.8" },
         },
-        pulse3d: {
-          "0%, 100%": {
-            transform: "scale3d(1, 1, 1)",
-          },
-          "50%": {
-            transform: "scale3d(1.05, 1.05, 1.05)",
-          },
+        fadeIn: {
+          from: { opacity: "0", transform: "translateY(20px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         float: "float 6s ease-in-out infinite",
-        fadeIn: "fadeIn 0.6s ease-out forwards",
-        slideIn: "slideIn 0.8s ease-out forwards",
         gradient: "gradient 3s ease infinite",
         glow: "glow 2s ease-in-out infinite",
-        pulse3d: "pulse3d 2s ease-in-out infinite",
+        fadeIn: "fadeIn 0.8s ease-out forwards",
       },
       perspective: {
         "1000": "1000px",
@@ -185,6 +149,6 @@ const config: Config = {
       addUtilities(newUtilities)
     },
   ],
-}
+} satisfies Config
 
 export default config
