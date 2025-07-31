@@ -3,6 +3,9 @@ import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { ProfessionalNavbar } from "@/components/professional-navbar"
+import { TopContactBar } from "@/components/top-contact-bar"
+import { ThreeDFooter } from "@/components/3d-footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -28,7 +31,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <div className="min-h-screen flex flex-col">{children}</div>
+          <div className="min-h-screen flex flex-col">
+            <TopContactBar />
+            <ProfessionalNavbar />
+            <main className="flex-1">{children}</main>
+            <ThreeDFooter />
+          </div>
         </ThemeProvider>
       </body>
     </html>

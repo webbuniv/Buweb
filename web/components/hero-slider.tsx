@@ -3,72 +3,54 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight, Play, ArrowRight, Users, BookOpen, Award, Globe } from "lucide-react"
+import { ChevronLeft, ChevronRight, Play, ArrowRight, GraduationCap, Users, Award } from "lucide-react"
 
-const heroSlides = [
+const slides = [
   {
     id: 1,
-    image: "/placeholder.svg?height=800&width=1200&text=Campus+Main+Building",
     title: "Excellence in Christian Education",
     subtitle: "Shaping Leaders for Tomorrow",
     description:
-      "Join over 15,000 students from 17+ countries in our mission to provide quality holistic Christian education that prepares students for productive lives of service.",
+      "For over 75 years, Bugema University has been providing quality holistic Christian education that prepares students for productive lives of service to God and humanity.",
+    image: "/placeholder.svg?height=600&width=1200&text=Campus+Life",
     cta: "Apply Now",
-    ctaLink: "/admissions/apply",
+    ctaLink: "https://apply.bugemauniv.ac.ug",
     stats: [
       { icon: Users, value: "15,000+", label: "Students" },
-      { icon: BookOpen, value: "120+", label: "Programs" },
+      { icon: GraduationCap, value: "120+", label: "Programs" },
       { icon: Award, value: "75+", label: "Years of Excellence" },
-      { icon: Globe, value: "17+", label: "Countries" },
     ],
   },
   {
     id: 2,
-    image: "/placeholder.svg?height=800&width=1200&text=Students+in+Laboratory",
-    title: "Innovation Through Research",
-    subtitle: "Advancing Knowledge, Transforming Lives",
+    title: "World-Class Research Facilities",
+    subtitle: "Innovation Meets Education",
     description:
-      "Our state-of-the-art facilities and dedicated faculty provide students with hands-on learning experiences that prepare them for successful careers in their chosen fields.",
-    cta: "Explore Programs",
-    ctaLink: "/academics/programs",
+      "Our state-of-the-art research centers and laboratories provide students with hands-on experience in cutting-edge technology and scientific discovery.",
+    image: "/placeholder.svg?height=600&width=1200&text=Research+Labs",
+    cta: "Explore Research",
+    ctaLink: "/research",
     stats: [
-      { icon: BookOpen, value: "8", label: "Schools" },
-      { icon: Users, value: "500+", label: "Faculty" },
-      { icon: Award, value: "95%", label: "Employment Rate" },
-      { icon: Globe, value: "50+", label: "Research Projects" },
+      { icon: Users, value: "500+", label: "Research Projects" },
+      { icon: GraduationCap, value: "8", label: "Research Centers" },
+      { icon: Award, value: "200+", label: "Publications" },
     ],
   },
   {
     id: 3,
-    image: "/placeholder.svg?height=800&width=1200&text=Campus+Life+Activities",
     title: "Vibrant Campus Community",
-    subtitle: "Where Friendships and Futures Begin",
+    subtitle: "Where Friendships Flourish",
     description:
-      "Experience a rich campus life with diverse cultural activities, sports, clubs, and organizations that help you grow personally and professionally while building lifelong connections.",
+      "Experience a diverse and inclusive campus environment with students from over 17 countries, creating a truly global learning community.",
+    image: "/placeholder.svg?height=600&width=1200&text=Student+Community",
     cta: "Campus Life",
     ctaLink: "/student-life",
     stats: [
-      { icon: Users, value: "100+", label: "Student Clubs" },
-      { icon: Award, value: "20+", label: "Sports Teams" },
-      { icon: Globe, value: "365", label: "Days of Activities" },
-      { icon: BookOpen, value: "24/7", label: "Library Access" },
-    ],
-  },
-  {
-    id: 4,
-    image: "/placeholder.svg?height=800&width=1200&text=Graduation+Ceremony",
-    title: "Your Success Story Starts Here",
-    subtitle: "Join Our Alumni Network",
-    description:
-      "Become part of a global network of successful graduates who are making a difference in their communities and industries worldwide. Your journey to excellence begins at Bugema.",
-    cta: "Alumni Stories",
-    ctaLink: "/alumni",
-    stats: [
-      { icon: Users, value: "50,000+", label: "Alumni" },
-      { icon: Globe, value: "40+", label: "Countries" },
-      { icon: Award, value: "85%", label: "Career Advancement" },
-      { icon: BookOpen, value: "∞", label: "Opportunities" },
+      { icon: Users, value: "17+", label: "Countries" },
+      { icon: GraduationCap, value: "50+", label: "Clubs & Societies" },
+      { icon: Award, value: "3", label: "Campuses" },
     ],
   },
 ]
@@ -81,208 +63,217 @@ export function HeroSlider() {
     if (!isAutoPlaying) return
 
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
+      setCurrentSlide((prev) => (prev + 1) % slides.length)
     }, 6000)
 
     return () => clearInterval(interval)
   }, [isAutoPlaying])
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
-    setIsAutoPlaying(false)
+    setCurrentSlide((prev) => (prev + 1) % slides.length)
   }
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)
-    setIsAutoPlaying(false)
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
   }
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index)
-    setIsAutoPlaying(false)
   }
 
   return (
-    <section className="relative h-screen min-h-[600px] overflow-hidden">
+    <section className="relative h-screen overflow-hidden bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900">
+      {/* Background Slides */}
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.9 }}
+          transition={{ duration: 0.7 }}
           className="absolute inset-0"
         >
-          {/* Background Image */}
-          <div className="absolute inset-0">
-            <Image
-              src={heroSlides[currentSlide].image || "/placeholder.svg"}
-              alt={heroSlides[currentSlide].title}
-              fill
-              className="object-cover"
-              priority
-              sizes="100vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/60 to-transparent" />
-          </div>
-
-          {/* Content */}
-          <div className="relative z-10 h-full flex items-center">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                {/* Left Content */}
-                <motion.div
-                  initial={{ x: -100, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="text-white space-y-6 lg:space-y-8 text-center lg:text-left"
-                >
-                  <div className="space-y-4 lg:space-y-6">
-                    <motion.div
-                      initial={{ y: 30, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.6, delay: 0.4 }}
-                      className="inline-block px-4 py-2 bg-amber-500/20 backdrop-blur-sm rounded-full text-sm font-medium border border-amber-400/30"
-                    >
-                      {heroSlides[currentSlide].subtitle}
-                    </motion.div>
-
-                    <motion.h1
-                      initial={{ y: 30, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.6, delay: 0.6 }}
-                      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
-                    >
-                      {heroSlides[currentSlide].title}
-                    </motion.h1>
-
-                    <motion.p
-                      initial={{ y: 30, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.6, delay: 0.8 }}
-                      className="text-lg sm:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto lg:mx-0"
-                    >
-                      {heroSlides[currentSlide].description}
-                    </motion.p>
-                  </div>
-
-                  <motion.div
-                    initial={{ y: 30, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 1 }}
-                    className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-                  >
-                    <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold group" asChild>
-                      <a href={heroSlides[currentSlide].ctaLink}>
-                        {heroSlides[currentSlide].cta}
-                        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                      </a>
-                    </Button>
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="border-white/30 text-white hover:bg-white/10 bg-transparent backdrop-blur-sm"
-                    >
-                      <Play className="mr-2 h-5 w-5" />
-                      Watch Video
-                    </Button>
-                  </motion.div>
-
-                  {/* Stats */}
-                  <motion.div
-                    initial={{ y: 30, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 1.2 }}
-                    className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 pt-6 lg:pt-8 border-t border-white/20"
-                  >
-                    {heroSlides[currentSlide].stats.map((stat, index) => (
-                      <div key={index} className="text-center">
-                        <stat.icon className="h-6 w-6 lg:h-8 lg:w-8 mx-auto mb-2 text-amber-400" />
-                        <div className="text-xl lg:text-2xl font-bold">{stat.value}</div>
-                        <div className="text-xs lg:text-sm text-white/70">{stat.label}</div>
-                      </div>
-                    ))}
-                  </motion.div>
-                </motion.div>
-
-                {/* Right Content - Feature Cards (Hidden on mobile) */}
-                <motion.div
-                  initial={{ x: 100, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  className="hidden lg:block"
-                >
-                  <div className="grid grid-cols-2 gap-4">
-                    {[
-                      { title: "World-Class Faculty", desc: "Learn from industry experts and renowned academics" },
-                      { title: "Modern Facilities", desc: "State-of-the-art labs, libraries, and learning spaces" },
-                      { title: "Global Network", desc: "Connect with students and alumni worldwide" },
-                      { title: "Career Support", desc: "Comprehensive career services and job placement" },
-                    ].map((feature, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ y: 50, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                        className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300"
-                      >
-                        <h3 className="font-semibold text-white mb-2">{feature.title}</h3>
-                        <p className="text-sm text-white/80">{feature.desc}</p>
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-          </div>
+          <Image
+            src={slides[currentSlide].image || "/placeholder.svg"}
+            alt={slides[currentSlide].title}
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
         </motion.div>
       </AnimatePresence>
+
+      {/* Content */}
+      <div className="relative z-10 h-full flex items-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Text Content */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentSlide}
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 50 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-white space-y-6"
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="space-y-4"
+                >
+                  <div className="inline-block px-4 py-2 bg-blue-600/20 backdrop-blur-sm rounded-full border border-blue-400/30">
+                    <span className="text-blue-300 text-sm font-medium">{slides[currentSlide].subtitle}</span>
+                  </div>
+
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                    {slides[currentSlide].title}
+                  </h1>
+
+                  <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl">
+                    {slides[currentSlide].description}
+                  </p>
+                </motion.div>
+
+                {/* Stats */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="grid grid-cols-3 gap-6 py-6"
+                >
+                  {slides[currentSlide].stats.map((stat, index) => (
+                    <div key={index} className="text-center">
+                      <stat.icon className="h-8 w-8 mx-auto mb-2 text-blue-400" />
+                      <div className="text-2xl font-bold">{stat.value}</div>
+                      <div className="text-sm text-gray-400">{stat.label}</div>
+                    </div>
+                  ))}
+                </motion.div>
+
+                {/* CTA Buttons */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                  className="flex flex-col sm:flex-row gap-4"
+                >
+                  <Button
+                    asChild
+                    size="lg"
+                    className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg group"
+                  >
+                    <Link href={slides[currentSlide].ctaLink}>
+                      {slides[currentSlide].cta}
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </Button>
+
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm group bg-transparent"
+                    onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+                  >
+                    <Play className="mr-2 h-5 w-5" />
+                    Watch Video
+                  </Button>
+                </motion.div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Decorative Elements */}
+            <div className="hidden lg:block relative">
+              <motion.div
+                animate={{
+                  rotate: [0, 360],
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{
+                  duration: 20,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "linear",
+                }}
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-white/20 rounded-full"
+              />
+              <motion.div
+                animate={{
+                  rotate: [360, 0],
+                  scale: [1, 0.9, 1],
+                }}
+                transition={{
+                  duration: 15,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "linear",
+                }}
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-blue-400/30 rounded-full"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Navigation Controls */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
         <div className="flex items-center space-x-4">
           {/* Slide Indicators */}
           <div className="flex space-x-2">
-            {heroSlides.map((_, index) => (
+            {slides.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentSlide ? "bg-white scale-125" : "bg-white/50 hover:bg-white/75"
                 }`}
-                aria-label={`Go to slide ${index + 1}`}
               />
             ))}
           </div>
+
+          {/* Arrow Controls */}
+          <div className="flex space-x-2 ml-6">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={prevSlide}
+              className="text-white hover:bg-white/10 backdrop-blur-sm"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={nextSlide}
+              className="text-white hover:bg-white/10 backdrop-blur-sm"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </Button>
+          </div>
+
+          {/* Auto-play Toggle */}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+            className={`text-white hover:bg-white/10 backdrop-blur-sm ml-4 ${isAutoPlaying ? "bg-white/20" : ""}`}
+          >
+            <Play className={`h-4 w-4 ${isAutoPlaying ? "opacity-100" : "opacity-50"}`} />
+          </Button>
         </div>
       </div>
 
-      {/* Arrow Controls */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-2 lg:p-3 rounded-full transition-all duration-300"
-        aria-label="Previous slide"
+      {/* Scroll Indicator */}
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+        className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white/70"
       >
-        <ChevronLeft className="h-5 w-5 lg:h-6 lg:w-6" />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-2 lg:p-3 rounded-full transition-all duration-300"
-        aria-label="Next slide"
-      >
-        <ChevronRight className="h-5 w-5 lg:h-6 lg:w-6" />
-      </button>
-
-      {/* Progress Bar */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20 z-20">
-        <motion.div
-          className="h-full bg-amber-400"
-          initial={{ width: "0%" }}
-          animate={{ width: "100%" }}
-          transition={{ duration: 6, ease: "linear" }}
-          key={currentSlide}
-        />
-      </div>
+        <div className="flex flex-col items-center space-y-2">
+          <div className="w-px h-8 bg-gradient-to-b from-transparent to-white/50" />
+          <span className="text-xs uppercase tracking-wider">Scroll</span>
+        </div>
+      </motion.div>
     </section>
   )
 }
