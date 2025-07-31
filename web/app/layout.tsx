@@ -3,15 +3,13 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { ThreeDNavbar } from "@/components/3d-navbar"
-import { ThreeDFooter } from "@/components/3d-footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Bugema University - Excellence in Service",
   description:
-    "Quality holistic Christian education preparing students for productive lives of service to God and humanity. Join our diverse community of over 15,000 students from 17+ countries.",
+    "Quality holistic Christian education preparing students for productive lives of service to God and humanity. Join our diverse community from over 17 countries.",
   keywords: "Bugema University, Christian education, Uganda university, higher education, academic excellence",
 }
 
@@ -23,10 +21,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <ThreeDNavbar />
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           {children}
-          <ThreeDFooter />
         </ThemeProvider>
       </body>
     </html>
