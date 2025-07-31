@@ -113,8 +113,13 @@ export function ThreeDFooter() {
     <footer className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 text-white overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fillRule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fillOpacity=\"0.03\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"1\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50" />
-        
+        <div
+          className="absolute inset-0 opacity-50"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23ffffff' fillOpacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        />
+
         {/* Floating Particles */}
         {[...Array(20)].map((_, i) => (
           <FloatingParticle
@@ -123,14 +128,14 @@ export function ThreeDFooter() {
             className={`left-${Math.random() * 100}% top-${Math.random() * 100}%`}
           />
         ))}
-        
+
         {/* Gradient Orbs */}
-        <motion.div 
+        <motion.div
           className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"
           animate={{ rotate: 360, scale: [1, 1.2, 1] }}
           transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
         />
-        <motion.div 
+        <motion.div
           className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-green-500/10 to-teal-500/10 rounded-full blur-3xl"
           animate={{ rotate: -360, scale: [1.2, 1, 1.2] }}
           transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
@@ -138,8 +143,8 @@ export function ThreeDFooter() {
       </div>
 
       {/* Main Footer Content */}
-      <div className="section-padding relative z-10">
-        <div className="container mx-auto container-padding">
+      <div className="py-20 relative z-10">
+        <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
             {/* University Info */}
             <motion.div
@@ -147,14 +152,14 @@ export function ThreeDFooter() {
               initial={{ opacity: 0, y: 100, rotateX: -30 }}
               animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
               transition={{ duration: 0.8 }}
-              className="lg:col-span-1 preserve-3d"
+              className="lg:col-span-1"
             >
-              <motion.div 
+              <motion.div
                 className="flex items-center space-x-4 mb-8"
                 whileHover={{ scale: 1.05, rotateY: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <motion.div 
+                <motion.div
                   className="w-16 h-16 bg-gradient-to-br from-blue-600 via-purple-600 to-green-600 rounded-2xl flex items-center justify-center shadow-2xl"
                   whileHover={{ rotateY: 180 }}
                   transition={{ duration: 0.6 }}
@@ -162,14 +167,14 @@ export function ThreeDFooter() {
                   <GraduationCap className="h-8 w-8 text-white" />
                 </motion.div>
                 <div>
-                  <div className="font-bold text-2xl gradient-text bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  <div className="font-bold text-2xl bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                     Bugema University
                   </div>
                   <div className="text-sm text-slate-300">Excellence in Service</div>
                 </div>
               </motion.div>
 
-              <motion.p 
+              <motion.p
                 className="text-slate-300 mb-8 leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -194,8 +199,12 @@ export function ThreeDFooter() {
                     transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                     whileHover={{ x: 5, scale: 1.02 }}
                   >
-                    <contact.icon className={`h-5 w-5 ${contact.color} flex-shrink-0 group-hover:scale-110 transition-transform duration-300`} />
-                    <span className="text-slate-300 group-hover:text-white transition-colors duration-300">{contact.text}</span>
+                    <contact.icon
+                      className={`h-5 w-5 ${contact.color} flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
+                    />
+                    <span className="text-slate-300 group-hover:text-white transition-colors duration-300">
+                      {contact.text}
+                    </span>
                   </motion.div>
                 ))}
               </div>
@@ -210,7 +219,7 @@ export function ThreeDFooter() {
                 transition={{ duration: 0.8, delay: 0.2 + sectionIndex * 0.1 }}
                 className="preserve-3d"
               >
-                <motion.h3 
+                <motion.h3
                   className="font-bold text-xl mb-8 text-white flex items-center group"
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 300 }}
@@ -226,10 +235,7 @@ export function ThreeDFooter() {
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ duration: 0.6, delay: 0.4 + sectionIndex * 0.1 + linkIndex * 0.05 }}
                     >
-                      <motion.div
-                        whileHover={{ x: 10, scale: 1.05 }}
-                        transition={{ type: "spring", stiffness: 300 }}
-                      >
+                      <motion.div whileHover={{ x: 10, scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }}>
                         <Link
                           href={link.href}
                           className="text-slate-300 hover:text-blue-400 transition-all duration-300 text-sm group flex items-center"
@@ -253,19 +259,16 @@ export function ThreeDFooter() {
             className="mt-16 pt-12 border-t border-white/10"
           >
             <div className="grid md:grid-cols-2 gap-8 items-center">
-              <motion.div
-                whileHover={{ scale: 1.02, rotateY: 5 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <h3 className="font-bold text-2xl mb-4 gradient-text bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <motion.div whileHover={{ scale: 1.02, rotateY: 5 }} transition={{ type: "spring", stiffness: 300 }}>
+                <h3 className="font-bold text-2xl mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                   Stay Connected
                 </h3>
                 <p className="text-slate-300 leading-relaxed">
-                  Subscribe to our newsletter for the latest news, events, and updates from Bugema University.
-                  Join our community of learners and stay informed about opportunities.
+                  Subscribe to our newsletter for the latest news, events, and updates from Bugema University. Join our
+                  community of learners and stay informed about opportunities.
                 </p>
               </motion.div>
-              <motion.div 
+              <motion.div
                 className="flex space-x-3"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}

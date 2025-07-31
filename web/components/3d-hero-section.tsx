@@ -87,7 +87,7 @@ export function ThreeDHeroSection() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden perspective-2000">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Hero Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -106,12 +106,17 @@ export function ThreeDHeroSection() {
         <FloatingElement className="top-40 right-20 w-24 h-24 bg-blue-500/20" delay={2} />
         <FloatingElement className="bottom-40 left-20 w-40 h-40 bg-emerald-500/20" delay={4} />
         <FloatingElement className="bottom-20 right-10 w-28 h-28 bg-amber-500/20" delay={6} />
-        
+
         {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fillRule=\"evenodd\"%3E%3Cg fill=\"%239C92AC\" fillOpacity=\"0.1\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"1\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30" />
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%239C92AC' fillOpacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        />
       </div>
 
-      <div className="container mx-auto container-padding relative z-10">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <motion.div
@@ -119,7 +124,7 @@ export function ThreeDHeroSection() {
             initial={{ opacity: 0, x: -100, rotateY: -30 }}
             animate={isInView ? { opacity: 1, x: 0, rotateY: 0 } : {}}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="text-white space-y-8 preserve-3d"
+            className="text-white space-y-8"
             style={{
               transform: `rotateY(${mousePosition.x * 5}deg) rotateX(${mousePosition.y * 5}deg)`,
             }}
@@ -130,28 +135,28 @@ export function ThreeDHeroSection() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="space-y-6"
             >
-              <div className="inline-flex items-center px-6 py-3 glass-card text-sm font-medium glow-effect">
-                <motion.span 
+              <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20">
+                <motion.span
                   className="w-3 h-3 bg-gradient-to-r from-amber-400 to-emerald-400 rounded-full mr-3"
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                 />
                 Excellence in Service Since 1948
               </div>
-              
-              <motion.h1 
-                className="heading-xl text-white leading-tight"
+
+              <motion.h1
+                className="text-4xl md:text-6xl font-bold text-white leading-tight"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 1, delay: 0.4 }}
               >
                 Shape Your Future at{" "}
-                <span className="gradient-text bg-gradient-to-r from-amber-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent animate-gradient">
+                <span className="bg-gradient-to-r from-amber-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent">
                   Bugema University
                 </span>
               </motion.h1>
-              
-              <motion.p 
+
+              <motion.p
                 className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-2xl"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -168,9 +173,9 @@ export function ThreeDHeroSection() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white font-semibold group transform-gpu hover:scale-105 transition-all duration-300 shadow-2xl"
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white font-semibold group transform hover:scale-105 transition-all duration-300 shadow-2xl"
               >
                 Apply Now
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
@@ -178,7 +183,7 @@ export function ThreeDHeroSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/30 text-white hover:bg-white/10 group bg-transparent backdrop-blur-sm transform-gpu hover:scale-105 transition-all duration-300"
+                className="border-white/30 text-white hover:bg-white/10 group bg-transparent backdrop-blur-sm transform hover:scale-105 transition-all duration-300"
               >
                 <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
                 Watch Campus Tour
@@ -203,7 +208,7 @@ export function ThreeDHeroSection() {
                   whileHover={{ scale: 1.1, rotateY: 10 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <div className="text-3xl font-bold gradient-text bg-gradient-to-r from-amber-400 to-emerald-400 bg-clip-text text-transparent">
+                  <div className="text-3xl font-bold bg-gradient-to-r from-amber-400 to-emerald-400 bg-clip-text text-transparent">
                     {stat.value}
                   </div>
                   <div className="text-sm text-white/70">{stat.label}</div>
@@ -237,14 +242,16 @@ export function ThreeDHeroSection() {
                     rotateX: 10,
                     z: 50,
                   }}
-                  className="card-3d preserve-3d transform-gpu"
+                  className="transform-gpu"
                 >
-                  <Card className="glass-card border-white/20 hover:border-white/40 group h-full overflow-hidden relative">
+                  <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:border-white/40 group h-full overflow-hidden relative">
                     {/* Gradient Background */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-10 group-hover:opacity-20 transition-opacity duration-300`} />
-                    
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-10 group-hover:opacity-20 transition-opacity duration-300`}
+                    />
+
                     <CardContent className="p-6 text-center relative z-10">
-                      <motion.div 
+                      <motion.div
                         className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm"
                         whileHover={{ rotateY: 180 }}
                         transition={{ duration: 0.6 }}
@@ -254,9 +261,11 @@ export function ThreeDHeroSection() {
                       <h3 className="font-bold text-white mb-3 text-lg">{card.title}</h3>
                       <p className="text-sm text-white/80 leading-relaxed">{card.description}</p>
                     </CardContent>
-                    
+
                     {/* Hover Glow Effect */}
-                    <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r ${card.color} blur-xl -z-10`} />
+                    <div
+                      className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r ${card.color} blur-xl -z-10`}
+                    />
                   </Card>
                 </motion.div>
               ))}
@@ -276,7 +285,7 @@ export function ThreeDHeroSection() {
           className="w-8 h-12 border-2 border-white/30 rounded-full flex justify-center cursor-pointer hover:border-white/50 transition-colors"
           whileHover={{ scale: 1.1 }}
         >
-          <motion.div 
+          <motion.div
             className="w-1 h-4 bg-white/50 rounded-full mt-2"
             animate={{ y: [0, 16, 0] }}
             transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
