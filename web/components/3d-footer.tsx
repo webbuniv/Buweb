@@ -83,29 +83,29 @@ export function ThreeDFooter() {
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23ffffff' fillOpacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}
         />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-48 h-48 sm:w-96 sm:h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-40 h-40 sm:w-80 sm:h-80 bg-emerald-500/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10">
         {/* Newsletter Section */}
         <div className="border-b border-white/10">
-          <div className="container mx-auto px-4 py-12">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="max-w-4xl mx-auto text-center"
             >
-              <h3 className="text-3xl font-bold mb-4">Stay Connected with Bugema</h3>
-              <p className="text-xl text-white/80 mb-8">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4">Stay Connected with Bugema</h3>
+              <p className="text-lg sm:text-xl text-white/80 mb-6 sm:mb-8 px-4">
                 Get the latest news, events, and updates from our university community
               </p>
               <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
                 <Input
                   type="email"
                   placeholder="Enter your email address"
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:border-blue-400"
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:border-blue-400 flex-1"
                 />
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white group">
                   Subscribe
@@ -117,8 +117,8 @@ export function ThreeDFooter() {
         </div>
 
         {/* Main Footer Content */}
-        <div className="container mx-auto px-4 py-16">
-          <div className="grid lg:grid-cols-6 gap-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12">
             {/* University Info */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -147,8 +147,8 @@ export function ThreeDFooter() {
 
               {/* Contact Info */}
               <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <MapPin className="h-5 w-5 text-blue-400 flex-shrink-0" />
+                <div className="flex items-start space-x-3">
+                  <MapPin className="h-5 w-5 text-blue-400 flex-shrink-0 mt-0.5" />
                   <span className="text-sm">Seeta-Mukono, Uganda, East Africa</span>
                 </div>
                 <div className="flex items-center space-x-3">
@@ -166,7 +166,7 @@ export function ThreeDFooter() {
               </div>
 
               {/* Social Links */}
-              <div className="flex space-x-4">
+              <div className="flex flex-wrap gap-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={index}
@@ -176,6 +176,7 @@ export function ThreeDFooter() {
                     className="w-10 h-10 bg-white/10 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 group"
                     whileHover={{ scale: 1.1, rotateY: 180 }}
                     transition={{ duration: 0.3 }}
+                    aria-label={social.label}
                   >
                     <social.icon className="h-5 w-5 group-hover:text-white" />
                   </motion.a>
@@ -196,7 +197,7 @@ export function ThreeDFooter() {
                   <li key={index}>
                     <Link
                       href={link.href}
-                      className="text-white/70 hover:text-white transition-colors duration-200 text-sm"
+                      className="text-white/70 hover:text-white transition-colors duration-200 text-sm block"
                     >
                       {link.title}
                     </Link>
@@ -218,7 +219,7 @@ export function ThreeDFooter() {
                   <li key={index}>
                     <Link
                       href={link.href}
-                      className="text-white/70 hover:text-white transition-colors duration-200 text-sm"
+                      className="text-white/70 hover:text-white transition-colors duration-200 text-sm block"
                     >
                       {link.title}
                     </Link>
@@ -240,7 +241,7 @@ export function ThreeDFooter() {
                   <li key={index}>
                     <Link
                       href={link.href}
-                      className="text-white/70 hover:text-white transition-colors duration-200 text-sm"
+                      className="text-white/70 hover:text-white transition-colors duration-200 text-sm block"
                     >
                       {link.title}
                     </Link>
@@ -262,7 +263,7 @@ export function ThreeDFooter() {
                   <li key={index}>
                     <Link
                       href={link.href}
-                      className="text-white/70 hover:text-white transition-colors duration-200 text-sm"
+                      className="text-white/70 hover:text-white transition-colors duration-200 text-sm block"
                     >
                       {link.title}
                     </Link>
@@ -277,13 +278,13 @@ export function ThreeDFooter() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-12 border-t border-white/10"
+            className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 mt-12 sm:mt-16 pt-8 sm:pt-12 border-t border-white/10"
           >
             {quickStats.map((stat, index) => (
               <div key={index} className="text-center">
-                <stat.icon className="h-8 w-8 mx-auto mb-3 text-blue-400" />
-                <div className="text-2xl font-bold">{stat.value}</div>
-                <div className="text-sm text-white/70">{stat.label}</div>
+                <stat.icon className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-2 sm:mb-3 text-blue-400" />
+                <div className="text-xl sm:text-2xl font-bold">{stat.value}</div>
+                <div className="text-xs sm:text-sm text-white/70">{stat.label}</div>
               </div>
             ))}
           </motion.div>
@@ -291,10 +292,10 @@ export function ThreeDFooter() {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/10">
-          <div className="container mx-auto px-4 py-6">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-center md:text-left">
               <div className="text-sm text-white/70">© 2024 Bugema University. All rights reserved.</div>
-              <div className="flex space-x-6 text-sm">
+              <div className="flex flex-wrap justify-center md:justify-end gap-4 sm:gap-6 text-sm">
                 <Link href="/privacy" className="text-white/70 hover:text-white transition-colors">
                   Privacy Policy
                 </Link>

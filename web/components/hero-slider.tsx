@@ -103,7 +103,7 @@ export function HeroSlider() {
   }
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative h-screen min-h-[600px] overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
@@ -121,22 +121,23 @@ export function HeroSlider() {
               fill
               className="object-cover"
               priority
+              sizes="100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/60 to-transparent" />
           </div>
 
           {/* Content */}
           <div className="relative z-10 h-full flex items-center">
-            <div className="container mx-auto px-4">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 {/* Left Content */}
                 <motion.div
                   initial={{ x: -100, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="text-white space-y-8"
+                  className="text-white space-y-6 lg:space-y-8 text-center lg:text-left"
                 >
-                  <div className="space-y-6">
+                  <div className="space-y-4 lg:space-y-6">
                     <motion.div
                       initial={{ y: 30, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
@@ -150,7 +151,7 @@ export function HeroSlider() {
                       initial={{ y: 30, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ duration: 0.6, delay: 0.6 }}
-                      className="text-4xl md:text-6xl font-bold leading-tight"
+                      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
                     >
                       {heroSlides[currentSlide].title}
                     </motion.h1>
@@ -159,7 +160,7 @@ export function HeroSlider() {
                       initial={{ y: 30, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ duration: 0.6, delay: 0.8 }}
-                      className="text-xl text-white/90 leading-relaxed max-w-2xl"
+                      className="text-lg sm:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto lg:mx-0"
                     >
                       {heroSlides[currentSlide].description}
                     </motion.p>
@@ -169,7 +170,7 @@ export function HeroSlider() {
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.6, delay: 1 }}
-                    className="flex flex-col sm:flex-row gap-4"
+                    className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
                   >
                     <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold group" asChild>
                       <a href={heroSlides[currentSlide].ctaLink}>
@@ -192,19 +193,19 @@ export function HeroSlider() {
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.6, delay: 1.2 }}
-                    className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-white/20"
+                    className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 pt-6 lg:pt-8 border-t border-white/20"
                   >
                     {heroSlides[currentSlide].stats.map((stat, index) => (
                       <div key={index} className="text-center">
-                        <stat.icon className="h-8 w-8 mx-auto mb-2 text-amber-400" />
-                        <div className="text-2xl font-bold">{stat.value}</div>
-                        <div className="text-sm text-white/70">{stat.label}</div>
+                        <stat.icon className="h-6 w-6 lg:h-8 lg:w-8 mx-auto mb-2 text-amber-400" />
+                        <div className="text-xl lg:text-2xl font-bold">{stat.value}</div>
+                        <div className="text-xs lg:text-sm text-white/70">{stat.label}</div>
                       </div>
                     ))}
                   </motion.div>
                 </motion.div>
 
-                {/* Right Content - Feature Cards */}
+                {/* Right Content - Feature Cards (Hidden on mobile) */}
                 <motion.div
                   initial={{ x: 100, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
@@ -249,6 +250,7 @@ export function HeroSlider() {
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentSlide ? "bg-white scale-125" : "bg-white/50 hover:bg-white/75"
                 }`}
+                aria-label={`Go to slide ${index + 1}`}
               />
             ))}
           </div>
@@ -258,15 +260,17 @@ export function HeroSlider() {
       {/* Arrow Controls */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-2 lg:p-3 rounded-full transition-all duration-300"
+        aria-label="Previous slide"
       >
-        <ChevronLeft className="h-6 w-6" />
+        <ChevronLeft className="h-5 w-5 lg:h-6 lg:w-6" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-2 lg:p-3 rounded-full transition-all duration-300"
+        aria-label="Next slide"
       >
-        <ChevronRight className="h-6 w-6" />
+        <ChevronRight className="h-5 w-5 lg:h-6 lg:w-6" />
       </button>
 
       {/* Progress Bar */}
