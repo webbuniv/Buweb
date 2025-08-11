@@ -32,7 +32,6 @@ export default function MatureEntryAd() {
                 </Link>
             
           </div>
-        
 
       )}
     </div>
