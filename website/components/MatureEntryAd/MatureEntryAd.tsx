@@ -20,7 +20,7 @@ export default function MatureEntryAd() {
 //   }, []);
 
   return (
-    <div className="fixed bottom-8 left-8 z-[99]">
+    <div className="fixed bottom-4 left-8 z-[99]">
       {isVisible && (
         
           <div
