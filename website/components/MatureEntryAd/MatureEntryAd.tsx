@@ -27,8 +27,8 @@ export default function MatureEntryAd() {
             aria-label="go to calendar"
             className=" animate-pulse   flex px-1 h-10 w-[240px] cursor-pointer items-center justify-center rounded-md bg-primary text-black shadow-md transition duration-800 ease-in-out hover:bg-opacity-80 hover:shadow-signUp "
           >
-          <Link href="/docs/mature_entry.pdf/" target="_blank" rel="noopener noreferrer">
-                <span className="text-white">Mature Entry Results</span>
+          <Link href="/docs/Bugema_Alumni_Nomination_Form.pdf/" target="_blank" rel="noopener noreferrer">
+                <span className="text-white">Alumni Nomination Form</span>
                 </Link>
             
           </div>
