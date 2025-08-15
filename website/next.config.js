@@ -23,7 +23,7 @@ const nextConfig = {
         hostname: 'firebasestorage.googleapis.com',
       },
     ],
-    domains: ['cloud.appwrite.io', 'firebasestorage.googleapis.com'],
+    // domains: ['cloud.appwrite.io', 'firebasestorage.googleapis.com'],
   },
   eslint: {
     ignoreDuringBuilds: true,
