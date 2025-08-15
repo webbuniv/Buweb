@@ -8,7 +8,6 @@ import Hero from "@/components/Hero";
 import BelowHero from "@/components/BelowHero";
 import ScrollToTop from "@/components/ScrollToTop";
 import ExploreBugema from "@/components/ExploreBugema";
-import { Inter } from "next/font/google";
 import EventsAndNews from "@/components/EventsandNews/EventsAndNews";
 import CampusNews from "@/components/CampusNews";
 import Welcome from "@/components/Welcome/Welcome";
@@ -16,8 +15,6 @@ import MatureEntryAd from "@/components/MatureEntryAd/MatureEntryAd";
 import PublicationSection from "@/components/PublicationFeed/publication-section"
 import { BugemaChatWidget } from "@/components/bugema-chat-widget"
 
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
