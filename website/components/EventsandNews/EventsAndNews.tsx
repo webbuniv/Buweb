@@ -86,7 +86,7 @@ const NewsEventsSection = () => {
               Stay Connected
             </span>
           </div>
-          <h2 className="mb-8 text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r from-slate-900 via-blue-800 to-indigo-900 dark:from-white dark:via-blue-200 dark:to-indigo-200 bg-clip-text text-transparent leading-tight">
+          <h2 className="mb-8 text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r text-blue-700 from-slate-900 via-blue-800 to-indigo-900 dark:from-white dark:via-blue-200 dark:to-indigo-200 bg-clip-text text-transparent leading-tight">
             News & Events
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed font-medium">
