@@ -9,6 +9,7 @@ import ScrollToTop from "@/components/ScrollToTop"
 import "react-modal-video/css/modal-video.css"
 import "../styles/index.css"
 import { Providers } from "./providers"
+import { GraduationCountdownPopup } from "@/components/graduation-countdown-popup"
 
 export const metadata: Metadata = {
   title: {
@@ -78,6 +79,7 @@ export default function RootLayout({
           <AboveHeader />
           <Header />
           {children}
+          <GraduationCountdownPopup />
           <Footer />
         </Providers>
         <ScrollToTop />
