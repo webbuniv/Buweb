@@ -106,7 +106,6 @@ const NetBallPrograms: React.FC = () => {
             title="Netball Collaborations"
             paragraph="Bugema University fosters the development of netball through various collaborative efforts. The university engages with local and international sports organizations, offering events, training programs, and joint research initiatives focused on enhancing netball performance and sportsmanship. These collaborations provide valuable learning opportunities and contribute to the growth of netball within the university and beyond."
             center
-            mb="50px"
           />
         </div>
 

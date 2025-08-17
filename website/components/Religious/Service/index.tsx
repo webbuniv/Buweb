@@ -106,7 +106,6 @@ const ServicePrograms: React.FC = () => {
             title="Bugema University service program"
             paragraph="Bugema University is deeply committed to fostering spiritual growth and community involvement through its church service programs. These services offer students and faculty members the opportunity to participate in meaningful worship experiences, Bible study groups, and outreach activities. The program emphasizes faith-based education, spiritual reflection, and service to others, creating a nurturing environment where individuals can grow spiritually and develop leadership skills for church ministry. By engaging in these services, participants not only strengthen their faith but also contribute positively to the surrounding community."
             center
-            mb="50px"
           />
         </div>
 
