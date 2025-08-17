@@ -106,7 +106,6 @@ const PrayerPrograms: React.FC = () => {
             title="Prayers"
             paragraph="Bugema University places a strong emphasis on the power of prayer as a cornerstone of spiritual life. The university organizes regular prayer sessions, including morning devotionals, weekly prayer meetings, and special prayer retreats, providing a space for students and faculty to seek guidance, reflect on their faith, and strengthen their relationship with God. These moments of collective and personal prayer foster a sense of community and spiritual growth, supporting students throughout their academic and personal journeys."
             center
-            mb="50px"
           />
         </div>
 

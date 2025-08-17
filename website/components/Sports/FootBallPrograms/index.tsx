@@ -106,7 +106,6 @@ const FootBallPrograms: React.FC = () => {
             title="FootBall At Bugema University"
             paragraph="Bugema University offers a range of opportunities for students passionate about football. The university not only focuses on nurturing talent through its well-established football teams but also encourages joint research collaborations related to sports science, performance analytics, and athlete development. These collaborations provide students and faculty members the chance to explore innovative approaches to football training, injury prevention, and team dynamics, contributing to the broader understanding of the sport and enhancing player performance both on and off the field."
             center
-            mb="50px"
           />
         </div>
 

@@ -14,7 +14,6 @@ const ResearchSection: React.FC = () => {
             title="Research"
             paragraph="Driving discoveries vital to our world, our health, and our intellectual life."
             center
-            mb="50px"
           />
         </div>
 
@@ -24,7 +23,6 @@ const ResearchSection: React.FC = () => {
             title="Explore Bugema University"
             paragraph="Join us at Bugema University, where education is embraced as a catalyst for empowerment and change. Experience an inclusive and enriching learning environment where equal opportunities, academic excellence, and a commitment to students' success define our core values. Together, we can shape a brighter future through education."
             center
-            mb="50px"
           />
         </div>
       

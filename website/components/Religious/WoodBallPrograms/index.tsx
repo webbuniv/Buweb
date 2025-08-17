@@ -106,7 +106,6 @@ const WoodBallPrograms: React.FC = () => {
             title="Wood Ball Collaborations"
             paragraph="Wood Ball collaborates with the global community through tournaments, events, training programs, and joint efforts to promote the sport worldwide."
             center
-            mb="50px"
           />
         </div>
 
