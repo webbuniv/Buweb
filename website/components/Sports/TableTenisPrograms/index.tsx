@@ -106,7 +106,6 @@ const TableTenisPrograms: React.FC = () => {
             title="Table Tennis Collaborations at Bugema University"
             paragraph="Bugema University actively promotes table tennis through various collaborations, including tournaments, coaching programs, events, and initiatives aimed at enhancing player performance and fostering a vibrant sports community."
             center
-            mb="50px"
           />
         </div>
 

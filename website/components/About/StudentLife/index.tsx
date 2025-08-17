@@ -106,7 +106,6 @@ const StudentLifePrograms: React.FC = () => {
             title="Campus Life At Bugema University"
             paragraph=""
             center
-            mb="50px"
           />
         </div>
 

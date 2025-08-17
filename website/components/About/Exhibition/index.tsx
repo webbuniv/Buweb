@@ -106,7 +106,6 @@ const Exhibition: React.FC = () => {
             title="Entreprenuership Class Exhibition"
             paragraph=""
             center
-            mb="50px"
           />
         </div>
 
