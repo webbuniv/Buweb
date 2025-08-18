@@ -106,7 +106,6 @@ const BasketBallPrograms: React.FC = () => {
             title="Basketball Collaborations at Bugema University"
             paragraph="Bugema University supports basketball through collaborative efforts such as tournaments, training camps, events, and initiatives designed to develop skills, foster teamwork, and promote the sport within the university and beyond."
             center
-            mb="50px"
           />
         </div>
 

@@ -229,7 +229,7 @@ const Footer = () => {
                       Student Portal{" "}
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link
                       href="https://elearning.bugemauniv.ac.ug/"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
@@ -237,7 +237,7 @@ const Footer = () => {
                       {" "}
                       E-Learning{" "}
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link
                       href="https://www.myloft.xyz/"
@@ -311,7 +311,7 @@ const Footer = () => {
                         Student Portal{" "}
                       </Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link
                         href="https://elearning.bugemauniv.ac.ug/"
                         className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
@@ -319,7 +319,7 @@ const Footer = () => {
                         {" "}
                         E-Learning{" "}
                       </Link>
-                    </li>
+                    </li> */}
                     <li>
                       <Link
                         href="/"

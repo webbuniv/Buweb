@@ -106,7 +106,6 @@ const VolleyPrograms: React.FC = () => {
             title="Volleyball Collaborations at Bugema University"
             paragraph="Bugema University fosters collaborations in volleyball through tournaments, training sessions, events, and joint initiatives to promote the sport and develop players' skills."
             center
-            mb="50px"
           />
         </div>
 
