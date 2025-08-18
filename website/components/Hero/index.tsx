@@ -34,12 +34,12 @@ const heroMedia: HeroMedia[] = [
   },
   {
     type: "image",
-    src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68641dd3003cdff2242d/view?project=674dcf7b003d57db960a&mode=admin",
-    title: "Visit from NCHE",
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68a34fae001b3f7550d4/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "Walking the Path of Knowledge Together",
     description:
-      "The institution recently hosted an official visit from the National Council for Higher Education (NCHE). The purpose of the visit was to assess academic standards...",
+      "Still on the road of discovery and growth, every step counts on this academic journey, forward together the journey goes on. It Never Stops Until we make it.",
     link: "https://www.bugemauniv.ac.ug/news/68641e0d0012974a663d",
-    linkText: "Read More",
+    linkText: "",
   },
 ]
 
