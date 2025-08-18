@@ -16,14 +16,7 @@ interface HeroMedia {
 }
 
 const heroMedia: HeroMedia[] = [
-  {
-    type: "image",
-    src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686e8a2e0035bf8439de/view?project=674dcf7b003d57db960a&mode=admin",
-    title: "The 31ST GRADUATION CEREMONY",
-    description:
-      "Caps. Gowns. Dreams. Counting down to a day of honour, joy, and new beginnings. Graduation is on the horizon... Your moment to shine is coming soon. Graduation awaits – are you ready?",
-  },
-  {
+          {
     type: "image",
     src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686658bc0026975fda0f/view?project=674dcf7b003d57db960a&mode=admin",
     title: "BUGEMA UNIVERSITY",
@@ -32,15 +25,33 @@ const heroMedia: HeroMedia[] = [
     link: "http://erms.bugemauniv.ac.ug/application",
     linkText: "Apply Now",
   },
-  {
+    {
     type: "image",
-    src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68641dd3003cdff2242d/view?project=674dcf7b003d57db960a&mode=admin",
-    title: "Visit from NCHE",
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68a3557a001ec1c995f4/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "A Legacy Acknowledged.",
     description:
-      "The institution recently hosted an official visit from the National Council for Higher Education (NCHE). The purpose of the visit was to assess academic standards...",
-    link: "https://www.bugemauniv.ac.ug/news/68641e0d0012974a663d",
+      "Bugema University Council chairman   Dr Dalton Ssegawa (left) appreciates the outstanding contribution of Pr Dr Maka Ndimukika (right) for serving as  Chancellor of Bugema University.",
+    link: "https://www.bugemauniv.ac.ug/news/68a35720001f64e3d5a3",
     linkText: "Read More",
   },
+    {
+    type: "image",
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68a34fae001b3f7550d4/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "Walking the Path of Knowledge Together",
+    description:
+      "Still on the road of discovery and growth, every step counts on this academic journey, forward together the journey goes on. It Never Stops Until we make it.",
+    link: "https://www.bugemauniv.ac.ug/news/68641e0d0012974a663d",
+    linkText: "",
+  },
+  {
+    type: "image",
+    src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686e8a2e0035bf8439de/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "The 31ST GRADUATION CEREMONY",
+    description:
+      "Caps. Gowns. Dreams. Counting down to a day of honour, joy, and new beginnings. Graduation is on the horizon... Your moment to shine is coming soon. Graduation awaits – are you ready?",
+  },
+
+
 ]
 
 interface HeroSlideProps {
