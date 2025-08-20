@@ -39,6 +39,11 @@ const menuItems = [
     icon: Images,
   },
   {
+    title: "Staff",
+    href: "/staff",
+    icon: Users,
+  },
+  {
     title: "Settings",
     href: "/settings",
     icon: Settings,
