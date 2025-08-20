@@ -7,13 +7,13 @@ import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Search, Plus, Calendar, Trash2, User, LayoutGrid, LayoutList } from "lucide-react"
 import Link from "next/link"
-import { deleteImage, getAllImages, type ImageItem } from "@/lib/actions/gallery.actions"
+import { getAllStaff, deleteStaff ,type staffItem } from "@/lib/actions/staff.actions"
 import Image from "next/image"
 import { DataTable } from "@/components/ui/data-table"
 import {  formatDate } from "@/lib/utils"
 
 export function StaffList() {
-  const [images, setImages] = useState<ImageItem[]>([])
+  const [staff, setStaff] = useState<staffItem[]>([])
   const [loading, setLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState("")
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid")
@@ -22,8 +22,8 @@ export function StaffList() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const images = await getAllImages()
-        setImages(images)
+        const staff = await getAllStaff()
+        setStaff(staff)
       } catch (error) {
         console.error("Failed to fetch events:", error)
       } finally {
@@ -35,12 +35,12 @@ export function StaffList() {
   }, [])
 
   const Delete = async (id:string)=>{
-        images.map((item) => {
+        staff.map((item) => {
                 if (item.id === id) {
-                setImages((prevImages) => prevImages.filter((image) => image.id !== id))
+                setStaff((prevStaff) => prevStaff.filter((staff) => staff.id !== id))
                 }
         })
-        return deleteImage(id).then((response) => {
+        return deleteStaff(id).then((response) => {
           if (response.success) {
             setDeleted(true)
             setTimeout(() => {
@@ -58,7 +58,7 @@ export function StaffList() {
         
   })
 
-  const filteredEvents = images.filter((item: ImageItem) => item.category.toLowerCase().includes(searchQuery.toLowerCase()))
+  const filteredEvents = staff.filter((item: staffItem) => item.department.toLowerCase().includes(searchQuery.toLowerCase()))
 
   const getEventStatus = (eventDate: string) => {
     const today = new Date()
@@ -70,28 +70,62 @@ export function StaffList() {
     {
       key: "title",
       header: "Title",
-      cell: (item: ImageItem) => <div className="font-medium">{item.category}</div>,
+      cell: (item: staffItem) => <div className="font-medium">{item.name}</div>,
     },
     {
       key: "date",
       header: "Date",
-      cell: (item: ImageItem) => formatDate(item.date),
+      cell: (item: staffItem) => formatDate(item.date),
     },
     
     {
       key: "Uploaded_By",
       header: "Uploaded By",
-      cell: (item: ImageItem) => item.UploadedBy,
+      cell: (item: staffItem) => item.UploadedBy,
     },
     {
-      key: "status",
-      header: "Status",
-      cell: (item: ImageItem) => (
-        <Badge variant={getEventStatus(item.date) === "upcoming" ? "default" : "secondary"}>
-          {getEventStatus(item.date)}
+      key: "school",
+      header: "School",
+      cell: (item: staffItem) => (
+        <Badge variant={"secondary"}>
+          {item.school}
         </Badge>
       ),
     },
+    {
+      key: "department",
+      header: "Department",
+      cell: (item: staffItem) => (
+        <Badge variant={"secondary"}>
+          {item.department}
+        </Badge>
+      ),
+    },
+    {
+      key: "role",
+      header: "Role",
+      cell: (item: staffItem) => (
+        <Badge variant={"secondary"}>
+          {item.role}
+        </Badge>
+      ),
+    },
+        {
+          key: "actions",
+          header: "Actions",
+          cell: (item: staffItem) => (
+                <div className="flex items-center space-x-2">
+                  <Button variant="ghost" size="icon" className="hover:bg-red-200" onClick={() => Delete(item.id)}>
+                <Trash2 className="h-4 w-4 text-red-500" />
+                  </Button>
+                  <Button variant="ghost" size="icon" asChild>
+                <Link href={`/staff/${item.id}`}>
+                  <User className="h-4 w-4 text-blue-500" />
+                </Link>
+                  </Button>
+                </div>
+          ),
+        },
   ]
 
   if (loading) {
@@ -155,38 +189,58 @@ export function StaffList() {
           ) : (
             filteredEvents.map((item) => (
               <Card className="h-full overflow-hidden hover:shadow-md transition-shadow">
-                  {item.imageUrl && (
+                  {item.photoUrl && (
                     <div className="aspect-video w-full overflow-hidden">
+                      <Link href={`/staff/${item.id}`}>
                       <Image
-                        src={item.imageUrl || "/placeholder.svg"}
-                        alt={item.category}
+                        src={item.photoUrl || "/placeholder.svg"}
+                        alt={item.name}
                         width={500}
                         height={300}
                         className="h-full w-full object-cover transition-transform hover:scale-105"
                       />
+                      </Link>
                     </div>
                   )}
                   <CardHeader className="p-4">
                     <div className="flex items-center justify-between">
-                      <Badge variant={getEventStatus(item.date) === "upcoming" ? "default" : "secondary"}>
-                        {getEventStatus(item.date)}
+                      <div className="flex  gap-1 " >
+                        <Badge variant={"default" }>
+                        {item.role}
                       </Badge>
+                      {item.isDean ? (
+                        <Badge variant={"default" }>
+                        Dean
+                      </Badge>) : (
+                        <h1></h1>
+                      )}
+
+                      {item.isHOD ? (
+                        <Badge variant={"default" }>
+                        HOD
+                      </Badge>) : (
+                        <h1></h1>
+                      )}
+                      </div>
                       <div className="flex items-center text-sm text-muted-foreground">
                         <Calendar className="mr-1 h-3 w-3" />
                         {formatDate(item.date)}
                       </div>
                     </div>
-                    <CardTitle className="line-clamp-2 text-lg">{item.category}</CardTitle>
+                    <CardTitle className="line-clamp-2 text-sm">{item.name}</CardTitle>
+                    <CardTitle className="line-clamp-2 text-sm">School: <span className="text-blue-500">{item.school}</span></CardTitle>
+                    <CardTitle className="line-clamp-2 text-sm">department: <span className="text-blue-500">{item.department}</span></CardTitle>
+
                   </CardHeader>
                   <CardContent className="p-4 pt-0">
-                    <div className="flex space-y-2 gap-40">
-                      <div className="flex items-center text-sm text-muted-foreground">
-                        <User className="mr-1 h-3 w-3" />
-                        Uploaded By {item.UploadedBy}
+                    <div className="flex relative h-10 space-y-2   ">
+                      <div className="flex  items-center   text-muted-foreground">
+                        <User className=" h-6 w-6" />
+                        <h1 className="" >Uploaded By: <span className="font-bold" > {item.UploadedBy}</span></h1>
                       </div>
 
-                      <div className=" hover:cursor-pointer hover:scale-105  z-40 flex items-center text-sm text-muted-foreground" onClick={()=> Delete(item.id)}>
-                        <Trash2 className="mr-1 mb-3 h-8 w-8 hover:text-red-500" />
+                      <div className=" flex hover:cursor-pointer absolute right-3    hover:scale-105  items-center text-sm text-muted-foreground " onClick={()=> Delete(item.id)}>
+                        <Trash2 className=" h-8 w-8 hover:text-red-500" />
                       </div>
                     </div>
                   </CardContent>
@@ -199,7 +253,7 @@ export function StaffList() {
           data={filteredEvents.map((item) => ({ ...item, id: item.id }))}
           columns={tableColumns}
           onRowClick={(item) => {
-            window.location.href = `/gallery/${item.id}`
+            window.location.href = `/staff/${item.id}`
           }}
         />
       )}
