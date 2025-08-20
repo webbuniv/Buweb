@@ -147,7 +147,7 @@ const AlumniRegistrationForm = () => {
         <Info className="h-4 w-4" />
         <AlertDescription>
           Please enter your original Bugema University Student ID in the format: YY/XXX/BU/R/NNNN (e.g.,
-          21/BCC/BU/R/0019)
+          00/BCC/BU/R/0000 or Any other format you used during your studies)This ID will be used for verification and alumni services.
         </AlertDescription>
       </Alert>
 
@@ -162,7 +162,7 @@ const AlumniRegistrationForm = () => {
             <Input
               id="studentId"
               required
-              placeholder="e.g., 21/BCC/BU/R/0019"
+              placeholder="e.g., 00/BCC/BU/R/0000"
               value={formData.studentId || ""}
               onChange={(e) => handleInputChange("studentId", e.target.value)}
             />
