@@ -170,7 +170,7 @@ export async function sendAlumniRegistrationConfirmation(data: AlumniRegistratio
         <p>
           📧 Email: alumni@bugemauniv.ac.ug<br>
           📞 Phone: +256-414-540-822<br>
-          🌐 Website: https://bugemauniv.ac.ug/alumni
+          🌐 Website: https://alumni.bugemauniv.ac.ug/
         </p>
         
         <p>Welcome back to the Bugema family!</p>
@@ -221,7 +221,7 @@ export async function sendAlumniRegistrationConfirmation(data: AlumniRegistratio
     If you have any questions, contact us:
     Email: alumni@bugemauniv.ac.ug
     Phone: +256-414-540-822
-    Website: https://bugemauniv.ac.ug/alumni
+    Website: https://alumni.bugemauniv.ac.ug/
     
     Welcome back to the Bugema family!
     
