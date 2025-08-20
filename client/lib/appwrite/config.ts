@@ -11,4 +11,5 @@ export const appwriteConfig = {
   bucketId: process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID!,
   galleryCollectionId: process.env.NEXT_PUBLIC_APPWRITE_GALLERY_COLLECTION!,
   galleryCategoriesId: process.env.NEXT_PUBLIC_APPWRITE_GALLERY_CATEGORIES_COLLECTION!,
+  staffCollectionId: process.env.NEXT_PUBLIC_APPWRITE_STAFF_COLLECTION!,
 }
