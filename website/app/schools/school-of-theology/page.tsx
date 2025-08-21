@@ -32,7 +32,7 @@ export default function SchoolOfTheology() {
         goal="I Will Go."
       />
 
-      <div className="flex flex-col gap-2 justify-center mx-auto">
+      <div className="flex flex-col gap-2 justify-center mx-4">
         <div className="md:pl-2">
           <SectionTitle title="Departments In The Faculty" paragraph="" />
         </div>

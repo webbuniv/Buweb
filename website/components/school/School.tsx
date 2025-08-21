@@ -65,11 +65,20 @@ const School: React.FC<SchoolProps> = ({
 
       <Card>
         <CardContent className="p-6 flex flex-col md:flex-row gap-6 items-center">
-          <div className="md:w-1/3">
-            <Image src={deanImage || "/placeholder.svg"} alt={dean} width={300} height={300} className="rounded-full" />
-            <h3 className="text-xl font-semibold mt-4 text-center">{dean}</h3>
+         <div>
+                 <div className=" w-80 h-80 ">
+            <Image src={deanImage || "/placeholder.svg"} 
+            alt={dean}
+             width={300}
+              height={300}
+               className="rounded-full w-full h-80 object-cover" />
+          </div>
+
+          <div>
+                <h3 className="text-xl font-semibold mt-4 text-center">{dean}</h3>
             <p className="text-muted-foreground text-center">Dean</p>
           </div>
+         </div>
           <div className="md:w-2/3">
             <h2 className="text-2xl font-bold mb-4 text-primary">Message from the Dean</h2>
             <p className="text-muted-foreground">{message}</p>

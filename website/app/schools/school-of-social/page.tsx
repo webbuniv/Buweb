@@ -33,12 +33,12 @@ export default function SchoolOfSocialSciences() {
         goal="1. Train educators in the light of the Seventh day Adventist philosophy of education, which places emphasis on restoring the image of God in mankind through a harmonious development of the physical, mental, spiritual and social powers."
       />
 
-      <div className="flex flex-col gap-2 justify-center mx-auto">
+      <div className="flex flex-col gap-2 justify-center mx-4">
         <div className="md:pl-2">
           <SectionTitle title="Departments In The Faculty" paragraph="" />
         </div>
 
-        <div className="flex flex-col gap-2 md:flex-row md:justify-center md:gap-[35%]">
+        <div className="flex flex-col gap-2  md:flex-row md:justify-center md:gap-[35%]">
           <div>
             <h1
               className="active2 text-xs font-bold text-body-color md:text-xl"

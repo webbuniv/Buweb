@@ -1,16 +1,26 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import SectionTitle from "@/components/Common/SectionTitle"
 import School from "@/components/school/School"
-
+import {getDeanBySchool} from "@/lib/actions/staff.actions"
+import { staffItem } from "@/lib/types"
 
 
 export default function SchoolOfScience() {
+        const [dean, setDean] = useState<staffItem | null>(null);
+
+        useEffect(()=>{
+                const fetchDean = async () => {
+                        const deanData = await getDeanBySchool("School of Science and Technology");
+                        setDean(deanData);
+                }
+                fetchDean();
+        }, [])
   return (
     <div className="container-fluid">
       <School
@@ -20,8 +30,8 @@ export default function SchoolOfScience() {
           "/images/schools/lab1.jpg",
           "/images/nav/labs.jpg",
         ]}
-        dean="DR. NAGWOVUMA MARGARET"
-        deanImage="/blank/blank_girl.jpg"
+        dean={dean?.name}
+        deanImage={dean?.photoUrl}
         message="As technology evolves, so are our teaching approaches. We prepare you for current and future industrial revolutions, making you ready to solve tomorrow's challenges."
         preamble="The School of Science and Technology prepares professionals to harness the potential of computer and information sciences to provide relevant solutions. Our faculty and students are engaged in ongoing research projects and development of computer solutions in areas of education, health, public administration, information management, e-commerce, and agriculture."
         goal="Empowering Innovative Minds"
