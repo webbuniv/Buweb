@@ -1,14 +1,25 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import SectionTitle from "@/components/Common/SectionTitle"
 import School from "@/components/school/School"
+import {getDeanBySchool} from "@/lib/actions/staff.actions"
+import { staffItem } from "@/lib/types"
 
 
 export default function SchoolOfTheology() {
   const [activeTab, setActiveTab] = useState("theology")
+  const [dean, setDean] = useState<staffItem | null>(null);
+
+        useEffect(()=>{
+                const fetchDean = async () => {
+                        const deanData = await getDeanBySchool("School of Theology");
+                        setDean(deanData);
+                }
+                fetchDean();
+        }, [])
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab)
@@ -25,8 +36,8 @@ export default function SchoolOfTheology() {
         title="School of Theology"
         subtitle="The School of Theology is a place where students can learn about the Bible and theology"
         topImg={["/images/schools/theology.jpg"]}
-        dean="DR ANTHONY ACHIGA"
-        deanImage="/images/schools/Achiga.jpg"
+        dean={dean?.name}
+        deanImage={dean?.photoUrl || "/blank/blank.jpg"}
         message="The School of Theology and Religious Studies believes that God is the Creator and Sustainer of the universe. In love He sent His Son Jesus Christ to atone for the sins of humanity. The same God has commissioned us to advance His work by pointing fallen human beings to the great sacrifice at Calvary in preparation for the return of our Lord and Savior Jesus Christ."
         preamble="The school of Theology and Religious Studies exists to provide spiritual, academic, physical and social development in preparing pastors, evangelists, teachers, counselors, chaplains, leaders, community development promoters and others, for excellence in service of the Seventh-day Adventist Church and the world community. Areas of emphasis include the following: proclamation of the three angels message (Revelation 14:6-12), biblical based education, research and publication, and field practical skills."
         goal="I Will Go."

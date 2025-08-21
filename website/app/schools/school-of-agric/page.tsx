@@ -6,18 +6,30 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import SectionTitle from "@/components/Common/SectionTitle"
 import School from "@/components/school/School"
+import {getDeanBySchool} from "@/lib/actions/staff.actions"
+import { staffItem } from "@/lib/types"
+import { useEffect, useState } from "react"
 
 
 
 export default function SchoolOfAgric() {
+        const [dean, setDean] = useState<staffItem | null>(null);
+
+        useEffect(()=>{
+                const fetchDean = async () => {
+                        const deanData = await getDeanBySchool("School of Agriculture and Applied Sciences");
+                        setDean(deanData);
+                }
+                fetchDean();
+        }, [])
   return (
     <div className="container-fluid">
       <School
         title="School of Agriculture and Applied Sciences"
         subtitle="Training scientists and technicians for varying global environments"
         topImg={["/images/schools/agric.jpg"]}
-        dean="ASSOC. PROF. PAUL NAMPALA"
-        deanImage="/images/lecturers/nampala.JPG"
+        dean={dean?.name}
+        deanImage={dean?.photoUrl}
         message="Welcome to the School of Agricultural and Applied Sciences, the niche of Bugema University. We continue to make astronomical steps in working with local rural communities to positively change their livelihoods with minimal impact on the environment. We welcome both students and faculty who wish to learn, exchange knowledge, and collaborate with other faculties around the world to meet global sustainable development goals and ensure the future of humanity."
         preamble="Agriculture contributes over 25% directly and 29% indirectly to Uganda's GDP and provides income to over 75% of Ugandans. Modern agriculture is complex, requiring specialized professionals who can be producers and provide skills for research, innovation, and management of crises in agriculture. Our programs are designed to address specific setbacks to sustainable agricultural productivity and national development through training and producing graduates with specialized skills in various agricultural fields."
         goal="The Land a Resource"
