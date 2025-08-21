@@ -21,15 +21,15 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
     }
 
-    // Validate student ID format
-    if (!validateStudentId(body.studentId)) {
-      return NextResponse.json(
-        {
-          error: "Invalid student ID format. Expected format: YY/XXX/BU/R/NNNN (e.g., 21/BCC/BU/R/0019)",
-        },
-        { status: 400 },
-      )
-    }
+    // // Validate student ID format
+    // if (!validateStudentId(body.studentId)) {
+    //   return NextResponse.json(
+    //     {
+    //       error: "Invalid student ID format. Expected format: YY/XXX/BU/R/NNNN (e.g., 21/BCC/BU/R/0019)",
+    //     },
+    //     { status: 400 },
+    //   )
+    // }
 
     const { db } = await connectToDatabase()
 
