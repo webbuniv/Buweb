@@ -8,48 +8,23 @@ import { Button } from "@/components/ui/button"
 import SectionTitle from "@/components/Common/SectionTitle"
 import School from "@/components/school/School"
 
-const lecturers = [
-  {
-    name: "Mr. Muwanga Kosea Erasto",
-    image: "/images/lecturers/kosea.JPG",
-    qualification: "HOD. Computing and Informatics ",
-  },
-  {
-    name: "Mr. Kasibe Isima Isaiah",
-    image: "/images/lecturers/kasibe.JPG",
-    qualification: "HOD. Life and Physical Sciences",
-  },
-  {
-    name: "Dr. Opio Peter",
-    image: "/blank/blank.jpg",
-    qualification: "Lecturer (Life and Physical)",
-  },
-  {
-    name: "Mrs. Nantege Hellen",
-    image: "/blank/blank_girl.jpg",
-    qualification: "Lecturer (Computing and Informatics)",
-  },
-  // Add more lecturers as needed
-]
+
 
 export default function SchoolOfScience() {
   return (
-    <div className="container mx-auto px-4 py-8 mt-14">
+    <div className="container-fluid">
       <School
         title="School of Science and Technology"
         subtitle="Empowering Innovative Minds for Tomorrow's Challenges"
         topImg={[
           "/images/schools/lab1.jpg",
           "/images/nav/labs.jpg",
-          "/images/schools/computer-lab.jpg",
-          "/images/schools/science-experiment.jpg",
         ]}
         dean="DR. NAGWOVUMA MARGARET"
         deanImage="/blank/blank_girl.jpg"
         message="As technology evolves, so are our teaching approaches. We prepare you for current and future industrial revolutions, making you ready to solve tomorrow's challenges."
         preamble="The School of Science and Technology prepares professionals to harness the potential of computer and information sciences to provide relevant solutions. Our faculty and students are engaged in ongoing research projects and development of computer solutions in areas of education, health, public administration, information management, e-commerce, and agriculture."
         goal="Empowering Innovative Minds"
-        lecturers={lecturers}
       />
 
       <SectionTitle

@@ -8,32 +8,11 @@ import { Button } from "@/components/ui/button"
 import SectionTitle from "@/components/Common/SectionTitle"
 import School from "@/components/school/School"
 
-const lecturers = [
-  {
-    name: "Mr.Samuel Hafashimana",
-    image: "/blank/blank.jpg",
-    qualification: "Head of Department Arts Education",
-  },
-  {
-    name: "Mr.Abel Magoola",
-    image: "/blank/blank.jpg",
-    qualification: "Head of Department Science Education",
-  },
-  {
-    name: "Mr.Busiku Joseph",
-    image: "/blank/blank.jpg",
-    qualification: "Lecturer (Science Education)",
-  },
-  {
-    name: "Mrs.Womeli Annet Mutaawe",
-    image: "/blank/blank_girl.jpg",
-    qualification: "Lecturer (Arts Education)",
-  },
-]
+
 
 export default function SchoolOfEducation() {
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container-fluid">
       <School
         title="School of Education"
         subtitle="Because We Are, The World Is..."
@@ -43,7 +22,6 @@ export default function SchoolOfEducation() {
         message="Having made a choice to join the school of education Bugema University, I take this opportunity to welcome you and assure you that you have made the best decision. As school of education, we look forward to serving you with a complete package."
         preamble="The School of Education believes that a true teacher is one that is mentally, physically and spiritually sound to impart the same virtues in his/her learners making them best suited for service to God and mankind in this world and in the world to come."
         goal="Train educators in the light of the Seventh day Adventist philosophy of education, which places emphasis on restoring the image of God in mankind through a harmonious development of the physical, mental, spiritual and social powers."
-        lecturers={lecturers}
       />
 
       <SectionTitle

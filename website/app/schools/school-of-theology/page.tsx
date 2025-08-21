@@ -6,25 +6,6 @@ import Link from "next/link"
 import SectionTitle from "@/components/Common/SectionTitle"
 import School from "@/components/school/School"
 
-const lecturers = [
-  {
-    name: "Mr. ANTHONY ACHIGA",
-    image: "/images/schools/Achiga.jpg",
-    qualification: "Dean Of Theology",
-  },
-  {
-    name: "DR Javan K. Halerimana",
-    image: "/blank/blank.jpg",
-    qualification: "HOD Department of Theology",
-  },
-  {
-    name: "Mr. Kaahwa Bright Amos",
-    image: "/blank/blank.jpg",
-    qualification: "HOD Department of Religious Stidies",
-  },
-
-  // Add more lecturers as needed
-]
 
 export default function SchoolOfTheology() {
   const [activeTab, setActiveTab] = useState("theology")
@@ -39,7 +20,7 @@ export default function SchoolOfTheology() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 mb-10">
+    <div className="container-fluid">
       <School
         title="School of Theology"
         subtitle="The School of Theology is a place where students can learn about the Bible and theology"
@@ -49,7 +30,6 @@ export default function SchoolOfTheology() {
         message="The School of Theology and Religious Studies believes that God is the Creator and Sustainer of the universe. In love He sent His Son Jesus Christ to atone for the sins of humanity. The same God has commissioned us to advance His work by pointing fallen human beings to the great sacrifice at Calvary in preparation for the return of our Lord and Savior Jesus Christ."
         preamble="The school of Theology and Religious Studies exists to provide spiritual, academic, physical and social development in preparing pastors, evangelists, teachers, counselors, chaplains, leaders, community development promoters and others, for excellence in service of the Seventh-day Adventist Church and the world community. Areas of emphasis include the following: proclamation of the three angels message (Revelation 14:6-12), biblical based education, research and publication, and field practical skills."
         goal="I Will Go."
-        lecturers={lecturers}
       />
 
       <div className="flex flex-col gap-2 justify-center mx-auto">

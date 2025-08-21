@@ -14,24 +14,7 @@ import SectionTitle from "@/components/Common/SectionTitle"
 import School from "@/components/school/School"
 import { Calendar, GraduationCap, HeartPulse, Stethoscope, Users, Award, BookOpen } from "lucide-react"
 
-const lecturers = [
-  
-  {
-    name: "Mrs.Jackline Nakimuli",
-    image: "/blank/blank_girl.jpg",
-    qualification: "Head of Department Nursing and Midwifery",
-  },
-  {
-    name: "Mrs.Agnes Katusabe",
-    image: "/blank/blank_girl.jpg",
-    qualification: "Principal (Certificate and Diploma)",
-  },
-  {
-    name: "Mr.Awio Alex",
-    image: "/blank/blank.jpg",
-    qualification: "Lecturer (Diploma in Nursing)",
-  },
-]
+
 
 const testimonials = [
   {
@@ -119,7 +102,7 @@ export default function SchoolOfHealth() {
   const [activeTestimonial, setActiveTestimonial] = useState(0)
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container-fluid">
       <School
         title="School of Health"
         subtitle="Developing compassionate healthcare professionals through excellence in education, research, and service"
@@ -129,7 +112,6 @@ export default function SchoolOfHealth() {
         message="The School of Health at Bugema University is dedicated to preparing healthcare professionals who combine clinical excellence with compassionate care. Our innovative curriculum integrates theoretical knowledge with practical skills, ensuring our graduates are ready to address the complex health challenges of our communities and beyond. We are committed to advancing health equity through education, research, and service."
         preamble=""
         goal=""
-        lecturers={lecturers}
       />
 
       {/* Stats Section */}
