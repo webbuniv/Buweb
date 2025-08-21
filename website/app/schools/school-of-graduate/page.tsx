@@ -7,33 +7,33 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import SectionTitle from "@/components/Common/SectionTitle"
 import School from "@/components/school/School"
+import {getDeanBySchool} from "@/lib/actions/staff.actions"
+import { staffItem } from "@/lib/types"
+import { useState, useEffect } from "react"
 
-const lecturers = [
-  {
-    name: "Prof. Israel Kibirige",
-    image: "/blank/blank.jpg",
-    qualification: "Ph.D. in Education",
-  },
-  {
-    name: "Dr. Rosette Kabuye",
-    image: "/images/lecturers/rosette-kabuye.jpg",
-    qualification: "Ph.D. in Business Administration",
-  },
-]
+
 
 export default function SchoolOfGraduateStudies() {
+        const [dean, setDean] = useState<staffItem | null>(null);
+
+        useEffect(()=>{
+                const fetchDean = async () => {
+                        const deanData = await getDeanBySchool("School of Graduate Studies");
+                        setDean(deanData);
+                }
+                fetchDean();
+        }, [])
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container-fluid">
       <School
         title="School of Graduate Studies"
         subtitle="The School of Graduate Studies (SGS) is the administrative body of the graduate programs"
         topImg={["/images/features/grad.jpg"]}
-        dean="PROF. ISRAEL KIBIRIGE"
-        deanImage="/blank/blank.jpg"
+        dean={dean?.name}
+        deanImage={dean?.photoUrl || "/images/lecturers/blank.jpg"}
         message="School of Graduate Studies at Bugema University offers advanced education and research in a novel process that creates knowledge looking at the bigger picture and probing the importance of discovering something new or facts chosen in the field of study. We are a self-sustaining graduate school producing skilled manpower for diverse development. Graduate students are the keystones of a vibrant, research-active university, threading together all aspects of campus life."
         preamble="Bugema University prides itself in offering relevant accredited and chartered graduate programs. The graduate courses offered at the university are well selected to meet the demands of students, and the satisfaction of stakeholders and society. Many of the activities of the graduate school are research based. Students are motivated to be creative enough to initiate research-based activities which are geared towards finding solutions to challenges of the community."
         goal="Provide access to post graduate studies to the community."
-        lecturers={lecturers}
       />
 
       <SectionTitle title="Our Programs" paragraph="Explore our diverse range of graduate programs" />

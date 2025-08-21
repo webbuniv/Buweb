@@ -98,3 +98,17 @@ export interface ImageItem {
   description?:string
   isLiked?: boolean
 }
+
+export interface staffItem {
+        name:  string,
+        department: string,
+        school: string,
+        role: string,
+        qualification: string,
+        photoUrl: string,
+        isDean: boolean,
+        isHOD: boolean,
+        UploadedBy: string,
+        id: string,
+        date: string,
+}
