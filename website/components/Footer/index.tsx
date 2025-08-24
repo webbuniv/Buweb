@@ -42,7 +42,14 @@ const Footer = () => {
   return (
     <>
       <footer
-        className="wow fadeInUp relative z-10 bg-primary bg-opacity-5 pt-16 md:pt-20 lg:pt-24"
+        className="wow fadeInUp relative z-10  pt-16 md:pt-20 lg:pt-24"
+        style={{ backgroundImage: "url('/images/footer/bugema ariel view.jpg')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                // backdropFilter: 'blur(50px)',
+                backgroundBlendMode:"multiply",
+                backgroundColor: 'rgba(0, 0, 0, 0.5)'
+         }}
         data-wow-delay=".1s"
         
       >
@@ -67,7 +74,7 @@ const Footer = () => {
                     height={30}
                   />
                 </Link>
-                <h1 className="mb-9 text-base font-medium leading-relaxed text-body-color">
+                <h1 className="mb-9 text-base font-medium leading-relaxed text-white">
                   Bugema University, P.O. Box 6529 Kampala, Uganda
                 </h1>
                 <div className="flex items-center justify-center">
@@ -197,15 +204,15 @@ const Footer = () => {
             </div>
 
             <div className="hidden md:block w-full md:pr-6 px-4 md:px-0 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
-              <div className="mb-12 lg:mb-16">
-                <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
+              <div className="mb-12 lg:mb-16 ">
+                <h2 className="mb-10 text-xl font-extrabold text-white dark:text-white">
                   Useful Links
                 </h2>
-                <ul>
+                <ul className="text-white font-light" >
                   <li>
                     <Link
                       href="https://crm.acu.ac.uk/civicrm/mailing/view?reset=1&id=1854&cid=193430&cs=0ec7ff44c2144ca272008e8d3379f78e_1720621804_336"
-                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                      className="mb-4 inline-block text-base   hover:text-primary"
                     >
                       {" "}
                       ACU Synthesis: July 2024{" "}
@@ -214,7 +221,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="https://erms.bugemauniv.ac.ug/buerms/"
-                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                      className="mb-4 inline-block text-base   hover:text-primary"
                     >
                       {" "}
                       ERMS Staff Login{" "}
@@ -223,7 +230,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="https://erms.bugemauniv.ac.ug/student/login"
-                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                      className="mb-4 inline-block text-base   hover:text-primary"
                     >
                       {" "}
                       Student Portal{" "}
@@ -232,7 +239,7 @@ const Footer = () => {
                   {/* <li>
                     <Link
                       href="https://elearning.bugemauniv.ac.ug/"
-                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                      className="mb-4 inline-block text-base   hover:text-primary"
                     >
                       {" "}
                       E-Learning{" "}
@@ -241,7 +248,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="https://www.myloft.xyz/"
-                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                      className="mb-4 inline-block text-base   hover:text-primary"
                     >
                       {" "}
                       Library{" "}
@@ -250,7 +257,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="https://e-library.bugemauniv.ac.ug/"
-                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                      className="mb-4 inline-block text-base   hover:text-primary"
                     >
                       {" "}
                       E-Library{" "}
@@ -261,19 +268,19 @@ const Footer = () => {
             </div>
 
             <div className="md:hidden w-full md:pr-6 px-4 md:px-0 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
-              <div className="mb-12 lg:mb-16">
-                <div className="flex justify-between">
-                  <h2 className=" text-xl font-bold text-black dark:text-white">
+              <div className="mb-12 lg:mb-16 px-4">
+                <div className="flex justify-between text-white">
+                  <h2 className=" text-xl font-bold  dark:text-white">
                     {isOpen.usefulLinks ? (
                       <button
-                        className="text-left focus:outline-none mb-4 block"
+                        className="text-left focus:outline-none mb-4 block text-white"
                         onClick={() => toggleDropdown("usefulLinks")}
                       >
                         Useful Links
                       </button>
                     ) : (
                       <button
-                        className="text-left focus:outline-none mb-4 block"
+                        className="text-left focus:outline-none mb-4 block text-white"
                         onClick={() => toggleDropdown("usefulLinks")}
                       >
                         Useful Links
@@ -283,11 +290,11 @@ const Footer = () => {
                   <FaChevronDown />
                 </div>
                 {isOpen.usefulLinks && (
-                  <ul className="list-none">
+                  <ul className="list-none text-white font-light">
                     <li>
                       <Link
                         href="https://crm.acu.ac.uk/civicrm/mailing/view?reset=1&id=1854&cid=193430&cs=0ec7ff44c2144ca272008e8d3379f78e_1720621804_336"
-                        className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                        className="mb-4 inline-block text-base   hover:text-primary"
                       >
                         {" "}
                         ACU Synthesis: July 2024{" "}
@@ -296,7 +303,7 @@ const Footer = () => {
                     <li>
                       <Link
                         href="https://erms.bugemauniv.ac.ug/buerms/"
-                        className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                        className="mb-4 inline-block text-base   hover:text-primary"
                       >
                         {" "}
                         ERMS Staff Login{" "}
@@ -305,7 +312,7 @@ const Footer = () => {
                     <li>
                       <Link
                         href="https://erms.bugemauniv.ac.ug/student/"
-                        className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                        className="mb-4 inline-block text-base   hover:text-primary"
                       >
                         {" "}
                         Student Portal{" "}
@@ -314,7 +321,7 @@ const Footer = () => {
                     {/* <li>
                       <Link
                         href="https://elearning.bugemauniv.ac.ug/"
-                        className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                        className="mb-4 inline-block text-base   hover:text-primary"
                       >
                         {" "}
                         E-Learning{" "}
@@ -323,7 +330,7 @@ const Footer = () => {
                     <li>
                       <Link
                         href="/"
-                        className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                        className="mb-4 inline-block text-base   hover:text-primary"
                       >
                         {" "}
                         Library{" "}
@@ -332,7 +339,7 @@ const Footer = () => {
                     <li>
                       <Link
                         href="/"
-                        className="inline-block text-base font-medium text-body-color hover:text-primary"
+                        className="inline-block text-base   hover:text-primary"
                       >
                         {" "}
                         E-Library{" "}
@@ -492,7 +499,7 @@ const Footer = () => {
 
             <div className="hidden md:block w-full md:pl-6 px-4 md:px-0 md:w-1/2 lg:w-4/12 xl:w-3/12">
               <div className="mb-12 lg:mb-16">
-                <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
+                <h2 className="mb-10 text-xl font-extrabold text-white dark:text-white">
                   Useful Downloads
                 </h2>
                 <ul>
@@ -502,7 +509,7 @@ const Footer = () => {
                         href={file.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                        className="mb-4 inline-block text-base font-light text-white  hover:text-primary"
                       >
                         {" "}
                         {file.name}{" "}
@@ -514,20 +521,20 @@ const Footer = () => {
             </div>
 
             <div className="md:hidden w-full md:pr-6 px-4 md:px-0 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
-              <div className="mb-12 lg:mb-16">
-                <div className="flex justify-between">
-                  <h2 className=" text-xl font-bold text-black dark:text-white">
-                    {isOpen.policies ? (
+              <div className="mb-12 lg:mb-16  px-4">
+                <div className="flex justify-between text-white">
+                  <h2 className=" text-xl font-bold text-white dark:text-white">
+                    {isOpen.downloads ? (
                       <button
                         className="text-left focus:outline-none mb-4 block"
-                        onClick={() => toggleDropdown("policies")}
+                        onClick={() => toggleDropdown("downloads")}
                       >
                         Useful Downloads
                       </button>
                     ) : (
                       <button
                         className="text-left focus:outline-none mb-4 block"
-                        onClick={() => toggleDropdown("policies")}
+                        onClick={() => toggleDropdown("downloads")}
                       >
                         Useful Downloads
                       </button>
@@ -535,7 +542,7 @@ const Footer = () => {
                   </h2>
                   <FaChevronDown />
                 </div>
-                {isOpen.policies && (
+                {isOpen.downloads && (
                   <ul className="list-none">
                     {files.map((file, index) => (
                       <li key={index}>
@@ -543,10 +550,10 @@ const Footer = () => {
                           href={file.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                          className="mb-4 inline-block  font-light text-white   hover:text-primary"
                         >
-                          {" "}
-                          {file.name}{" "}
+
+                          {file.name}
                         </Link>
                       </li>
                     ))}
@@ -561,20 +568,20 @@ const Footer = () => {
           <div className="container md:flex md:justify-center text-center md:space-x-12">
             <Link
               href="/"
-              className="text-center hover:scale-105 hover:transition-all hover:duration-300 text-base text-body-color dark:text-white"
+              className="text-center hover:scale-105 hover:transition-all hover:duration-300 text-base text-white"
             >
               &#169; Bugema University
             </Link>
-            <h1 className="text-center text-base text-body-color hover:scale-105 hover:transition-all hover:duration-300 dark:text-white">
+            <h1 className="text-center text-base text-white hover:scale-105 hover:transition-all hover:duration-300">
               <a href="tel:+256-312-351-400">Phone: +256-312-351-400</a>
             </h1>
             <Link
               href="https://www.bugemauniv.ac.ug"
-              className="text-center hover:scale-105 hover:transition-all hover:duration-300 text-base text-body-color dark:text-white"
+              className="text-center hover:scale-105 hover:transition-all hover:duration-300 text-base text-white"
             >
               Website: www.bugemauniv.ac.ug
             </Link>
-            <h1 className="text-center text-base hover:scale-105  hover:transition-all hover:duration-300 text-body-color dark:text-white">
+            <h1 className="text-center text-base hover:scale-105  hover:transition-all hover:duration-300 text-white">
               <a href="mailto:info@bugemauniv.ac.ug">
                 Email: info@bugemauniv.ac.ug
               </a>
@@ -656,6 +663,7 @@ const Footer = () => {
             </defs>
           </svg>
         </div>
+
         <div className="absolute left-0 bottom-24 z-[-1]">
           <svg
             width="79"
@@ -772,6 +780,7 @@ const Footer = () => {
             </defs>
           </svg>
         </div>
+
       </footer>
     </>
   );
