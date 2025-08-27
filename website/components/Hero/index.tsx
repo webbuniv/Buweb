@@ -27,10 +27,10 @@ const heroMedia: HeroMedia[] = [
   },
     {
     type: "image",
-    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68a3557a001ec1c995f4/view?project=674dcf7b003d57db960a&mode=admin",
-    title: "A Legacy Acknowledged.",
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68af0e5e003ba1ea676a/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "Bugema University Administration tours the upcoming Science Complex",
     description:
-      "Bugema University Council chairman   Dr Dalton Ssegawa (left) appreciates the outstanding contribution of Pr Dr Maka Ndimukika (right) for serving as  Chancellor of Bugema University.",
+      "This is to ensure gradual progress towards providing students with a state of the art learning facility.",
     link: "https://www.bugemauniv.ac.ug/news/68a35720001f64e3d5a3",
     linkText: "Read More",
   },

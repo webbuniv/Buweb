@@ -193,13 +193,13 @@ const Foot = () =>{
                   {/*###=============== A  C  C  O  M  M  O  D  A  T  I  O  N ================###*/}
                   <div className=" ml-[5%] mt-24 items-center  fade-in-slow h-[60%] w-[20%] " id='courses' > 
                         <ul>
-                        <li>
-                              <div className="mr-2 my-5  ">
-                              <Link href={'/studentlife'}>
-                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} onClick={onClose} className='schools text-black font-bold' > Students Life </h1> 
-                              </Link>
-                              </div>
-                              </li>
+                                <li>
+                                <div className="mr-2 my-5  ">
+                                <Link href={'/studentlife'}>
+                                <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} onClick={onClose} className='schools text-black font-bold' > Students Life </h1> 
+                                </Link>
+                                </div>
+                                </li>
 
                               {/* <li>
                               <div className="mr-2 my-5  ">
@@ -208,23 +208,48 @@ const Foot = () =>{
                               
                               </div>
                               </li> */}
-                              
                               <li>
-                              <div className="mr-2 my-5 fade-in-slow  ">
-                              <Link href={'/religious/religious'}>
-                                    <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Religious Matters</h1> 
+                              <div className="mr-2 my-5 ">
+                              
+                              <Link href={'https://res.cloudinary.com/duaqiajka/raw/upload/FEE_STRUCT_2022-2023_bnyls8.xlsx'} >
+                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Tution Fees </h1> 
                               </Link>
-                                 </div>   
-                              <div className="mr-2 my-5 slider slide--slow ">
-                                    <Link href={'/news'}>
-                                          <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>News</h1>
-                                    </Link>
+                              
                               </div>
                               </li>
                               
                               <li>
-
-
+                              <div className="mr-2 my-5  ">
+                                    <Link href={'/work_program'}> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Funding Your Studies </h1> 
+                                    </Link>
+                                    
+                              </div>
+                              </li>
+                              
+                              
+                              <li>
+                              <div className="mr-2 my-5  ">
+                                    <Link href={'/https://imis.unche.or.ug:81/frmTrnStudentPayment.aspx'}> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > NHCE Fees </h1> 
+                                    </Link>
+                              </div>
+                              </li>
+                              
+                                <li>
+                                <div className="mr-2 my-5 fade-in-slow  ">
+                                <Link href={'/religious/religious'}>
+                                        <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Religious Matters</h1> 
+                                </Link>
+                                        </div>   
+                                <div className="mr-2 my-5 slider slide--slow ">
+                                        <Link href={'/news'}>
+                                                <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>News</h1>
+                                        </Link>
+                                </div>
+                                </li>
+                              
+                              <li>
                               <div className="mr-2 my-5 slider slide--fast ">
                                      
                                     <Link href={'/events'}>
