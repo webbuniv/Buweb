@@ -209,7 +209,7 @@ const Footer = () => {
                   Useful Links
                 </h2>
                 <ul className="text-white font-light" >
-                  <li>
+                  {/* <li>
                     <Link
                       href="https://crm.acu.ac.uk/civicrm/mailing/view?reset=1&id=1854&cid=193430&cs=0ec7ff44c2144ca272008e8d3379f78e_1720621804_336"
                       className="mb-4 inline-block text-base   hover:text-primary"
@@ -217,7 +217,7 @@ const Footer = () => {
                       {" "}
                       ACU Synthesis: July 2024{" "}
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link
                       href="https://erms.bugemauniv.ac.ug/buerms/"
@@ -292,13 +292,13 @@ const Footer = () => {
                 {isOpen.usefulLinks && (
                   <ul className="list-none text-white font-light">
                     <li>
-                      <Link
+                      {/* <Link
                         href="https://crm.acu.ac.uk/civicrm/mailing/view?reset=1&id=1854&cid=193430&cs=0ec7ff44c2144ca272008e8d3379f78e_1720621804_336"
                         className="mb-4 inline-block text-base   hover:text-primary"
                       >
                         {" "}
                         ACU Synthesis: July 2024{" "}
-                      </Link>
+                      </Link> */}
                     </li>
                     <li>
                       <Link

@@ -122,7 +122,7 @@ const handelScroll = () =>{
                                     </Link>
                               </div>
                               <div className="mr-2 my-5  slider slide--slow ">
-                                    <Link href={"https://kc.bugemauniv.ac.ug/"}>
+                                    <Link href={"https://kampalacampus.bugemauniv.ac.ug/"}>
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' ><span id='Kampala' className='animated'>Kampala Campus</span></h1> 
                                     </Link>
                               </div>

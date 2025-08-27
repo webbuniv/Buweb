@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function MatureEntryAd() {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
 //   useEffect(() => {
 //     // Button is displayed after scrolling for 500 pixels

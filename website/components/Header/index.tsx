@@ -256,7 +256,7 @@ const Header = () => {
                       <div
                         className={`nav cursor-pointer hover flex py-2    font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
-                        onClick={third_modal}
+                        onMouseEnter={third_modal}
                       >
                         <span className={showModel2 ? "active" : ""}>
                           Research
