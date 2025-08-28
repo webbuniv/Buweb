@@ -31,7 +31,7 @@ const heroMedia: HeroMedia[] = [
     title: "Bugema University Administration tours the upcoming Science Complex",
     description:
       "This is to ensure gradual progress towards providing students with a state of the art learning facility.",
-    link: "https://www.bugemauniv.ac.ug/news/68a35720001f64e3d5a3",
+    link: "https://www.bugemauniv.ac.ug/news/68af1c190013b091c145",
     linkText: "Read More",
   },
     {
