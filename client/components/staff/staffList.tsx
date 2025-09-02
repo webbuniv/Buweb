@@ -221,6 +221,13 @@ export function StaffList() {
                       </Badge>) : (
                         <h1></h1>
                       )}
+
+                      {item.isAdmin ? (
+                        <Badge variant={"default" }>
+                        Admin
+                      </Badge>) : (
+                        <h1></h1>
+                      )}
                       </div>
                       <div className="flex items-center text-sm text-muted-foreground">
                         <Calendar className="mr-1 h-3 w-3" />

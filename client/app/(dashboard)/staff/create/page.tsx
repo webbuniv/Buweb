@@ -23,6 +23,7 @@ const AddStaffForm = ()=> {
         const [qualification, setQualification] = useState("")
         const [isHOD, setisHod] = useState(false)
         const [isDEAN, setIsDEAN] = useState(false)
+        const [isAdmin, setisAdmin] = useState(false)
         // const [categories, setCategories] = useState<{category: string}[]>([])
         const [featuredImage, setFeaturedImage] = useState<string>("")
         const [imageUrl, setImageUrl] = useState("");
@@ -38,6 +39,7 @@ const AddStaffForm = ()=> {
         formData.append("qualification", qualification);
         formData.append("isHOD", isHOD ? "true" : "false");
         formData.append("isDean", isDEAN ? "true" : "false");
+        formData.append("isAdmin", isAdmin?"true":"false")
         const save = await CreateNewStaff(formData)
         setSuccess(true)
         if(!save.success){
@@ -162,6 +164,13 @@ useEffect(() => {
                         onCheckedChange={()=>setIsDEAN(prev => !prev)}
                         />
                         <Label className="text-sm font-medium">DEAN</Label>
+                </div>
+                <div className="flex gap-2" >
+                                <Checkbox
+                        checked={isAdmin}
+                        onCheckedChange={()=>setisAdmin(prev => !prev)}
+                        />
+                        <Label className="text-sm font-medium">isAdmin</Label>
                 </div>
           </div>
            </div>

@@ -48,6 +48,9 @@ const EnhancedNavbar: React.FC = () => {
             >
               StudentsPortal
             </DropdownNavLink>
+            <AnimatedNavLink href="/administrator" icon={<FaUserCircle size={14} />}>
+              Administration
+            </AnimatedNavLink>
             <motion.a
               href="https://erms.bugemauniv.ac.ug/application/"
               target="_blank"
