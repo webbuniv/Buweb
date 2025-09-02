@@ -6,7 +6,7 @@ import { ChevronDownIcon } from '@heroicons/react/solid'
 
 const Hero = () => {
   return (
-    <div className="relative h-screen flex items-center justify-center overflow-hidden md:mt-[90px]">
+    <div className="relative h-screen flex items-center justify-center overflow-hidden md:mt-[9px]">
       <div
         className="absolute inset-0 z-0"
         style={{

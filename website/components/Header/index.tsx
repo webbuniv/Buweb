@@ -142,6 +142,7 @@ const Header = () => {
         "religious",
         "events",
         "sports",
+        "administrator"
  ]
   const checkPathname = pathNames.some((path) => pathname?.includes(path));
 

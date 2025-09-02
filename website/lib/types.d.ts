@@ -108,6 +108,7 @@ export interface staffItem {
         photoUrl: string,
         isDean: boolean,
         isHOD: boolean,
+        isAdmin:boolean,
         UploadedBy: string,
         id: string,
         date: string,

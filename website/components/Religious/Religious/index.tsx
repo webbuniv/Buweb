@@ -17,7 +17,7 @@ export const heroMedia = [
   // { type: 'image', src: "/images/church/prree.jpeg" },
   
   { type: 'image', src: "/images/graduation/gradsb.jpg" },
-  { type: 'image', src: "/images/graduation/ca.jpeg" },
+//   { type: 'image', src: "/images/graduation/ca.jpeg" },
   { type: 'image', src: "/images/graduation/cc.jpeg"},
   // { type: 'image', src: "/images/graduation/gradsb2.jpeg"},
   // { type: 'image', src: "/images/graduation/gradsb3.jpeg"},
@@ -45,7 +45,7 @@ const sliderSettings = {
 const Religious = () => {
   return (
     <>
-      <section id="home" className="hidden md:block hero-section w-full lg:h-[800px] h-[700px] mt-[120px] relative z-10 mb-[100px]">
+      <section id="home" className="hidden md:block hero-section w-full lg:h-[800px] h-[700px] mt-[10px] relative z-10 mb-[100px]">
         <Slider {...sliderSettings}>
           {heroMedia.map((media, index) => (
             <HeroSlide key={index} media={media} />

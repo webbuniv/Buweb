@@ -26,6 +26,7 @@ export interface staffItem {
         photoUrl: string,
         isDean: boolean,
         isHOD: boolean,
+        isAdmin:boolean,
         UploadedBy: string,
         id: string,
         date: string,
@@ -50,6 +51,7 @@ export async function CreateNewStaff(formData: FormData): Promise<StaffResponse>
       photoUrl: formData.get("photoUrl") as string,
       isDean: formData.get("isDean") === "true" ? true : false,
       isHOD: formData.get("isHOD") === "true" ? true : false,
+      isAdmin:formData.get("isAdmin")==="true"? true:false,
       UploadedBy: currentUser?.fullName || "Anonymous",
     })
     revalidatePath("/staff/create")
@@ -82,6 +84,7 @@ export const getAllStaff = async () => {
         qualification: staff.qualification,
         isDean: staff.isDean,
         isHOD: staff.isHOD,
+        isAdmin:staff.isAdmin,
         date: staff.$createdAt,
         UploadedBy: staff.UploadedBy ||"Anonymous", 
     })) as staffItem[]
@@ -129,6 +132,7 @@ export const getStaffById = async (id: string): Promise<staffItem | null> => {
       qualification: staff.qualification,
       isDean: staff.isDean,
       isHOD: staff.isHOD,
+      isAdmin:staff.isAdmin,
       date: staff.$createdAt,
       UploadedBy: staff.UploadedBy || "Anonymous",
     } as staffItem
@@ -167,6 +171,7 @@ export async function updateStaff(id: string, formData: FormData): Promise<Staff
       photoUrl: formData.get("photoUrl") as string,
       isDean: formData.get("isDean") === "true" ? true : false,
       isHOD: formData.get("isHOD") === "true" ? true : false,
+      isAdmin: formData.get("isAdmin") === "true" ? true : false,
       UploadedBy: currentUser?.fullName || "Anonymous",
     }
 

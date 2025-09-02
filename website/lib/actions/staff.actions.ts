@@ -68,3 +68,37 @@ export const getDeanBySchool = async(school:string)=>{
             return null;
         }
 }
+export const getAdmin = async()=>{
+        const { databases } = await createAdminClient()
+        try {
+            const adminResult = await databases.listDocuments(
+                appwriteConfig.databaseId,
+                appwriteConfig.staffCollectionId,
+                [
+                    Query.equal("isAdmin", true)
+                ]
+            )
+            // Assuming you want the first dean found
+            if (adminResult.documents.length === 0) return null;
+            const staff = adminResult.documents.map(
+                (doc) => ({
+                    id: doc.$id,
+                    name: doc.name,
+                    photoUrl: doc.photoUrl,
+                    department: doc.department,
+                    school: doc.school,
+                    role: doc.role,
+                    qualification: doc.qualification,
+                    isDean: doc.isDean,
+                    isHOD: doc.isHOD,
+                    isAdmin:doc.isAdmin,
+                    date: doc.$createdAt,
+                    UploadedBy: doc.UploadedBy || "Anonymous",
+                })
+            )
+            return staff;
+        } catch (error) {
+            handleError(error, "Failed to fetch Admin ");
+            return null;
+        }
+}

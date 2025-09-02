@@ -208,7 +208,7 @@ const Foot = () =>{
                               
                               </div>
                               </li> */}
-                              <li>
+                              {/* <li>
                               <div className="mr-2 my-5 ">
                               
                               <Link href={'https://res.cloudinary.com/duaqiajka/raw/upload/FEE_STRUCT_2022-2023_bnyls8.xlsx'} >
@@ -216,7 +216,7 @@ const Foot = () =>{
                               </Link>
                               
                               </div>
-                              </li>
+                              </li> */}
                               
                               <li>
                               <div className="mr-2 my-5  ">
