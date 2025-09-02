@@ -44,7 +44,7 @@ const School = () => {
 
                                           {v.name}
                                     </h2>
-                                    <h1 className="mb-4 text-4xl font-bold text-[#FF0000] ">{v.role}</h1>
+                                    <h1 className="mb-4 text-3xl font-bold text-[#FF0000] ">{v.role}</h1>
                               </div>
 
                         </div>
@@ -70,11 +70,10 @@ const School = () => {
                   <Image src={admin.photoUrl} alt="dean" layout="contain" width={400} height={200} className="rounded-lg" />
                   <h1 className=" text-black font-bold">{admin.name}</h1>
                   <h1 className=" text-black font-bold">{admin.qualification}</h1>
-                  <h2 className="text-xs md:text-3xl font-bold !leading-tight text-[#FF0000] dark:text-white sm:text-4xl md:text-[30px]">
+                  <h2 className="text-xs md:text-xl font-bold !leading-tight text-[#FF0000] dark:text-white sm:text-4xl md:text-[30px]">
                         {admin.role}
                   </h2>                  
                         
-                  
             </div>))}
 
             </div>
