@@ -136,7 +136,7 @@ useEffect(() => {
                 <option value="DVC-ACADEMICS"  >DVC-ACADEMICS</option>
                 <option value="DVC-FINANCE"  >DVC-FINANCE</option>
                 <option value="HUMAN-RESOURCE"  >HUMAN-RESOURCE</option>
-                <option value="CHAIR-MAN UNIVERSITY COUNCIL"  >CHAIR-MAN UNIVERSITY COUNCIL</option>
+                <option value="CHAIR-MAN-UNIVERSITY-COUNCIL"  >CHAIR-MAN-UNIVERSITY-COUNCIL</option>
               </select>
                 </div>
 
