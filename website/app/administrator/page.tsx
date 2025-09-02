@@ -1,51 +1,28 @@
 "use client";
 import Image from "next/image";
-import nurses1 from "../../public/images/nav/nurses1.jpg";
-// import image from "../../public/images/nav/labs.jpg";
-import scie from "../../public/images/scienceTech/scie.png";
-import image from "@/public/images/nav/labs.jpg";
 import { useState, useEffect } from "react";
+import {getAdmin} from "@/lib/actions/staff.actions"
+import { staffItem } from "@/lib/types"
+import Loader from "@/components/Loader/loader";
 
 const School = () => {
 
 
-      const [admin, setAdmin] = useState([]);
-      const [vc, setVc ] = useState ([null])
-      const [error, setError] = useState(null);
-      const vc_id = "668ba165d23a5f9c4719ae5b"
+      const [admin, setAdmin] = useState<staffItem[]>([]);
 
-      useEffect(() => {
-        const fetchAdmin = async () => {
-          try {
-            const response = await fetch("https://buweb.onrender.com/team", {
-              method: "GET",
-              headers: {
-                "Content-Type": "application/json",
-              },
-            });
-    
-            if (!response.ok) {
-              throw new Error("Network response was not ok");
-            }
-    
-            const data = await response.json();
+              useEffect(()=>{
+                      const fetchAdmin = async () => {
+                              const adminData = await getAdmin();
+                              setAdmin(adminData);
+                      }
+                      fetchAdmin();
+              }, [])
 
-            const reversedData = data.slice(0).reverse();
-
-            setAdmin(reversedData);
-
-            const vicechancellor = data.filter(vice => vice._id === vc_id );
-            setVc(vicechancellor);
-
-          } catch (err) {
-            setError(err.message);
-          }
-        };
-
-        fetchAdmin();
-      }, []);
-
-
+ if(!admin || admin.length===0){
+        return <div className="flex justify-center items-center h-screen" >
+                <Loader/>
+        </div>
+ }
   return (
       
       <div className=" justify-center overflow-hidden -my-14">
@@ -56,23 +33,24 @@ const School = () => {
             {/* V I C E   C H A N C E L L O R*/}
 
             <div className={` my-24 wow fadeInUp w-full flex flex-col md:flex-row justify-center items-center mx-auto`} data-wow-delay=".1s" style={{ marginBottom: "10px"}}>
-                  {vc.map((v) => (
-                        v && (
-                        <div key={v._id} className=" ">
+                  {admin.filter((v) => (
+                        v.role==="VC"
+                  )).map((v) => (
+                        <div key={v.id} className=" ">
                               <div className=" flex flex-col justify-center  items-center">
-                                    <Image src={v.image_url} alt="VC" width={400} height={200} className="rounded-lg"/>
+                                    <Image src={v.photoUrl} alt="VC" width={400} height={200} className="rounded-lg"/>
 
                                     <h2 className="mb-4 text-center text-dark font-bold  !leading-tight text-black/70 dark:text-white sm:text-4xl">
 
-                                          Prof.{v.name}
+                                          {v.name}
                                     </h2>
-                                    <h1 className="mb-4 text-4xl font-bold text-[#FF0000] ">{v.position}</h1>
+                                    <h1 className="mb-4 text-3xl font-bold text-[#FF0000] ">{v.role}</h1>
                               </div>
 
                         </div>
                         )
 
-                  ))}
+                  )}
 
             </div>
             <hr className="text-black text-3xl"/>
@@ -83,20 +61,19 @@ const School = () => {
             </div>
 
 
-      {/* L E C T U R E R S */}
 
-      <div className="my-10 ml-0  flex grid grid-cols-1  md:grid md:grid-cols-4 gap-1 gap-y-3">
-            {error && <p>Error: {error}</p>} 
-            { admin.map((admin) =>(
+
+      <div className="my-10 ml-0   grid grid-cols-1  md:grid md:grid-cols-4 gap-1 gap-y-3">
+            {/* {error && <p>Error: {error}</p>}  */}
+            { admin.filter((admin)=>admin.isAdmin && admin.role!="VC").map((admin) =>(
             <div key={admin.id} className=" flex flex-col ml-[10%] justify-center items-center">
-                  <Image src={admin.image_url} alt="dean" layout="contain" width={400} height={200} className="rounded-lg" />
+                  <Image src={admin.photoUrl} alt="dean" layout="contain" width={400} height={200} className="rounded-lg" />
                   <h1 className=" text-black font-bold">{admin.name}</h1>
-
-                  <h2 className="text-xs md:text-3xl font-bold !leading-tight text-[#FF0000] dark:text-white sm:text-4xl md:text-[30px]">
-                        {admin.position}
+                  <h1 className=" text-black font-bold">{admin.qualification}</h1>
+                  <h2 className="text-xs md:text-xl font-bold !leading-tight text-[#FF0000] dark:text-white sm:text-4xl md:text-[30px]">
+                        {admin.role}
                   </h2>                  
                         
-                  
             </div>))}
 
             </div>
