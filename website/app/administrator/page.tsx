@@ -24,8 +24,15 @@ const School = () => {
         </div>
  }
   return (
-      
-      <div className=" justify-center overflow-hidden -my-14">
+
+      <div className=" justify-center overflow-hidden -my-14 bg-white" 
+//       style={{ backgroundImage: `url("/images/hero/land1.jpg")`,
+//                         backgroundSize: 'cover',
+//                         backgroundPosition: 'center',
+//                         backgroundBlendMode: 'multiply'
+
+//                         }}
+                        >
 
             <div className=" my-24 flex flex-col gap-2">
 
@@ -54,13 +61,6 @@ const School = () => {
 
             </div>
             <hr className="text-black text-3xl"/>
-
-
-            <div >
-                  <h1 className="text-center text-4xl font-bold text-dark"> Board Members</h1>
-            </div>
-
-
 
 
       <div className="my-10 ml-0   grid grid-cols-1  md:grid md:grid-cols-4 gap-1 gap-y-3">
