@@ -18,12 +18,13 @@ interface HeroMedia {
 const heroMedia: HeroMedia[] = [
           {
     type: "image",
-    src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686658bc0026975fda0f/view?project=674dcf7b003d57db960a&mode=admin",
-    title: "BUGEMA UNIVERSITY",
+    
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68dfd6160038674ab136/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "We are now an officially Accredited Test Center (ATC) for ICDL Certification",
     description:
-      "With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity to offer you Quality education with a hands-on experience.",
+      "This means we can now administer exams for the International Certification of Digital Literacy (ICDL), the world's leading digital skills qualification..",
     link: "http://erms.bugemauniv.ac.ug/application",
-    linkText: "Apply Now",
+    linkText: "",
   },
     {
     type: "image",
