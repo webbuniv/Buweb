@@ -5,6 +5,7 @@ import Image from "next/image";
 import { format } from 'date-fns/format';
 import { getEventsById } from "@/lib/actions/events.actions";
 import DOMPurify from 'dompurify';
+import { Loader2 } from "lucide-react";
 
 type Props = {
   params: {
@@ -35,14 +36,21 @@ const EventPage = ({ params }: Props) => {
   }, [id]);
 
   if (!event) {
-    return <div>Loading...</div>; 
+    return <div className="flex flex-col justify-center items-center h-screen">
+        <Loader2 className="w-20 h-20 animate-spin text-blue-600" />
+        <p className="mt-4 text-lg text-gray-600">Loading Event details...</p>
+    </div> 
   }
   
   return (
-    <div className="pt-[120px] pb-[120px]">
-      <div className="container md:p-20">
-        <div className="flex items-center justify-center ">
-          <Image src={`${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${event.file}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`} alt={event.title} width={1200} height={100} className="custom-image" />
+    <div className="pt-[2px] pb-[120px] bg-white">
+      <div className="">
+        <div className="flex items-center justify-center  ">
+                <div className="hidden md:flex absolute top-0 left-0 w-full h-32 bg-white opacity-20 z-10"> 
+                </div>
+          <Image 
+          src={`${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${event.file}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`} 
+          alt={event.title} width={1200} height={100} className="custom-image w-full" />
         </div> 
         <h1 className="text-3xl lg:text-6xl md:text-center md:leading-relaxed font-bold mt-5">
           {event.title}
@@ -52,7 +60,7 @@ const EventPage = ({ params }: Props) => {
           <span>{event.title}</span>
         </div>
         <div
-          className="blog-content text-xl leading-loose flex flex-col gap-5 mt-5"
+          className="blog-content text-xl leading-loose flex flex-col px-4 md:px-20 gap-5 mt-5"
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(event.description) }}
         />
       </div>

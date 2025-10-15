@@ -4,6 +4,7 @@ import SingleNews from "@/components/News/SingleNews";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import Contact from "@/components/Contact";
 import { getNews } from "@/lib/actions/news.actions";
+import { Loader2 } from "lucide-react";
 
 export default function Blog() {
   const [news, setNews] = useState([]);
@@ -16,7 +17,7 @@ export default function Blog() {
           {
             searchText: "",
             sort: "$createdAt-desc",
-            limit: 2,
+            limit: 100,
           }
         );
 
@@ -29,6 +30,14 @@ export default function Blog() {
 
     fetchPosts();
   }, []);
+
+    if (!news || news.length === 0) {
+      return <div className="flex flex-col justify-center items-center h-screen">
+          <Loader2 className="w-20 h-20 animate-spin text-blue-600" />
+          <p className="mt-4 text-lg text-gray-600">Loading news ...</p>
+      </div>;
+    }
+    
 
   return (
     <>

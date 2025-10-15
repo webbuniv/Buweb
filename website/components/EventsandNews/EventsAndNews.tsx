@@ -81,7 +81,7 @@ const NewsEventsSection = () => {
   return (
     <section
       ref={ref}
-      className="py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-950 dark:via-gray-900 dark:to-slate-900 relative overflow-hidden"
+      className=" bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-950 dark:via-gray-900 dark:to-slate-900 relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-grid-slate-100 dark:bg-grid-slate-800 opacity-30" />
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-full blur-3xl" />
@@ -94,15 +94,16 @@ const NewsEventsSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-20"
         >
-          <div className="inline-flex items-center gap-3 bg-blue-100 dark:bg-blue-900/30 px-6 py-3 rounded-full mb-6">
+
+          <h2 className="mb-8 text-5xl md:text-6xl lg:text-7xl  text-blue-700  bg-clip-text  leading-tight">
+            Happening around Campus
+          </h2>
+                    <div className="inline-flex items-center gap-3 bg-blue-100 dark:bg-blue-900/30 px-6 py-3 rounded-full mb-6">
             <Newspaper className="w-5 h-5 text-blue-600 dark:text-blue-400" />
             <span className="text-sm font-semibold text-blue-700 dark:text-blue-300 uppercase tracking-wider">
               Stay Connected
             </span>
           </div>
-          <h2 className="mb-8 text-5xl md:text-6xl lg:text-7xl  text-blue-700  bg-clip-text  leading-tight">
-            News & Events
-          </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed font-medium">
             Discover the latest developments and upcoming opportunities at Bugema University — your gateway to academic
             excellence and community engagement.
