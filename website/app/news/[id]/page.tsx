@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { getNewsById } from "@/lib/actions/news.actions";
 import { NewsItem } from "@/types/types";
+import { Loader2 } from "lucide-react";
 import DOMPurify from 'dompurify';
 
 
@@ -35,7 +36,10 @@ const  NewsPage = ({ params }: Props) => {
   }, [id]);
 
   if (!news) {
-    return <div>Loading...</div>; 
+    return <div className="flex flex-col justify-center items-center h-screen">
+        <Loader2 className="w-20 h-20 animate-spin text-blue-600" />
+        <p className="mt-4 text-lg text-gray-600">Loading news details...</p>
+    </div>;
   }
   
   return (
