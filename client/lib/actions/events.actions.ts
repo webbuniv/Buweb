@@ -58,12 +58,14 @@ export async function createEvent(formData: FormData): Promise<CreateEventRespon
       organizer: formData.get("organizer") as string,
       location: formData.get("location") as string,
       description: formData.get("description") as string,
-      date: formData.get("date") as string,
+      dateDue: formData.get("date") as string,
+        date: formData.get("date") as string,
     })
 
     revalidatePath("/events")
     return { success: true }
   } catch (error: any) {
+        console.log("error :",error)
     const errorMessage = error.response?.message || "Failed to create event document"
     return { error: errorMessage }
   }

@@ -16,24 +16,38 @@ const NewsEventsSection = () => {
   const [events, setEvents] = useState([])
   const [loading, setLoading] = useState(true)
 
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const newsRes = await getNews({
+        const fetchData = async () => {
+        try {
+                const newsRes = await getNews({
           searchText: "",
           sort: "$createdAt-desc",
           limit: 2,
         })
+
+        setNews(newsRes)
+        } catch (error) {
+                console.error("Error fetching news:", error)
+        }finally {
+        setLoading(false)
+      }
+        }
+        fetchData()
+  },[])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        
         const eventsRes = await getEvents({
           searchText: "",
           sort: "$createdAt-desc",
           limit: 5,
         })
-
-        setNews(newsRes)
         setEvents(eventsRes)
       } catch (error) {
-        console.error("Error fetching news/events:", error)
+        console.error("Error fetching events:", error)
       } finally {
         setLoading(false)
       }
@@ -110,7 +124,7 @@ const NewsEventsSection = () => {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
-
+ {/* ===============================N E W S    S E C T I O N============================================== */}
             {news.length > 0 ? (
               <div className="space-y-6">
                 {news.map((post, index) => (
@@ -170,7 +184,7 @@ const NewsEventsSection = () => {
               </div>
             )}
           </div>
-
+ {/* =============================== U P C O M I N G     E V E N T S ============================================== */}
           <div className="lg:col-span-2">
             <div className="sticky top-8">
               <div className="bg-gradient-to-br from-white/95 to-gray-50/95 dark:from-gray-900/95 dark:to-gray-800/95 rounded-3xl p-8 shadow-2xl backdrop-blur-xl border border-white/20 dark:border-gray-700/30">

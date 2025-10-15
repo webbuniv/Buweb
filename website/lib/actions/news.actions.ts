@@ -87,7 +87,7 @@ export const getNews = async  ({
       appwriteConfig.newsCollectionId,
       queries
     );
-
+//     console.log("Fetched news: ",news.documents);
     return news.documents.map((news) => ({
       $id: news.$id,
       title: news.title || 'undefined',
