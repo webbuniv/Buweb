@@ -2,6 +2,7 @@
 import { createAdminClient } from '@/lib/appwrite';
 import { appwriteConfig } from '@/lib/appwrite/config';
 import { ImageItem } from '@/lib/types';
+import { Query } from 'node-appwrite';
 
 const handleError = (error: unknown, message: string) => {
   console.error(message, error)
@@ -11,7 +12,11 @@ const handleError = (error: unknown, message: string) => {
 export const getAllImages = async () => {
   const { databases } = await createAdminClient()
   try {
-    const images = await databases.listDocuments(appwriteConfig.databaseId, appwriteConfig.galleryCollectionId)
+    const images = await databases.listDocuments(
+        appwriteConfig.databaseId,
+        appwriteConfig.galleryCollectionId,
+        [Query.limit(100)]
+)
 
     return images.documents.map((image) => ({
         id: image.$id || "undefined",
