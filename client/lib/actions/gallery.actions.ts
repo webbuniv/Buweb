@@ -72,7 +72,11 @@ export const getAllImages = async () => {
       redirect("/signin")
     }
 
-    const images = await databases.listDocuments(appwriteConfig.databaseId, appwriteConfig.galleryCollectionId)
+    const images = await databases.listDocuments(
+        appwriteConfig.databaseId, 
+        appwriteConfig.galleryCollectionId,
+        [Query.limit(100)]
+    )
     return images.documents.map((image) => ({
         id: image.$id,
         category:image.category,

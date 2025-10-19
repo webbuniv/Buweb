@@ -20,13 +20,17 @@ const NewsEventsSection = () => {
   useEffect(() => {
         const fetchData = async () => {
         try {
-                const newsRes = await getNews({
+        //         const newsRes = await getNews({
+        //   searchText: "",
+        //   sort: "$createdAt-desc",
+        //   limit: 2,
+        // })
+         const eventsRes = await getEvents({
           searchText: "",
           sort: "$createdAt-desc",
           limit: 2,
         })
-
-        setNews(newsRes)
+        setNews((eventsRes.filter((event) => new Date(event.dateDue) <= new Date())))
         } catch (error) {
                 console.error("Error fetching news:", error)
         }finally {
@@ -45,7 +49,7 @@ const NewsEventsSection = () => {
           sort: "$createdAt-desc",
           limit: 5,
         })
-        setEvents(eventsRes)
+        setEvents(eventsRes.filter((event) => new Date(event.dateDue) >= new Date()))
       } catch (error) {
         console.error("Error fetching events:", error)
       } finally {
@@ -138,7 +142,7 @@ const NewsEventsSection = () => {
                   >
                     <div className="flex flex-col md:flex-row">
                       <Link
-                        href={`/news/${post.$id}`}
+                        href={`/events/${post.$id}`}
                         className="relative md:w-80 h-64 md:h-48 flex-shrink-0 overflow-hidden"
                       >
                         <Image
@@ -151,13 +155,13 @@ const NewsEventsSection = () => {
                       </Link>
                       <div className="p-8 flex flex-col justify-between flex-1">
                         <div>
-                          <Link href={`/news/${post.$id}`}>
+                          <Link href={`/events/${post.$id}`}>
                             <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 leading-tight">
                               {post.title}
                             </h4>
                           </Link>
                           <p className="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3 text-lg leading-relaxed">
-                            {post.summary}
+                            {/* {post.description} */}
                           </p>
                         </div>
                         <div className="flex items-center justify-between">
@@ -166,7 +170,7 @@ const NewsEventsSection = () => {
                             <span className="font-medium">{post.date}</span>
                           </div>
                           <Link
-                            href={`/news/${post.$id}`}
+                            href={`/events/${post.$id}`}
                             className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold hover:gap-3 transition-all duration-300"
                           >
                             Read More

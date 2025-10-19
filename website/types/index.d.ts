@@ -41,6 +41,7 @@ declare interface Events {
     location: string;
     description: string;
     date: string;
+    dateDue: string;
 }
 
 declare interface NewsLetter {

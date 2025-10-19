@@ -16,7 +16,16 @@ interface HeroMedia {
 }
 
 const heroMedia: HeroMedia[] = [
-          {
+         {
+    type: "image",
+    
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68f530b0002a2a814f0e/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "The Annual Cultural Fest : Celebrating Diversity and Unity at Bugema University",
+    description:" It's a spectacular celebration where the diverse tapestry of the student body is woven together, transforming the campus into a dynamic hub of tradition, music, and performance.",
+    link: "http://bugemauniv.ac.ug/events/68ef5c13001137001105",
+    linkText: "explore more",
+  },  
+        {
     type: "image",
     
     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68dfd6160038674ab136/view?project=674dcf7b003d57db960a&mode=admin",
@@ -28,13 +37,20 @@ const heroMedia: HeroMedia[] = [
   },
     {
     type: "image",
-    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68af0e5e003ba1ea676a/view?project=674dcf7b003d57db960a&mode=admin",
-    title: "Bugema University Administration tours the upcoming Science Complex",
+    src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686e8a2e0035bf8439de/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "The 31ST GRADUATION CEREMONY",
     description:
-      "This is to ensure gradual progress towards providing students with a state of the art learning facility.",
-    link: "https://www.bugemauniv.ac.ug/news/68af1c190013b091c145",
-    linkText: "Read More",
+      "Caps. Gowns. Dreams. Counting down to a day of honour, joy, and new beginnings. Graduation is on the horizon... Your moment to shine is coming soon. Graduation awaits – are you ready?",
   },
+//     {
+//     type: "image",
+//     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68af0e5e003ba1ea676a/view?project=674dcf7b003d57db960a&mode=admin",
+//     title: "Bugema University Administration tours the upcoming Science Complex",
+//     description:
+//       "This is to ensure gradual progress towards providing students with a state of the art learning facility.",
+//     link: "https://www.bugemauniv.ac.ug/news/68af1c190013b091c145",
+//     linkText: "Read More",
+//   },
     {
     type: "image",
     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68a34fae001b3f7550d4/view?project=674dcf7b003d57db960a&mode=admin",
@@ -43,13 +59,6 @@ const heroMedia: HeroMedia[] = [
       "Still on the road of discovery and growth, every step counts on this academic journey, forward together the journey goes on. It Never Stops Until we make it.",
     link: "https://www.bugemauniv.ac.ug/news/68641e0d0012974a663d",
     linkText: "",
-  },
-  {
-    type: "image",
-    src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686e8a2e0035bf8439de/view?project=674dcf7b003d57db960a&mode=admin",
-    title: "The 31ST GRADUATION CEREMONY",
-    description:
-      "Caps. Gowns. Dreams. Counting down to a day of honour, joy, and new beginnings. Graduation is on the horizon... Your moment to shine is coming soon. Graduation awaits – are you ready?",
   },
 
 

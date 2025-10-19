@@ -18,12 +18,12 @@ export const getEvents = async  ({
  }: GetEventsProps): Promise<Events[]> => {
   const { databases } = await createAdminClient();
   try {
-        const today = new Date().toISOString();
+        // const today = new Date().toISOString();
     const queries = [
       ...(searchText ? [Query.search("name", searchText)] : []),
       ...(limit ? [Query.limit(limit)] : []),
       Query.orderDesc(sort.split("-")[0]),
-      Query.greaterThan("dateDue", today),
+//       Query.greaterThan("dateDue", today),
     ];
 
     const event = await databases.listDocuments(
@@ -40,6 +40,7 @@ export const getEvents = async  ({
       description: event.content || 'undefined',
       organizer: event.organizer || 'undefined',
       date: event.date || 'undefined',
+      dateDue: event.dateDue || 'undefined',
       $createdAt: new Date(event.$createdAt).getTime(),
     }))
     
