@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://bugemauniv.ac.ug/",
-    title: "Bugema University - Excellence in Education",
+    title: "Bugema University - Excellence in Service",
     description:
       "Discover academic excellence at Bugema University, a leading institution of higher learning in Uganda.",
     siteName: "Bugema University",
