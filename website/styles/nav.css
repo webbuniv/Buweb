@@ -41,13 +41,32 @@
       opacity: 0;
                 transform: scaleY(0);
                 transform-origin: bottom;
-                animation: fadeGrow 0.6s ease-in-out forwards;
+                animation: fadeGrow 1s ease-in-out forwards;
     }
+    .fades-in {
+        opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+                animation: fadeCounter 0.8s ease-in-out forwards;
+    }
+         @keyframes fadeCounter {
+                from {
+                  opacity: 0;
+                  transform: scaleY(0.9);
+                  transform: scaleX(1)
+                }       
+                to {
+                  opacity: 1;
+                  transform: scaleY(1);
+                  transform: scaleX(0.9);
+                }
+              }
     
      @keyframes fadeGrow {
                 from {
                   opacity: 0;
                   transform: scaleY(0.9);
+                  transform: scaleX(0.9)
                 }       
                 to {
                   opacity: 1;
@@ -59,17 +78,33 @@
                 opacity: 0;
                 transform: scaleY(0);
                 transform-origin: top;
-                animation: fadeShrink 0.4s ease-in-out forwards;
+                animation: fadeShrink 0.8s ease-in-out forwards;
               }
     
               @keyframes fadeShrink {
                 from {
-                  opacity: 0.8;
+                  opacity: 0.2;
+                  transform-origin: top;
                   background-color: rgb(5, 5, 65);
-                  transform: scaleY(0.8);
+                  transform: scaleY(0);                  
+                  transform: scaleX(0.9);
+                  
                 }
                 to {
                   opacity: 1;
                   transform: scaleY(1);
+                  transform: scaleX(1);
                 }
               }
+.slow-zoom-in {
+        transform: scale(1);
+  animation: slowZoomIn 10s ease-out forwards;
+}
+
+@keyframes slowZoomIn {
+  from { transform: scaleX(1); }
+  to { 
+        transform: scaleX(1.5);
+        transform: scaleY(1.5);
+}
+}

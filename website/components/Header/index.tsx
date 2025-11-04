@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Model from "@/components/model/Model";
 import Model1 from "@/components/model/Model1";
 import Model2 from "@/components/model/Model2";
@@ -135,6 +135,28 @@ const Header = () => {
     setShowModel1(false);
     setShowModel2(false);
   };
+
+  function useCountdown(target: Date) {
+  const [now, setNow] = useState(() => new Date());
+  useEffect(() => {
+    const t = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(t);
+  }, []);
+  const diff = Math.max(0, target.getTime() - now.getTime());
+  const s = Math.floor(diff / 1000);
+  const d = Math.floor(s / 86400);
+  const h = Math.floor((s % 86400) / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const sec = s % 60;
+  return { d, h, m, s: sec, done: diff === 0 };
+}
+const grad = useMemo(() => {
+    const t = new Date();
+    t.setHours(23, 59, 59, 999);
+    t.setDate(t.getDate() + 4); // 4 days from now
+    return t;
+  }, []);
+ const { d, h, m, s, done } = useCountdown(grad);
  const pathNames = [
         "news",
         'studentlife',
@@ -157,8 +179,8 @@ const Header = () => {
         // }`}
         className={`hidden md:flex  header left-0 z-40 w-full items-center ${
           sticky
-            ? "bg-dark text-white top-0 !fixed !z-[9999] bg-opacity-100 shadow-sticky backdrop-blur-sm fade-up transition"
-            : "absolute top-8  fades-out  text-white"
+            ? "bg-dark text-white top-0 !fixed !z-[9999] bg-opacity-100 shadow-sticky backdrop-blur-sm fades-out  transition"
+            : "absolute top-0  fades-in text-white"
         }`}
       >
         <div className="container">
@@ -187,6 +209,25 @@ const Header = () => {
                 /> 
               </Link>
             </div> 
+            <div className={`${sticky? " flex flex-col text-blue-600 bg-white bg-opacity-60 backdrop-blur-lg  px-3 md:px-5 py-2 md:py-3 rounded-md text-center font-bold":"hidden"} `}>
+          <div className="text-[10px] md:text-xs uppercase opacity-90">Graduation Count Down</div>
+          <div className="flex items-center gap-1 md:gap-2 font-mono">
+            {[
+              { v: d, label: "D" },
+              { v: h, label: "H" },
+              { v: m, label: "M" },
+              { v: s, label: "S" },
+            ].map((t) => (
+              <div
+                key={t.label}
+                className="bg-white/15 backdrop-blur px-1.5 md:px-2 py-0.5 md:py-1 rounded md:rounded-md text-xs md:text-sm font-semibold"
+              >
+                {String(t.v).padStart(2, "0")}
+                <span className="ml-1 text-[9px] md:text-[10px] opacity-80">{t.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
             <div className="flex space-x-20 justify-between transform bg-transparent">
               <div>
                 <button
@@ -214,9 +255,9 @@ const Header = () => {
 
                 <nav
                   id="navbarCollapse"
-                  className={`navbar hidden lg:block absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100`}
+                  className={`navbar hidden ${sticky? "" : "mt-12" }  lg:block absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100`}
                 >
-                  <ul className={`block lg:flex   lg:space-x-8 top-0 left-0 h-full ${ checkPathname ? `${sticky?"":"text-black"}` :"text-white"} ` }>
+                  <ul className={`block lg:flex   lg:space-x-8 top-0 left-0 h-full ${ checkPathname ? `${sticky? "" :"text-black"}` :"text-white"} ` }>
 
                   <li className="group relative ">
                       <Link
@@ -309,6 +350,25 @@ const Header = () => {
               </div>
             </div>
           </div>
+          <div className={`${sticky?" hidden ":" zoom-in"}  flex text-blue-600 flex-col w-[20%] bg-white bg-opacity-70 backdrop-blur-lg  px-3 md:px-5 py-2 md:py-3 rounded-md text-center font-bold`}>
+          <div className="text-[10px] md:text-xs uppercase opacity-90">Graduation Count Down</div>
+          <div className="flex items-center gap-1 md:gap-2 font-mono">
+            {[
+              { v: d, label: "D" },     
+              { v: h, label: "H" },
+              { v: m, label: "M" },
+              { v: s, label: "S" },
+            ].map((t) => (
+              <div
+                key={t.label}
+                className="bg-white/15 backdrop-blur px-1.5 md:px-2 py-0.5 md:py-1 rounded md:rounded-md text-xs md:text-sm font-semibold"
+              >
+                {String(t.v).padStart(2, "0")}
+                <span className="ml-1 text-[9px] md:text-[10px] opacity-80">{t.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
         </div>
       </header>
 
