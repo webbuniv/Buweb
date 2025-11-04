@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { ChevronLeft, ChevronRight, ExternalLink, FileText } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -16,6 +16,13 @@ interface HeroMedia {
 }
 
 const heroMedia: HeroMedia[] = [
+           {
+    type: "image",
+    src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686e8a2e0035bf8439de/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "The 31ST GRADUATION CEREMONY",
+    description:
+      "Caps. Gowns. Dreams. Counting down to a day of honour, joy, and new beginnings. Graduation is on the horizon... Your moment to shine is coming soon. Graduation awaits – are you ready?",
+  },
          {
     type: "image",
     
@@ -35,13 +42,7 @@ const heroMedia: HeroMedia[] = [
     link: "http://erms.bugemauniv.ac.ug/application",
     linkText: "",
   },
-    {
-    type: "image",
-    src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686e8a2e0035bf8439de/view?project=674dcf7b003d57db960a&mode=admin",
-    title: "The 31ST GRADUATION CEREMONY",
-    description:
-      "Caps. Gowns. Dreams. Counting down to a day of honour, joy, and new beginnings. Graduation is on the horizon... Your moment to shine is coming soon. Graduation awaits – are you ready?",
-  },
+ 
 //     {
 //     type: "image",
 //     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68af0e5e003ba1ea676a/view?project=674dcf7b003d57db960a&mode=admin",
@@ -70,6 +71,27 @@ interface HeroSlideProps {
 }
 
 const HeroSlide = ({ media, isActive }: HeroSlideProps) => {
+          function useCountdown(target: Date) {
+          const [now, setNow] = useState(() => new Date());
+          useEffect(() => {
+            const t = setInterval(() => setNow(new Date()), 1000);
+            return () => clearInterval(t);
+          }, []);
+          const diff = Math.max(0, target.getTime() - now.getTime());
+          const s = Math.floor(diff / 1000);
+          const d = Math.floor(s / 86400);
+          const h = Math.floor((s % 86400) / 3600);
+          const m = Math.floor((s % 3600) / 60);
+          const sec = s % 60;
+          return { d, h, m, s: sec, done: diff === 0 };
+        }
+        const grad = useMemo(() => {
+            const t = new Date();
+            t.setHours(23, 59, 59, 999);
+            t.setDate(t.getDate() + 4); // 4 days from now
+            return t;
+          }, []);
+         const { d, h, m, s, done } = useCountdown(grad);
   return (
     <div className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden">
       {media.type === "video" ? (
@@ -78,7 +100,28 @@ const HeroSlide = ({ media, isActive }: HeroSlideProps) => {
           Your browser does not support the video tag.
         </video>
       ) : (
-        <Image
+        <>
+          <div className={` absolute md:hidden top-28 left-[25%] z-50 zoom-in flex text-blue-600 flex-col w-[50%] bg-white bg-opacity-70 backdrop-blur-lg  px-3 md:px-5 py-2 md:py-3 rounded-md text-center font-bold`}>
+          <div className="text-[10px] md:text-xs uppercase opacity-90">Graduation Count Down</div>
+          <div className="flex items-center gap-1 md:gap-2 font-mono">
+            {[
+              { v: d, label: "D" },     
+              { v: h, label: "H" },
+              { v: m, label: "M" },
+              { v: s, label: "S" },
+            ].map((t) => (
+              <div
+                key={t.label}
+                className="bg-white/15 backdrop-blur px-1.5 md:px-2 py-0.5 md:py-1 rounded md:rounded-md text-xs md:text-sm font-semibold"
+              >
+                {String(t.v).padStart(2, "0")}
+                <span className="ml-1 text-[9px] md:text-[10px] opacity-80">{t.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+         <Image
           src={media.src || "/placeholder.svg"}
           alt={media.title || "Hero slide"}
           fill
@@ -86,6 +129,7 @@ const HeroSlide = ({ media, isActive }: HeroSlideProps) => {
           priority={isActive}
           sizes="100vw"
         />
+        </>
       )}
 
       {/* Gradient overlay for better text readability */}
