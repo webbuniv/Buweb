@@ -24,16 +24,7 @@ const heroMedia: HeroMedia[] = [
     description:
       "Caps. Gowns. Dreams. Counting down to a day of honour, joy, and new beginnings. Graduation is on the horizon... Your moment to shine is coming soon. Graduation awaits – are you ready?",
   },
-         {
-    type: "image",
-    
-    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68f530b0002a2a814f0e/view?project=674dcf7b003d57db960a&mode=admin",
-    title: "The Annual Cultural Fest : Celebrating Diversity and Unity at Bugema University",
-    description:" It's a spectacular celebration where the diverse tapestry of the student body is woven together, transforming the campus into a dynamic hub of tradition, music, and performance.",
-    link: "http://bugemauniv.ac.ug/events/68ef5c13001137001105",
-    linkText: "explore more",
-  },  
-        {
+    {
     type: "no-overlay",
     
     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/690b831b0010df2278e9/view?project=674dcf7b003d57db960a&mode=admin",
@@ -43,6 +34,16 @@ const heroMedia: HeroMedia[] = [
     link: "http://erms.bugemauniv.ac.ug/application",
     linkText: "",
   },
+         {
+    type: "image",
+    
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68f530b0002a2a814f0e/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "The Annual Cultural Fest : Celebrating Diversity and Unity at Bugema University",
+    description:" It's a spectacular celebration where the diverse tapestry of the student body is woven together, transforming the campus into a dynamic hub of tradition, music, and performance.",
+    link: "http://bugemauniv.ac.ug/events/68ef5c13001137001105",
+    linkText: "explore more",
+  },  
+      
  
 //     {
 //     type: "image",
