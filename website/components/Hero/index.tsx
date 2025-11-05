@@ -18,8 +18,8 @@ interface HeroMedia {
 
 const heroMedia: HeroMedia[] = [
            {
-    type: "image",
-    src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686e8a2e0035bf8439de/view?project=674dcf7b003d57db960a&mode=admin",
+    type: "no-overlay",
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/690b70de003dadfb208e/view?project=674dcf7b003d57db960a&mode=admin",
     title: "The 31ST GRADUATION CEREMONY",
     description:
       "Caps. Gowns. Dreams. Counting down to a day of honour, joy, and new beginnings. Graduation is on the horizon... Your moment to shine is coming soon. Graduation awaits – are you ready?",
