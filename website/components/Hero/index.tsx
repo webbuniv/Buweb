@@ -23,6 +23,15 @@ const heroMedia: HeroMedia[] = [
     title: "The 31ST GRADUATION CEREMONY",
     description:
       "Caps. Gowns. Dreams. Counting down to a day of honour, joy, and new beginnings. Graduation is on the horizon... Your moment to shine is coming soon. Graduation awaits – are you ready?",
+  }, {
+    type: "no-overlay",
+    
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/690b831b0010df2278e9/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "We are now an officially Accredited Test Center (ATC) for ICDL Certification",
+    description:
+      "This means we can now administer exams for the International Certification of Digital Literacy (ICDL), the world's leading digital skills qualification..",
+    link: "http://erms.bugemauniv.ac.ug/application",
+    linkText: "",
   },
          {
     type: "image",
@@ -33,16 +42,7 @@ const heroMedia: HeroMedia[] = [
     link: "http://bugemauniv.ac.ug/events/68ef5c13001137001105",
     linkText: "explore more",
   },  
-        {
-    type: "no-overlay",
-    
-    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/690b831b0010df2278e9/view?project=674dcf7b003d57db960a&mode=admin",
-    title: "We are now an officially Accredited Test Center (ATC) for ICDL Certification",
-    description:
-      "This means we can now administer exams for the International Certification of Digital Literacy (ICDL), the world's leading digital skills qualification..",
-    link: "http://erms.bugemauniv.ac.ug/application",
-    linkText: "",
-  },
+        
  
 //     {
 //     type: "image",
