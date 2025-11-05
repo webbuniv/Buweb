@@ -23,6 +23,7 @@
     "@t3-oss/env-nextjs": "^0.7.1",
     "@tanstack/react-query": "^5.17.9",
     "axios": "^1.7.2",
+    "canvas-confetti": "^1.9.4",
     "cheerio": "^1.0.0",
     "class-variance-authority": "^0.7.1",
     "classnames": "^2.5.1",

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Model from "@/components/model/Model";
 import Model1 from "@/components/model/Model1";
 import Model2 from "@/components/model/Model2";
@@ -9,6 +9,7 @@ import Model3 from "@/components/model/Model3";
 import Model4 from "@/components/model/Model4";
 import Advert from "../model/advertmodel";
 import { usePathname } from "next/navigation";
+import confetti from "canvas-confetti";
 
 import image from "../../public/images/logo/bu_logo_nav.png";
 
@@ -135,6 +136,7 @@ const Header = () => {
     setShowModel1(false);
     setShowModel2(false);
   };
+ 
 
   function useCountdown(target: Date) {
   const [now, setNow] = useState(() => new Date());
@@ -150,13 +152,51 @@ const Header = () => {
   const sec = s % 60;
   return { d, h, m, s: sec, done: diff === 0 };
 }
+ const t = new Date();
+//    t.setHours(23, 59, 59, 999);
+    t.setDate(t.getDate() + 3); // 4 days from now
+//     console.log("grad",t);
+    
 const grad = useMemo(() => {
-    const t = new Date();
-    t.setHours(23, 59, 59, 999);
-    t.setDate(t.getDate() + 4); // 4 days from now
-    return t;
+        const TARGET_ISO = '2025-11-09T09:00:50+03:00';
+//     const TARGET_ISO = '2025-11-05T10:07:00+03:00';
+const targetTime = Date.parse(TARGET_ISO); // number (ms)
+//     t.setHours(23, 59, 59, 999);
+//     t.setDate("Sun Nov 09 2025 09:00:50 GMT+0300 (East Africa Time)"); // 4 days from now
+    return new Date(targetTime)
   }, []);
  const { d, h, m, s, done } = useCountdown(grad);
+    const confettiRef = useRef<HTMLCanvasElement | null>(null);
+        
+useEffect(() => {
+        if (!done) return;
+  if (!confettiRef.current) return;
+
+  const myConfetti = confetti.create(confettiRef.current, {
+    resize: true,
+    useWorker: true,
+  });
+
+  const shoot = () => {
+    myConfetti({
+      particleCount: 14,
+      spread: 80,
+      startVelocity: 40,
+      ticks: 250,
+      origin: { x: Math.random(), y: Math.random() * 0.25 }, // top 25%
+      scalar: 1,
+      disableForReducedMotion: true,
+    });
+  };
+
+  const interval = setInterval(shoot, 300); // every 300ms
+
+  return () => {
+    clearInterval(interval);
+    myConfetti.reset();
+  };
+}, [done]);
+
  const pathNames = [
         "news",
         'studentlife',
@@ -370,7 +410,9 @@ const grad = useMemo(() => {
           </div>
         </div>
         </div>
+       
       </header>
+           <canvas ref={confettiRef} className="pointer-events-none flex h-screen min-w-full absolute right-0 inset-0 z-[10000]" />
 
       {/* Header on small screens */}
       <header
