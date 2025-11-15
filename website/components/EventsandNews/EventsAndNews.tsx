@@ -28,7 +28,7 @@ const NewsEventsSection = () => {
          const eventsRes = await getEvents({
           searchText: "",
           sort: "$createdAt-desc",
-          limit: 2,
+          limit: 3,
         })
         setNews((eventsRes.filter((event) => new Date(event.dateDue) <= new Date())))
         } catch (error) {
@@ -114,8 +114,9 @@ const NewsEventsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-10">
+        <div className={`grid ${events.length>0?"lg:grid-cols-5":"lg:grid-cols-3"} gap-10`}>
           <div className="lg:col-span-3 space-y-8">
+
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-4">
                 <div className="w-2 h-12 bg-gradient-to-b from-blue-600 to-indigo-600 rounded-full shadow-lg" />
@@ -131,7 +132,7 @@ const NewsEventsSection = () => {
             </div>
  {/* ===============================N E W S    S E C T I O N============================================== */}
             {news.length > 0 ? (
-              <div className="space-y-6">
+              <div className={`space-y-6 ${events.length>0?"":"md:grid md:grid-cols-2 md:gap-6 md:space-y-0"}`}>
                 {news.map((post, index) => (
                   <motion.article
                     key={post.$id}
@@ -190,7 +191,7 @@ const NewsEventsSection = () => {
             )}
           </div>
  {/* =============================== U P C O M I N G     E V E N T S ============================================== */}
-          <div className="lg:col-span-2">
+          {events.length>0 &&<div className="lg:col-span-2">
             <div className="sticky top-8">
               <div className="bg-gradient-to-br from-white/95 to-gray-50/95 dark:from-gray-900/95 dark:to-gray-800/95 rounded-3xl p-8 shadow-2xl backdrop-blur-xl border border-white/20 dark:border-gray-700/30">
                 <div className="flex items-center gap-4 mb-8">
@@ -238,7 +239,7 @@ const NewsEventsSection = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div>}
         </div>
       </div>
     </section>
