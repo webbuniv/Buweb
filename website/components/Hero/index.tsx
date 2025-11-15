@@ -5,7 +5,6 @@ import Link from "next/link"
 import { useState, useEffect, useMemo, useRef } from "react"
 import { ChevronLeft, ChevronRight, ExternalLink, FileText } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import confetti from "canvas-confetti";
 
 interface HeroMedia {
   type: "video" | "image" | "no-overlay"
@@ -73,35 +72,7 @@ interface HeroSlideProps {
 }
 
 const HeroSlide = ({ media, isActive }: HeroSlideProps) => {
-  function useCountdown(target: Date) {
-  const [now, setNow] = useState(() => new Date());
-  useEffect(() => {
-    const t = setInterval(() => setNow(new Date()), 1000);
-    return () => clearInterval(t);
-  }, []);
-  const diff = Math.max(0, target.getTime() - now.getTime());
-  const s = Math.floor(diff / 1000);
-  const d = Math.floor(s / 86400);
-  const h = Math.floor((s % 86400) / 3600);
-  const m = Math.floor((s % 3600) / 60);
-  const sec = s % 60;
-  return { d, h, m, s: sec, done: diff === 0 };
-}
- const t = new Date();
-//    t.setHours(23, 59, 59, 999);
-    t.setDate(t.getDate() + 3); // 4 days from now
-    console.log("grad",t);
-    
-const grad = useMemo(() => {
-        const TARGET_ISO = '2025-11-09T09:00:50+03:00';
-//     const TARGET_ISO = '2025-11-05T10:07:00+03:00';
-const targetTime = Date.parse(TARGET_ISO); // number (ms)
-//     t.setHours(23, 59, 59, 999);
-//     t.setDate("Sun Nov 09 2025 09:00:50 GMT+0300 (East Africa Time)"); // 4 days from now
-    return new Date(targetTime)
-  }, []);
- const { d, h, m, s, done } = useCountdown(grad);
-        
+
   return (
         <>
          <div className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden">
@@ -112,25 +83,6 @@ const targetTime = Date.parse(TARGET_ISO); // number (ms)
         </video>
       ) : (
         <>
-          <div className={` absolute md:hidden top-28 left-[25%] z-50 zoom-in flex text-blue-600 flex-col w-[50%] bg-white bg-opacity-70 backdrop-blur-lg  px-3 md:px-5 py-2 md:py-3 rounded-md text-center font-bold`}>
-          <div className="text-[10px] md:text-xs uppercase opacity-90">Graduation Count Down</div>
-          <div className="flex items-center gap-1 md:gap-2 font-mono">
-            {[
-              { v: d, label: "D" },     
-              { v: h, label: "H" },
-              { v: m, label: "M" },
-              { v: s, label: "S" },
-            ].map((t) => (
-              <div
-                key={t.label}
-                className="bg-white/15 backdrop-blur px-1.5 md:px-2 py-0.5 md:py-1 rounded md:rounded-md text-xs md:text-sm font-semibold"
-              >
-                {String(t.v).padStart(2, "0")}
-                <span className="ml-1 text-[9px] md:text-[10px] opacity-80">{t.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
 
          <Image
           src={media.src || "/placeholder.svg"}

@@ -249,8 +249,8 @@ useEffect(() => {
                 /> 
               </Link>
             </div> 
-            <div className={`${sticky? " flex flex-col text-blue-600 bg-white bg-opacity-60 backdrop-blur-lg  px-3 md:px-5 py-2 md:py-3 rounded-md text-center font-bold":"hidden"} `}>
-          <div className="text-[10px] md:text-xs uppercase opacity-90">Graduation Count Down</div>
+          {/*  <div className={`${sticky? " flex flex-col text-blue-600 bg-white bg-opacity-60 backdrop-blur-lg  px-3 md:px-5 py-2 md:py-3 rounded-md text-center font-bold":"hidden"} `}>
+           <div className="text-[10px] md:text-xs uppercase opacity-90">Graduation Count Down</div>
           <div className="flex items-center gap-1 md:gap-2 font-mono">
             {[
               { v: d, label: "D" },
@@ -266,8 +266,8 @@ useEffect(() => {
                 <span className="ml-1 text-[9px] md:text-[10px] opacity-80">{t.label}</span>
               </div>
             ))}
-          </div>
-        </div>
+          </div> 
+        </div>*/}
             <div className="flex space-x-20 justify-between transform bg-transparent">
               <div>
                 <button
@@ -390,7 +390,7 @@ useEffect(() => {
               </div>
             </div>
           </div>
-          <div className={`${sticky?" hidden ":" zoom-in"}  flex text-blue-600 flex-col w-[20%] bg-white bg-opacity-70 backdrop-blur-lg  px-3 md:px-5 py-2 md:py-3 rounded-md text-center font-bold`}>
+          {/* <div className={`${sticky?" hidden ":" zoom-in"}  flex text-blue-600 flex-col w-[20%] bg-white bg-opacity-70 backdrop-blur-lg  px-3 md:px-5 py-2 md:py-3 rounded-md text-center font-bold`}>
           <div className="text-[10px] md:text-xs uppercase opacity-90">Graduation Count Down</div>
           <div className="flex items-center gap-1 md:gap-2 font-mono">
             {[
@@ -408,11 +408,11 @@ useEffect(() => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
         </div>
        
       </header>
-           <canvas ref={confettiRef} className="pointer-events-none flex h-screen min-w-full absolute right-0 inset-0 z-[10000]" />
+           {/* <canvas ref={confettiRef} className="pointer-events-none flex h-screen min-w-full absolute right-0 inset-0 z-[10000]" /> */}
 
       {/* Header on small screens */}
       <header

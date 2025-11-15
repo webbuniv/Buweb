@@ -18,7 +18,7 @@ import { BugemaChatWidget } from "@/components/bugema-chat-widget"
 
 export default function Home() {
   return (
-    <>
+    <div className="w-full" >
       <ScrollUp />
       <Hero />
       <BelowHero />
@@ -36,6 +36,6 @@ export default function Home() {
         title="Bugema University Assistant"
         initialMessage="Hello! Welcome to Bugema University. How can I help you with information about our programs, admissions, campus life, or other inquiries?"
       />
-    </>
+    </div>
   );
 }
