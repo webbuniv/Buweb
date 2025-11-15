@@ -53,7 +53,7 @@ const Footer = () => {
         data-wow-delay=".1s"
         
       >
-        <div className="container-fluid " >
+        <div className="container " >
 
           <div className="-mx-4 flex flex-wrap justify-center">
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-5/12">

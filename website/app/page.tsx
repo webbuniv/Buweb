@@ -18,7 +18,7 @@ import { BugemaChatWidget } from "@/components/bugema-chat-widget"
 
 export default function Home() {
   return (
-    <div className="w-full" >
+    <div className="w-full overflow-x-hidden" >
       <ScrollUp />
       <Hero />
       <BelowHero />
@@ -27,7 +27,7 @@ export default function Home() {
       <EventsAndNews />
       <CampusNews />
       <PublicationSection />
-      <Blog />
+      {/* <Blog /> */}
       <Brands />
       <Contact />
       <ScrollToTop />
