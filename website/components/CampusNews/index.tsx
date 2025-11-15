@@ -6,7 +6,9 @@ import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronRight, Pause, Play, ArrowLeftRight } from 'lucide-react'
 import { cn } from "@/lib/utils"
-
+import { Card, CardContent } from "../ui/card"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel"
+// Autoplay plugin removed to avoid missing module; fallback to no autoplay plugin
 const newsData = [
   {
     category: "Entreprenuership Class Exhibition",
@@ -62,7 +64,7 @@ const CampusNews = () => {
   const [isPlaying, setIsPlaying] = useState(true)
   const [isHovering, setIsHovering] = useState(false)
   const [direction, setDirection] = useState(1)
-
+  const carousel = null
   // Create a circular array for continuous looping
   const getCircularNews = () => {
     const firstThree = newsData.slice(0, 3)
@@ -137,7 +139,7 @@ const CampusNews = () => {
           >
             Campus Life
           </motion.h2>
-          <div className="flex justify-center gap-4 mb-8">
+          {/* <div className="flex justify-center gap-4 mb-8">
             <button
               onClick={() => setIsPlaying(!isPlaying)}
               className="p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all"
@@ -152,12 +154,12 @@ const CampusNews = () => {
             >
               <ArrowLeftRight className="w-6 h-6" />
             </button>
-          </div>
+          </div> */}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           <div className="lg:col-span-3">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 h-full relative">
+            {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8 h-full relative">
               <AnimatePresence mode="popLayout" initial={false}>
                 {getCircularNews().slice(currentIndex, currentIndex + 3).map((news, idx) => (
                   <motion.article
@@ -201,7 +203,49 @@ const CampusNews = () => {
                   </motion.article>
                 ))}
               </AnimatePresence>
-            </div>
+            </div> */}
+            <Carousel opts={{ loop: true}} plugins={carousel ? [carousel] : undefined} className=" md:flex h-full   text-white text-xl font-semibold md:p-2">
+        <CarouselContent className='h-full w-full -ml-0'>
+  {newsData.slice(0,3).map((news, index) => (
+    <CarouselItem key={index} className=" basis-[350px] md:basis-[350px] shrink-0 h-full bg-dgreen-600">
+      <div className="p-1">
+        <Card className="h-auto  w-full">
+          <CardContent className="relative p-0   flex flex-col rounded-lg h-full  overflow-hidden w-full">
+                <div className="flex w-full  ">
+                      <Image
+                        src={news.imageSrc || "/placeholder.svg"}
+                        alt={news.altText}
+                        width={350}
+                        height={192}
+                        // fill
+                        className=" transition-transform duration-300 hover:scale-110"
+                      />
+                      {/* <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" /> */}
+                </div>
+
+                <div className="p-6 flex flex-col  w-full">
+                      <div className="text-sm font-medium text-indigo-600 dark:text-indigo-400 mb-2">
+                        {news.category}
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 line-clamp-2">
+                        {news.title}
+                      </h3>
+                      <Link
+                        href={news.link}
+                        className="inline-flex items-center text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300"
+                      >
+                        Learn More <ChevronRight className="ml-1 w-4 h-4" />
+                      </Link>
+                    </div>
+          </CardContent>
+        </Card>
+      </div>
+    </CarouselItem>
+  ))}
+        </CarouselContent>
+        <CarouselPrevious className="-left-3 bg-dark" />
+        <CarouselNext className="-right-3 bg-dark" />
+        </Carousel>
           </div>
 
           <div className="space-y-4">
