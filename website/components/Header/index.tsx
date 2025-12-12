@@ -204,7 +204,8 @@ useEffect(() => {
         "religious",
         "events",
         "sports",
-        "administrator"
+        "administrator",
+        "publications",
  ]
   const checkPathname = pathNames.some((path) => pathname?.includes(path));
 
@@ -345,10 +346,12 @@ useEffect(() => {
                       <div
                         className={`nav cursor-pointer hover flex py-2    font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
-                        onMouseEnter={third_modal}
+                        // onMouseEnter={third_modal}
                       >
                         <span className={showModel2 ? "active" : ""}>
-                          Research
+                           <Link href="/publications" >
+                           Research                      
+                          </Link>
                         </span>
                         <span className={"my-1 ml-2 dark:text-dark "}>
                           <FaChevronDown className={showModel2 ? "drop" : "revert"} />

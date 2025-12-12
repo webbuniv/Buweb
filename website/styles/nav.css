@@ -21,9 +21,15 @@
 } 
 
 .zoom-in {
-  opacity: 0;
+  opacity: 0.8;
   transform: scale(0.5); /* Start slightly smaller */
   animation: zoomIn 1s ease-in-out forwards;
+}
+
+.overlay-animation {
+  opacity: 0.2;
+  /* transform: scale(1); Start slightly smaller */
+  animation: fadeIn 3s ease-in-out forwards;
 }
 
 @keyframes zoomIn {
