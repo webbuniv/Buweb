@@ -18,7 +18,7 @@ const HeroOverlay = ({
                 return text.length > maxLength ? text.slice(0, maxLength) + " . . ." : text;
               };
   return (
-    <div className=" absolute bottom-20 md:inset-0 bg-gradient-to-r from-black/90 via-transparent/10  to-  p-4  " >
+    <div className=" absolute bottom-20 md:inset-0 bg-gradient-to-r from-black/90 via-transparent/10 to-transparent p-4  " >
       
       <div className="  flex-col  h- md:[70%] md:w-[70%] justify-center space-y-4 mt-[80%] md:mt-[12%] p-4  lg:flex lg:flex-col   ">
 

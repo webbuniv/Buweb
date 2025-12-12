@@ -21,8 +21,8 @@ const heroMedia: HeroMedia[] = [
     type: "image",
     
     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/69207f4e0000f1f03d8c/view?project=674dcf7b003d57db960a&mode=admin",
-    title: ".",
-    description:".",
+    title: " 2025/2026 Admissions Open!",
+    description:" Admissions are Open for 2024/2025 Academic Year at Bugema University!  Apply Now to embark on a transformative educational journey with us. Don't miss the chance to be part of our vibrant community. ",
     link: "http://erms.bugemauniv.ac.ug/application",
     linkText: "Apply Now",
   },
@@ -76,7 +76,7 @@ const HeroSlide = ({ media, isActive }: HeroSlideProps) => {
 
   return (
         <>
-         <div className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden">
+         <div className="relative w-full h-[100vh] md:h-[100vh] lg:h-[100vh] overflow-hidden">
       {media.type === "video" ? (
         <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline>
           <source src={media.src} type="video/mp4" />
@@ -101,14 +101,14 @@ const HeroSlide = ({ media, isActive }: HeroSlideProps) => {
 
       {/* Content overlay */}
       {media.type !== "no-overlay" && (media.title || media.description) && (
-        <div className="absolute inset-0 flex items-end">
-          <div className="w-full p-6 md:p-8 lg:p-12">
-            <div className="max-w-4xl mx-auto text-white">
+        <div className={`absolute  inset-0 flex items-end `}>
+          <div className="w-full p-6 md:p-8 lg:p-12 ">
+            <div className="max-w-4xl  text-white bg-blue-600/20 p-4">
               {media.title && (
-                <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">{media.title}</h1>
+                <h1 className={`text-2xl md:text-4xl lg:text-5xl font-bold mb-4 ${isActive ? "overlay-animation" : ""} leading-tight`}>{media.title}</h1>
               )}
               {media.description && (
-                <p className="text-sm md:text-base lg:text-lg mb-6 leading-relaxed opacity-90 max-w-2xl">
+                <p className={`text-sm md:text-base lg:text-lg mb-6 leading-relaxed ${isActive ? "fade-up" : ""} opacity-90 max-w-2xl`}>
                   {media.description}
                 </p>
               )}
@@ -165,7 +165,7 @@ export default function HeroSlider() {
   const goToNext = () => {
     setCurrentSlide((prev) => (prev + 1) % heroMedia.length)
     setIsAutoPlaying(false)
-    setTimeout(() => setIsAutoPlaying(true), 10000)
+    setTimeout(() => setIsAutoPlaying(true), 10000) 
   }
 
   return (
@@ -185,21 +185,21 @@ export default function HeroSlider() {
       </div>
 
       {/* Navigation arrows */}
-      <button
+      {/* <button
         onClick={goToPrevious}
         className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition-all duration-200 text-white"
         aria-label="Previous slide"
       >
         <ChevronLeft className="w-6 h-6" />
-      </button>
+      </button> */}
 
-      <button
+      {/* <button
         onClick={goToNext}
         className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition-all duration-200 text-white"
         aria-label="Next slide"
       >
         <ChevronRight className="w-6 h-6" />
-      </button>
+      </button> */}
 
       {/* Dot indicators */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
@@ -216,7 +216,7 @@ export default function HeroSlider() {
       </div>
 
       {/* Progress bar */}
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20">
+      {/* <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20">
         <div
           className="h-full bg-white transition-all duration-100 ease-linear"
           style={{
@@ -224,7 +224,7 @@ export default function HeroSlider() {
             animation: isAutoPlaying ? "progress 6s linear infinite" : "none",
           }}
         />
-      </div>
+      </div> */}
 
       <style jsx>{`
         @keyframes progress {
