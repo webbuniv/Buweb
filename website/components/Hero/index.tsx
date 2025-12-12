@@ -34,15 +34,15 @@ const heroMedia: HeroMedia[] = [
       "Caps. Gowns. Dreams. Counting down to a day of honour, joy, and new beginnings. Graduation is on the horizon... Your moment to shine is coming soon. Graduation awaits – are you ready?",
   },
     
-         {
-    type: "image",
+//          {
+//     type: "image",
     
-    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68f530b0002a2a814f0e/view?project=674dcf7b003d57db960a&mode=admin",
-    title: "The Annual Cultural Fest : Celebrating Diversity and Unity at Bugema University",
-    description:" It's a spectacular celebration where the diverse tapestry of the student body is woven together, transforming the campus into a dynamic hub of tradition, music, and performance.",
-    link: "http://bugemauniv.ac.ug/events/68ef5c13001137001105",
-    linkText: "explore more",
-  },  
+//     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68f530b0002a2a814f0e/view?project=674dcf7b003d57db960a&mode=admin",
+//     title: "The Annual Cultural Fest : Celebrating Diversity and Unity at Bugema University",
+//     description:" It's a spectacular celebration where the diverse tapestry of the student body is woven together, transforming the campus into a dynamic hub of tradition, music, and performance.",
+//     link: "http://bugemauniv.ac.ug/events/68ef5c13001137001105",
+//     linkText: "explore more",
+//   },  
       
  
 //     {
@@ -97,7 +97,7 @@ const HeroSlide = ({ media, isActive }: HeroSlideProps) => {
       )}
 
       {/* Gradient overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent" />
 
       {/* Content overlay */}
       {media.type !== "no-overlay" && (media.title || media.description) && (
