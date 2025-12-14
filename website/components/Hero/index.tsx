@@ -16,7 +16,26 @@ interface HeroMedia {
 }
 
 const heroMedia: HeroMedia[] = [
-
+//          {
+//     type: "image",
+    
+//     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/693ea7c40011f9668d11/view?project=674dcf7b003d57db960a&mode=admin",
+//     title: "The Annual Cultural Fest : Celebrating Diversity and Unity at Bugema University",
+//     description:" It's a spectacular celebration where the diverse tapestry of the student body is woven together, transforming the campus into a dynamic hub of tradition, music, and performance.",
+//     link: "http://bugemauniv.ac.ug/events/68ef5c13001137001105",
+//     linkText: "explore more",
+//   },  
+  
+                 {
+    type: "image",
+    
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/692d80c5003c7ad9cc2b/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "Bugema University Secures Significant Book Donation Through Competitive Grant Award",
+    description:"Bugema University has received a significant donation of academic books from Book Aid International following a successful grant application submitted by the Directorate of Research and Publication through the Office of the Deputy Vice Chancellor (Academics)..",
+    link: "http://bugemauniv.ac.ug/news/692db0720005946a0379",
+    linkText: "explore more",
+  },  
+                
         {
     type: "image",
     
@@ -34,15 +53,7 @@ const heroMedia: HeroMedia[] = [
       "Caps. Gowns. Dreams. Counting down to a day of honour, joy, and new beginnings. Graduation is on the horizon... Your moment to shine is coming soon. Graduation awaits – are you ready?",
   },
     
-//          {
-//     type: "image",
-    
-//     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68f530b0002a2a814f0e/view?project=674dcf7b003d57db960a&mode=admin",
-//     title: "The Annual Cultural Fest : Celebrating Diversity and Unity at Bugema University",
-//     description:" It's a spectacular celebration where the diverse tapestry of the student body is woven together, transforming the campus into a dynamic hub of tradition, music, and performance.",
-//     link: "http://bugemauniv.ac.ug/events/68ef5c13001137001105",
-//     linkText: "explore more",
-//   },  
+
       
  
 //     {
@@ -101,9 +112,9 @@ const HeroSlide = ({ media, isActive }: HeroSlideProps) => {
 
       {/* Content overlay */}
       {media.type !== "no-overlay" && (media.title || media.description) && (
-        <div className={`absolute  inset-0 flex items-end `}>
-          <div className="w-full p-6 md:p-8 lg:p-12 ">
-            <div className="max-w-4xl  text-white bg-blue-600/20 p-4">
+        <div className={`absolute bottom-20  md:inset-0 flex items-end `}>
+          <div className="w-full md:p-8 lg:p-12 ">
+            <div className="  md:max-w-4xl  text-white bg-gradient-to-r from-blue-900 to-blue-900/20 p-4 rounded-xl">
               {media.title && (
                 <h1 className={`text-2xl md:text-4xl lg:text-5xl font-bold mb-4 ${isActive ? "overlay-animation" : ""} leading-tight`}>{media.title}</h1>
               )}
@@ -113,7 +124,7 @@ const HeroSlide = ({ media, isActive }: HeroSlideProps) => {
                 </p>
               )}
               {media.link && media.linkText && (
-                <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+                <Button asChild size="lg" className="bg-red-600 hover:bg-red-700">
                   <Link href={media.link} className="inline-flex items-center gap-2">
                     {media.linkText}
                     {media.linkText === "Apply Now" ? (
