@@ -20,17 +20,12 @@ const NewsEventsSection = () => {
   useEffect(() => {
         const fetchData = async () => {
         try {
-        //         const newsRes = await getNews({
-        //   searchText: "",
-        //   sort: "$createdAt-desc",
-        //   limit: 2,
-        // })
-         const eventsRes = await getEvents({
+                const newsRes = await getNews({
           searchText: "",
           sort: "$createdAt-desc",
-          limit: 3,
+          limit: 2,
         })
-        setNews((eventsRes.filter((event) => new Date(event.dateDue) <= new Date())))
+        setNews((newsRes))
         } catch (error) {
                 console.error("Error fetching news:", error)
         }finally {
@@ -143,7 +138,7 @@ const NewsEventsSection = () => {
                   >
                     <div className="flex flex-col md:flex-row">
                       <Link
-                        href={`/events/${post.$id}`}
+                        href={`/news/${post.$id}`}
                         className="relative md:w-80 h-64 md:h-48 flex-shrink-0 overflow-hidden"
                       >
                         <Image
@@ -156,7 +151,7 @@ const NewsEventsSection = () => {
                       </Link>
                       <div className="p-8 flex flex-col justify-between flex-1">
                         <div>
-                          <Link href={`/events/${post.$id}`}>
+                          <Link href={`/news/${post.$id}`}>
                             <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 leading-tight">
                               {post.title}
                             </h4>
@@ -197,6 +192,13 @@ const NewsEventsSection = () => {
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-2 h-12 bg-gradient-to-b from-emerald-500 to-blue-600 rounded-full shadow-lg" />
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Upcoming Events</h3>
+                  <Link
+                href="/events"
+                className="group inline-flex items-center gap-3 p-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-2xl hover:from-blue-700 hover:to-indigo-700 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+              >
+                View All Events
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
                 </div>
 
                 <div className="space-y-4 max-h-[700px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">

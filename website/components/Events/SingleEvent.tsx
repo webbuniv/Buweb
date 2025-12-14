@@ -2,6 +2,10 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Events } from "@/types/types";
+import { Badge } from "../ui/badge";
+import { Card, CardContent, CardFooter } from "../ui/card";
+import { ArrowRight, Calendar, MapPin } from "lucide-react";
+import { Button } from "../ui/button";
 
 
 type Props = {
@@ -10,40 +14,47 @@ type Props = {
 
 const SingleEvent = ({ post }: Props) => {
   return (
-    <div className="wow fadeInUp relative overflow-hidden shadow-one dark:bg-dark w-[220] mb-8">
-
-      <div className="py-2 sm:p-4 md:py-2 md:px-2 lg:p-6 xl:py-2 xl:px-1 2xl:p-6">
-
-        <h3>
-          <Link href={`/events/${post.$id}`} passHref className="mb-1 block text-sm md:text-lg font-bold text-black/80 hover:text-primary dark:text-white dark:hover:text-primary sm:text-md">
-              {post.title.toUpperCase()}
+  <>
+  
+      <Card className="overflow-hidden   duration-300 bg-card flex flex-col">
+      <div className="relative h-48 overflow-hidden  hover:scale-105 transition-transform duration-500 ">
+        <Badge className={`${new Date(post.date) <= new Date() ? "bg-red-500 absolute top-4 right-4" : "bg-blue-600 absolute top-4 right-4"}`} variant="secondary">{new Date(post.date) <= new Date() ? "Completed" : "Upcoming"}</Badge>
+        <Link href={`/events/${post.$id}`} passHref className="mb-1 block text-sm md:text-lg font-bold text-black/80 hover:text-primary dark:text-white dark:hover:text-primary sm:text-md">
+               <img
+          src={`${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${post.file}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`}
+          alt={post.title}
+          className="w-full h-full object-cover"
+        />
           </Link>
+       
+        {/* <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">{post.category}</Badge> */}
+      </div>
+      <CardContent className="p-5 flex-grow">
+        <h3 className="text-lg font-bold text-card-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+          {post.title}
         </h3>
-        <div className="flex items-center">
-          <div className="mr-5 flex items-center border-r border-body-color border-opacity-10 pr-5 dark:border-white dark:border-opacity-10 xl:mr-3 xl:pr-3 2xl:mr-5 2xl:pr-5">
-            <div className="mr-4">
-              <div className="relative h-10 w-10 overflow-hidden rounded-full">
-                <Image src={`${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${post.file}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`} alt="author" layout="fill" />
-              </div>
-            </div>
-            <div className="w-full">
-
-              <h4 className="mb-1 text-xs md:text-md font-medium text-dark dark:text-white">
-                By {post.organizer}
-              </h4>
-              <p className="text-xs md:text-sm text-body-color">{post.title}</p>
-
-            </div>
+        {/* <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{post.description}</p> */}
+        <div className="space-y-1.5">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Calendar className="h-3.5 w-3.5 text-accent" />
+            <span>{new Date(post.date).toLocaleDateString()}</span>
           </div>
-          <div className="inline-block">
-            <h4 className="mb-1 text-xs md:text-md font-medium text-dark dark:text-white">
-              Date
-            </h4>
-            <p className="text-xs md:text-sm text-red-500">{ new Date(post.date).toLocaleDateString()}</p>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <MapPin className="h-3.5 w-3.5 text-accent" />
+            <span className="truncate">{post.location}</span>
+          </div>
+           <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            BY: 
+            <span className="truncate">{post.organizer}</span>
           </div>
         </div>
-      </div>
-    </div>
+      </CardContent>
+      <CardFooter className="p-5 pt-0">
+        <Link href={`/events/${post.$id}`} passHref className="mb-1 text-sm rounded-full border border-blue-500 p-2 font-bold text-black/80 hover:text-primary dark:text-white dark:hover:text-primary sm:text-md">
+              Learn More
+          </Link>
+      </CardFooter>
+    </Card></>
   );
 };
 
