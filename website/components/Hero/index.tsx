@@ -16,15 +16,15 @@ interface HeroMedia {
 }
 
 const heroMedia: HeroMedia[] = [
-//          {
-//     type: "image",
+         {
+    type: "image",
     
-//     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/693ea7c40011f9668d11/view?project=674dcf7b003d57db960a&mode=admin",
-//     title: "The Annual Cultural Fest : Celebrating Diversity and Unity at Bugema University",
-//     description:" It's a spectacular celebration where the diverse tapestry of the student body is woven together, transforming the campus into a dynamic hub of tradition, music, and performance.",
-//     link: "http://bugemauniv.ac.ug/events/68ef5c13001137001105",
-//     linkText: "explore more",
-//   },  
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/693ea7c40011f9668d11/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "Bugema University Hosts Adventist Accrediting Association (AAA) Review Visit",
+    description:"Bugema University hosted a review visit by the Adventist Accrediting Association (AAA) on 9th December 2025. The visit reflected the University’s continued commitment to quality education, accountability, and mission-based growth within the Adventist system of higher education.",
+    link: "https://www.bugemauniv.ac.ug/news/6943e7a20025a80ea19e",
+    linkText: "explore more",
+  },  
   
                  {
     type: "image",
