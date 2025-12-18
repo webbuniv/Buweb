@@ -71,7 +71,7 @@ export async function CreateNews(previousState: any, formData: FormDataType): Pr
 
 export const getNews = async  ({ 
   searchText = '',
-  sort = "$createdAt-desc", 
+  sort = "date-desc", 
   limit,
  }: GetNewsProps): Promise<News[]> => {
   const { databases } = await createAdminClient();

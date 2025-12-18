@@ -22,8 +22,8 @@ const NewsEventsSection = () => {
         try {
                 const newsRes = await getNews({
           searchText: "",
-          sort: "$createdAt-desc",
-          limit: 2,
+          sort: "date-desc",
+          limit: 5,
         })
         setNews((newsRes))
         } catch (error) {
