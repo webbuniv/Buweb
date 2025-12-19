@@ -83,7 +83,7 @@ const why_bugema = () =>{
       <>
         
 
-            <div className=" fade-in fixed right-[26%] z-40  flex rounded-lg    w-[10%]   shadow-lg overflow-auto overflow-x-hidden
+            <div className=" fade-in fixed right-[26%] z-30  flex rounded-lg    w-[10%]   shadow-lg overflow-auto overflow-x-hidden
              bg-white" id="wrapper" onMouseLeave={onClose}  >
                   
                   <div id="programs">

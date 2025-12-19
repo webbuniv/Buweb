@@ -99,5 +99,11 @@ const menuData: Menu[] = [
     path: "/gallery",
     newTab: false,
   },
+    {
+    id: 7,
+    title: "Contact Us",
+    path: "/contact",
+    newTab: false,
+  },
 ];
 export default menuData;
