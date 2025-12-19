@@ -42,8 +42,8 @@ const EnhancedNavbar: React.FC = () => {
             </AnimatedNavLink>
             <DropdownNavLink
               items={[
-                { label: "Login", href: "https://erms.bugemauniv.ac.ug/student/login/" },
-                { label: "Register", href: "https://erms.bugemauniv.ac.ug/student/registration/" },
+                { label: "Erms Portal", href: "https://erms.bugemauniv.ac.ug/student/login/" },
+                { label: "Erms Register", href: "https://erms.bugemauniv.ac.ug/student/registration/" },
                 { label: "E-Portal", href: "https://eportal.bugemauniv.ac.ug/" },
               ]}
             >
@@ -138,7 +138,9 @@ const DropdownNavLink: React.FC<{ children: React.ReactNode; items: { label: str
               <a
                 key={index}
                 href={item.href}
-                className=" block px-4 py-2 text-gray-700 hover:bg-blue-500 hover:text-white text-xs transition-colors duration-200"
+                target="_blank"
+                rel="noopener noreferrer"
+                className=" block  px-4 py-2 text-gray-700 hover:bg-blue-500 hover:text-white text-xs transition-colors duration-200"
               >
                 {item.label}
               </a>

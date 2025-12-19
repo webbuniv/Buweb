@@ -83,7 +83,7 @@ const why_bugema = () =>{
       <>
         
 
-            <div className=" fade-in fixed right-[26%] z-40  flex rounded-lg    w-[10%]  mt-[7%]  shadow-lg overflow-auto overflow-x-hidden
+            <div className=" fade-in fixed right-[26%] z-40  flex rounded-lg    w-[10%]   shadow-lg overflow-auto overflow-x-hidden
              bg-white" id="wrapper" onMouseLeave={onClose}  >
                   
                   <div id="programs">
@@ -105,7 +105,7 @@ const why_bugema = () =>{
                                     top: '5px',
                                     }}
                                     onClick={onClose}>
-                                    <span className="text-white text-xl"><BiX className='text-3xl'/></span>
+                                    <span className="text-white text-xl"><BiX className='text-3xl hover:rotate-90 transition-transform duration-300 '/></span>
                               </button>
 
                         </div> 

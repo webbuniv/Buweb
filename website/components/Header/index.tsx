@@ -18,6 +18,7 @@ import "../../styles/index.css";
 import { FaChevronDown } from "react-icons/fa";
 import menuData from "./menuData";
 import Router from "next/router";
+import { ArrowRight } from "lucide-react";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -30,6 +31,7 @@ const Header = () => {
   const [showModel2, setShowModel2] = useState(false);
   const [advertvisible, setadvertvisible] = useState(true);
   const [hideMobileNav, setHideMobileNav] = useState(false);
+  const [backgroundColor, setBackgroundColor] = useState<"bg-dark" | "">("");
         const pathname = usePathname();
         
  const router = Router
@@ -71,6 +73,10 @@ const Header = () => {
   useEffect(() => {
     document.body.style.overflow = showModel ? "hidden" : "auto";
   }, [showModel]);
+
+  useEffect(() => {
+        showModel4 || showModel3 || showModel2 || showModel1 || showModel ? setBackgroundColor("bg-dark") : setBackgroundColor(""); 
+  },[showModel,showModel1,showModel2,showModel3,showModel4]);
 
   const first_modal = () => {
     setShowModel((prevState)=>!prevState);
@@ -218,13 +224,13 @@ useEffect(() => {
         //     ? " bg-dark !fixed !z-[9999] ! bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100"
         //     : "absolute"
         // }`}
-        className={`hidden md:flex  header left-0 z-40 w-full items-center ${
+        className={`hidden md:flex  header left-0 z-50 w-full items-center h-20 ${backgroundColor}  ${ 
           sticky
             ? "bg-dark text-white top-0 !fixed !z-[9999] bg-opacity-100 shadow-sticky backdrop-blur-sm fades-out  transition"
-            : "absolute top-0  fades-in text-white"
+            : "absolute top-10  fades-in text-white"
         }`}
       >
-        <div className="container">
+        <div className={`container `}>
           <div className="relative flex items-center justify-between">
             <div className="w-60 relative z-10 ">
               <Link
@@ -296,7 +302,12 @@ useEffect(() => {
 
                 <nav
                   id="navbarCollapse"
-                  className={`navbar hidden ${sticky? "" : "mt-12" }  lg:block absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100`}
+                  className={`navbar hidden ${sticky? "" : "mt-1" }  
+                  lg:block absolute right-0 z-30 w-[250px] 
+                  rounded border-[.5px] border-body-color/50 
+                  bg-primary py-4 px-6 duration-300 ease-out transition-transform 
+                  transform dark:border-body-color/20 dark:bg-white lg:visible 
+                  lg:static lg:w-auto lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100`}
                 >
                   <ul className={`block lg:flex   lg:space-x-8 top-0 left-0 h-full ${ checkPathname ? `${sticky? "" :"text-black"}` :"text-white"} ` }>
 
@@ -344,7 +355,7 @@ useEffect(() => {
 
                     <li>
                       <div
-                        className={`nav cursor-pointer hover flex py-2    font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav cursor-pointer hover flex py-2  group  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
                         // onMouseEnter={third_modal}
                       >
@@ -354,7 +365,7 @@ useEffect(() => {
                           </Link>
                         </span>
                         <span className={"my-1 ml-2 dark:text-dark "}>
-                          <FaChevronDown className={showModel2 ? "drop" : "revert"} />
+                             <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
                         </span>
                       </div>
                     </li>
@@ -568,7 +579,7 @@ useEffect(() => {
       <Model3 is3visible={showModel3} onClose={() => setShowModel3(false)}>
         <></>
       </Model3>
-      <Model4 is4visible={showModel4} onClose={() => setShowModel4(false)} palmGirlsImage="/placeholder.svg?height=450&width=350">
+      <Model4 is4visible={showModel4} onClose={() => {setShowModel4(false)}} palmGirlsImage="/placeholder.svg?height=450&width=350">
         <></>
       </Model4>
 
