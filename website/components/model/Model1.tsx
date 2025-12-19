@@ -82,7 +82,7 @@ const UniversityNavigationModal = ({ issvisible, onClose, children }: Navigation
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-400/20 to-purple-400/20 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-green-400/20 to-blue-400/20 rounded-full blur-3xl" />
       <div
-        className="fixed top-[16%] gap-2 left-[5%] right-[5%]   h-[100vh] bg-white/60 overflow-hidden animate-in slide-in-from-top-4 duration-500"
+        className="fixed top-[16%] gap-2 left-[5%] right-[5%]   h-[100vh] bg-white/60 overflow-hidden  slide-in-from-top-4 duration-500"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -156,7 +156,7 @@ const UniversityNavigationModal = ({ issvisible, onClose, children }: Navigation
             <div className="p-12">
               {/* Students Life Tab */}
               {activeTab === "students-life" && (
-                <div className="animate-in fade-in slide-in-from-right-4 duration-500">
+                <div className=" fade-in slide-in-from-right-4 duration-500">
                   <h2 className="text-4xl font-bold text-gray-900 mb-3">Students Life</h2>
                   <p className="text-gray-600 mb-8">Explore everything about campus life and student services</p>
 
@@ -178,7 +178,7 @@ const UniversityNavigationModal = ({ issvisible, onClose, children }: Navigation
 
               {/* Sports Tab */}
               {activeTab === "sports" && (
-                <div className="animate-in fade-in slide-in-from-right-4 duration-500">
+                <div className=" fade-in slide-in-from-right-4 duration-500">
                   <h2 className="text-4xl font-bold text-gray-900 mb-3">Sports & Athletics</h2>
                   <p className="text-gray-600 mb-8">Join our competitive sports programs and teams</p>
 
@@ -217,7 +217,7 @@ const UniversityNavigationModal = ({ issvisible, onClose, children }: Navigation
 
               {/* Clubs & Associations Tab */}
               {activeTab === "clubs" && (
-                <div className="animate-in fade-in slide-in-from-right-4 duration-500">
+                <div className=" fade-in slide-in-from-right-4 duration-500">
                   <h2 className="text-4xl font-bold text-gray-900 mb-3">Clubs & Associations</h2>
                   <p className="text-gray-600 mb-8">Connect with student organizations and special interest groups</p>
 
@@ -239,7 +239,7 @@ const UniversityNavigationModal = ({ issvisible, onClose, children }: Navigation
 
               {/* Student Leadership Tab */}
               {activeTab === "leadership" && (
-                <div className="animate-in fade-in slide-in-from-right-4 duration-500">
+                <div className=" fade-in slide-in-from-right-4 duration-500">
                   <h2 className="text-4xl font-bold text-gray-900 mb-3">Student Leadership</h2>
                   <p className="text-gray-600 mb-8">Learn about student government and leadership opportunities</p>
 

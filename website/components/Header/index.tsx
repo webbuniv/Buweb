@@ -369,7 +369,6 @@ useEffect(() => {
                         </span>
                       </div>
                     </li>
-                    
                     <li>
                       <div
                         className={`nav cursor-pointer hover flex py-2    font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
@@ -498,6 +497,7 @@ useEffect(() => {
                 >
                   <ul className="block lg:flex lg:space-x-12">
                     {menuData.map((menuItem, index) => (
+
                       <li key={menuItem.id} className="group relative">
                         {menuItem.path ? (
                           <Link
@@ -541,6 +541,17 @@ useEffect(() => {
                         )}
                       </li>
                     ))}
+
+                    <li className="group relative" >
+                         <a href="tel:+256769593407"
+                         className="flex py-2 text-sm text-white group-hover:opacity-70
+                        dark:text-white border-b border-body-color border-opacity-40 
+                        lg:mr-0 lg:inline-flex lg:py-6 lg:px-0"
+                         >
+                                Contact Us +256769593407
+                                </a>
+                    </li>
+                    
                   </ul>
                 </nav>
               </div>
