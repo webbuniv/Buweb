@@ -52,7 +52,7 @@ export default function ContactForm({
   }
 
   return (
-    <div className="fixed fade-in inset-0 z-40 bg-gradient-to-br from-green-100 via-blue-100 to-purple-100 overflow-auto">
+    <div className="fixed fade-in inset-0 z-30 bg-gradient-to-br from-green-100 via-blue-100 to-purple-100 overflow-auto">
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-400/20 to-purple-400/20 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-green-400/20 to-blue-400/20 rounded-full blur-3xl" />
       <div className="mx-auto px-20 mt-[7%] py-4 max-w-full   ">

@@ -224,7 +224,7 @@ useEffect(() => {
         //     ? " bg-dark !fixed !z-[9999] ! bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100"
         //     : "absolute"
         // }`}
-        className={`hidden md:flex  header left-0 z-50 w-full items-center h-20 ${backgroundColor}  ${ 
+        className={`hidden md:flex  header left-0 z-40 w-full items-center h-20 ${backgroundColor}  ${ 
           sticky
             ? "bg-dark text-white top-0 !fixed !z-[9999] bg-opacity-100 shadow-sticky backdrop-blur-sm fades-out  transition"
             : "absolute top-10  fades-in text-white"
@@ -576,9 +576,9 @@ useEffect(() => {
       <Model2 isssvisible={showModel2} onClose={() => setShowModel2(false)}>
         <></>
       </Model2>
-      <Model3 is3visible={showModel3} onClose={() => setShowModel3(false)}>
-        <></>
-      </Model3>
+      <Model3 is3visible={showModel3} onClose={() => setShowModel3(false)}/>
+        {/* <></> */}
+      {/* </Model3> */}
       <Model4 is4visible={showModel4} onClose={() => {setShowModel4(false)}} palmGirlsImage="/placeholder.svg?height=450&width=350">
         <></>
       </Model4>
