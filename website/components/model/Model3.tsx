@@ -77,7 +77,7 @@ const CampusModal = ({ is3visible, onClose }: CampusModalProps) => {
 
   return (
     <div
-      className="fixed inset-0 z-30 flex items-center  justify-center   backdrop-blur-sm animate-in fade-in duration-300"
+      className="fixed inset-0 z-30 flex items-center  justify-center   backdrop-blur-sm  fade-in duration-300"
       onClick={handleBackdropClick}
     >
       <div className="relative w-full max-w-full  max-h-[100vh] overflow-hidden animate-in zoom-in-95 duration-300">

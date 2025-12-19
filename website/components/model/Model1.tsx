@@ -78,7 +78,7 @@ const UniversityNavigationModal = ({ issvisible, onClose, children }: Navigation
   ]
 
   return (
-    <div className="fixed inset-0 z-30 bg-gradient-to-br from-red-100 via-green-100 to-purple-100 bg-opacity-50   backdrop-blur-sm animate-in fade-in duration-300" onClick={onClose}>
+    <div className="fixed inset-0 z-30 bg-gradient-to-br from-red-100 via-green-100 to-purple-100 bg-opacity-50   backdrop-blur-sm  fade-in duration-300" onClick={onClose}>
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-400/20 to-purple-400/20 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-green-400/20 to-blue-400/20 rounded-full blur-3xl" />
       <div
