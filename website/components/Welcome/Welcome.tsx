@@ -78,7 +78,7 @@ const Welcome = () => {
           <motion.div variants={itemVariants} className="relative order-first lg:order-last">
             <div className="relative overflow-hidden rounded-2xl shadow-2xl">
               <Image
-                src="/images/vc/vc.jpg"
+                src="/images/vc/vc2.jpg"
                 alt="Bugema University Campus"
                 width={600}
                 height={400}
