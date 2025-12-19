@@ -25,7 +25,7 @@ export default function UniversityModal({ isvisible, onClose }: UniversityModalP
   }
 
   return (
-    <div className="fixed inset-0 z-40 flex px-10 items-start justify-center pt-20 animate-in bg-gradient-to-br from-green-100 via-red-100 to-purple-200   fade-in duration-300">
+    <div className="fixed inset-0 z-30 flex px-10 items-start justify-center pt-20 animate-in bg-gradient-to-br from-green-100 via-red-100 to-purple-200   fade-in duration-300">
       {/* Backdrop */}
       {/* <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={handleClose} /> */}
 
