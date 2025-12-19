@@ -88,5 +88,7 @@ module.exports = {
   		colors: {}
   	}
   },
-  plugins: [require("flowbite/plugin"), require("tailwindcss-animate")],
+  plugins: [
+        require("flowbite/plugin"),
+        require("tailwindcss-animate")],
 };

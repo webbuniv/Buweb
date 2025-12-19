@@ -25,13 +25,13 @@ export default function UniversityModal({ isvisible, onClose }: UniversityModalP
   }
 
   return (
-    <div className="fixed inset-0 z-30 flex px-10 items-start justify-center pt-20 animate-in bg-gradient-to-br from-green-100 via-red-100 to-purple-200   fade-in duration-300">
+    <div className="fixed inset-0 z-30 flex px-10 items-start justify-center pt-20  bg-gradient-to-br from-green-100 via-red-100 to-purple-200   fade-in duration-300">
       {/* Backdrop */}
       {/* <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={handleClose} /> */}
 
       {/* Modal Content */}
       <div
-        className="relative w-[95%] mt-[2%]  h-[85vh]  bg-white rounded-2xl shadow-2xl overflow-hidden animate-in slide-in-from-top-4 duration-500"
+        className="relative w-[95%] mt-[2%]  h-[85vh]  bg-white rounded-2xl shadow-2xl overflow-hidden  slide-in-from-top-4 duration-500"
         // onMouseLeave={handleClose}
       >
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-400/20 to-purple-400/20 rounded-full blur-3xl" />
@@ -126,7 +126,7 @@ export default function UniversityModal({ isvisible, onClose }: UniversityModalP
           <div className="flex-1 overflow-y-auto p-12">
             {/* Schools Content */}
             {activeTab === "schools" && (
-              <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <div className=" fade-in slide-in-from-bottom-4 duration-500">
                 <ul className="space-y-4">
                   {[
                     {
@@ -158,7 +158,7 @@ export default function UniversityModal({ isvisible, onClose }: UniversityModalP
 
             {/* Fees Content */}
             {activeTab === "fees" && (
-              <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <div className=" fade-in slide-in-from-bottom-4 duration-500">
                 <ul className="space-y-4">
                   {[
                     {
@@ -187,7 +187,7 @@ export default function UniversityModal({ isvisible, onClose }: UniversityModalP
 
             {/* Why Bugema Content */}
             {activeTab === "why-bugema" && (
-              <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <div className=" fade-in slide-in-from-bottom-4 duration-500">
                 <ul className="space-y-4">
                   {[
                     { title: "Sports", href: "/sports/sports" },
@@ -211,7 +211,7 @@ export default function UniversityModal({ isvisible, onClose }: UniversityModalP
 
             {/* Staff and Faculty Content */}
             {activeTab === "staff" && (
-              <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <div className=" fade-in slide-in-from-bottom-4 duration-500">
                 <ul className="space-y-4">
                   {[
                     { title: "School of Science and Technology", href: "/schools/school-of-science" },
@@ -244,7 +244,7 @@ export default function UniversityModal({ isvisible, onClose }: UniversityModalP
             <div className="space-y-6">
               {/* Schools Image */}
               {activeTab === "schools" && (
-                <div className="animate-in fade-in slide-in-from-right-4 duration-500">
+                <div className=" fade-in slide-in-from-right-4 duration-500">
                   <div className="overflow-hidden rounded-2xl shadow-lg">
                     <Image
                       src="/images/nav/labs.jpg"
@@ -282,7 +282,7 @@ export default function UniversityModal({ isvisible, onClose }: UniversityModalP
 
               {/* Fees Image */}
               {activeTab === "fees" && (
-                <div className="animate-in fade-in slide-in-from-right-4 duration-500">
+                <div className=" fade-in slide-in-from-right-4 duration-500">
                   <div className="overflow-hidden rounded-2xl shadow-lg">
                     <Image
                       src="/images/nav/IMG_9313.jpg"
@@ -314,7 +314,7 @@ export default function UniversityModal({ isvisible, onClose }: UniversityModalP
 
               {/* Why Bugema Image */}
               {activeTab === "why-bugema" && (
-                <div className="animate-in fade-in slide-in-from-right-4 duration-500">
+                <div className=" fade-in slide-in-from-right-4 duration-500">
                   <div className="overflow-hidden rounded-2xl shadow-lg">
                     <Image
                       src="/images/nav/bucosa.jpg"
@@ -329,7 +329,7 @@ export default function UniversityModal({ isvisible, onClose }: UniversityModalP
 
               {/* Staff Image */}
               {activeTab === "staff" && (
-                <div className="animate-in fade-in slide-in-from-right-4 duration-500">
+                <div className=" fade-in slide-in-from-right-4 duration-500">
                   <div className="overflow-hidden rounded-2xl shadow-lg">
                     <Image
                       src="/images/nav/palm-girls.jpg"
