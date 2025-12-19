@@ -80,7 +80,7 @@ const CampusModal = ({ is3visible, onClose }: CampusModalProps) => {
       className="fixed inset-0 z-30 flex items-center  justify-center   backdrop-blur-sm  fade-in duration-300"
       onClick={handleBackdropClick}
     >
-      <div className="relative w-full max-w-full  max-h-[100vh] overflow-hidden animate-in zoom-in-95 duration-300">
+      <div className="relative w-full max-w-full  max-h-[100vh] overflow-hidden  zoom-in-95 duration-300">
         <Card className="relative bg-gradient-to-br from-pink-100 via-blue-100 to-green-100 border-0 shadow-2xl overflow-hidden">
           {/* Decorative gradient orbs */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl" />
@@ -151,7 +151,7 @@ const CampusModal = ({ is3visible, onClose }: CampusModalProps) => {
             {/* Main Content Area */}
             <div className="overflow-y-auto max-h-[100vh]">
               {/* Campus Header */}
-              <div className="mb-8 animate-in fade-in slide-in-from-right duration-500">
+              <div className="mb-8  fade-in slide-in-from-right duration-500">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="p-2 bg-blue-500 rounded-lg">
                     <GraduationCap className="w-6 h-6 text-white" />
@@ -164,7 +164,7 @@ const CampusModal = ({ is3visible, onClose }: CampusModalProps) => {
           
 
               {/* Campus Image */}
-              <div className="mb-8 animate-in fade-in slide-in-from-right duration-500 delay-200">
+              <div className="mb-8  fade-in slide-in-from-right duration-500 delay-200">
                 <div className="relative overflow-hidden rounded-2xl shadow-xl group">
                  <div className="flex gap-2" >
                          <Image
@@ -197,7 +197,7 @@ const CampusModal = ({ is3visible, onClose }: CampusModalProps) => {
               </div>
 
               {/* Quick Links */}
-              <div className="animate-in fade-in slide-in-from-right duration-500 delay-300">
+              <div className=" fade-in slide-in-from-right duration-500 delay-300">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Links</h3>
                 <div className="grid sm:grid-cols-4 gap-4">
                   {quickLinks.map((link, index) => {
