@@ -1,37 +1,27 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import SectionTitle from "@/components/Common/SectionTitle"
 import School from "@/components/school/School"
+import {getDeanBySchool} from "@/lib/actions/staff.actions"
+import { staffItem } from "@/lib/types"
 
-const lecturers = [
-  {
-    name: "Ms. Nakato Victo",
-    image: "/blank/blank_girl.jpg",
-    qualification: "Masters in Counselling and Psychology",
-  },
-  {
-    name: "Mr. Agaba Hudson",
-    image: "/blank/blank.jpg",
-    qualification: "Masters of Social Work",
-  },
-  {
-    name: "Mr. Enock Katamba",
-    image: "/blank/blank.jpg",
-    qualification: "Masters in Development Studies",
-  },
-  {
-    name: "Mrs. Priscille Harelimana",
-    image: "/blank/blank_girl.jpg",
-    qualification: "Masters in Development Studies",
-  },
-  // Add more lecturers as needed
-]
+
 
 export default function SchoolOfSocialSciences() {
   const [activeTab, setActiveTab] = useState("social")
+
+  const [dean, setDean] = useState<staffItem | null>(null);
+
+        useEffect(()=>{
+                const fetchDean = async () => {
+                        const deanData = await getDeanBySchool("School of Social sciences");
+                        setDean(deanData);
+                }
+                fetchDean();
+        }, [])
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab)
@@ -43,25 +33,24 @@ export default function SchoolOfSocialSciences() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container-fluid">
       <School
         title="School of Social Sciences"
         subtitle="Impart in student-teachers knowledge and skills that will make them effective and efficient teachers in various levels of education."
         topImg={["/images/schools/ss-hero.jpg"]}
-        dean="DR. OLOO STEVEN NYANJWA"
-        deanImage="/images/lecturers/oloo.JPG"
+        dean={dean?.name}
+        deanImage={dean?.photoUrl || "/blank/blank.jpg"}
         message="Having made a choice to join the school of education Bugema University, I take this opportunity to welcome you and assure you that you have made the best decision. As school of education, we look forward to serving you with a complete package."
         preamble="The School of Education believes that a true teacher is one that is mentally, physically and spiritually sound to impart the same virtues in his/her learners making them best suited for service to God and mankind in this world and in the world to come."
         goal="1. Train educators in the light of the Seventh day Adventist philosophy of education, which places emphasis on restoring the image of God in mankind through a harmonious development of the physical, mental, spiritual and social powers."
-        lecturers={lecturers}
       />
 
-      <div className="flex flex-col gap-2 justify-center mx-auto">
+      <div className="flex flex-col gap-2 justify-center mx-4">
         <div className="md:pl-2">
           <SectionTitle title="Departments In The Faculty" paragraph="" />
         </div>
 
-        <div className="flex flex-col gap-2 md:flex-row md:justify-center md:gap-[35%]">
+        <div className="flex flex-col gap-2  md:flex-row md:justify-center md:gap-[35%]">
           <div>
             <h1
               className="active2 text-xs font-bold text-body-color md:text-xl"

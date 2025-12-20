@@ -9,7 +9,7 @@ import Testimonials from './Testimonials'
 
 const WorkProgram = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-blue-500 to-white">
       <Hero />
       <ProgramInfo />
       <Testimonials />

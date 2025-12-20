@@ -1,13 +1,15 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Model from "@/components/model/Model";
 import Model1 from "@/components/model/Model1";
 import Model2 from "@/components/model/Model2";
 import Model3 from "@/components/model/Model3";
 import Model4 from "@/components/model/Model4";
 import Advert from "../model/advertmodel";
+import { usePathname } from "next/navigation";
+import confetti from "canvas-confetti";
 
 import image from "../../public/images/logo/bu_logo_nav.png";
 
@@ -16,6 +18,7 @@ import "../../styles/index.css";
 import { FaChevronDown } from "react-icons/fa";
 import menuData from "./menuData";
 import Router from "next/router";
+import { ArrowRight } from "lucide-react";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -28,13 +31,16 @@ const Header = () => {
   const [showModel2, setShowModel2] = useState(false);
   const [advertvisible, setadvertvisible] = useState(true);
   const [hideMobileNav, setHideMobileNav] = useState(false);
+  const [backgroundColor, setBackgroundColor] = useState<"bg-dark" | "">("");
+        const pathname = usePathname();
+        
  const router = Router
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
   };
 
   const handleStickyNavbar = () => {
-    if (window.scrollY >= 200) {
+    if (window.scrollY >= 3) {
       setSticky(true);
     } else {
       setSticky(false);
@@ -67,6 +73,10 @@ const Header = () => {
   useEffect(() => {
     document.body.style.overflow = showModel ? "hidden" : "auto";
   }, [showModel]);
+
+  useEffect(() => {
+        showModel4 || showModel3 || showModel2 || showModel1 || showModel ? setBackgroundColor("bg-dark") : setBackgroundColor(""); 
+  },[showModel,showModel1,showModel2,showModel3,showModel4]);
 
   const first_modal = () => {
     setShowModel((prevState)=>!prevState);
@@ -132,8 +142,78 @@ const Header = () => {
     setShowModel1(false);
     setShowModel2(false);
   };
+ 
 
-  
+  function useCountdown(target: Date) {
+  const [now, setNow] = useState(() => new Date());
+  useEffect(() => {
+    const t = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(t);
+  }, []);
+  const diff = Math.max(0, target.getTime() - now.getTime());
+  const s = Math.floor(diff / 1000);
+  const d = Math.floor(s / 86400);
+  const h = Math.floor((s % 86400) / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const sec = s % 60;
+  return { d, h, m, s: sec, done: diff === 0 };
+}
+ const t = new Date();
+//    t.setHours(23, 59, 59, 999);
+    t.setDate(t.getDate() + 3); // 4 days from now
+//     console.log("grad",t);
+    
+const grad = useMemo(() => {
+        const TARGET_ISO = '2025-11-09T09:00:50+03:00';
+//     const TARGET_ISO = '2025-11-05T10:07:00+03:00';
+const targetTime = Date.parse(TARGET_ISO); // number (ms)
+//     t.setHours(23, 59, 59, 999);
+//     t.setDate("Sun Nov 09 2025 09:00:50 GMT+0300 (East Africa Time)"); // 4 days from now
+    return new Date(targetTime)
+  }, []);
+ const { d, h, m, s, done } = useCountdown(grad);
+    const confettiRef = useRef<HTMLCanvasElement | null>(null);
+        
+useEffect(() => {
+        if (!done) return;
+  if (!confettiRef.current) return;
+
+  const myConfetti = confetti.create(confettiRef.current, {
+    resize: true,
+    useWorker: true,
+  });
+
+  const shoot = () => {
+    myConfetti({
+      particleCount: 14,
+      spread: 80,
+      startVelocity: 40,
+      ticks: 250,
+      origin: { x: Math.random(), y: Math.random() * 0.25 }, // top 25%
+      scalar: 1,
+      disableForReducedMotion: true,
+    });
+  };
+
+  const interval = setInterval(shoot, 300); // every 300ms
+
+  return () => {
+    clearInterval(interval);
+    myConfetti.reset();
+  };
+}, [done]);
+
+ const pathNames = [
+        "news",
+        'studentlife',
+        "work_program",
+        "religious",
+        "events",
+        "sports",
+        "administrator",
+        "publications",
+ ]
+  const checkPathname = pathNames.some((path) => pathname?.includes(path));
 
   return (
     <>
@@ -144,13 +224,13 @@ const Header = () => {
         //     ? " bg-dark !fixed !z-[9999] ! bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100"
         //     : "absolute"
         // }`}
-        className={`hidden md:flex header left-0 z-40 w-full items-center ${
+        className={`hidden md:flex  header left-0 z-40 w-full items-center h-20 ${backgroundColor}  ${ 
           sticky
-            ? "bg-dark text-white top-0 !fixed !z-[9999] bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition"
-            : "absolute top-12 bg-gradient-to-b from-black  text-white"
+            ? "bg-dark text-white top-0 !fixed !z-[9999] bg-opacity-100 shadow-sticky backdrop-blur-sm fades-out  transition"
+            : "absolute top-10  fades-in text-white"
         }`}
       >
-        <div className="container">
+        <div className={`container `}>
           <div className="relative flex items-center justify-between">
             <div className="w-60 relative z-10 ">
               <Link
@@ -176,6 +256,25 @@ const Header = () => {
                 /> 
               </Link>
             </div> 
+          {/*  <div className={`${sticky? " flex flex-col text-blue-600 bg-white bg-opacity-60 backdrop-blur-lg  px-3 md:px-5 py-2 md:py-3 rounded-md text-center font-bold":"hidden"} `}>
+           <div className="text-[10px] md:text-xs uppercase opacity-90">Graduation Count Down</div>
+          <div className="flex items-center gap-1 md:gap-2 font-mono">
+            {[
+              { v: d, label: "D" },
+              { v: h, label: "H" },
+              { v: m, label: "M" },
+              { v: s, label: "S" },
+            ].map((t) => (
+              <div
+                key={t.label}
+                className="bg-white/15 backdrop-blur px-1.5 md:px-2 py-0.5 md:py-1 rounded md:rounded-md text-xs md:text-sm font-semibold"
+              >
+                {String(t.v).padStart(2, "0")}
+                <span className="ml-1 text-[9px] md:text-[10px] opacity-80">{t.label}</span>
+              </div>
+            ))}
+          </div> 
+        </div>*/}
             <div className="flex space-x-20 justify-between transform bg-transparent">
               <div>
                 <button
@@ -203,14 +302,19 @@ const Header = () => {
 
                 <nav
                   id="navbarCollapse"
-                  className={`navbar hidden lg:block absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100`}
+                  className={`navbar hidden ${sticky? "" : "mt-1" }  
+                  lg:block absolute right-0 z-30 w-[250px] 
+                  rounded border-[.5px] border-body-color/50 
+                  bg-primary py-4 px-6 duration-300 ease-out transition-transform 
+                  transform dark:border-body-color/20 dark:bg-white lg:visible 
+                  lg:static lg:w-auto lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100`}
                 >
-                  <ul className="block lg:flex bg-transparent lg:space-x-8 top-0 left-0 h-full  text-black" >
+                  <ul className={`block lg:flex   lg:space-x-8 top-0 left-0 h-full ${ checkPathname ? `${sticky? "" :"text-black"}` :"text-white"} ` }>
 
-                  <li className="group relative">
+                  <li className="group relative ">
                       <Link
                         href="/"
-                        className={`nav hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav hover ml-3 flex py-2  text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onClick={close } onMouseEnter={close}
                         >
 
@@ -222,7 +326,7 @@ const Header = () => {
                     </li>
 
                     <li className="group relative">
-                      <div   className={`nav cursor-pointer hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick={first_modal }>
+                      <div   className={`nav cursor-pointer hover ml-3 flex py-2  text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}  onClick={first_modal }>
 
                         <span className={showModel ? "active" : ""}>
                           Programs
@@ -236,7 +340,7 @@ const Header = () => {
 
                     <li>
                       <div
-                        className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav cursor-pointer hover flex py-2    font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
                         onClick={second_modal}
                       > 
@@ -251,21 +355,23 @@ const Header = () => {
 
                     <li>
                       <div
-                        className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav cursor-pointer hover flex py-2  group  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
-                        onClick={third_modal}
+                        // onMouseEnter={third_modal}
                       >
                         <span className={showModel2 ? "active" : ""}>
-                          Research
+                           <Link href="/publications" >
+                           Research                      
+                          </Link>
                         </span>
                         <span className={"my-1 ml-2 dark:text-dark "}>
-                          <FaChevronDown className={showModel2 ? "drop" : "revert"} />
+                             <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
                         </span>
                       </div>
                     </li>
                     <li>
                       <div
-                        className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav cursor-pointer hover flex py-2    font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
 
                         onClick={forth_modal}
 
@@ -282,13 +388,13 @@ const Header = () => {
 
                     <li>
                       <div
-                        className={`nav cursor-pointer hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        className={`nav cursor-pointer hover flex py-2    font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onClick={fifth_modal}
                       >
                         <span className={showModel4 ? "active" : ""}>
                           Contact Us
                         </span>
-                        <span className="my-1 ml-2 text-dark ">
+                        <span className="my-1 ml-2 dark:text-dark ">
                           <FaChevronDown className={showModel4 ? "drop" : "revert"} />
                         </span>
                       </div>
@@ -298,8 +404,29 @@ const Header = () => {
               </div>
             </div>
           </div>
+          {/* <div className={`${sticky?" hidden ":" zoom-in"}  flex text-blue-600 flex-col w-[20%] bg-white bg-opacity-70 backdrop-blur-lg  px-3 md:px-5 py-2 md:py-3 rounded-md text-center font-bold`}>
+          <div className="text-[10px] md:text-xs uppercase opacity-90">Graduation Count Down</div>
+          <div className="flex items-center gap-1 md:gap-2 font-mono">
+            {[
+              { v: d, label: "D" },     
+              { v: h, label: "H" },
+              { v: m, label: "M" },
+              { v: s, label: "S" },
+            ].map((t) => (
+              <div
+                key={t.label}
+                className="bg-white/15 backdrop-blur px-1.5 md:px-2 py-0.5 md:py-1 rounded md:rounded-md text-xs md:text-sm font-semibold"
+              >
+                {String(t.v).padStart(2, "0")}
+                <span className="ml-1 text-[9px] md:text-[10px] opacity-80">{t.label}</span>
+              </div>
+            ))}
+          </div>
+        </div> */}
         </div>
+       
       </header>
+           {/* <canvas ref={confettiRef} className="pointer-events-none flex h-screen min-w-full absolute right-0 inset-0 z-[10000]" /> */}
 
       {/* Header on small screens */}
       <header
@@ -370,6 +497,7 @@ const Header = () => {
                 >
                   <ul className="block lg:flex lg:space-x-12">
                     {menuData.map((menuItem, index) => (
+
                       <li key={menuItem.id} className="group relative">
                         {menuItem.path ? (
                           <Link
@@ -413,6 +541,17 @@ const Header = () => {
                         )}
                       </li>
                     ))}
+
+                    <li className="group relative" >
+                         <a href="tel:+256769593407"
+                         className="flex py-2 text-sm text-white group-hover:opacity-70
+                        dark:text-white border-b border-body-color border-opacity-40 
+                        lg:mr-0 lg:inline-flex lg:py-6 lg:px-0"
+                         >
+                                Contact Us +256769593407
+                                </a>
+                    </li>
+                    
                   </ul>
                 </nav>
               </div>
@@ -449,16 +588,16 @@ const Header = () => {
       <Model2 isssvisible={showModel2} onClose={() => setShowModel2(false)}>
         <></>
       </Model2>
-      <Model3 is3visible={showModel3} onClose={() => setShowModel3(false)}>
-        <></>
-      </Model3>
-      <Model4 is4visible={showModel4} onClose={() => setShowModel4(false)} palmGirlsImage="/placeholder.svg?height=450&width=350">
+      <Model3 is3visible={showModel3} onClose={() => setShowModel3(false)}/>
+        {/* <></> */}
+      {/* </Model3> */}
+      <Model4 is4visible={showModel4} onClose={() => {setShowModel4(false)}} palmGirlsImage="/placeholder.svg?height=450&width=350">
         <></>
       </Model4>
 
-      <Advert isadvertvisible={advertvisible} onClose={() => setadvertvisible(false)} >
+      {/* <Advert isadvertvisible={advertvisible} onClose={() => setadvertvisible(false)} >
         <></>
-      </Advert>
+      </Advert> */}
     </>
   );
 };

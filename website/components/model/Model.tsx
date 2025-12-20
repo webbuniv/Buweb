@@ -1,471 +1,360 @@
-import React, { Children } from 'react';
-import { FaArrowRight } from 'react-icons/fa6';
-import imagenew from "../../public/images/nav/IMG_9313.jpg";
-import image from "../../public/images/nav/labs.jpg";
-import bucosa from "../../public/images/nav/bucosa.jpg";
-import palm_girls from "../../public/images/nav/palm-girls.jpg";
-import Image from "next/image";
-import { BiX } from 'react-icons/bi';
+"use client"
+
+import { useState } from "react"
+import { FaArrowRight } from "react-icons/fa6"
+import { X } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
-import first_modal from "../Header/index";
+import { BiX } from "react-icons/bi"
 
+interface UniversityModalProps {
+  isvisible: boolean
+  onClose: () => void
+  children?: React.ReactNode
+}
 
-const Model = ({isvisible, onClose, children}) => {
-      if (!isvisible) return null;
-const handleclose = (e)=>{
-      
-      if( e.target.id === 'wrapper ') onClose();
-      document.querySelector('.active')?.classList.remove('active');
-      
-}
-const keepAlive = () => {
-      first_modal()
-}
-const main = ()=>{
-      let schools = document.querySelector('schools');
-      document.getElementById('main').classList.add('current');
-      document.getElementById('payments').classList.remove('current');
-      document.getElementById('fees').classList.add('hidden');
-      document.getElementById('courses').classList.remove('hidden');
-      // document.getElementById('contact').classList.remove('current');
-      document.getElementById('why_bugema-data').classList.add('hidden');
-      document.getElementById('get-in-touch').classList.add('hidden');
-      document.getElementById('fees-more').classList.add('hidden');
-      document.getElementById('courses-more').classList.remove('hidden');
-      document.getElementById('touch-more').classList.add('hidden');
-      document.getElementById('why-bugema-more').classList.add('hidden');
-      document.getElementById('why_bugema').classList.remove('current');
-      
-}
-const payments=()=>{
-      document.getElementById('main').classList.remove('current');
-      document.getElementById('payments').classList.add('current');
-      document.getElementById('fees').classList.remove('hidden');
-      document.getElementById('courses').classList.add('hidden');
-      // document.getElementById('contact').classList.remove('current');
-      document.getElementById('why_bugema-data').classList.add('hidden');
-      document.getElementById('get-in-touch').classList.add('hidden');
-      document.getElementById('fees-more').classList.remove('hidden');
-      document.getElementById('courses-more').classList.add('hidden');
-      document.getElementById('touch-more').classList.add('hidden');
-      document.getElementById('why-bugema-more').classList.add('hidden');
-      document.getElementById('why_bugema').classList.remove('current');
-      
-}
-const touch = ()=>{
-      document.getElementById('main').classList.remove('current');
-      document.getElementById('payments').classList.remove('current');
-      document.getElementById('courses').classList.add('hidden');
-      document.getElementById('fees').classList.add('hidden');
-      document.getElementById('contact').classList.add('current');
-      document.getElementById('why_bugema-data').classList.add('hidden');
-      document.getElementById('get-in-touch').classList.remove('hidden');
-      document.getElementById('touch-more').classList.remove('hidden');
-      document.getElementById('courses-more').classList.add('hidden');
-      document.getElementById('fees-more').classList.add('hidden');
-      document.getElementById('why-bugema-more').classList.add('hidden');
-      document.getElementById('why_bugema').classList.remove('current');
-}
-const why_bugema = () =>{
-      document.getElementById('main').classList.remove('current');
-      document.getElementById('payments').classList.remove('current');
-      document.getElementById('why_bugema').classList.add('current');+
-      // document.getElementById('contact').classList.remove('current');
-      document.getElementById('courses').classList.add('hidden');
-      document.getElementById('fees').classList.add('hidden');
-      document.getElementById('get-in-touch').classList.add('hidden');
-      document.getElementById('why_bugema-data').classList.remove('hidden');
-      document.getElementById('touch-more').classList.add('hidden');
-      document.getElementById('courses-more').classList.add('hidden');
-      document.getElementById('fees-more').classList.add('hidden');
-      document.getElementById('why-bugema-more').classList.remove('hidden');
+type TabType = "schools" | "fees" | "why-bugema" | "staff"
 
-}
+export default function UniversityModal({ isvisible, onClose }: UniversityModalProps) {
+  const [activeTab, setActiveTab] = useState<TabType>("schools")
+
+  if (!isvisible) return null
+
+  const handleClose = () => {
+    onClose()
+  }
 
   return (
-      < >
-        
-        
+    <div className="fixed inset-0 z-30 flex px-10 items-start justify-center pt-20  bg-gradient-to-br from-green-100 via-red-100 to-purple-200   fade-in duration-300">
+      {/* Backdrop */}
+      {/* <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={handleClose} /> */}
 
-        <div className=" fade-in fixed z-40 inset-0  flex  mt-[9%] mx-auto w-[97%] h-[70%]    overflow-auto overflow-x-hidden bg-white" id="wrapper" onMouseLeave={onClose}  >                  
-                        <div className='flex ml-10 justify-center items-center'>
-                        <div className='flex '>
-                              <button 
-                                    style={{
-                                    borderRadius: '50%',
-                                    width: '30px',
-                                    height: '30px',
-                                    backgroundColor: 'black',
-                                    borderColor:'black',
-                                    color: 'white',
-                                    fontSize: '20px',
-                                    textAlign: 'center',
-                                    lineHeight: '30px',
-                                    position: 'absolute',
-                                    right: '70px',
-                                    top: '20px',
-                                    }}
-                                    onClick={onClose}>
-                                    <span className="text-white text-xl"><BiX className='text-3xl'/></span>
-                              </button>
+      {/* Modal Content */}
+      <div
+        className="relative w-[95%] mt-[2%]  h-[85vh]  bg-white rounded-2xl shadow-2xl overflow-hidden  slide-in-from-top-4 duration-500"
+        // onMouseLeave={handleClose}
+      >
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-400/20 to-purple-400/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-green-400/20 to-blue-400/20 rounded-full blur-3xl" />
+        {/* Close Button */}
+        <button
+          onClick={handleClose}
+          className="absolute group right-1 top-3 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-black text-white transition-all hover:bg-gray-800 hover:scale-110"
+        >
+           <BiX className="text-3xl group-hover:rotate-90 transition-transform duration-300" />
+        </button>
 
-                        </div> 
-                        
-                <div id="programs ">
+        <div className="flex h-full">
+          {/* Left Sidebar - Navigation Tabs */}
+          <div className="w-80 border-r border-gray-200 bg-gradient-to-br from-gray-50 to-white p-8">
+            <div className="space-y-4">
+              {/* Schools Tab */}
+              <button
+                onClick={() => setActiveTab("schools")}
+                className={`w-full text-left transition-all duration-300 ${
+                  activeTab === "schools"
+                    ? "text-4xl font-bold text-gray-900"
+                    : "text-2xl font-semibold text-gray-400 hover:text-gray-600"
+                }`}
+              >
+                <span
+                  className={`inline-block transition-transform duration-300 ${
+                    activeTab === "schools" ? "translate-x-2" : ""
+                  }`}
+                >
+                  Schools
+                </span>
+              </button>
 
-                        <div className="vertical-line ml-24 my-24 fade-in " > 
-                              <div className="mr-2 my-5 slider slide--fast">
-                                    
-                                    <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '   onClick={main}> <span id='main' className='current animated href=""'>Schools</span></h1> 
-                              </div>
-                              <div className="mr-2 my-5  slider slide--slow ">
-                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={payments}><span id='payments' className='animated'>Fees and Payments</span></h1> 
-                              </div>
+              {/* Fees Tab */}
+              <button
+                onClick={() => setActiveTab("fees")}
+                className={`w-full text-left transition-all duration-300 ${
+                  activeTab === "fees"
+                    ? "text-3xl font-bold text-gray-900"
+                    : "text-xl font-semibold text-gray-400 hover:text-gray-600"
+                }`}
+              >
+                <span
+                  className={`inline-block transition-transform duration-300 ${
+                    activeTab === "fees" ? "translate-x-2" : ""
+                  }`}
+                >
+                  Fees and Payments
+                </span>
+              </button>
 
-                              <div className="mr-2 my-5  slider slide--slower">
-                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold 'onClick={why_bugema} >  <Link href="#" id='why_bugema' className='animated'> Why Bugema University </Link></h1> 
-                              </div>
-                        
-                        </div>
-                  
-                </div>
+              {/* Why Bugema Tab */}
+              <button
+                onClick={() => setActiveTab("why-bugema")}
+                className={`w-full text-left transition-all duration-300 ${
+                  activeTab === "why-bugema"
+                    ? "text-3xl font-bold text-gray-900"
+                    : "text-xl font-semibold text-gray-400 hover:text-gray-600"
+                }`}
+              >
+                <span
+                  className={`inline-block transition-transform duration-300 ${
+                    activeTab === "why-bugema" ? "translate-x-2" : ""
+                  }`}
+                >
+                  Why Bugema University
+                </span>
+              </button>
 
-                <div className=" ml-12 my-24 fade-in " id='courses' > 
-                                <ul>
-                                <li>
-                                <div className="mr-2 my-5 slider slide--fast ">
-                                        
-                                        <Link href={"/schools/school-of-graduate"} >
-
-                                                <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Graduate studies, Research <br/>&  Publications</h1> 
-                                        </Link> 
-                                </div>
-                                </li>
-
-                                <li>
-                                <div className="mr-2 my-5 slider slide--slower "> 
-                                        <Link href={"/schools/school-of-business"} >
-                                                <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Business</h1> 
-                                        </Link> 
-                                </div>
-                                </li>
-
-                                <li>
-                                <div className="mr-2 my-5 slider slide--slow ">
-                                        <Link href={"/schools/school-of-agric"} >
-                                                <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Agriculture and Applied Sciences</h1> 
-                                        </Link> 
-                                </div>
-                                </li>
-
-                                <li>
-                                <div className="mr-2 my-5 slider slide--slow ">
-                                        
-                                        <Link href={"/schools/school-of-education"} >
-                                                <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Education </h1> 
-                                        </Link> 
-                                </div>
-                                </li>
-
-                                <li>
-                                <div className="mr-2 my-5 slider slide--slow ">
-                                        
-                                        <Link href={"/schools/school-of-social"} >
-                                                <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Social sciences</h1> 
-                                        </Link> 
-                                </div>
-                                </li>
-
-                                <li>
-                                <div className="mr-2 my-5 slider slide--fast ">
-                                        
-                                        <Link href={"/schools/school-of-theology"} >
-                                                <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Theology and Religious Studies </h1> 
-                                        </Link> 
-                                </div>
-                                </li>
-
-                                <li>
-                                <div className="mr-2 my-5 slider slide--slow ">
-                                        
-                                        <Link href={"/schools/school-of-health"} >
-
-                                                <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Health and Alied Sciences</h1> 
-
-                                        </Link> 
-                                </div>
-                                </li>
-                                
-                                <li>
-                                <div className="mr-2 my-5 slider slide--slow ">
-                                        <Link href={"/schools/school-of-science"} >
-                                                <h1 onClick={onClose} style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Science and Technology </h1> 
-                                        </Link> 
-                                </div>
-                                </li>
-                                
-                                </ul>
-                                
-                </div>
-
-                {/*###=============== FEES AND PAYMENTS ================###*/}
-
-                <div className=" fade-in ml-24 my-24 hidden "  id='fees'> 
-                                <ul className='ml-10 my-20'>
-                                <li>
-                                <div className="mr-2 my-5 ">
-                                <Link href='https://res.cloudinary.com/duaqiajka/raw/upload/FEE_STRUCT_2022-2023_bnyls8.xlsx'>
-                                <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Tution Fees </h1>
-                                </Link>
-                                
-                                </div>
-                                </li>
-                                
-                                {/* <li>
-                                <div className="mr-2 my-5  ">
-                                        <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Scholarships</h1> 
-                                        
-                                </div>
-                                </li> */}
-
-                                <li>
-                                <div className="mr-2 my-5  ">
-                                        <Link href='/work_program'>
-                                        <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'onClick={onClose} > Funding Your Studies </h1> 
-                                        </Link>
-                                        
-                                        
-                                </div>
-                                </li>
-                                
-                                
-                                <li>
-                                <div className="mr-2 my-5  ">
-
-                                <Link href='https://imis.unche.or.ug:81/frmTrnStudentPayment.aspx' target="_blank" rel="noopener noreferrer">
-                                        <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> NHCE Fees</h1>
-                                </Link>
-                                        
-                                        
-                                </div>
-                                </li>
-                                </ul>
-                                
-                </div>
-                {/*###============== W  H  Y    B U G E M A ==============###*/}
-                <div className=" fade-in ml-24 my-24 hidden "  id='why_bugema-data'> 
-                        <ul className='ml-10 my-20'>
-                              <li>
-                              <div className="mr-2 my-5 ">
-                              <Link href="/sports/sports">
-                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onClick={onClose}> Sports </h1> 
-                              </Link>
-                              </div>
-                              </li>
-                              
-                              {/* <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Accommodation</h1> 
-                                    
-                              </div>
-                              </li> */}
-                              <li>
-                              <div className="mr-2 my-5  ">
-                              <Link href={'/religious/religious'}>
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'onClick={onClose} > Religion </h1> 
-                              </Link>
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5  ">
-                              <Link href={"/hospital"} >
-                                    <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Hospital</h1>
-                              </Link>
-                              </div>
-                              </li>
-                              
-                              {/* <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Feeding</h1> 
-                                    
-                              </div>
-                              </li> */}
-  
-                        </ul>
-                </div>
-
-                {/*###============== S T  A  F  F       A N D    F  A  C  U  L  T  Y ==============###*/}
-                <div className=" fade-in ml-[20%] my-24 hidden " id='get-in-touch'> 
-                        <ul className='ml-10 my-20'>
-                              <li>
-                                    <Link href={"/schools/school-of-science"}>
-                                          <div className="mr-2 my-5 ">
-                                    
-                                                <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold ' onClick={onClose} > School of Science and Technology  </h1> 
-                                    
-                                          </div>
-                                    </Link>
-                              
-                              </li>
-                              
-                              <li>
-                                    <Link href={"/schools/school-of-health"}>
-                                    <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onClick={onClose}>School of Heath and Alied Sciences</h1> 
-                                    </div>
-                                    </Link>
-                              
-                              </li>
-                              <li>
-                              <Link href={"/schools/school-of-theology"} >
-                                    <div className="mr-2 my-5  ">
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onClick={onClose}> School of Theology and Religious Studies </h1> 
-                                    </div>
-                              </Link>
-                             
-                              </li>
-                              <li>
-                                    <Link href={"/schools/school-of-agric"} >
-                                          <div className="mr-2 my-5  ">
-                                                <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onClick={onClose}> School of Agriculture and Applied Sciences</h1>
-                                                
-                                          </div>
-                                    </Link>
-                              </li>
-                              
-                              <li>
-                                    <Link href={"/schools/school-of-business"}>
-                                    <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onClick={onClose}> School of Business</h1> 
-                                    
-                              </div>
-                                    </Link>
-                              
-                              </li>
-
-                              <li>
-                                    <Link href={"/schools/school-of-education"}>
-                                          <div className="mr-2 my-5  ">
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onClick={onClose}> School of Education,Humanities and <br/> Social sciences</h1> 
-                                          </div>
-                                    </Link>
-                              
-                              </li>
-
-                              <li>
-                                    <Link href={"/schools/school-of-graduate"}>
-                                    <div className="mr-2 my-5  ">
-
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onClick={onClose}> School of Graduate studies, Reseacrch <br/>&  Publications</h1> 
-                                    
-                                    </div>
-                                    </Link>
-                              
-                              </li>
-
-                        </ul>
-                        
-                </div>
-
-                <div className=' ml-20 vertical-line   mt-24'>
-                </div>
-
-              
-                <div className='ml-10 p-2 bg-gray-300 rounded-br-3xl rounded-tl-3xl  my-24'  id='IT'>
-
-                        {/* ###============= C O U R S E S    M O R E =================### */}
-                        <div className='flex flex-col gap-3 ' id='courses-more'>
-                              <div className=' mt-10  fade-in '>
-                                          <Image src={image} alt='img' width={350} height={450} className=" rounded-tr-3xl rounded-bl-3xl "/>
-                              </div>
-
-                              <div className="ml-5  text-black grid grid-cols-2 gap-3 fade-in " >
-                                        <div className=' p-3 border border-black hover:bg-dark hover:text-white  change-on-hover rounded-full'>
-                                                <Link href='https://apply.bugemauniv.ac.ug'>
-                                                <h1  className='new-arr'> Apply now <FaArrowRight className='arrow1'/></h1>
-                                                </Link> 
-                                        </div>
-
-                                        <div className=' p-3 border border-black hover:bg-dark hover:text-white  change-on-hover rounded-full'>
-                                                <Link href='https://erms.bugemauniv.ac.ug/student/login/'>
-                                                <h1   className='new-arr'>Students&apos; portal <FaArrowRight className='arrow1'/></h1>
-                                                </Link> 
-                                        </div>
-
-                                        <div className=' p-3 border border-black hover:bg-dark hover:text-white  change-on-hover rounded-full'>
-                                        <Link href='https://elearning.bugemauniv.ac.ug/'>
-                                                <h1   className='new-arr'>E-Learnig <FaArrowRight className='arrow1'/></h1>
-                                        </Link> 
-                                        </div>
-                              </div> 
-                              
-                        
-                        </div>
-
-                        {/* ###=============F E E S       M O R E =================### */}
-                        <div className=' hidden fade-in' id='fees-more'>
-                              <div className='  fade-in '>
-                                          <Image src={imagenew} alt='img' width={350} height={450} className="rounded-tr-3xl rounded-bl-3xl"/>
-                              </div>
-                         
-                              
-                              <div className="ml-12 my-1 grid grid-cols-2 gap-3  text-white " >
-                                    <div className=' p-3 border border-black hover:bg-dark hover:text-white change-on-hover rounded-full'>
-                                          <Link href="https://res.cloudinary.com/duaqiajka/raw/upload/FEE_STRUCT_2022-2023_bnyls8.xlsx">
-                                          <h1   className='new-arr'> Fees Structure <FaArrowRight className='arrow2'/></h1>
-                                          </Link>
-                                    </div>
-
-                                    <div className=' p-3 border border-black hover:bg-dark hover:text-white  change-on-hover rounded-full'>
-                                          <Link href="https://www.youtube.com/watch?embeds_referring_euri=http%3A%2F%2Flocalhost%3A3000%2F&source_ve_path=MTY0NTA2LDE2NDUwMw&v=GeIp_hgwlZc&feature=youtu.be" target="_blank">
-                                          <h1  className='new-arr'> How to apply <FaArrowRight className='arrow3'/></h1>
-                                          </Link>
-                                    </div>
-
-                              </div>  
-                            
-                        </div>
-
-                        {/* ###============= W  H  Y    B U G E M A      M O R E =================### */}
-                        <div className='hidden' id='why-bugema-more'>
-                              <div className=' ml-24 fade-in '>
-                                          <Image src={bucosa} alt='img' width={350} height={450} className="-ml-5 my-10 slider slide--fast"/>
-                              </div>
-                            
-                        </div>
-
-                        {/* ###=============G E T   IN  T O U C H       M O R E =================### */}
-                        <div className='flex  hidden fade-in' id='touch-more'>
-                              <div className=' ml-24 fade-in '>
-                                          <Image src={palm_girls} alt='img' width={350} height={450} className="ml-19 -mr-10 my-10 slider slide--fast"/>
-                              </div>
-                              <div className="flex ml-19 -mr-5 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
-                                    <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
-                                          <Link href={"/administrator"} onClick={onClose}>
-                                                <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Administrators  <FaArrowRight className='arrow1'/></h1>
-                                          </Link>
-                                    </div>
-                              </div> 
-                              
-                              <div className="flex ml-12 -mr-4 my-1 transform -skew-x-11 text-white grid-rows-2 " >
-                                    <div className='columns-1 bg-black change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Other Campuses <FaArrowRight className='arrow2'/></h1>
-                                    </div>
-                              </div>  
-                              <div className="flex ml-24 -mr-3 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px',}} >
-                                    <div className='columns-1 bg-black slider slide--slow change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Talk to Us <FaArrowRight className='arrow3'/></h1>
-                                    </div>
-                              </div>
-                              
-                        </div>                         
-                  </div>
-                        </div>
-
+              {/* Staff Tab */}
+              <button
+                onClick={() => setActiveTab("staff")}
+                className={`w-full text-left transition-all duration-300 ${
+                  activeTab === "staff"
+                    ? "text-3xl font-bold text-gray-900"
+                    : "text-xl font-semibold text-gray-400 hover:text-gray-600"
+                }`}
+              >
+                <span
+                  className={`inline-block transition-transform duration-300 ${
+                    activeTab === "staff" ? "translate-x-2" : ""
+                  }`}
+                >
+                  Staff and Faculty
+                </span>
+              </button>
             </div>
-      </>    
-  );
-};
+          </div>
 
-export default Model;
+          {/* Center Content Area */}
+          <div className="flex-1 overflow-y-auto p-12">
+            {/* Schools Content */}
+            {activeTab === "schools" && (
+              <div className=" fade-in slide-in-from-bottom-4 duration-500">
+                <ul className="space-y-4">
+                  {[
+                    {
+                      title: "School of Graduate studies, Research & Publications",
+                      href: "/schools/school-of-graduate",
+                    },
+                    { title: "School of Business", href: "/schools/school-of-business" },
+                    { title: "School of Agriculture and Applied Sciences", href: "/schools/school-of-agric" },
+                    { title: "School of Education", href: "/schools/school-of-education" },
+                    { title: "School of Social sciences", href: "/schools/school-of-social" },
+                    { title: "School of Theology and Religious Studies", href: "/schools/school-of-theology" },
+                    { title: "School of Health and Allied Sciences", href: "/schools/school-of-health" },
+                    { title: "School of Science and Technology", href: "/schools/school-of-science" },
+                  ].map((school, index) => (
+                    <li key={index} className="group">
+                      <Link
+                        href={school.href}
+                        onClick={handleClose}
+                        className="flex items-center justify-between rounded-lg border border-gray-200 bg-white p-4 transition-all hover:border-gray-900 hover:bg-gray-50 hover:shadow-md"
+                      >
+                        <span className="font-semibold text-gray-900 group-hover:text-blue-600">{school.title}</span>
+                        <FaArrowRight className="text-gray-400 transition-transform group-hover:translate-x-1 group-hover:text-blue-600" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Fees Content */}
+            {activeTab === "fees" && (
+              <div className=" fade-in slide-in-from-bottom-4 duration-500">
+                <ul className="space-y-4">
+                  {[
+                    {
+                      title: "Tuition Fees",
+                      href: "https://res.cloudinary.com/duaqiajka/raw/upload/FEE_STRUCT_2022-2023_bnyls8.xlsx",
+                    },
+                    { title: "Funding Your Studies", href: "/work_program" },
+                    { title: "NHCE Fees", href: "https://imis.unche.or.ug:81/frmTrnStudentPayment.aspx" },
+                  ].map((item, index) => (
+                    <li key={index} className="group">
+                      <Link
+                        href={item.href}
+                        onClick={handleClose}
+                        target={item.href.startsWith("http") ? "_blank" : undefined}
+                        rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                        className="flex items-center justify-between rounded-lg border border-gray-200 bg-white p-4 transition-all hover:border-gray-900 hover:bg-gray-50 hover:shadow-md"
+                      >
+                        <span className="font-semibold text-gray-900 group-hover:text-blue-600">{item.title}</span>
+                        <FaArrowRight className="text-gray-400 transition-transform group-hover:translate-x-1 group-hover:text-blue-600" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Why Bugema Content */}
+            {activeTab === "why-bugema" && (
+              <div className=" fade-in slide-in-from-bottom-4 duration-500">
+                <ul className="space-y-4">
+                  {[
+                    { title: "Sports", href: "/sports/sports" },
+                    { title: "Religion", href: "/religious/religious" },
+                    { title: "Hospital", href: "/hospital" },
+                  ].map((item, index) => (
+                    <li key={index} className="group">
+                      <Link
+                        href={item.href}
+                        onClick={handleClose}
+                        className="flex items-center justify-between rounded-lg border border-gray-200 bg-white p-4 transition-all hover:border-gray-900 hover:bg-gray-50 hover:shadow-md"
+                      >
+                        <span className="font-semibold text-gray-900 group-hover:text-blue-600">{item.title}</span>
+                        <FaArrowRight className="text-gray-400 transition-transform group-hover:translate-x-1 group-hover:text-blue-600" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Staff and Faculty Content */}
+            {activeTab === "staff" && (
+              <div className=" fade-in slide-in-from-bottom-4 duration-500">
+                <ul className="space-y-4">
+                  {[
+                    { title: "School of Science and Technology", href: "/schools/school-of-science" },
+                    { title: "School of Health and Allied Sciences", href: "/schools/school-of-health" },
+                    { title: "School of Theology and Religious Studies", href: "/schools/school-of-theology" },
+                    { title: "School of Agriculture and Applied Sciences", href: "/schools/school-of-agric" },
+                    { title: "School of Business", href: "/schools/school-of-business" },
+                    { title: "School of Education", href: "/schools/school-of-education" },
+                    { title: "School of Social Sciences", href: "/schools/school-of-social" },
+                    { title: "School of Graduate Studies", href: "/schools/school-of-graduate" },
+                  ].map((school, index) => (
+                    <li key={index} className="group">
+                      <Link
+                        href={school.href}
+                        onClick={handleClose}
+                        className="flex items-center justify-between rounded-lg border border-gray-200 bg-white p-4 transition-all hover:border-gray-900 hover:bg-gray-50 hover:shadow-md"
+                      >
+                        <span className="font-semibold text-gray-900 group-hover:text-blue-600">{school.title}</span>
+                        <FaArrowRight className="text-gray-400 transition-transform group-hover:translate-x-1 group-hover:text-blue-600" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
+          {/* Right Sidebar - Image and Quick Actions */}
+          <div className="w-96 border-l border-gray-200 bg-gradient-to-br from-gray-50 to-white p-6">
+            <div className="space-y-6">
+              {/* Schools Image */}
+              {activeTab === "schools" && (
+                <div className=" fade-in slide-in-from-right-4 duration-500">
+                  <div className="overflow-hidden rounded-2xl shadow-lg">
+                    <Image
+                      src="/images/nav/labs.jpg"
+                      alt="Campus Labs"
+                      width={350}
+                      height={450}
+                      className="h-64 w-full object-cover"
+                    />
+                  </div>
+                  <div className="mt-6 grid grid-cols-2 gap-3">
+                    <Link
+                      href="https://apply.bugemauniv.ac.ug"
+                      className="group flex items-center justify-between rounded-full border-2 border-gray-900 bg-white px-4 py-3 transition-all hover:bg-gray-900 hover:text-white"
+                    >
+                      <span className="text-sm font-semibold">Apply now</span>
+                      <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+                    </Link>
+                    <Link
+                      href="https://erms.bugemauniv.ac.ug/student/login/"
+                      className="group flex items-center justify-between rounded-full border-2 border-gray-900 bg-white px-4 py-3 transition-all hover:bg-gray-900 hover:text-white"
+                    >
+                      <span className="text-sm font-semibold">Portal</span>
+                      <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+                    </Link>
+                    <Link
+                      href="https://elearning.bugemauniv.ac.ug/"
+                      className="group col-span-2 flex items-center justify-between rounded-full border-2 border-gray-900 bg-white px-4 py-3 transition-all hover:bg-gray-900 hover:text-white"
+                    >
+                      <span className="text-sm font-semibold">E-Learning</span>
+                      <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </div>
+                </div>
+              )}
+
+              {/* Fees Image */}
+              {activeTab === "fees" && (
+                <div className=" fade-in slide-in-from-right-4 duration-500">
+                  <div className="overflow-hidden rounded-2xl shadow-lg">
+                    <Image
+                      src="/images/nav/IMG_9313.jpg"
+                      alt="Campus View"
+                      width={350}
+                      height={450}
+                      className="h-64 w-full object-cover"
+                    />
+                  </div>
+                  <div className="mt-6 grid grid-cols-2 gap-3">
+                    <Link
+                      href="https://res.cloudinary.com/duaqiajka/raw/upload/FEE_STRUCT_2022-2023_bnyls8.xlsx"
+                      className="group flex items-center justify-between rounded-full border-2 border-gray-900 bg-white px-4 py-3 transition-all hover:bg-gray-900 hover:text-white"
+                    >
+                      <span className="text-sm font-semibold">Fees Structure</span>
+                      <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+                    </Link>
+                    <Link
+                      href="https://www.youtube.com/watch?embeds_referring_euri=http%3A%2F%2Flocalhost%3A3000%2F&source_ve_path=MTY0NTA2LDE2NDUwMw&v=GeIp_hgwlZc&feature=youtu.be"
+                      target="_blank"
+                      className="group flex items-center justify-between rounded-full border-2 border-gray-900 bg-white px-4 py-3 transition-all hover:bg-gray-900 hover:text-white"
+                    >
+                      <span className="text-sm font-semibold">How to apply</span>
+                      <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </div>
+                </div>
+              )}
+
+              {/* Why Bugema Image */}
+              {activeTab === "why-bugema" && (
+                <div className=" fade-in slide-in-from-right-4 duration-500">
+                  <div className="overflow-hidden rounded-2xl shadow-lg">
+                    <Image
+                      src="/images/nav/bucosa.jpg"
+                      alt="Student Life"
+                      width={350}
+                      height={450}
+                      className="h-80 w-full object-cover"
+                    />
+                  </div>
+                </div>
+              )}
+
+              {/* Staff Image */}
+              {activeTab === "staff" && (
+                <div className=" fade-in slide-in-from-right-4 duration-500">
+                  <div className="overflow-hidden rounded-2xl shadow-lg">
+                    <Image
+                      src="/images/nav/palm-girls.jpg"
+                      alt="Campus Faculty"
+                      width={350}
+                      height={450}
+                      className="h-64 w-full object-cover"
+                    />
+                  </div>
+                  <div className="mt-6 space-y-3">
+                    <Link
+                      href="/administrator"
+                      onClick={handleClose}
+                      className="group flex items-center justify-between rounded-lg bg-gray-900 px-4 py-4 text-white transition-all hover:bg-gray-800"
+                    >
+                      <span className="font-semibold">Administrators</span>
+                      <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}

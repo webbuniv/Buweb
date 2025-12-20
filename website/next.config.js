@@ -20,10 +20,14 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'fra.cloud.appwrite.io',
+      },
+      {
+        protocol: 'https',
         hostname: 'firebasestorage.googleapis.com',
       },
     ],
-    domains: ['cloud.appwrite.io', 'firebasestorage.googleapis.com'],
+    // domains: ['cloud.appwrite.io', 'firebasestorage.googleapis.com'],
   },
   eslint: {
     ignoreDuringBuilds: true,

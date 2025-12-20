@@ -71,7 +71,7 @@ export async function CreateNews(previousState: any, formData: FormDataType): Pr
 
 export const getNews = async  ({ 
   searchText = '',
-  sort = "$createdAt-desc", 
+  sort = "date-desc", 
   limit,
  }: GetNewsProps): Promise<News[]> => {
   const { databases } = await createAdminClient();
@@ -87,7 +87,7 @@ export const getNews = async  ({
       appwriteConfig.newsCollectionId,
       queries
     );
-
+//     console.log("Fetched news: ",news.documents);
     return news.documents.map((news) => ({
       $id: news.$id,
       title: news.title || 'undefined',

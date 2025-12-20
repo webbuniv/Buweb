@@ -106,7 +106,6 @@ const ChoirPrograms: React.FC = () => {
             title="Bugema University "
             paragraph=" Bugema University's choir is a vibrant part of our religious community, offering students the chance to express their faith through music. With a diverse repertoire of traditional hymns, contemporary worship songs, and gospel music, the choir plays a central role in our church services and special events. Joining the choir provides students with opportunities for spiritual growth, fellowship, and the development of musical talents, all while contributing to the enriching worship experience at the university. The choir is open to all students passionate about praising through music."
             center
-            mb="50px"
           />
         </div>
 

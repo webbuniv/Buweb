@@ -72,6 +72,7 @@
       text-align: center;
       /* background-color: rgba(3, 9, 185, 0.3);  */
     }
+
     .overlayGeneral{
         position: absolute;
         top: 0;
@@ -275,11 +276,11 @@
 }
 
 .change-on-hover:hover .arrow1 {
-  transform: translateX(125px);
+  transform: translateX(40px);
 }
 
 .change-on-hover:hover .arrow2 {
-  transform: translateX(125px);
+  transform: translateX(50px);
 }
 
 .change-on-hover:hover .arrow3 {
@@ -309,7 +310,7 @@
 }
 
 .custom-image {
-  height: 400px;
+  height: 500px;
   object-fit: cover;
   overflow-x: hidden; 
 }

@@ -1,198 +1,248 @@
-import React from "react";
-import Link from "next/link";
-import { FaArrowDownLong, FaArrowRightLong } from "react-icons/fa6";
-import { BiBookOpen, BiSolidPencil } from "react-icons/bi";
-import { motion } from "framer-motion";
-import Slider from "react-slick";
-import HeroSlide from "./HeroSlide";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { useState } from "react";
-import HeroOverlay from "../HeroOverlay/HeroOverlay";
-import Header from "../Header";
-import "slick-carousel/slick/slick-theme.css";
+"use client"
 
-export const heroMedia = [
-  // { type: 'video', src: "https://res.cloudinary.com/do5ubr3sa/video/upload/v1719685852/ayxyrcvleddu33lelk69.mp4" },
-  //   { type: 'video', src: "https://res.cloudinary.com/djlx5iqhe/video/upload/v1731087035/WhatsApp_Video_2024-11-08_at_17.28.31_f2ee4132_gcgn3h.mp4" },
+import Image from "next/image"
+import Link from "next/link"
+import { useState, useEffect, useMemo, useRef } from "react"
+import { ChevronLeft, ChevronRight, ExternalLink, FileText } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
-  // { type: 'no-overlay', src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/67fd14f700265aae6dd3/view?project=674dcf7b003d57db960a&mode=admin" },
-  {
+interface HeroMedia {
+  type: "video" | "image" | "no-overlay"
+  src: string
+  title?: string
+  description?: string
+  link?: string
+  linkText?: string
+}
+
+const heroMedia: HeroMedia[] = [
+         {
     type: "image",
-    src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686e00ff002d08b29921/view?project=674dcf7b003d57db960a&mode=admin",
-  },
-  {
+    
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/693ea7c40011f9668d11/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "Bugema University Hosts Adventist Accrediting Association (AAA) Review Visit",
+    description:"Bugema University hosted a review visit by the Adventist Accrediting Association (AAA) on 9th December 2025. The visit reflected the University’s continued commitment to quality education, accountability, and mission-based growth within the Adventist system of higher education.",
+    link: "https://www.bugemauniv.ac.ug/news/6943e7a20025a80ea19e",
+    linkText: "explore more",
+  },  
+  
+                 {
     type: "image",
-    src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/686658bc0026975fda0f/view?project=674dcf7b003d57db960a&mode=admin",
+    
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/692d80c5003c7ad9cc2b/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "Bugema University Secures Significant Book Donation Through Competitive Grant Award",
+    description:"Bugema University has received a significant donation of academic books from Book Aid International following a successful grant application submitted by the Directorate of Research and Publication through the Office of the Deputy Vice Chancellor (Academics)..",
+    link: "http://bugemauniv.ac.ug/news/692db0720005946a0379",
+    linkText: "explore more",
+  },  
+                
+        {
+    type: "image",
+    
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/69207f4e0000f1f03d8c/view?project=674dcf7b003d57db960a&mode=admin",
+    title: " 2025/2026 Admissions Open!",
+    description:" Admissions are Open for 2024/2025 Academic Year at Bugema University!  Apply Now to embark on a transformative educational journey with us. Don't miss the chance to be part of our vibrant community. ",
+    link: "http://erms.bugemauniv.ac.ug/application",
+    linkText: "Apply Now",
   },
-  {
-    type: "no-overlay",
-    src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/67d1473b0039984aef2f/view?project=674dcf7b003d57db960a&mode=admin",
-  },
-  //   { type: 'no-overlay', src: "/images/graduation/three.jpeg"},
-  // { type: 'image', src: "https://cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/679ca0640005017b97d8/view?project=674dcf7b003d57db960a&mode=admin"},
-  //   { type: 'image', src: "/images/hero/env2.jpg" },
-];
+//            {
+//     type: "no-overlay",
+//     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/690b70de003dadfb208e/view?project=674dcf7b003d57db960a&mode=admin",
+//     title: "The 31ST GRADUATION CEREMONY",
+//     description:
+//       "Caps. Gowns. Dreams. Counting down to a day of honour, joy, and new beginnings. Graduation is on the horizon... Your moment to shine is coming soon. Graduation awaits – are you ready?",
+//   },
+    
 
-const textVariants = {
-  initial: { x: -500, opacity: 0 },
-  animate: {
-    x: 0,
-    opacity: 1,
-    transition: { duration: 1, staggerChildren: 0.1 },
+      
+ 
+//     {
+//     type: "image",
+//     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68af0e5e003ba1ea676a/view?project=674dcf7b003d57db960a&mode=admin",
+//     title: "Bugema University Administration tours the upcoming Science Complex",
+//     description:
+//       "This is to ensure gradual progress towards providing students with a state of the art learning facility.",
+//     link: "https://www.bugemauniv.ac.ug/news/68af1c190013b091c145",
+//     linkText: "Read More",
+//   },
+    {
+    type: "image",
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/68a34fae001b3f7550d4/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "Walking the Path of Knowledge Together",
+    description:
+      "Still on the road of discovery and growth, every step counts on this academic journey, forward together the journey goes on. It Never Stops Until we make it.",
+    link: "https://www.bugemauniv.ac.ug/news/68641e0d0012974a663d",
+    linkText: "",
   },
-  scrollButton: {
-    opacity: 0,
-    x: 10,
-    transition: { duration: 2, repeat: Infinity },
-  },
-  scrollButton2: {
-    opacity: 0,
-    y: 10,
-    transition: { duration: 2, repeat: Infinity },
-  },
-};
 
-const sliderSettings = {
-  dots: true,
-  infinite: true,
-  speed: 600,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 6000,
-  fade: true,
-  arrows: false,
-};
 
-const Hero = () => {
-  const [CurrentSlide, setCurrentSlide] = useState(0);
+]
 
-  const handleBeforeChange = (oldIndex, newIndex) => {
-    setCurrentSlide(newIndex);
-  };
-  const settings = {
-    ...sliderSettings,
-    beforeChange: handleBeforeChange,
-  };
+interface HeroSlideProps {
+  media: HeroMedia
+  isActive: boolean
+}
+
+const HeroSlide = ({ media, isActive }: HeroSlideProps) => {
+
   return (
-    <>
-      <section
-        id="home"
-        className="  hidden md:block   bg w-full lg:h-[50%]  h-[50%] relative z-10 mt-[1] mb-[14%] "
-      >
-        {/* <Header /> */}
-        <Slider {...settings} className="">
-          {heroMedia.map((media, index) => (
-            <HeroSlide key={index} media={media} />
-          ))}
-        </Slider>
-        {/*=================== CUSTOMIZING THE SLIDER TO HAVE DIFFERENT OVERLAY WORDS FOR DIFFERENT SLIDES ===================*/}
-        {CurrentSlide === 0 && (
-          <HeroOverlay
-            title3=""
-            subtitle3=""
-            subtitle2=""
-            // subtitle3="to offer you Quality education with a hands-on experience. . ."
-            title={undefined}
-            subtitle={undefined}
-          />
-        )}
-        {CurrentSlide === 1 && (
-          <HeroOverlay
-            // title2="Service."
-            title3="Welcome to Bugema University"
-            subtitle2="https://www.bugemauniv.ac.ug/hospital"
-            subtitle3="With a diverse culture of over 17 countries and beyond, Bugema University is where Knowledge meets Opportunity"
-            title={undefined}
-            subtitle={undefined}
-          />
-        )}
+        <>
+         <div className="relative w-full h-[100vh] md:h-[100vh] lg:h-[100vh] overflow-hidden">
+      {media.type === "video" ? (
+        <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline>
+          <source src={media.src} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      ) : (
+        <>
 
-        {/* {CurrentSlide ===2 && <HeroOverlay 
-              title2="Service."
-              title3="Kick start your Higher Education at Bugema University "
+         <Image
+          src={media.src || "/placeholder.svg"}
+          alt={media.title || "Hero slide"}
+          fill
+          className="object-cover"
+          priority={isActive}
+          sizes="100vw"
+        />
+        </>
+      )}
 
-              subtitle2="https://erms.bugemauniv.ac.ug/application/"
-              subtitle3=""
-              title={undefined}   subtitle={undefined} 
-            />}*/}
-        {CurrentSlide === 2 && (
-          <HeroOverlay
-            // title2="Service."
-            title3=" School of Nursing and MidWifery "
-            subtitle2="https://erms.bugemauniv.ac.ug/application/"
-            subtitle3=""
-            title={undefined}
-            subtitle={undefined}
-          />
-        )}
-      </section>
+      {/* Gradient overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent" />
 
-      <div className="block md:hidden container px-4 mt-[120px] mb-[50px] w-full h-full">
-        <div className="flex flex-wrap justify-center md:justify-between">
-          <div className="w-full px-4 md:w-2/3">
-            <motion.div
-              className="text-center md:text-left space-y-4 md:space-y-8 mx-auto max-w-[800px] fadeInUp"
-              data-wow-delay=".2s"
-              variants={textVariants}
-              initial="initial"
-              animate="animate"
-            >
-              <motion.h2
-                className="md:hidden uppercase font-medium leading-relaxed text-gray-500/70 dark:text-white dark:opacity-90 sm:text-xl text-2xl"
-                variants={textVariants}
-              >
-                Bugema University
-              </motion.h2>
-              <motion.h1
-                className="md:hidden capitalize text-3xl sm:text-4xl font-bold leading-tight text-black/70 dark:text-primary sm:leading-tight md:text-5xl md:leading-tight"
-                variants={textVariants}
-              >
-                Excellence <br /> in service
-              </motion.h1>
-              <motion.div
-                className="md:hidden flex flex-col items-center justify-center space-y-4"
-                variants={textVariants}
-              >
-                <motion.div
-                  className="flex hover:scale-105 transition-all duration-300 space-y-6 flex-col items-center "
-                  variants={textVariants}
-                >
-                  <motion.div
-                    className="bg-black/50 border rounded py-1"
-                    variants={textVariants}
-                    animate="scrollButton2"
-                  >
-                    <FaArrowDownLong className="text-white" />
-                  </motion.div>
-                  <Link
-                    href="http://erms.bugemauniv.ac.ug/application"
-                    className="flex rounded-md bg-primary dark:bg-primary/60 py-2 px-4  text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
-                  >
-                    Apply Now
-                    <BiSolidPencil className="text-xl mx-2" />
+      {/* Content overlay */}
+      {media.type !== "no-overlay" && (media.title || media.description) && (
+        <div className={`absolute bottom-20  md:inset-0 flex items-end `}>
+          <div className="w-full md:p-8 lg:p-12 ">
+            <div className="  md:max-w-4xl  text-white bg-gradient-to-r from-blue-900 to-blue-900/20 p-4 rounded-xl">
+              {media.title && (
+                <h1 className={`text-2xl md:text-4xl lg:text-5xl font-bold mb-4 ${isActive ? "overlay-animation" : ""} leading-tight`}>{media.title}</h1>
+              )}
+              {media.description && (
+                <p className={`text-sm md:text-base lg:text-lg mb-6 leading-relaxed ${isActive ? "fade-up" : ""} opacity-90 max-w-2xl`}>
+                  {media.description}
+                </p>
+              )}
+              {media.link && media.linkText && (
+                <Button asChild size="lg" className="bg-red-600 hover:bg-red-700">
+                  <Link href={media.link} className="inline-flex items-center gap-2">
+                    {media.linkText}
+                    {media.linkText === "Apply Now" ? (
+                      <FileText className="w-4 h-4" />
+                    ) : (
+                      <ExternalLink className="w-4 h-4" />
+                    )}
                   </Link>
-                </motion.div>
-                <motion.div
-                  className="flex hover:scale-105 transition-all duration-300 flex-col text-center items-center justify-center"
-                  variants={textVariants}
-                >
-                  <Link
-                    href="/learn-more"
-                    className="mt-4 flex rounded-md bg-black/30 py-1 px-3 md:py-2 md:px-4 text-lg font-semibold text-black/90 duration-300 ease-in-out hover:bg-black/30 dark:bg-transparent dark:border dark:text-white"
-                  >
-                    Learn More
-                    <BiBookOpen className="text-xl mx-2" />
-                  </Link>
-                </motion.div>
-              </motion.div>
-            </motion.div>
+                </Button>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    </>
-  );
-};
+      )}
+    </div>
 
-export default Hero;
+     </>
+  )
+}
+
+export default function HeroSlider() {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+
+  // Auto-advance slides
+  useEffect(() => {
+    if (!isAutoPlaying) return
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroMedia.length)
+    }, 6000)
+
+    return () => clearInterval(interval)
+  }, [isAutoPlaying])
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index)
+    setIsAutoPlaying(false)
+    // Resume auto-play after 10 seconds
+    setTimeout(() => setIsAutoPlaying(true), 10000)
+  }
+
+  const goToPrevious = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroMedia.length) % heroMedia.length)
+    setIsAutoPlaying(false)
+    setTimeout(() => setIsAutoPlaying(true), 10000)
+  }
+
+  const goToNext = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroMedia.length)
+    setIsAutoPlaying(false)
+    setTimeout(() => setIsAutoPlaying(true), 10000) 
+  }
+
+  return (
+    <section className="relative w-full">
+      {/* Slides container */}
+      <div className="relative overflow-hidden">
+        <div
+          className="flex transition-transform duration-700 ease-in-out"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {heroMedia.map((media, index) => (
+            <div key={index} className="w-full flex-shrink-0">
+              <HeroSlide media={media} isActive={index === currentSlide} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Navigation arrows */}
+      {/* <button
+        onClick={goToPrevious}
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition-all duration-200 text-white"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="w-6 h-6" />
+      </button> */}
+
+      {/* <button
+        onClick={goToNext}
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition-all duration-200 text-white"
+        aria-label="Next slide"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button> */}
+
+      {/* Dot indicators */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+        {heroMedia.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-200 ${
+              index === currentSlide ? "bg-white scale-110" : "bg-white/50 hover:bg-white/70"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Progress bar */}
+      {/* <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20">
+        <div
+          className="h-full bg-white transition-all duration-100 ease-linear"
+          style={{
+            width: isAutoPlaying ? "100%" : "0%",
+            animation: isAutoPlaying ? "progress 6s linear infinite" : "none",
+          }}
+        />
+      </div> */}
+
+      <style jsx>{`
+        @keyframes progress {
+          from { width: 0%; }
+          to { width: 100%; }
+        }
+      `}</style>
+    </section>
+  )
+}

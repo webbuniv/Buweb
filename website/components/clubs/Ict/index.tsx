@@ -106,7 +106,6 @@ const IctPrograms: React.FC = () => {
             title="School of science and Technology clubs"
             paragraph="Clubs fosters innovation and hands-on learning through a variety of student-led clubs. These clubs are designed to encourage collaboration, creativity, and exploration in fields such as robotics, coding, environmental science, and engineering. By participating, students can deepen their understanding of cutting-edge technologies, engage in research projects, and develop skills that will prepare them for successful careers in the tech-driven world."
             center
-            mb="50px"
           />
         </div>
 

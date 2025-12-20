@@ -21,17 +21,17 @@ const EnhancedNavbar: React.FC = () => {
   const displayedText = useTypingEffect(statements)
 
   return (
-    <header className="bg-white shadow-md">
+    <header className="w-full hidden md:flex absolute z-50  bg-gradient-to-b from-black">
       <div className="container mx-auto px-4 -mt-[10px]">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center space-x-4">
-            <LinearText text={displayedText} />
+          <div className="flex items-center space-x-4 ">
+            <LinearText  text={displayedText} />
             <Search />
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6">
-            <AnimatedNavLink href="/calendar" icon={<FaCalendarAlt size={14} />}>
+          <nav className="hidden lg:flex  items-center space-x-6">
+            <AnimatedNavLink  href="/calendar" icon={<FaCalendarAlt size={14} />}>
               Calendar
             </AnimatedNavLink>
             <AnimatedNavLink href="https://elearning.bugemauniv.ac.ug/" icon={<RiComputerLine size={14} />}>
@@ -42,12 +42,16 @@ const EnhancedNavbar: React.FC = () => {
             </AnimatedNavLink>
             <DropdownNavLink
               items={[
-                { label: "Login", href: "https://erms.bugemauniv.ac.ug/student/login/" },
-                { label: "Register", href: "https://erms.bugemauniv.ac.ug/student/registration/" },
+                { label: "Erms Portal", href: "https://erms.bugemauniv.ac.ug/student/login/" },
+                { label: "Erms Register", href: "https://erms.bugemauniv.ac.ug/student/registration/" },
+                { label: "E-Portal", href: "https://eportal.bugemauniv.ac.ug/" },
               ]}
             >
               StudentsPortal
             </DropdownNavLink>
+            <AnimatedNavLink href="/administrator" icon={<FaUserCircle size={14} />}>
+              Administration
+            </AnimatedNavLink>
             <motion.a
               href="https://erms.bugemauniv.ac.ug/application/"
               target="_blank"
@@ -70,7 +74,7 @@ const EnhancedNavbar: React.FC = () => {
 
           {/* Mobile Navigation */}
           <div className="flex lg:hidden items-center space-x-2">
-            <Search />
+            <Search  />
             <button
               onClick={() => setNavbarOpen(!navbarOpen)}
               className="text-gray-600 hover:text-blue-600 focus:outline-none"
@@ -99,7 +103,7 @@ const EnhancedNavbar: React.FC = () => {
 const AnimatedNavLink: React.FC<{ href: string; icon: React.ReactNode; children: React.ReactNode }> = ({ href, icon, children }) => (
   <motion.a
     href={href}
-    className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-300 text-sm font-medium"
+    className="flex items-center space-x-1 text-white hover:text-blue-600 transition-colors duration-300 text-sm font-medium"
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
   >
@@ -115,7 +119,7 @@ const DropdownNavLink: React.FC<{ children: React.ReactNode; items: { label: str
     <div className="relative group">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-300 text-sm font-medium"
+        className="flex items-center space-x-1 text-white hover:text-blue-600 transition-colors duration-300 text-sm font-medium"
       >
         <FaGraduationCap size={14} />
         <span>{children}</span>
@@ -134,7 +138,9 @@ const DropdownNavLink: React.FC<{ children: React.ReactNode; items: { label: str
               <a
                 key={index}
                 href={item.href}
-                className="block px-4 py-2 text-gray-700 hover:bg-blue-500 hover:text-white text-xs transition-colors duration-200"
+                target="_blank"
+                rel="noopener noreferrer"
+                className=" block  px-4 py-2 text-gray-700 hover:bg-blue-500 hover:text-white text-xs transition-colors duration-200"
               >
                 {item.label}
               </a>
@@ -151,7 +157,7 @@ const SocialIcon: React.FC<{ href: string; icon: React.ReactNode }> = ({ href, i
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="text-gray-600 hover:text-blue-600 transition-colors duration-300"
+    className="text-white hover:text-blue-600 transition-colors duration-300"
     whileHover={{ scale: 1.2 }}
     whileTap={{ scale: 0.9 }}
   >

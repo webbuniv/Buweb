@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Sheet, SheetContent } from "@/components/ui/sheet"
-import { LayoutDashboard, Calendar, Newspaper, Users, Settings } from "lucide-react"
+import { LayoutDashboard, Calendar, Newspaper, Users,Images , Settings } from "lucide-react"
 
 interface SidebarProps {
   sidebarOpen: boolean
@@ -29,8 +29,18 @@ const menuItems = [
     icon: Newspaper,
   },
   {
-    title: "Teams",
-    href: "/teams",
+    title: "Users",
+    href: "/users",
+    icon: Users,
+  },
+   {
+    title: "Gallery",
+    href: "/gallery",
+    icon: Images,
+  },
+  {
+    title: "Staff",
+    href: "/staff",
     icon: Users,
   },
   {

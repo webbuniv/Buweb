@@ -34,15 +34,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://bugemauniv.ac.ug/",
-    title: "Bugema University - Excellence in Education",
+    title: "Bugema University - Excellence in Service",
     description:
       "Discover academic excellence at Bugema University, a leading institution of higher learning in Uganda.",
     siteName: "Bugema University",
     images: [
       {
-        url: "/logo.svg",
-        width: 1200,
-        height: 630,
+        url: "/logo.png",
+        width: 200,
+        height: 200,
         alt: "Bugema University Campus",
       },
     ],
@@ -52,16 +52,16 @@ export const metadata: Metadata = {
     title: "Bugema University - Excellence in Service",
     description:
       "Discover academic excellence at Bugema University, a leading institution of higher learning in Uganda.",
-    images: ["/logo.svg"],
+    images: ["/logo.png"],
   },
   robots: {
     index: true,
     follow: true,
   },
   icons: {
-    icon: "/logo.svg",
-    shortcut: "/logo.svg",
-    apple: "/logo.svg",
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
   category: "Education",
 }

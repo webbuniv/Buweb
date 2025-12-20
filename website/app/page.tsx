@@ -8,7 +8,6 @@ import Hero from "@/components/Hero";
 import BelowHero from "@/components/BelowHero";
 import ScrollToTop from "@/components/ScrollToTop";
 import ExploreBugema from "@/components/ExploreBugema";
-import { Inter } from "next/font/google";
 import EventsAndNews from "@/components/EventsandNews/EventsAndNews";
 import CampusNews from "@/components/CampusNews";
 import Welcome from "@/components/Welcome/Welcome";
@@ -17,11 +16,9 @@ import PublicationSection from "@/components/PublicationFeed/publication-section
 import { BugemaChatWidget } from "@/components/bugema-chat-widget"
 
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
   return (
-    <>
+    <div className="w-full overflow-x-hidden" >
       <ScrollUp />
       <Hero />
       <BelowHero />
@@ -30,7 +27,7 @@ export default function Home() {
       <EventsAndNews />
       <CampusNews />
       <PublicationSection />
-      <Blog />
+      {/* <Blog /> */}
       <Brands />
       <Contact />
       <ScrollToTop />
@@ -39,6 +36,6 @@ export default function Home() {
         title="Bugema University Assistant"
         initialMessage="Hello! Welcome to Bugema University. How can I help you with information about our programs, admissions, campus life, or other inquiries?"
       />
-    </>
+    </div>
   );
 }
