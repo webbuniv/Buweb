@@ -21,11 +21,12 @@ export default function Home() {
     <div className="w-full overflow-x-hidden" >
       <ScrollUp />
       <Hero />
-      <BelowHero />
+      
       <Welcome />
-      <ExploreBugema />
+      {/* <BelowHero /> */}
       <EventsAndNews />
       <CampusNews />
+      <ExploreBugema />
       <PublicationSection />
       {/* <Blog /> */}
       <Brands />

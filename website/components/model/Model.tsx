@@ -167,6 +167,7 @@ export default function UniversityModal({ isvisible, onClose }: UniversityModalP
                     },
                     { title: "Funding Your Studies", href: "/work_program" },
                     { title: "NHCE Fees", href: "https://imis.unche.or.ug:81/frmTrnStudentPayment.aspx" },
+                //     { title: "Finances", href: "/finances.pdf" },
                   ].map((item, index) => (
                     <li key={index} className="group">
                       <Link
@@ -180,7 +181,21 @@ export default function UniversityModal({ isvisible, onClose }: UniversityModalP
                         <FaArrowRight className="text-gray-400 transition-transform group-hover:translate-x-1 group-hover:text-blue-600" />
                       </Link>
                     </li>
+                    
                   ))}
+
+                  <li>
+                        <Link
+                        href="/finances.pdf"
+                        onClick={handleClose}
+                        target= "_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between rounded-lg border border-gray-200 bg-white p-4 transition-all hover:border-gray-900 hover:bg-gray-50 hover:shadow-md"
+                      >
+                        <span className="font-semibold text-gray-900 group-hover:text-blue-600">Finances</span>
+                        <FaArrowRight className="text-gray-400 transition-transform group-hover:translate-x-1 group-hover:text-blue-600" />
+                      </Link>
+                  </li>
                 </ul>
               </div>
             )}
@@ -269,6 +284,14 @@ export default function UniversityModal({ isvisible, onClose }: UniversityModalP
                       <span className="text-sm font-semibold">Portal</span>
                       <FaArrowRight className="transition-transform group-hover:translate-x-1" />
                     </Link>
+                    <Link
+                      href="https://unche.or.ug/institution/bugema-university/"
+                      className="group flex items-center justify-between rounded-full border-2 border-gray-900 bg-white px-4 py-3 transition-all hover:bg-gray-900 hover:text-white"
+                    >
+                      <span className="text-sm font-semibold">Programs</span>
+                      <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+                    </Link>
+
                     <Link
                       href="https://elearning.bugemauniv.ac.ug/"
                       className="group col-span-2 flex items-center justify-between rounded-full border-2 border-gray-900 bg-white px-4 py-3 transition-all hover:bg-gray-900 hover:text-white"
