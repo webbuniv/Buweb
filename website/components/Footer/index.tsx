@@ -43,7 +43,7 @@ const Footer = () => {
     <>
       <footer
         className="wow fadeInUp relative z-10  pt-16 md:pt-20 lg:pt-24"
-        style={{ backgroundImage: "url('/images/footer/bugema ariel view.jpg')",
+        style={{ backgroundImage: "url('/drone.jpg')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 // backdropFilter: 'blur(50px)',

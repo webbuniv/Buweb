@@ -9,6 +9,11 @@ import ScrollToTop from "@/components/ScrollToTop"
 import "react-modal-video/css/modal-video.css"
 import "../styles/index.css"
 import { Providers } from "./providers"
+import localFont from "next/font/local"
+
+const bugemaFont = localFont({
+  src:"./fonts/RecoletaAlt-Regular.woff",
+}) 
 
 export const metadata: Metadata = {
   title: {
@@ -73,7 +78,7 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="en">
-      <body className="dark:bg-black overflow-x-hidden">
+      <body className={`dark:bg-black overflow-x-hidden ${bugemaFont.className}`}>
         <Providers>
           <AboveHeader />
           <Header />

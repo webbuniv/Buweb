@@ -9,6 +9,8 @@
   body {
     font-family: "Inter", sans-serif;
     overflow-x: hidden; /* Prevent horizontal scrolling */
+     font-variant-ligatures: none;
+     font-feature-settings: "liga" 0;
   }
 
   /* Ensure html and main container also prevent horizontal scrolling */
