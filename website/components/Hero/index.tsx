@@ -16,6 +16,15 @@ interface HeroMedia {
 }
 
 const heroMedia: HeroMedia[] = [
+                {
+    type: "image",
+    
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/69207f4e0000f1f03d8c/view?project=674dcf7b003d57db960a&mode=admin",
+    title: " ",
+    description:"",
+    link: "http://erms.bugemauniv.ac.ug/application",
+    linkText: "Apply Now",
+  },
          {
     type: "image",
     
@@ -36,15 +45,7 @@ const heroMedia: HeroMedia[] = [
     linkText: "explore more",
   },  
                 
-        {
-    type: "image",
-    
-    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/69207f4e0000f1f03d8c/view?project=674dcf7b003d57db960a&mode=admin",
-    title: " 2025/2026 Admissions Open!",
-    description:" Admissions are Open for 2024/2025 Academic Year at Bugema University!  Apply Now to embark on a transformative educational journey with us. Don't miss the chance to be part of our vibrant community. ",
-    link: "http://erms.bugemauniv.ac.ug/application",
-    linkText: "Apply Now",
-  },
+
 //            {
 //     type: "no-overlay",
 //     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/690b70de003dadfb208e/view?project=674dcf7b003d57db960a&mode=admin",

@@ -241,3 +241,6 @@ export const getFileTypesParams = (type: string) => {
       return ["document"];
   }
 };
+    export const truncateString = (text: string, maxLength: number): string => {
+                return text.length > maxLength ? text.slice(0, maxLength) + " . . ." : text;
+        };
