@@ -45,7 +45,7 @@ const NewsEventsSection = () => {
           sort: "$createdAt-desc",
           limit: 5,
         })
-        setEvents(eventsRes.filter((event) => new Date(event.dateDue) < new Date()))
+        setEvents(eventsRes.filter((event) => new Date(event.dateDue) >= new Date()))
       } catch (error) {
         console.error("Error fetching events:", error)
       } finally {
@@ -231,7 +231,7 @@ const NewsEventsSection = () => {
                             <span className="font-medium">{post.date}</span>
                           </div>
                           <Link
-                            href={`/events/${post.$id}`}
+                            href={`/news/${post.$id}`}
                             className="inline-flex items-center gap-2 group-hover:text-red-600 text-blue-600 dark:text-blue-400 font-semibold hover:gap-3 transition-all duration-300"
                           >
                             Read More
@@ -256,7 +256,7 @@ const NewsEventsSection = () => {
          {/* =============================== U P C O M I N G     E V E N T S ============================================== */}
           {<div className="sticky top-8">
               <div className="bg-gradient-to-br from-white/95 to-gray-50/95 dark:from-gray-900/95 dark:to-gray-800/95 rounded-3xl p-8 shadow-2xl backdrop-blur-xl border border-white/20 dark:border-gray-700/30">
-                <div className="flex items-center gap-4 mb-8">
+                <div className="flex items-center justify-center gap-4 mb-8">
                   <div className="w-2 h-12 bg-gradient-to-b from-emerald-500 to-blue-600 rounded-full shadow-lg" />
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Upcoming Events</h3>
                   <Link
@@ -268,8 +268,8 @@ const NewsEventsSection = () => {
               </Link>
                 </div>
 
-                <div className="space-y-4 grid  md:grid-cols-2 max-h-[700px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
-                  {events.map((post, index) => (
+                <div className={`space-y-4 grid   ${events.length > 0 ? "md:grid-cols-2" : "md:grid-cols-1"} max-h-[700px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent`}>
+                 {events.length>0 ?( events.map((post, index) => (
                   <motion.article
                     key={post.$id}
                     initial={{ opacity: 0, y: 30 }}
@@ -279,7 +279,7 @@ const NewsEventsSection = () => {
                   >
                     <div className="flex flex-col md:flex-row">
                       <Link
-                        href={`/news/${post.$id}`}
+                        href={`/events/${post.$id}`}
                         className="relative md:w-80 h-64 md:h-64  flex-shrink-0 overflow-hidden"
                       >
                         <Image
@@ -288,7 +288,7 @@ const NewsEventsSection = () => {
                           fill
                           className="object-cover group-hover:scale-110 transition-transform duration-700"
                         />
-                        <Link href={`/news/${post.$id}`} className=" absolute inset-2">
+                        <Link href={`/events/${post.$id}`} className=" absolute inset-2">
                     <div className=" absolute top-0 left-0 right-0 bottom-48 opacity-0 group-hover:opacity-60 " >
                    <div className="absolute top-28 left-44 animate-pulse p-10 rounded-full items-center flex justify-center bg-blue-600 group-hover:bg-red-600 transition duration-1000  " >
                          <ArrowRight className=" w-12 h-12 font-bold text-white transition-transform duration-300 -rotate-12"  />
@@ -324,7 +324,17 @@ const NewsEventsSection = () => {
                       </div>
                     </div>
                   </motion.article>
-                ))}
+                ))):(
+                        <div className="text-center bg-yellow-100 ml-4 items-center justify-center flex flex-col  text-gray-500 dark:text-gray-400 bg-white/50 dark:bg-gray-800/50 rounded-3xl backdrop-blur-sm">
+                <Calendar className="w-16 h-16 mx-auto mb-4 opacity-50" />
+                <p className="text-xl font-medium">No upcoming events at the moment.</p>
+                <Link href="/events">
+                  <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                    View Previous Events
+                  </button>
+                </Link>
+              </div>
+                )}
                 </div>
               </div>
             </div>}
