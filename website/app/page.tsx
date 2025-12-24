@@ -14,6 +14,7 @@ import Welcome from "@/components/Welcome/Welcome";
 import MatureEntryAd from "@/components/MatureEntryAd/MatureEntryAd";
 import PublicationSection from "@/components/PublicationFeed/publication-section"
 import { BugemaChatWidget } from "@/components/bugema-chat-widget"
+import UniversityCulture from "@/components/UniversityCulture";
 
 
 export default function Home() {
@@ -25,8 +26,11 @@ export default function Home() {
       <Welcome />
       {/* <BelowHero /> */}
       <EventsAndNews />
+      
       <CampusNews />
+      <UniversityCulture />
       <ExploreBugema />
+      
       <PublicationSection />
       {/* <Blog /> */}
       <Brands />
