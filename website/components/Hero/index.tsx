@@ -16,6 +16,15 @@ interface HeroMedia {
 }
 
 const heroMedia: HeroMedia[] = [
+        {
+    type: "image",
+    
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/694bad4a000cfecf2e9b/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "AUUS Sports Meet 2025: Celebrating Unity in Diversity at Bugema University",
+    description:"Bugema University proudly Participated in  the 2025 AUUS Sports Meet from December 19th to December 23rd, Joining students from different universities across Uganda for a vibrant celebration of sportsmanship, unity, and cultural diversity.",
+    link: "",
+    linkText: "Read More",
+  },
                 {
     type: "image",
     

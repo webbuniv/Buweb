@@ -7,6 +7,8 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Calendar, Eye, Search, User, BookOpen, ChevronLeft, ChevronRight } from "lucide-react"
 import { usePublications } from "@/lib/actions/publications.actions"
+import { useEffect, useState } from "react"
+import Image from "next/image"
 
 export default function PublicationFeed() {
   const {
@@ -28,35 +30,64 @@ export default function PublicationFeed() {
     return text.length > maxLength ? text.substring(0, maxLength) + "..." : text
   }
 
-  return (
-    <div className=" bg-gradient-to-br from-slate-50 to-blue-50/30">
-      <div className="container max-w-7xl mx-auto px-4 py-12">
+    const [orbs, setOrbs] = useState<Array<{ top: string; left: string }>>([]);
+
+  const generateRandomPosition = () => ({
+    top: `${Math.random() * 90}%`,
+    left: `${Math.random() * 90}%`,
+  });
+
+  useEffect(() => {
+    // Initialize with random positions
+    setOrbs(Array.from({ length: 5 }, generateRandomPosition));
+
+    // Change positions every 7 seconds
+    const interval = setInterval(() => {
+      setOrbs(Array.from({ length: 5 }, generateRandomPosition));
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (      
+    <div className=" sticky top-20 backdrop-blur-md bg-gradient-to-br from-purple-900 to-dark transition-all duration-1000">
+
+         {orbs.map((orb, index) => (
+        <div
+          key={index}
+          className="absolute -z-10 animate-pulse opacity-25 rounded-full w-20 h-20 bg-gradient-to-r from-purple-600 to-blue-600 transition-all duration-[7000ms] ease-in-out"
+          style={{
+            top: orb.top,
+            left: orb.left,
+          }}
+        />
+      ))}
+
+      <div className=" mx-auto px-4 py-12 ">
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4">
-            <BookOpen className="h-4 w-4" />
-            Research Publications
-          </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Latest Research & Publications</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        <div className="text-center mb-2 flex justify-center ">
+          <div className="flex flex-col" >
+                <h1 className="text-4xl font-bold text-white mb-4 sticky top-20  ">Latest Research & Publications</h1>
+          <p className="text-xl text-white max-w-2xl mx-auto">
             Discover groundbreaking research and academic publications from our university community
           </p>
+          </div>
+            <Image src="/research.gif" height={100} width={100} alt="" className="rounded-2xl hidden md:flex" />
         </div>
-
         {/* Search and filter controls */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-8">
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="relative flex-1">
+        <div className="   p-2 rounded-full mb-8">
+          <div className="flex flex-col md:flex-row gap-4 mx-auto justify-center rounded-full  md:w-[50%]">
+            <div className="relative flex-1 md:w-52">
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
               <Input
                 placeholder="Search publications by title, author, or keywords..."
-                className="pl-12 h-12 text-base border-gray-200 focus:border-blue-500 focus:ring-blue-500/20"
+                className="pl-12 h-12 rounded-full text-base border-gray-200 focus:border-blue-500 focus:ring-blue-500/20"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
             <Select value={yearFilter} onValueChange={setYearFilter}>
-              <SelectTrigger className="w-full md:w-[200px] h-12 border-gray-200 focus:border-blue-500 focus:ring-blue-500/20">
+              <SelectTrigger className="w-full rounded-full md:w-[200px] h-12 border-gray-200 focus:border-blue-500 focus:ring-blue-500/20">
                 <SelectValue placeholder="Filter by year" />
               </SelectTrigger>
               <SelectContent>
@@ -85,7 +116,7 @@ export default function PublicationFeed() {
                     </CardHeader>
                     <CardContent className="pb-4">
                       <div className="space-y-2">
-                        <div className="h-4 bg-gradient-to-r from-gray-200 to-gray-100 rounded-lg animate-pulse"></div>
+                        <div className="h-4 bg-gradient-to-r from-red-600 to-gray-100 rounded-lg animate-pulse"></div>
                         <div className="h-4 bg-gradient-to-r from-gray-200 to-gray-100 rounded-lg w-5/6 animate-pulse"></div>
                         <div className="h-4 bg-gradient-to-r from-gray-200 to-gray-100 rounded-lg w-4/6 animate-pulse"></div>
                       </div>
@@ -132,7 +163,7 @@ export default function PublicationFeed() {
                     <Button
                       variant="default"
                       size="sm"
-                      className="ml-auto bg-blue-600 hover:bg-blue-700 text-white shadow-sm hover:shadow-md transition-all duration-200"
+                      className="ml-auto bg-blue-600 group-hover:bg-red-700 text-white shadow-sm hover:shadow-md transition-all duration-200"
                       asChild
                     >
                       <Link href={`/publications/${publication.item_uuid}`}>
@@ -147,7 +178,7 @@ export default function PublicationFeed() {
 
         {/* Enhanced pagination */}
         {totalPages > 1 && (
-          <div className="flex items-center justify-center gap-4 bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div className="flex items-center justify-center gap-4  bg-gradient-to-l from-transparent via-yellow-50 to-transparent  shadow-sm   p-6">
             <Button
               variant="outline"
               size="default"
