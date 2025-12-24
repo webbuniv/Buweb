@@ -50,18 +50,21 @@ const Video = () => {
           animate={isInView ? "visible" : "hidden"}
         >
           {/* Video Container */}
-          <motion.div className="order-2 lg:order-1" variants={itemVariants}>
-            <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl bg-gray-900">
-              <iframe
+                <motion.div
+                className="order-2 lg:order-1 p-4 bg-black/40"
+                variants={itemVariants}
+                >
+                <div className="relative aspect-video overflow-hidden shadow-2xl bg-gray-900">
+                <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/JXhx8grHl-M?si=v6pONihls9EULtGa"
+                src="https://www.youtube.com/embed/JXhx8grHl-M?autoplay=1&mute=1&rel=0&playsinline=1"
                 title="Bugema University - Discover Your Path"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
-              />
-            </div>
-          </motion.div>
+                />
+                </div>
+                </motion.div>
 
           {/* Content Container */}
           <motion.div className="order-1 lg:order-2 space-y-6 bg-red-600w p-4 " 
