@@ -226,7 +226,7 @@ useEffect(() => {
         // }`}
         className={`hidden md:flex  header left-0 z-40 w-full items-center h-20 ${backgroundColor}  ${ 
           sticky
-            ? "bg-dark text-white top-0 !fixed !z-[9999] bg-opacity-100 shadow-sticky backdrop-blur-sm fades-out  transition"
+            ? "bg-dark  text-white top-0 !fixed !z-[9999] bg-opacity-80 border-b-4 border-b-yellow-200 shadow-sticky backdrop-blur-sm fades-out  transition"
             : "absolute top-10  fades-in text-white"
         }`}
       >
