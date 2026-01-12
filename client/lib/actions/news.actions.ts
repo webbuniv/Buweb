@@ -261,18 +261,18 @@ export const deleteNews = async (id: string) => {
   }
 }
 
-export async function updateNews(id: string, formData: FormData): Promise<CreateNewsResponse> {
+export async function updateNews(id: string, newsData: NewsItem| null, formData?: FormData | null): Promise<CreateNewsResponse> {
   const { storage, databases } = await createAdminClient()
 
   let fileID: string | undefined
-  const file = formData.get("file") as File | null
-
   try {
+    const file = formData?.get("file") as File | null
     if (file && file.size > 0 && file.name !== "undefined") {
       try {
         const response = await storage.createFile(appwriteConfig.bucketId, ID.unique(), file)
         fileID = response.$id
       } catch (error) {
+        console.error("File upload error:", error)
         return {
           error: "Error uploading file",
         }
@@ -281,12 +281,12 @@ export async function updateNews(id: string, formData: FormData): Promise<Create
 
     // Build the updated data object
     const updatedData: Record<string, any> = {
-      title: formData.get("title") as string,
-      category: formData.get("category") as string,
-      author: formData.get("author") as string,
-      date: formData.get("date") as string,
-      summary: formData.get("summary") as string,
-      content: formData.get("content") as string,
+      title: newsData?.title as string,
+      category: newsData?.category as string,
+      author: newsData?.author as string,
+      date: newsData?.date as string,
+      summary: newsData?.summary as string,
+      content: newsData?.content as string,
     }
 
     if (fileID) {
@@ -299,6 +299,7 @@ export async function updateNews(id: string, formData: FormData): Promise<Create
     return { success: true }
   } catch (error: any) {
     const errorMessage = error.response?.message || "Failed to update news document"
+    console.error("Update error:", error)
     return { error: errorMessage }
   }
 }
