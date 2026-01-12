@@ -14,10 +14,10 @@ const { id } = await(params);
   const news = await getNewsById(id);
                         return {
                                 title: news?.title,
-                                description: news?.content || "",
+                                description: news?.summary || "",
                                 openGraph: {
                                 title: news?.title,
-                                description: news?.content || "",
+                                description: news?.summary || "",
                                 images: `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${news.file}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`,
                                 url: `http://bugemauniv.ac.ug/news/${news?.id}`,
                                 type: "website"
