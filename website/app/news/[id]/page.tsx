@@ -19,7 +19,7 @@ const { id } = await(params);
                                 title: news?.title,
                                 description: news?.content || "",
                                 images: `${process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT}/storage/buckets/${process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID}/files/${news.file}/view?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT}`,
-                                url: `http://localhost:3000/news/${news?.id}`,
+                                url: `http://bugemauniv.ac.ug/news/${news?.id}`,
                                 type: "website"
                                 }
                                 }
