@@ -121,7 +121,7 @@ export const getNewsById = async (id: string): Promise<NewsItem | null> => {
       category: news.category || 'undefined',
       date: news.date || 'undefined',
       author: news.author || 'undefined',
-      content: news.content || 'undefined',
+      content: news.summary || 'undefined',
       summary: news.summary || 'undefined',
     } as NewsItem;
   } catch (error) {
