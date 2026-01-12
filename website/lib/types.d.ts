@@ -98,6 +98,16 @@ export interface ImageItem {
   description?:string
   isLiked?: boolean
 }
+export interface NewsData {
+  id: string;
+  title: string;
+  file: string;
+  category: string;
+  date: string;
+  author: string;
+  content: string;
+  summary: string;
+};
 
 export interface staffItem {
         name:  string,
