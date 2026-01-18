@@ -24,7 +24,7 @@ const NewsEventsSection = () => {
                 const newsRes = await getNews({
           searchText: "",
           sort: "date-desc",
-          limit: 3,
+          limit: 5,
         })
         setNews((newsRes))
         } catch (error) {
@@ -128,22 +128,26 @@ const NewsEventsSection = () => {
             </div>
  {/* ===============================N E W S    S E C T I O N============================================== */}
             {news.length > 0 ? (
-                <div className="flex gap-3" >
-                 <motion.article
-                    key={news[0].$id}
+                <div className="flex  flex-col md:flex-row gap-3" >
+                
+                        <div className="grid md:grid-cols-1 gap-6  ">
+                                 {news.slice(0,2).map((news)=>(
+                                <motion.article
+                    key={news.$id}
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="group relative  dark:bg-gray-900/95  overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 backdrop-blur-xl border border-white/20 dark:border-gray-700/30"
+                    className="group relative flex  dark:bg-gray-900/95  overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 backdrop-blur-xl border border-white/20 dark:border-gray-700/30"
                   >
-                    <div className=" hidden flex-col md:flex   ">
+                    <div className="flex flex-col md:flex w-full">
                       <Link
-                        href={`/news/${news[0].$id}`}
-                        className="relative md:w-100 h-64 md:h-80 flex-shrink-0 overflow-hidden"
+                        href={`/news/${news.$id}`}
+                        className="relative block w-full md:w-96 min-h-[256px] md:min-h-[320px] flex-shrink-0 overflow-hidden"
                       >
                         <Image
-                          src={getFileUrl(news[0].file) || "/placeholder.svg"}
-                          alt={news[0].title}
+                          src={getFileUrl(news.file) || "/placeholder.svg"}
+                          alt={news.title}
                           fill
+                          sizes="(max-width: 768px) 100vw, 384px"
                           className="object-cover group-hover:scale-110 transition-transform duration-700"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -151,22 +155,22 @@ const NewsEventsSection = () => {
 
                       <div className="p-8 flex flex-col justify-between flex-1 bg-white/50">
                         <div>
-                          <Link href={`/news/${news[0].$id}`}>
+                          <Link href={`/news/${news.$id}`}>
                             <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 leading-tight">
-                              {news[0].title}
+                              {news.title}
                             </h4>
                           </Link>
-                          <p className="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3 text-lg leading-relaxed">
-                            { truncateString(news[0].summary, 90) }
+                          <p className="text-gray-600 dark:text-gray-300  line-clamp-3 text-lg leading-relaxed">
+                            { truncateString(news.summary, 100) }
                           </p>
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
                             <Clock className="w-4 h-4" />
-                            <span className="font-medium">{news[0].date}</span>
+                            <span className="font-medium">{news.date}</span>
                           </div>
                           <Link
-                            href={`/events/${news[0].$id}`}
+                            href={`/events/${news.$id}`}
                             className="inline-flex items-center gap-2 group-hover:text-red-500 text-blue-600 dark:text-blue-400 font-semibold hover:gap-3 transition-all duration-300"
                           >
                             Read More
@@ -175,7 +179,7 @@ const NewsEventsSection = () => {
                         </div>
                       </div>
                     </div>
-                    <Link href={`/news/${news[0].$id}`} className=" absolute inset-2">
+                    <Link href={`/news/${news.$id}`} className=" absolute inset-2">
                     <div className=" absolute top-0 left-0 right-0 bottom-48 opacity-0 group-hover:opacity-60 " >
                    <div className="absolute top-28 left-44 animate-pulse p-10 rounded-full items-center flex justify-center bg-blue-600 group-hover:bg-red-600 transition duration-1000  " >
                          <ArrowRight className=" w-12 h-12 font-bold text-white transition-transform duration-300 -rotate-12"  />
@@ -183,10 +187,13 @@ const NewsEventsSection = () => {
                     </div>
                     </Link>
                   </motion.article>
+                           ))}
+                        </div>
+              
 
               <div className={`space-y-6 ${events.length>0?"":"md:grid md:grid-cols-1 md:gap-6 md:space-y-0"}`}>
                 
-                {news.slice(0, 2).map((post, index) => (
+                {news.slice(2, ).map((post, index) => (
                   <motion.article
                     key={post.$id}
                     initial={{ opacity: 0, y: 30 }}
@@ -194,26 +201,29 @@ const NewsEventsSection = () => {
                     transition={{ delay: index * 0.15, duration: 0.6 }}
                     className="group relative bg-white/95 dark:bg-gray-900/95  overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 backdrop-blur-xl border border-white/20 dark:border-gray-700/30"
                   >
-                    <div className="flex flex-col md:flex-row">
-                      <Link
-                        href={`/news/${post.$id}`}
-                        className="relative md:w-80 h-64 md:h-64  flex-shrink-0 overflow-hidden"
-                      >
-                        <Image
-                          src={getFileUrl(post.file) || "/placeholder.svg"}
-                          alt={post.title}
-                          fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
-                        <Link href={`/news/${post.$id}`} className=" absolute inset-2">
-                    <div className=" absolute top-0 left-0 right-0 bottom-48 opacity-0 group-hover:opacity-60 " >
-                   <div className="absolute top-28 left-44 animate-pulse p-10 rounded-full items-center flex justify-center bg-blue-600 group-hover:bg-red-600 transition duration-1000  " >
-                         <ArrowRight className=" w-12 h-12 font-bold text-white transition-transform duration-300 -rotate-12"  />
-                   </div>
-                    </div>
-                    </Link>
+                    <div className="flex flex-col md:flex-row w-full">
+                      <div className="relative w-full md:w-80 min-h-[256px] flex-shrink-0 overflow-hidden">
+                        <Link
+                          href={`/news/${post.$id}`}
+                          className="block absolute inset-0"
+                        >
+                          <Image
+                            src={getFileUrl(post.file) || "/placeholder.svg"}
+                            alt={post.title}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 320px"
+                            className="object-cover group-hover:scale-110 transition-transform duration-700"
+                          />
+                        </Link>
+                        <div className="absolute inset-2 pointer-events-none">
+                          <div className="absolute top-0 left-0 right-0 bottom-48 opacity-0 group-hover:opacity-60">
+                            <div className="absolute top-28 left-1/2 -translate-x-1/2 animate-pulse p-10 rounded-full items-center flex justify-center bg-blue-600 group-hover:bg-red-600 transition duration-1000">
+                              <ArrowRight className="w-12 h-12 font-bold text-white transition-transform duration-300 -rotate-12" />
+                            </div>
+                          </div>
+                        </div>
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      </Link>
+                      </div>
                       <div className="p-8 flex flex-col justify-between flex-1">
                         <div>
                           <Link href={`/news/${post.$id}`}>
@@ -277,26 +287,29 @@ const NewsEventsSection = () => {
                     transition={{ delay: index * 0.15, duration: 0.6 }}
                     className="group relative bg-white/95 dark:bg-gray-900/95  overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 backdrop-blur-xl border border-white/20 dark:border-gray-700/30"
                   >
-                    <div className="flex flex-col md:flex-row">
-                      <Link
-                        href={`/events/${post.$id}`}
-                        className="relative md:w-80 h-64 md:h-64  flex-shrink-0 overflow-hidden"
-                      >
-                        <Image
-                          src={getFileUrl(post.file) || "/placeholder.svg"}
-                          alt={post.title}
-                          fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
-                        <Link href={`/events/${post.$id}`} className=" absolute inset-2">
-                    <div className=" absolute top-0 left-0 right-0 bottom-48 opacity-0 group-hover:opacity-60 " >
-                   <div className="absolute top-28 left-44 animate-pulse p-10 rounded-full items-center flex justify-center bg-blue-600 group-hover:bg-red-600 transition duration-1000  " >
-                         <ArrowRight className=" w-12 h-12 font-bold text-white transition-transform duration-300 -rotate-12"  />
-                   </div>
-                    </div>
-                    </Link>
+                    <div className="flex flex-col md:flex-row w-full">
+                      <div className="relative w-full md:w-100 min-h-[256px] flex-shrink-0 overflow-hidden">
+                        <Link
+                          href={`/events/${post.$id}`}
+                          className="block absolute inset-0"
+                        >
+                          <Image
+                            src={getFileUrl(post.file) || "/placeholder.svg"}
+                            alt={post.title}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 320px"
+                            className="object-cover group-hover:scale-110 transition-transform duration-700"
+                          />
+                        </Link>
+                        <div className="absolute inset-2 pointer-events-none">
+                          <div className="absolute top-0 left-0 right-0 bottom-48 opacity-0 group-hover:opacity-60">
+                            <div className="absolute top-28 left-1/2 -translate-x-1/2 animate-pulse p-10 rounded-full items-center flex justify-center bg-blue-600 group-hover:bg-red-600 transition duration-1000">
+                              <ArrowRight className="w-12 h-12 font-bold text-white transition-transform duration-300 -rotate-12" />
+                            </div>
+                          </div>
+                        </div>
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      </Link>
+                      </div>
                       <div className="p-8 flex flex-col justify-between flex-1">
                         <div>
                           <Link href={`/events/${post.$id}`}>
