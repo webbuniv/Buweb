@@ -215,14 +215,14 @@ const NewsEventsSection = () => {
                             className="object-cover group-hover:scale-110 transition-transform duration-700"
                           />
                         </Link>
-                        <div className="absolute inset-2 pointer-events-none">
-                          <div className="absolute top-0 left-0 right-0 bottom-48 opacity-0 group-hover:opacity-60">
+                        <Link href={`/news/${post.$id}`} className="absolute inset-2 ">
+                          <div className="absolute top-0 left-0 right-0 bottom-48 opacity-70">
                             <div className="absolute top-28 left-1/2 -translate-x-1/2 animate-pulse p-10 rounded-full items-center flex justify-center bg-blue-600 group-hover:bg-red-600 transition duration-1000">
                               <ArrowRight className="w-12 h-12 font-bold text-white transition-transform duration-300 -rotate-12" />
                             </div>
                           </div>
-                        </div>
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        </Link>
+                        <div className="absolute inset-0 -z-20 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </div>
                       <div className="p-8 flex flex-col justify-between flex-1">
                         <div>
