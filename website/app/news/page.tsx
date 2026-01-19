@@ -17,7 +17,7 @@ export default function Blog() {
           {
             searchText: "",
             sort: "$createdAt-desc",
-            limit: 100,
+        //     limit: 100,
           }
         );
 

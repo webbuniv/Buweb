@@ -13,6 +13,11 @@ const handleError = (error: unknown, message: string) => {
   throw new Error(message);
 };
 
+// File validation constants
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+const ALLOWED_FILE_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+const DEFAULT_LIMIT = 10;
+
 
 interface FormDataType {
   get: (key: string) => string | File | null;
@@ -32,8 +37,16 @@ export async function CreateNews(previousState: any, formData: FormDataType): Pr
   try{
 
   if (file && file.size > 0 && file.name !== 'undefined') {
-    try {
-      const response = await storage.createFile(appwriteConfig.bucketId, ID.unique(), file);
+      // Validate file size
+      if (file.size > MAX_FILE_SIZE) {
+        return { error: `File size exceeds ${MAX_FILE_SIZE / (1024 * 1024)}MB limit` };
+      }
+      // Validate file type
+      if (!ALLOWED_FILE_TYPES.includes(file.type)) {
+        return { error: 'Invalid file type. Allowed: JPEG, PNG, WebP, GIF' };
+      }
+      try {
+        const response = await storage.createFile(appwriteConfig.bucketId, ID.unique(), file);
         fileID = response.$id;
       } catch (error) {
         return {
@@ -77,8 +90,8 @@ export const getNews = async  ({
   const { databases } = await createAdminClient();
   try {
     const queries = [
-      ...(searchText ? [Query.search("name", searchText)] : []),
-      ...(limit ? [Query.limit(limit)] : []),
+      ...(searchText ? [Query.search("title", searchText)] : []),
+      Query.limit(limit || DEFAULT_LIMIT),
       Query.orderDesc(sort.split("-")[0]),
     ];
 
@@ -137,15 +150,25 @@ export const deleteNews = async (id: string) => {
     redirect('/signin');
   }
 
-  const { databases } = await createAdminClient();
+  const { databases, storage } = await createAdminClient();
 
-  const newsToDelete = getNewsById(id);
+  const newsToDelete = await getNewsById(id);
 
   if (!newsToDelete) {
     return { error: 'News not found' };
   }
 
   try {
+    // Delete associated file from storage if it exists
+    if (newsToDelete.file && newsToDelete.file !== 'undefined') {
+      try {
+        await storage.deleteFile(appwriteConfig.bucketId, newsToDelete.file);
+      } catch (fileError) {
+        console.error('Failed to delete associated file:', fileError);
+        // Continue with document deletion even if file deletion fails
+      }
+    }
+
     await databases.deleteDocument(
       appwriteConfig.databaseId,
       appwriteConfig.newsCollectionId,
@@ -166,13 +189,38 @@ export async function updateNews(
   const { storage, databases } = await createAdminClient();
 
   let fileID: string | undefined;
+  let oldFileId: string | undefined;
   const file = formData.get('file') as File | null;
 
   try {
+    // Get existing news to retrieve old file ID
+    const existingNews = await getNewsById(id);
+    if (existingNews && existingNews.file && existingNews.file !== 'undefined') {
+      oldFileId = existingNews.file;
+    }
+
     if (file && file.size > 0 && file.name !== 'undefined') {
+      // Validate file size
+      if (file.size > MAX_FILE_SIZE) {
+        return { error: `File size exceeds ${MAX_FILE_SIZE / (1024 * 1024)}MB limit` };
+      }
+      // Validate file type
+      if (!ALLOWED_FILE_TYPES.includes(file.type)) {
+        return { error: 'Invalid file type. Allowed: JPEG, PNG, WebP, GIF' };
+      }
       try {
         const response = await storage.createFile(appwriteConfig.bucketId, ID.unique(), file);
         fileID = response.$id;
+
+        // Delete old file after successful upload of new file
+        if (oldFileId) {
+          try {
+            await storage.deleteFile(appwriteConfig.bucketId, oldFileId);
+          } catch (deleteError) {
+            console.error('Failed to delete old file:', deleteError);
+            // Continue even if old file deletion fails
+          }
+        }
       } catch (error) {
         return {
           error: 'Error uploading file',
