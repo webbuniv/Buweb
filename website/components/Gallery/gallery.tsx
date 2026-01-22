@@ -59,20 +59,44 @@ export default function UniversityGallery() {
   const [sortBy, setSortBy] = useState("date")
   const [zoomLevel, setZoomLevel] = useState(1)
 const [images, setImages] = useState<ImageItem[]>([])
+const [cursor, setCursor] = useState<string | null>(null)
+const [hasMore, setHasMore] = useState(true)
+const [isLoading, setIsLoading] = useState(false)
         
 useEffect(() => {
         const fetchImages = async () => {
         try {
-                const fetchedImages = await getAllImages()
-                console.log("images: ",fetchedImages)
-                setImages(fetchedImages)
+                setIsLoading(true)
+                const result = await getAllImages()
+                // console.log("images: ", result)
+                setImages(result.images)
+                setCursor(result.lastCursor)
+                setHasMore(result.hasMore)
         } catch (error) {
                 console.error("Failed to fetch images:", error)
+        } finally {
+                setIsLoading(false)
         }
         }
         
         fetchImages()
         }, [])
+
+const loadMoreImages = async () => {
+        if (!hasMore || isLoading || !cursor) return
+        
+        try {
+                setIsLoading(true)
+                const result = await getAllImages(cursor)
+                setImages((prev) => [...prev, ...result.images])
+                setCursor(result.lastCursor)
+                setHasMore(result.hasMore)
+        } catch (error) {
+                console.error("Failed to load more images:", error)
+        } finally {
+                setIsLoading(false)
+        }
+}
 
     const handleLikeUpdate = async (imageId: string) => {
                 const updatedImage = await updateLikes(imageId)
@@ -145,7 +169,7 @@ useEffect(() => {
 
   const downloadImage = (image: ImageItem) => {
 //  Download Here
-    console.log("Downloading image:", image.category)
+//     console.log("Downloading image:", image.category)
   }
 
   const shareImage = (image: ImageItem) => {
@@ -303,6 +327,19 @@ useEffect(() => {
                 ))}
               </div>
             )}
+            
+            {/* Load More Button */}
+            {hasMore && filteredImages.length > 0 && (
+              <div className="flex justify-center mt-8">
+                <Button
+                  onClick={loadMoreImages}
+                  disabled={isLoading}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-2"
+                >
+                  {isLoading ? "Loading..." : "Load More"}
+                </Button>
+              </div>
+            )}
           </TabsContent>
         </Tabs>
 
@@ -434,10 +471,10 @@ useEffect(() => {
                         Share
                       </Button>
 
-                      <Button className={"text-yellow-500 border-yellow-500"} variant="outline" size="sm" onClick={() => downloadImage(selectedImage)}>
+                      {/* <Button className={"text-yellow-500 border-yellow-500"} variant="outline" size="sm" onClick={() => downloadImage(selectedImage)}>
                         <Download className="w-4 h-4 mr-1" />
                         Download
-                      </Button>
+                      </Button> */}
                     </div>
                   </div>
                 </div>
