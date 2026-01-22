@@ -9,16 +9,23 @@ const handleError = (error: unknown, message: string) => {
   throw new Error(message)
 }
 
-export const getAllImages = async () => {
+export const getAllImages = async (cursor?: string) => {
   const { databases } = await createAdminClient()
   try {
+    const queries = [Query.limit(15)]
+    
+    // If cursor is provided, fetch documents after that cursor
+    if (cursor) {
+      queries.push(Query.cursorAfter(cursor))
+    }
+    
     const images = await databases.listDocuments(
         appwriteConfig.databaseId,
         appwriteConfig.galleryCollectionId,
-        [Query.limit(100)]
-)
+        queries
+    )
 
-    return images.documents.map((image) => ({
+    const mappedImages = images.documents.map((image) => ({
         id: image.$id || "undefined",
         category:image.category || "undefined",
         imageUrl:image.imageUrl || "undefined",
@@ -28,9 +35,15 @@ export const getAllImages = async () => {
         description:image.description||""
     })) as ImageItem[]
 
+    return {
+      images: mappedImages,
+      hasMore: images.documents.length === 15,
+      lastCursor: images.documents.length > 0 ? images.documents[images.documents.length - 1].$id : null
+    }
+
   } catch (error) {
     handleError(error, "Failed to fetch Images")
-    return []
+    return { images: [], hasMore: false, lastCursor: null }
   }
 }
 
