@@ -20,6 +20,7 @@ export interface NewsItem {
   author: string
   content: string
   summary: string
+  approved?: boolean
 }
 
 export interface GetNewsProps {
@@ -37,6 +38,7 @@ export interface News {
   content: string
   summary: string
   author: string
+  approved?: boolean
   $createdAt: number
 }
 
@@ -213,6 +215,7 @@ export const getNews = async ({
       content: news.content || "undefined",
       summary: news.summary || "undefined",
       author: news.author || "undefined",
+      approved: news.approved || false,
       $createdAt: new Date(news.$createdAt).getTime(),
     }))
   } catch (error) {
@@ -235,6 +238,7 @@ export const getNewsById = async (id: string): Promise<NewsItem | null> => {
       author: news.author || "undefined",
       content: news.content || "undefined",
       summary: news.summary || "undefined",
+      approved: news.approved || false,
     } as NewsItem
   } catch (error) {
     handleError(error, "Failed to fetch News")
@@ -301,5 +305,29 @@ export async function updateNews(id: string, newsData: NewsItem| null, formData?
     const errorMessage = error.response?.message || "Failed to update news document"
     console.error("Update error:", error)
     return { error: errorMessage }
+  }
+}
+
+export async function disableNews (newsId: string) {
+ const { databases } = await createAdminClient()
+        try {
+                const oldDoc = await databases.getDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.newsCollectionId,
+      newsId
+    );
+        await databases.updateDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.newsCollectionId,
+      newsId,
+      {approved:oldDoc.approved ? false : true}
+    );
+    return {
+        success: true,
+    }
+  }
+  catch (error) {
+    handleError(error, "Failed to disable news ")
+    return null
   }
 }
