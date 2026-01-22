@@ -10,13 +10,16 @@ import Link from "next/link"
 import { getNews, type News } from "@/lib/actions/news.actions"
 import { getFileUrl, formatDate } from "@/lib/utils"
 import { DataTable } from "@/components/ui/data-table"
+import { disableNews } from "@/lib/actions/news.actions"
+import { useRouter } from "next/navigation"
 
 export function NewsList() {
   const [news, setNews] = useState<News[]>([])
   const [loading, setLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState("")
+  const [changingStatus, setChangingStatus] = useState(false)
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid")
-
+        const router = useRouter()
   useEffect(() => {
     const fetchNews = async () => {
       try {
@@ -31,6 +34,19 @@ export function NewsList() {
 
     fetchNews()
   }, [])
+
+  const disableActivateNews = async (id: string) => {
+        setChangingStatus(true);
+await disableNews(id).then(async (res) => {
+        if(res?.success){
+                 const data = await getNews({})
+      setNews(data)
+  }
+}).finally(() => {
+        setChangingStatus(false);
+    });
+
+  }
 
   const filteredNews = news.filter((item) => item.title.toLowerCase().includes(searchQuery.toLowerCase()))
 
@@ -113,7 +129,7 @@ export function NewsList() {
             </div>
           ) : (
             filteredNews.map((item) => (
-              <Link key={item.$id} href={`/news/${item.$id}`} className="block">
+              
                 <Card className="h-full overflow-hidden hover:shadow-md transition-shadow">
                   {item.file && (
                     <div className="aspect-video w-full overflow-hidden">
@@ -124,6 +140,7 @@ export function NewsList() {
                       />
                     </div>
                   )}
+                  <Link key={item.$id} href={`/news/${item.$id}`} className="block">
                   <CardHeader className="p-4">
                     <div className="flex items-center justify-between">
                       <Badge variant="outline">{item.category}</Badge>
@@ -137,11 +154,16 @@ export function NewsList() {
                   <CardContent className="p-4 pt-0">
                     <p className="line-clamp-3 text-sm text-muted-foreground">{item.summary}</p>
                   </CardContent>
-                  <CardFooter className="p-4 pt-0">
+                  </Link>
+                  <CardFooter className="p-4 gap-4 pt-0 relative">
                     <p className="text-sm font-medium">By {item.author}</p>
+                               
+          <Button onClick={() => disableActivateNews(item.$id)} variant="outline" className={`mr-2 absolute z-50 right-4 ${item.approved ? "bg-red-500":" bg-green-500"} `}>
+            {item.approved ? "Disable" : "Enable"} 
+          </Button>
                   </CardFooter>
                 </Card>
-              </Link>
+              
             ))
           )}
         </div>
