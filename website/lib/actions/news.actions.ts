@@ -93,6 +93,7 @@ export const getNews = async  ({
       ...(searchText ? [Query.search("title", searchText)] : []),
       Query.limit(limit || DEFAULT_LIMIT),
       Query.orderDesc(sort.split("-")[0]),
+      Query.equal("approved", true),
     ];
 
     const news = await databases.listDocuments(
@@ -100,6 +101,21 @@ export const getNews = async  ({
       appwriteConfig.newsCollectionId,
       queries
     );
+  
+        // const patch = async (newsId: string)=>{
+        //         await databases.updateDocument(
+        //                 appwriteConfig.databaseId,
+        //                 appwriteConfig.newsCollectionId,
+        //                 newsId,
+        //                 {approved:true}
+        // );
+        // }
+        // news.documents.forEach( async (newsItem) => {
+        //         if(newsItem.approved !== "true"){
+        //                 await patch(newsItem.$id);
+        //         }
+        // });
+        
 //     console.log("Fetched news: ",news.documents);
     return news.documents.map((news) => ({
       $id: news.$id,
