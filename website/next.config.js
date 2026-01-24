@@ -23,6 +23,10 @@ const nextConfig = {
         hostname: 'fra.cloud.appwrite.io',
       },
       {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
+      {
         protocol: 'https',
         hostname: 'firebasestorage.googleapis.com',
       },
