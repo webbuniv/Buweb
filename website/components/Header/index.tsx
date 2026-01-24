@@ -55,7 +55,7 @@ const Header = () => {
   useEffect(() => {
         setTimeout(()=>{
                 setadvertvisible(false)
-        },5000)
+        },10000)
     window.addEventListener("scroll", handleStickyNavbar);
     return () => {
       window.removeEventListener("scroll", handleStickyNavbar);
@@ -595,9 +595,9 @@ useEffect(() => {
         <></>
       </Model4>
 
-      {/* <Advert isadvertvisible={advertvisible} onClose={() => setadvertvisible(false)} >
+      <Advert isadvertvisible={advertvisible} onClose={() => setadvertvisible(false)} >
         <></>
-      </Advert> */}
+      </Advert>
     </>
   );
 };
