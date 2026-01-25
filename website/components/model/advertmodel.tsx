@@ -59,7 +59,7 @@ const handleclose = ()=>{
                                                                       Applications are invited from suitably qualified candidates for the following vacant positions 
 at Bugema University. 
                                                                 </h1>
-                                                                  <Link href="/docs/advert_2026.pdf"  target="_blank" rel="noopener noreferrer">
+                                                                  <Link href="https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/69763d9f003745fbf426/view?project=674dcf7b003d57db960a"  target="_blank" rel="noopener noreferrer">
                                                                 <span className="text-black border  hover:bg-primary hover:border-white hover:text-white transition duration-500  border-black rounded-full p-2 ">Download the advert</span>
                                                                 </Link>
                                                               </div>
