@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useState, useEffect, useMemo, useRef } from "react"
+import { useState, useEffect, useMemo, useRef, useCallback } from "react"
 import { ChevronLeft, ChevronRight, ExternalLink, FileText } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -13,6 +13,7 @@ interface HeroMedia {
   description?: string
   link?: string
   linkText?: string
+  zoomDirection?: "in" | "out" // Ken Burns direction
 }
 
 const heroMedia: HeroMedia[] = [
@@ -95,67 +96,109 @@ link: "https://www.bugemauniv.ac.ug/news/6988961c001bbebbcff7",
 interface HeroSlideProps {
   media: HeroMedia
   isActive: boolean
+  slideIndex: number
 }
 
-const HeroSlide = ({ media, isActive }: HeroSlideProps) => {
-
+const HeroSlide = ({ media, isActive, slideIndex }: HeroSlideProps) => {
+  // Alternate zoom direction based on slide index for variety
+  const zoomDirection = media.zoomDirection || (slideIndex % 2 === 0 ? "in" : "out")
+  
   return (
-        <>
-         <div className="relative w-full h-[100vh] md:h-[100vh] lg:h-[100vh] overflow-hidden">
-      {media.type === "video" ? (
-        <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline>
-          <source src={media.src} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      ) : (
-        <>
-
-         <Image
-          src={media.src || "/placeholder.svg"}
-          alt={media.title || "Hero slide"}
-          fill
-          className="object-cover"
-          priority={isActive}
-          sizes="100vw"
-        />
-        </>
-      )}
+    <div className="relative w-full h-[100vh] md:h-[100vh] lg:h-[100vh] overflow-hidden">
+      {/* Image/Video container with Ken Burns effect */}
+      <div 
+        className={`absolute inset-0 transition-opacity duration-1000 ${
+          isActive ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        {media.type === "video" ? (
+          <video 
+            className={`absolute inset-0 w-full h-full object-cover ${
+              isActive ? "ken-burns-video" : ""
+            }`} 
+            autoPlay 
+            muted 
+            loop 
+            playsInline
+          >
+            <source src={media.src} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        ) : (
+          <div 
+            className={`absolute inset-0 ${
+              isActive 
+                ? zoomDirection === "in" 
+                  ? "ken-burns-zoom-in" 
+                  : "ken-burns-zoom-out"
+                : ""
+            }`}
+          >
+            <Image
+              src={media.src || "/placeholder.svg"}
+              alt={media.title || "Hero slide"}
+              fill
+              className="object-cover"
+              priority={isActive}
+              sizes="100vw"
+            />
+          </div>
+        )}
+      </div>
 
       {/* Gradient overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent" />
 
-      {/* Content overlay */}
+      {/* Content overlay with staggered animations */}
       {media.type !== "no-overlay" && (media.title || media.description) && (
-        <div className={`absolute bottom-20  md:inset-0 flex items-end `}>
-          <div className="w-full md:p-8 lg:p-12 ">
-            <div className="  md:max-w-4xl  text-white bg-gradient-to-r from-blue-900 to-blue-900/20 p-4 rounded-xl">
+        <div 
+          className={`absolute bottom-20 md:inset-0 flex items-end transition-all duration-700 ${
+            isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          <div className="w-full md:p-8 lg:p-12">
+            <div className="md:max-w-4xl text-white bg-gradient-to-r from-blue-900 to-blue-900/20 p-4 rounded-xl">
               {media.title && (
-                <h1 className={`text-2xl md:text-4xl lg:text-5xl font-bold mb-4 ${isActive ? "overlay-animation" : ""} leading-tight`}>{media.title}</h1>
+                <h1 
+                  className={`text-2xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight transition-all duration-700 delay-200 ${
+                    isActive ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+                  }`}
+                >
+                  {media.title}
+                </h1>
               )}
               {media.description && (
-                <p className={`text-sm md:text-base lg:text-lg mb-6 leading-relaxed ${isActive ? "fade-up" : ""} opacity-90 max-w-2xl`}>
+                <p 
+                  className={`text-sm md:text-base lg:text-lg mb-6 leading-relaxed opacity-90 max-w-2xl transition-all duration-700 delay-400 ${
+                    isActive ? "opacity-90 translate-x-0" : "opacity-0 -translate-x-8"
+                  }`}
+                >
                   {media.description}
                 </p>
               )}
               {media.link && media.linkText && (
-                <Button asChild size="lg" className="bg-red-600 hover:bg-red-700">
-                  <Link href={media.link} className="inline-flex items-center gap-2">
-                    {media.linkText}
-                    {media.linkText === "Apply Now" ? (
-                      <FileText className="w-4 h-4" />
-                    ) : (
-                      <ExternalLink className="w-4 h-4" />
-                    )}
-                  </Link>
-                </Button>
+                <div 
+                  className={`transition-all duration-800 delay-700 ${
+                    isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                  }`}
+                >
+                  <Button asChild size="lg" className="bg-red-600 hover:bg-red-700 hover:scale-105 transition-transform">
+                    <Link href={media.link} className="inline-flex items-center gap-2">
+                      {media.linkText}
+                      {media.linkText === "Apply Now" ? (
+                        <FileText className="w-4 h-4" />
+                      ) : (
+                        <ExternalLink className="w-4 h-4" />
+                      )}
+                    </Link>
+                  </Button>
+                </div>
               )}
             </div>
           </div>
         </div>
       )}
     </div>
-
-     </>
   )
 }
 
@@ -195,18 +238,18 @@ export default function HeroSlider() {
 
   return (
     <section className="relative w-full">
-      {/* Slides container */}
-      <div className="relative overflow-hidden">
-        <div
-          className="flex transition-transform duration-700 ease-in-out"
-          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-        >
-          {heroMedia.map((media, index) => (
-            <div key={index} className="w-full flex-shrink-0">
-              <HeroSlide media={media} isActive={index === currentSlide} />
-            </div>
-          ))}
-        </div>
+      {/* Slides container - stacked for fade transition */}
+      <div className="relative h-[100vh] overflow-hidden">
+        {heroMedia.map((media, index) => (
+          <div 
+            key={index} 
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+            }`}
+          >
+            <HeroSlide media={media} isActive={index === currentSlide} slideIndex={index} />
+          </div>
+        ))}
       </div>
 
       {/* Navigation arrows */}
@@ -227,13 +270,15 @@ export default function HeroSlider() {
       </button> */}
 
       {/* Dot indicators */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
         {heroMedia.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-200 ${
-              index === currentSlide ? "bg-white scale-110" : "bg-white/50 hover:bg-white/70"
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentSlide 
+                ? "bg-white scale-125 shadow-lg" 
+                : "bg-white/50 hover:bg-white/70 hover:scale-110"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -255,6 +300,48 @@ export default function HeroSlider() {
         @keyframes progress {
           from { width: 0%; }
           to { width: 100%; }
+        }
+        
+        /* Ken Burns zoom in effect */
+        :global(.ken-burns-zoom-in) {
+          animation: kenBurnsZoomIn 10s ease-out forwards;
+        }
+        
+        @keyframes kenBurnsZoomIn {
+          0% {
+            transform: scale(1) translateX(0);
+          }
+          100% {
+            transform: scale(1.15) translateX(-2%);
+          }
+        }
+        
+        /* Ken Burns zoom out effect */
+        :global(.ken-burns-zoom-out) {
+          animation: kenBurnsZoomOut 10s ease-out forwards;
+        }
+        
+        @keyframes kenBurnsZoomOut {
+          0% {
+            transform: scale(1.15) translateX(-2%);
+          }
+          100% {
+            transform: scale(1) translateX(0);
+          }
+        }
+        
+        /* Video Ken Burns effect */
+        :global(.ken-burns-video) {
+          animation: kenBurnsVideo 10s ease-out forwards;
+        }
+        
+        @keyframes kenBurnsVideo {
+          0% {
+            transform: scale(1);
+          }
+          100% {
+            transform: scale(1.08);
+          }
         }
       `}</style>
     </section>
