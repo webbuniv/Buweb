@@ -19,6 +19,7 @@ import { FaChevronDown } from "react-icons/fa";
 import menuData from "./menuData";
 import Router from "next/router";
 import { ArrowRight } from "lucide-react";
+import MobileNav from "./MobileNav";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -487,7 +488,7 @@ useEffect(() => {
                     }`}
                   />
                 </button>
-                <nav
+                {/* <nav
                   id="navbarCollapse"
                   className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-gray-600 py-4 px-6 duration-300 dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${
                     navbarOpen
@@ -553,7 +554,7 @@ useEffect(() => {
                     </li>
                     
                   </ul>
-                </nav>
+                </nav> */}
               </div>
               <div className="flex items-center justify-end pr-16 lg:pr-0">
                 <Link
@@ -574,9 +575,9 @@ useEffect(() => {
         </div>
       </header>
       
-      {/* {navbarOpen && !hideMobileNav && (
-        <MobileNav setNavbarOpen={setNavbarOpen} navbarOpen={navbarOpen} />
-      )} */}
+      {navbarOpen && (
+        <MobileNav navbarOpen={navbarOpen} onClose={() => setNavbarOpen(false)} />
+      )}
 
 <Model isvisible={showModel} onClose={() => setShowModel(false)}>
         <></>
