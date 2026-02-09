@@ -9,12 +9,18 @@ const menuData: Menu[] = [
   },
   {
     id: 2,
+    title: "Students' Portal",
+    path: "https://erms.bugemauniv.ac.ug/student/login/",
+    newTab: false,
+  },
+  {
+    id: 3,
     title: "About Bugema",
     path: "/whybugema",
     newTab: false,
   },
   {
-    id: 3,
+    id: 4,
     title: "News And Events",
     newTab: false,
     submenu: [
