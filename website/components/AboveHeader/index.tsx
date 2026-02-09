@@ -43,7 +43,7 @@ const EnhancedNavbar: React.FC = () => {
             <DropdownNavLink
               items={[
                 { label: "ERMS Portal", href: "https://erms.bugemauniv.ac.ug/student/login/" },
-                { label: "ERMS Register", href: "https://erms.bugemauniv.ac.ug/student/registration/" },
+                // { label: "ERMS Register", href: "https://erms.bugemauniv.ac.ug/student/registration/" },
                 // { label: "E-Portal", href: "https://eportal.bugemauniv.ac.ug/" },
               ]}
             >
