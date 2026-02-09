@@ -595,9 +595,9 @@ useEffect(() => {
         <></>
       </Model4>
 
-      <Advert isadvertvisible={advertvisible} onClose={() => setadvertvisible(false)} >
+      {/* <Advert isadvertvisible={advertvisible} onClose={() => setadvertvisible(false)} >
         <></>
-      </Advert>
+      </Advert> */}
     </>
   );
 };
