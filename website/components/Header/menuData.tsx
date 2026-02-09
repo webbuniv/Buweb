@@ -101,6 +101,12 @@ const menuData: Menu[] = [
   },
   {
     id: 6,
+    title: "Calendar",
+    path: "/calendar",
+    newTab: false,
+  },
+  {
+    id: 7,
     title: "Gallery",
     path: "/gallery",
     newTab: false,
