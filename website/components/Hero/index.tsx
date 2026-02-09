@@ -16,6 +16,15 @@ interface HeroMedia {
 }
 
 const heroMedia: HeroMedia[] = [
+                   {
+    type: "image",
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/69889574002e7327eec4/view?project=674dcf7b003d57db960a&mode=admin",
+    title: "The 2026 Bugema University Free Medical Camp: A Transformative Healthcare Initiative",
+    description:
+      "Bugema University Hospital is proud to announce an impactful community health initiative in collaboration with Overseas Medical Volunteers (OMV) from Oregon and Wyoming, USA. This partnership is bringing a two-day free medical camp to the Bugema University campus, generously sponsored by the Lincoln City SDA Church.",
+link: "https://www.bugemauniv.ac.ug/news/6988961c001bbebbcff7",
+    linkText: "Read More",  
+},
         {
     type: "image",
     
@@ -25,15 +34,15 @@ const heroMedia: HeroMedia[] = [
     link: "",
     linkText: "Read More",
   },
-                {
-    type: "image",
+//                 {
+//     type: "image",
     
-    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/69207f4e0000f1f03d8c/view?project=674dcf7b003d57db960a&mode=admin",
-    title: " ",
-    description:"",
-    link: "http://erms.bugemauniv.ac.ug/application",
-    linkText: "Apply Now",
-  },
+//     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/679ca181003bf8b3a85c/view?project=674dcf7b003d57db960a&mode=admin",
+//     title: " ",
+//     description:"",
+//     link: "http://erms.bugemauniv.ac.ug/application",
+//     linkText: "Apply Now",
+//   },
          {
     type: "image",
     
@@ -55,13 +64,7 @@ const heroMedia: HeroMedia[] = [
   },  
                 
 
-//            {
-//     type: "no-overlay",
-//     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/676995bd003a7bc1e278/files/690b70de003dadfb208e/view?project=674dcf7b003d57db960a&mode=admin",
-//     title: "The 31ST GRADUATION CEREMONY",
-//     description:
-//       "Caps. Gowns. Dreams. Counting down to a day of honour, joy, and new beginnings. Graduation is on the horizon... Your moment to shine is coming soon. Graduation awaits – are you ready?",
-//   },
+
     
 
       
@@ -81,8 +84,9 @@ const heroMedia: HeroMedia[] = [
     title: "Walking the Path of Knowledge Together",
     description:
       "Still on the road of discovery and growth, every step counts on this academic journey, forward together the journey goes on. It Never Stops Until we make it.",
-    link: "https://www.bugemauniv.ac.ug/news/68641e0d0012974a663d",
-    linkText: "",
+    link: "http://erms.bugemauniv.ac.ug/application",
+    linkText: "Apply Now",
+    
   },
 
 
