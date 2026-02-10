@@ -17,7 +17,7 @@ const MobileNav = ({ navbarOpen, onClose }: MobileNavProps) => {
     }
   };
     return (
-        <div className="fixed z-20 inset-0 bg-gray-600 bg-opacity-50 backdrop-blur-sm "
+        <div className="fixed z-20 inset-0 bg-gray-600 h-[70%] overflow-y-scroll bg-opacity-50 backdrop-blur-sm "
         
         onClick={onClose}>
                  <nav
@@ -42,7 +42,7 @@ const MobileNav = ({ navbarOpen, onClose }: MobileNavProps) => {
                             {menuItem.title}
                           </Link>
                         ) : (
-                          <>
+                          <div className="">
                             <a
                               onClick={() => handleSubmenu(index)}
                               className="flex cursor-pointer items-center justify-between py-2 text-lg border-b border-body-color border-opacity-40 text-white group-hover:opacity-70 dark:text-white lg:mr-0 lg:inline-flex lg:py-6 lg:px-0"
@@ -73,7 +73,7 @@ const MobileNav = ({ navbarOpen, onClose }: MobileNavProps) => {
                                 </Link>
                               ))}
                             </div>
-                          </>
+                          </div>
                         )}
                       </li>
                     ))}
