@@ -23,9 +23,9 @@ const MobileNav = ({ navbarOpen, onClose }: MobileNavProps) => {
                  <nav
                  onClick={(e) => e.stopPropagation()}
                   id="navbarCollapse"
-                  className={`navbar absolute right-0 top-[12%] z-50  w-full rounded border-[.5px] border-body-color/50 bg-gray-600 py-4 px-6 duration-300 dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${
+                  className={` absolute right-0 top-0 z-50  w-full rounded border-[.5px] border-body-color/50 bg-gray-600 py-4 px-6 duration-300 dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${
                     navbarOpen
-                      ? "visibility top-full opacity-100"
+                      ? "visibility top-24 opacity-100"
                       : "invisible top-[120%] opacity-0"
                   }`}
                 >
@@ -58,7 +58,7 @@ const MobileNav = ({ navbarOpen, onClose }: MobileNavProps) => {
                               </span>
                             </a>
                             <div
-                              className={`submenu relative top-full left-5 p-2 rounded-md bg-gray-700 transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full ${
+                              className={`submenu relative top-full left-5 p-2 rounded-md bg-dark transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full ${
                                 openIndex === index ? "block" : "hidden"
                               }`}
                             >
