@@ -31,7 +31,7 @@ const menuData: Menu[] = [
         newTab: false,
       },
       {
-        id: 31,
+        id: 32,
         title: "Upcoming events",
         path: "/events",
         newTab: false,
@@ -39,7 +39,7 @@ const menuData: Menu[] = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: "Schools",
     newTab: false,
     submenu: [
@@ -94,19 +94,19 @@ const menuData: Menu[] = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     title: "Student Life",
     path: "/studentlife",
     newTab: false,
   },
   {
-    id: 6,
+    id: 7,
     title: "Calendar",
     path: "/calendar",
     newTab: false,
   },
   {
-    id: 7,
+    id: 8,
     title: "Gallery",
     path: "/gallery",
     newTab: false,

@@ -23,7 +23,7 @@ const MobileNav = ({ navbarOpen, onClose }: MobileNavProps) => {
                  <nav
                  onClick={(e) => e.stopPropagation()}
                   id="navbarCollapse"
-                  className={`navbar absolute right-0 top-24 z-50  w-full rounded border-[.5px] border-body-color/50 bg-gray-600 py-4 px-6 duration-300 dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${
+                  className={`navbar absolute right-0 top-[12%] z-50  w-full rounded border-[.5px] border-body-color/50 bg-gray-600 py-4 px-6 duration-300 dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${
                     navbarOpen
                       ? "visibility top-full opacity-100"
                       : "invisible top-[120%] opacity-0"
