@@ -23,7 +23,7 @@ const EnhancedNavbar: React.FC = () => {
   return (
     <header className="w-full hidden md:flex absolute z-50  bg-gradient-to-b from-black">
       <div className="container mx-auto px-4 -mt-[10px]">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between space-x-4 h-16">
           <div className="flex items-center space-x-4 ">
             <LinearText  text={displayedText} />
             <Search />
